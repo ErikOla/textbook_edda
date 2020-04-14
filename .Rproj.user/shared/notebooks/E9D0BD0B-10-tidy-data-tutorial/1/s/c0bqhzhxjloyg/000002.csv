@@ -1,0 +1,3 @@
+"0","full_join(countries_population, countries_lifeExp)"
+"2","Joining, by = ""country""
+"

@@ -1,0 +1,4 @@
+"0","tidy_who %>%"
+"0","	filter(country == ""Belgium"") %>%"
+"0","	group_by(year) %>%"
+"0","	summarize(n_cases = sum(cases, na.rm = T))"

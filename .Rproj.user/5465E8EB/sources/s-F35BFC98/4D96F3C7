@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1584443280602.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "4D96F3C7",
+    "lastKnownWriteTime" : 1582054406,
+    "last_content_update" : 1584443322836,
+    "path" : "~/UH - Local/EDDA/textbook/07-data-preparation.Rmd",
+    "project_path" : "07-data-preparation.Rmd",
+    "properties" : {
+        "cursorPosition" : "36,43",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 9,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

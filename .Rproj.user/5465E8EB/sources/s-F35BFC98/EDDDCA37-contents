@@ -1,0 +1,446 @@
+
+```{r echo = F} 
+knitr::opts_chunk$set(out.width = "100%",
+                      fig.width = 6, fig.asp = 0.6, tidy='styler',
+                      cache = T,
+                      echo = F)
+```
+```{r include = F}
+source("prepare_session.R")
+
+
+quantile.ordered <- function(x, probs = seq(0, 1, 0.25)) {
+  tab <- table(x)
+  cdf <- cumsum(tab / sum(tab))
+  idx <- sapply(probs, function(p) min(which(cdf >= p)))
+  levels(x)[idx] 
+}
+
+```
+
+
+# Descriptieve statistieken
+
+## Beschrijvende statistieken versus exploratieve plots
+* Plots zijn vooral sterk om patronen in de data te visualiseren.
+* Plots zijn minder geschikt om de 'sterkte' of 'grootte' van een patroon uit te drukken.
+* Beschrijvende statistieken laten dit wel toe aangezien aspecten van de patronen in een exploratieve plot in exacte getallen worden gegoten.
+* Er kunnen hoofdzakelijk 3 soorten beschrijvende statistieken worden onderscheiden:
+    * Centrummaten
+    * Spreidingsmaten
+    * Associatiematen
+* Centrummaten en spreidingsmaten zijn univariate statistieken en hebben als doel de verdeling van 1 variabele data samen te vatten in 2 cijfers.
+* Associatiematen zijn typisch bivariate statistieken en hebben als doel de samenhang tussen twee variabelen samen te vatten.
+
+## Notatie
+
+* $n$: aantal observaties.
+* $X, Y$: variabelen.
+* $x_i, y_i$: de waarden voor variabelen $X$ en $Y$ voor observatie $i$.
+* $x_{(i)}$: de $i$-de waarde voor $X$ na rangschikking van klein naar groot.
+
+## Data
+
+```{r 4-1, echo=FALSE, warning=FALSE, message=F}
+data <- flights %>%
+	inner_join(airports, by = c("dest"="faa")) %>%
+	inner_join(airlines, by= "carrier") %>%
+	select(-carrier, -tailnum, -flight, -dest, -dep_time, -arr_time, destination = name.x, -tz, -dst, airline = name.y, -alt) %>%
+	unite(departure_date, day, month, year, hour, minute, sep="-") %>%
+	mutate(departure_date = dmy_hm(departure_date)) %>%
+	filter(!is.na(departure_date)) %>%
+	mutate(destination = as.factor(destination), origin = as.factor(origin)) %>%
+  rename(luchthaven = origin, maatschappij = airline, datum = departure_date, vertrek_vertraging = dep_delay, aankomst_vertraging = arr_delay, afstand=distance, vliegtijd = air_time) %>%
+  select(luchthaven, maatschappij, datum, vertrek_vertraging, aankomst_vertraging, afstand, vliegtijd) %>%
+  mutate(vluchttype = ifelse(afstand <= 1250, "kort",
+                             ifelse(afstand <=2000, "normaal",
+                                    ifelse(afstand <= 3000, "lang", "intercontinentaal")))) %>%
+  mutate(vluchttype = ordered(vluchttype, c("kort","normaal","lang","intercontinentaal")))
+
+	
+```    
+
+
+## Univariate statistieken
+
+### Categorische variabele
+```{r 4-3, cache=T, echo=FALSE}
+ggplot(data, aes(x=luchthaven)) + geom_bar() + ylab("aantal vluchten")
+ggplot(data, aes(x=vluchttype)) + geom_bar() + ylab("aantal vluchten")
+```
+
+### Frequentietabel {-}
+* De absolute frequentie $f$ geeft aan hoe vaak een waarde voorkomt.
+* De relatieve frequentie $f/n$ geeft aan welk aandeel deze frequentie heeft in het totaal aantal elementen $n$.
+* De cumulatieve frequentie $F_n(x)$ van een bepaalde waarde $x$ geeft aan hoeveel observaties kleiner zijn dan of gelijk zijn aan $x$.
+* De cumulatieve relatieve frequentie $F_n(x)/n$ van een bepaalde waarde $x$ geeft aan hoeveel percent van de observaties kleiner zijn dan of gelijk zijn aan $x$.
+* Een frequentietabel laat voor alle mogelijke waarden van een categorische variabele de absolute en relatieve frequentie zien (zowel normaal als cumulatief).
+* Een frequentietabel laat zien waar een bepaalde waarde zich precies in de verdeling bevindt en hoe uitzonderlijk het is een specifieke waarde in de data te zien (of een waarde groter/kleiner dan) .
+
+```{r 4-4, cache=T, echo=F}
+
+data %>% 
+  group_by(luchthaven) %>%
+  summarise(freq = n()) %>%
+  arrange(-freq) %>%
+  mutate(rel_freq = round(freq/sum(freq),2), cum_freq = cumsum(freq), cum_rel_freq = round(cumsum(rel_freq),2)) -> result
+
+# data %>% 
+#   group_by(vluchttype) %>%
+#   summarise(freq = n()) %>%
+#   arrange(vluchttype) %>%
+#   mutate(rel_freq = round(freq/sum(freq),2), cum_freq = cumsum(freq), cum_rel_freq = round(cumsum(rel_freq),2)) -> result
+
+#set.caption('Aantal vluchten per luchthaven')
+#pander(result)
+knitr::kable(result, booktabs=TRUE,
+  caption = 'Aantal vluchten per luchthaven',
+  format=out_format
+) %>%
+  kableExtra::kable_styling(font_size = 10)
+```
+
+### Centrummaten {-}
+* Modus
+    * Meest voorkomende waarde.
+    * Enige centrummaat voor nominale variabele.
+    * Ook bruikbaar voor ordinale variabele.
+    * Een variabele kan meerdere modi hebben.
+    * De modus is robuust tegen uitschieters.
+    * De modus kan je aflezen als de eerste rij in een frequentietabel als je deze ordent van de meest voorkomende tot de minst voorkomende waarde.
+* Mediaan
+    * De middelste waarde na rangschikken van de gegevens.
+    * Voor ordinale variabelen definiëren we de mediaan aan de hand van de relatieve cumulatieve frequentie. De mediaan is de kleinste waarde waar 50% van de observaties kleiner dan of gelijk aan is.
+    * De mediaan is robuust tegen uitschieters.
+
+```{r 4-5, cache=T, echo=FALSE}
+data %>% 
+  group_by(vluchttype) %>%
+  summarise(freq = n()) %>%
+  mutate(rel_freq = round(freq/sum(freq),2), cum_freq = cumsum(freq), cum_rel_freq = round(cumsum(rel_freq),2)) -> result
+
+#set.caption('Aantal vluchten per vluchttype')
+#pander(result)
+knitr::kable(result, booktabs=TRUE,
+  caption = 'Aantal vluchten per vluchttype',
+  format=out_format
+) %>%
+  kableExtra::kable_styling(font_size = 10)
+```
+```{r 4-6, cache=T, echo=F}
+
+data %>%
+  summarise(variabele = "vluchttype", mediaan = quantile.ordered(vluchttype,0.5))-> result
+
+#set.caption('Centrummaten voor vluchttype')
+#pander(result)
+knitr::kable(result, booktabs=TRUE,
+  caption = 'Centrummaten voor vluchttype',
+  format=out_format
+) %>%
+  kableExtra::kable_styling(font_size = 10)
+```
+
+### Spreidingsmaten {-}
+* Kwantielen.
+    * Kwantielen (of percentielen) zijn gebaseerd op de cumulatieve relatieve frequentie.
+    * Het p% kwantiel is de kleinste waarde waar p% van de observaties kleiner dan of gelijk aan is.
+    * Het 50% kwantiel komt overeen met de mediaan.
+    * Veel voorkomende kwantielen om de spreiding van de data weer te geven zijn het 25% en 75% kwantiel.
+
+```{r 4-7, cache=T, echo=F}
+data %>%
+  summarise(variabele = "vluchttype", Q25 = quantile.ordered(vluchttype,0.25), Q50 = quantile.ordered(vluchttype,0.5),
+            Q75 = quantile.ordered(vluchttype, 0.75))-> result
+
+#set.caption('Kwantielen voor vluchttype')
+#pander(result)
+knitr::kable(result, booktabs=TRUE,
+  caption = 'Kwantielen voor vluchttype',
+  format=out_format
+) %>%
+  kableExtra::kable_styling(font_size = 10)
+
+```
+
+
+### Continue variabele
+
+```{r 4-8, cache=T, echo=F}
+ggplot(data, aes(x=afstand)) + geom_histogram(binwidth=250) + ylab("aantal vluchten")
+```
+
+
+### Centrummaten {-}
+
+* Modus
+    * Vaak minder bruikbaar bij een continue variabelen omdat iedere waarde zeer weinig voorkomt. Bijgevolg zijn er vaak zeer veel modi met telkens slechts enkele observaties.
+* Mediaan
+    * De middelste waarde na rangschikking van de gegevens.
+    * In geval van een oneven aantal observaties, komt dit overeen met $x_{\frac{(n+1)}{2}}$.
+    * In geval van een even aantal observaties zijn er twee 'middelste' observaties en is de mediaan gelijk aan $\frac{1}{2}( x_{\frac{n}{2}}+x_{\frac{n}{2}+1})$
+    * De mediaan is robuust tegen uitschieters.
+* (Rekenkundig) Gemiddelde
+    * $\bar{x} = \frac{1}{n}\sum_{i=1}^n x_i$
+    * Het gemiddelde is gevoelig voor uitschieters.
+    * Dit is de centrummaat die mensen intuïtief selecteren indien mogelijk.
+
+```{r 4-9, cache=T, echo=F}
+data %>%
+  summarise(variabele = "afstand", gemiddelde = round(mean(afstand),2), mediaan = median(afstand)) -> result
+#set.caption('Afstand (centrummaten)')
+#pander(result)
+knitr::kable(result, booktabs=TRUE,
+  caption = 'Afstand (centrummaten)',
+  format=out_format
+) %>%
+  kableExtra::kable_styling(font_size = 10)
+```
+
+
+### Spreidingsmaten {-}
+* Kwantielen
+* Bereik
+    * Dit is het verschil tussen de grootste en kleinste waarde.
+    * Zeer gevoelig voor uitschieters.
+    * Is slechts gebaseerd op 2 observaties en bevat dus weinig informatie. Hiermee bedoelen we dat de spreiding van 2 variabelen sterk kan verschillen terwijl ze toch hetzelfde bereik hebben.
+* Interkwartielafstand (IQR)
+    * Dit is het verschil tussen Q75 en Q25.
+    * Zelfde principe als het bereik, maar minder gevoelig voor uitschieters.
+    * IQR is ook slechts gebaseerd op 2 observaties.
+* Gemiddelde absolute afwijking (average absolute deviation)
+    * Dit is de gemiddelde afwijking ten opzichte van het gemiddelde over alle observaties.
+    * $\frac{1}{n}\sum_{i=1}^{n}\lvert x_i - \bar{x} \rvert$.
+* Variantie
+    * $s^2 = \frac{1}{n-1}\sum_{i=1}^{n}(x_i - \bar{x})^2$.
+    * Vergelijkbaar met gemiddelde absolute afwijking, maar nu wordt het kwadraat gebruikt om te voorkomen dat de verschillen ten opzichte van het gemiddelde elkaar opheffen.
+    * Vanuit analytisch standpunt is deze spreidingsmaat interessanter (geen absolute waardes, waardoor afgeleiden bijvoorbeeld eenvoudiger worden om te berekenen).
+    * Wel gevoelig voor uitschieters en door het kwadraat wordt het effect van deze uitschieters ook nog eens vergroot.
+    * De wortel van de variantie wordt de standaardafwijking genoemd. De standaardafwijking heeft het voordeel dat het indezelfde eenheid uitgedrukt wordt als de oorspronkelijke data. 
+* Median Absolute Deviation (MAD)
+    * Dit is de middelste afwijking ten opzichte van de mediaan over alle observaties.
+    * $\operatorname{MAD} = \operatorname{median}\left(\ \left| X_{i} - \operatorname{median} (X) \right|\ \right)$.
+    * Deze maatstaf is robuster tegen outliers.
+
+```{r 4-10, cache=T, echo=F}
+data %>%
+  summarise(variabele = "afstand", minimum=min(afstand), Q25 = quantile(afstand, 0.25), Q50 = median(afstand), Q75 = quantile(afstand, 0.75), maximum=max(afstand), bereik = max(afstand)-min(afstand), IQR=Q75-Q25, var=round(var(afstand),2), sd=sqrt(var) ) -> result 
+#set.caption('Afstand (spreidingsmaten)')
+#pander(result)
+knitr::kable(result, booktabs=TRUE,
+  caption = 'Afstand (spreidingsmaten)',
+  format=out_format
+) %>%
+  kableExtra::kable_styling(font_size = 5, latex_options = "scale_down")
+```
+
+## Bivariate statistieken
+
+### Continu versus Continu
+
+```{r 4-11, cache=T, dev='png', echo=F, warning = F, message = F}
+ggplot(data, aes(x=afstand, y=vliegtijd)) + geom_point() + geom_smooth()
+```
+
+### Correlatie {-}
+* Covariantie
+    * $cov(x,y) = \frac{1}{n-1}\sum_{i=1}^{n}(x_i - \bar(x))(y_i-\bar(y))$.
+    * Bij een positieve associatie tussen twee variabelen zal de covariantie positief zijn.
+    * Bij een negatieve associatie tussen twee variabelen zal de covariantie negatief zijn.
+    * De covariantie is echter afhankelijk van de maateenheid van de variabelen, waardoor ze weinig bruikbaar is om de sterkte van de associatie weer te geven.
+* Pearson correlatiecoëfficiënt
+    * Herschaalt de covariantie naar de schaal $[-1,1]$
+    * Laat toe om de sterkte van een associatie te evalueren.
+    * $r(x,y) = \frac{cov(x,y)}{s_x s_y}$
+    * $r(x,y) = \frac{\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum_{i=1}^{n}(x_i-\bar{x})^2 \sum_{i=1}^{n}(y_i-\bar{y})^2}}$
+    * Meet __lineaire__ associatie tussen 2 variabelen.
+    * Twee variabelen kunnen positief geassocieerd zijn, maar in een niet-lineaire wijze, waardoor de correlatiecoëfficiënt naar nul gaat. 
+    * Meest gebruikelijke correlatiecoëfficiënt voor continue variabelen.
+    * Daarom best altijd samen met een puntenwolk bekijken.
+* Spearman's rangcorrelatiecoëfficiënt.
+    * Zelfde principe als Pearson's, maar dan gebaseerd op de rangorde van de waarden in plaats van de waarden zelf.
+    * $r_i$: rangorde van waarde $x_i$. Bijvoorbeeld $r_i = 4$ betekent dat de waarde $x_i$ de vierde kleinste waarde is.
+    * $s_i$: rangorde van waarde $y_i$.
+    * $\rho(x,y) = \frac{\sum_{i=1}^{n}(r_i-\bar{r})(s_i-\bar{s})}{\sqrt{\sum_{i=1}^{n}(r_i-\bar{r})^2  \sum_{i=1}^{n}(s_i-\bar{s})^2}}$
+    * Meet associatie tussen 2 variabelen, dus niet specifiek lineaire associatie.
+* Kendall's correlatiecoëfficiënt
+    * Ook wel Kendall's tau genoemd.
+    * De methode is gebaseerd door alle mogelijke observatieparen $(x_i, y_i)$ en $(x_j,y_j)$ te bestuderen.
+    * Net als Spearman's aanpak gebaseerd op rangorde $(r_i, s_i)$ en niet de feitelijke waarden. 
+    * Indien $r_i > r_j$ en $s_i > s_j$ (of $r_i < r_j$ en $s_i < s_j$) dan zijn observaties $i$ en $j$ concordant.
+    * Indien $r_i > r_j$ en $s_i < s_j$ (of $r_i < r_j$ en $s_i > s_j$) dan zijn observaties $i$ en $j$ discordant.
+    * Notatie: $C$ en $D$ zijn respectievelijk het aantal concordante en discordante paren.
+    * $\tau = \frac{C-D}{\frac{1}{2}n(n-1)}$
+    * Net als Spearman's correlatiecoëfficiënt, focust Kendall's tau op de associatie (positief of negatief) en niet specifiek op lineaire associatie.
+    * Het nadeel van Kendall's tau is dat je alle observatieparen moet bestuderen en het aantal kan snel exploderen bij veel observaties. Immers het aantal paren is $\frac{n!}{2!(n-2)!}$. Hierdoor kan je Kendall in de praktijk niet gebruiken als je veel observaties hebt.
+
+```{r 4-12, cache=T, echo=F}
+data %>%
+  summarise("variabelenpaar"="afstand-vliegtijd", pearson=round(cor(afstand, vliegtijd, method="pearson", use="pairwise.complete.obs"),2), spearman = round(cor(afstand, vliegtijd, method="spearman", use="pairwise.complete.obs"),2)) -> result
+
+#set.caption('Correlatie tussen afstand en vliegtijd')
+#pander(result)
+knitr::kable(result, booktabs=TRUE,
+  caption = 'Correlatie tussen afstand en vliegtijd',
+  format=out_format
+) %>%
+  kableExtra::kable_styling(font_size = 10)
+```
+
+### Vergelijking correlatiecoëfficiënten {-}
+
+* Rangcorrelatiecoëfficiënten meten associatie, terwijl Pearson correlatiecoëfficiënt __lineaire__ associatie meet!
+
+```{r 4-13, cache=T, echo=F}
+testdata <- tibble(x=1:10, y=c(0,4,5,5.5,7,15,15.6,16,50,1000))
+#set.caption('Fictieve dataset')
+#pander(testdata)
+knitr::kable(testdata, booktabs=TRUE,
+  caption = 'Fictieve dataset',
+  format=out_format
+) %>%
+  kableExtra::kable_styling(font_size = 10)
+
+```
+
+```{r 4-14, cache=T, echo=F}
+ggplot(testdata,aes(x,y)) + geom_point() + ggtitle("Fictieve dataset ter illustratie correlatiecoëfficiënten")
+
+```
+
+```{r 4-15, cache=T, echo=FALSE}
+testdata %>%
+  summarise("variabelenpaar"="x-y", pearson=round(cor(x, y, method="pearson", use="pairwise.complete.obs"),2),
+            spearman = round(cor(x, y, method="spearman", use="pairwise.complete.obs"),2),
+            kendall = round(cor(x, y, method="kendall", use="pairwise.complete.obs"),2)) -> result
+#set.caption('Correlatiecoëfficiënten fictieve dataset')
+#pander(result)
+knitr::kable(result, booktabs=TRUE,
+  caption = 'Correlatiecoëfficiënten fictieve dataset',
+  format=out_format
+) %>%
+  kableExtra::kable_styling(font_size = 10)
+```
+
+
+
+### Categorisch versus Continu
+
+```{r 4-16, cache=T, echo=F}
+ggplot(data, aes(x="", y=afstand)) + geom_errorbar(stat="boxplot") + geom_boxplot() + facet_wrap(~luchthaven) + xlab("")
+```
+
+
+###  Univariate statistieken per categoriewaarde {-}
+* Je toont de relevante centrum- en spreidingsmaten voor de afhankelijke continue variabele per waarde van de onafhankelijke categorische variabele.
+
+```{r 4-17, cache=T, echo=F}
+data %>%
+  group_by(luchthaven) %>%
+  summarise(gemiddelde = round(mean(afstand),2), mediaan = median(afstand)) -> result
+#set.caption('Afstand (centrummaten)')
+#pander(result)
+knitr::kable(result, booktabs=TRUE,
+  caption = 'Afstand-Luchthaven (centrummaten)',
+  format=out_format
+) %>%
+  kableExtra::kable_styling(font_size = 10)
+```
+
+```{r 4-18, cache=T, echo=F}
+data %>%
+  group_by(luchthaven) %>%
+    summarise(var = "afstand", min=min(afstand), Q25 = quantile(afstand, 0.25), Q50 = median(afstand), Q75 = quantile(afstand, 0.75), max=max(afstand), bereik = max(afstand)-min(afstand), IQR=Q75-Q25, var=round(var(afstand),2), sd=sqrt(var) )  -> result
+#set.caption('Afstand (spreidingsmaten)')
+#pander(result)
+knitr::kable(result, booktabs=TRUE,
+  caption = 'Afstand-Luchthaven (spreidingsmaten)',
+  format=out_format
+) %>%
+  kableExtra::kable_styling(font_size = 10, latex_options = "scale_down")
+```
+
+### Correlatie {-}
+* Enkel toepasbaar als de categorische variabele ordinaal is.
+* Pearson's correlatiecoëfficiënt kan je NIET toepassen.
+* Spearman rangcorrelatiecoëfficiënt ($\rho$).
+* Kendall's rangcorrelatiecoëfficiënt ($\tau$) kan theoretisch wel toegepast worden, maar is in de praktijk vaak niet haalbaar.
+
+```{r 4-19, cache=T, echo=FALSE}
+data %>%
+  summarise("variabelenpaar"="vluchttype-vliegtijd", 
+            spearman = round(cor(as.numeric(vluchttype), vliegtijd, method="spearman", use="pairwise.complete.obs"),2)) -> result
+
+```
+```{r echo=F}
+#set.caption('Correlatie tussen vluchttype en vliegtijd')
+#pander(result)
+knitr::kable(result, booktabs=TRUE,
+  caption = 'Correlatie tussen vluchttype en vliegtijd',
+  format=out_format
+) %>%
+  kableExtra::kable_styling(font_size = 10)
+```
+
+### Categorisch versus Categorisch
+
+```{r 4-20, cache=T, echo=F}
+ggplot(data, aes(x=vluchttype)) + 
+  geom_bar(stat="count", aes(y=..count..)) + 
+  facet_wrap(~luchthaven) + 
+  theme(axis.text.x = element_text(angle=90)) + 
+  xlab("luchthaven")
+```
+
+### Univariate statistieken per categoriewaarde {-}
+* Je toont de relevante centrum- en spreidingsmaten voor de afhankelijke categorische variabele per waarde van de onafhankelijke categorische variabele. Dit is enkel mogelijk indien de afhankelijke categorische variabele ordinaal is, waarbij je minimum, mediaam, maximum en kwantielen kan berekenen. 
+
+```{r 4-21, cache=T, echo=F}
+data %>%
+  group_by(luchthaven) %>%
+  summarise(variabele = "vluchttype", 
+            mediaan = quantile.ordered(vluchttype,0.5)
+            )-> result
+```
+```{r, echo=F}
+#set.caption('Centrummaten voor vluchttype')
+#pander(result)
+knitr::kable(result, booktabs=TRUE,
+  caption = 'Centrummaten voor vluchttype-luchthaven',
+  format=out_format
+) %>%
+  kableExtra::kable_styling(font_size = 10)
+```
+
+
+```{r 4-22, cache=T, echo=F}
+data %>%
+  group_by(luchthaven) %>%
+  summarise(variabele = "vluchttype", 
+            Q25 = quantile.ordered(vluchttype,0.25), 
+            Q50 = quantile.ordered(vluchttype,0.5),
+            Q75 = quantile.ordered(vluchttype, 0.75)
+            )-> result
+```
+
+```{r, echo=F}
+#set.caption( 'Kwantielen voor vluchttype')
+#pander(result)
+knitr::kable(result, booktabs=TRUE,
+  caption = 'Kwantielen voor vluchttype-luchthaven',
+  format=out_format
+) %>%
+  kableExtra::kable_styling(font_size = 10)
+```
+
+### Contingentietabellen {-}
+
+Een andere mogelijkheid is het maken van 2-dimensionale frequentietabellen, ookal contingentietabellen genoemd. Meer info hierover lees je in de tutorial. 
+
+## Referenties {-}
+1. Tekst Beleidsstatistiek: Hoofdstukken 1 en 2 en secties 4.2 en 4.3 (Blackboard)
+2. [Spearman's rangcorrelatiecoëfficiënt](https://nl.wikipedia.org/wiki/Spearmans_rangcorrelatieco%C3%ABffici%C3%ABnt)
+3. [Kendall's rangcorrelatiecoëfficiënt](https://nl.wikipedia.org/wiki/Kendalls_tau)
+4. [Spearman versus Kendall's correlatiecoëfficiënt](https://www.researchgate.net/post/Does_Spearmans_rho_have_any_advantage_over_Kendalls_tau)
+
+

@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 1 Introductiecollege | Exploratieve en Descriptieve Data Analyse</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 1 Introductiecollege | Exploratieve en Descriptieve Data Analyse" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 1 Introductiecollege | Exploratieve en Descriptieve Data Analyse" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Benoît Depaire, Gert Janssenswillen" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="data-visualizatie.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Exploratieve en descriptieve data analyse</a></li>
+<li><a href="https://beta.rstudioconnect.com/content/7904/studieleidraad_worksessions.html">Studieleidraad</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Voorwoord</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#hoe-de-lecture-notes-te-gebruiken"><i class="fa fa-check"></i>Hoe de lecture notes te gebruiken</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#hoe-de-tutorials-te-gebruiken"><i class="fa fa-check"></i>Hoe de tutorials te gebruiken</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#over-de-auteurs"><i class="fa fa-check"></i>Over de auteurs</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introductiecollege.html"><a href="introductiecollege.html"><i class="fa fa-check"></i><b>1</b> Introductiecollege</a><ul>
+<li class="chapter" data-level="1.1" data-path="introductiecollege.html"><a href="introductiecollege.html#data-science"><i class="fa fa-check"></i><b>1.1</b> Data science?</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="introductiecollege.html"><a href="introductiecollege.html#netflix"><i class="fa fa-check"></i><b>1.1.1</b> Netflix</a></li>
+<li class="chapter" data-level="1.1.2" data-path="introductiecollege.html"><a href="introductiecollege.html#waar-komt-data-vandaan"><i class="fa fa-check"></i><b>1.1.2</b> Waar komt data vandaan?</a></li>
+<li class="chapter" data-level="1.1.3" data-path="introductiecollege.html"><a href="introductiecollege.html#hoeveel-data-is-er-beschikbaar"><i class="fa fa-check"></i><b>1.1.3</b> Hoeveel data is er beschikbaar?</a></li>
+<li class="chapter" data-level="1.1.4" data-path="introductiecollege.html"><a href="introductiecollege.html#waar-wordt-data-voor-gebruikt-in-de-bedrijfswereld"><i class="fa fa-check"></i><b>1.1.4</b> Waar wordt data voor gebruikt in de bedrijfswereld?</a></li>
+<li class="chapter" data-level="1.1.5" data-path="introductiecollege.html"><a href="introductiecollege.html#waarover-verzamelen-bedrijven-data"><i class="fa fa-check"></i><b>1.1.5</b> Waarover verzamelen bedrijven data</a></li>
+<li class="chapter" data-level="1.1.6" data-path="introductiecollege.html"><a href="introductiecollege.html#van-data-tot-actionable-insights"><i class="fa fa-check"></i><b>1.1.6</b> Van data tot ‘actionable insights’</a></li>
+<li class="chapter" data-level="1.1.7" data-path="introductiecollege.html"><a href="introductiecollege.html#data-scientists"><i class="fa fa-check"></i><b>1.1.7</b> Data Scientists</a></li>
+<li class="chapter" data-level="1.1.8" data-path="introductiecollege.html"><a href="introductiecollege.html#verschillende-soorten-van-data-analyse"><i class="fa fa-check"></i><b>1.1.8</b> Verschillende soorten van data analyse</a></li>
+<li class="chapter" data-level="1.1.9" data-path="introductiecollege.html"><a href="introductiecollege.html#de-kunst-van-data-analyse"><i class="fa fa-check"></i><b>1.1.9</b> De kunst van data analyse</a></li>
+<li class="chapter" data-level="1.1.10" data-path="introductiecollege.html"><a href="introductiecollege.html#de-kracht-van-descriptieve-en-exploratieve-data-analyse"><i class="fa fa-check"></i><b>1.1.10</b> De kracht van descriptieve en exploratieve data analyse</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="introductiecollege.html"><a href="introductiecollege.html#gastcollege-bart-van-proeyen---kwarts"><i class="fa fa-check"></i><b>1.2</b> Gastcollege Bart Van Proeyen - Kwarts</a></li>
+<li class="chapter" data-level="1.3" data-path="introductiecollege.html"><a href="introductiecollege.html#data-data-types"><i class="fa fa-check"></i><b>1.3</b> Data &amp; Data types</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="introductiecollege.html"><a href="introductiecollege.html#dataset"><i class="fa fa-check"></i><b>1.3.1</b> Dataset</a></li>
+<li class="chapter" data-level="1.3.2" data-path="introductiecollege.html"><a href="introductiecollege.html#klassieke-datatypologie"><i class="fa fa-check"></i><b>1.3.2</b> Klassieke datatypologie</a></li>
+<li class="chapter" data-level="1.3.3" data-path="introductiecollege.html"><a href="introductiecollege.html#de-klassieke-datatypologie-is-misleidend"><i class="fa fa-check"></i><b>1.3.3</b> De klassieke datatypologie is misleidend</a></li>
+<li class="chapter" data-level="1.3.4" data-path="introductiecollege.html"><a href="introductiecollege.html#alternatieve-datatypologie"><i class="fa fa-check"></i><b>1.3.4</b> Alternatieve datatypologie</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="introductiecollege.html"><a href="introductiecollege.html#referenties"><i class="fa fa-check"></i><b>1.4</b> Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="data-visualizatie.html"><a href="data-visualizatie.html"><i class="fa fa-check"></i><b>2</b> Data visualizatie</a><ul>
+<li class="chapter" data-level="2.1" data-path="data-visualizatie.html"><a href="data-visualizatie.html#univariate-visualisaties-1-variabele"><i class="fa fa-check"></i><b>2.1</b> Univariate visualisaties (1 variabele)</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="data-visualizatie.html"><a href="data-visualizatie.html#categorische-variabele"><i class="fa fa-check"></i><b>2.1.1</b> Categorische variabele</a></li>
+<li class="chapter" data-level="2.1.2" data-path="data-visualizatie.html"><a href="data-visualizatie.html#continue-variabele"><i class="fa fa-check"></i><b>2.1.2</b> Continue variabele</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="data-visualizatie.html"><a href="data-visualizatie.html#bivariate-visualisatie-2-variabelen"><i class="fa fa-check"></i><b>2.2</b> Bivariate visualisatie (2 variabelen)</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="data-visualizatie.html"><a href="data-visualizatie.html#situatie-1-de-onafhankelijke-variabele-is-categorisch"><i class="fa fa-check"></i><b>2.2.1</b> Situatie 1: De onafhankelijke variabele is categorisch</a></li>
+<li class="chapter" data-level="2.2.2" data-path="data-visualizatie.html"><a href="data-visualizatie.html#situatie-2-de-onafhankelijke-variabele-is-continue"><i class="fa fa-check"></i><b>2.2.2</b> Situatie 2: De onafhankelijke variabele is continue</a></li>
+<li class="chapter" data-level="2.2.3" data-path="data-visualizatie.html"><a href="data-visualizatie.html#situatie-3-de-onafhankelijke-variabele-is-tijd"><i class="fa fa-check"></i><b>2.2.3</b> Situatie 3: De onafhankelijke variabele is tijd</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="data-visualizatie.html"><a href="data-visualizatie.html#multivariate-visualisaties-meer-dan-2-variabelen"><i class="fa fa-check"></i><b>2.3</b> Multivariate visualisaties (meer dan 2 variabelen)</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="data-visualizatie.html"><a href="data-visualizatie.html#voorbeeld-in-welke-mate-hangt-de-vertrek-vertraging-af-van-de-luchthaven-en-de-afstand"><i class="fa fa-check"></i><b>2.3.1</b> Voorbeeld: In welke mate hangt de vertrek vertraging af van de luchthaven en de afstand?</a></li>
+<li class="chapter" data-level="2.3.2" data-path="data-visualizatie.html"><a href="data-visualizatie.html#voorbeeld-multivariaat-tijd"><i class="fa fa-check"></i><b>2.3.2</b> Voorbeeld: multivariaat tijd</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="data-visualizatie.html"><a href="data-visualizatie.html#visualisaties-voor-communicatie"><i class="fa fa-check"></i><b>2.4</b> Visualisaties voor communicatie</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="data-visualizatie.html"><a href="data-visualizatie.html#voorbeeld-voor-goed-voor-exploratie"><i class="fa fa-check"></i><b>2.4.1</b> Voorbeeld: voor ~ goed voor exploratie</a></li>
+<li class="chapter" data-level="2.4.2" data-path="data-visualizatie.html"><a href="data-visualizatie.html#voorbeeld-na-goed-voor-communicatie"><i class="fa fa-check"></i><b>2.4.2</b> Voorbeeld: na ~ goed voor communicatie</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="data-visualizatie.html"><a href="data-visualizatie.html#how-charts-lie"><i class="fa fa-check"></i><b>2.5</b> How charts lie</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="data-visualizatie.html"><a href="data-visualizatie.html#causaliteit-vs-correlatie"><i class="fa fa-check"></i><b>2.5.1</b> Causaliteit vs correlatie</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="data-visualizatie.html"><a href="data-visualizatie.html#referenties-1"><i class="fa fa-check"></i><b>2.6</b> Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html"><i class="fa fa-check"></i><b>3</b> Tutorial - Data vizualisatie</a><ul>
+<li class="chapter" data-level="3.1" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#before-you-start"><i class="fa fa-check"></i><b>3.1</b> Before you start</a></li>
+<li class="chapter" data-level="3.2" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#introduction"><i class="fa fa-check"></i><b>3.2</b> Introduction</a></li>
+<li class="chapter" data-level="3.3" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#different-geometrics"><i class="fa fa-check"></i><b>3.3</b> Different geometrics</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#geom_point"><i class="fa fa-check"></i><b>3.3.1</b> geom_point</a></li>
+<li class="chapter" data-level="3.3.2" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#geom_histogram"><i class="fa fa-check"></i><b>3.3.2</b> geom_histogram</a></li>
+<li class="chapter" data-level="3.3.3" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#geom_boxplot"><i class="fa fa-check"></i><b>3.3.3</b> geom_boxplot</a></li>
+<li class="chapter" data-level="3.3.4" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#geom_violin"><i class="fa fa-check"></i><b>3.3.4</b> geom_violin</a></li>
+<li class="chapter" data-level="3.3.5" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#geom_bar"><i class="fa fa-check"></i><b>3.3.5</b> geom_bar</a></li>
+<li class="chapter" data-level="3.3.6" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#geom_col"><i class="fa fa-check"></i><b>3.3.6</b> geom_col</a></li>
+<li class="chapter" data-level="3.3.7" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#other-geometrics"><i class="fa fa-check"></i><b>3.3.7</b> Other geometrics</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#enhancing-the-appearance-of-our-plots"><i class="fa fa-check"></i><b>3.4</b> Enhancing the appearance of our plots</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#titles"><i class="fa fa-check"></i><b>3.4.1</b> Titles</a></li>
+<li class="chapter" data-level="3.4.2" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#theme"><i class="fa fa-check"></i><b>3.4.2</b> Theme</a></li>
+<li class="chapter" data-level="3.4.3" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#configuring-the-coordinate-system"><i class="fa fa-check"></i><b>3.4.3</b> Configuring the coordinate system</a></li>
+<li class="chapter" data-level="3.4.4" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#color-scales"><i class="fa fa-check"></i><b>3.4.4</b> Color scales</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#advanced-plots"><i class="fa fa-check"></i><b>3.5</b> Advanced plots</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#using-facets"><i class="fa fa-check"></i><b>3.5.1</b> Using Facets</a></li>
+<li class="chapter" data-level="3.5.2" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#combining-multiple-geometric-layers"><i class="fa fa-check"></i><b>3.5.2</b> Combining multiple geometric layers</a></li>
+<li class="chapter" data-level="3.5.3" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#aes-inheritance"><i class="fa fa-check"></i><b>3.5.3</b> Aes-inheritance</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#background-material"><i class="fa fa-check"></i><b>3.6</b> Background material</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html"><i class="fa fa-check"></i><b>4</b> Descriptieve statistieken</a><ul>
+<li class="chapter" data-level="4.1" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#beschrijvende-statistieken-versus-exploratieve-plots"><i class="fa fa-check"></i><b>4.1</b> Beschrijvende statistieken versus exploratieve plots</a></li>
+<li class="chapter" data-level="4.2" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#notatie"><i class="fa fa-check"></i><b>4.2</b> Notatie</a></li>
+<li class="chapter" data-level="4.3" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#data"><i class="fa fa-check"></i><b>4.3</b> Data</a></li>
+<li class="chapter" data-level="4.4" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#univariate-statistieken"><i class="fa fa-check"></i><b>4.4</b> Univariate statistieken</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#categorische-variabele-1"><i class="fa fa-check"></i><b>4.4.1</b> Categorische variabele</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#frequentietabel"><i class="fa fa-check"></i>Frequentietabel</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#centrummaten"><i class="fa fa-check"></i>Centrummaten</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#spreidingsmaten"><i class="fa fa-check"></i>Spreidingsmaten</a></li>
+<li class="chapter" data-level="4.4.2" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#continue-variabele-1"><i class="fa fa-check"></i><b>4.4.2</b> Continue variabele</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#centrummaten-1"><i class="fa fa-check"></i>Centrummaten</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#spreidingsmaten-1"><i class="fa fa-check"></i>Spreidingsmaten</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#bivariate-statistieken"><i class="fa fa-check"></i><b>4.5</b> Bivariate statistieken</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#continu-versus-continu"><i class="fa fa-check"></i><b>4.5.1</b> Continu versus Continu</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#correlatie"><i class="fa fa-check"></i>Correlatie</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#vergelijking-correlatiecoëfficiënten"><i class="fa fa-check"></i>Vergelijking correlatiecoëfficiënten</a></li>
+<li class="chapter" data-level="4.5.2" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#categorisch-versus-continu"><i class="fa fa-check"></i><b>4.5.2</b> Categorisch versus Continu</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#univariate-statistieken-per-categoriewaarde"><i class="fa fa-check"></i>Univariate statistieken per categoriewaarde</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#correlatie-1"><i class="fa fa-check"></i>Correlatie</a></li>
+<li class="chapter" data-level="4.5.3" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#categorisch-versus-categorisch"><i class="fa fa-check"></i><b>4.5.3</b> Categorisch versus Categorisch</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#univariate-statistieken-per-categoriewaarde-1"><i class="fa fa-check"></i>Univariate statistieken per categoriewaarde</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#contingentietabellen"><i class="fa fa-check"></i>Contingentietabellen</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#referenties-2"><i class="fa fa-check"></i>Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html"><i class="fa fa-check"></i><b>5</b> Tutorial - Descriptieve statistieken</a><ul>
+<li class="chapter" data-level="5.1" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#before-you-start-1"><i class="fa fa-check"></i><b>5.1</b> Before you start</a></li>
+<li class="chapter" data-level="5.2" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#introduction-1"><i class="fa fa-check"></i><b>5.2</b> Introduction</a></li>
+<li class="chapter" data-level="5.3" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#helpful-dplyr-functions"><i class="fa fa-check"></i><b>5.3</b> Helpful dplyr functions</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#tibbles"><i class="fa fa-check"></i><b>5.3.1</b> Tibbles</a></li>
+<li class="chapter" data-level="5.3.2" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#glimpse"><i class="fa fa-check"></i><b>5.3.2</b> Glimpse</a></li>
+<li class="chapter" data-level="5.3.3" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#section"><i class="fa fa-check"></i><b>5.3.3</b> %&gt;%</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#univariate-analysis-of-a-continuous-variable"><i class="fa fa-check"></i><b>5.4</b> Univariate analysis of a continuous variable</a></li>
+<li class="chapter" data-level="5.5" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#bivariate-analysis-of-a-continuous-variable-with-respect-to-a-categorical-variable"><i class="fa fa-check"></i><b>5.5</b> Bivariate analysis of a continuous variable with respect to a categorical variable</a></li>
+<li class="chapter" data-level="5.6" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#univariate-analysis-of-a-categorical-variable"><i class="fa fa-check"></i><b>5.6</b> Univariate analysis of a categorical variable</a></li>
+<li class="chapter" data-level="5.7" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#bivariate-analysis-of-a-continuous-variable-with-respect-to-another-continuous-variable"><i class="fa fa-check"></i><b>5.7</b> Bivariate analysis of a continuous variable with respect to another continuous variable</a></li>
+<li class="chapter" data-level="5.8" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#bivariate-analysis-of-a-categorical-variable-with-respect-to-another-categorical-variable"><i class="fa fa-check"></i><b>5.8</b> Bivariate analysis of a categorical variable with respect to another categorical variable</a></li>
+<li class="chapter" data-level="5.9" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#background-material-1"><i class="fa fa-check"></i><b>5.9</b> Background material</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="storytelling-van-data-tot-inzicht.html"><a href="storytelling-van-data-tot-inzicht.html"><i class="fa fa-check"></i><b>6</b> Storytelling - van data tot inzicht</a></li>
+<li class="chapter" data-level="7" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html"><i class="fa fa-check"></i><b>7</b> Data voorbereiden</a><ul>
+<li class="chapter" data-level="7.1" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#beginnen-bij-het-begin"><i class="fa fa-check"></i><b>7.1</b> Beginnen bij het begin</a></li>
+<li class="chapter" data-level="7.2" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#data-inlezen"><i class="fa fa-check"></i><b>7.2</b> Data inlezen</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#uitdagingen-bij-het-correct-inlezen-van-data"><i class="fa fa-check"></i><b>7.2.1</b> Uitdagingen bij het correct inlezen van data</a></li>
+<li class="chapter" data-level="7.2.2" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#dataformaten"><i class="fa fa-check"></i><b>7.2.2</b> Dataformaten</a></li>
+<li class="chapter" data-level="7.2.3" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#data-encodering"><i class="fa fa-check"></i><b>7.2.3</b> Data-encodering</a></li>
+<li class="chapter" data-level="7.2.4" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#datatypes-controlleren-en-corrigeren"><i class="fa fa-check"></i><b>7.2.4</b> Datatypes controlleren en corrigeren</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#dataproblemen-identificeren-en-corrigeren"><i class="fa fa-check"></i><b>7.3</b> Dataproblemen identificeren en corrigeren</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#overzicht"><i class="fa fa-check"></i><b>7.3.1</b> Overzicht</a></li>
+<li class="chapter" data-level="7.3.2" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#foutieve-waarden"><i class="fa fa-check"></i><b>7.3.2</b> Foutieve waarden</a></li>
+<li class="chapter" data-level="7.3.3" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#ontbrekende-waarden"><i class="fa fa-check"></i><b>7.3.3</b> Ontbrekende waarden</a></li>
+<li class="chapter" data-level="7.3.4" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#inconsistente-waarden"><i class="fa fa-check"></i><b>7.3.4</b> Inconsistente waarden</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#data-opwaarderen"><i class="fa fa-check"></i><b>7.4</b> Data opwaarderen</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#sampling"><i class="fa fa-check"></i><b>7.4.1</b> Sampling</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#referenties-3"><i class="fa fa-check"></i>Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html"><i class="fa fa-check"></i><b>8</b> Tutorial - Data voorbereiden</a><ul>
+<li class="chapter" data-level="8.1" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#before-you-start-2"><i class="fa fa-check"></i><b>8.1</b> Before you start</a></li>
+<li class="chapter" data-level="8.2" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#introduction-2"><i class="fa fa-check"></i><b>8.2</b> Introduction</a></li>
+<li class="chapter" data-level="8.3" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#reading-data"><i class="fa fa-check"></i><b>8.3</b> Reading data</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#csv-and-tsv"><i class="fa fa-check"></i><b>8.3.1</b> CSV and TSV</a></li>
+<li class="chapter" data-level="8.3.2" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#excel"><i class="fa fa-check"></i><b>8.3.2</b> Excel</a></li>
+<li class="chapter" data-level="8.3.3" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#json-and-xml"><i class="fa fa-check"></i><b>8.3.3</b> JSON and XML</a></li>
+<li class="chapter" data-level="8.3.4" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#other-statistical-packages"><i class="fa fa-check"></i><b>8.3.4</b> Other statistical packages</a></li>
+<li class="chapter" data-level="8.3.5" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#databases"><i class="fa fa-check"></i><b>8.3.5</b> Databases</a></li>
+<li class="chapter" data-level="8.3.6" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#background-material-2"><i class="fa fa-check"></i><b>8.3.6</b> Background material</a></li>
+<li class="chapter" data-level="8.3.7" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#converting-variables"><i class="fa fa-check"></i><b>8.3.7</b> Converting variables</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#cleaning-data"><i class="fa fa-check"></i><b>8.4</b> Cleaning Data</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#duplicates-removal"><i class="fa fa-check"></i><b>8.4.1</b> Duplicates Removal</a></li>
+<li class="chapter" data-level="8.4.2" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#cleaning-categorical-variables"><i class="fa fa-check"></i><b>8.4.2</b> Cleaning Categorical Variables</a></li>
+<li class="chapter" data-level="8.4.3" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#recode-categorical-variables"><i class="fa fa-check"></i><b>8.4.3</b> Recode Categorical Variables</a></li>
+<li class="chapter" data-level="8.4.4" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#reorder-categorical-variables"><i class="fa fa-check"></i><b>8.4.4</b> Reorder Categorical Variables</a></li>
+<li class="chapter" data-level="8.4.5" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#cleaning-continuous-data"><i class="fa fa-check"></i><b>8.4.5</b> Cleaning continuous data</a></li>
+<li class="chapter" data-level="8.4.6" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#errors"><i class="fa fa-check"></i><b>8.4.6</b> Errors</a></li>
+<li class="chapter" data-level="8.4.7" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#outliers"><i class="fa fa-check"></i><b>8.4.7</b> Outliers</a></li>
+<li class="chapter" data-level="8.4.8" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#data-inconsistencies"><i class="fa fa-check"></i><b>8.4.8</b> Data inconsistencies</a></li>
+<li class="chapter" data-level="8.4.9" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#missing-values"><i class="fa fa-check"></i><b>8.4.9</b> Missing values</a></li>
+<li class="chapter" data-level="8.4.10" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#analyzing-missing-data"><i class="fa fa-check"></i><b>8.4.10</b> Analyzing missing data</a></li>
+<li class="chapter" data-level="8.4.11" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#working-around-missing-data"><i class="fa fa-check"></i><b>8.4.11</b> Working around missing data</a></li>
+<li class="chapter" data-level="8.4.12" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#visualizations"><i class="fa fa-check"></i><b>8.4.12</b> Visualizations</a></li>
+<li class="chapter" data-level="8.4.13" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#numerical-analysis"><i class="fa fa-check"></i><b>8.4.13</b> Numerical analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#transforming-data"><i class="fa fa-check"></i><b>8.5</b> Transforming Data</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#discretization-of-continuous-variables"><i class="fa fa-check"></i><b>8.5.1</b> Discretization of continuous variables</a></li>
+<li class="chapter" data-level="8.5.2" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#rescaling-continuous-variables"><i class="fa fa-check"></i><b>8.5.2</b> Rescaling continuous variables</a></li>
+<li class="chapter" data-level="8.5.3" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#adding-calculated-variables"><i class="fa fa-check"></i><b>8.5.3</b> Adding calculated variables</a></li>
+<li class="chapter" data-level="8.5.4" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#recode-categorical-variables-1"><i class="fa fa-check"></i><b>8.5.4</b> Recode Categorical Variables</a></li>
+<li class="chapter" data-level="8.5.5" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#collapsing-factors"><i class="fa fa-check"></i><b>8.5.5</b> Collapsing factors</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#using-transformations-in-visualizations."><i class="fa fa-check"></i><b>8.6</b> Using transformations in visualizations.</a></li>
+<li class="chapter" data-level="8.7" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#background-material-3"><i class="fa fa-check"></i><b>8.7</b> Background Material</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>9</b> Tidy data</a><ul>
+<li class="chapter" data-level="9.1" data-path="tidy-data.html"><a href="tidy-data.html#inleiding"><i class="fa fa-check"></i><b>9.1</b> Inleiding</a></li>
+<li class="chapter" data-level="9.2" data-path="tidy-data.html"><a href="tidy-data.html#case-nyc-vluchten-2013"><i class="fa fa-check"></i><b>9.2</b> Case: NYC Vluchten 2013</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="tidy-data.html"><a href="tidy-data.html#datasets-samenvoegen"><i class="fa fa-check"></i><b>9.2.1</b> Datasets samenvoegen</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="tidy-data.html"><a href="tidy-data.html#data-in-een-lang-formaat-plaatsen-voor-visuele-analyses"><i class="fa fa-check"></i><b>9.3</b> Data in een lang formaat plaatsen (voor visuele analyses)</a></li>
+<li class="chapter" data-level="9.4" data-path="tidy-data.html"><a href="tidy-data.html#data-in-een-breed-formaat-plaatsen-voor-overzichtelijke-tabellen"><i class="fa fa-check"></i><b>9.4</b> Data in een breed formaat plaatsen (voor overzichtelijke tabellen)</a></li>
+<li class="chapter" data-level="9.5" data-path="tidy-data.html"><a href="tidy-data.html#referenties-4"><i class="fa fa-check"></i><b>9.5</b> Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html"><i class="fa fa-check"></i><b>10</b> Tutorial - Tidy data</a><ul>
+<li class="chapter" data-level="10.1" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#before-you-start-3"><i class="fa fa-check"></i><b>10.1</b> Before you start</a></li>
+<li class="chapter" data-level="" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#disclaimer"><i class="fa fa-check"></i>Disclaimer</a></li>
+<li class="chapter" data-level="10.2" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#merging-data"><i class="fa fa-check"></i><b>10.2</b> Merging data</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#joining-data"><i class="fa fa-check"></i><b>10.2.1</b> Joining data</a></li>
+<li class="chapter" data-level="10.2.2" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#inner-join"><i class="fa fa-check"></i><b>10.2.2</b> Inner join</a></li>
+<li class="chapter" data-level="10.2.3" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#left-join"><i class="fa fa-check"></i><b>10.2.3</b> Left join</a></li>
+<li class="chapter" data-level="10.2.4" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#right-join"><i class="fa fa-check"></i><b>10.2.4</b> Right join</a></li>
+<li class="chapter" data-level="10.2.5" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#full-join"><i class="fa fa-check"></i><b>10.2.5</b> Full join</a></li>
+<li class="chapter" data-level="10.2.6" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#duplicates"><i class="fa fa-check"></i><b>10.2.6</b> Duplicates</a></li>
+<li class="chapter" data-level="10.2.7" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#an-example"><i class="fa fa-check"></i><b>10.2.7</b> An example</a></li>
+<li class="chapter" data-level="10.2.8" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#binding-data"><i class="fa fa-check"></i><b>10.2.8</b> Binding data</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#transforming-data-1"><i class="fa fa-check"></i><b>10.3</b> Transforming data</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#unite-variables"><i class="fa fa-check"></i><b>10.3.1</b> Unite variables</a></li>
+<li class="chapter" data-level="10.3.2" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#separate-variables"><i class="fa fa-check"></i><b>10.3.2</b> Separate variables</a></li>
+<li class="chapter" data-level="10.3.3" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#spread-data"><i class="fa fa-check"></i><b>10.3.3</b> Spread data</a></li>
+<li class="chapter" data-level="10.3.4" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#gather-data"><i class="fa fa-check"></i><b>10.3.4</b> Gather data</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#case-study-who"><i class="fa fa-check"></i><b>10.4</b> [Case study]: WHO</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="tijdsdata.html"><a href="tijdsdata.html"><i class="fa fa-check"></i><b>11</b> Tijdsdata</a><ul>
+<li class="chapter" data-level="11.1" data-path="tijdsdata.html"><a href="tijdsdata.html#inleiding-1"><i class="fa fa-check"></i><b>11.1</b> Inleiding</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="tijdsdata.html"><a href="tijdsdata.html#tijdstippen-versus-periodes"><i class="fa fa-check"></i><b>11.1.1</b> Tijdstippen versus periodes</a></li>
+<li class="chapter" data-level="11.1.2" data-path="tijdsdata.html"><a href="tijdsdata.html#afronden-van-tijdstippen"><i class="fa fa-check"></i><b>11.1.2</b> Afronden van tijdstippen</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="tijdsdata.html"><a href="tijdsdata.html#periode-data"><i class="fa fa-check"></i><b>11.2</b> Periode-data</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="tijdsdata.html"><a href="tijdsdata.html#interval-1"><i class="fa fa-check"></i><b>11.2.1</b> Interval</a></li>
+<li class="chapter" data-level="11.2.2" data-path="tijdsdata.html"><a href="tijdsdata.html#duration"><i class="fa fa-check"></i><b>11.2.2</b> Duration</a></li>
+<li class="chapter" data-level="11.2.3" data-path="tijdsdata.html"><a href="tijdsdata.html#period"><i class="fa fa-check"></i><b>11.2.3</b> Period</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="tijdsdata.html"><a href="tijdsdata.html#analyseren-van-tijdgerelateerde-data"><i class="fa fa-check"></i><b>11.3</b> Analyseren van tijdgerelateerde data</a></li>
+<li class="chapter" data-level="11.4" data-path="tijdsdata.html"><a href="tijdsdata.html#referenties-5"><i class="fa fa-check"></i><b>11.4</b> Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html"><i class="fa fa-check"></i><b>12</b> Tutorial - tijdsdata</a><ul>
+<li class="chapter" data-level="12.1" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#before-we-start"><i class="fa fa-check"></i><b>12.1</b> Before we start</a></li>
+<li class="chapter" data-level="12.2" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#introduction-3"><i class="fa fa-check"></i><b>12.2</b> Introduction</a></li>
+<li class="chapter" data-level="12.3" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#whats-in-a-date"><i class="fa fa-check"></i><b>12.3</b> What’s in a date?</a></li>
+<li class="chapter" data-level="12.4" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#theres-always-time"><i class="fa fa-check"></i><b>12.4</b> There’s always time</a></li>
+<li class="chapter" data-level="12.5" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#my-time-is-not-your-time"><i class="fa fa-check"></i><b>12.5</b> My time is not your time</a></li>
+<li class="chapter" data-level="12.6" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#extract-information-from-dates"><i class="fa fa-check"></i><b>12.6</b> Extract information from dates</a></li>
+<li class="chapter" data-level="12.7" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#time-differences"><i class="fa fa-check"></i><b>12.7</b> Time differences</a><ul>
+<li class="chapter" data-level="12.7.1" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#period-1"><i class="fa fa-check"></i><b>12.7.1</b> Period</a></li>
+<li class="chapter" data-level="12.7.2" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#durations"><i class="fa fa-check"></i><b>12.7.2</b> Durations</a></li>
+<li class="chapter" data-level="12.7.3" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#periods-are-not-durations"><i class="fa fa-check"></i><b>12.7.3</b> Periods are not durations</a></li>
+</ul></li>
+<li class="chapter" data-level="12.8" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#arithmetics"><i class="fa fa-check"></i><b>12.8</b> Arithmetics</a></li>
+<li class="chapter" data-level="12.9" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#interval-2"><i class="fa fa-check"></i><b>12.9</b> Interval</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Exploratieve en Descriptieve Data Analyse</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="introductiecollege" class="section level1">
+<h1><span class="header-section-number">Chapter 1</span> Introductiecollege</h1>
+<div id="data-science" class="section level2">
+<h2><span class="header-section-number">1.1</span> Data science?</h2>
+<div id="netflix" class="section level3">
+<h3><span class="header-section-number">1.1.1</span> Netflix</h3>
+<ul>
+<li>Netflix Prize (2006)
+<ul>
+<li>Wereldwijde open competitie voor de constructie van een nieuw algoritme dat moest voorspellen hoe goed een klant een film zou beoordelen op basis van zijn of haar filmvoorkeuren.</li>
+<li>Winnaar was het team dat als eerste een verbetering van 10% kon realiseren ten opzichte van het algoritme van Netflix zelf.</li>
+<li>Eerste prijs was 1 miljoen USD.</li>
+<li>Hiervoor stelde Netflix een dataset ter beschikking met 100 miljoen filmbeoordelingen van 500 000 klanten met betrekking tot 18 000 films.</li>
+</ul></li>
+<li>Het kunnen voorspellen hoe hun klanten gaan reageren op specifieke films/series laat Netflix toe hun aanbod aan films en series te optimaliseren om het huidige klantenbestand te behouden en nieuwe klanten aan te trekken.</li>
+<li>De hoeveelheid data die door Netflix wordt verzameld is enorm.
+<ul>
+<li>In 2016 had Netflix 93.8 miljoen leden.</li>
+<li>Netflix weet wanneer je pauzeert.</li>
+<li>Netflix weet op welke dagen en welke uren je kijkt.</li>
+<li>Netflix weet wat je kijkt.</li>
+<li>Netflix weet van waar je kijkt.</li>
+<li>Netflix weet op welk soort toestellen je kijkt.</li>
+<li>Netflix weet wanneer je definitief stopt met het bekijken van een serie.</li>
+<li>Netflix weet hoe snel je verschillende afleveringen van een serie achter elkaar kijkt.</li>
+<li>Netflix weet welke titels je zoekt.</li>
+</ul></li>
+<li>Netflix komt op deze manier zeer veel te weten over het kijkgedrag van zijn klanten en kan op basis van deze inzichten betere beslissingen nemen. Bijvoorbeeld:
+<ul>
+<li>Netflix ontdekt uit haar data dat 40% van haar klanten een serie zijn beginnen te kijken die door het oorspronkelijke productiehuis is stopgezet.</li>
+<li>Stel dat Netflix uit de data ook ontdekt dat 85% van deze klanten de serie volledig uitkijken zonder dat het tempo waartegen men afleveringen kijkt significant afneemt.</li>
+<li>Op basis van deze inzichten kan Netflix eventueel beslissen om de rechten van de serie te kopen (die goedkoop zullen zijn aangezien de serie was stopgezet) en zelf een nieuw seizoen voor de serie te maken.</li>
+</ul></li>
+<li>House of Cards
+<ul>
+<li>Netflix deed het beste bod voor de serie House of Cards waardoor het won van kanalen zoals HBO.</li>
+<li>Ze kochten initieel 2 seizoenen van de serie waar een prijskaartje aan vast hing van meer dan 100 miljoen dollar.</li>
+<li>Deze beslissing was voor een groot stuk gebaseerd op data:
+<ul>
+<li>Netflix leerde uit haar data dat haar klanten geïnteresseerd waren in producties van regiseur David Fincher.</li>
+<li>Netflix leerde uit haar data dat haar klanten geïnteresseerd waren in de oorspronkelijke Britse versie van House of Cards.</li>
+<li>Netflix leerde uit haar data dat haar klanten geïnteresseerd waren in producties met Kevin Spacey.</li>
+</ul></li>
+<li>Maar ook na de beslissing om deze serie te maken, bleef Netflix haar data gebruiken om slimme beslissingen te nemen.
+<ul>
+<li>Er werden verschillende trailers gemaakt en afhankelijk van je voorkeuren kreeg je een trailer op maat te zien.</li>
+<li>Klanten die vooral graag Kevin Spacey zagen, kregen een trailer waar vooral Kevin Spacey in voorkwam.</li>
+<li>Klanten die vooral geïnteresseerd waren in films van David Fincher, kregen een trailer te zien die de typische “look&amp;feel” had van David Fincher.</li>
+<li>Klanten die ook de Britse versie hadden gezien, kregen een trailer te zien de vooral op het verhaal focuste.</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="waar-komt-data-vandaan" class="section level3">
+<h3><span class="header-section-number">1.1.2</span> Waar komt data vandaan?</h3>
+<ul>
+<li>Data over een maatschappij
+<ul>
+<li>Het verzamelen van data is iets dat teruggaat tot in de oudheid.</li>
+<li>Denk hierbij aan de volkstellingen die reeds plaatsvonden ten tijden van de Romeinen.</li>
+<li>Een volkstelling gaat alle inwoners van een bevolking registreren, samen met diverse kenmerken zoals burgelijke status, leeftijd, geslacht, enzovoort.</li>
+<li>Volkstellingen waren en zijn nog steeds belangrijk voor een overheid om de impact van haar openbaar beleid te kunnen inschatten.</li>
+</ul></li>
+<li>Scientific Management
+<ul>
+<li>Frederick Taylor</li>
+<li>Eind 19de eeuw</li>
+<li>Benaderde het organiseren van werk op een wetenschappelijke manier.</li>
+<li>Ging data verzamelen om vervolgens te analyseren hoe men werk efficiënter kon organiseren.</li>
+<li>Een van de eerste vormen van dataverzameling en -analyse om bedrijfswaarde (productiviteit) te creëren.</li>
+<li>Beperkt in hoeveelheid data omdat registratie en analyse nog manueel gebeurde.</li>
+</ul></li>
+<li>Het ontstaan van het digitale tijdperk
+<ul>
+<li>Met de uitvinding van de computer tijdens en na de tweede wereldoorlog, is de mensheid het digitale tijdperk ingegaan.</li>
+<li>De computer zorgt ervoor dat we data in een digitale vorm (als een reeks van één en nullen) opslaan. Dit biedt het voordeel dat exacte kopieën van de data gemaakt kunnen worden met één muisklik.</li>
+</ul></li>
+<li>Digitalisatie van de werkvloer
+<ul>
+<li>Computers op de werkvloer dateert terug tot midden vorige eeuw, maar de grote doorbraak komt er met de opkomst van de personal computer
+<ul>
+<li>1977: Apple Home Computer II</li>
+<li>1981: IBM Personal Computer</li>
+<li>Eind jaren 80, begin jaren 90 was de PC wijdverspreid op de werkvloer.</li>
+<li>Dit liet toe meer data te registreren, maar deze was nog moeilijk te delen met andere computers.</li>
+</ul></li>
+<li>Opkomst Internet/WWW in de bedrijfswereld
+<ul>
+<li>1990: De technologie voor WWW werd publiek gedeeld door Tim Berners-Lee.</li>
+<li>Dankzij WWW en internettechnologie werd het steeds eenvoudiger om digitaal werk te delen.</li>
+</ul></li>
+<li>Opkomst van e-commerce
+<ul>
+<li>1995: Begin van dot-com bubble/hype.</li>
+<li>Opkomst van digitale ondernemingen (vb. Amazon, Netflix, Google, …).</li>
+<li>Digitale handel maakt het eenvoudiger om gegevens hierover te registreren.</li>
+</ul></li>
+</ul></li>
+<li>Digitalisatie van mensen
+<ul>
+<li>Opkomst Web 2.0 (begin 2000)
+<ul>
+<li>Inhoud van het web wordt nu gecreëerd door de bezoekers/gebruikers/klanten.</li>
+<li>Websites worden dynamisch (passen zich aan de context en bezoeker aan).</li>
+</ul></li>
+<li>Opkomst sociale media
+<ul>
+<li>Gebruikers gaan spontaan hun leven digitaliseren.</li>
+<li>Hiervoor worden diverse media gebruikt (foto, video, tekst, …).</li>
+<li>Facebook, Twitter, Instagram, Persoonlijke blogs, … .</li>
+<li>Nog nooit heeft zo’n groot deel van de wereldbevolking informatie gecreëerd en gedeeld met de rest van de wereld.</li>
+</ul></li>
+</ul></li>
+<li>Digitalisatie van dingen
+<ul>
+<li>Opkomst goedkope sensoren</li>
+<li>Steeds meer “dingen” (machines, auto’s, huishoudtoestellen, huizen, steden, …) worden ‘inteligent’.</li>
+<li>Internet of Things (IoT): Al deze intelligente dingen worden via het Internet met elkaar verbonden.</li>
+<li>De hoeveelheid data die hiermee gegenereerd zal worden is ongezien.</li>
+<li>Volgens IDC studie waren in 2013 reeds 7% van de “verbindbare dingen” geconnecteerd aan het Internet of Things.</li>
+<li>In dezelfde studie voorspellen ze dat dit zal stijgen tot 15% in 2020.</li>
+<li>In 2013 werd 2% van alle data in het digitaal universum geproduceerd door het IoT.</li>
+<li>Verwacht wordt dat dit zal stijgen tot 10% in 2020.</li>
+</ul></li>
+</ul>
+</div>
+<div id="hoeveel-data-is-er-beschikbaar" class="section level3">
+<h3><span class="header-section-number">1.1.3</span> Hoeveel data is er beschikbaar?</h3>
+<ul>
+<li>De hoeveelheid data die de laatste decennia gegenereerd en opgeslagen wordt is enorm toegenomen.</li>
+<li>Deze groei is exponentieel (de groei gaat steeds sneller). Meer specifiek verdubbelt de hoeveelheid data in het digitaal universum iedere 2 jaar.</li>
+<li>Volgens een studie van IDC, bestond het digitaal universum in 2013 uit 4.4 Zetabytes data
+<ul>
+<li>1 Zetabyte = 1024 Exabytes</li>
+<li>1 Exabyte = 1024 Petabytes</li>
+<li>1 Petabyte = 1024 Terabytes</li>
+<li>1 Terabyte = 1024 Gigabytes</li>
+</ul></li>
+<li>Volgens dezelfde studie zal het digitaal universum in 2020 uit 44 Zetabytes bestaan</li>
+<li>Echter, slechts 22% van deze data (in 2013) is geschikt voor analyse.
+<ul>
+<li>Er wordt geschat dat dit zal stijgen tot 35% in 2020.</li>
+</ul></li>
+<li>Slechts 5% van de geschikte data voor analyse wordt feitelijk geanalyseerd (2013).</li>
+</ul>
+</div>
+<div id="waar-wordt-data-voor-gebruikt-in-de-bedrijfswereld" class="section level3">
+<h3><span class="header-section-number">1.1.4</span> Waar wordt data voor gebruikt in de bedrijfswereld?</h3>
+<ul>
+<li>Er zijn verschillende redenen waarom bedrijven data bijhouden. Deze kunnen we onderverdelen in volgende categorieën: Geschiedenis bijhouden, beslissingen nemen en voorspellingen maken.</li>
+</ul>
+<div id="geschiedenis-bijhouden" class="section level4 unnumbered">
+<h4>Geschiedenis bijhouden</h4>
+<ul>
+<li>Je registreert feiten zodat je achteraf met zekerheid kunt weten wat de realiteit in het verleden was.</li>
+<li>Dit is belangrijk als je wilt evalueren of een bedrijf goed beheerd wordt. Hiervoor heb je inzicht in het verleden nodig.</li>
+<li>De gegevens die worden bijgehouden in een boekhouding en jaarrekeningen zijn hier een typisch voorbeeld van.</li>
+</ul>
+</div>
+<div id="dagelijkse-werking" class="section level4 unnumbered">
+<h4>Dagelijkse werking</h4>
+<ul>
+<li>Opdat een bedrijf zijn dagelijkse werking kan uitvoeren, is het essentieel een up to date zicht te hebben van de werkelijkheid. Als een klant belt met een klacht over een levering, dan moet je als onderneming kunnen achterhalen wat de klant precies besteld heeft, of dit reeds geleverd is, of de klant al betaald heeft, enzovoort. Zonder deze informatie kan een onderneming haar dagelijkse werking niet garanderen.</li>
+<li>Om de dagelijkse werking te verzekeren, hebben bedrijven altijd al data bijgehouden. Denk maar aan informatie over aankoop- en verkooporders, de financiële gegevens in de boekhouding, de afschriften van een bank, de productieplanning, enzovoort.</li>
+</ul>
+</div>
+<div id="beslissingen-nemen" class="section level4 unnumbered">
+<h4>Beslissingen nemen</h4>
+<ul>
+<li>Een bedrijf neemt dagelijks talrijke beslissingen op verschillende niveaus
+<ul>
+<li>Operationeel.
+<ul>
+<li>Vb: Moet ik een nieuwe bestelling plaatsen voor grondstof X of hebben we nog genoeg voorraad?</li>
+<li>Dit zijn typisch zeer frequente beslissingen die nodig zijn om de dagelijkse werking te garanderen.</li>
+<li>Deze beslissingen worden genomen door mensen op de werkvloer of door het (lager) management.</li>
+</ul></li>
+<li>Tactisch/Management.
+<ul>
+<li>Vb: Sluit ik best een exclusief contract af met 1 leverancier voor grondstof X voor een vaste periode en tegen een vaste verkoopsprijs of koop ik wanneer nodig tegen de marktprijs?</li>
+<li>Deze beslissingen worden minder frequent genomen dan operationele beslissingen en zijn typisch nodig om de werking van de onderneming op middellange termijn te optimaliseren.</li>
+<li>Deze beslissingen worden genomen door het management van een onderneming en hebben een aanzienlijke impact.</li>
+</ul></li>
+<li>Strategisch.
+<ul>
+<li>Vb: Zullen we grondstof X aankopen op de markt of beslissen we deze grondstof zelf te produceren?</li>
+<li>Deze beslissingen hebben een zeer grote impact op de onderneming en worden niet frequent genomen. Ze vergen typisch ook lange voorbereidingstijd en bepalen de richting en toekomst van de onderneming op lange termijn.</li>
+<li>Deze beslissingen worden genomen door het topmanagement van een onderneming.</li>
+</ul></li>
+</ul></li>
+<li>Data kan bedrijven helpen bij het nemen van beslissingen.
+<ul>
+<li>Dit betekent echter niet dat beslissingen enkel en alleen op data gebaseerd zijn.</li>
+<li>Vaak wordt data gecombineerd met ervaring en expertise om een beslissing te nemen.</li>
+</ul></li>
+<li>Bij het nemen van beslissingen op basis van data, kunnen we zowel patronen in historische data gebruiken alsook voorspellingen op basis van data.</li>
+</ul>
+</div>
+</div>
+<div id="waarover-verzamelen-bedrijven-data" class="section level3">
+<h3><span class="header-section-number">1.1.5</span> Waarover verzamelen bedrijven data</h3>
+<ul>
+<li>Het ultieme doel van een onderneming is gegevens te verzamelen die hen toelaten om het gedrag van hun omgeving beter te begrijpen, alsook de werking van hun eigen onderneming.</li>
+<li>Onder omgeving verstaan we:
+<ul>
+<li>Klanten</li>
+<li>Concurrenten</li>
+<li>Leveranciers</li>
+<li>Alternatieve markten</li>
+<li>Overheden</li>
+</ul></li>
+<li>Onder werking van eigen onderneming vertaan we o.a.:
+<ul>
+<li>Werknemers</li>
+<li>Processen</li>
+<li>Producten</li>
+<li>Diensten</li>
+</ul></li>
+</ul>
+</div>
+<div id="van-data-tot-actionable-insights" class="section level3">
+<h3><span class="header-section-number">1.1.6</span> Van data tot ‘actionable insights’</h3>
+<ul>
+<li>Data
+<ul>
+<li>Data verwijst typisch naar de gegevens die geregistreerd en opgeslagen worden.</li>
+<li>Data beschrijft een heel klein aspect van een realiteit (bijvoorbeeld op welk exact tijdstip ben ik aflevering 2 van “House of Cards” beginnen te kijken).</li>
+<li>Data op zich heeft echter heel weinig waarde.</li>
+</ul></li>
+<li>Informatie
+<ul>
+<li>Als we echter data gaan analyseren, dan kunnen we dit transformeren tot informatie.</li>
+<li>Informatie beschrijft een realiteit en gaat typisch op zoek naar patronen in de data en afwijkingen op deze patronen.</li>
+<li>Bijvoorbeeld: Ik kijk typisch House of Cards gedurende de week om 20u00 ’s avonds, maar stop meestal met kijken om 20u30, waardoor ik in de week zelden een aflevering in 1 keer uitkijk.</li>
+<li>Informatie is beschrijvend en zegt ons WAT de realiteit is.</li>
+</ul></li>
+<li>Actionable Insights
+<ul>
+<li>Actionable Insights is informatie die ons niet enkel zegt WAT de realiteit is, maar ons ook het inzicht verschaft HOE we moeten handelen.</li>
+<li>Niet alle informatie is actionable.</li>
+<li>Op basis van actionable insights en in combinatie met onze eigen ervaringen en kennis die we reeds bezitten, komen we soms tot inzichten die beschrijven HOE we moeten handelen.</li>
+</ul></li>
+</ul>
+</div>
+<div id="data-scientists" class="section level3">
+<h3><span class="header-section-number">1.1.7</span> Data Scientists</h3>
+<ul>
+<li>Nieuwe jobomschrijving.</li>
+<li>Verantwoordelijk om data te transformeren naar ‘actionable insights’ en hier iets mee te doen om bedrijfswaarde te creëren.</li>
+<li>Omschreven als meest ‘sexy job’ van de 21ste eeuw door HBR
+<ul>
+<li>Opvolgers van de Wall Street ‘Quants’ uit de jaren 80 en 90.</li>
+</ul></li>
+<li>Vaardigheden
+<ul>
+<li>Bedrijfskunde
+<ul>
+<li>Productontwikkeling</li>
+<li>Management</li>
+</ul></li>
+<li>Machine Learning / Big Data
+<ul>
+<li>Ongestructureerde data</li>
+<li>Gestructureerde data</li>
+<li>Machine Learning</li>
+<li>Big Data</li>
+</ul></li>
+<li>Wiskunde en Operationeel Onderzoek
+<ul>
+<li>Optimalisatie</li>
+<li>Wiskunde</li>
+<li>Simulatie</li>
+</ul></li>
+<li>Programmeren</li>
+<li>Statistiek
+<ul>
+<li>Visualisatie</li>
+<li>Tijdreeksanalyse</li>
+<li>Wetenschappelijk onderzoek</li>
+<li>Data Manipulatie</li>
+</ul></li>
+</ul></li>
+<li>4 profielen van data scientists
+<ul>
+<li>Data Businessperson
+<ul>
+<li>Focust voornamelijk hoe data omzet kan genereren.</li>
+<li>Vaak in een leidinggevende rol.</li>
+<li>Werken zelf ook met data en beschikken over de nodige technische vaardigheden.</li>
+</ul></li>
+<li>Data Creatives
+<ul>
+<li>Zijn in staat een volledige data analyse zelfstandig uit te voeren.</li>
+<li>Hebben een hele brede bagage aan technische vaardigheden.</li>
+<li>Beschikken in zekere mate over bedrijfskundige vaardigheden.</li>
+<li>Gaan vaak innovatief om met data.</li>
+</ul></li>
+<li>Data Developer
+<ul>
+<li>Is voornamelijk gefocust op de technische uitdagingen met betrekking tot het beheer van data.</li>
+<li>Sterke programmeervaardigheden. Zijn in staat productie-code te schrijven.</li>
+<li>Zijn sterk in het gebruik van machine learning technieken.</li>
+</ul></li>
+<li>Data Researcher
+<ul>
+<li>Vaak mensen met een wetenschappelijke achtergrond (doctoraat).</li>
+<li>Sterk in statistische vaardigheden en wetenschappelijk onderzoek.</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="verschillende-soorten-van-data-analyse" class="section level3">
+<h3><span class="header-section-number">1.1.8</span> Verschillende soorten van data analyse</h3>
+<ul>
+<li>Er zijn verschillende manieren om data analyse taken te classificeren.</li>
+<li>De classificatie die we hier hanteren is gebaseerd op het doel van de data analyse.</li>
+</ul>
+<div id="descriptieve-data-analyse" class="section level4 unnumbered">
+<h4>Descriptieve data analyse</h4>
+<ul>
+<li>Deze analyse focust zich op het beschrijven van de data.</li>
+<li>Deze analyse gaat over het samenvatten van de grote hoeveelheid data in enkele statistische cijfers en grafieken.</li>
+<li>Deze analyse wordt gebruikt als je een grote hoeveelheid data krijgt en je snel inzicht wilt krijgen in de data.</li>
+<li>Voorbeelden:
+<ul>
+<li>Je hebt een dataset met alle studieresultaten van de studenten van 1ste bachelor HI/BI en je wilt weten wat de gemiddelde score is per vak.</li>
+<li>Je hebt de verkoopscijfers van het afgelopen jaar en je wil weten welke drie producten het beste verkochten (zowel in aantal als in omzet).</li>
+</ul></li>
+<li>Descriptieve data analyse zegt alleen iets over de realiteit die door de data is beschreven. Je kan <strong>geen</strong> conclusies trekken die verder reiken dan de geobserveerde data.</li>
+<li>Je kan een descriptieve data analyse vergelijken met het werk van een detective die als taak heeft een beschrijving te maken van de misdaadscene.</li>
+</ul>
+</div>
+<div id="exploratieve-data-analyse" class="section level4 unnumbered">
+<h4>Exploratieve data analyse</h4>
+<ul>
+<li>Exploratieve analyse focust op het verkennen van de data en het zoeken naar interessante patronen en afwijkingen van deze patronen.</li>
+<li>Net als bij descriptieve data analyse zal exploratieve analyse de beschikbare data beschrijven en zeggen de resultaten <strong>niets</strong> over ongeobserveerde feiten.</li>
+<li>In tegenstelling tot bij descriptieve data analyse, gaat exploratieve data analyse verder dan het louter beschrijven van de data en tracht men interessante patronen te ontdekken in de data.</li>
+<li>Voorbeelden:
+<ul>
+<li>Zijn er specifieke kenmerken van studenten die sterk gerelateerd zijn aan hun studieresultaten.</li>
+<li>Zijn er opmerkelijke verschillen tussen vakken wat betreft de punten die behaald worden. Zo ja, wat zijn dan deze verschillen.</li>
+<li>Zijn er producten in ons gamma die gevoelig zijn voor seizoenseffecten?</li>
+</ul></li>
+<li>Je kan een exploratieve data analyse vergelijken met het werk van een detective die als taak heeft verbanden te ontdekken tussen verschillende bewijsstukken om zo inzicht te verschaffen wat er gebeurd is tijdens de misdaad.</li>
+</ul>
+</div>
+<div id="confirmatorische-data-analyse" class="section level4 unnumbered">
+<h4>Confirmatorische data analyse</h4>
+<ul>
+<li>Confirmatorische analyse focust op het bevestigen of weerleggen van vermoedens die men heeft met behulp van de beschikbare data.</li>
+<li>In tegenstelling tot descriptieve en exploratieve data analyse zal men bij confirmatorische data analyse wel conclusies trekken die verder gaan dan de geobserveerde data.</li>
+<li>Omdat confirmatorische data analyses ook uitspraken doen over ongeobserveerde data, is er altijd een mate van onzekerheid over de correctheid van de resultaten.</li>
+<li>Voorbeelden:
+<ul>
+<li>Halen studenten met 8u Wiskunde achtergrond betere resultaten dan studenten met 6u Wiskunde achtergrond? In welke mate zijn we zeker dat dit voor alle studenten geldt en niet enkel voor de studenten waarover we data hebben?</li>
+<li>Verkoopt product X beter bij mannen dan bij vrouwen? In welke mate zijn we zeker dat dit verschil niet een toevalligheid in de data is?</li>
+</ul></li>
+<li>Je kan een confirmatorische data analyse vergelijken met het werk van een rechter die op basis van het aangeboden bewijsmateriaal moet beslissen of er genoeg bewijs is om iemand te veroordelen van de misdaad.</li>
+</ul>
+</div>
+<div id="predictieve-data-analyse" class="section level4 unnumbered">
+<h4>Predictieve data analyse</h4>
+<ul>
+<li>Het doel van predictieve analyse is om op basis van de beschikbare data voorspellingen te doen over de toekomst of over nieuwe of alternatieve situaties.</li>
+<li>Net als bij confirmatorische data analyse zal predictieve data analyse uitspraken doen die ook van toepassing zijn voor ongeobserveerde feiten/situaties.</li>
+<li>Bijgevolg is er net als bij confirmatorische data analyse dus een zekere onzekerheid over de conclusies die men trekt.</li>
+<li>Voorbeelden:
+<ul>
+<li>Zal een studente die met meer dan 80% haar diploma van het middelbaar onderwijs behaalt slagen in eerste zit voor het vak <em>Exploratieve en Descriptieve Data Analyse</em>?</li>
+<li>Zullen de verkoopcijfers van product Y het komende jaar verder stijgen en met hoeveel procent?</li>
+</ul></li>
+<li>Je kan een predictieve data analyse vergelijken met het werk van een detective die op basis van het bewijsmateriaal op een misdaadscene moet voorspellen waar en wanneer de dader opnieuw zal toeslaan.</li>
+</ul>
+</div>
+</div>
+<div id="de-kunst-van-data-analyse" class="section level3">
+<h3><span class="header-section-number">1.1.9</span> De kunst van data analyse</h3>
+<ul>
+<li>Data analyse is een kunst. Net als bij iedere kunst, kunnen we hierbij drie componenten onderscheiden: kennis en vaardigheden, ervaring en creativiteit.</li>
+<li>Kennis en vaardigheden
+<ul>
+<li>Als data analist moet je de juiste hulpmiddelen kunnen identificeren voor het voorgelegde probleem.</li>
+<li>Deze diverse hulpmiddelen moet je zo goed mogelijk beheersen.</li>
+<li>Bij (exploratieve) data analyse gaat het hierbij zowel over analysetechnieken als over datavaardigheden.</li>
+<li>Dit aspect kun je leren en laat je reeds toe om correcte analyses uit te voeren.</li>
+</ul></li>
+<li>Ervaring
+<ul>
+<li>Hoe meer data je analyseert, hoe beter je er in wordt.</li>
+<li>Ook laat ervaring toe om sneller vaste patronen in je werk te herkennen en efficiënter te worden in wat je doet.</li>
+<li>Ervaring is ook essentieel om complexere uitdagingen beheersbaar te maken.</li>
+<li>Dit deel kunnen we je niet ‘leren’, maar heb je wel volledig in de hand.</li>
+</ul></li>
+<li>Creativiteit
+<ul>
+<li>Een kunstenaar die over kennis, vaardigheden en ervaring beschikt, maar creativiteit ontbreekt, kan perfecte replica’s maken van een kustwerk, mar kan zelf geen nieuwe kunst creëren.</li>
+<li>Creativiteit is in staat zijn op een nieuwe en onverwachte manier naar data te kijken en deze te visualiseren.</li>
+<li>Het is niet zeker dat dit aspect aan te leren is. Maar dit hoeft niet te verhinderen dat je een goede data scientist wordt, zolang je maar voldoende aandacht besteedt aan de andere twee componenten.</li>
+</ul></li>
+</ul>
+</div>
+<div id="de-kracht-van-descriptieve-en-exploratieve-data-analyse" class="section level3">
+<h3><span class="header-section-number">1.1.10</span> De kracht van descriptieve en exploratieve data analyse</h3>
+<p><a href="https://www.youtube.com/watch?v=RUwS1uAdUcI" class="uri">https://www.youtube.com/watch?v=RUwS1uAdUcI</a></p>
+</div>
+</div>
+<div id="gastcollege-bart-van-proeyen---kwarts" class="section level2">
+<h2><span class="header-section-number">1.2</span> Gastcollege Bart Van Proeyen - Kwarts</h2>
+<p>Zie bijhorende slidedeck (Blackboard).</p>
+</div>
+<div id="data-data-types" class="section level2">
+<h2><span class="header-section-number">1.3</span> Data &amp; Data types</h2>
+<ul>
+<li>Data is het resultaat van een meting van een attribuut van een specifiek object met een specifiek meetinstrument.
+<ul>
+<li>Het object verwijst naar wat je gaat meten.
+<ul>
+<li>vb.: Student “Karel Jespers”.</li>
+</ul></li>
+<li>Een object hoort meestal tot een verzameling van objecten. Deze verzameling wordt ook wel de populatie genoemd.
+<ul>
+<li>vb.: Populatie “Studenten 1ste Ba HI/BI”.</li>
+</ul></li>
+<li>Een specifiek object uit de populatie wordt ook wel element genoemd.
+<ul>
+<li>vb.: “Karel Jespers” is een element uit de populatie “Student 1ste Ba HI/BI”.</li>
+</ul></li>
+<li>Je meet altijd een specifiek aspect van het object. Omdat de meetwaarde van dit aspect kan variëren tussen verschillende objecten (elementen) in je verzameling (populatie), worden zulke aspecten ook variabelen genoemd.
+<ul>
+<li>vb.: Lengte is een specifiek aspect (variabele) van de student “Karel Jespers” (element).</li>
+</ul></li>
+<li>De meting gebeurt met behulp van een meetinstrument. Het is belangrijk te beseffen dat een meetinstrument altijd een zekere nauwkeurigheid heeft (tot hoeveel cijfers na de komma exact kan je meten?) en mogelijk ook onderhevig kan zijn aan willekeurige en/of systematische meetfouten.
+<ul>
+<li>vb.: Student “Karel Jespers” wordt gemeten met een meetlat bevestigd tegen de muur. De meetlat heeft een nauwkeurigheid van 1cm, dus we kunnen zijn lengte niet uitdrukken in millimeters. Verder is de meetlat 2cm te laag opgehangen. Bijgevolg is er een systematische meetfout van 2cm. Tenslotte wordt de meting geregistreerd door een arts die vluchtig kijkt waar de student uitkomt op de meetlat. Het is dus niet onmogelijk dat de werkelijke lengte (willekeurig) afwijkt van de geregistreerde lengte.</li>
+<li>Tenzij anders vermeld wordt, gaan we in dit hoofdstuk uit van meetinstrumenten met oneindige nauwkeurigheid en zonder meetfouten.</li>
+</ul></li>
+<li>De uitkomst van een meting voor een specifiek element wordt de waarde genoemd.
+<ul>
+<li>vb.: 1m80 is de waarde van de variabele “lengte” voor element “student Karel Jespers”</li>
+</ul></li>
+</ul></li>
+</ul>
+<div id="dataset" class="section level3">
+<h3><span class="header-section-number">1.3.1</span> Dataset</h3>
+<ul>
+<li>Een dataset is een verzameling van data waarbij
+<ul>
+<li>Iedere rij één element uit de populatie voorstelt.</li>
+<li>Iedere kolom een variabele is die gemeten wordt.</li>
+<li>De verschillende rijen verschillende elementen uit dezelfde populatie voorstellen.</li>
+<li>De waarde in een cel de meting is van de betreffende variabele voor het betreffend element.</li>
+</ul></li>
+</ul>
+<table class="table" style="font-size: 6px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:2-2">Table 1.1: </span>
+Uitgaande vluchten NYC
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+luchthaven
+</th>
+<th style="text-align:left;">
+maatschappij
+</th>
+<th style="text-align:left;">
+datum
+</th>
+<th style="text-align:right;">
+vertrek_vertraging
+</th>
+<th style="text-align:right;">
+aankomst_vertraging
+</th>
+<th style="text-align:right;">
+afstand
+</th>
+<th style="text-align:right;">
+vliegtijd
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+EWR
+</td>
+<td style="text-align:left;">
+United Air Lines Inc. 
+</td>
+<td style="text-align:left;">
+2013-01-01 05:15:00
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+1400
+</td>
+<td style="text-align:right;">
+227
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LGA
+</td>
+<td style="text-align:left;">
+United Air Lines Inc. 
+</td>
+<td style="text-align:left;">
+2013-01-01 05:29:00
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+1416
+</td>
+<td style="text-align:right;">
+227
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JFK
+</td>
+<td style="text-align:left;">
+American Airlines Inc. 
+</td>
+<td style="text-align:left;">
+2013-01-01 05:40:00
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+1089
+</td>
+<td style="text-align:right;">
+160
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LGA
+</td>
+<td style="text-align:left;">
+Delta Air Lines Inc. 
+</td>
+<td style="text-align:left;">
+2013-01-01 06:00:00
+</td>
+<td style="text-align:right;">
+-6
+</td>
+<td style="text-align:right;">
+-25
+</td>
+<td style="text-align:right;">
+762
+</td>
+<td style="text-align:right;">
+116
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+EWR
+</td>
+<td style="text-align:left;">
+United Air Lines Inc. 
+</td>
+<td style="text-align:left;">
+2013-01-01 05:58:00
+</td>
+<td style="text-align:right;">
+-4
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+719
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+EWR
+</td>
+<td style="text-align:left;">
+JetBlue Airways
+</td>
+<td style="text-align:left;">
+2013-01-01 06:00:00
+</td>
+<td style="text-align:right;">
+-5
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+1065
+</td>
+<td style="text-align:right;">
+158
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LGA
+</td>
+<td style="text-align:left;">
+ExpressJet Airlines Inc. 
+</td>
+<td style="text-align:left;">
+2013-01-01 06:00:00
+</td>
+<td style="text-align:right;">
+-3
+</td>
+<td style="text-align:right;">
+-14
+</td>
+<td style="text-align:right;">
+229
+</td>
+<td style="text-align:right;">
+53
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JFK
+</td>
+<td style="text-align:left;">
+JetBlue Airways
+</td>
+<td style="text-align:left;">
+2013-01-01 06:00:00
+</td>
+<td style="text-align:right;">
+-3
+</td>
+<td style="text-align:right;">
+-8
+</td>
+<td style="text-align:right;">
+944
+</td>
+<td style="text-align:right;">
+140
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LGA
+</td>
+<td style="text-align:left;">
+American Airlines Inc. 
+</td>
+<td style="text-align:left;">
+2013-01-01 06:00:00
+</td>
+<td style="text-align:right;">
+-2
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+733
+</td>
+<td style="text-align:right;">
+138
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JFK
+</td>
+<td style="text-align:left;">
+JetBlue Airways
+</td>
+<td style="text-align:left;">
+2013-01-01 06:00:00
+</td>
+<td style="text-align:right;">
+-2
+</td>
+<td style="text-align:right;">
+-2
+</td>
+<td style="text-align:right;">
+1028
+</td>
+<td style="text-align:right;">
+149
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="klassieke-datatypologie" class="section level3">
+<h3><span class="header-section-number">1.3.2</span> Klassieke datatypologie</h3>
+<ul>
+<li>Klassieke onderverdeling van data
+<ul>
+<li>Nominaal, Ordinaal, Interval en Ratio</li>
+<li>Gebaseerd op de publicatie “On the Theory of Scales of Measurement” (1946)
+<ul>
+<li>Beschrijft een hiërarchie van ‘datatypes’
+<ul>
+<li>Alles wat ordinaal is, is ook nominaal, maar niet omgekeerd.</li>
+<li>Alles wat interval is, is ook ordinaal, maar niet omgekeerd.</li>
+<li>Alles wat ratio is, is ook interval, maar niet omgekeerd.</li>
+</ul></li>
+<li>Identificeert geschikte statistische testen voor ieder type.</li>
+</ul></li>
+</ul></li>
+<li>Ieder datatype voldoet aan één of meerdere van de volgende eigenschappen:
+<ul>
+<li>Identiteit: Iedere waarde heeft een unieke betekenis.</li>
+<li>Grootorde: Er is een natuurlijke volgorde tussen de waarden.</li>
+<li>Gelijke intervals: Eenheidsverschillen zijn overal even groot. Dus het verschil tussen 1 en 2 is even groot als het verschil tussen 19 en 20.</li>
+<li>Absoluut nulpunt: De waarde 0 betekent dat er ook feitelijk niets aanwezig is van de variabele en is niet een arbitrair gekozen nulpunt.</li>
+</ul></li>
+</ul>
+<div id="nominaal" class="section level4 unnumbered">
+<h4>Nominaal</h4>
+<ul>
+<li>Voorbeelden:
+<ul>
+<li>Geslacht: Man, Vrouw.</li>
+<li>Ondernemingsvorm: vzw, bvba, nv.</li>
+</ul></li>
+<li>Voldoet enkel aan de eigenschap ‘identiteit’.</li>
+<li>Dit betekent dat we enkel concluderen of twee waardes gelijk zijn of niet. Er bestaat geen natuurlijke volgorde tussen de verschillende waardes.</li>
+</ul>
+</div>
+<div id="ordinaal" class="section level4 unnumbered">
+<h4>Ordinaal</h4>
+<ul>
+<li>Voorbeeld:
+<ul>
+<li>Opleidingsniveau: Lager onderwijs, Middelbaar onderwijs, Hoger onderwijs.</li>
+<li>Klantentevredenheid: Ontevreden, Matig tevreden, Tevreden, Zeer tevreden.</li>
+</ul></li>
+<li>Voldoet aan de eigenschappen ‘identiteit’ en ‘grootorde’.</li>
+<li>Dit betekent dat we niet alleen kunnen concluderen of twee waardes gelijk zijn of niet. Het is ook mogelijk te bepalen welke waarde ‘groter’ is.</li>
+<li>We kunnen echter niet zeggen hoeveel groter één waarde is dan de andere.</li>
+</ul>
+</div>
+<div id="interval" class="section level4 unnumbered">
+<h4>Interval</h4>
+<ul>
+<li>Voorbeeld:
+<ul>
+<li>Temperatuur (Celsius).</li>
+</ul></li>
+<li>Voldoet aan de eigenschappen ‘identiteit’, ‘grootorde’ en ‘gelijke intervals’.</li>
+<li>We kunnen nu twee waardes vergelijken, bepalen welke groter is alsook de verschillen tussen waardes met elkaar vergelijken.
+<ul>
+<li>We kunnen dus stellen dat het verschil tussen 8 en 9 graden Celsius daadwerkelijk minder groot is dan het verschil tussen 12 en 20 graden Celsius.</li>
+</ul></li>
+</ul>
+</div>
+<div id="ratio" class="section level4 unnumbered">
+<h4>Ratio</h4>
+<ul>
+<li>Voorbeeld:
+<ul>
+<li>Gewicht</li>
+</ul></li>
+<li>Voldoet aan alle 4 de eigenschappen.</li>
+<li>We kunnen verschillende gewichten met elkaar vergelijken, we kunnen bepalen wat zwaarder is en we kunnen gewichtsverschillen onderling vergelijken. Hierbij komt nu ook nog dat we kunnen zeggen hoeveel keer iets zwaarder is dan iets anders.</li>
+<li>Dit is een gevolg van het feit dat de waarde 0 nu feitelijk betekent dat iets geen gewicht heeft.</li>
+</ul>
+</div>
+</div>
+<div id="de-klassieke-datatypologie-is-misleidend" class="section level3">
+<h3><span class="header-section-number">1.3.3</span> De klassieke datatypologie is misleidend</h3>
+<ul>
+<li>Voorbeeld:
+<ul>
+<li>Op een feestje wordt bij het binnengaan oplopende nummers toegewezen aan iedere gast, beginnend bij 1.</li>
+<li>Tijdens het feestje wordt er een tombola georganiseerd en wie nummer 126 heeft, heeft gewonnen.</li>
+<li>1 gast vergelijkt dit nummer met haar kaartje en ziet dat ze gewonnen heeft. Zij beschouwde de waarde op haar ticket dus als een nominale variabele want het enige wat ze vergelijkt is of de waarde op haar ticket verschillend is van de winnende waarde.</li>
+<li>Een andere gast kijkt naar zijn kaartje en ziet dat hij nummer 56 heeft. Hij concludeert dat hij te vroeg is binnengekomen en beschouwt de waarde op zijn kaartje dus als ordinaal.</li>
+<li>Nog een andere gast heeft een kaartje met nummer 70 en beschikt over bijkomende data omtrent het ritme waarmee gasten zijn binnengekomen. Deze gast kan dus schatten hoeveel later hij had moeten binnenkomen om te winnen en interpreteert zijn nummer dus als een interval variabele.</li>
+</ul></li>
+<li>Dit voorbeeld illustreert dat het datatype niet een vaststaand kenmerk is van de data, maar afhankelijk is van de vraag die je tracht te beantwoorden en de extra informatie waarover je beschikt.</li>
+</ul>
+</div>
+<div id="alternatieve-datatypologie" class="section level3">
+<h3><span class="header-section-number">1.3.4</span> Alternatieve datatypologie</h3>
+<ul>
+<li>Alternatieve taxonomie van data
+<ul>
+<li>Graden: vb. academische graad: “op voldoende wijze”, “onderscheiding”, “grote onderscheiding”, … (geordende labels)</li>
+<li>Rangordes: vb. plaats in voetbalklassement: 1, 2, 3, …, 16 (gehele getallen die beginnen bij 1)</li>
+<li>Fracties: vb. percentage opgenomen verlof: van 0% tot 100% (ligt tussen 0 en 1, als percentage uit te drukken).</li>
+<li>Aantallen: vb aantal kinderen: 0, 1, 2, … (niet-negatieve gehele waarden).</li>
+<li>Hoeveelheden: vb. inkomen (niet-negatieve reële waarden).</li>
+<li>Saldo: vb. winst (negatieve en positieve reële waarden).</li>
+</ul></li>
+<li>Voor deze cursus volstaat het meestal een onderscheid te maken tussen categorische en continue variabelen.
+<ul>
+<li>Categorisch: Nominaal + Ordinaal.</li>
+<li>Continu: Interval + Ratio.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="referenties" class="section level2">
+<h2><span class="header-section-number">1.4</span> Referenties</h2>
+<ol style="list-style-type: decimal">
+<li><a href="https://hbr.org/2012/10/data-scientist-the-sexiest-job-of-the-21st-century">Data Scientist, the Sexiest Job of the 21st Centure</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Netflix_Prize">Netflix Prize</a></li>
+<li><a href="https://blog.kissmetrics.com/how-netflix-uses-analytics/">How Netflix Uses Analytics</a></li>
+<li><a href="https://www.emc.com/leadership/digital-universe/2014iview/index.htm">The Digital Universe of Opportunities - website</a></li>
+<li><a href="http://bcove.me/9s38pkjm">The Digital Universe of Opportunities - videoclip</a></li>
+<li><a href="http://www.bbc.com/news/magazine-23509153">How the Computer Changed the Office Forever</a></li>
+<li><a href="http://www.ehow.com/about_6362639_history-computers-workplace.html">History of Computers in the Workplace</a></li>
+<li><a href="https://www.geeksforgeeks.org/web-1-0-web-2-0-and-web-3-0-with-their-difference/">Web 1.0, 2.0, 3.0</a></li>
+<li><a href="https://en.wikipedia.org/wiki/File:DIKW_(1).png">From Data to Understanding</a></li>
+<li><a href="http://www.oreilly.com/data/free/files/analyzing-the-analyzers.pdf">Analyzing the Analyzers</a></li>
+<li><a href="http://www.mnestudies.com/research/scales-measurement">Scales of Measurement</a></li>
+<li><a href="http://websites.uwlax.edu/tbrooks/eco307/handouts/velleman%201993%20-%20typologies%20misleading.pdf">Nominal, Ordinal, Interval, and Ratio Typologies are Misleading</a></li>
+</ol>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-visualizatie.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["textbook.pdf"],
+"toc": {
+"collapse": "section",
+"depth": 3
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

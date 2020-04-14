@@ -1,0 +1,3 @@
+"0","set.seed(123)"
+"0","students <- tibble(first_name = babynames::babynames %>% sample_n(10) %>% pull(name),"
+"0","				   last_name = babynames::babynames %>% sample_n(10) %>% pull(name))"

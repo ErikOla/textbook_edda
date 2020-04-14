@@ -1,0 +1,5 @@
+"0","set.seed(456)"
+"0","tibble(first_name = babynames::babynames %>% sample_n(10) %>% pull(name),"
+"0","				   last_name = babynames::babynames %>% sample_n(10) %>% pull(name)) %>%"
+"0","	unite(col = name, first_name, last_name, sep = "" "") -> students_2"
+"0",""

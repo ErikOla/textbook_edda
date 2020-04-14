@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Tutorial - Data vizualisatie | Exploratieve en Descriptieve Data Analyse</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Tutorial - Data vizualisatie | Exploratieve en Descriptieve Data Analyse" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Tutorial - Data vizualisatie | Exploratieve en Descriptieve Data Analyse" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Benoît Depaire, Gert Janssenswillen" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data-visualizatie.html"/>
+<link rel="next" href="descriptieve-statistieken.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Exploratieve en descriptieve data analyse</a></li>
+<li><a href="https://beta.rstudioconnect.com/content/7904/studieleidraad_worksessions.html">Studieleidraad</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Voorwoord</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#hoe-de-lecture-notes-te-gebruiken"><i class="fa fa-check"></i>Hoe de lecture notes te gebruiken</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#hoe-de-tutorials-te-gebruiken"><i class="fa fa-check"></i>Hoe de tutorials te gebruiken</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#over-de-auteurs"><i class="fa fa-check"></i>Over de auteurs</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introductiecollege.html"><a href="introductiecollege.html"><i class="fa fa-check"></i><b>1</b> Introductiecollege</a><ul>
+<li class="chapter" data-level="1.1" data-path="introductiecollege.html"><a href="introductiecollege.html#data-science"><i class="fa fa-check"></i><b>1.1</b> Data science?</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="introductiecollege.html"><a href="introductiecollege.html#netflix"><i class="fa fa-check"></i><b>1.1.1</b> Netflix</a></li>
+<li class="chapter" data-level="1.1.2" data-path="introductiecollege.html"><a href="introductiecollege.html#waar-komt-data-vandaan"><i class="fa fa-check"></i><b>1.1.2</b> Waar komt data vandaan?</a></li>
+<li class="chapter" data-level="1.1.3" data-path="introductiecollege.html"><a href="introductiecollege.html#hoeveel-data-is-er-beschikbaar"><i class="fa fa-check"></i><b>1.1.3</b> Hoeveel data is er beschikbaar?</a></li>
+<li class="chapter" data-level="1.1.4" data-path="introductiecollege.html"><a href="introductiecollege.html#waar-wordt-data-voor-gebruikt-in-de-bedrijfswereld"><i class="fa fa-check"></i><b>1.1.4</b> Waar wordt data voor gebruikt in de bedrijfswereld?</a></li>
+<li class="chapter" data-level="1.1.5" data-path="introductiecollege.html"><a href="introductiecollege.html#waarover-verzamelen-bedrijven-data"><i class="fa fa-check"></i><b>1.1.5</b> Waarover verzamelen bedrijven data</a></li>
+<li class="chapter" data-level="1.1.6" data-path="introductiecollege.html"><a href="introductiecollege.html#van-data-tot-actionable-insights"><i class="fa fa-check"></i><b>1.1.6</b> Van data tot ‘actionable insights’</a></li>
+<li class="chapter" data-level="1.1.7" data-path="introductiecollege.html"><a href="introductiecollege.html#data-scientists"><i class="fa fa-check"></i><b>1.1.7</b> Data Scientists</a></li>
+<li class="chapter" data-level="1.1.8" data-path="introductiecollege.html"><a href="introductiecollege.html#verschillende-soorten-van-data-analyse"><i class="fa fa-check"></i><b>1.1.8</b> Verschillende soorten van data analyse</a></li>
+<li class="chapter" data-level="1.1.9" data-path="introductiecollege.html"><a href="introductiecollege.html#de-kunst-van-data-analyse"><i class="fa fa-check"></i><b>1.1.9</b> De kunst van data analyse</a></li>
+<li class="chapter" data-level="1.1.10" data-path="introductiecollege.html"><a href="introductiecollege.html#de-kracht-van-descriptieve-en-exploratieve-data-analyse"><i class="fa fa-check"></i><b>1.1.10</b> De kracht van descriptieve en exploratieve data analyse</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="introductiecollege.html"><a href="introductiecollege.html#gastcollege-bart-van-proeyen---kwarts"><i class="fa fa-check"></i><b>1.2</b> Gastcollege Bart Van Proeyen - Kwarts</a></li>
+<li class="chapter" data-level="1.3" data-path="introductiecollege.html"><a href="introductiecollege.html#data-data-types"><i class="fa fa-check"></i><b>1.3</b> Data &amp; Data types</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="introductiecollege.html"><a href="introductiecollege.html#dataset"><i class="fa fa-check"></i><b>1.3.1</b> Dataset</a></li>
+<li class="chapter" data-level="1.3.2" data-path="introductiecollege.html"><a href="introductiecollege.html#klassieke-datatypologie"><i class="fa fa-check"></i><b>1.3.2</b> Klassieke datatypologie</a></li>
+<li class="chapter" data-level="1.3.3" data-path="introductiecollege.html"><a href="introductiecollege.html#de-klassieke-datatypologie-is-misleidend"><i class="fa fa-check"></i><b>1.3.3</b> De klassieke datatypologie is misleidend</a></li>
+<li class="chapter" data-level="1.3.4" data-path="introductiecollege.html"><a href="introductiecollege.html#alternatieve-datatypologie"><i class="fa fa-check"></i><b>1.3.4</b> Alternatieve datatypologie</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="introductiecollege.html"><a href="introductiecollege.html#referenties"><i class="fa fa-check"></i><b>1.4</b> Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="data-visualizatie.html"><a href="data-visualizatie.html"><i class="fa fa-check"></i><b>2</b> Data visualizatie</a><ul>
+<li class="chapter" data-level="2.1" data-path="data-visualizatie.html"><a href="data-visualizatie.html#univariate-visualisaties-1-variabele"><i class="fa fa-check"></i><b>2.1</b> Univariate visualisaties (1 variabele)</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="data-visualizatie.html"><a href="data-visualizatie.html#categorische-variabele"><i class="fa fa-check"></i><b>2.1.1</b> Categorische variabele</a></li>
+<li class="chapter" data-level="2.1.2" data-path="data-visualizatie.html"><a href="data-visualizatie.html#continue-variabele"><i class="fa fa-check"></i><b>2.1.2</b> Continue variabele</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="data-visualizatie.html"><a href="data-visualizatie.html#bivariate-visualisatie-2-variabelen"><i class="fa fa-check"></i><b>2.2</b> Bivariate visualisatie (2 variabelen)</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="data-visualizatie.html"><a href="data-visualizatie.html#situatie-1-de-onafhankelijke-variabele-is-categorisch"><i class="fa fa-check"></i><b>2.2.1</b> Situatie 1: De onafhankelijke variabele is categorisch</a></li>
+<li class="chapter" data-level="2.2.2" data-path="data-visualizatie.html"><a href="data-visualizatie.html#situatie-2-de-onafhankelijke-variabele-is-continue"><i class="fa fa-check"></i><b>2.2.2</b> Situatie 2: De onafhankelijke variabele is continue</a></li>
+<li class="chapter" data-level="2.2.3" data-path="data-visualizatie.html"><a href="data-visualizatie.html#situatie-3-de-onafhankelijke-variabele-is-tijd"><i class="fa fa-check"></i><b>2.2.3</b> Situatie 3: De onafhankelijke variabele is tijd</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="data-visualizatie.html"><a href="data-visualizatie.html#multivariate-visualisaties-meer-dan-2-variabelen"><i class="fa fa-check"></i><b>2.3</b> Multivariate visualisaties (meer dan 2 variabelen)</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="data-visualizatie.html"><a href="data-visualizatie.html#voorbeeld-in-welke-mate-hangt-de-vertrek-vertraging-af-van-de-luchthaven-en-de-afstand"><i class="fa fa-check"></i><b>2.3.1</b> Voorbeeld: In welke mate hangt de vertrek vertraging af van de luchthaven en de afstand?</a></li>
+<li class="chapter" data-level="2.3.2" data-path="data-visualizatie.html"><a href="data-visualizatie.html#voorbeeld-multivariaat-tijd"><i class="fa fa-check"></i><b>2.3.2</b> Voorbeeld: multivariaat tijd</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="data-visualizatie.html"><a href="data-visualizatie.html#visualisaties-voor-communicatie"><i class="fa fa-check"></i><b>2.4</b> Visualisaties voor communicatie</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="data-visualizatie.html"><a href="data-visualizatie.html#voorbeeld-voor-goed-voor-exploratie"><i class="fa fa-check"></i><b>2.4.1</b> Voorbeeld: voor ~ goed voor exploratie</a></li>
+<li class="chapter" data-level="2.4.2" data-path="data-visualizatie.html"><a href="data-visualizatie.html#voorbeeld-na-goed-voor-communicatie"><i class="fa fa-check"></i><b>2.4.2</b> Voorbeeld: na ~ goed voor communicatie</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="data-visualizatie.html"><a href="data-visualizatie.html#how-charts-lie"><i class="fa fa-check"></i><b>2.5</b> How charts lie</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="data-visualizatie.html"><a href="data-visualizatie.html#causaliteit-vs-correlatie"><i class="fa fa-check"></i><b>2.5.1</b> Causaliteit vs correlatie</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="data-visualizatie.html"><a href="data-visualizatie.html#referenties-1"><i class="fa fa-check"></i><b>2.6</b> Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html"><i class="fa fa-check"></i><b>3</b> Tutorial - Data vizualisatie</a><ul>
+<li class="chapter" data-level="3.1" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#before-you-start"><i class="fa fa-check"></i><b>3.1</b> Before you start</a></li>
+<li class="chapter" data-level="3.2" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#introduction"><i class="fa fa-check"></i><b>3.2</b> Introduction</a></li>
+<li class="chapter" data-level="3.3" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#different-geometrics"><i class="fa fa-check"></i><b>3.3</b> Different geometrics</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#geom_point"><i class="fa fa-check"></i><b>3.3.1</b> geom_point</a></li>
+<li class="chapter" data-level="3.3.2" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#geom_histogram"><i class="fa fa-check"></i><b>3.3.2</b> geom_histogram</a></li>
+<li class="chapter" data-level="3.3.3" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#geom_boxplot"><i class="fa fa-check"></i><b>3.3.3</b> geom_boxplot</a></li>
+<li class="chapter" data-level="3.3.4" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#geom_violin"><i class="fa fa-check"></i><b>3.3.4</b> geom_violin</a></li>
+<li class="chapter" data-level="3.3.5" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#geom_bar"><i class="fa fa-check"></i><b>3.3.5</b> geom_bar</a></li>
+<li class="chapter" data-level="3.3.6" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#geom_col"><i class="fa fa-check"></i><b>3.3.6</b> geom_col</a></li>
+<li class="chapter" data-level="3.3.7" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#other-geometrics"><i class="fa fa-check"></i><b>3.3.7</b> Other geometrics</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#enhancing-the-appearance-of-our-plots"><i class="fa fa-check"></i><b>3.4</b> Enhancing the appearance of our plots</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#titles"><i class="fa fa-check"></i><b>3.4.1</b> Titles</a></li>
+<li class="chapter" data-level="3.4.2" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#theme"><i class="fa fa-check"></i><b>3.4.2</b> Theme</a></li>
+<li class="chapter" data-level="3.4.3" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#configuring-the-coordinate-system"><i class="fa fa-check"></i><b>3.4.3</b> Configuring the coordinate system</a></li>
+<li class="chapter" data-level="3.4.4" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#color-scales"><i class="fa fa-check"></i><b>3.4.4</b> Color scales</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#advanced-plots"><i class="fa fa-check"></i><b>3.5</b> Advanced plots</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#using-facets"><i class="fa fa-check"></i><b>3.5.1</b> Using Facets</a></li>
+<li class="chapter" data-level="3.5.2" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#combining-multiple-geometric-layers"><i class="fa fa-check"></i><b>3.5.2</b> Combining multiple geometric layers</a></li>
+<li class="chapter" data-level="3.5.3" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#aes-inheritance"><i class="fa fa-check"></i><b>3.5.3</b> Aes-inheritance</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#background-material"><i class="fa fa-check"></i><b>3.6</b> Background material</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html"><i class="fa fa-check"></i><b>4</b> Descriptieve statistieken</a><ul>
+<li class="chapter" data-level="4.1" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#beschrijvende-statistieken-versus-exploratieve-plots"><i class="fa fa-check"></i><b>4.1</b> Beschrijvende statistieken versus exploratieve plots</a></li>
+<li class="chapter" data-level="4.2" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#notatie"><i class="fa fa-check"></i><b>4.2</b> Notatie</a></li>
+<li class="chapter" data-level="4.3" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#data"><i class="fa fa-check"></i><b>4.3</b> Data</a></li>
+<li class="chapter" data-level="4.4" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#univariate-statistieken"><i class="fa fa-check"></i><b>4.4</b> Univariate statistieken</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#categorische-variabele-1"><i class="fa fa-check"></i><b>4.4.1</b> Categorische variabele</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#frequentietabel"><i class="fa fa-check"></i>Frequentietabel</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#centrummaten"><i class="fa fa-check"></i>Centrummaten</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#spreidingsmaten"><i class="fa fa-check"></i>Spreidingsmaten</a></li>
+<li class="chapter" data-level="4.4.2" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#continue-variabele-1"><i class="fa fa-check"></i><b>4.4.2</b> Continue variabele</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#centrummaten-1"><i class="fa fa-check"></i>Centrummaten</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#spreidingsmaten-1"><i class="fa fa-check"></i>Spreidingsmaten</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#bivariate-statistieken"><i class="fa fa-check"></i><b>4.5</b> Bivariate statistieken</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#continu-versus-continu"><i class="fa fa-check"></i><b>4.5.1</b> Continu versus Continu</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#correlatie"><i class="fa fa-check"></i>Correlatie</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#vergelijking-correlatiecoëfficiënten"><i class="fa fa-check"></i>Vergelijking correlatiecoëfficiënten</a></li>
+<li class="chapter" data-level="4.5.2" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#categorisch-versus-continu"><i class="fa fa-check"></i><b>4.5.2</b> Categorisch versus Continu</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#univariate-statistieken-per-categoriewaarde"><i class="fa fa-check"></i>Univariate statistieken per categoriewaarde</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#correlatie-1"><i class="fa fa-check"></i>Correlatie</a></li>
+<li class="chapter" data-level="4.5.3" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#categorisch-versus-categorisch"><i class="fa fa-check"></i><b>4.5.3</b> Categorisch versus Categorisch</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#univariate-statistieken-per-categoriewaarde-1"><i class="fa fa-check"></i>Univariate statistieken per categoriewaarde</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#contingentietabellen"><i class="fa fa-check"></i>Contingentietabellen</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#referenties-2"><i class="fa fa-check"></i>Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html"><i class="fa fa-check"></i><b>5</b> Tutorial - Descriptieve statistieken</a><ul>
+<li class="chapter" data-level="5.1" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#before-you-start-1"><i class="fa fa-check"></i><b>5.1</b> Before you start</a></li>
+<li class="chapter" data-level="5.2" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#introduction-1"><i class="fa fa-check"></i><b>5.2</b> Introduction</a></li>
+<li class="chapter" data-level="5.3" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#helpful-dplyr-functions"><i class="fa fa-check"></i><b>5.3</b> Helpful dplyr functions</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#tibbles"><i class="fa fa-check"></i><b>5.3.1</b> Tibbles</a></li>
+<li class="chapter" data-level="5.3.2" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#glimpse"><i class="fa fa-check"></i><b>5.3.2</b> Glimpse</a></li>
+<li class="chapter" data-level="5.3.3" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#section"><i class="fa fa-check"></i><b>5.3.3</b> %&gt;%</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#univariate-analysis-of-a-continuous-variable"><i class="fa fa-check"></i><b>5.4</b> Univariate analysis of a continuous variable</a></li>
+<li class="chapter" data-level="5.5" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#bivariate-analysis-of-a-continuous-variable-with-respect-to-a-categorical-variable"><i class="fa fa-check"></i><b>5.5</b> Bivariate analysis of a continuous variable with respect to a categorical variable</a></li>
+<li class="chapter" data-level="5.6" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#univariate-analysis-of-a-categorical-variable"><i class="fa fa-check"></i><b>5.6</b> Univariate analysis of a categorical variable</a></li>
+<li class="chapter" data-level="5.7" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#bivariate-analysis-of-a-continuous-variable-with-respect-to-another-continuous-variable"><i class="fa fa-check"></i><b>5.7</b> Bivariate analysis of a continuous variable with respect to another continuous variable</a></li>
+<li class="chapter" data-level="5.8" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#bivariate-analysis-of-a-categorical-variable-with-respect-to-another-categorical-variable"><i class="fa fa-check"></i><b>5.8</b> Bivariate analysis of a categorical variable with respect to another categorical variable</a></li>
+<li class="chapter" data-level="5.9" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#background-material-1"><i class="fa fa-check"></i><b>5.9</b> Background material</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="storytelling-van-data-tot-inzicht.html"><a href="storytelling-van-data-tot-inzicht.html"><i class="fa fa-check"></i><b>6</b> Storytelling - van data tot inzicht</a></li>
+<li class="chapter" data-level="7" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html"><i class="fa fa-check"></i><b>7</b> Data voorbereiden</a><ul>
+<li class="chapter" data-level="7.1" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#beginnen-bij-het-begin"><i class="fa fa-check"></i><b>7.1</b> Beginnen bij het begin</a></li>
+<li class="chapter" data-level="7.2" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#data-inlezen"><i class="fa fa-check"></i><b>7.2</b> Data inlezen</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#uitdagingen-bij-het-correct-inlezen-van-data"><i class="fa fa-check"></i><b>7.2.1</b> Uitdagingen bij het correct inlezen van data</a></li>
+<li class="chapter" data-level="7.2.2" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#dataformaten"><i class="fa fa-check"></i><b>7.2.2</b> Dataformaten</a></li>
+<li class="chapter" data-level="7.2.3" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#data-encodering"><i class="fa fa-check"></i><b>7.2.3</b> Data-encodering</a></li>
+<li class="chapter" data-level="7.2.4" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#datatypes-controlleren-en-corrigeren"><i class="fa fa-check"></i><b>7.2.4</b> Datatypes controlleren en corrigeren</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#dataproblemen-identificeren-en-corrigeren"><i class="fa fa-check"></i><b>7.3</b> Dataproblemen identificeren en corrigeren</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#overzicht"><i class="fa fa-check"></i><b>7.3.1</b> Overzicht</a></li>
+<li class="chapter" data-level="7.3.2" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#foutieve-waarden"><i class="fa fa-check"></i><b>7.3.2</b> Foutieve waarden</a></li>
+<li class="chapter" data-level="7.3.3" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#ontbrekende-waarden"><i class="fa fa-check"></i><b>7.3.3</b> Ontbrekende waarden</a></li>
+<li class="chapter" data-level="7.3.4" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#inconsistente-waarden"><i class="fa fa-check"></i><b>7.3.4</b> Inconsistente waarden</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#data-opwaarderen"><i class="fa fa-check"></i><b>7.4</b> Data opwaarderen</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#sampling"><i class="fa fa-check"></i><b>7.4.1</b> Sampling</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#referenties-3"><i class="fa fa-check"></i>Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html"><i class="fa fa-check"></i><b>8</b> Tutorial - Data voorbereiden</a><ul>
+<li class="chapter" data-level="8.1" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#before-you-start-2"><i class="fa fa-check"></i><b>8.1</b> Before you start</a></li>
+<li class="chapter" data-level="8.2" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#introduction-2"><i class="fa fa-check"></i><b>8.2</b> Introduction</a></li>
+<li class="chapter" data-level="8.3" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#reading-data"><i class="fa fa-check"></i><b>8.3</b> Reading data</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#csv-and-tsv"><i class="fa fa-check"></i><b>8.3.1</b> CSV and TSV</a></li>
+<li class="chapter" data-level="8.3.2" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#excel"><i class="fa fa-check"></i><b>8.3.2</b> Excel</a></li>
+<li class="chapter" data-level="8.3.3" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#json-and-xml"><i class="fa fa-check"></i><b>8.3.3</b> JSON and XML</a></li>
+<li class="chapter" data-level="8.3.4" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#other-statistical-packages"><i class="fa fa-check"></i><b>8.3.4</b> Other statistical packages</a></li>
+<li class="chapter" data-level="8.3.5" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#databases"><i class="fa fa-check"></i><b>8.3.5</b> Databases</a></li>
+<li class="chapter" data-level="8.3.6" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#background-material-2"><i class="fa fa-check"></i><b>8.3.6</b> Background material</a></li>
+<li class="chapter" data-level="8.3.7" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#converting-variables"><i class="fa fa-check"></i><b>8.3.7</b> Converting variables</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#cleaning-data"><i class="fa fa-check"></i><b>8.4</b> Cleaning Data</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#duplicates-removal"><i class="fa fa-check"></i><b>8.4.1</b> Duplicates Removal</a></li>
+<li class="chapter" data-level="8.4.2" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#cleaning-categorical-variables"><i class="fa fa-check"></i><b>8.4.2</b> Cleaning Categorical Variables</a></li>
+<li class="chapter" data-level="8.4.3" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#recode-categorical-variables"><i class="fa fa-check"></i><b>8.4.3</b> Recode Categorical Variables</a></li>
+<li class="chapter" data-level="8.4.4" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#reorder-categorical-variables"><i class="fa fa-check"></i><b>8.4.4</b> Reorder Categorical Variables</a></li>
+<li class="chapter" data-level="8.4.5" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#cleaning-continuous-data"><i class="fa fa-check"></i><b>8.4.5</b> Cleaning continuous data</a></li>
+<li class="chapter" data-level="8.4.6" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#errors"><i class="fa fa-check"></i><b>8.4.6</b> Errors</a></li>
+<li class="chapter" data-level="8.4.7" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#outliers"><i class="fa fa-check"></i><b>8.4.7</b> Outliers</a></li>
+<li class="chapter" data-level="8.4.8" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#data-inconsistencies"><i class="fa fa-check"></i><b>8.4.8</b> Data inconsistencies</a></li>
+<li class="chapter" data-level="8.4.9" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#missing-values"><i class="fa fa-check"></i><b>8.4.9</b> Missing values</a></li>
+<li class="chapter" data-level="8.4.10" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#analyzing-missing-data"><i class="fa fa-check"></i><b>8.4.10</b> Analyzing missing data</a></li>
+<li class="chapter" data-level="8.4.11" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#working-around-missing-data"><i class="fa fa-check"></i><b>8.4.11</b> Working around missing data</a></li>
+<li class="chapter" data-level="8.4.12" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#visualizations"><i class="fa fa-check"></i><b>8.4.12</b> Visualizations</a></li>
+<li class="chapter" data-level="8.4.13" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#numerical-analysis"><i class="fa fa-check"></i><b>8.4.13</b> Numerical analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#transforming-data"><i class="fa fa-check"></i><b>8.5</b> Transforming Data</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#discretization-of-continuous-variables"><i class="fa fa-check"></i><b>8.5.1</b> Discretization of continuous variables</a></li>
+<li class="chapter" data-level="8.5.2" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#rescaling-continuous-variables"><i class="fa fa-check"></i><b>8.5.2</b> Rescaling continuous variables</a></li>
+<li class="chapter" data-level="8.5.3" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#adding-calculated-variables"><i class="fa fa-check"></i><b>8.5.3</b> Adding calculated variables</a></li>
+<li class="chapter" data-level="8.5.4" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#recode-categorical-variables-1"><i class="fa fa-check"></i><b>8.5.4</b> Recode Categorical Variables</a></li>
+<li class="chapter" data-level="8.5.5" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#collapsing-factors"><i class="fa fa-check"></i><b>8.5.5</b> Collapsing factors</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#using-transformations-in-visualizations."><i class="fa fa-check"></i><b>8.6</b> Using transformations in visualizations.</a></li>
+<li class="chapter" data-level="8.7" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#background-material-3"><i class="fa fa-check"></i><b>8.7</b> Background Material</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>9</b> Tidy data</a><ul>
+<li class="chapter" data-level="9.1" data-path="tidy-data.html"><a href="tidy-data.html#inleiding"><i class="fa fa-check"></i><b>9.1</b> Inleiding</a></li>
+<li class="chapter" data-level="9.2" data-path="tidy-data.html"><a href="tidy-data.html#case-nyc-vluchten-2013"><i class="fa fa-check"></i><b>9.2</b> Case: NYC Vluchten 2013</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="tidy-data.html"><a href="tidy-data.html#datasets-samenvoegen"><i class="fa fa-check"></i><b>9.2.1</b> Datasets samenvoegen</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="tidy-data.html"><a href="tidy-data.html#data-in-een-lang-formaat-plaatsen-voor-visuele-analyses"><i class="fa fa-check"></i><b>9.3</b> Data in een lang formaat plaatsen (voor visuele analyses)</a></li>
+<li class="chapter" data-level="9.4" data-path="tidy-data.html"><a href="tidy-data.html#data-in-een-breed-formaat-plaatsen-voor-overzichtelijke-tabellen"><i class="fa fa-check"></i><b>9.4</b> Data in een breed formaat plaatsen (voor overzichtelijke tabellen)</a></li>
+<li class="chapter" data-level="9.5" data-path="tidy-data.html"><a href="tidy-data.html#referenties-4"><i class="fa fa-check"></i><b>9.5</b> Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html"><i class="fa fa-check"></i><b>10</b> Tutorial - Tidy data</a><ul>
+<li class="chapter" data-level="10.1" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#before-you-start-3"><i class="fa fa-check"></i><b>10.1</b> Before you start</a></li>
+<li class="chapter" data-level="" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#disclaimer"><i class="fa fa-check"></i>Disclaimer</a></li>
+<li class="chapter" data-level="10.2" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#merging-data"><i class="fa fa-check"></i><b>10.2</b> Merging data</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#joining-data"><i class="fa fa-check"></i><b>10.2.1</b> Joining data</a></li>
+<li class="chapter" data-level="10.2.2" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#inner-join"><i class="fa fa-check"></i><b>10.2.2</b> Inner join</a></li>
+<li class="chapter" data-level="10.2.3" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#left-join"><i class="fa fa-check"></i><b>10.2.3</b> Left join</a></li>
+<li class="chapter" data-level="10.2.4" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#right-join"><i class="fa fa-check"></i><b>10.2.4</b> Right join</a></li>
+<li class="chapter" data-level="10.2.5" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#full-join"><i class="fa fa-check"></i><b>10.2.5</b> Full join</a></li>
+<li class="chapter" data-level="10.2.6" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#duplicates"><i class="fa fa-check"></i><b>10.2.6</b> Duplicates</a></li>
+<li class="chapter" data-level="10.2.7" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#an-example"><i class="fa fa-check"></i><b>10.2.7</b> An example</a></li>
+<li class="chapter" data-level="10.2.8" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#binding-data"><i class="fa fa-check"></i><b>10.2.8</b> Binding data</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#transforming-data-1"><i class="fa fa-check"></i><b>10.3</b> Transforming data</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#unite-variables"><i class="fa fa-check"></i><b>10.3.1</b> Unite variables</a></li>
+<li class="chapter" data-level="10.3.2" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#separate-variables"><i class="fa fa-check"></i><b>10.3.2</b> Separate variables</a></li>
+<li class="chapter" data-level="10.3.3" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#spread-data"><i class="fa fa-check"></i><b>10.3.3</b> Spread data</a></li>
+<li class="chapter" data-level="10.3.4" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#gather-data"><i class="fa fa-check"></i><b>10.3.4</b> Gather data</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#case-study-who"><i class="fa fa-check"></i><b>10.4</b> [Case study]: WHO</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="tijdsdata.html"><a href="tijdsdata.html"><i class="fa fa-check"></i><b>11</b> Tijdsdata</a><ul>
+<li class="chapter" data-level="11.1" data-path="tijdsdata.html"><a href="tijdsdata.html#inleiding-1"><i class="fa fa-check"></i><b>11.1</b> Inleiding</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="tijdsdata.html"><a href="tijdsdata.html#tijdstippen-versus-periodes"><i class="fa fa-check"></i><b>11.1.1</b> Tijdstippen versus periodes</a></li>
+<li class="chapter" data-level="11.1.2" data-path="tijdsdata.html"><a href="tijdsdata.html#afronden-van-tijdstippen"><i class="fa fa-check"></i><b>11.1.2</b> Afronden van tijdstippen</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="tijdsdata.html"><a href="tijdsdata.html#periode-data"><i class="fa fa-check"></i><b>11.2</b> Periode-data</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="tijdsdata.html"><a href="tijdsdata.html#interval-1"><i class="fa fa-check"></i><b>11.2.1</b> Interval</a></li>
+<li class="chapter" data-level="11.2.2" data-path="tijdsdata.html"><a href="tijdsdata.html#duration"><i class="fa fa-check"></i><b>11.2.2</b> Duration</a></li>
+<li class="chapter" data-level="11.2.3" data-path="tijdsdata.html"><a href="tijdsdata.html#period"><i class="fa fa-check"></i><b>11.2.3</b> Period</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="tijdsdata.html"><a href="tijdsdata.html#analyseren-van-tijdgerelateerde-data"><i class="fa fa-check"></i><b>11.3</b> Analyseren van tijdgerelateerde data</a></li>
+<li class="chapter" data-level="11.4" data-path="tijdsdata.html"><a href="tijdsdata.html#referenties-5"><i class="fa fa-check"></i><b>11.4</b> Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html"><i class="fa fa-check"></i><b>12</b> Tutorial - tijdsdata</a><ul>
+<li class="chapter" data-level="12.1" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#before-we-start"><i class="fa fa-check"></i><b>12.1</b> Before we start</a></li>
+<li class="chapter" data-level="12.2" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#introduction-3"><i class="fa fa-check"></i><b>12.2</b> Introduction</a></li>
+<li class="chapter" data-level="12.3" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#whats-in-a-date"><i class="fa fa-check"></i><b>12.3</b> What’s in a date?</a></li>
+<li class="chapter" data-level="12.4" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#theres-always-time"><i class="fa fa-check"></i><b>12.4</b> There’s always time</a></li>
+<li class="chapter" data-level="12.5" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#my-time-is-not-your-time"><i class="fa fa-check"></i><b>12.5</b> My time is not your time</a></li>
+<li class="chapter" data-level="12.6" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#extract-information-from-dates"><i class="fa fa-check"></i><b>12.6</b> Extract information from dates</a></li>
+<li class="chapter" data-level="12.7" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#time-differences"><i class="fa fa-check"></i><b>12.7</b> Time differences</a><ul>
+<li class="chapter" data-level="12.7.1" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#period-1"><i class="fa fa-check"></i><b>12.7.1</b> Period</a></li>
+<li class="chapter" data-level="12.7.2" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#durations"><i class="fa fa-check"></i><b>12.7.2</b> Durations</a></li>
+<li class="chapter" data-level="12.7.3" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#periods-are-not-durations"><i class="fa fa-check"></i><b>12.7.3</b> Periods are not durations</a></li>
+</ul></li>
+<li class="chapter" data-level="12.8" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#arithmetics"><i class="fa fa-check"></i><b>12.8</b> Arithmetics</a></li>
+<li class="chapter" data-level="12.9" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#interval-2"><i class="fa fa-check"></i><b>12.9</b> Interval</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Exploratieve en Descriptieve Data Analyse</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="tutorial---data-vizualisatie" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Tutorial - Data vizualisatie</h1>
+<div id="before-you-start" class="section level2">
+<h2><span class="header-section-number">3.1</span> Before you start</h2>
+<p>Before you start this tutorial, make sure to install the package <code>ggplot2</code>, if you haven’t already done so. You can do this using the following line of code:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</a></code></pre></div>
+<p>In any case, you need to load the package into your session.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">library</span>(ggplot2)</a></code></pre></div>
+<p>You also need two datasets, <code>movies</code> and <code>diamonds</code>. Both will be provided as a .RDS file with this tutorial.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1">movies &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;movies.RDS&quot;</span>)</a>
+<a class="sourceLine" id="cb4-2" title="2">diamonds &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;diamonds.RDS&quot;</span>)</a></code></pre></div>
+</div>
+<div id="introduction" class="section level2">
+<h2><span class="header-section-number">3.2</span> Introduction</h2>
+<p>Creating a plot with ggplot2 starts with the <code>ggplot()</code> function. The ggplot function has two important arguments</p>
+<ul>
+<li><strong>data</strong>: this will define the dataset to be used for the plot. This must be a data.frame.</li>
+<li><strong>mapping</strong>: the mapping will define how the variables are <em>mapped</em> onto the aesthetics<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> of the plot, as will be explained further on. This mapping must always be created using the <code>aes()</code> function .</li>
+</ul>
+<p>For example, we might want to make a scatterplot of the movies in which we use the x-axis for their budget and the y-axis for their rating. We then call ggplot as follows:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> movies, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> budget, <span class="dt">y =</span> rating))</a></code></pre></div>
+<p><img src="textbook_files/figure-html/unnamed-chunk-36-1.png" width="100%" /></p>
+<p>As you can see, this line of code creates a plot with the axes as defined. However, there is no data visualised. The reason herefore is that ggplot doesn’t know yet how we want to visualise it. We have to add what is called <em>a geometric layer</em>. To create a scatterplot, which consists of <em>points</em>, we add <code>geom_point</code> to the plot.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> movies, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> budget, <span class="dt">y =</span> rating)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>()</a></code></pre></div>
+<p><img src="textbook_files/figure-html/unnamed-chunk-37-1.png" width="100%" /></p>
+<p>This already looks more like it. Remark that the geometric layer was added to the plot by using the <code>+</code> symbol. In this way, multiple layers can be added to the same plot, as well as titles, labels, and configurations of the lay-out, as we will see further on.</p>
+<p>Note that we can also place the mapping of the aesthetics in the geometric layer itself. This will make our code slightly more readable for now, as we place the geometric layer and its mapping on the same line.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> movies) <span class="op">+</span></a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> budget, <span class="dt">y =</span> rating))</a></code></pre></div>
+<p><img src="textbook_files/figure-html/unnamed-chunk-38-1.png" width="100%" /></p>
+<p>We have now created our very first plot! In the following sections we will learn how to use different geometrics and aesthetics and how to enhance the layout of our graphs.</p>
+</div>
+<div id="different-geometrics" class="section level2">
+<h2><span class="header-section-number">3.3</span> Different geometrics</h2>
+<p>Next to <code>geom_point</code>, many more different geometrics exist to plot data in ggplot. You can check them out by typing ‘geom_’ in the console and navigating through the auto-completion list. Each of the geom-layers comes with their own specific set of aesthetics that can (and sometimes need to) be mapped. In this tutorial, we will focus mostly on the following geometric layers:</p>
+<ul>
+<li>geom_point</li>
+<li>geom_histogram</li>
+<li>geom_boxplot</li>
+<li>geom_violin</li>
+<li>geom_bar</li>
+<li>geom_col</li>
+</ul>
+<div id="geom_point" class="section level3">
+<h3><span class="header-section-number">3.3.1</span> geom_point</h3>
+<p>We already used <code>geom_point</code> to make our first graph, where we mapped two variables on the aesthetics <em>x</em> and <em>y</em>. However, there are some more aesthetics which can be set using this layer. Let’s look at them in more detail.</p>
+<ul>
+<li><strong>x</strong>: this will define the position of the points along the x-axis</li>
+<li><strong>y</strong>: this will define the position of the points along the y-axis</li>
+<li><strong>color</strong>: this will define the color of the points</li>
+<li><strong>shape</strong>: this will define the type of points to be plotted<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></li>
+<li><strong>fill</strong>: this will define how the points are filled (for shapes 21-25)</li>
+<li><strong>size</strong>: this will define the size of the points</li>
+<li><strong>stroke</strong>: this will define the width of the border</li>
+<li><strong>alpha</strong>: this will define the degree of transparancy</li>
+</ul>
+<p>For example, the graph below will plot black triangles filled with red with a size of 2. Note that the position of the triangles is exactly the same as the position of the points in the previous plot.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> movies) <span class="op">+</span></a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> budget, <span class="dt">y =</span> rating), </a>
+<a class="sourceLine" id="cb8-3" title="3">               <span class="dt">shape =</span> <span class="dv">24</span>, </a>
+<a class="sourceLine" id="cb8-4" title="4">               <span class="dt">fill =</span> <span class="st">&quot;red&quot;</span>, </a>
+<a class="sourceLine" id="cb8-5" title="5">               <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, </a>
+<a class="sourceLine" id="cb8-6" title="6">               <span class="dt">size =</span> <span class="dv">2</span>)</a></code></pre></div>
+<p><img src="textbook_files/figure-html/unnamed-chunk-39-1.png" width="100%" /></p>
+<p>But wait, there is something important going on here! While the x and y-aesthetics were defined inside the aes-mapping, the other aesthetics were defined outside of it. Why’s that?</p>
+<p>Actually, aesthetics can be set in two different ways:</p>
+<ol style="list-style-type: decimal">
+<li>They can be <em>mapped</em> to a variable in the dataset.</li>
+<li>They can be set to one fixed value.</li>
+</ol>
+<p>In our example, x and y are mapped to two variables in the data, i.e. budget and rating, while the other aesthetics, shape, fill, color and size, are set to fixed values. Although some of the aesthetics typically are always mapped, such as x and y-positions, some others can be a fixed value as well as a mapped variable. For instance, what happens if we map the color of points to a variable, say the variable Action.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> movies) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> budget, </a>
+<a class="sourceLine" id="cb9-3" title="3">                             <span class="dt">y =</span> rating, </a>
+<a class="sourceLine" id="cb9-4" title="4">                             <span class="dt">color =</span> Action))</a></code></pre></div>
+<p><img src="textbook_files/figure-html/unnamed-chunk-40-1.png" width="100%" /></p>
+<p>We see that points are now colored with respect to the value in the variable Action. Action movies receive a green color, while other movies receive a red color, which we can see in the legend that appeared.</p>
+<p>Also the other fixed aesthetics can be used in a mapping. The next example uses the variable Animation for the shape mapping.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> movies) <span class="op">+</span></a>
+<a class="sourceLine" id="cb10-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> budget, </a>
+<a class="sourceLine" id="cb10-3" title="3">                             <span class="dt">y =</span> rating, </a>
+<a class="sourceLine" id="cb10-4" title="4">                             <span class="dt">color =</span> Action, </a>
+<a class="sourceLine" id="cb10-5" title="5">                              <span class="dt">shape =</span> Animation))</a></code></pre></div>
+<p><img src="textbook_files/figure-html/unnamed-chunk-41-1.png" width="100%" /></p>
+<p>Great! We now completely understand the geom_point layer, and the working of the aesthetics-mapping. Now it’s time to look at some other geometric layers. We start with histograms.</p>
+</div>
+<div id="geom_histogram" class="section level3">
+<h3><span class="header-section-number">3.3.2</span> geom_histogram</h3>
+<p>The <em>geom_histogram</em> layer can be used to plot a histogram. As you should already know, a histogram represents the distribution of <strong>one</strong> continuous variable. As a result, there is only an x-aesthetic that should be set, and no y-aesthetic. The complete list of aesthetics is as follows:</p>
+<ul>
+<li><strong>x</strong>: this will define the variable to be used</li>
+<li><strong>color</strong>: this will define the color of the borders</li>
+<li><strong>fill</strong>: this will define how the histogram is filled</li>
+<li><strong>size</strong>: this will define the size of the border</li>
+<li><strong>linetype</strong>: this will define the type of the border<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></li>
+<li><strong>alpha</strong>: this will define the degree of transparancy</li>
+<li><strong>weight</strong>: this will define how observations should be weigthed. By default, each observation is weigthed as one.</li>
+</ul>
+<p>Using our knowledge on how to use aesthetics from before, it is now very easy to make a histogram. Let’s make a histogram for the rating of movies. We will give it a black border with a white fill. Ready to try?</p>
+<p>Let’s have a look.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span></a>
+<a class="sourceLine" id="cb11-2" title="2"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(rating), <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>)</a></code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="textbook_files/figure-html/unnamed-chunk-42-1.png" width="100%" /></p>
+<p>Note that several things were omitted in these two lines of codes. In particular, the argument name <em>data</em> in ggplot, <em>mapping</em> in geom_histogram and <em>x</em> in aes. Since we know that these are the first arguments of these functions, we can safely omit them, as long as we follow the correct order of arguments. However, we cannot omit <em>color</em> and <em>fill</em>, as these are not the second and third argument of geom_histogram. Whenever in doubt, just play safe and write down the proper argument names.</p>
+<p>However, that’s not the only thing which is tricky here. Indeed, a warning pops up: <code>stat_bin()</code> using <code>bins = 30</code>. Pick better value with <code>binwidth</code>. This warning reminds us to the fact that a default value for the number of bins is chosen by geom_histogram, which is propably not suitable for our graph. We can change the binwidth by adding it as an argument to the geom_histogram call.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span></a>
+<a class="sourceLine" id="cb13-2" title="2"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(rating), <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">binwidth =</span> <span class="fl">0.5</span>)</a></code></pre></div>
+<p><img src="textbook_files/figure-html/unnamed-chunk-43-1.png" width="100%" /></p>
+<p>Often, the binwidth has an important impact on how the obtained histogram looks like. Carefully configuring this argument by experimenting with different values is therefore important.</p>
+<p>In the last plot, we used a fixed color for filling the bars of the histogram. But as we already know by now, we can also map it to a variable in the data. Let’s use the variable <em>Action</em> one more time.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span></a>
+<a class="sourceLine" id="cb14-2" title="2"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(rating, <span class="dt">fill =</span> Action), <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">binwidth =</span> <span class="fl">0.5</span>)</a></code></pre></div>
+<p><img src="textbook_files/figure-html/unnamed-chunk-44-1.png" width="100%" /></p>
+<p>Note how we moved the fill argument inside the <code>aes</code>function. Now, each of the bars is filled with two colors: one part for Action movies, and the remainder for other movies. Although it is not very clear in this graph, it appears that the center of the histogram for action movies is slightly more to the left.</p>
+<p>Note how the punctuation changes when moving to the aes-mapping: variable names are always used without quotes, i.e. <em>bare</em> variable names, while fixed aesthetics (colors, shapes, linetypes) are used with quotes (except for numbers). It is important to not mess this up!</p>
+<p>By default, the histogram for the different <em>fills</em> are stacked, i.e. placed on top of each other. However, we can use the <em>position</em> argument of geom_histogram to put the bars next to each other, or <em>dodged</em>.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span></a>
+<a class="sourceLine" id="cb15-2" title="2"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(rating, <span class="dt">fill =</span> Action), </a>
+<a class="sourceLine" id="cb15-3" title="3">                   <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">binwidth =</span> <span class="fl">0.5</span>, <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>)</a></code></pre></div>
+<p><img src="textbook_files/figure-html/unnamed-chunk-45-1.png" width="100%" /></p>
+<p>Using position = “dodge”, the bars for Action movies and non-Action movies are placed next to each other, instead of on top of one another. We can go back to the original graph by using position = “stack”, or just omitting this argument. Later on we will see how to handle such things better by using grids of different plots, or so-called <em>facets</em>.</p>
+<p>All good so far? Let’s look at another way to visualize the distribution of continuous variables, i.e. the boxplot.</p>
+</div>
+<div id="geom_boxplot" class="section level3">
+<h3><span class="header-section-number">3.3.3</span> geom_boxplot</h3>
+<p>A boxplot places the values of the variable along the y-axis. So, if we want to make a boxplot for ratings, we should use <code>aes(y = ratings)</code>. However, something tricky is going on here… The aesthetics for geom_boxplot are the following</p>
+<ul>
+<li><strong>x</strong>: this will define the variable used for the x-axis</li>
+<li><strong>y</strong>: this will define the variable used for the y-axis</li>
+<li><strong>color</strong>: this will define the color of the borders</li>
+<li><strong>fill</strong>: this will define how the boxplot is filled</li>
+<li><strong>size</strong>: this will define the size of the border</li>
+<li><strong>linetype</strong>: this will define the type of the border</li>
+<li><strong>alpha</strong>: this will define the degree of transparancy</li>
+<li><strong>weight</strong>: this will define how observations should be weigthed. By default, each observation is weigthed as one.</li>
+</ul>
+<p>Thus, the boxplot needs both an x-variable and an y-variable? That seems strange at first sight. The reason behind this is that in the philosophy of ggplot, always <em>something</em> must be plot on both x and y-axes. Although only a x-variable is given to a histogram, it will compute frequencies to plot on the y-axis. However, there is no such thing going to happen for boxplots. As a result, the x-axis should be used to map different categories for which the distribution can then be compared. For instance, we can compare the rating for Action movies with those for other movies.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb16-2" title="2"><span class="st">    </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(Action, rating))</a></code></pre></div>
+<p><img src="textbook_files/figure-html/unnamed-chunk-46-1.png" width="100%" /></p>
+<p>Here we see that, as we already suspected, Action movies tend to have a lower rating compared to other movies. We can change the color and the fill of the boxplot just like before, as well as the linetype, the size of the border, or the transparency.</p>
+<p>But, what if we just want to plot a boxplot of the overal rating, without having to specify a variable for the x-axis? A little workaround is needed here. One possibility is to use an <em>empty string</em> for the x-axis mapping.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span></a>
+<a class="sourceLine" id="cb17-2" title="2"><span class="st">    </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="st">&quot;&quot;</span>, rating))</a></code></pre></div>
+<p><img src="textbook_files/figure-html/unnamed-chunk-47-1.png" width="100%" /></p>
+<p>Note that this creates the label “x” for the x-axis, where we would normally find the name of the variable mapped onto it. Later we will see how to omit this label to make our graph a little nicer.</p>
+</div>
+<div id="geom_violin" class="section level3">
+<h3><span class="header-section-number">3.3.4</span> geom_violin</h3>
+<p>The violin-plot is similar to the boxplot, although it will reflect in more detail where the mass of the values is located. Its aesthetics are the same as for a boxplot.</p>
+<ul>
+<li><strong>x</strong>: this will define the variable used for the x-axis</li>
+<li><strong>y</strong>: this will define the variable used for the y-axis</li>
+<li><strong>color</strong>: this will define the color of the borders</li>
+<li><strong>fill</strong>: this will define how the violin is filled</li>
+<li><strong>size</strong>: this will define the size of the border</li>
+<li><strong>linetype</strong>: this will define the type of the border</li>
+<li><strong>alpha</strong>: this will define the degree of transparency</li>
+<li><strong>weight</strong>: this will define how observations should be weighted. By default, each observation is weigthed as one.</li>
+</ul>
+<p>Let’s make the same graphs, now using the violin-plot.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb18-2" title="2"><span class="st">    </span><span class="kw">geom_violin</span>(<span class="kw">aes</span>(Action, rating))</a></code></pre></div>
+<p><img src="textbook_files/figure-html/unnamed-chunk-48-1.png" width="100%" /></p>
+<p>It’s probably clear now where this type of graph got its name from. As you can see, violin plots somehow sit in between boxplots and histograms. However, since their width is normalized, they can be used better for comparison. Also here, we can use the same workaround if we want to plot the overal distribution.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span></a>
+<a class="sourceLine" id="cb19-2" title="2"><span class="st">    </span><span class="kw">geom_violin</span>(<span class="kw">aes</span>(<span class="st">&quot;&quot;</span>, rating))</a></code></pre></div>
+<p><img src="textbook_files/figure-html/unnamed-chunk-49-1.png" width="100%" /></p>
+<p>So far, we have seen three different ways to analyse the distribution of continuous variables. Now, we will look into barplots, which can be used to represent categorical distribution.</p>
+</div>
+<div id="geom_bar" class="section level3">
+<h3><span class="header-section-number">3.3.5</span> geom_bar</h3>
+<p>Just like a histogram, a barplot only needs an x variable. The difference is that this variable needs to be categorical, while for histograms it needs to be continuous. The full list of aesthetics is the following:</p>
+<ul>
+<li><strong>x</strong>: this will define the variable used for the x-axis</li>
+<li><strong>color</strong>: this will define the color of the borders</li>
+<li><strong>fill</strong>: this will define how the bars are filled</li>
+<li><strong>size</strong>: this will define the size of the border</li>
+<li><strong>linetype</strong>: this will define the type of the border</li>
+<li><strong>alpha</strong>: this will define the degree of transparency</li>
+<li><strong>weight</strong>: this will define how observations should be weigthed. By default, each observation is weigthed as one.</li>
+</ul>
+<p>We can make a simple bar chart that shows how many Action movies there are, and how many other movies, as follows.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span></a>
+<a class="sourceLine" id="cb20-2" title="2"><span class="st">    </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(Action))</a></code></pre></div>
+<p><img src="textbook_files/figure-html/unnamed-chunk-50-1.png" width="100%" /></p>
+<p>Furthermore, we could add colors to this, according to the number of Animation movies. We immediately see that there are almost no Action movies which are also animation movies.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span></a>
+<a class="sourceLine" id="cb21-2" title="2"><span class="st">    </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(Action, <span class="dt">fill =</span> Animation)) </a></code></pre></div>
+<p><img src="textbook_files/figure-html/unnamed-chunk-51-1.png" width="100%" /></p>
+<p>We can do the same for Romance and Comedy movies.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span></a>
+<a class="sourceLine" id="cb22-2" title="2"><span class="st">    </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(Romance, <span class="dt">fill =</span> Comedy)) </a></code></pre></div>
+<p><img src="textbook_files/figure-html/unnamed-chunk-52-1.png" width="100%" /></p>
+<p>In contrast, it can be seen here that approximately half of the Romantic movies are also comedy, which is more compared to non-romantic movies.</p>
+<p>Remember that, in case of histograms, we could change the position to “dodge”, which placed the bars next to each other. The same can be done here.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span></a>
+<a class="sourceLine" id="cb23-2" title="2"><span class="st">    </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(Romance, <span class="dt">fill =</span> Comedy), <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>) </a></code></pre></div>
+<p><img src="textbook_files/figure-html/unnamed-chunk-53-1.png" width="100%" /></p>
+<p>A third option that is available for the position is to extend the bars so that they have the same height. As a result, we will observe the distribution of values as a part of a whole. Instead of the count, the labels on the y-axis will now depict the percentage points.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span></a>
+<a class="sourceLine" id="cb24-2" title="2"><span class="st">    </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(Romance, <span class="dt">fill =</span> Comedy), <span class="dt">position =</span> <span class="st">&quot;fill&quot;</span>) </a></code></pre></div>
+<p><img src="textbook_files/figure-html/unnamed-chunk-54-1.png" width="100%" /></p>
+<p>Finally, if we want to do this to show the distribution of one variable, we can use the same workaround as before and set the x-aesthetic to "". The plot below will show the portion of all movies that are comedies.<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a></p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span></a>
+<a class="sourceLine" id="cb25-2" title="2"><span class="st">    </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(<span class="st">&quot;&quot;</span>, <span class="dt">fill =</span> Comedy), <span class="dt">position =</span> <span class="st">&quot;fill&quot;</span>) </a></code></pre></div>
+<p><img src="textbook_files/figure-html/unnamed-chunk-55-1.png" width="100%" /></p>
+</div>
+<div id="geom_col" class="section level3">
+<h3><span class="header-section-number">3.3.6</span> geom_col</h3>
+<p>When we use geom_bar, the heights of the bars are computed by using the frequency of the categorical variable. However, sometimes we just want to plot a bar chart with values that are already in the data, or values which we computed ourselves. For instance, what if we wanted a barchart depicting the budget of a set of movies? In such a case, we can use <em>geom_col</em>. “Col” indicates that we want to use a column in the data to set the height of the bars. The aesthetics are the same for geom_bar, only now we need to specify a variable for the y-axis, evidently.</p>
+<ul>
+<li><strong>x</strong>: this will define the variable used for the x-axis</li>
+<li><strong>y</strong>: this will define the variable used for the y-axis</li>
+<li><strong>color</strong>: this will define the color of the borders</li>
+<li><strong>fill</strong>: this will define how the bars are filled</li>
+<li><strong>size</strong>: this will define the size of the border</li>
+<li><strong>linetype</strong>: this will define the type of the border</li>
+<li><strong>alpha</strong>: this will define the degree of transparency</li>
+<li><strong>weight</strong>: this will define how observations should be weigthed. By default, each observation is weigthed as one.</li>
+</ul>
+<p>Let’s make a barplot depicting the budget of all movies from 2004 where the budget was higher than 100 million.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1"><span class="kw">filter</span>(movies, year <span class="op">==</span><span class="st"> </span><span class="dv">2004</span>, budget <span class="op">&gt;</span><span class="st"> </span><span class="dv">100000000</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb26-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb26-3" title="3"><span class="st">    </span><span class="kw">geom_col</span>(<span class="kw">aes</span>(title, budget))</a></code></pre></div>
+<p><img src="textbook_files/figure-html/unnamed-chunk-56-1.png" width="100%" /></p>
+<p>Do you notice something strange in the code? Don’t worry if you don’t understand the first line. All you need to know is that we filtered movies from 2004 with a budget higher than 100 million. The strange looking %&gt;% symbol will make sure this data is passed to ggplot. We will come back to this in another session.<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a></p>
+<p>We have now plotted movie titles on the x-axis and budget on the y-axis. Great! Or not so? The values on the x-asis are somewhat cluttered and unreadable. It’s time now to give some attention to the layout of our plots!</p>
+</div>
+<div id="other-geometrics" class="section level3">
+<h3><span class="header-section-number">3.3.7</span> Other geometrics</h3>
+<p>So far, we used the most important geometrics to make simple visualizations: scatterplots, histograms, boxplots, violinplots and bar plots. However, we only covered the tip of the iceberg, as many more types exist, some simple and some more advanced. An overview of all geoms and their uses can be found in the <a href="https://www.rstudio.com/wp-content/uploads/2015/12/ggplot2-cheatsheet-2.0.pdf">ggplot Cheat Sheet</a>, of which an extract is shown here. Don’t be afraid to try something out!</p>
+<p><img src="images/geoms.PNG" /></p>
+</div>
+</div>
+<div id="enhancing-the-appearance-of-our-plots" class="section level2">
+<h2><span class="header-section-number">3.4</span> Enhancing the appearance of our plots</h2>
+<p>So far, we have mainly looked at different types of plots and how to map them on our data. In this section, we will focus on the presentation of the plot, e.g. titles, colors, axes, etc. The concepts introduced in this section can be applied for any type of plot, no matter which geometric object is used.</p>
+<p>In this section, the dataset “diamonds” will be used. The plot below will be used as a starting point.<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a></p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" title="1"><span class="kw">ggplot</span>(diamonds) <span class="op">+</span></a>
+<a class="sourceLine" id="cb27-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(table, depth, <span class="dt">color =</span> cut))</a></code></pre></div>
+<p><img src="textbook_files/figure-html/unnamed-chunk-57-1.png" width="100%" /></p>
+<div id="titles" class="section level3">
+<h3><span class="header-section-number">3.4.1</span> Titles</h3>
+<p>One of the most important things to add to our plot are titles. Titles are used to give meaning to the axis as well as the plot itself. The most straightforward way to add titles is to use the function <code>labs()</code>. In this function, 4 arguments can be set: the title, the subtitle, x for the x label and y for the y label. The labs function can just be added to the plot as an extra layer.</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" title="1"><span class="kw">data</span>(<span class="st">&quot;diamonds&quot;</span>)</a>
+<a class="sourceLine" id="cb28-2" title="2"><span class="kw">ggplot</span>(diamonds) <span class="op">+</span></a>
+<a class="sourceLine" id="cb28-3" title="3"><span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(table, depth, <span class="dt">color =</span> cut)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb28-4" title="4"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Comparing table and depth of diamonds&quot;</span>,</a>
+<a class="sourceLine" id="cb28-5" title="5">         <span class="dt">subtitle =</span> <span class="st">&quot;What combination of table and depth gives good quality diamonds?&quot;</span>,</a>
+<a class="sourceLine" id="cb28-6" title="6">         <span class="dt">x =</span> <span class="st">&quot;Table&quot;</span>,</a>
+<a class="sourceLine" id="cb28-7" title="7">         <span class="dt">y =</span> <span class="st">&quot;Depth&quot;</span>)</a></code></pre></div>
+<p><img src="textbook_files/figure-html/unnamed-chunk-58-1.png" width="100%" /></p>
+<p>You’ll see that our graph already looks much better when titles are added! However, there is much more to improve.</p>
+</div>
+<div id="theme" class="section level3">
+<h3><span class="header-section-number">3.4.2</span> Theme</h3>
+<p>The <em>theme</em> of a plot defines its overall appearance: the gridlines, the background, the size of the text, titles and legend, the position of the legend, etc. The theme can be defined manually by adding a <code>theme()</code> layer to the plot and by setting the required arguments. (You can look at ?theme to see the arguments which are avaibable). However, this is a cumbersome approach. Fortunately, some predefined themes are provided in ggplot:</p>
+<ul>
+<li><strong>theme_gray</strong>: the default theme (used so far)</li>
+<li><strong>theme_bw</strong>: a theme for black-white plots</li>
+<li><strong>theme_dark</strong>: a dark theme for contrast</li>
+<li><strong>theme_classic</strong>: a minimal theme</li>
+<li><strong>theme_light</strong>: another minimal theme</li>
+<li><strong>theme_linedraw</strong>: yet another minimal theme</li>
+<li><strong>theme_minimal</strong>: yet another minimal theme</li>
+<li><strong>theme_void</strong>: an empty theme</li>
+</ul>
+<p>Feel free to experiment with some of these themes. Preferably, you can use some of the minimal themes. Here, we used the theme_light theme.<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a></p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" title="1"><span class="kw">ggplot</span>(diamonds) <span class="op">+</span></a>
+<a class="sourceLine" id="cb29-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(table, depth, <span class="dt">color =</span> cut)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb29-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Comparing table and depth of diamonds&quot;</span>,</a>
+<a class="sourceLine" id="cb29-4" title="4">         <span class="dt">subtitle =</span> <span class="st">&quot;What combination of table and depth gives good quality diamonds?&quot;</span>,</a>
+<a class="sourceLine" id="cb29-5" title="5">         <span class="dt">x =</span> <span class="st">&quot;Table&quot;</span>,</a>
+<a class="sourceLine" id="cb29-6" title="6">         <span class="dt">y =</span> <span class="st">&quot;Depth&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb29-7" title="7"><span class="st">    </span><span class="kw">theme_light</span>()</a></code></pre></div>
+<p><img src="textbook_files/figure-html/unnamed-chunk-59-1.png" width="100%" /></p>
+<p>When you are not yet satisfied with any of these themes, you can install the package <code>ggthemes</code> to get hold of even more themes, such as the theme from <em>The Economist</em>, <em>fivethirtyeight.com</em>, or <em>Google Docs</em>.</p>
+</div>
+<div id="configuring-the-coordinate-system" class="section level3">
+<h3><span class="header-section-number">3.4.3</span> Configuring the coordinate system</h3>
+<p>The appearance of the graph is not only defined by the titles and the graphics. Also the axes in the coordinate system need some attention. One thing to decide on are the limits of the coordinate system. This can be done using the function <code>coord_cartesian</code> and its arguments <em>xlim</em> and <em>ylim</em>. Both arguments expect a numerical vector of length two. Let’s see how this works in our example.<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a></p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" title="1"><span class="kw">ggplot</span>(diamonds) <span class="op">+</span></a>
+<a class="sourceLine" id="cb30-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(table, depth, <span class="dt">color =</span> cut)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb30-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Comparing table and depth of diamonds&quot;</span>,</a>
+<a class="sourceLine" id="cb30-4" title="4">         <span class="dt">subtitle =</span> <span class="st">&quot;What combination of table and depth gives good quality diamonds?&quot;</span>,</a>
+<a class="sourceLine" id="cb30-5" title="5">         <span class="dt">x =</span> <span class="st">&quot;Table&quot;</span>,</a>
+<a class="sourceLine" id="cb30-6" title="6">         <span class="dt">y =</span> <span class="st">&quot;Depth&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb30-7" title="7"><span class="st">    </span><span class="kw">theme_light</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb30-8" title="8"><span class="st">    </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">45</span>,<span class="dv">75</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">75</span>))</a></code></pre></div>
+<p><img src="textbook_files/figure-html/unnamed-chunk-60-1.png" width="100%" /></p>
+<p>We have now limited the x-axis to the interval from 45 to 75, while we have limited the y-axis to the interval 50 to 75. There are some alternatives to the cartesian coordinate system which are less often used. Notable ones are:</p>
+<ul>
+<li>coord_equal: a coordinate system where the x-axis and y-axis are scaled equally (i.e. ration = 1)</li>
+<li>coord_fixed: a coordinate system with a fixed ratio</li>
+<li>coord_polar: a coordinate system for polar plots, or pie charts</li>
+<li>coord_map: a coordinate system for plotting geographical data.</li>
+</ul>
+<p>Next to setting the limits of the coordinate system, we can also set the breaks on the x-axis and y-axis. This can be done using the functions <code>scale_x_continuous</code> and <code>scale_y_continuous</code> respectively. Both functions have a <em>breaks</em> argument. This argument can be given a vector of values to be plot as labels on the axis.<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a> We can use the function <code>seq</code> to create this vector: i.e. <code>seq(0,10,5)</code> will return a vector starting at 0 and increasing to ten with intervals of 5.<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a></p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" title="1"><span class="kw">ggplot</span>(diamonds) <span class="op">+</span></a>
+<a class="sourceLine" id="cb31-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(table, depth, <span class="dt">color =</span> cut)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb31-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Comparing table and depth of diamonds&quot;</span>,</a>
+<a class="sourceLine" id="cb31-4" title="4">         <span class="dt">subtitle =</span> <span class="st">&quot;What combination of table</span></a>
+<a class="sourceLine" id="cb31-5" title="5"><span class="st">         and depth gives good quality diamonds?&quot;</span>,</a>
+<a class="sourceLine" id="cb31-6" title="6">         <span class="dt">x =</span> <span class="st">&quot;Table&quot;</span>,</a>
+<a class="sourceLine" id="cb31-7" title="7">         <span class="dt">y =</span> <span class="st">&quot;Depth&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb31-8" title="8"><span class="st">    </span><span class="kw">theme_light</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb31-9" title="9"><span class="st">    </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">45</span>,<span class="dv">75</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">75</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb31-10" title="10"><span class="st">    </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">45</span>,<span class="dv">75</span>,<span class="dv">5</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb31-11" title="11"><span class="st">    </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">50</span>,<span class="dv">75</span>,<span class="dv">5</span>))</a></code></pre></div>
+<p><img src="textbook_files/figure-html/unnamed-chunk-61-1.png" width="100%" /></p>
+<p>Another useful function is the <code>coord_flip</code> function, which we will illustrate with the following graph we saw earlier.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" title="1"><span class="kw">filter</span>(movies, year <span class="op">==</span><span class="st"> </span><span class="dv">2004</span>, budget <span class="op">&gt;</span><span class="st"> </span><span class="dv">100000000</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb32-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb32-3" title="3"><span class="st">    </span><span class="kw">geom_col</span>(<span class="kw">aes</span>(title, budget))</a></code></pre></div>
+<p><img src="textbook_files/figure-html/unnamed-chunk-62-1.png" width="100%" /></p>
+<p>As you may remember, the movie titles on the x-axis were overlapping and therefore unreadable. One way to fix this is to <em>flip</em> the entire graph, such that the labels of the x-asis are placed on the y-axis, and can be read horizontally.</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" title="1"><span class="kw">filter</span>(movies, year <span class="op">==</span><span class="st"> </span><span class="dv">2004</span>, budget <span class="op">&gt;</span><span class="st"> </span><span class="dv">100000000</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb33-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb33-3" title="3"><span class="st">    </span><span class="kw">geom_col</span>(<span class="kw">aes</span>(title, budget)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb33-4" title="4"><span class="st">    </span><span class="kw">coord_flip</span>()</a></code></pre></div>
+<p><img src="textbook_files/figure-html/unnamed-chunk-63-1.png" width="100%" /></p>
+<p>Another option is to keep the original orientation, but the change the orientation of the labels on the x-axis. You could rotate them by 45 or 90 degrees, for instance. This can be done with the <code>theme</code> function. Ready to experiment? Challenge yourself!</p>
+<p>As our code contains more and more lines, our plot is getting nicer and nicer! Good job! The last thing on our list are colors.</p>
+</div>
+<div id="color-scales" class="section level3">
+<h3><span class="header-section-number">3.4.4</span> Color scales</h3>
+<p>Often, we use color or fill to visualise categorical data, such as the quality of the cut in our graph about diamonds. By default, ggplot will use a rainbow theme. However, many more palettes are available. We can add these by using <code>scale_color_brewer</code> or <code>scale_fill_brewer</code>, depending on whether it concerns a color or fill-color. Both layers have a palette argument, of which the possible values can be found below.</p>
+<div class="figure">
+<img src="images/brewer-pal.png" alt="R color palettes" />
+<p class="caption">R color palettes</p>
+</div>
+<p>For instance, let’s use the Set1 pallete.</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" title="1"><span class="kw">ggplot</span>(diamonds) <span class="op">+</span></a>
+<a class="sourceLine" id="cb34-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(table, depth, <span class="dt">col =</span> cut)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb34-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Comparing table and depth of diamonds&quot;</span>,</a>
+<a class="sourceLine" id="cb34-4" title="4">         <span class="dt">subtitle =</span> <span class="st">&quot;What combination of table and depth gives good quality diamonds?&quot;</span>,</a>
+<a class="sourceLine" id="cb34-5" title="5">         <span class="dt">x =</span> <span class="st">&quot;Table&quot;</span>,</a>
+<a class="sourceLine" id="cb34-6" title="6">         <span class="dt">y =</span> <span class="st">&quot;Depth&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb34-7" title="7"><span class="st">    </span><span class="kw">theme_light</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb34-8" title="8"><span class="st">    </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">45</span>,<span class="dv">75</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">75</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb34-9" title="9"><span class="st">    </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">45</span>,<span class="dv">75</span>,<span class="dv">5</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb34-10" title="10"><span class="st">    </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">50</span>,<span class="dv">75</span>,<span class="dv">5</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb34-11" title="11"><span class="st">    </span><span class="kw">scale_color_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>)</a></code></pre></div>
+<p><img src="textbook_files/figure-html/unnamed-chunk-64-1.png" width="100%" /></p>
+<p>The scale_._brewer functions also have the argument <code>name</code>, which we can use to set the name of the legend, and the argument <code>guide</code>, which will remove the legend if set to FALSE.</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" title="1"><span class="kw">ggplot</span>(diamonds) <span class="op">+</span></a>
+<a class="sourceLine" id="cb35-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(table, depth, <span class="dt">col =</span> cut)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb35-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Comparing table and depth of diamonds&quot;</span>,</a>
+<a class="sourceLine" id="cb35-4" title="4">         <span class="dt">subtitle =</span> <span class="st">&quot;What combination of table and depth gives good quality diamonds?&quot;</span>,</a>
+<a class="sourceLine" id="cb35-5" title="5">         <span class="dt">x =</span> <span class="st">&quot;Table&quot;</span>,</a>
+<a class="sourceLine" id="cb35-6" title="6">         <span class="dt">y =</span> <span class="st">&quot;Depth&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb35-7" title="7"><span class="st">    </span><span class="kw">theme_light</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb35-8" title="8"><span class="st">    </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">45</span>,<span class="dv">75</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">75</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb35-9" title="9"><span class="st">    </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">45</span>,<span class="dv">75</span>,<span class="dv">5</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb35-10" title="10"><span class="st">    </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">50</span>,<span class="dv">75</span>,<span class="dv">5</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb35-11" title="11"><span class="st">    </span><span class="kw">scale_color_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>, <span class="dt">name =</span> <span class="st">&quot;Diamond Cut Quality&quot;</span>)</a></code></pre></div>
+<p><img src="textbook_files/figure-html/unnamed-chunk-65-1.png" width="100%" /></p>
+<p>Next to the standard color palettes avaiable, many more can be found in the packages <code>ggthemes</code> and <code>ggsci</code>. They can be used by adding <em>scale_color</em>+ name of the palette. Feel free to explore some more!</p>
+</div>
+</div>
+<div id="advanced-plots" class="section level2">
+<h2><span class="header-section-number">3.5</span> Advanced plots</h2>
+<p>Often, you want to compare plots for different categories of a variable. In our example, we looked for which combinations of table and depth, the cut of the diamond was good. We now want to know whether there is a difference between the 8 different clarity levels in the data. One way would be to make 8 different plots, one for each of the levels. However, this would be cumbersome to put together. Fortunately, we can use the function <code>facet_grid</code> to create different plots within a plot.</p>
+<div id="using-facets" class="section level3">
+<h3><span class="header-section-number">3.5.1</span> Using Facets</h3>
+<p>This function expects a formula in the form of <code>A ~ B</code> where A and B are two categorical variables. For each combination of values of A and B, a different plot will be constructed, and they will be arranged in a grid where the values of A each constitute a row and the values of B each constitute a column. Comparisons of more than 2 variables are possible using a formula of the form <code>A + B ~ C</code>. A comparison along one variable is possible by using a dot instead of a variable name, i.e. <code>. ~ A</code> or <code>A ~ .</code> .</p>
+<p>In the following plot, we use facets to redraw our plot for each of the clarity levels. Furthermore, the legend is placed on top to create more space.</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" title="1"><span class="kw">ggplot</span>(diamonds) <span class="op">+</span></a>
+<a class="sourceLine" id="cb36-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(table, depth, <span class="dt">col =</span> cut)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb36-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Comparing table and depth of diamonds&quot;</span>,</a>
+<a class="sourceLine" id="cb36-4" title="4">         <span class="dt">subtitle =</span> <span class="st">&quot;What combination of table and depth gives good quality diamonds?&quot;</span>,</a>
+<a class="sourceLine" id="cb36-5" title="5">         <span class="dt">x =</span> <span class="st">&quot;Table&quot;</span>,</a>
+<a class="sourceLine" id="cb36-6" title="6">         <span class="dt">y =</span> <span class="st">&quot;Depth&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb36-7" title="7"><span class="st">    </span><span class="kw">theme_light</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb36-8" title="8"><span class="st">    </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">45</span>,<span class="dv">75</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">75</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb36-9" title="9"><span class="st">    </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">45</span>,<span class="dv">75</span>,<span class="dv">5</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb36-10" title="10"><span class="st">    </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">50</span>,<span class="dv">75</span>,<span class="dv">5</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb36-11" title="11"><span class="st">    </span><span class="kw">scale_color_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>, <span class="dt">name =</span> <span class="st">&quot;Diamond Cut Quality&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb36-12" title="12"><span class="st">    </span><span class="kw">facet_grid</span>(. <span class="op">~</span><span class="st"> </span>clarity) <span class="op">+</span></a>
+<a class="sourceLine" id="cb36-13" title="13"><span class="st">    </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;top&quot;</span>)</a></code></pre></div>
+<p><img src="textbook_files/figure-html/unnamed-chunk-66-1.png" width="100%" /></p>
+<p>An alternative, mostly suitable for comparisons along one variable, is facet_wrap. Instead of making one row (like facet_grid does), it will order the plots in a grid with a specified number of columns or rows. Below, we ordered them in 3 columns.</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" title="1"><span class="kw">ggplot</span>(diamonds) <span class="op">+</span></a>
+<a class="sourceLine" id="cb37-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(table, depth, <span class="dt">col =</span> cut)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb37-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Comparing table and depth of diamonds&quot;</span>,</a>
+<a class="sourceLine" id="cb37-4" title="4">         <span class="dt">subtitle =</span> <span class="st">&quot;What combination of table and depth gives good quality diamonds?&quot;</span>,</a>
+<a class="sourceLine" id="cb37-5" title="5">         <span class="dt">x =</span> <span class="st">&quot;Table&quot;</span>,</a>
+<a class="sourceLine" id="cb37-6" title="6">         <span class="dt">y =</span> <span class="st">&quot;Depth&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb37-7" title="7"><span class="st">    </span><span class="kw">theme_light</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb37-8" title="8"><span class="st">    </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">45</span>,<span class="dv">75</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">75</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb37-9" title="9"><span class="st">    </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">45</span>,<span class="dv">75</span>,<span class="dv">5</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb37-10" title="10"><span class="st">    </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">50</span>,<span class="dv">75</span>,<span class="dv">5</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb37-11" title="11"><span class="st">    </span><span class="kw">scale_color_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>, <span class="dt">name =</span> <span class="st">&quot;Diamond Cut Quality&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb37-12" title="12"><span class="st">    </span><span class="kw">facet_wrap</span>( <span class="op">~</span><span class="st"> </span>clarity, <span class="dt">ncol =</span> <span class="dv">3</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb37-13" title="13"><span class="st">    </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;top&quot;</span>)</a></code></pre></div>
+<p><img src="textbook_files/figure-html/unnamed-chunk-67-1.png" width="100%" /></p>
+</div>
+<div id="combining-multiple-geometric-layers" class="section level3">
+<h3><span class="header-section-number">3.5.2</span> Combining multiple geometric layers</h3>
+<p>So far, we only used one geometric layer at a time. However, it is perfectly possible to combine different layers. For instance, we can use the <code>geom_text</code> label to add data labels to a bar plot. Geom_text is a geometric layer which we can use, indeed, to put text in a graph. We didn’t see geom_text before, however, its working will be straigtforward, based on all the things we already know. We build further upon the last graph, which we have given a slightly nicer appearance</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" title="1"><span class="kw">filter</span>(movies, year <span class="op">==</span><span class="st"> </span><span class="dv">2004</span>, budget <span class="op">&gt;</span><span class="st"> </span><span class="dv">100000000</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb38-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb38-3" title="3"><span class="st">    </span><span class="kw">geom_col</span>(<span class="kw">aes</span>(<span class="kw">reorder</span>(title, budget), budget<span class="op">/</span><span class="dv">1000000</span>), <span class="dt">fill =</span> <span class="st">&quot;grey&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb38-4" title="4"><span class="st">    </span><span class="kw">coord_flip</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb38-5" title="5"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Movies budgets&quot;</span>,</a>
+<a class="sourceLine" id="cb38-6" title="6">         <span class="dt">subtitle =</span> <span class="st">&quot;What was the budget of the movies from 2004 with a budget higher than 100 million?&quot;</span>,</a>
+<a class="sourceLine" id="cb38-7" title="7">         <span class="dt">x =</span> <span class="st">&quot;Title&quot;</span>,</a>
+<a class="sourceLine" id="cb38-8" title="8">         <span class="dt">y =</span> <span class="st">&quot;Budget (in million dollars)&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb38-9" title="9"><span class="st">    </span><span class="kw">theme_light</span>()</a></code></pre></div>
+<p><img src="textbook_files/figure-html/unnamed-chunk-68-1.png" width="100%" /></p>
+<p>Note that we changed the y-aesthetic to budget/1000000, such that the values are in millions. Furthermore, it is important to remark that, since we used coord_flip, our labels set in labs also switched. Thus the x-label appears on the y-axis and the y-label on the x-axis. This is exactly what we would prefer, as removing coord_flip in the future won’t mess up the labels.</p>
+<p>We would now like to put the exact number of millions on top of the bars. In order to do this, we add geom_text, and give it the same mapping for x and y as the geom_col layer. Furthermore, we add a mapping for the label, i.e. the text to be displayed. We give the text a bold fontface and a white color. Finally, setting hjust to 1 will make sure that the textlabels are horizontally aligned to the left. This makes sure that the text is entirely within the bars, and doesn’t fall out of them.</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" title="1"><span class="kw">filter</span>(movies, year <span class="op">==</span><span class="st"> </span><span class="dv">2004</span>, budget <span class="op">&gt;</span><span class="st"> </span><span class="dv">100000000</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb39-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb39-3" title="3"><span class="st">    </span><span class="kw">geom_col</span>(<span class="kw">aes</span>(<span class="kw">reorder</span>(title, budget), budget<span class="op">/</span><span class="dv">1000000</span>), <span class="dt">fill =</span> <span class="st">&quot;grey&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb39-4" title="4"><span class="st">    </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="kw">reorder</span>(title, budget), budget<span class="op">/</span><span class="dv">1000000</span>, </a>
+<a class="sourceLine" id="cb39-5" title="5">                  <span class="dt">label =</span> budget<span class="op">/</span><span class="dv">1000000</span>), <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">fontface =</span> <span class="st">&quot;bold&quot;</span>, <span class="dt">hjust =</span> <span class="dv">1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb39-6" title="6"><span class="st">    </span><span class="kw">coord_flip</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb39-7" title="7"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Movies budgets&quot;</span>,</a>
+<a class="sourceLine" id="cb39-8" title="8">         <span class="dt">subtitle =</span> <span class="st">&quot;What was the budget of the movies from 2004 with a budget higher than 100 million?&quot;</span>,</a>
+<a class="sourceLine" id="cb39-9" title="9">         <span class="dt">x =</span> <span class="st">&quot;Title&quot;</span>,</a>
+<a class="sourceLine" id="cb39-10" title="10">         <span class="dt">y =</span> <span class="st">&quot;Budget (in million dollars)&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb39-11" title="11"><span class="st">    </span><span class="kw">theme_light</span>()</a></code></pre></div>
+<p><img src="textbook_files/figure-html/unnamed-chunk-69-1.png" width="100%" /></p>
+<p>The addition of the second geom layer seemed a little bit cumbersome, as we needed to repeat the mapping for x and y, which was made even worse because it involved the reorder function and the division by a million. Surely, there is a better way to do this? We call it aes-inheritance.</p>
+</div>
+<div id="aes-inheritance" class="section level3">
+<h3><span class="header-section-number">3.5.3</span> Aes-inheritance</h3>
+<p>Aes-inheritance, or inheritance of the aes-mapping, means that each of the geom layers which is added to a <code>ggplot</code> call <em>inherits</em> the mapping which is specified in that ggplot function call. As you may remember from the very beginning, an aes-mapping can be placed in both geom layers as in ggplot. In the end, we learn there is a little but importance difference.</p>
+<p>When different layers have (part of) a mapping in common, it is best practice to move this part to the <code>ggplot</code> call. As such, you don’t have to repeat this in any of the layers which use it. And, if any of the layers doesn’t use this mapping, you can easily overwrite it by specifying a new mapping whithin that layer. Let’s look at an example.</p>
+<p>The previous plot we made can more easily be made as follows:</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" title="1"><span class="kw">filter</span>(movies, year <span class="op">==</span><span class="st"> </span><span class="dv">2004</span>, budget <span class="op">&gt;</span><span class="st"> </span><span class="dv">100000000</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb40-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="kw">reorder</span>(title, budget), budget<span class="op">/</span><span class="dv">1000000</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb40-3" title="3"><span class="st">    </span><span class="kw">geom_col</span>(<span class="dt">fill =</span> <span class="st">&quot;grey&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb40-4" title="4"><span class="st">    </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">label =</span> budget<span class="op">/</span><span class="dv">1000000</span>), <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">fontface =</span> <span class="st">&quot;bold&quot;</span>, <span class="dt">hjust =</span> <span class="dv">1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb40-5" title="5"><span class="st">    </span><span class="kw">coord_flip</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb40-6" title="6"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Movies budgets&quot;</span>,</a>
+<a class="sourceLine" id="cb40-7" title="7">         <span class="dt">subtitle =</span> <span class="st">&quot;What was the budget of the movies from 2004 with a budget higher than 100 million?&quot;</span>,</a>
+<a class="sourceLine" id="cb40-8" title="8">         <span class="dt">x =</span> <span class="st">&quot;Title&quot;</span>,</a>
+<a class="sourceLine" id="cb40-9" title="9">         <span class="dt">y =</span> <span class="st">&quot;Budget (in million dollars)&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb40-10" title="10"><span class="st">    </span><span class="kw">theme_light</span>()</a></code></pre></div>
+<p><img src="textbook_files/figure-html/unnamed-chunk-70-1.png" width="100%" /></p>
+<p>By moving the mapping for x and y to ggplot, there is no mapping needed in geom_col, and only a mapping for label in geom_text. Both geom layers inherit the other part of the mapping for the ggplot function call. Truly, this seems far more efficient!</p>
+</div>
+</div>
+<div id="background-material" class="section level2">
+<h2><span class="header-section-number">3.6</span> Background material</h2>
+<p>By now you already master a great deal of plotting with ggplot2. You have both learned how to use different geometric layers to represent data, how to combine them, how to use facets, how to make your code more efficient using aes-inheritance, and last but not least, how to give your plot a nice appearance. Congratulations!</p>
+<p>If you are eager to learn even more, you might have a look at the following background materials:</p>
+<ul>
+<li><a href="https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf">The ggplot Cheat Sheet</a>, which provides an overview of all basic functionality in the ggplot2 package.</li>
+<li><a href="http://docs.ggplot2.org/current/">The ggplot documentation</a></li>
+<li><a href="http://tutorials.iq.harvard.edu/R/Rgraphics/Rgraphics.html">An even more comprehensive ggplot2 tutorial</a></li>
+</ul>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="2">
+<li id="fn2"><p>Although it might make certain analyses more interesting when you are familiar with the meaning of the different variables, no specific knowledge about cars is required in order to complete this tutorial.<a href="tutorial-data-vizualisatie.html#fnref2" class="footnote-back">↩</a></p></li>
+<li id="fn3"><p><img src="images/tidyverse.png" /> The <em>tidyverse</em> is a set of packages for data science that work in harmony because they share common data representations and API design. The <code>tidyverse</code>-package is designed to make it easy to install and load core packages from the tidyverse in a single command. The tidyverse includes packages such as: ggplot2, dplyr, tidyr, readr, purrr, tibble, hms, stringr, lubridate, forcats, jsonlite, readxl, broom, and others. Hadley Wickham can be regarded as the founding father of the tidyverse. The best place to learn about these packages is by reading this book: <a href="http://r4ds.had.co.nz/">R for Data Science</a>, written by Hadley and Garret Grolemund.<a href="tutorial-data-vizualisatie.html#fnref3" class="footnote-back">↩</a></p></li>
+<li id="fn4"><p>Note the capital letter I<a href="tutorial-data-vizualisatie.html#fnref4" class="footnote-back">↩</a></p></li>
+<li id="fn5"><p>Note that in cases like these, it perfectly makes sense to make the plot less wide, or flip it 90 degrees and make it less high. However, these are configurations related to the output devices used, and we will not consider them here.<a href="tutorial-data-vizualisatie.html#fnref5" class="footnote-back">↩</a></p></li>
+<li id="fn6"><p><img src="images/pipe.jpg" /> <br/> The piping symbol was first introduced in the package <code>magrittr</code>, evidently named after the Belgian surrealist artist René Magritte, well-known for his painting <em>The Threachery of Images</em>, aka <em>Ceci n’est pas un pipe</em>.<a href="tutorial-data-vizualisatie.html#fnref6" class="footnote-back">↩</a></p></li>
+<li id="fn7"><p>The table of a diamond refers to the flat facet of the diamond which can be seen when the stone is faced up. The depth of a diamond is its height (in millimeters) measured from the culet to the table.<a href="tutorial-data-vizualisatie.html#fnref7" class="footnote-back">↩</a></p></li>
+<li id="fn8"><p>For most of the layers, it is not important in which order they are added to a plot. However, if you make manual changes with <code>theme</code>, make sure to put them after any predefined theme, otherwise your changes will be overwritten.<a href="tutorial-data-vizualisatie.html#fnref8" class="footnote-back">↩</a></p></li>
+<li id="fn9"><p>A Cartesian coordinate system is a coordinate system that specifies each point uniquely in a plane by a pair of numerical coordinates, which are the signed distances to the point from two fixed perpendicular directed lines, measured in the same unit of length.<a href="tutorial-data-vizualisatie.html#fnref9" class="footnote-back">↩</a></p></li>
+<li id="fn10"><p>Note that the scale_._continuous functions also have an argument <code>limits</code> to set the limits of the axes which can be used instead of coord_cartesion. However, there is a tricky difference. Coord_cartesian will zoom into the limits withouth throwing away other data points. Setting the limits within the scale functions, however, will throw away data points and can bias your visualisation. <img src="images/zoom.PNG" /><a href="tutorial-data-vizualisatie.html#fnref10" class="footnote-back">↩</a></p></li>
+<li id="fn11"><p>The titles of the axes which we defined with the <code>labs</code> function can also be set in the scale functions with the argument <code>name</code>. As you get more familiar with using ggplot2, you will often find that there are multiple ways to reach the same goal.<a href="tutorial-data-vizualisatie.html#fnref11" class="footnote-back">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-visualizatie.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="descriptieve-statistieken.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section",
+"depth": 3
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

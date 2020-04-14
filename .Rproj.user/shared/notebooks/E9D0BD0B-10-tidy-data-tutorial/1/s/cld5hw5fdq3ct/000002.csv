@@ -1,0 +1,1 @@
+"0","information_africa <- gapminder %>% filter(continent == ""Africa"", year == 2007) %>% select(country, pop, lifeExp)"

@@ -1,0 +1,2528 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 7 Data voorbereiden | Exploratieve en Descriptieve Data Analyse</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 7 Data voorbereiden | Exploratieve en Descriptieve Data Analyse" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 7 Data voorbereiden | Exploratieve en Descriptieve Data Analyse" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Benoît Depaire, Gert Janssenswillen" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="storytelling-van-data-tot-inzicht.html"/>
+<link rel="next" href="tutorial-data-voorbereiden.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Exploratieve en descriptieve data analyse</a></li>
+<li><a href="https://beta.rstudioconnect.com/content/7904/studieleidraad_worksessions.html">Studieleidraad</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Voorwoord</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#hoe-de-lecture-notes-te-gebruiken"><i class="fa fa-check"></i>Hoe de lecture notes te gebruiken</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#hoe-de-tutorials-te-gebruiken"><i class="fa fa-check"></i>Hoe de tutorials te gebruiken</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#over-de-auteurs"><i class="fa fa-check"></i>Over de auteurs</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introductiecollege.html"><a href="introductiecollege.html"><i class="fa fa-check"></i><b>1</b> Introductiecollege</a><ul>
+<li class="chapter" data-level="1.1" data-path="introductiecollege.html"><a href="introductiecollege.html#data-science"><i class="fa fa-check"></i><b>1.1</b> Data science?</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="introductiecollege.html"><a href="introductiecollege.html#netflix"><i class="fa fa-check"></i><b>1.1.1</b> Netflix</a></li>
+<li class="chapter" data-level="1.1.2" data-path="introductiecollege.html"><a href="introductiecollege.html#waar-komt-data-vandaan"><i class="fa fa-check"></i><b>1.1.2</b> Waar komt data vandaan?</a></li>
+<li class="chapter" data-level="1.1.3" data-path="introductiecollege.html"><a href="introductiecollege.html#hoeveel-data-is-er-beschikbaar"><i class="fa fa-check"></i><b>1.1.3</b> Hoeveel data is er beschikbaar?</a></li>
+<li class="chapter" data-level="1.1.4" data-path="introductiecollege.html"><a href="introductiecollege.html#waar-wordt-data-voor-gebruikt-in-de-bedrijfswereld"><i class="fa fa-check"></i><b>1.1.4</b> Waar wordt data voor gebruikt in de bedrijfswereld?</a></li>
+<li class="chapter" data-level="1.1.5" data-path="introductiecollege.html"><a href="introductiecollege.html#waarover-verzamelen-bedrijven-data"><i class="fa fa-check"></i><b>1.1.5</b> Waarover verzamelen bedrijven data</a></li>
+<li class="chapter" data-level="1.1.6" data-path="introductiecollege.html"><a href="introductiecollege.html#van-data-tot-actionable-insights"><i class="fa fa-check"></i><b>1.1.6</b> Van data tot ‘actionable insights’</a></li>
+<li class="chapter" data-level="1.1.7" data-path="introductiecollege.html"><a href="introductiecollege.html#data-scientists"><i class="fa fa-check"></i><b>1.1.7</b> Data Scientists</a></li>
+<li class="chapter" data-level="1.1.8" data-path="introductiecollege.html"><a href="introductiecollege.html#verschillende-soorten-van-data-analyse"><i class="fa fa-check"></i><b>1.1.8</b> Verschillende soorten van data analyse</a></li>
+<li class="chapter" data-level="1.1.9" data-path="introductiecollege.html"><a href="introductiecollege.html#de-kunst-van-data-analyse"><i class="fa fa-check"></i><b>1.1.9</b> De kunst van data analyse</a></li>
+<li class="chapter" data-level="1.1.10" data-path="introductiecollege.html"><a href="introductiecollege.html#de-kracht-van-descriptieve-en-exploratieve-data-analyse"><i class="fa fa-check"></i><b>1.1.10</b> De kracht van descriptieve en exploratieve data analyse</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="introductiecollege.html"><a href="introductiecollege.html#gastcollege-bart-van-proeyen---kwarts"><i class="fa fa-check"></i><b>1.2</b> Gastcollege Bart Van Proeyen - Kwarts</a></li>
+<li class="chapter" data-level="1.3" data-path="introductiecollege.html"><a href="introductiecollege.html#data-data-types"><i class="fa fa-check"></i><b>1.3</b> Data &amp; Data types</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="introductiecollege.html"><a href="introductiecollege.html#dataset"><i class="fa fa-check"></i><b>1.3.1</b> Dataset</a></li>
+<li class="chapter" data-level="1.3.2" data-path="introductiecollege.html"><a href="introductiecollege.html#klassieke-datatypologie"><i class="fa fa-check"></i><b>1.3.2</b> Klassieke datatypologie</a></li>
+<li class="chapter" data-level="1.3.3" data-path="introductiecollege.html"><a href="introductiecollege.html#de-klassieke-datatypologie-is-misleidend"><i class="fa fa-check"></i><b>1.3.3</b> De klassieke datatypologie is misleidend</a></li>
+<li class="chapter" data-level="1.3.4" data-path="introductiecollege.html"><a href="introductiecollege.html#alternatieve-datatypologie"><i class="fa fa-check"></i><b>1.3.4</b> Alternatieve datatypologie</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="introductiecollege.html"><a href="introductiecollege.html#referenties"><i class="fa fa-check"></i><b>1.4</b> Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="data-visualizatie.html"><a href="data-visualizatie.html"><i class="fa fa-check"></i><b>2</b> Data visualizatie</a><ul>
+<li class="chapter" data-level="2.1" data-path="data-visualizatie.html"><a href="data-visualizatie.html#univariate-visualisaties-1-variabele"><i class="fa fa-check"></i><b>2.1</b> Univariate visualisaties (1 variabele)</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="data-visualizatie.html"><a href="data-visualizatie.html#categorische-variabele"><i class="fa fa-check"></i><b>2.1.1</b> Categorische variabele</a></li>
+<li class="chapter" data-level="2.1.2" data-path="data-visualizatie.html"><a href="data-visualizatie.html#continue-variabele"><i class="fa fa-check"></i><b>2.1.2</b> Continue variabele</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="data-visualizatie.html"><a href="data-visualizatie.html#bivariate-visualisatie-2-variabelen"><i class="fa fa-check"></i><b>2.2</b> Bivariate visualisatie (2 variabelen)</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="data-visualizatie.html"><a href="data-visualizatie.html#situatie-1-de-onafhankelijke-variabele-is-categorisch"><i class="fa fa-check"></i><b>2.2.1</b> Situatie 1: De onafhankelijke variabele is categorisch</a></li>
+<li class="chapter" data-level="2.2.2" data-path="data-visualizatie.html"><a href="data-visualizatie.html#situatie-2-de-onafhankelijke-variabele-is-continue"><i class="fa fa-check"></i><b>2.2.2</b> Situatie 2: De onafhankelijke variabele is continue</a></li>
+<li class="chapter" data-level="2.2.3" data-path="data-visualizatie.html"><a href="data-visualizatie.html#situatie-3-de-onafhankelijke-variabele-is-tijd"><i class="fa fa-check"></i><b>2.2.3</b> Situatie 3: De onafhankelijke variabele is tijd</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="data-visualizatie.html"><a href="data-visualizatie.html#multivariate-visualisaties-meer-dan-2-variabelen"><i class="fa fa-check"></i><b>2.3</b> Multivariate visualisaties (meer dan 2 variabelen)</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="data-visualizatie.html"><a href="data-visualizatie.html#voorbeeld-in-welke-mate-hangt-de-vertrek-vertraging-af-van-de-luchthaven-en-de-afstand"><i class="fa fa-check"></i><b>2.3.1</b> Voorbeeld: In welke mate hangt de vertrek vertraging af van de luchthaven en de afstand?</a></li>
+<li class="chapter" data-level="2.3.2" data-path="data-visualizatie.html"><a href="data-visualizatie.html#voorbeeld-multivariaat-tijd"><i class="fa fa-check"></i><b>2.3.2</b> Voorbeeld: multivariaat tijd</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="data-visualizatie.html"><a href="data-visualizatie.html#visualisaties-voor-communicatie"><i class="fa fa-check"></i><b>2.4</b> Visualisaties voor communicatie</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="data-visualizatie.html"><a href="data-visualizatie.html#voorbeeld-voor-goed-voor-exploratie"><i class="fa fa-check"></i><b>2.4.1</b> Voorbeeld: voor ~ goed voor exploratie</a></li>
+<li class="chapter" data-level="2.4.2" data-path="data-visualizatie.html"><a href="data-visualizatie.html#voorbeeld-na-goed-voor-communicatie"><i class="fa fa-check"></i><b>2.4.2</b> Voorbeeld: na ~ goed voor communicatie</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="data-visualizatie.html"><a href="data-visualizatie.html#how-charts-lie"><i class="fa fa-check"></i><b>2.5</b> How charts lie</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="data-visualizatie.html"><a href="data-visualizatie.html#causaliteit-vs-correlatie"><i class="fa fa-check"></i><b>2.5.1</b> Causaliteit vs correlatie</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="data-visualizatie.html"><a href="data-visualizatie.html#referenties-1"><i class="fa fa-check"></i><b>2.6</b> Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html"><i class="fa fa-check"></i><b>3</b> Tutorial - Data vizualisatie</a><ul>
+<li class="chapter" data-level="3.1" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#before-you-start"><i class="fa fa-check"></i><b>3.1</b> Before you start</a></li>
+<li class="chapter" data-level="3.2" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#introduction"><i class="fa fa-check"></i><b>3.2</b> Introduction</a></li>
+<li class="chapter" data-level="3.3" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#different-geometrics"><i class="fa fa-check"></i><b>3.3</b> Different geometrics</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#geom_point"><i class="fa fa-check"></i><b>3.3.1</b> geom_point</a></li>
+<li class="chapter" data-level="3.3.2" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#geom_histogram"><i class="fa fa-check"></i><b>3.3.2</b> geom_histogram</a></li>
+<li class="chapter" data-level="3.3.3" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#geom_boxplot"><i class="fa fa-check"></i><b>3.3.3</b> geom_boxplot</a></li>
+<li class="chapter" data-level="3.3.4" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#geom_violin"><i class="fa fa-check"></i><b>3.3.4</b> geom_violin</a></li>
+<li class="chapter" data-level="3.3.5" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#geom_bar"><i class="fa fa-check"></i><b>3.3.5</b> geom_bar</a></li>
+<li class="chapter" data-level="3.3.6" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#geom_col"><i class="fa fa-check"></i><b>3.3.6</b> geom_col</a></li>
+<li class="chapter" data-level="3.3.7" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#other-geometrics"><i class="fa fa-check"></i><b>3.3.7</b> Other geometrics</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#enhancing-the-appearance-of-our-plots"><i class="fa fa-check"></i><b>3.4</b> Enhancing the appearance of our plots</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#titles"><i class="fa fa-check"></i><b>3.4.1</b> Titles</a></li>
+<li class="chapter" data-level="3.4.2" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#theme"><i class="fa fa-check"></i><b>3.4.2</b> Theme</a></li>
+<li class="chapter" data-level="3.4.3" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#configuring-the-coordinate-system"><i class="fa fa-check"></i><b>3.4.3</b> Configuring the coordinate system</a></li>
+<li class="chapter" data-level="3.4.4" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#color-scales"><i class="fa fa-check"></i><b>3.4.4</b> Color scales</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#advanced-plots"><i class="fa fa-check"></i><b>3.5</b> Advanced plots</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#using-facets"><i class="fa fa-check"></i><b>3.5.1</b> Using Facets</a></li>
+<li class="chapter" data-level="3.5.2" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#combining-multiple-geometric-layers"><i class="fa fa-check"></i><b>3.5.2</b> Combining multiple geometric layers</a></li>
+<li class="chapter" data-level="3.5.3" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#aes-inheritance"><i class="fa fa-check"></i><b>3.5.3</b> Aes-inheritance</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#background-material"><i class="fa fa-check"></i><b>3.6</b> Background material</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html"><i class="fa fa-check"></i><b>4</b> Descriptieve statistieken</a><ul>
+<li class="chapter" data-level="4.1" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#beschrijvende-statistieken-versus-exploratieve-plots"><i class="fa fa-check"></i><b>4.1</b> Beschrijvende statistieken versus exploratieve plots</a></li>
+<li class="chapter" data-level="4.2" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#notatie"><i class="fa fa-check"></i><b>4.2</b> Notatie</a></li>
+<li class="chapter" data-level="4.3" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#data"><i class="fa fa-check"></i><b>4.3</b> Data</a></li>
+<li class="chapter" data-level="4.4" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#univariate-statistieken"><i class="fa fa-check"></i><b>4.4</b> Univariate statistieken</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#categorische-variabele-1"><i class="fa fa-check"></i><b>4.4.1</b> Categorische variabele</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#frequentietabel"><i class="fa fa-check"></i>Frequentietabel</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#centrummaten"><i class="fa fa-check"></i>Centrummaten</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#spreidingsmaten"><i class="fa fa-check"></i>Spreidingsmaten</a></li>
+<li class="chapter" data-level="4.4.2" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#continue-variabele-1"><i class="fa fa-check"></i><b>4.4.2</b> Continue variabele</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#centrummaten-1"><i class="fa fa-check"></i>Centrummaten</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#spreidingsmaten-1"><i class="fa fa-check"></i>Spreidingsmaten</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#bivariate-statistieken"><i class="fa fa-check"></i><b>4.5</b> Bivariate statistieken</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#continu-versus-continu"><i class="fa fa-check"></i><b>4.5.1</b> Continu versus Continu</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#correlatie"><i class="fa fa-check"></i>Correlatie</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#vergelijking-correlatiecoëfficiënten"><i class="fa fa-check"></i>Vergelijking correlatiecoëfficiënten</a></li>
+<li class="chapter" data-level="4.5.2" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#categorisch-versus-continu"><i class="fa fa-check"></i><b>4.5.2</b> Categorisch versus Continu</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#univariate-statistieken-per-categoriewaarde"><i class="fa fa-check"></i>Univariate statistieken per categoriewaarde</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#correlatie-1"><i class="fa fa-check"></i>Correlatie</a></li>
+<li class="chapter" data-level="4.5.3" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#categorisch-versus-categorisch"><i class="fa fa-check"></i><b>4.5.3</b> Categorisch versus Categorisch</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#univariate-statistieken-per-categoriewaarde-1"><i class="fa fa-check"></i>Univariate statistieken per categoriewaarde</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#contingentietabellen"><i class="fa fa-check"></i>Contingentietabellen</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#referenties-2"><i class="fa fa-check"></i>Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html"><i class="fa fa-check"></i><b>5</b> Tutorial - Descriptieve statistieken</a><ul>
+<li class="chapter" data-level="5.1" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#before-you-start-1"><i class="fa fa-check"></i><b>5.1</b> Before you start</a></li>
+<li class="chapter" data-level="5.2" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#introduction-1"><i class="fa fa-check"></i><b>5.2</b> Introduction</a></li>
+<li class="chapter" data-level="5.3" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#helpful-dplyr-functions"><i class="fa fa-check"></i><b>5.3</b> Helpful dplyr functions</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#tibbles"><i class="fa fa-check"></i><b>5.3.1</b> Tibbles</a></li>
+<li class="chapter" data-level="5.3.2" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#glimpse"><i class="fa fa-check"></i><b>5.3.2</b> Glimpse</a></li>
+<li class="chapter" data-level="5.3.3" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#section"><i class="fa fa-check"></i><b>5.3.3</b> %&gt;%</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#univariate-analysis-of-a-continuous-variable"><i class="fa fa-check"></i><b>5.4</b> Univariate analysis of a continuous variable</a></li>
+<li class="chapter" data-level="5.5" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#bivariate-analysis-of-a-continuous-variable-with-respect-to-a-categorical-variable"><i class="fa fa-check"></i><b>5.5</b> Bivariate analysis of a continuous variable with respect to a categorical variable</a></li>
+<li class="chapter" data-level="5.6" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#univariate-analysis-of-a-categorical-variable"><i class="fa fa-check"></i><b>5.6</b> Univariate analysis of a categorical variable</a></li>
+<li class="chapter" data-level="5.7" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#bivariate-analysis-of-a-continuous-variable-with-respect-to-another-continuous-variable"><i class="fa fa-check"></i><b>5.7</b> Bivariate analysis of a continuous variable with respect to another continuous variable</a></li>
+<li class="chapter" data-level="5.8" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#bivariate-analysis-of-a-categorical-variable-with-respect-to-another-categorical-variable"><i class="fa fa-check"></i><b>5.8</b> Bivariate analysis of a categorical variable with respect to another categorical variable</a></li>
+<li class="chapter" data-level="5.9" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#background-material-1"><i class="fa fa-check"></i><b>5.9</b> Background material</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="storytelling-van-data-tot-inzicht.html"><a href="storytelling-van-data-tot-inzicht.html"><i class="fa fa-check"></i><b>6</b> Storytelling - van data tot inzicht</a></li>
+<li class="chapter" data-level="7" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html"><i class="fa fa-check"></i><b>7</b> Data voorbereiden</a><ul>
+<li class="chapter" data-level="7.1" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#beginnen-bij-het-begin"><i class="fa fa-check"></i><b>7.1</b> Beginnen bij het begin</a></li>
+<li class="chapter" data-level="7.2" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#data-inlezen"><i class="fa fa-check"></i><b>7.2</b> Data inlezen</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#uitdagingen-bij-het-correct-inlezen-van-data"><i class="fa fa-check"></i><b>7.2.1</b> Uitdagingen bij het correct inlezen van data</a></li>
+<li class="chapter" data-level="7.2.2" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#dataformaten"><i class="fa fa-check"></i><b>7.2.2</b> Dataformaten</a></li>
+<li class="chapter" data-level="7.2.3" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#data-encodering"><i class="fa fa-check"></i><b>7.2.3</b> Data-encodering</a></li>
+<li class="chapter" data-level="7.2.4" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#datatypes-controlleren-en-corrigeren"><i class="fa fa-check"></i><b>7.2.4</b> Datatypes controlleren en corrigeren</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#dataproblemen-identificeren-en-corrigeren"><i class="fa fa-check"></i><b>7.3</b> Dataproblemen identificeren en corrigeren</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#overzicht"><i class="fa fa-check"></i><b>7.3.1</b> Overzicht</a></li>
+<li class="chapter" data-level="7.3.2" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#foutieve-waarden"><i class="fa fa-check"></i><b>7.3.2</b> Foutieve waarden</a></li>
+<li class="chapter" data-level="7.3.3" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#ontbrekende-waarden"><i class="fa fa-check"></i><b>7.3.3</b> Ontbrekende waarden</a></li>
+<li class="chapter" data-level="7.3.4" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#inconsistente-waarden"><i class="fa fa-check"></i><b>7.3.4</b> Inconsistente waarden</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#data-opwaarderen"><i class="fa fa-check"></i><b>7.4</b> Data opwaarderen</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#sampling"><i class="fa fa-check"></i><b>7.4.1</b> Sampling</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#referenties-3"><i class="fa fa-check"></i>Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html"><i class="fa fa-check"></i><b>8</b> Tutorial - Data voorbereiden</a><ul>
+<li class="chapter" data-level="8.1" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#before-you-start-2"><i class="fa fa-check"></i><b>8.1</b> Before you start</a></li>
+<li class="chapter" data-level="8.2" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#introduction-2"><i class="fa fa-check"></i><b>8.2</b> Introduction</a></li>
+<li class="chapter" data-level="8.3" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#reading-data"><i class="fa fa-check"></i><b>8.3</b> Reading data</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#csv-and-tsv"><i class="fa fa-check"></i><b>8.3.1</b> CSV and TSV</a></li>
+<li class="chapter" data-level="8.3.2" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#excel"><i class="fa fa-check"></i><b>8.3.2</b> Excel</a></li>
+<li class="chapter" data-level="8.3.3" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#json-and-xml"><i class="fa fa-check"></i><b>8.3.3</b> JSON and XML</a></li>
+<li class="chapter" data-level="8.3.4" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#other-statistical-packages"><i class="fa fa-check"></i><b>8.3.4</b> Other statistical packages</a></li>
+<li class="chapter" data-level="8.3.5" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#databases"><i class="fa fa-check"></i><b>8.3.5</b> Databases</a></li>
+<li class="chapter" data-level="8.3.6" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#background-material-2"><i class="fa fa-check"></i><b>8.3.6</b> Background material</a></li>
+<li class="chapter" data-level="8.3.7" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#converting-variables"><i class="fa fa-check"></i><b>8.3.7</b> Converting variables</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#cleaning-data"><i class="fa fa-check"></i><b>8.4</b> Cleaning Data</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#duplicates-removal"><i class="fa fa-check"></i><b>8.4.1</b> Duplicates Removal</a></li>
+<li class="chapter" data-level="8.4.2" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#cleaning-categorical-variables"><i class="fa fa-check"></i><b>8.4.2</b> Cleaning Categorical Variables</a></li>
+<li class="chapter" data-level="8.4.3" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#recode-categorical-variables"><i class="fa fa-check"></i><b>8.4.3</b> Recode Categorical Variables</a></li>
+<li class="chapter" data-level="8.4.4" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#reorder-categorical-variables"><i class="fa fa-check"></i><b>8.4.4</b> Reorder Categorical Variables</a></li>
+<li class="chapter" data-level="8.4.5" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#cleaning-continuous-data"><i class="fa fa-check"></i><b>8.4.5</b> Cleaning continuous data</a></li>
+<li class="chapter" data-level="8.4.6" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#errors"><i class="fa fa-check"></i><b>8.4.6</b> Errors</a></li>
+<li class="chapter" data-level="8.4.7" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#outliers"><i class="fa fa-check"></i><b>8.4.7</b> Outliers</a></li>
+<li class="chapter" data-level="8.4.8" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#data-inconsistencies"><i class="fa fa-check"></i><b>8.4.8</b> Data inconsistencies</a></li>
+<li class="chapter" data-level="8.4.9" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#missing-values"><i class="fa fa-check"></i><b>8.4.9</b> Missing values</a></li>
+<li class="chapter" data-level="8.4.10" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#analyzing-missing-data"><i class="fa fa-check"></i><b>8.4.10</b> Analyzing missing data</a></li>
+<li class="chapter" data-level="8.4.11" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#working-around-missing-data"><i class="fa fa-check"></i><b>8.4.11</b> Working around missing data</a></li>
+<li class="chapter" data-level="8.4.12" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#visualizations"><i class="fa fa-check"></i><b>8.4.12</b> Visualizations</a></li>
+<li class="chapter" data-level="8.4.13" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#numerical-analysis"><i class="fa fa-check"></i><b>8.4.13</b> Numerical analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#transforming-data"><i class="fa fa-check"></i><b>8.5</b> Transforming Data</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#discretization-of-continuous-variables"><i class="fa fa-check"></i><b>8.5.1</b> Discretization of continuous variables</a></li>
+<li class="chapter" data-level="8.5.2" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#rescaling-continuous-variables"><i class="fa fa-check"></i><b>8.5.2</b> Rescaling continuous variables</a></li>
+<li class="chapter" data-level="8.5.3" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#adding-calculated-variables"><i class="fa fa-check"></i><b>8.5.3</b> Adding calculated variables</a></li>
+<li class="chapter" data-level="8.5.4" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#recode-categorical-variables-1"><i class="fa fa-check"></i><b>8.5.4</b> Recode Categorical Variables</a></li>
+<li class="chapter" data-level="8.5.5" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#collapsing-factors"><i class="fa fa-check"></i><b>8.5.5</b> Collapsing factors</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#using-transformations-in-visualizations."><i class="fa fa-check"></i><b>8.6</b> Using transformations in visualizations.</a></li>
+<li class="chapter" data-level="8.7" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#background-material-3"><i class="fa fa-check"></i><b>8.7</b> Background Material</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>9</b> Tidy data</a><ul>
+<li class="chapter" data-level="9.1" data-path="tidy-data.html"><a href="tidy-data.html#inleiding"><i class="fa fa-check"></i><b>9.1</b> Inleiding</a></li>
+<li class="chapter" data-level="9.2" data-path="tidy-data.html"><a href="tidy-data.html#case-nyc-vluchten-2013"><i class="fa fa-check"></i><b>9.2</b> Case: NYC Vluchten 2013</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="tidy-data.html"><a href="tidy-data.html#datasets-samenvoegen"><i class="fa fa-check"></i><b>9.2.1</b> Datasets samenvoegen</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="tidy-data.html"><a href="tidy-data.html#data-in-een-lang-formaat-plaatsen-voor-visuele-analyses"><i class="fa fa-check"></i><b>9.3</b> Data in een lang formaat plaatsen (voor visuele analyses)</a></li>
+<li class="chapter" data-level="9.4" data-path="tidy-data.html"><a href="tidy-data.html#data-in-een-breed-formaat-plaatsen-voor-overzichtelijke-tabellen"><i class="fa fa-check"></i><b>9.4</b> Data in een breed formaat plaatsen (voor overzichtelijke tabellen)</a></li>
+<li class="chapter" data-level="9.5" data-path="tidy-data.html"><a href="tidy-data.html#referenties-4"><i class="fa fa-check"></i><b>9.5</b> Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html"><i class="fa fa-check"></i><b>10</b> Tutorial - Tidy data</a><ul>
+<li class="chapter" data-level="10.1" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#before-you-start-3"><i class="fa fa-check"></i><b>10.1</b> Before you start</a></li>
+<li class="chapter" data-level="" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#disclaimer"><i class="fa fa-check"></i>Disclaimer</a></li>
+<li class="chapter" data-level="10.2" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#merging-data"><i class="fa fa-check"></i><b>10.2</b> Merging data</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#joining-data"><i class="fa fa-check"></i><b>10.2.1</b> Joining data</a></li>
+<li class="chapter" data-level="10.2.2" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#inner-join"><i class="fa fa-check"></i><b>10.2.2</b> Inner join</a></li>
+<li class="chapter" data-level="10.2.3" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#left-join"><i class="fa fa-check"></i><b>10.2.3</b> Left join</a></li>
+<li class="chapter" data-level="10.2.4" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#right-join"><i class="fa fa-check"></i><b>10.2.4</b> Right join</a></li>
+<li class="chapter" data-level="10.2.5" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#full-join"><i class="fa fa-check"></i><b>10.2.5</b> Full join</a></li>
+<li class="chapter" data-level="10.2.6" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#duplicates"><i class="fa fa-check"></i><b>10.2.6</b> Duplicates</a></li>
+<li class="chapter" data-level="10.2.7" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#an-example"><i class="fa fa-check"></i><b>10.2.7</b> An example</a></li>
+<li class="chapter" data-level="10.2.8" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#binding-data"><i class="fa fa-check"></i><b>10.2.8</b> Binding data</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#transforming-data-1"><i class="fa fa-check"></i><b>10.3</b> Transforming data</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#unite-variables"><i class="fa fa-check"></i><b>10.3.1</b> Unite variables</a></li>
+<li class="chapter" data-level="10.3.2" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#separate-variables"><i class="fa fa-check"></i><b>10.3.2</b> Separate variables</a></li>
+<li class="chapter" data-level="10.3.3" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#spread-data"><i class="fa fa-check"></i><b>10.3.3</b> Spread data</a></li>
+<li class="chapter" data-level="10.3.4" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#gather-data"><i class="fa fa-check"></i><b>10.3.4</b> Gather data</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#case-study-who"><i class="fa fa-check"></i><b>10.4</b> [Case study]: WHO</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="tijdsdata.html"><a href="tijdsdata.html"><i class="fa fa-check"></i><b>11</b> Tijdsdata</a><ul>
+<li class="chapter" data-level="11.1" data-path="tijdsdata.html"><a href="tijdsdata.html#inleiding-1"><i class="fa fa-check"></i><b>11.1</b> Inleiding</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="tijdsdata.html"><a href="tijdsdata.html#tijdstippen-versus-periodes"><i class="fa fa-check"></i><b>11.1.1</b> Tijdstippen versus periodes</a></li>
+<li class="chapter" data-level="11.1.2" data-path="tijdsdata.html"><a href="tijdsdata.html#afronden-van-tijdstippen"><i class="fa fa-check"></i><b>11.1.2</b> Afronden van tijdstippen</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="tijdsdata.html"><a href="tijdsdata.html#periode-data"><i class="fa fa-check"></i><b>11.2</b> Periode-data</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="tijdsdata.html"><a href="tijdsdata.html#interval-1"><i class="fa fa-check"></i><b>11.2.1</b> Interval</a></li>
+<li class="chapter" data-level="11.2.2" data-path="tijdsdata.html"><a href="tijdsdata.html#duration"><i class="fa fa-check"></i><b>11.2.2</b> Duration</a></li>
+<li class="chapter" data-level="11.2.3" data-path="tijdsdata.html"><a href="tijdsdata.html#period"><i class="fa fa-check"></i><b>11.2.3</b> Period</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="tijdsdata.html"><a href="tijdsdata.html#analyseren-van-tijdgerelateerde-data"><i class="fa fa-check"></i><b>11.3</b> Analyseren van tijdgerelateerde data</a></li>
+<li class="chapter" data-level="11.4" data-path="tijdsdata.html"><a href="tijdsdata.html#referenties-5"><i class="fa fa-check"></i><b>11.4</b> Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html"><i class="fa fa-check"></i><b>12</b> Tutorial - tijdsdata</a><ul>
+<li class="chapter" data-level="12.1" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#before-we-start"><i class="fa fa-check"></i><b>12.1</b> Before we start</a></li>
+<li class="chapter" data-level="12.2" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#introduction-3"><i class="fa fa-check"></i><b>12.2</b> Introduction</a></li>
+<li class="chapter" data-level="12.3" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#whats-in-a-date"><i class="fa fa-check"></i><b>12.3</b> What’s in a date?</a></li>
+<li class="chapter" data-level="12.4" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#theres-always-time"><i class="fa fa-check"></i><b>12.4</b> There’s always time</a></li>
+<li class="chapter" data-level="12.5" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#my-time-is-not-your-time"><i class="fa fa-check"></i><b>12.5</b> My time is not your time</a></li>
+<li class="chapter" data-level="12.6" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#extract-information-from-dates"><i class="fa fa-check"></i><b>12.6</b> Extract information from dates</a></li>
+<li class="chapter" data-level="12.7" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#time-differences"><i class="fa fa-check"></i><b>12.7</b> Time differences</a><ul>
+<li class="chapter" data-level="12.7.1" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#period-1"><i class="fa fa-check"></i><b>12.7.1</b> Period</a></li>
+<li class="chapter" data-level="12.7.2" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#durations"><i class="fa fa-check"></i><b>12.7.2</b> Durations</a></li>
+<li class="chapter" data-level="12.7.3" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#periods-are-not-durations"><i class="fa fa-check"></i><b>12.7.3</b> Periods are not durations</a></li>
+</ul></li>
+<li class="chapter" data-level="12.8" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#arithmetics"><i class="fa fa-check"></i><b>12.8</b> Arithmetics</a></li>
+<li class="chapter" data-level="12.9" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#interval-2"><i class="fa fa-check"></i><b>12.9</b> Interval</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Exploratieve en Descriptieve Data Analyse</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-voorbereiden" class="section level1">
+<h1><span class="header-section-number">Chapter 7</span> Data voorbereiden</h1>
+<div id="beginnen-bij-het-begin" class="section level2">
+<h2><span class="header-section-number">7.1</span> Beginnen bij het begin</h2>
+<ul>
+<li>Alvorens we aan een exploratieve data analyse kunnen beginnen, moeten we eerst onze data voorbereiden.</li>
+<li>Er kunnen drie grote fases geïdentificeerd worden tijdens de datavoorbereiding.
+<ul>
+<li>Correct inlezen van de data.</li>
+<li>Identificeren van problemen in de data en deze corrigeren van de data.</li>
+<li>Opwaarderen van de data.</li>
+</ul></li>
+<li>Data kan in diverse formaten aangeleverd worden en de eerste stap is ervoor zorgen dat de data ingeladen is in R. Hierbij zijn er twee specifieke elementen om aandacht aan te schenken:
+<ul>
+<li>De data analist moet ervoor zorgen dat de data correct ingeladen wordt en dat de inhoud na het inladen overeenkomt met de inhoud toen deze data de laatste keer werd opgeslagen.</li>
+<li>De data analist moet ervoor zorgen dat de verschillende variabelen het juiste data type hebben.</li>
+</ul></li>
+<li>De volgende fase is het opkuisen van de data. Dit betekent dat men fouten gaat identificeren en deze ‘oplost’ alvorens verder te gaan.
+<ul>
+<li>Er zijn verschillende soorten fouten die in de data kunnen sluipen. Enkele mogelijke fouten zijn:
+<ul>
+<li>Sommige waarden ontbreken (geen waarde voor bepaalde variabele bij bepaalde observaties).</li>
+<li>Sommige waarden zijn fout. Bijvoorbeeld: voor een deel observaties is de afstand in km opgeslagen ipv mijl of is er een typfout in de waarde van een categorische variabele.</li>
+<li>Sommige observaties staan meerdere keren in de dataset.</li>
+</ul></li>
+<li>Het opkuisen van data gebeurt in principe in 2 stappen:
+<ul>
+<li>Eerst moeten we de data bestuderen en fouten identificeren.</li>
+<li>Vervolgens moeten we de fouten in de data ‘corrigeren’ (indien mogelijk).</li>
+</ul></li>
+</ul></li>
+<li>Het opwaarderen van de data betreft een reeks transformaties met als doel de data bruikbaarder te maken voor exploratieve data analyse. Er zijn verschillende manieren om dit te bereiken:
+<ul>
+<li>Bestaande variabelen transformeren naar nieuwe variabelen die geschikter zijn om patronen in de data bloot te leggen. Bijvoorbeeld het transformeren van een continue variabele naar een categorische variabele of het creëren van een nieuwe variabele ‘gemiddelde snelheid’ op basis van de variabelen ‘reistijd’ en ‘totaal afgelegde afstand’.</li>
+<li>Het opsplitsen van de dataset in meerdere datasets die apart bestudeerd worden. Dit is vooral zinvol indien de dataset verschillende soorten observaties bevat of een deel observaties met uitzonderlijke waarden.</li>
+</ul></li>
+</ul>
+</div>
+<div id="data-inlezen" class="section level2">
+<h2><span class="header-section-number">7.2</span> Data inlezen</h2>
+<div id="uitdagingen-bij-het-correct-inlezen-van-data" class="section level3">
+<h3><span class="header-section-number">7.2.1</span> Uitdagingen bij het correct inlezen van data</h3>
+<ul>
+<li>Data kan in verschillende formaten aangeleverd worden. Afhankelijk van het formaat, zal je andere functies moeten gebruiken om de data correct in te lezen</li>
+<li>Maar zelfs als je de juiste functie gebruikt, kan het inlezen fout gaan omdat een computer data altijd als een reeks van 1 en 0’en opslaat en er daarom een soort vertaalsleutel nodig is van 1 en 0’en naar leesbare tekst. Deze vertaalslag wordt gerealiseerd door encoderingschema’s en je moet er voor zorgen dat bij het inlezen van data je het juiste encoderingschema hanteert.</li>
+<li>Eenmaal de data is ingeladen, moet je er voor zorgen dat R de datatypes juist identificeert. De meeste dataformaten houden geen informatie bij van welk datatype een specifieke variabele is en dus moet R dit ‘raden’. Omdat dit wel eens fout kan gaan, moet je als analist dit controleren en corrigeren waar nodig.</li>
+</ul>
+</div>
+<div id="dataformaten" class="section level3">
+<h3><span class="header-section-number">7.2.2</span> Dataformaten</h3>
+<div id="flat-file-databestanden" class="section level4">
+<h4><span class="header-section-number">7.2.2.1</span> Flat-file databestanden</h4>
+<ul>
+<li>Lees de bron over <a href="https://www.techwalla.com/articles/what-is-a-delimited-a-fixed-width-file">delimited en fixed-width bestanden</a>.</li>
+<li>Flat-file databestanden bevatten data die in een tabelvorm passen:
+<ul>
+<li>Iedere rij is een observatie.</li>
+<li>Iedere kolom stelt een variabele voor.</li>
+<li>Alle items in een kolom zijn van dezelfde soort.</li>
+<li>Cellen van de tabel bevatten enkelvoudige gegevens (dus niet een kolom hobby’s met hierin meerdere hobby’s in 1 cel).</li>
+<li>De volgorde van de kolommen is niet van belang.</li>
+<li>De volgorde van de rijen is niet belang.</li>
+</ul></li>
+<li>Volgende data kan dus in een flat-file bestand opgeslagen worden:</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th align="left">naam</th>
+<th align="left">voornaam</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Nelissen</td>
+<td align="left">Rob</td>
+</tr>
+<tr class="even">
+<td align="left">Franssen</td>
+<td align="left">Ann</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>De twee meest gebruikte formaten voor flat-file databestanden zijn delimited en fixed-width bestanden.</li>
+<li>Een delimited bestand (vaak ook wel csv-bestand of comma-separated values bestand genoemd):
+<ul>
+<li>gebruikt voor iedere rij een nieuwe regel,</li>
+<li>splitst de kolommen op met behulp van een specifiek splitsingsteken (vaak de komma of de puntkomma),</li>
+<li>kan het begin en het einde van een karakterstring met behulp van een specifiek quote-teken (vaak ’ of ") aanduiden.</li>
+</ul></li>
+<li>Bovenstaande tabel kan als een delimited databestand opgeslagen worden en ziet er dan als volgt uit:</li>
+</ul>
+<pre><code>naam;voornaam
+Nelissen;Rob
+Franssen;Ann</code></pre>
+<ul>
+<li>Een fixed-width bestand gebruikt eveneens een aparte regel per rij, maar gebruikt een vast aantal karakters per kolom en heeft dus geen splitsingsteken, noch quote-teken nodig.</li>
+<li>Bovenstaande tabel kan als een fixed-width databestand opgeslagen worden en ziet er dan als volgt uit:</li>
+</ul>
+<pre><code>naam     voornaam
+Nelissen Rob
+Franssen Ann</code></pre>
+<ul>
+<li>Het nadeel van een delimited bestand is dat je het splitsings- en quote-teken niet kunt gebruiken in je data.</li>
+<li>Het voordeel van een delimited bestand is dat een veld niet meer ruimte in beslag neemt dan nodig.</li>
+<li>Bestudeer hoofdstuk <a href="http://r4ds.had.co.nz/data-import.html">Data Import</a> van het boek ‘R for Data Science’ om te weten hoe je in R data uit flat-file bestanden kunt inlezen.</li>
+</ul>
+</div>
+<div id="hiërarchische-databestanden" class="section level4">
+<h4><span class="header-section-number">7.2.2.2</span> Hiërarchische databestanden</h4>
+<ul>
+<li>Het nadeel van flat-file data bestanden is dat de data in een tabelvorm moet passen.</li>
+<li>Indien data een complexere (vaak hiërarchische) structuur heeft, dan is dit niet evident om correct in een tabelvorm te gieten.
+<ul>
+<li>Je hebt bijvoorbeeld data over de studenten en van iedere student heb je naamgegevens en de resultaten van de verschillende afgelegde vakken.</li>
+<li>Het aantal afgelegde vakken verschilt echter van student tot student.</li>
+<li>Ook per student kan het aantal opgenomen kansen per vak verschillen van vak tot vak.</li>
+<li>Het aantal scores per student kan hierdoor sterk variëren.</li>
+</ul></li>
+<li>Voor hiërarchische databestanden wordt daarom vaak gebruikt gemaakt van XML-bestanden of JSON-bestanden.</li>
+<li>XML- en JSON-bestanden zijn ook zeer populair om gegevens via het web uit te wisselen.</li>
+</ul>
+<div id="xml-bestanden" class="section level5">
+<h5><span class="header-section-number">7.2.2.2.1</span> XML-bestanden</h5>
+<ul>
+<li>Bestudeer de bron over <a href="https://www.w3schools.com/xml/default.asp">XML</a> (tot en met XML attributes) om te begrijpen hoe een XML-bestand is opgebouwd.</li>
+<li>Een XML-bestand bestaat uit XML-elementen.
+<ul>
+<li>De naam van het XML-element wordt bepaald door het openings- en sluitingslabel.</li>
+<li>Het openingslabel volgt het formaat <code>&lt;element-naam&gt;</code>.</li>
+<li>Het sluitingslabel heeft dezelfde naam en volgt het formaat <code>&lt;/element-naam&gt;</code>.</li>
+<li>Tussen het openings- en sluitingslabel plaatsen we de inhoud van het XML-element.</li>
+</ul></li>
+<li>Voorbeeld: <code>&lt;student&gt;Rob Nelissen&lt;/student&gt;</code>.
+<ul>
+<li>Hier wordt het XML-element student gedefinieerd.</li>
+<li>De inhoud van dit XML-element is Rob Nelissen.</li>
+</ul></li>
+<li>De inhoud van een XML-element kan ook bestaan uit andere XML-elementen. Op deze manier kan je volledige tabellen in XML opslaan. Onderstaande voorbeeld is de vertaling van voorgaande data in tabelvorm naar XML.</li>
+<li>Voorbeeld:</li>
+</ul>
+<div class="sourceCode" id="cb114"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb114-1" title="1"><span class="kw">&lt;studenten&gt;</span></a>
+<a class="sourceLine" id="cb114-2" title="2">  <span class="kw">&lt;student&gt;</span></a>
+<a class="sourceLine" id="cb114-3" title="3">    <span class="kw">&lt;naam&gt;</span>Nelissen<span class="kw">&lt;/naam&gt;</span></a>
+<a class="sourceLine" id="cb114-4" title="4">    <span class="kw">&lt;voornaam&gt;</span>Rob<span class="kw">&lt;/naam&gt;</span></a>
+<a class="sourceLine" id="cb114-5" title="5">  <span class="kw">&lt;/student&gt;</span></a>
+<a class="sourceLine" id="cb114-6" title="6">  <span class="kw">&lt;student&gt;</span></a>
+<a class="sourceLine" id="cb114-7" title="7">    <span class="kw">&lt;naam&gt;</span>Franssen<span class="kw">&lt;/naam&gt;</span></a>
+<a class="sourceLine" id="cb114-8" title="8">    <span class="kw">&lt;voornaam&gt;</span>Ann<span class="kw">&lt;/voornaam&gt;</span></a>
+<a class="sourceLine" id="cb114-9" title="9">  <span class="kw">&lt;/student&gt;</span></a>
+<a class="sourceLine" id="cb114-10" title="10"><span class="kw">&lt;/studenten&gt;</span></a></code></pre></div>
+<ul>
+<li>Zoals blijkt uit de vergelijking tussen de XML-representatie en voorgaande flat-file representaties, bevat een XML-bestand redelijk veel overhead om tabelvorm-data op te slaan.</li>
+<li>De kracht van XML ten opzichte van de flat-file bestanden is echter dat je veel complexere datastructuren kunt opslaan. Onderstaand voorbeeld opslaan in een tabelvorm (en dus flat-files) is allesbehalve evident.</li>
+<li>Voorbeeld:</li>
+</ul>
+<div class="sourceCode" id="cb115"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb115-1" title="1"><span class="kw">&lt;studenten&gt;</span></a>
+<a class="sourceLine" id="cb115-2" title="2">  <span class="kw">&lt;student&gt;</span></a>
+<a class="sourceLine" id="cb115-3" title="3">    <span class="kw">&lt;naam&gt;</span>Nelissen<span class="kw">&lt;/naam&gt;</span></a>
+<a class="sourceLine" id="cb115-4" title="4">    <span class="kw">&lt;voornaam&gt;</span>Rob<span class="kw">&lt;/naam&gt;</span></a>
+<a class="sourceLine" id="cb115-5" title="5">    <span class="kw">&lt;vakken&gt;</span></a>
+<a class="sourceLine" id="cb115-6" title="6">      <span class="kw">&lt;vak&gt;</span></a>
+<a class="sourceLine" id="cb115-7" title="7">        <span class="kw">&lt;naam&gt;</span>Exploratieve en Descriptieve Data Analyse<span class="kw">&lt;/naam&gt;</span></a>
+<a class="sourceLine" id="cb115-8" title="8">        <span class="kw">&lt;academiejaar&gt;</span>20162017<span class="kw">&lt;/academiejaar&gt;</span></a>
+<a class="sourceLine" id="cb115-9" title="9">        <span class="kw">&lt;score_kans1&gt;</span>8<span class="kw">&lt;/score_kans1&gt;</span></a>
+<a class="sourceLine" id="cb115-10" title="10">        <span class="kw">&lt;score_kans2&gt;</span>12<span class="kw">&lt;/score_kans2&gt;</span></a>
+<a class="sourceLine" id="cb115-11" title="11">      <span class="kw">&lt;/vak&gt;</span></a>
+<a class="sourceLine" id="cb115-12" title="12">      <span class="kw">&lt;vak&gt;</span></a>
+<a class="sourceLine" id="cb115-13" title="13">        <span class="kw">&lt;naam&gt;</span>Macro-economie<span class="kw">&lt;/naam&gt;</span></a>
+<a class="sourceLine" id="cb115-14" title="14">        <span class="kw">&lt;academiejaar&gt;</span>20152016<span class="kw">&lt;/academiejaar&gt;</span></a>
+<a class="sourceLine" id="cb115-15" title="15">        <span class="kw">&lt;score_kans1&gt;</span>8<span class="kw">&lt;/score_kans1&gt;</span></a>
+<a class="sourceLine" id="cb115-16" title="16">        <span class="kw">&lt;score_kans2&gt;</span>7<span class="kw">&lt;/score_kans2&gt;</span></a>
+<a class="sourceLine" id="cb115-17" title="17">      <span class="kw">&lt;/vak&gt;</span></a>
+<a class="sourceLine" id="cb115-18" title="18">      <span class="kw">&lt;vak&gt;</span></a>
+<a class="sourceLine" id="cb115-19" title="19">        <span class="kw">&lt;naam&gt;</span>Macro-economie<span class="kw">&lt;/naam&gt;</span></a>
+<a class="sourceLine" id="cb115-20" title="20">        <span class="kw">&lt;academiejaar&gt;</span>20162017<span class="kw">&lt;/academiejaar&gt;</span></a>
+<a class="sourceLine" id="cb115-21" title="21">        <span class="kw">&lt;score_kans1&gt;</span>14<span class="kw">&lt;/score_kans1&gt;</span></a>
+<a class="sourceLine" id="cb115-22" title="22">      <span class="kw">&lt;/vak&gt;</span></a>
+<a class="sourceLine" id="cb115-23" title="23">      ...</a>
+<a class="sourceLine" id="cb115-24" title="24">    <span class="kw">&lt;/vakken&gt;</span></a>
+<a class="sourceLine" id="cb115-25" title="25">  <span class="kw">&lt;/student&gt;</span></a>
+<a class="sourceLine" id="cb115-26" title="26">  <span class="kw">&lt;student&gt;</span></a>
+<a class="sourceLine" id="cb115-27" title="27">    <span class="kw">&lt;naam&gt;</span>Franssen<span class="kw">&lt;/naam&gt;</span></a>
+<a class="sourceLine" id="cb115-28" title="28">    <span class="kw">&lt;voornaam&gt;</span>Ann<span class="kw">&lt;/voornaam&gt;</span></a>
+<a class="sourceLine" id="cb115-29" title="29">    <span class="kw">&lt;vakken&gt;</span></a>
+<a class="sourceLine" id="cb115-30" title="30">      <span class="kw">&lt;vak&gt;</span></a>
+<a class="sourceLine" id="cb115-31" title="31">        <span class="kw">&lt;naam&gt;</span>Exploratieve en Descriptieve Data Analyse<span class="kw">&lt;/naam&gt;</span></a>
+<a class="sourceLine" id="cb115-32" title="32">        <span class="kw">&lt;academiejaar&gt;</span>20162017<span class="kw">&lt;/academiejaar&gt;</span></a>
+<a class="sourceLine" id="cb115-33" title="33">        <span class="kw">&lt;score_kans1&gt;</span>15<span class="kw">&lt;/score_kans1&gt;</span></a>
+<a class="sourceLine" id="cb115-34" title="34">      <span class="kw">&lt;/vak&gt;</span></a>
+<a class="sourceLine" id="cb115-35" title="35">      <span class="kw">&lt;vak&gt;</span></a>
+<a class="sourceLine" id="cb115-36" title="36">        <span class="kw">&lt;naam&gt;</span>Macro-economie<span class="kw">&lt;/naam&gt;</span></a>
+<a class="sourceLine" id="cb115-37" title="37">        <span class="kw">&lt;academiejaar&gt;</span>20162017<span class="kw">&lt;/academiejaar&gt;</span></a>
+<a class="sourceLine" id="cb115-38" title="38">        <span class="kw">&lt;score_kans1&gt;</span>16<span class="kw">&lt;/score_kans1&gt;</span></a>
+<a class="sourceLine" id="cb115-39" title="39">      <span class="kw">&lt;/vak&gt;</span></a>
+<a class="sourceLine" id="cb115-40" title="40">      ...</a>
+<a class="sourceLine" id="cb115-41" title="41">    <span class="kw">&lt;/vakken&gt;</span></a>
+<a class="sourceLine" id="cb115-42" title="42">  <span class="kw">&lt;/student&gt;</span></a>
+<a class="sourceLine" id="cb115-43" title="43">  ...</a>
+<a class="sourceLine" id="cb115-44" title="44"><span class="kw">&lt;/studenten&gt;</span></a></code></pre></div>
+</div>
+<div id="json-bestanden" class="section level5">
+<h5><span class="header-section-number">7.2.2.2.2</span> JSON-bestanden</h5>
+<ul>
+<li>Bestudeer de <a href="http://beginnersbook.com/2015/04/json-tutorial/">JSON Tutorial</a> om te begrijpen hoe een JSON-bestand is opgebouwd.</li>
+<li>JSON is een ander formaat dat steeds populairder wordt om hiërarchische data op te slaan en uit te wisselen.
+<ul>
+<li>In vergelijking met XML is JSON korter en eenvoudiger te lezen.</li>
+</ul></li>
+<li>Een JSON-bestand bestaat voornamelijk uit JSON-objecten en JSON-lijsten.</li>
+<li>JSON-objecten komen typisch overeen met een observatie (rij) in een dataset.
+<ul>
+<li>Een JSON-object wordt omsloten door accolades.</li>
+<li>De inhoud van een JSON-object bestaat uit key-value paren.
+<ul>
+<li>De key-value paren zijn van elkaar gescheiden door middel van een komma.</li>
+<li>De key is een string omsloten door dubbele aanhalingstekens en geeft aan wat de value voorstelt.</li>
+<li>Key en value zijn van elkaar gescheiden door middel van een dubbelpunt.</li>
+</ul></li>
+</ul></li>
+<li>Voorbeelden van een JSON-object dat de student Rob Nelissen voorstelt:
+<ul>
+<li><code>{"naam":"Nelissen", "voornaam":"Rob"}</code></li>
+</ul></li>
+<li>Een JSON-lijst (array genoemd) bestaat uit een lijst van waarden gescheiden door een komma en omgeven door rechte haakjes.
+<ul>
+<li>De waarden van de verschillende elementen in een JSON-lijst moeten van hetzelfde type zijn.</li>
+<li>Toegelaten waarden zijn o.a. strings, getallen, objecten, andere arrays (lijsten).</li>
+</ul></li>
+<li>Indien je data in tabelvorm wenst voor te stellen, zal je iedere rij als een JSON-object voorstellen en de volledige tabel als een lijst van deze JSON-objecten.</li>
+<li>Onderstaand voorbeeld is de vertaling van voorgaande studentendata in tabelvorm naar JSON.</li>
+</ul>
+<div class="sourceCode" id="cb116"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb116-1" title="1"><span class="ot">[</span></a>
+<a class="sourceLine" id="cb116-2" title="2">  <span class="fu">{</span><span class="dt">&quot;naam&quot;</span><span class="fu">:</span><span class="st">&quot;Nelissen&quot;</span><span class="fu">,</span> </a>
+<a class="sourceLine" id="cb116-3" title="3">   <span class="dt">&quot;voornaam&quot;</span><span class="fu">:</span><span class="st">&quot;Rob&quot;</span> </a>
+<a class="sourceLine" id="cb116-4" title="4">  <span class="fu">}</span><span class="ot">,</span> </a>
+<a class="sourceLine" id="cb116-5" title="5">  <span class="fu">{</span><span class="dt">&quot;naam&quot;</span><span class="fu">:</span><span class="st">&quot;Franssen&quot;</span><span class="fu">,</span> </a>
+<a class="sourceLine" id="cb116-6" title="6">   <span class="dt">&quot;voornaam&quot;</span><span class="fu">:</span><span class="st">&quot;Ann&quot;</span></a>
+<a class="sourceLine" id="cb116-7" title="7">  <span class="fu">}</span></a>
+<a class="sourceLine" id="cb116-8" title="8"><span class="ot">]</span></a></code></pre></div>
+<ul>
+<li>Net als bij XML kan je met JSON complexe datastructuren voorstellen.</li>
+<li>Voorbeeld:</li>
+</ul>
+<div class="sourceCode" id="cb117"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb117-1" title="1"><span class="ot">[</span></a>
+<a class="sourceLine" id="cb117-2" title="2">  <span class="fu">{</span><span class="dt">&quot;naam&quot;</span><span class="fu">:</span><span class="st">&quot;Nelissen&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb117-3" title="3">   <span class="dt">&quot;voornaam&quot;</span><span class="fu">:</span> <span class="st">&quot;Rob&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb117-4" title="4">   <span class="dt">&quot;vakken&quot;</span><span class="fu">:</span> </a>
+<a class="sourceLine" id="cb117-5" title="5">    <span class="ot">[</span></a>
+<a class="sourceLine" id="cb117-6" title="6">      <span class="fu">{</span><span class="dt">&quot;naam&quot;</span><span class="fu">:</span><span class="st">&quot;Exploratieve en Descriptieve Data Analyse&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb117-7" title="7">       <span class="dt">&quot;academiejaar&quot;</span><span class="fu">:</span><span class="st">&quot;20162017&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb117-8" title="8">       <span class="dt">&quot;score_kans1&quot;</span><span class="fu">:</span><span class="dv">8</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb117-9" title="9">       <span class="dt">&quot;score_kans2&quot;</span><span class="fu">:</span><span class="dv">12</span></a>
+<a class="sourceLine" id="cb117-10" title="10">      <span class="fu">}</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb117-11" title="11">      <span class="fu">{</span><span class="dt">&quot;naam&quot;</span><span class="fu">:</span><span class="st">&quot;Macro-economie&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb117-12" title="12">       <span class="dt">&quot;academiejaar&quot;</span><span class="fu">:</span><span class="st">&quot;20152016&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb117-13" title="13">       <span class="dt">&quot;score_kans1&quot;</span><span class="fu">:</span><span class="dv">8</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb117-14" title="14">       <span class="dt">&quot;score_kans2&quot;</span><span class="fu">:</span><span class="dv">7</span></a>
+<a class="sourceLine" id="cb117-15" title="15">      <span class="fu">}</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb117-16" title="16">      <span class="fu">{</span><span class="dt">&quot;naam&quot;</span><span class="fu">:</span><span class="st">&quot;Macro-economie&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb117-17" title="17">       <span class="dt">&quot;academiejaar&quot;</span><span class="fu">:</span><span class="st">&quot;20162017&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb117-18" title="18">       <span class="dt">&quot;score_kans1&quot;</span><span class="fu">:</span><span class="dv">14</span></a>
+<a class="sourceLine" id="cb117-19" title="19">      <span class="fu">}</span></a>
+<a class="sourceLine" id="cb117-20" title="20">    <span class="ot">]</span></a>
+<a class="sourceLine" id="cb117-21" title="21">  <span class="fu">}</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb117-22" title="22">  <span class="fu">{</span><span class="dt">&quot;naam&quot;</span><span class="fu">:</span><span class="st">&quot;Franssen&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb117-23" title="23">   <span class="dt">&quot;voornaam&quot;</span><span class="fu">:</span> <span class="st">&quot;Ann&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb117-24" title="24">   <span class="dt">&quot;vakken&quot;</span><span class="fu">:</span> </a>
+<a class="sourceLine" id="cb117-25" title="25">    <span class="ot">[</span></a>
+<a class="sourceLine" id="cb117-26" title="26">      <span class="fu">{</span><span class="dt">&quot;naam&quot;</span><span class="fu">:</span><span class="st">&quot;Exploratieve en Descriptieve Data Analyse&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb117-27" title="27">       <span class="dt">&quot;academiejaar&quot;</span><span class="fu">:</span><span class="st">&quot;20162017&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb117-28" title="28">       <span class="dt">&quot;score_kans1&quot;</span><span class="fu">:</span><span class="dv">15</span></a>
+<a class="sourceLine" id="cb117-29" title="29">      <span class="fu">}</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb117-30" title="30">      <span class="fu">{</span><span class="dt">&quot;naam&quot;</span><span class="fu">:</span><span class="st">&quot;Macro-economie&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb117-31" title="31">       <span class="dt">&quot;academiejaar&quot;</span><span class="fu">:</span><span class="st">&quot;20162017&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb117-32" title="32">       <span class="dt">&quot;score_kans1&quot;</span><span class="fu">:</span><span class="dv">16</span></a>
+<a class="sourceLine" id="cb117-33" title="33">      <span class="fu">}</span></a>
+<a class="sourceLine" id="cb117-34" title="34">    <span class="ot">]</span></a>
+<a class="sourceLine" id="cb117-35" title="35">  <span class="fu">}</span></a>
+<a class="sourceLine" id="cb117-36" title="36"><span class="ot">]</span></a></code></pre></div>
+</div>
+</div>
+<div id="applicatie-specifieke-dataformaten" class="section level4">
+<h4><span class="header-section-number">7.2.2.3</span> Applicatie-specifieke dataformaten</h4>
+<ul>
+<li>Naast deze standaard dataformaten, waarbij data als tekstbestanden worden opgeslagen, bestaan er verschillende applicatie-specifieke dataformaten.</li>
+<li>Het voordeel van applicatie-specifieke dataformaten is dat deze extra informatie over de data kunnen opslaan die specifiek is voor de applicatie.
+<ul>
+<li>Zo zal een Excel databestand ook informatie bevatten over de formules en opmaak van de data (vet, cursief, …).</li>
+</ul></li>
+<li>Het nadeel van deze applicatie-specifieke dataformaten is dat ze niet altijd leesbaar zijn door andere applicaties.</li>
+</ul>
+</div>
+<div id="r-packages-voor-het-inladen-van-diverse-dataformaten" class="section level4">
+<h4><span class="header-section-number">7.2.2.4</span> R-packages voor het inladen van diverse dataformaten</h4>
+<ul>
+<li>Standaard R heeft een aantal functies om delimited bestanden in te lezen, namelijk read.csv() en read.csv2(). Het verschil tussen beide functies heeft betrekking op de standaardwaardes voor specifieke parameters, zoals welk teken als delimiter gebruikt wordt (read.csv veronderstelt het komma-teken als delimiter, terwijl read.csv2 er van uitgaat dat de puntkomma gebruikt wordt om waardes van elkaar te scheiden).</li>
+<li>Er is ook het R pacakge ‘readr’ dat ook twee soortgelijke functies aanbiedt - read_csv() en read_csv2() - die performanter zijn dan de standaardfuncties.</li>
+<li>Om xml-bestanden in te lezen, wordt typisch het R package ‘xml’ gebruikt. Voor JSON-bestanden kan gebruik gemaakt worden van de packages ‘rjson’ of ‘jsonlite’.</li>
+<li>Voor een aantal applicatie-specifieke formaten zijn ondertussen ook al R-packages ontwikkeld. Zo is er bijvoorbeeld het R-package ‘readxl’ dat het inladen van Excel bestanden relatief eenvoudig maakt.</li>
+</ul>
+</div>
+</div>
+<div id="data-encodering" class="section level3">
+<h3><span class="header-section-number">7.2.3</span> Data-encodering</h3>
+<div id="binair-decimaal-en-hexadecimaal-rekenstelsel" class="section level4">
+<h4><span class="header-section-number">7.2.3.1</span> Binair, decimaal en hexadecimaal rekenstelsel</h4>
+<ul>
+<li>Een computer kan slechts 2 waarden opslaan, typisch voorgesteld als 0 en 1.</li>
+<li>Iedere opslaglocatie op een computer kan dus slechts 2 verschillende waarden opslaan en wordt een bit genoemd.
+<ul>
+<li>De afkorting van bit is de kleine letter ‘b’.</li>
+</ul></li>
+<li>Een rekenstelsel waarbij iedere locatie slechts 2 waarden kan voorstellen noemen we een binair rekenstelsel.
+<ul>
+<li>Indien we 2 opslaglocaties (2 bits) gebruiken, kunnen we 4 verschillende waarden opslaan: 00, 01, 10 en 11.</li>
+<li>Indien we 3 bits gebruiken zijn er 8 mogelijke waarden, bij 4 bits zijn er 16 mogelijke waarden.</li>
+<li>Het aantal waarden dat men met <span class="math inline">\(n\)</span> bits kan opslaan is gelijk aan <span class="math inline">\(2^n\)</span>.</li>
+</ul></li>
+<li>Merk op dat in het rekenstelsel dat door mensen gebruikt wordt iedere opslaglocatie 10 verschillende waarden gebruikt kunnen worden (0, 1, 2, 3, 4, 5, 6, 7, 8, 9).
+<ul>
+<li>Dit noemen we het decimaal rekenstelsel.</li>
+<li>Met 2 opslaglocaties kunnen we in het decimaal rekenstelsel 100 (= <span class="math inline">\(10^2\)</span>) waarden opslaan: van 00 tot 99.</li>
+</ul></li>
+<li>Een ander rekenstelsel dat vaak gebruikt wordt binnen computerwetenschappen is het hexadecimaal rekenstelsel.
+<ul>
+<li>In dit rekenstelsel kan iedere opslaglocatie 16 waardes opslaan, nl. 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E en F.</li>
+<li>Het hexadecimaal rekenstelsel is interessant omdat 1 locatie overeenstemt met 4 bit (4 locaties in het binair rekenstelsel).</li>
+</ul></li>
+<li>Om in computerprogramma’s aan te geven dat iets voorgesteld wordt in het hexadecimaal stelsel, laten we het voorafgaan door een 0x. Om aan te geven dat iets voorgesteld wordt in het binair stelsel, gebruiken we prefix 0b. Zonder prefix verwijzen we typisch naar het decimaal rekenstelsel.</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th align="left">decimaal</th>
+<th align="left">hexadecimaal</th>
+<th align="left">binair</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">0</td>
+<td align="left">0x0</td>
+<td align="left">0b0000</td>
+</tr>
+<tr class="even">
+<td align="left">1</td>
+<td align="left">0x1</td>
+<td align="left">0b0001</td>
+</tr>
+<tr class="odd">
+<td align="left">2</td>
+<td align="left">0x2</td>
+<td align="left">0b0010</td>
+</tr>
+<tr class="even">
+<td align="left">3</td>
+<td align="left">0x3</td>
+<td align="left">0b0011</td>
+</tr>
+<tr class="odd">
+<td align="left">4</td>
+<td align="left">0x4</td>
+<td align="left">0b0100</td>
+</tr>
+<tr class="even">
+<td align="left">5</td>
+<td align="left">0x5</td>
+<td align="left">0b0101</td>
+</tr>
+<tr class="odd">
+<td align="left">6</td>
+<td align="left">0x6</td>
+<td align="left">0b0110</td>
+</tr>
+<tr class="even">
+<td align="left">7</td>
+<td align="left">0x7</td>
+<td align="left">0b0111</td>
+</tr>
+<tr class="odd">
+<td align="left">8</td>
+<td align="left">0x8</td>
+<td align="left">0b1000</td>
+</tr>
+<tr class="even">
+<td align="left">9</td>
+<td align="left">0x9</td>
+<td align="left">0b1001</td>
+</tr>
+<tr class="odd">
+<td align="left">10</td>
+<td align="left">0xA</td>
+<td align="left">0b1010</td>
+</tr>
+<tr class="even">
+<td align="left">11</td>
+<td align="left">0xB</td>
+<td align="left">0b1011</td>
+</tr>
+<tr class="odd">
+<td align="left">12</td>
+<td align="left">0xC</td>
+<td align="left">0b1100</td>
+</tr>
+<tr class="even">
+<td align="left">13</td>
+<td align="left">0xD</td>
+<td align="left">0b1101</td>
+</tr>
+<tr class="odd">
+<td align="left">14</td>
+<td align="left">0xE</td>
+<td align="left">0b1110</td>
+</tr>
+<tr class="even">
+<td align="left">15</td>
+<td align="left">0xF</td>
+<td align="left">0b1111</td>
+</tr>
+</tbody>
+</table>
+<p>Tabel: conversietabel decimaal, hexadecimaal en binair.</p>
+<ul>
+<li>8 bits worden ook een byte genoemd wat afgekort wordt met de hoofdletter B. 1B bestaat dus uit 8b en kan dus 256 (<span class="math inline">\(=2^8\)</span>) waarden opslaan.</li>
+</ul>
+</div>
+<div id="tekst-opslaan" class="section level4">
+<h4><span class="header-section-number">7.2.3.2</span> Tekst opslaan</h4>
+<ul>
+<li>Bestudeer de bron over <a href="http://kunststube.net/encoding/">Encoding</a> tot sectie ‘Encodings en PHP’.</li>
+<li>Lees de bron over <a href="https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/">de geschiedenis van ASCII</a> (enkel sectie ‘A Historical Perspective’).</li>
+<li>Aangezien computers enkel bits kunnen opslaan, hebben we een conversieschema nodig om tekst op te slaan. Ieder letterteken zal moeten omgezet worden naar een string van bits. Dit conversieschema wordt een ‘encoding scheme’ of encoderingsschema genoemd.</li>
+<li>Ieder encoderingsschema voorziet de vertaling van een specifieke set van karakters naar bijhorende bitstrings. Deze sets van karakters noemen we ‘character sets’ of karaktersets.</li>
+<li>Er bestaan zeer veel encoderingsschema’s.
+<ul>
+<li>ASCII is een van de oudste encoderingsschema’s en is voornamelijk bruikbaar voor Engelstalige tekst.
+<ul>
+<li>De ASCII karakterset bestaat uit 128 lettertekens en bevat o.a. de cijfers 0 tot 9, de letters a-z en A-Z.</li>
+<li>ASCII gebruikt 1 byte per letterteken en kan dus in principe 256 verschillende lettertekens opslaan.</li>
+<li>Aangezien ASCII slechts een karakterset van 128 tekens heeft, gebruikt het dus slechts 7 bit van de beschikbare byte (<span class="math inline">\(2^7 = 128\)</span>).</li>
+<li>Omdat de ASCII tekenset gemaakt was voor de Engelse taal ontbreken er verschillende tekens voor andere talen.</li>
+</ul></li>
+<li>De ANSI-standaard nam de ASCII tekenset over, maar voegt hier vervolgens 128 tekens aan toe door de volledige byte te gebruiken.
+<ul>
+<li>Met welke tekens de karaketerset wordt uitgebreid ligt echter niet vast binnen de ANSI-standaard, maar is afhankelijk van de gekozen codepage (of karakterset).</li>
+<li>Er bestaan zeer veel ANSI codepages (die eigenlijk Windows codepages genoemd moeten worden). Voor de eerste 128 tekens maakt de specifieke codepage niet uit, maar voor de laatste 128 code pages is dit wel belangrijk.</li>
+</ul></li>
+<li>Voor talen waar 1 byte per letterteken onvoldoende is, werden dan weer nieuwe encoderingsschema’s gebruikt die 2 bytes gebruiken en zo 65536 lettertekens kunnen voorstellen.</li>
+<li>Unicode is een poging om tot 1 karakterset te komen voor alle tekens die gebruikt worden in tekst.
+<ul>
+<li>Unicode is een standaard en definieert zelf geen encodering. Ze vertaalt dus zelf geen lettertekens naar bitstrings.</li>
+<li>Unicode legt wel codepoints vast, wat een mapping is tussen lettertekens en een hexadecimaal getal. Zo is de letter ‘A’ gekoppeld aan het codepoint 0x0041.</li>
+<li>Het Unicode systeem bevat in totaal meer dan 1 miljoen codepoints en omvat niet enkel cijfers en letters, maar ook emoji’s. Zo heeft de ‘lachend gezicht’-emoji codepoint 0x1F642.</li>
+<li>De feitelijke omzetting van de codepoints naar een bitstring gebeurt door een specifieke encodering, waarbij UTF-8 de meest voorkomende is.</li>
+</ul></li>
+</ul></li>
+<li>Het gevolg is dat we een grote waaier aan encoderingsschema’s hebben.
+<ul>
+<li>Als je dus een tekst opslaat volgens het ene encoderingsschema en vervolgens terug inleest volgens een ander encoderingsschema, dan kan het zijn dat delen van de tekst geen steek meer houden.</li>
+<li>Als je bijvoorbeeld de letter ‘ï’ opslaat volgens de Windows-1252 codepage dan zal dit binair als 11101111 opgeslagen worden (0xEF). Als je deze reeks van 8 bits echter later weer inleest volgens de Windows-1257 (Windows-Baltic), dan zal de binaire reeks 11101111 geïnterpreteerd worden als ‘ļ’.</li>
+</ul></li>
+<li>Het R-package ‘readr’ gaat er van uit dat tekst geëncodeerd is in UTF-8.</li>
+</ul>
+</div>
+</div>
+<div id="datatypes-controlleren-en-corrigeren" class="section level3">
+<h3><span class="header-section-number">7.2.4</span> Datatypes controlleren en corrigeren</h3>
+<ul>
+<li>We zullen de datavoorbereidingsfase illustreren aan de hand van de vluchtgegevens van de drie luchthavens in New York City.</li>
+<li>Voor we kunnen beginnen is het altijd verstandig een snel overzicht te maken van de dataset, zodat we weten welke variabelen we voor handen hebben alsook hun datatypes.</li>
+<li>Met de <em>glimpse</em> functie krijg je snel een overzicht van de verschillende variabelen en van welk type ze zijn.</li>
+</ul>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb118-1" title="1"><span class="kw">glimpse</span>(df)</a></code></pre></div>
+<pre><code>## Observations: 329,174
+## Variables: 7
+## $ luchthaven          &lt;fct&gt; EWR, LGA, JFK, LGA, EWR, EWR, LGA, JFK, LGA, JF...
+## $ maatschappij        &lt;fct&gt; United Air Lines Inc., United Air Lines Inc., A...
+## $ vertrek_vertraging  &lt;dbl&gt; 2, 4, 2, -6, -4, -5, -3, -3, -2, -2, -2, -2, -2...
+## $ aankomst_vertraging &lt;dbl&gt; 11, 20, 33, -25, 12, 19, -14, -8, 8, -2, -3, 7,...
+## $ afstand             &lt;chr&gt; &quot;1400&quot;, &quot;1416&quot;, &quot;1089&quot;, &quot;762&quot;, &quot;719&quot;, &quot;1065&quot;, &quot;...
+## $ vliegtijd           &lt;dbl&gt; 227, 227, 160, 116, 150, 158, 53, 140, 138, 149...
+## $ vluchttype          &lt;ord&gt; normaal, normaal, kort, kort, kort, kort, kort,...</code></pre>
+<ul>
+<li>Deze output bevat al een opmerkelijk resultaat. Zo zien we dat de variabele ‘afstand’ als tekst is opgeslagen in plaats van als een continue (numerieke) variabele.</li>
+<li>Soms gebeurt het dat R niet het juiste variabeletype herkent. Zo kan het zijn dat een categorische variabele als numerieke variabele wordt beschouwd omdat de categorieën gehele getallen zijn (vb. aantal cylinders: 4, 6 of 8).</li>
+<li>In onze dataset hebben we opgemerkt dat de variabele ‘afstand’ niet als numerieke variabele wordt geïnterpreteerd, maar als een ‘tekst’-variabele. Dit kan verschillende oorzaken hebben.
+<ul>
+<li>Zo kan het zijn dat er voor 1 van de observaties een waarde geregistreerd is met een niet-numeriek teken (vb. 1OO ipv 100). In dat geval zal je eerst deze waarden moeten corrigeren naar de juiste waarde.</li>
+<li>Een andere vaak voorkomende oorzaak is dat R een punt als decimaalteken verwacht, terwijl dat een komma is in de dataset. Dit valt vaak op te lossen door de data met andere opties in te lezen in R.</li>
+</ul></li>
+<li>Indien de fouten zijn gecorrigeerd, dan moeten we nog altijd de data omzetten van een ‘tekst’-variabele naar een numerieke variabele (in ons geval). Dit doen we door middel van de ‘mutate’-functie en de ‘as.numeric’-functie.</li>
+</ul>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb120-1" title="1">df &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb120-2" title="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">afstand =</span> <span class="kw">as.numeric</span>(afstand))</a></code></pre></div>
+<ul>
+<li>Merk op dat als er toch nog een waarde aanwezig is die niet kan omgezet worden naar het nieuwe variabeletype, R een waarschuwing zal geven en de waarde zal vervangen door ‘NA’. In dat geval ga je eerst moeten zoeken naar de oorzaak van de waarschuwing, deze aanpakken en dan de variabele transformeren naar het nieuwe type.</li>
+<li>De belangrijkste datatypes in R en de bijhorende transformatiefuncties zijn:
+<ul>
+<li>numeric (decimale getallen) - as.numeric()</li>
+<li>integer (gehele getallen) - as.integer()</li>
+<li>character (tekst) - as.character()</li>
+<li>factor (nominale variabele) - as.factor()</li>
+<li>ordered factor (ordinale variabele) - as.ordered()</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="dataproblemen-identificeren-en-corrigeren" class="section level2">
+<h2><span class="header-section-number">7.3</span> Dataproblemen identificeren en corrigeren</h2>
+<div id="overzicht" class="section level3">
+<h3><span class="header-section-number">7.3.1</span> Overzicht</h3>
+<ul>
+<li>We onderscheiden drie soorten problemen die kunnen opduiken met data en die best op voorhand gecorrigeerd worden:
+<ul>
+<li>Foutieve waarden.</li>
+<li>Ontbrekende waarden.</li>
+<li>Inconsistente waarden.</li>
+</ul></li>
+</ul>
+</div>
+<div id="foutieve-waarden" class="section level3">
+<h3><span class="header-section-number">7.3.2</span> Foutieve waarden</h3>
+<div id="categorische-variabele-2" class="section level4">
+<h4><span class="header-section-number">7.3.2.1</span> Categorische variabele</h4>
+<ul>
+<li>Coderingsfouten bij categorische variabelen uiten zich typisch in redundante categorielabels. Dit zijn labels met een typfout die door R als een aparte categorie worden beschouwd, maar dit niet zijn.</li>
+<li>Om dit soort coderingsfouten te detecteren, moet je de verschillende labels van een categorische variabele bestuderen.
+<ul>
+<li>Omdat deze foute categorielabels meestal uitzonderlijk zijn, kan je best de verschillende categorielabels bekijken volgens stijgende frequentie.</li>
+<li>Een andere aanpak is de categorielabels alfabetisch te ordenen.</li>
+</ul></li>
+<li>Eenmaal men deze coderingsfouten gedetecteerd heeft, kan men ze manueel corrigeren door gebruik te maken van de functies <em>mutate</em> (dplyr) en <em>fct_recode</em> (forcats).</li>
+</ul>
+</div>
+<div id="case-vluchtdata-nyc" class="section level4 unnumbered">
+<h4>Case: Vluchtdata NYC</h4>
+<ul>
+<li>Als we de categorische variabele <em>maatschappij</em> analyseren op foutieve labels dan zien we dat 1 vlucht foutief het label ‘XpressJet Airlines Inc.’ heeft gekregen in plaats van ‘ExpressJet Airlines Inc.’.</li>
+</ul>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb121-1" title="1">df <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb121-2" title="2"><span class="st">  </span><span class="kw">group_by</span>(maatschappij) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb121-3" title="3"><span class="st">  </span><span class="kw">tally</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb121-4" title="4"><span class="st">  </span><span class="kw">arrange</span>(n)</a></code></pre></div>
+<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:5-5b">Table 7.1: </span>Maatschappijen geordend volgens stijgende frequentie.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+maatschappij
+</th>
+<th style="text-align:right;">
+n
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+XpressJet Airlines Inc. 
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Envoi Air
+</td>
+<td style="text-align:right;">
+19
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SkyWest Airlines Inc. 
+</td>
+<td style="text-align:right;">
+32
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Hawaiian Airlines Inc. 
+</td>
+<td style="text-align:right;">
+342
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Mesa Airlines Inc. 
+</td>
+<td style="text-align:right;">
+601
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Frontier Airlines Inc. 
+</td>
+<td style="text-align:right;">
+685
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Alaska Airlines Inc. 
+</td>
+<td style="text-align:right;">
+714
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AirTran Airways Corporation
+</td>
+<td style="text-align:right;">
+3260
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Virgin America
+</td>
+<td style="text-align:right;">
+5162
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Southwest Airlines Co. 
+</td>
+<td style="text-align:right;">
+12275
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Endeavor Air Inc. 
+</td>
+<td style="text-align:right;">
+18460
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+US Airways Inc. 
+</td>
+<td style="text-align:right;">
+20536
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Envoy Air
+</td>
+<td style="text-align:right;">
+26378
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+American Airlines Inc. 
+</td>
+<td style="text-align:right;">
+31327
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Delta Air Lines Inc. 
+</td>
+<td style="text-align:right;">
+46779
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JetBlue Airways
+</td>
+<td style="text-align:right;">
+50940
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ExpressJet Airlines Inc. 
+</td>
+<td style="text-align:right;">
+54172
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+United Air Lines Inc. 
+</td>
+<td style="text-align:right;">
+57491
+</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Indien we de labels van de categorische variabele <em>maatschappij</em> alfabetisch ordenen dan zien we ook dat er een aantal vluchten foutief gecodeerd zijn als ‘Envoi Air’ in plaats van ‘Envoy Air’.</li>
+</ul>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb122-1" title="1">df <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb122-2" title="2"><span class="st">  </span><span class="kw">group_by</span>(maatschappij) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb122-3" title="3"><span class="st">  </span><span class="kw">tally</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb122-4" title="4"><span class="st">  </span><span class="kw">arrange</span>(maatschappij)</a></code></pre></div>
+<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:5-6b">Table 7.2: </span>Maatschappij alfabetisch geordend.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+maatschappij
+</th>
+<th style="text-align:right;">
+n
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+AirTran Airways Corporation
+</td>
+<td style="text-align:right;">
+3260
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Alaska Airlines Inc. 
+</td>
+<td style="text-align:right;">
+714
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+American Airlines Inc. 
+</td>
+<td style="text-align:right;">
+31327
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Delta Air Lines Inc. 
+</td>
+<td style="text-align:right;">
+46779
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Endeavor Air Inc. 
+</td>
+<td style="text-align:right;">
+18460
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Envoi Air
+</td>
+<td style="text-align:right;">
+19
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Envoy Air
+</td>
+<td style="text-align:right;">
+26378
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ExpressJet Airlines Inc. 
+</td>
+<td style="text-align:right;">
+54172
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Frontier Airlines Inc. 
+</td>
+<td style="text-align:right;">
+685
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Hawaiian Airlines Inc. 
+</td>
+<td style="text-align:right;">
+342
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JetBlue Airways
+</td>
+<td style="text-align:right;">
+50940
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Mesa Airlines Inc. 
+</td>
+<td style="text-align:right;">
+601
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SkyWest Airlines Inc. 
+</td>
+<td style="text-align:right;">
+32
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Southwest Airlines Co. 
+</td>
+<td style="text-align:right;">
+12275
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+United Air Lines Inc. 
+</td>
+<td style="text-align:right;">
+57491
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+US Airways Inc. 
+</td>
+<td style="text-align:right;">
+20536
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Virgin America
+</td>
+<td style="text-align:right;">
+5162
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+XpressJet Airlines Inc. 
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>We kunnen deze foutieve labels corrigeren met behulp van de functie fct_recode uit het forcats package.</li>
+</ul>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb123-1" title="1">df <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb123-2" title="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">maatschappij =</span> <span class="kw">fct_recode</span>(maatschappij,</a>
+<a class="sourceLine" id="cb123-3" title="3">                                   <span class="st">&quot;ExpressJet Airlines Inc.&quot;</span> =<span class="st"> &quot;XpressJet Airlines Inc.&quot;</span>,</a>
+<a class="sourceLine" id="cb123-4" title="4">                                   <span class="st">&quot;Envoy Air&quot;</span> =<span class="st"> &quot;Envoi Air&quot;</span>)) -&gt;<span class="st"> </span>df</a></code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb124-1" title="1">df <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb124-2" title="2"><span class="st">  </span><span class="kw">group_by</span>(maatschappij) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb124-3" title="3"><span class="st">  </span><span class="kw">tally</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb124-4" title="4"><span class="st">  </span><span class="kw">arrange</span>(maatschappij)</a></code></pre></div>
+</div>
+<div id="ordinale-variabelen" class="section level4">
+<h4><span class="header-section-number">7.3.2.2</span> Ordinale variabelen</h4>
+<ul>
+<li>Bij ordinale variabelen kunnen dezelfde coderingsfouten voorkomen als bij categorische variabelen. Deze worden op dezelfde manier gedetecteerd en gecorrigeerd.</li>
+<li>Er is echter nog een bijkomende coderingsfout voor ordinale variabelen, namelijk wanneer de voorgedefinieerde volgorde tussen de labels fout is.</li>
+<li>Om dit te detecteren, moet je de verschillende labels (‘levels’) opvragen met behulp van de <em>unique</em>-functie.</li>
+<li>Indien we de ordinale variabele <em>vluchttype</em> analyseren dan zien we dat de voorgedefinieerde volgorde van de labels foutief is.</li>
+</ul>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" title="1"><span class="kw">unique</span>(df<span class="op">$</span>vluchttype)</a></code></pre></div>
+<pre><code>## [1] normaal           kort              lang              intercontinentaal
+## Levels: lang &lt; kort &lt; normaal &lt; intercontinentaal</code></pre>
+<ul>
+<li>We kunnen de volgorde tussen de labels van een ordinale variabele corrigeren met behulp van de functies <em>mutate</em> (dplyr) en <em>fct_relevel</em> (forcats).</li>
+</ul>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb127-1" title="1">df <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb127-2" title="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">vluchttype =</span> <span class="kw">fct_relevel</span>(df<span class="op">$</span>vluchttype, <span class="st">&quot;lang&quot;</span>, <span class="dt">after =</span> <span class="dv">2</span>)) -&gt;<span class="st"> </span>df</a>
+<a class="sourceLine" id="cb127-3" title="3"></a>
+<a class="sourceLine" id="cb127-4" title="4"><span class="kw">unique</span>(df<span class="op">$</span>vluchttype)</a></code></pre></div>
+<pre><code>## [1] normaal           kort              lang              intercontinentaal
+## Levels: kort &lt; normaal &lt; lang &lt; intercontinentaal</code></pre>
+</div>
+<div id="continue-variabelen" class="section level4">
+<h4><span class="header-section-number">7.3.2.3</span> Continue variabelen</h4>
+<ul>
+<li>Foutieve waarden bij een continue variabelen detecteren is een stuk moeilijker omdat een foutieve waarde nog steeds een geldige waarde kan zijn (nog steeds een getal).</li>
+<li>Ook de aanpak om naar weinig voorkomende waarden te kijken, zoals bij categorische variabelen, werkt niet goed omdat bij een continue variabele vaak veel waarden zijn zeer weinig voorkomen.</li>
+<li>De meest voor de hand liggende aanpak is de waarden te bestuderen die opmerkelijk hoog of laag zijn in vergelijking met de andere waarden van de variabele.</li>
+<li>Het is belangrijk te beseffen dat niet iedere extreme waarde per definitie een foutieve waarde is. Uitzonderlijk hoge of lage waardes zijn natuurlijk altijd mogelijk.</li>
+<li>Daarom moet men altijd voorzichtig te werk gaan bij het bepalen of iets een foutieve waarde is (meetfout, ingavefout) of een uitzonderlijke doch correcte waarde. Domeinkennis kan hierbij helpen.</li>
+<li>Indien je door te kijken naar de uiterste waarden mogelijke problemen hebt gedetecteerd, moet je deze observaties van nabij bestuderen om te achterhalen of het meetfouten kunnen zijn of niet. Ga hiervoor steeds naar de volledige observatie kijken en niet enkel naar de waarde voor de continue variabele.</li>
+<li>Een andere manier om te detecteren of een continue variabele uitzonderlijke waarden bevat, is door middel van een boxplot. Uitzonderlijk grote/kleine waarden vallen buiten de ‘whiskers’ en worden door punten aangeduid in een boxplot. Let wel op, de filosofie achter uitzonderlijke waarden is gebaseerd op een normale verdeling van de data. Indien de data werkelijk normaal verdeeld is, dan is de kans op een uitzonderlijke waarde slechts 0.7%. Dit betekent echter dat men best op voorhand het histogram bekijkt om te controleren of de data enigszins normaal verdeeld is, alvorens de boxplot te hanteren.</li>
+<li>Bij foutieve waarden van een continue variabele is het vaak niet mogelijk om de correcte waarde af te leiden (zoals bij een categorische variabele). Daarom is de enige juiste correctie deze foutieve waarden te vervangen met “missing values”.</li>
+<li>We zullen de variabele <em>vliegtijd</em> analyseren op foutieve waarden.</li>
+<li>We zullen eerst de kleinste waarden bestuderen. Hiervoor selecteren we de 10 vluchten met de kortste vliegtijd en rangschikken deze volgens stijgende vliegtijd. We kijken hierbij niet alleen naar de vliegtijd, maar ook naar de luchthaven, de maatschappij en de afgelegde afstand.</li>
+</ul>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb129-1" title="1">df <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb129-2" title="2"><span class="st">  </span><span class="kw">arrange</span>(vliegtijd) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb129-3" title="3"><span class="st">  </span><span class="kw">select</span>(luchthaven, maatschappij, afstand, vliegtijd) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb129-4" title="4"><span class="st">  </span><span class="kw">filter</span>(<span class="kw">row_number</span>()<span class="op">&lt;</span><span class="dv">11</span>)</a></code></pre></div>
+<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:5-11b">Table 7.3: </span>Vluchten met kortste vliegtijd.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+luchthaven
+</th>
+<th style="text-align:left;">
+maatschappij
+</th>
+<th style="text-align:right;">
+afstand
+</th>
+<th style="text-align:right;">
+vliegtijd
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+JFK
+</td>
+<td style="text-align:left;">
+Endeavor Air Inc. 
+</td>
+<td style="text-align:right;">
+94
+</td>
+<td style="text-align:right;">
+0.5833333
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+EWR
+</td>
+<td style="text-align:left;">
+JetBlue Airways
+</td>
+<td style="text-align:right;">
+1065
+</td>
+<td style="text-align:right;">
+2.7666667
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JFK
+</td>
+<td style="text-align:left;">
+Delta Air Lines Inc. 
+</td>
+<td style="text-align:right;">
+2248
+</td>
+<td style="text-align:right;">
+5.1500000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+EWR
+</td>
+<td style="text-align:left;">
+ExpressJet Airlines Inc. 
+</td>
+<td style="text-align:right;">
+116
+</td>
+<td style="text-align:right;">
+20.0000000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+EWR
+</td>
+<td style="text-align:left;">
+ExpressJet Airlines Inc. 
+</td>
+<td style="text-align:right;">
+116
+</td>
+<td style="text-align:right;">
+20.0000000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+EWR
+</td>
+<td style="text-align:left;">
+ExpressJet Airlines Inc. 
+</td>
+<td style="text-align:right;">
+116
+</td>
+<td style="text-align:right;">
+21.0000000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+EWR
+</td>
+<td style="text-align:left;">
+ExpressJet Airlines Inc. 
+</td>
+<td style="text-align:right;">
+80
+</td>
+<td style="text-align:right;">
+21.0000000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+EWR
+</td>
+<td style="text-align:left;">
+ExpressJet Airlines Inc. 
+</td>
+<td style="text-align:right;">
+116
+</td>
+<td style="text-align:right;">
+21.0000000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+EWR
+</td>
+<td style="text-align:left;">
+ExpressJet Airlines Inc. 
+</td>
+<td style="text-align:right;">
+80
+</td>
+<td style="text-align:right;">
+21.0000000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LGA
+</td>
+<td style="text-align:left;">
+US Airways Inc. 
+</td>
+<td style="text-align:right;">
+184
+</td>
+<td style="text-align:right;">
+21.0000000
+</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Deze analyse doet vermoeden dat de eerste drie vluchten waarschijnlijk meetfouten zijn. Het betreffen hier drie vluchten van minder dan 6 minuten wat zeer onwaarschijnlijk is, zeker wanneer we we zien dat de tweede en derde vlucht lange vluchten zijn.</li>
+<li>De overige vluchten zijn vluchten van 20 minuten of meer, maar aangezien het hier om korte vluchten gaan is dit mogelijk correct. We zullen enkel de eerste drie observaties (met een vliegtijd kleiner dan 6) als foutief beschouwen.</li>
+<li>We bestuderen vervolgens de vluchten met de grootste vliegtijd.</li>
+</ul>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb130-1" title="1">df <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb130-2" title="2"><span class="st">  </span><span class="kw">arrange</span>(<span class="op">-</span>vliegtijd) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb130-3" title="3"><span class="st">  </span><span class="kw">select</span>(luchthaven, maatschappij, afstand, vliegtijd) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb130-4" title="4"><span class="st">  </span><span class="kw">filter</span>(<span class="kw">row_number</span>()<span class="op">&lt;</span><span class="dv">11</span>)</a></code></pre></div>
+<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:5-12b">Table 7.4: </span>Vluchten met langste vliegtijd.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+luchthaven
+</th>
+<th style="text-align:left;">
+maatschappij
+</th>
+<th style="text-align:right;">
+afstand
+</th>
+<th style="text-align:right;">
+vliegtijd
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+EWR
+</td>
+<td style="text-align:left;">
+United Air Lines Inc. 
+</td>
+<td style="text-align:right;">
+4963
+</td>
+<td style="text-align:right;">
+695
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JFK
+</td>
+<td style="text-align:left;">
+Hawaiian Airlines Inc. 
+</td>
+<td style="text-align:right;">
+4983
+</td>
+<td style="text-align:right;">
+691
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JFK
+</td>
+<td style="text-align:left;">
+Hawaiian Airlines Inc. 
+</td>
+<td style="text-align:right;">
+4983
+</td>
+<td style="text-align:right;">
+686
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JFK
+</td>
+<td style="text-align:left;">
+Hawaiian Airlines Inc. 
+</td>
+<td style="text-align:right;">
+4983
+</td>
+<td style="text-align:right;">
+686
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JFK
+</td>
+<td style="text-align:left;">
+Hawaiian Airlines Inc. 
+</td>
+<td style="text-align:right;">
+4983
+</td>
+<td style="text-align:right;">
+683
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JFK
+</td>
+<td style="text-align:left;">
+Hawaiian Airlines Inc. 
+</td>
+<td style="text-align:right;">
+4983
+</td>
+<td style="text-align:right;">
+679
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+EWR
+</td>
+<td style="text-align:left;">
+United Air Lines Inc. 
+</td>
+<td style="text-align:right;">
+4963
+</td>
+<td style="text-align:right;">
+676
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JFK
+</td>
+<td style="text-align:left;">
+Hawaiian Airlines Inc. 
+</td>
+<td style="text-align:right;">
+4983
+</td>
+<td style="text-align:right;">
+676
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JFK
+</td>
+<td style="text-align:left;">
+Hawaiian Airlines Inc. 
+</td>
+<td style="text-align:right;">
+4983
+</td>
+<td style="text-align:right;">
+675
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+EWR
+</td>
+<td style="text-align:left;">
+United Air Lines Inc. 
+</td>
+<td style="text-align:right;">
+4963
+</td>
+<td style="text-align:right;">
+671
+</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>Deze resultaten doen vermoeden dat het hier NIET om meetfouten gaat. Het gaat hier immers om zeer verre vluchten en de maatschappijnaam doet vermoeden dat het hoofdzakelijk vluchten naar Hawaï zijn. We hebben daarom via Google opgezocht hoe lang een vlucht van New York naar Hawaï duurt en dit komt overeen met de vliegtijden van 11 tot 12u in deze dataset. Daarom besluiten we dat deze waarden geen foutieve waarden zijn.</p></li>
+<li><p>Vervolgens zullen we voor de drie vluchten met een vliegtijd van minder dan 6 minuten de waarde van de vliegtijd vervangen door een ontbrekende waarde. In R wordt dit aangegeven door de waarde <em>NA</em> dat voor ‘not available’ staat.</p></li>
+</ul>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb131-1" title="1">df &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb131-2" title="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">vliegtijd =</span> <span class="kw">ifelse</span>(vliegtijd<span class="op">&lt;</span><span class="dv">6</span>,<span class="ot">NA</span>,vliegtijd))</a>
+<a class="sourceLine" id="cb131-3" title="3"></a>
+<a class="sourceLine" id="cb131-4" title="4">df <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb131-5" title="5"><span class="st">  </span><span class="kw">arrange</span>(vliegtijd) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb131-6" title="6"><span class="st">  </span><span class="kw">select</span>(luchthaven, maatschappij, afstand, vliegtijd) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb131-7" title="7"><span class="st">  </span><span class="kw">filter</span>(<span class="kw">row_number</span>()<span class="op">&lt;</span><span class="dv">11</span>)</a></code></pre></div>
+<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:5-13b">Table 7.5: </span>Vluchten met kortste vliegtijd.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+luchthaven
+</th>
+<th style="text-align:left;">
+maatschappij
+</th>
+<th style="text-align:right;">
+afstand
+</th>
+<th style="text-align:right;">
+vliegtijd
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+EWR
+</td>
+<td style="text-align:left;">
+ExpressJet Airlines Inc. 
+</td>
+<td style="text-align:right;">
+116
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+EWR
+</td>
+<td style="text-align:left;">
+ExpressJet Airlines Inc. 
+</td>
+<td style="text-align:right;">
+116
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+EWR
+</td>
+<td style="text-align:left;">
+ExpressJet Airlines Inc. 
+</td>
+<td style="text-align:right;">
+116
+</td>
+<td style="text-align:right;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+EWR
+</td>
+<td style="text-align:left;">
+ExpressJet Airlines Inc. 
+</td>
+<td style="text-align:right;">
+80
+</td>
+<td style="text-align:right;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+EWR
+</td>
+<td style="text-align:left;">
+ExpressJet Airlines Inc. 
+</td>
+<td style="text-align:right;">
+116
+</td>
+<td style="text-align:right;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+EWR
+</td>
+<td style="text-align:left;">
+ExpressJet Airlines Inc. 
+</td>
+<td style="text-align:right;">
+80
+</td>
+<td style="text-align:right;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LGA
+</td>
+<td style="text-align:left;">
+US Airways Inc. 
+</td>
+<td style="text-align:right;">
+184
+</td>
+<td style="text-align:right;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JFK
+</td>
+<td style="text-align:left;">
+Endeavor Air Inc. 
+</td>
+<td style="text-align:right;">
+94
+</td>
+<td style="text-align:right;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+EWR
+</td>
+<td style="text-align:left;">
+ExpressJet Airlines Inc. 
+</td>
+<td style="text-align:right;">
+116
+</td>
+<td style="text-align:right;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+EWR
+</td>
+<td style="text-align:left;">
+ExpressJet Airlines Inc. 
+</td>
+<td style="text-align:right;">
+116
+</td>
+<td style="text-align:right;">
+21
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="ontbrekende-waarden" class="section level3">
+<h3><span class="header-section-number">7.3.3</span> Ontbrekende waarden</h3>
+<ul>
+<li>Soms gebeurt het dat voor bepaalde observaties waarden ontbreken voor een specifieke variabele. In zulke gevallen spreken we van ontbrekende waarden of missing values.</li>
+<li>Het detecteren van ontbrekende waarden is relatief eenvoudig, omdat deze normaal als <em>NA</em> gecodeerd zijn in een dataset (NA = ‘not available’).</li>
+<li>We kunnen onderscheid maken tussen drie soorten van ontbrekende waarden.
+<ul>
+<li>Missing completely at random (MCAR): Indien het ontbreken van waarden voor een specifieke variabele volledig willekeurig is, dan spreekt men over MCAR.</li>
+<li>Missing at random (MAR): Indien het ontbreken van waarden voor variabele <span class="math inline">\(X_1\)</span> niet willekeurig is, maar afhankelijk van de waarden van andere variabelen <span class="math inline">\(X_2\)</span>, <span class="math inline">\(X_3\)</span>, …, dan spreekt men over MAR.</li>
+<li>Not missing at random (NMAR): Indien het ontbreken van waarden voor variabele <span class="math inline">\(X_1\)</span> niet willekeurig is, maar afhankelijk is van de waarde van <span class="math inline">\(X_1\)</span> of van de waarden van ongeobserveerde variabelen, dan spreekt men over NMAR.</li>
+</ul></li>
+<li>Om te bepalen of data al dan niet MCAR is, moet men achterhalen of het ontbreken van waarden voor variabele <span class="math inline">\(X_1\)</span> gecorreleerd is met de waarden van een andere variabele <span class="math inline">\(X_2\)</span>. Een mogelijkheid is om de dataset in twee te splitsen, i.e. alle observaties met een waarde voor <span class="math inline">\(X_1\)</span> en alle observaties met een missing value voor <span class="math inline">\(X_1\)</span>. Vervolgens kijken we naar de verdeling van variabele <span class="math inline">\(X_2\)</span>. Indien deze hetzelfde is voor beide datasets, dan suggereert dit dat er geen relatie bestaat tussen de waarde van <span class="math inline">\(X_2\)</span> en het al dan niet ontbreken van de waarde voor <span class="math inline">\(X_1\)</span>. Indien deze verdeling van <span class="math inline">\(X_2\)</span> sterkt verschilt tussen beide datasets, dan is er mogelijk wel een relatie en dan is de data niet MCAR.<br />
+</li>
+<li>Het soort ontbrekende waarde heeft belangrijke implicaties hoe je correct met ontbrekende waarden kan omgaan in het kader van confirmatorische data analyse. Zo zal het ‘weglaten’ van observaties met ontbrekende waarden enkel in het geval van MCAR geen vertekening geven in de resultaten van een confirmatorische data analyse.</li>
+<li>In het kader van een descriptieve of exploratieve data analyse, zijn de implicaties eerder beperkt, omdat men toch enkel uitspraken wenst te doen voor de beschikbare data.</li>
+<li>Wel kan het identificeren van het type ontbrekende waarden op zich interessante inzichten geven. Zo kan het het patroon dat het jaarsalaris voornamelijk ontbreekt bij mensen die hogere studies gevolgd hebben op zich ook interessant zijn voor verdere interpretatie.</li>
+<li>In descriptieve en exploratieve analyses zijn er 3 manieren om met ontbrekende waarden om te gaan:
+<ul>
+<li>We verwijderen de variabele waarvoor we missing values hebben.</li>
+<li>We verwijderen de observaties met missing values.</li>
+<li>We beschouwen de missing values als een aparte waarde.</li>
+</ul></li>
+<li>Het verwijderen van de variabele zelf is een drastische maatregel. Dit betekent immers dat we de variabele volledig buiten beschouwing laten in onze analyse. Dit is vaak het laatste redmiddel en wordt enkel toegepast als er een te hoog percentage ontbrekende waarden is.</li>
+<li>Bij het verwijderen van observaties moet men met de nodige aandacht te werk gaan. Indien de ontbrekende waarden MAR zijn (en niet MCAR), dan gaat men mogelijk waardevolle patronen tussen andere variabelen ook verwijderen. Een mogelijke manier om dit te omzeilen is de observaties met ontbrekende waarden te negeren bij analyses van de variabelen waarvoor de waarden ontbreken. Dit zorgt ervoor dat deze observaties wel nog beschikbaar zijn voor de analyse van andere variabelen.</li>
+<li>Indien de data suggereert dat de ontbrekende waarden MCAR zijn, dan kan men overwegen deze observaties te verwijderen. Indien dit niet het geval is, dan is het beter deze NA-waarden als een aparte categorie te beschouwen.
+<ul>
+<li>Omdat R de waarde ‘NA’ anders behandelt dan reguliere waarden, is het vaak aangeraden om deze waarde te transformeren (indien je de ontbrekende waarden als een aparte categorie wenst te beschouwen).</li>
+<li>In geval van een categorische variabele, kan je de ‘NA’ waarde transformeren naar een aparte categorie (vb ‘waarde ontbreekt’).</li>
+<li>In geval van een continue variabele, is het aangeraden een nieuwe categorische variabele aan te maken die aangeeft of er wel of niet een waarde aanwezig was voor de continue variabele.</li>
+</ul></li>
+<li>De eerste stap is na te gaan welke variabelen ontbrekende waarden hebben en hoe vaak deze variabelen ontbrekende waarden hebben. Dit functie summary() is hiervoor zeker nuttig.</li>
+</ul>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb132-1" title="1"><span class="kw">summary</span>(df)</a></code></pre></div>
+<pre><code>##  luchthaven                     maatschappij   vertrek_vertraging
+##  EWR:119282   United Air Lines Inc.   :57491   Min.   : -43.00   
+##  JFK:105230   ExpressJet Airlines Inc.:54173   1st Qu.:  -5.00   
+##  LGA:104662   JetBlue Airways         :50940   Median :  -2.00   
+##               Delta Air Lines Inc.    :46779   Mean   :  12.71   
+##               American Airlines Inc.  :31327   3rd Qu.:  11.00   
+##               Envoy Air               :26397   Max.   :1301.00   
+##               (Other)                 :62067   NA&#39;s   :8214      
+##  aankomst_vertraging    afstand       vliegtijd                 vluchttype    
+##  Min.   : -86.000    Min.   :  17   Min.   : 20.0   kort             :245666  
+##  1st Qu.: -17.000    1st Qu.: 502   1st Qu.: 81.0   normaal          : 31813  
+##  Median :  -5.000    Median : 820   Median :127.0   lang             : 50980  
+##  Mean   :   6.987    Mean   :1027   Mean   :149.6   intercontinentaal:   715  
+##  3rd Qu.:  14.000    3rd Qu.:1372   3rd Qu.:184.0                             
+##  Max.   :1272.000    Max.   :4983   Max.   :695.0                             
+##  NA&#39;s   :9365                       NA&#39;s   :9368</code></pre>
+<ul>
+<li>Uit deze analyse blijkt dat de variabelen <em>vertrek_vertraging</em>, <em>aankomst_vertraging</em> en <em>vliegtijd</em> last hebben van ontbrekende waarden.</li>
+<li>Om vervolgens te analyseren of deze ontbrekende waarden MCAR zijn of niet, zullen we voor ieder van de drie continue variabelen een nieuwe categorische variabele maken die aangeeft of de waarde ontbreekt of niet.</li>
+</ul>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb134-1" title="1">df &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb134-2" title="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">vertrek_vertraging_na =</span> <span class="kw">is.na</span>(vertrek_vertraging),</a>
+<a class="sourceLine" id="cb134-3" title="3">         <span class="dt">aankomst_vertraging_na =</span> <span class="kw">is.na</span>(aankomst_vertraging),</a>
+<a class="sourceLine" id="cb134-4" title="4">         <span class="dt">vliegtijd_na =</span> <span class="kw">is.na</span>(vliegtijd))</a></code></pre></div>
+<ul>
+<li>Nu kunnen we met ggplot achterhalen of de andere variabelen zich ‘anders’ gedragen als er voor één van deze drie variabelen een waarde ontbreekt.</li>
+<li>We illustreren voor ‘afstand’ (continu) en voor ‘maatschappij’ (categorisch).</li>
+<li>Indien we dit bestuderen voor ‘maatschappij’ gaan we voor iedere maatschappij laten zien welk percentage cases een ontbrekende waarde voor <em>vliegtijd</em> heeft. Indien er geen verband is, dan zouden we geen grote verschillen mogen zien tussen de maatschappijen.</li>
+</ul>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb135-1" title="1">df <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb135-2" title="2"><span class="st">  </span><span class="kw">group_by</span>(maatschappij, vliegtijd_na) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb135-3" title="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">aantal =</span> <span class="kw">n</span>())<span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb135-4" title="4"><span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb135-5" title="5"><span class="st">  </span><span class="kw">group_by</span>(maatschappij) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb135-6" title="6"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">totaal =</span> <span class="kw">sum</span>(aantal), <span class="dt">percentage =</span> aantal<span class="op">/</span>totaal) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb135-7" title="7"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>maatschappij, <span class="dt">y=</span>percentage)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb135-8" title="8"><span class="st">  </span><span class="kw">coord_flip</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb135-9" title="9"><span class="st">  </span><span class="kw">geom_col</span>(<span class="kw">aes</span>(<span class="dt">fill=</span>vliegtijd_na), <span class="dt">position =</span> <span class="st">&quot;stack&quot;</span>)</a></code></pre></div>
+<p><img src="textbook_files/figure-html/5-19-1.png" width="100%" /></p>
+<ul>
+<li>Uit deze resultaten blijkt dat voor sommige maatschappijen een aanzienlijk hoger percentage ontbrekende waarden bij vliegtijd voorkomt (SkyWest, Mesa en ook ExpressJet, Envoy en Endeavor).</li>
+<li>We kunnen een soortgelijke analyse ook uitvoeren voor de variabele <em>afstand</em>. Hiervoor zullen we eerst de variabele <em>afstand</em> omvormen tot een categorische variabele.</li>
+</ul>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb136-1" title="1">binwidth &lt;-<span class="st"> </span><span class="dv">200</span></a>
+<a class="sourceLine" id="cb136-2" title="2">df <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb136-3" title="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">afstand_cat =</span> afstand <span class="op">%/%</span><span class="st"> </span>binwidth) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb136-4" title="4"><span class="st">  </span><span class="kw">group_by</span>(afstand_cat, vliegtijd_na) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb136-5" title="5"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">aantal =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb136-6" title="6"><span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb136-7" title="7"><span class="st">  </span><span class="kw">group_by</span>(afstand_cat) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb136-8" title="8"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">totaal =</span> <span class="kw">sum</span>(aantal), <span class="dt">rel_aantal =</span> aantal<span class="op">/</span>totaal) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb136-9" title="9"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>afstand_cat<span class="op">*</span>binwidth, <span class="dt">y=</span>rel_aantal)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb136-10" title="10"><span class="st">  </span><span class="kw">geom_col</span>(<span class="kw">aes</span>(<span class="dt">fill=</span>vliegtijd_na), <span class="dt">position =</span> <span class="st">&quot;stack&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb136-11" title="11"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;afstand&quot;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb136-12" title="12"><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;percentage&quot;</span>)</a></code></pre></div>
+<p><img src="textbook_files/figure-html/5-20-1.png" width="100%" /></p>
+<ul>
+<li>Deze resultaten lijken te suggereren dat naarmate de vlucht langer wordt, het percentage ontbrekende waarden bij <em>vliegtijd</em> afneemt (met een uitzonderlijke piek bij vluchten rond 1200 mijl).</li>
+<li>Omdat het percentage ontbrekende waarden eerder klein is, is het moeilijk om het patroon duidelijk te zien. We kunnen ook dezelfde plot maken, maar de y-as laten stoppen bij een waarde van 0.25. Op deze manier wordt het patroon duidelijker.</li>
+</ul>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb137-1" title="1">binwidth &lt;-<span class="st"> </span><span class="dv">200</span></a>
+<a class="sourceLine" id="cb137-2" title="2">df <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb137-3" title="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">afstand_cat =</span> afstand <span class="op">%/%</span><span class="st"> </span>binwidth) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb137-4" title="4"><span class="st">  </span><span class="kw">group_by</span>(afstand_cat, vliegtijd_na) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb137-5" title="5"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">aantal =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb137-6" title="6"><span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb137-7" title="7"><span class="st">  </span><span class="kw">group_by</span>(afstand_cat) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb137-8" title="8"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">totaal =</span> <span class="kw">sum</span>(aantal), <span class="dt">rel_aantal =</span> aantal<span class="op">/</span>totaal) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb137-9" title="9"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>afstand_cat<span class="op">*</span>binwidth, <span class="dt">y=</span>rel_aantal)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb137-10" title="10"><span class="st">  </span><span class="kw">geom_col</span>(<span class="kw">aes</span>(<span class="dt">fill=</span>vliegtijd_na), <span class="dt">position =</span> <span class="st">&quot;stack&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb137-11" title="11"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;afstand&quot;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb137-12" title="12"><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;percentage&quot;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb137-13" title="13"><span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.25</span>))</a></code></pre></div>
+<p><img src="textbook_files/figure-html/5-21-1.png" width="100%" /></p>
+<ul>
+<li>Tenslotte kunnen we ook nog op een andere manier het verband tussen de <em>afstand</em> en het voorkomen van ontbrekende waarden bij <em>vliegtijd</em> bestuderen, nl. via 2 boxplots.</li>
+</ul>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb138-1" title="1">df <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb138-2" title="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>vliegtijd_na, <span class="dt">y=</span>afstand)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb138-3" title="3"><span class="st">  </span><span class="kw">geom_boxplot</span>()</a></code></pre></div>
+<p><img src="textbook_files/figure-html/5-22-1.png" width="100%" /></p>
+<ul>
+<li>Hier zien we dat vluchten waarvoor de vliegtijd ontbreekt vaak kortere vluchten zijn dan waarvoor we de vliegtijd wel hebben. Dit komt overeen met de vorige bevinding.</li>
+<li>Op basis van deze resultaten kunnen we dus stellen dat het ontbreken van de vliegtijd niet willekeurig is, maar vaker voorkomt bij bepaalde maatschappijen en eerder bij kortere dan bij langere vluchten.</li>
+<li>We zouden nog verder kunnen onderzoeken of deze maatschappijen eerder langere of kortere vluchten organiseren.</li>
+<li>Soortgelijke analyses kunnen we ook uitvoeren voor de variabelen <em>vertrek_vertraging</em> en <em>aankomst_vertraging</em>.</li>
+</ul>
+</div>
+<div id="inconsistente-waarden" class="section level3">
+<h3><span class="header-section-number">7.3.4</span> Inconsistente waarden</h3>
+<ul>
+<li>Data is inconsistent als het niet voldoet aan een aantal regels/beperkingen die horen te gelden op basis van domeinkennis.</li>
+<li>De vorm van inconsistenties waar we ons op focussen, betreft in-record inconsistenties. Dit zijn tegenstrijdigheden die aanwezig zijn binnen één enkele observatie. Enkele voorbeelden zijn:
+<ul>
+<li>De gemiddelde snelheid van een vlucht ligt hoger dan de maximale theoretische snelheid van het vliegtuig.</li>
+<li>Het aankomsttijdstip van een vlucht vindt plaats voor het vertrektijdstip.</li>
+<li>De aankomsttijdstip komt niet overeen met het vertrektijdstip + vertrekvertraging + vluchtduur.</li>
+</ul></li>
+<li>Het identificeren van inconsistenties kan door middel van diverse dplyr-functies, waarbij je voor iedere observatie test of deze voldoen aan de opgelegde beperkingsregel.</li>
+<li>Daarnaast is er ook het editrules package dat nuttige functies aanbiedt om op een gestructureerdere manier consistentie te evalueren.</li>
+</ul>
+</div>
+</div>
+<div id="data-opwaarderen" class="section level2">
+<h2><span class="header-section-number">7.4</span> Data opwaarderen</h2>
+<ul>
+<li>Van zodra de data geen foutieve en/of ontbrekende waarde meer bevat, kunnen we een aantal technieken toepassen om de data bruikbaarder te maken voor exploratieve analyses. We onderscheiden hierbij 2 technieken:
+<ul>
+<li>Transformatie van bestaande variabelen.</li>
+<li>Selectie van observaties.</li>
+</ul></li>
+</ul>
+<div id="categorische-variabelen" class="section level4">
+<h4><span class="header-section-number">7.4.0.1</span> Categorische variabelen</h4>
+<ul>
+<li>Soms is het beter om de categorieën van een categorische variabelen te wijzigen door sommige categorieën samen te nemen. Er zijn verschillende situaties waarbij dit het overwegen waard is, zoals:
+<ul>
+<li>De labels van een categorische variabele is op een te gedetailleerd niveau gedefinieerd, met als gevolg dat de exploratieve analyse al snel complex wordt door de vele categorieën. In zulke gevallen kan het zinvol zijn om het aantal categorieën te verminderen door categorieën die inhoudelijk bij elkaar horen samen te nemen.</li>
+<li>Een categorische variabele bestaat uit een beperkt aantal categorieën met veel observaties en een groot aantal categorieën met zeer weinig observaties. In zulke gevallen kan het zinvol zijn om de categorieën met weinig observaties samen te nemen in 1 categorie “Overige”.</li>
+</ul></li>
+<li>Om te bepalen welke categorieën men kan samenvoegen, kan een frequentietabel of barplot gemaakt worden.</li>
+<li>Het herdefiniëren van de labels gebeurt vervolgens met de functie <em>fct_recode</em> (forcats). Hierbij heeft men steeds de keuze om de oorspronkelijke variabele te vervangen of een nieuwe variabele aan te maken.</li>
+<li>Laten we eens aan de hand van een barplot naar de variabele ‘luchtvaartmaatschappij’ kijken. We zien hierbij dat er relatief veel luchtvaartmaatschappijen (categorieën) in onze data zijn en dat er een aantal verwaarloosbaar weinig vluchten bevatten.</li>
+</ul>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb139-1" title="1">df <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb139-2" title="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span><span class="kw">fct_infreq</span>(maatschappij))) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb139-3" title="3"><span class="st">  </span><span class="kw">geom_bar</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb139-4" title="4"><span class="st">  </span><span class="kw">coord_flip</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb139-5" title="5"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Luchtvaartmaatschappij&quot;</span>)</a></code></pre></div>
+<p><img src="textbook_files/figure-html/5-21b-1.png" width="100%" /></p>
+<ul>
+<li>We kunnen de exacte aantallen achterhalen met behulp van een frequentietabel.</li>
+</ul>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb140-1" title="1">df <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb140-2" title="2"><span class="st">  </span><span class="kw">group_by</span>(maatschappij) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb140-3" title="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">n =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb140-4" title="4"><span class="st">  </span><span class="kw">arrange</span>(n)</a></code></pre></div>
+<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:5-22b">Table 7.6: </span>Luchtvaartmaatschappijen geordend volgens stijgend aantal vluchten.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+maatschappij
+</th>
+<th style="text-align:right;">
+n
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+SkyWest Airlines Inc. 
+</td>
+<td style="text-align:right;">
+32
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Hawaiian Airlines Inc. 
+</td>
+<td style="text-align:right;">
+342
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Mesa Airlines Inc. 
+</td>
+<td style="text-align:right;">
+601
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Frontier Airlines Inc. 
+</td>
+<td style="text-align:right;">
+685
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Alaska Airlines Inc. 
+</td>
+<td style="text-align:right;">
+714
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AirTran Airways Corporation
+</td>
+<td style="text-align:right;">
+3260
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Virgin America
+</td>
+<td style="text-align:right;">
+5162
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Southwest Airlines Co. 
+</td>
+<td style="text-align:right;">
+12275
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Endeavor Air Inc. 
+</td>
+<td style="text-align:right;">
+18460
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+US Airways Inc. 
+</td>
+<td style="text-align:right;">
+20536
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Envoy Air
+</td>
+<td style="text-align:right;">
+26397
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+American Airlines Inc. 
+</td>
+<td style="text-align:right;">
+31327
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Delta Air Lines Inc. 
+</td>
+<td style="text-align:right;">
+46779
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JetBlue Airways
+</td>
+<td style="text-align:right;">
+50940
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ExpressJet Airlines Inc. 
+</td>
+<td style="text-align:right;">
+54173
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+United Air Lines Inc. 
+</td>
+<td style="text-align:right;">
+57491
+</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Op basis van deze analyse beslissen we om de luchtvaartmaatschappijen met minder dan 10000 vluchten samen te voegen in een nieuwe categorie met het label “Overige”. We opteren ervoor de oorspronkelijke variabelen te vervangen.</li>
+</ul>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb141-1" title="1">df <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb141-2" title="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">maatschappij =</span> <span class="kw">fct_lump</span>(maatschappij,</a>
+<a class="sourceLine" id="cb141-3" title="3">                                   <span class="dt">n =</span> <span class="dv">9</span>,</a>
+<a class="sourceLine" id="cb141-4" title="4">                                   <span class="dt">other_level =</span> <span class="st">&quot;Overige&quot;</span>)) -&gt;<span class="st"> </span>df</a></code></pre></div>
+<ul>
+<li>De nieuwe frequentietabel toont het resultaat.</li>
+</ul>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb142-1" title="1">df.complete <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb142-2" title="2"><span class="st">  </span><span class="kw">group_by</span>(maatschappij) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb142-3" title="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">n =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb142-4" title="4"><span class="st">  </span><span class="kw">arrange</span>(n)</a></code></pre></div>
+<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:5-24b">Table 7.7: </span>Luchtvaartmaatschappijen geordend volgens stijgend aantal vluchten.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+maatschappij
+</th>
+<th style="text-align:right;">
+n
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Overige
+</td>
+<td style="text-align:right;">
+10796
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Southwest Airlines Co. 
+</td>
+<td style="text-align:right;">
+12275
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Endeavor Air Inc. 
+</td>
+<td style="text-align:right;">
+18460
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+US Airways Inc. 
+</td>
+<td style="text-align:right;">
+20536
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Envoy Air
+</td>
+<td style="text-align:right;">
+26397
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+American Airlines Inc. 
+</td>
+<td style="text-align:right;">
+31327
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Delta Air Lines Inc. 
+</td>
+<td style="text-align:right;">
+46779
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JetBlue Airways
+</td>
+<td style="text-align:right;">
+50940
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ExpressJet Airlines Inc. 
+</td>
+<td style="text-align:right;">
+54173
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+United Air Lines Inc. 
+</td>
+<td style="text-align:right;">
+57491
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="continue-variabelen-1" class="section level4">
+<h4><span class="header-section-number">7.4.0.2</span> Continue variabelen</h4>
+<ul>
+<li>Bij continue variabelen zijn er verschillende transformaties die regelmatig uitgevoerd worden:
+<ul>
+<li>De transformatie van een continue variabele naar een categorische variabele.</li>
+<li>Het herschalen van de continue variabele.</li>
+<li>De creatie van een nieuwe variabele op basis van bestaande continue variabelen.</li>
+</ul></li>
+<li>Ook hier hebben we weer steeds de mogelijkheid om de bestaande variabele te vervangen of een nieuwe variabele aan te maken.</li>
+<li>Laten we de variabele vliegtijd eens onder de loep nemen. We beginnen met een visuele analyse aan de hand van een violinplot.</li>
+</ul>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb143-1" title="1">df <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb143-2" title="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span><span class="st">&quot;&quot;</span>, <span class="dt">y=</span>vliegtijd)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb143-3" title="3"><span class="st">  </span><span class="kw">geom_violin</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb143-4" title="4"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Vliegtijd&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb143-5" title="5"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks=</span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">800</span>,<span class="dv">50</span>))</a></code></pre></div>
+<p><img src="textbook_files/figure-html/5-25-1.png" width="100%" /></p>
+<ul>
+<li>Op basis van deze plot beslissen we een nieuwe categorische variabele “vliegtijd_fct” aan te maken, waarbij ‘kort’ overeenkomt met een vlucht die minder dan een uur duurt, ‘normaal’ overeenkomt met een vlucht tussen 1 en 4 uur (60-240) en ‘lang’ overeenkomt met een vlucht van meer dan 4 uur. Hiervoor maken we gebruik van de functie <em>cut</em>.</li>
+</ul>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb144-1" title="1">df <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb144-2" title="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">vliegtijd_fct =</span> <span class="kw">cut</span>(vliegtijd, <span class="kw">c</span>(<span class="op">-</span><span class="ot">Inf</span>,<span class="dv">60</span>,<span class="dv">240</span>,<span class="ot">Inf</span>), </a>
+<a class="sourceLine" id="cb144-3" title="3">                             <span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&#39;kort&#39;</span>,<span class="st">&#39;normaal&#39;</span>,<span class="st">&#39;lang&#39;</span>))) -&gt;<span class="st"> </span>df</a></code></pre></div>
+<ul>
+<li>Aan de hand van een frequentietabel kunnen we nu het resultaat bekijken.</li>
+</ul>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb145-1" title="1">df.complete <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb145-2" title="2"><span class="st">  </span><span class="kw">group_by</span>(vliegtijd_fct) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb145-3" title="3"><span class="st">  </span><span class="kw">tally</span>()</a></code></pre></div>
+<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:5-27b">Table 7.8: </span>Frequentietabel vliegtijd (factor)
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+vliegtijd_fct
+</th>
+<th style="text-align:right;">
+n
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+kort
+</td>
+<td style="text-align:right;">
+53220
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+normaal
+</td>
+<td style="text-align:right;">
+210758
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lang
+</td>
+<td style="text-align:right;">
+55828
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+9368
+</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Vervolgens beslissen we een nieuwe variabele te maken die de vliegtijd uitdrukt in uren in plaats van minuten.</li>
+</ul>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb146-1" title="1">df <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb146-2" title="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">vliegtijd_uren =</span> vliegtijd<span class="op">/</span><span class="dv">60</span>) -&gt;<span class="st"> </span>df</a></code></pre></div>
+<ul>
+<li>We kunnen het resultaat bekijken met een violinplot.</li>
+</ul>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb147-1" title="1">df <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb147-2" title="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span><span class="st">&quot;&quot;</span>, <span class="dt">y=</span>vliegtijd_uren)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb147-3" title="3"><span class="st">  </span><span class="kw">geom_violin</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb147-4" title="4"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Vliegtijd (in uren)&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb147-5" title="5"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks=</span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">12</span>,<span class="dv">2</span>))</a></code></pre></div>
+<p><img src="textbook_files/figure-html/5-29-1.png" width="100%" /></p>
+<ul>
+<li>Tenslotte maken we een nieuwe variabele die de gemiddelde snelheid van het vliegtuig uitdrukt door de afstand te delen door de vliegtijd.</li>
+</ul>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb148-1" title="1">df <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb148-2" title="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">snelheid =</span> afstand <span class="op">/</span><span class="st"> </span>vliegtijd_uren) -&gt;<span class="st"> </span>df</a></code></pre></div>
+<ul>
+<li>Laten we het resultaat aan de hand van een histogram bekijken.</li>
+</ul>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb149-1" title="1">df <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb149-2" title="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>snelheid)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb149-3" title="3"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">50</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb149-4" title="4"><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">3000</span>, <span class="dv">200</span>))</a></code></pre></div>
+<p><img src="textbook_files/figure-html/5-31-1.png" width="100%" /></p>
+</div>
+<div id="sampling" class="section level3">
+<h3><span class="header-section-number">7.4.1</span> Sampling</h3>
+<ul>
+<li>Soms is een dataset zo groot, dat analyses veel tijd in beslag nemen. In zulke gevallen kan het nuttig zijn om een random sample te nemen van de oorspronkelijke data om een eerste exploratieve analyse op uit te voeren.</li>
+<li>Zolang de sample willekeurig getrokken wordt en de nieuwe dataset niet te klein wordt, is de kans dat je patronen ontdekt in de sample die niet voorkomen in de volledige dataset eerder klein.</li>
+<li>Na een eerste exploratieve data analyse op de beperkte sample, kan men vervolgens gerichter de volledige dataset analyseren.</li>
+<li>Laten we een sample van 10000 vluchten nemen uit de oorspronkelijke dataset.</li>
+</ul>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb150-1" title="1">df<span class="fl">.10000</span> &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sample_n</span>(<span class="dv">10000</span>)</a></code></pre></div>
+<ul>
+<li>We kunnen nu een eerste blik op deze sample werpen met behulp van de <em>summary</em> functie.</li>
+</ul>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb151-1" title="1"><span class="kw">summary</span>(df<span class="fl">.10000</span>)</a></code></pre></div>
+<pre><code>##  luchthaven                   maatschappij  vertrek_vertraging
+##  EWR:3589   United Air Lines Inc.   :1723   Min.   :-20.00    
+##  JFK:3240   ExpressJet Airlines Inc.:1632   1st Qu.: -5.00    
+##  LGA:3171   JetBlue Airways         :1537   Median : -2.00    
+##             Delta Air Lines Inc.    :1471   Mean   : 12.74    
+##             American Airlines Inc.  : 937   3rd Qu.: 11.00    
+##             Envoy Air               : 815   Max.   :849.00    
+##             (Other)                 :1885   NA&#39;s   :265       
+##  aankomst_vertraging    afstand       vliegtijd                 vluchttype  
+##  Min.   :-73.000     Min.   :  80   Min.   : 22.0   kort             :7520  
+##  1st Qu.:-17.000     1st Qu.: 488   1st Qu.: 80.0   normaal          : 913  
+##  Median : -5.000     Median : 764   Median :126.0   lang             :1549  
+##  Mean   :  7.181     Mean   :1018   Mean   :148.6   intercontinentaal:  18  
+##  3rd Qu.: 14.000     3rd Qu.:1183   3rd Qu.:181.0                           
+##  Max.   :847.000     Max.   :4983   Max.   :653.0                           
+##  NA&#39;s   :298                        NA&#39;s   :299                             
+##  vertrek_vertraging_na aankomst_vertraging_na vliegtijd_na    vliegtijd_fct 
+##  Mode :logical         Mode :logical          Mode :logical   kort   :1677  
+##  FALSE:9735            FALSE:9702             FALSE:9701      normaal:6334  
+##  TRUE :265             TRUE :298              TRUE :299       lang   :1690  
+##                                                               NA&#39;s   : 299  
+##                                                                             
+##                                                                             
+##                                                                             
+##  vliegtijd_uren       snelheid     
+##  Min.   : 0.3667   Min.   : 92.46  
+##  1st Qu.: 1.3333   1st Qu.:353.49  
+##  Median : 2.1000   Median :401.32  
+##  Mean   : 2.4769   Mean   :390.52  
+##  3rd Qu.: 3.0167   3rd Qu.:435.50  
+##  Max.   :10.8833   Max.   :523.34  
+##  NA&#39;s   :299       NA&#39;s   :299</code></pre>
+<ul>
+<li>Als we dit vergelijken met de volledige dataset, dan zien we relatief weinig verschillen wat betreft de centrummaten en de robuste spreidingsmaten.</li>
+<li>Merk op dat minima’s en maxima’s wel sterk kunnen verschillen. Dit is omdat dit geen robuste maatstaven zijn.</li>
+</ul>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb153-1" title="1"><span class="kw">summary</span>(df)</a></code></pre></div>
+<pre><code>##  luchthaven                     maatschappij   vertrek_vertraging
+##  EWR:119282   United Air Lines Inc.   :57491   Min.   : -43.00   
+##  JFK:105230   ExpressJet Airlines Inc.:54173   1st Qu.:  -5.00   
+##  LGA:104662   JetBlue Airways         :50940   Median :  -2.00   
+##               Delta Air Lines Inc.    :46779   Mean   :  12.71   
+##               American Airlines Inc.  :31327   3rd Qu.:  11.00   
+##               Envoy Air               :26397   Max.   :1301.00   
+##               (Other)                 :62067   NA&#39;s   :8214      
+##  aankomst_vertraging    afstand       vliegtijd                 vluchttype    
+##  Min.   : -86.000    Min.   :  17   Min.   : 20.0   kort             :245666  
+##  1st Qu.: -17.000    1st Qu.: 502   1st Qu.: 81.0   normaal          : 31813  
+##  Median :  -5.000    Median : 820   Median :127.0   lang             : 50980  
+##  Mean   :   6.987    Mean   :1027   Mean   :149.6   intercontinentaal:   715  
+##  3rd Qu.:  14.000    3rd Qu.:1372   3rd Qu.:184.0                             
+##  Max.   :1272.000    Max.   :4983   Max.   :695.0                             
+##  NA&#39;s   :9365                       NA&#39;s   :9368                              
+##  vertrek_vertraging_na aankomst_vertraging_na vliegtijd_na    vliegtijd_fct   
+##  Mode :logical         Mode :logical          Mode :logical   kort   : 53220  
+##  FALSE:320960          FALSE:319809           FALSE:319806    normaal:210758  
+##  TRUE :8214            TRUE :9365             TRUE :9368      lang   : 55828  
+##                                                               NA&#39;s   :  9368  
+##                                                                               
+##                                                                               
+##                                                                               
+##  vliegtijd_uren      snelheid    
+##  Min.   : 0.333   Min.   : 76.8  
+##  1st Qu.: 1.350   1st Qu.:356.3  
+##  Median : 2.117   Median :402.6  
+##  Mean   : 2.493   Mean   :392.1  
+##  3rd Qu.: 3.067   3rd Qu.:436.2  
+##  Max.   :11.583   Max.   :703.4  
+##  NA&#39;s   :9368     NA&#39;s   :9368</code></pre>
+</div>
+</div>
+<div id="referenties-3" class="section level2 unnumbered">
+<h2>Referenties</h2>
+<ol style="list-style-type: decimal">
+<li><a href="http://kunststube.net/encoding/">Encoding</a></li>
+<li><a href="https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/">De geschiedenis van ASCII</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Windows_code_page">Windows code pages</a></li>
+<li><a href="http://r4ds.had.co.nz/data-import.html">Data importeren in R</a></li>
+<li><a href="https://www.techwalla.com/articles/what-is-a-delimited-a-fixed-width-file">Delimited en fixed-width bestanden</a></li>
+<li><a href="https://www.w3schools.com/xml/default.asp">XML</a></li>
+<li><a href="http://beginnersbook.com/2015/04/json-tutorial/">JSON Tutorial</a></li>
+<li><a href="https://chemicalstatistician.wordpress.com/2018/03/10/use-unique-instead-of-levels-to-find-the-possible-values-of-a-character-variable-in-r/">Unique-functie</a></li>
+<li><a href="http://r4ds.had.co.nz/factors.html">Factors</a></li>
+<li><a href="http://forcats.tidyverse.org/reference/fct_relevel.html">Fct_relevel</a></li>
+<li><a href="http://rforpublichealth.blogspot.be/2012/09/from-continuous-to-categorical.html">From continuous to categorical</a></li>
+</ol>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="storytelling-van-data-tot-inzicht.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="tutorial-data-voorbereiden.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section",
+"depth": 3
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,2 @@
+"0","students_2 %>%"
+"0","	separate(col = name, into = c(""first_name"",""last_name""))"

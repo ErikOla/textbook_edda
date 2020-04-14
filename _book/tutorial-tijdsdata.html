@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 12 Tutorial - tijdsdata | Exploratieve en Descriptieve Data Analyse</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 12 Tutorial - tijdsdata | Exploratieve en Descriptieve Data Analyse" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 12 Tutorial - tijdsdata | Exploratieve en Descriptieve Data Analyse" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Benoît Depaire, Gert Janssenswillen" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="tijdsdata.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Exploratieve en descriptieve data analyse</a></li>
+<li><a href="https://beta.rstudioconnect.com/content/7904/studieleidraad_worksessions.html">Studieleidraad</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Voorwoord</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#hoe-de-lecture-notes-te-gebruiken"><i class="fa fa-check"></i>Hoe de lecture notes te gebruiken</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#hoe-de-tutorials-te-gebruiken"><i class="fa fa-check"></i>Hoe de tutorials te gebruiken</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#over-de-auteurs"><i class="fa fa-check"></i>Over de auteurs</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introductiecollege.html"><a href="introductiecollege.html"><i class="fa fa-check"></i><b>1</b> Introductiecollege</a><ul>
+<li class="chapter" data-level="1.1" data-path="introductiecollege.html"><a href="introductiecollege.html#data-science"><i class="fa fa-check"></i><b>1.1</b> Data science?</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="introductiecollege.html"><a href="introductiecollege.html#netflix"><i class="fa fa-check"></i><b>1.1.1</b> Netflix</a></li>
+<li class="chapter" data-level="1.1.2" data-path="introductiecollege.html"><a href="introductiecollege.html#waar-komt-data-vandaan"><i class="fa fa-check"></i><b>1.1.2</b> Waar komt data vandaan?</a></li>
+<li class="chapter" data-level="1.1.3" data-path="introductiecollege.html"><a href="introductiecollege.html#hoeveel-data-is-er-beschikbaar"><i class="fa fa-check"></i><b>1.1.3</b> Hoeveel data is er beschikbaar?</a></li>
+<li class="chapter" data-level="1.1.4" data-path="introductiecollege.html"><a href="introductiecollege.html#waar-wordt-data-voor-gebruikt-in-de-bedrijfswereld"><i class="fa fa-check"></i><b>1.1.4</b> Waar wordt data voor gebruikt in de bedrijfswereld?</a></li>
+<li class="chapter" data-level="1.1.5" data-path="introductiecollege.html"><a href="introductiecollege.html#waarover-verzamelen-bedrijven-data"><i class="fa fa-check"></i><b>1.1.5</b> Waarover verzamelen bedrijven data</a></li>
+<li class="chapter" data-level="1.1.6" data-path="introductiecollege.html"><a href="introductiecollege.html#van-data-tot-actionable-insights"><i class="fa fa-check"></i><b>1.1.6</b> Van data tot ‘actionable insights’</a></li>
+<li class="chapter" data-level="1.1.7" data-path="introductiecollege.html"><a href="introductiecollege.html#data-scientists"><i class="fa fa-check"></i><b>1.1.7</b> Data Scientists</a></li>
+<li class="chapter" data-level="1.1.8" data-path="introductiecollege.html"><a href="introductiecollege.html#verschillende-soorten-van-data-analyse"><i class="fa fa-check"></i><b>1.1.8</b> Verschillende soorten van data analyse</a></li>
+<li class="chapter" data-level="1.1.9" data-path="introductiecollege.html"><a href="introductiecollege.html#de-kunst-van-data-analyse"><i class="fa fa-check"></i><b>1.1.9</b> De kunst van data analyse</a></li>
+<li class="chapter" data-level="1.1.10" data-path="introductiecollege.html"><a href="introductiecollege.html#de-kracht-van-descriptieve-en-exploratieve-data-analyse"><i class="fa fa-check"></i><b>1.1.10</b> De kracht van descriptieve en exploratieve data analyse</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="introductiecollege.html"><a href="introductiecollege.html#gastcollege-bart-van-proeyen---kwarts"><i class="fa fa-check"></i><b>1.2</b> Gastcollege Bart Van Proeyen - Kwarts</a></li>
+<li class="chapter" data-level="1.3" data-path="introductiecollege.html"><a href="introductiecollege.html#data-data-types"><i class="fa fa-check"></i><b>1.3</b> Data &amp; Data types</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="introductiecollege.html"><a href="introductiecollege.html#dataset"><i class="fa fa-check"></i><b>1.3.1</b> Dataset</a></li>
+<li class="chapter" data-level="1.3.2" data-path="introductiecollege.html"><a href="introductiecollege.html#klassieke-datatypologie"><i class="fa fa-check"></i><b>1.3.2</b> Klassieke datatypologie</a></li>
+<li class="chapter" data-level="1.3.3" data-path="introductiecollege.html"><a href="introductiecollege.html#de-klassieke-datatypologie-is-misleidend"><i class="fa fa-check"></i><b>1.3.3</b> De klassieke datatypologie is misleidend</a></li>
+<li class="chapter" data-level="1.3.4" data-path="introductiecollege.html"><a href="introductiecollege.html#alternatieve-datatypologie"><i class="fa fa-check"></i><b>1.3.4</b> Alternatieve datatypologie</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="introductiecollege.html"><a href="introductiecollege.html#referenties"><i class="fa fa-check"></i><b>1.4</b> Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="data-visualizatie.html"><a href="data-visualizatie.html"><i class="fa fa-check"></i><b>2</b> Data visualizatie</a><ul>
+<li class="chapter" data-level="2.1" data-path="data-visualizatie.html"><a href="data-visualizatie.html#univariate-visualisaties-1-variabele"><i class="fa fa-check"></i><b>2.1</b> Univariate visualisaties (1 variabele)</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="data-visualizatie.html"><a href="data-visualizatie.html#categorische-variabele"><i class="fa fa-check"></i><b>2.1.1</b> Categorische variabele</a></li>
+<li class="chapter" data-level="2.1.2" data-path="data-visualizatie.html"><a href="data-visualizatie.html#continue-variabele"><i class="fa fa-check"></i><b>2.1.2</b> Continue variabele</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="data-visualizatie.html"><a href="data-visualizatie.html#bivariate-visualisatie-2-variabelen"><i class="fa fa-check"></i><b>2.2</b> Bivariate visualisatie (2 variabelen)</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="data-visualizatie.html"><a href="data-visualizatie.html#situatie-1-de-onafhankelijke-variabele-is-categorisch"><i class="fa fa-check"></i><b>2.2.1</b> Situatie 1: De onafhankelijke variabele is categorisch</a></li>
+<li class="chapter" data-level="2.2.2" data-path="data-visualizatie.html"><a href="data-visualizatie.html#situatie-2-de-onafhankelijke-variabele-is-continue"><i class="fa fa-check"></i><b>2.2.2</b> Situatie 2: De onafhankelijke variabele is continue</a></li>
+<li class="chapter" data-level="2.2.3" data-path="data-visualizatie.html"><a href="data-visualizatie.html#situatie-3-de-onafhankelijke-variabele-is-tijd"><i class="fa fa-check"></i><b>2.2.3</b> Situatie 3: De onafhankelijke variabele is tijd</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="data-visualizatie.html"><a href="data-visualizatie.html#multivariate-visualisaties-meer-dan-2-variabelen"><i class="fa fa-check"></i><b>2.3</b> Multivariate visualisaties (meer dan 2 variabelen)</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="data-visualizatie.html"><a href="data-visualizatie.html#voorbeeld-in-welke-mate-hangt-de-vertrek-vertraging-af-van-de-luchthaven-en-de-afstand"><i class="fa fa-check"></i><b>2.3.1</b> Voorbeeld: In welke mate hangt de vertrek vertraging af van de luchthaven en de afstand?</a></li>
+<li class="chapter" data-level="2.3.2" data-path="data-visualizatie.html"><a href="data-visualizatie.html#voorbeeld-multivariaat-tijd"><i class="fa fa-check"></i><b>2.3.2</b> Voorbeeld: multivariaat tijd</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="data-visualizatie.html"><a href="data-visualizatie.html#visualisaties-voor-communicatie"><i class="fa fa-check"></i><b>2.4</b> Visualisaties voor communicatie</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="data-visualizatie.html"><a href="data-visualizatie.html#voorbeeld-voor-goed-voor-exploratie"><i class="fa fa-check"></i><b>2.4.1</b> Voorbeeld: voor ~ goed voor exploratie</a></li>
+<li class="chapter" data-level="2.4.2" data-path="data-visualizatie.html"><a href="data-visualizatie.html#voorbeeld-na-goed-voor-communicatie"><i class="fa fa-check"></i><b>2.4.2</b> Voorbeeld: na ~ goed voor communicatie</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="data-visualizatie.html"><a href="data-visualizatie.html#how-charts-lie"><i class="fa fa-check"></i><b>2.5</b> How charts lie</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="data-visualizatie.html"><a href="data-visualizatie.html#causaliteit-vs-correlatie"><i class="fa fa-check"></i><b>2.5.1</b> Causaliteit vs correlatie</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="data-visualizatie.html"><a href="data-visualizatie.html#referenties-1"><i class="fa fa-check"></i><b>2.6</b> Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html"><i class="fa fa-check"></i><b>3</b> Tutorial - Data vizualisatie</a><ul>
+<li class="chapter" data-level="3.1" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#before-you-start"><i class="fa fa-check"></i><b>3.1</b> Before you start</a></li>
+<li class="chapter" data-level="3.2" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#introduction"><i class="fa fa-check"></i><b>3.2</b> Introduction</a></li>
+<li class="chapter" data-level="3.3" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#different-geometrics"><i class="fa fa-check"></i><b>3.3</b> Different geometrics</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#geom_point"><i class="fa fa-check"></i><b>3.3.1</b> geom_point</a></li>
+<li class="chapter" data-level="3.3.2" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#geom_histogram"><i class="fa fa-check"></i><b>3.3.2</b> geom_histogram</a></li>
+<li class="chapter" data-level="3.3.3" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#geom_boxplot"><i class="fa fa-check"></i><b>3.3.3</b> geom_boxplot</a></li>
+<li class="chapter" data-level="3.3.4" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#geom_violin"><i class="fa fa-check"></i><b>3.3.4</b> geom_violin</a></li>
+<li class="chapter" data-level="3.3.5" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#geom_bar"><i class="fa fa-check"></i><b>3.3.5</b> geom_bar</a></li>
+<li class="chapter" data-level="3.3.6" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#geom_col"><i class="fa fa-check"></i><b>3.3.6</b> geom_col</a></li>
+<li class="chapter" data-level="3.3.7" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#other-geometrics"><i class="fa fa-check"></i><b>3.3.7</b> Other geometrics</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#enhancing-the-appearance-of-our-plots"><i class="fa fa-check"></i><b>3.4</b> Enhancing the appearance of our plots</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#titles"><i class="fa fa-check"></i><b>3.4.1</b> Titles</a></li>
+<li class="chapter" data-level="3.4.2" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#theme"><i class="fa fa-check"></i><b>3.4.2</b> Theme</a></li>
+<li class="chapter" data-level="3.4.3" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#configuring-the-coordinate-system"><i class="fa fa-check"></i><b>3.4.3</b> Configuring the coordinate system</a></li>
+<li class="chapter" data-level="3.4.4" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#color-scales"><i class="fa fa-check"></i><b>3.4.4</b> Color scales</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#advanced-plots"><i class="fa fa-check"></i><b>3.5</b> Advanced plots</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#using-facets"><i class="fa fa-check"></i><b>3.5.1</b> Using Facets</a></li>
+<li class="chapter" data-level="3.5.2" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#combining-multiple-geometric-layers"><i class="fa fa-check"></i><b>3.5.2</b> Combining multiple geometric layers</a></li>
+<li class="chapter" data-level="3.5.3" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#aes-inheritance"><i class="fa fa-check"></i><b>3.5.3</b> Aes-inheritance</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#background-material"><i class="fa fa-check"></i><b>3.6</b> Background material</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html"><i class="fa fa-check"></i><b>4</b> Descriptieve statistieken</a><ul>
+<li class="chapter" data-level="4.1" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#beschrijvende-statistieken-versus-exploratieve-plots"><i class="fa fa-check"></i><b>4.1</b> Beschrijvende statistieken versus exploratieve plots</a></li>
+<li class="chapter" data-level="4.2" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#notatie"><i class="fa fa-check"></i><b>4.2</b> Notatie</a></li>
+<li class="chapter" data-level="4.3" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#data"><i class="fa fa-check"></i><b>4.3</b> Data</a></li>
+<li class="chapter" data-level="4.4" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#univariate-statistieken"><i class="fa fa-check"></i><b>4.4</b> Univariate statistieken</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#categorische-variabele-1"><i class="fa fa-check"></i><b>4.4.1</b> Categorische variabele</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#frequentietabel"><i class="fa fa-check"></i>Frequentietabel</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#centrummaten"><i class="fa fa-check"></i>Centrummaten</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#spreidingsmaten"><i class="fa fa-check"></i>Spreidingsmaten</a></li>
+<li class="chapter" data-level="4.4.2" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#continue-variabele-1"><i class="fa fa-check"></i><b>4.4.2</b> Continue variabele</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#centrummaten-1"><i class="fa fa-check"></i>Centrummaten</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#spreidingsmaten-1"><i class="fa fa-check"></i>Spreidingsmaten</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#bivariate-statistieken"><i class="fa fa-check"></i><b>4.5</b> Bivariate statistieken</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#continu-versus-continu"><i class="fa fa-check"></i><b>4.5.1</b> Continu versus Continu</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#correlatie"><i class="fa fa-check"></i>Correlatie</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#vergelijking-correlatiecoëfficiënten"><i class="fa fa-check"></i>Vergelijking correlatiecoëfficiënten</a></li>
+<li class="chapter" data-level="4.5.2" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#categorisch-versus-continu"><i class="fa fa-check"></i><b>4.5.2</b> Categorisch versus Continu</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#univariate-statistieken-per-categoriewaarde"><i class="fa fa-check"></i>Univariate statistieken per categoriewaarde</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#correlatie-1"><i class="fa fa-check"></i>Correlatie</a></li>
+<li class="chapter" data-level="4.5.3" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#categorisch-versus-categorisch"><i class="fa fa-check"></i><b>4.5.3</b> Categorisch versus Categorisch</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#univariate-statistieken-per-categoriewaarde-1"><i class="fa fa-check"></i>Univariate statistieken per categoriewaarde</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#contingentietabellen"><i class="fa fa-check"></i>Contingentietabellen</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#referenties-2"><i class="fa fa-check"></i>Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html"><i class="fa fa-check"></i><b>5</b> Tutorial - Descriptieve statistieken</a><ul>
+<li class="chapter" data-level="5.1" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#before-you-start-1"><i class="fa fa-check"></i><b>5.1</b> Before you start</a></li>
+<li class="chapter" data-level="5.2" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#introduction-1"><i class="fa fa-check"></i><b>5.2</b> Introduction</a></li>
+<li class="chapter" data-level="5.3" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#helpful-dplyr-functions"><i class="fa fa-check"></i><b>5.3</b> Helpful dplyr functions</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#tibbles"><i class="fa fa-check"></i><b>5.3.1</b> Tibbles</a></li>
+<li class="chapter" data-level="5.3.2" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#glimpse"><i class="fa fa-check"></i><b>5.3.2</b> Glimpse</a></li>
+<li class="chapter" data-level="5.3.3" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#section"><i class="fa fa-check"></i><b>5.3.3</b> %&gt;%</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#univariate-analysis-of-a-continuous-variable"><i class="fa fa-check"></i><b>5.4</b> Univariate analysis of a continuous variable</a></li>
+<li class="chapter" data-level="5.5" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#bivariate-analysis-of-a-continuous-variable-with-respect-to-a-categorical-variable"><i class="fa fa-check"></i><b>5.5</b> Bivariate analysis of a continuous variable with respect to a categorical variable</a></li>
+<li class="chapter" data-level="5.6" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#univariate-analysis-of-a-categorical-variable"><i class="fa fa-check"></i><b>5.6</b> Univariate analysis of a categorical variable</a></li>
+<li class="chapter" data-level="5.7" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#bivariate-analysis-of-a-continuous-variable-with-respect-to-another-continuous-variable"><i class="fa fa-check"></i><b>5.7</b> Bivariate analysis of a continuous variable with respect to another continuous variable</a></li>
+<li class="chapter" data-level="5.8" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#bivariate-analysis-of-a-categorical-variable-with-respect-to-another-categorical-variable"><i class="fa fa-check"></i><b>5.8</b> Bivariate analysis of a categorical variable with respect to another categorical variable</a></li>
+<li class="chapter" data-level="5.9" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#background-material-1"><i class="fa fa-check"></i><b>5.9</b> Background material</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="storytelling-van-data-tot-inzicht.html"><a href="storytelling-van-data-tot-inzicht.html"><i class="fa fa-check"></i><b>6</b> Storytelling - van data tot inzicht</a></li>
+<li class="chapter" data-level="7" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html"><i class="fa fa-check"></i><b>7</b> Data voorbereiden</a><ul>
+<li class="chapter" data-level="7.1" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#beginnen-bij-het-begin"><i class="fa fa-check"></i><b>7.1</b> Beginnen bij het begin</a></li>
+<li class="chapter" data-level="7.2" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#data-inlezen"><i class="fa fa-check"></i><b>7.2</b> Data inlezen</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#uitdagingen-bij-het-correct-inlezen-van-data"><i class="fa fa-check"></i><b>7.2.1</b> Uitdagingen bij het correct inlezen van data</a></li>
+<li class="chapter" data-level="7.2.2" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#dataformaten"><i class="fa fa-check"></i><b>7.2.2</b> Dataformaten</a></li>
+<li class="chapter" data-level="7.2.3" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#data-encodering"><i class="fa fa-check"></i><b>7.2.3</b> Data-encodering</a></li>
+<li class="chapter" data-level="7.2.4" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#datatypes-controlleren-en-corrigeren"><i class="fa fa-check"></i><b>7.2.4</b> Datatypes controlleren en corrigeren</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#dataproblemen-identificeren-en-corrigeren"><i class="fa fa-check"></i><b>7.3</b> Dataproblemen identificeren en corrigeren</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#overzicht"><i class="fa fa-check"></i><b>7.3.1</b> Overzicht</a></li>
+<li class="chapter" data-level="7.3.2" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#foutieve-waarden"><i class="fa fa-check"></i><b>7.3.2</b> Foutieve waarden</a></li>
+<li class="chapter" data-level="7.3.3" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#ontbrekende-waarden"><i class="fa fa-check"></i><b>7.3.3</b> Ontbrekende waarden</a></li>
+<li class="chapter" data-level="7.3.4" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#inconsistente-waarden"><i class="fa fa-check"></i><b>7.3.4</b> Inconsistente waarden</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#data-opwaarderen"><i class="fa fa-check"></i><b>7.4</b> Data opwaarderen</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#sampling"><i class="fa fa-check"></i><b>7.4.1</b> Sampling</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#referenties-3"><i class="fa fa-check"></i>Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html"><i class="fa fa-check"></i><b>8</b> Tutorial - Data voorbereiden</a><ul>
+<li class="chapter" data-level="8.1" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#before-you-start-2"><i class="fa fa-check"></i><b>8.1</b> Before you start</a></li>
+<li class="chapter" data-level="8.2" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#introduction-2"><i class="fa fa-check"></i><b>8.2</b> Introduction</a></li>
+<li class="chapter" data-level="8.3" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#reading-data"><i class="fa fa-check"></i><b>8.3</b> Reading data</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#csv-and-tsv"><i class="fa fa-check"></i><b>8.3.1</b> CSV and TSV</a></li>
+<li class="chapter" data-level="8.3.2" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#excel"><i class="fa fa-check"></i><b>8.3.2</b> Excel</a></li>
+<li class="chapter" data-level="8.3.3" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#json-and-xml"><i class="fa fa-check"></i><b>8.3.3</b> JSON and XML</a></li>
+<li class="chapter" data-level="8.3.4" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#other-statistical-packages"><i class="fa fa-check"></i><b>8.3.4</b> Other statistical packages</a></li>
+<li class="chapter" data-level="8.3.5" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#databases"><i class="fa fa-check"></i><b>8.3.5</b> Databases</a></li>
+<li class="chapter" data-level="8.3.6" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#background-material-2"><i class="fa fa-check"></i><b>8.3.6</b> Background material</a></li>
+<li class="chapter" data-level="8.3.7" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#converting-variables"><i class="fa fa-check"></i><b>8.3.7</b> Converting variables</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#cleaning-data"><i class="fa fa-check"></i><b>8.4</b> Cleaning Data</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#duplicates-removal"><i class="fa fa-check"></i><b>8.4.1</b> Duplicates Removal</a></li>
+<li class="chapter" data-level="8.4.2" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#cleaning-categorical-variables"><i class="fa fa-check"></i><b>8.4.2</b> Cleaning Categorical Variables</a></li>
+<li class="chapter" data-level="8.4.3" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#recode-categorical-variables"><i class="fa fa-check"></i><b>8.4.3</b> Recode Categorical Variables</a></li>
+<li class="chapter" data-level="8.4.4" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#reorder-categorical-variables"><i class="fa fa-check"></i><b>8.4.4</b> Reorder Categorical Variables</a></li>
+<li class="chapter" data-level="8.4.5" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#cleaning-continuous-data"><i class="fa fa-check"></i><b>8.4.5</b> Cleaning continuous data</a></li>
+<li class="chapter" data-level="8.4.6" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#errors"><i class="fa fa-check"></i><b>8.4.6</b> Errors</a></li>
+<li class="chapter" data-level="8.4.7" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#outliers"><i class="fa fa-check"></i><b>8.4.7</b> Outliers</a></li>
+<li class="chapter" data-level="8.4.8" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#data-inconsistencies"><i class="fa fa-check"></i><b>8.4.8</b> Data inconsistencies</a></li>
+<li class="chapter" data-level="8.4.9" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#missing-values"><i class="fa fa-check"></i><b>8.4.9</b> Missing values</a></li>
+<li class="chapter" data-level="8.4.10" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#analyzing-missing-data"><i class="fa fa-check"></i><b>8.4.10</b> Analyzing missing data</a></li>
+<li class="chapter" data-level="8.4.11" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#working-around-missing-data"><i class="fa fa-check"></i><b>8.4.11</b> Working around missing data</a></li>
+<li class="chapter" data-level="8.4.12" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#visualizations"><i class="fa fa-check"></i><b>8.4.12</b> Visualizations</a></li>
+<li class="chapter" data-level="8.4.13" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#numerical-analysis"><i class="fa fa-check"></i><b>8.4.13</b> Numerical analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#transforming-data"><i class="fa fa-check"></i><b>8.5</b> Transforming Data</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#discretization-of-continuous-variables"><i class="fa fa-check"></i><b>8.5.1</b> Discretization of continuous variables</a></li>
+<li class="chapter" data-level="8.5.2" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#rescaling-continuous-variables"><i class="fa fa-check"></i><b>8.5.2</b> Rescaling continuous variables</a></li>
+<li class="chapter" data-level="8.5.3" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#adding-calculated-variables"><i class="fa fa-check"></i><b>8.5.3</b> Adding calculated variables</a></li>
+<li class="chapter" data-level="8.5.4" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#recode-categorical-variables-1"><i class="fa fa-check"></i><b>8.5.4</b> Recode Categorical Variables</a></li>
+<li class="chapter" data-level="8.5.5" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#collapsing-factors"><i class="fa fa-check"></i><b>8.5.5</b> Collapsing factors</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#using-transformations-in-visualizations."><i class="fa fa-check"></i><b>8.6</b> Using transformations in visualizations.</a></li>
+<li class="chapter" data-level="8.7" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#background-material-3"><i class="fa fa-check"></i><b>8.7</b> Background Material</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>9</b> Tidy data</a><ul>
+<li class="chapter" data-level="9.1" data-path="tidy-data.html"><a href="tidy-data.html#inleiding"><i class="fa fa-check"></i><b>9.1</b> Inleiding</a></li>
+<li class="chapter" data-level="9.2" data-path="tidy-data.html"><a href="tidy-data.html#case-nyc-vluchten-2013"><i class="fa fa-check"></i><b>9.2</b> Case: NYC Vluchten 2013</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="tidy-data.html"><a href="tidy-data.html#datasets-samenvoegen"><i class="fa fa-check"></i><b>9.2.1</b> Datasets samenvoegen</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="tidy-data.html"><a href="tidy-data.html#data-in-een-lang-formaat-plaatsen-voor-visuele-analyses"><i class="fa fa-check"></i><b>9.3</b> Data in een lang formaat plaatsen (voor visuele analyses)</a></li>
+<li class="chapter" data-level="9.4" data-path="tidy-data.html"><a href="tidy-data.html#data-in-een-breed-formaat-plaatsen-voor-overzichtelijke-tabellen"><i class="fa fa-check"></i><b>9.4</b> Data in een breed formaat plaatsen (voor overzichtelijke tabellen)</a></li>
+<li class="chapter" data-level="9.5" data-path="tidy-data.html"><a href="tidy-data.html#referenties-4"><i class="fa fa-check"></i><b>9.5</b> Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html"><i class="fa fa-check"></i><b>10</b> Tutorial - Tidy data</a><ul>
+<li class="chapter" data-level="10.1" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#before-you-start-3"><i class="fa fa-check"></i><b>10.1</b> Before you start</a></li>
+<li class="chapter" data-level="" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#disclaimer"><i class="fa fa-check"></i>Disclaimer</a></li>
+<li class="chapter" data-level="10.2" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#merging-data"><i class="fa fa-check"></i><b>10.2</b> Merging data</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#joining-data"><i class="fa fa-check"></i><b>10.2.1</b> Joining data</a></li>
+<li class="chapter" data-level="10.2.2" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#inner-join"><i class="fa fa-check"></i><b>10.2.2</b> Inner join</a></li>
+<li class="chapter" data-level="10.2.3" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#left-join"><i class="fa fa-check"></i><b>10.2.3</b> Left join</a></li>
+<li class="chapter" data-level="10.2.4" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#right-join"><i class="fa fa-check"></i><b>10.2.4</b> Right join</a></li>
+<li class="chapter" data-level="10.2.5" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#full-join"><i class="fa fa-check"></i><b>10.2.5</b> Full join</a></li>
+<li class="chapter" data-level="10.2.6" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#duplicates"><i class="fa fa-check"></i><b>10.2.6</b> Duplicates</a></li>
+<li class="chapter" data-level="10.2.7" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#an-example"><i class="fa fa-check"></i><b>10.2.7</b> An example</a></li>
+<li class="chapter" data-level="10.2.8" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#binding-data"><i class="fa fa-check"></i><b>10.2.8</b> Binding data</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#transforming-data-1"><i class="fa fa-check"></i><b>10.3</b> Transforming data</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#unite-variables"><i class="fa fa-check"></i><b>10.3.1</b> Unite variables</a></li>
+<li class="chapter" data-level="10.3.2" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#separate-variables"><i class="fa fa-check"></i><b>10.3.2</b> Separate variables</a></li>
+<li class="chapter" data-level="10.3.3" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#spread-data"><i class="fa fa-check"></i><b>10.3.3</b> Spread data</a></li>
+<li class="chapter" data-level="10.3.4" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#gather-data"><i class="fa fa-check"></i><b>10.3.4</b> Gather data</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#case-study-who"><i class="fa fa-check"></i><b>10.4</b> [Case study]: WHO</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="tijdsdata.html"><a href="tijdsdata.html"><i class="fa fa-check"></i><b>11</b> Tijdsdata</a><ul>
+<li class="chapter" data-level="11.1" data-path="tijdsdata.html"><a href="tijdsdata.html#inleiding-1"><i class="fa fa-check"></i><b>11.1</b> Inleiding</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="tijdsdata.html"><a href="tijdsdata.html#tijdstippen-versus-periodes"><i class="fa fa-check"></i><b>11.1.1</b> Tijdstippen versus periodes</a></li>
+<li class="chapter" data-level="11.1.2" data-path="tijdsdata.html"><a href="tijdsdata.html#afronden-van-tijdstippen"><i class="fa fa-check"></i><b>11.1.2</b> Afronden van tijdstippen</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="tijdsdata.html"><a href="tijdsdata.html#periode-data"><i class="fa fa-check"></i><b>11.2</b> Periode-data</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="tijdsdata.html"><a href="tijdsdata.html#interval-1"><i class="fa fa-check"></i><b>11.2.1</b> Interval</a></li>
+<li class="chapter" data-level="11.2.2" data-path="tijdsdata.html"><a href="tijdsdata.html#duration"><i class="fa fa-check"></i><b>11.2.2</b> Duration</a></li>
+<li class="chapter" data-level="11.2.3" data-path="tijdsdata.html"><a href="tijdsdata.html#period"><i class="fa fa-check"></i><b>11.2.3</b> Period</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="tijdsdata.html"><a href="tijdsdata.html#analyseren-van-tijdgerelateerde-data"><i class="fa fa-check"></i><b>11.3</b> Analyseren van tijdgerelateerde data</a></li>
+<li class="chapter" data-level="11.4" data-path="tijdsdata.html"><a href="tijdsdata.html#referenties-5"><i class="fa fa-check"></i><b>11.4</b> Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html"><i class="fa fa-check"></i><b>12</b> Tutorial - tijdsdata</a><ul>
+<li class="chapter" data-level="12.1" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#before-we-start"><i class="fa fa-check"></i><b>12.1</b> Before we start</a></li>
+<li class="chapter" data-level="12.2" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#introduction-3"><i class="fa fa-check"></i><b>12.2</b> Introduction</a></li>
+<li class="chapter" data-level="12.3" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#whats-in-a-date"><i class="fa fa-check"></i><b>12.3</b> What’s in a date?</a></li>
+<li class="chapter" data-level="12.4" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#theres-always-time"><i class="fa fa-check"></i><b>12.4</b> There’s always time</a></li>
+<li class="chapter" data-level="12.5" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#my-time-is-not-your-time"><i class="fa fa-check"></i><b>12.5</b> My time is not your time</a></li>
+<li class="chapter" data-level="12.6" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#extract-information-from-dates"><i class="fa fa-check"></i><b>12.6</b> Extract information from dates</a></li>
+<li class="chapter" data-level="12.7" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#time-differences"><i class="fa fa-check"></i><b>12.7</b> Time differences</a><ul>
+<li class="chapter" data-level="12.7.1" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#period-1"><i class="fa fa-check"></i><b>12.7.1</b> Period</a></li>
+<li class="chapter" data-level="12.7.2" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#durations"><i class="fa fa-check"></i><b>12.7.2</b> Durations</a></li>
+<li class="chapter" data-level="12.7.3" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#periods-are-not-durations"><i class="fa fa-check"></i><b>12.7.3</b> Periods are not durations</a></li>
+</ul></li>
+<li class="chapter" data-level="12.8" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#arithmetics"><i class="fa fa-check"></i><b>12.8</b> Arithmetics</a></li>
+<li class="chapter" data-level="12.9" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#interval-2"><i class="fa fa-check"></i><b>12.9</b> Interval</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Exploratieve en Descriptieve Data Analyse</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="tutorial---tijdsdata" class="section level1">
+<h1><span class="header-section-number">Chapter 12</span> Tutorial - tijdsdata</h1>
+<div id="before-we-start" class="section level2">
+<h2><span class="header-section-number">12.1</span> Before we start</h2>
+<pre><code>## Last updated on 2020-02-24</code></pre>
+<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb420-1" title="1"><span class="kw">library</span>(dplyr) </a>
+<a class="sourceLine" id="cb420-2" title="2"><span class="kw">library</span>(lubridate)</a></code></pre></div>
+<p>Congratulations on reaching the final tutorial of this course. In this tutorial we will be playing with dates and times. To do this in an easy way, we will use the package lubridate, which you might need to install. We will also load dplyr for when we will use time in a data.frame context. We will not need any dataset, we will make all data ourselfs (How cool is that?).</p>
+</div>
+<div id="introduction-3" class="section level2">
+<h2><span class="header-section-number">12.2</span> Introduction</h2>
+<p>In current <em>times</em>, time data is very important, so it is crucial that you know how to work with it. If you think about it, there are so many types of data which have a time component. Just look at the different datasets we have been using.</p>
+<ul>
+<li>order data (each order is created, packed, shipped etc at a certain moment)</li>
+<li>terrorism data (each terrorism attack happened at a certain point in time, sadly)</li>
+<li>gapminder data (we had information on several years)</li>
+<li>nydeaths (deaths happen at a specific moment)</li>
+<li>flights depart and arrive at a specific time (and are sometimes delayed)</li>
+<li>concerts (concerts take place at a specific moment, tickets are bought at a specific moment)</li>
+</ul>
+<p>Time is everywhere!</p>
+<p>Except… well, yeah… you got me there: diamonds had nothing to do with time. But trust me, you’ll sooner find order data in your future career than diamond data.</p>
+<p>In essence, time and dates behave a lot like a continuous variable. You can compare two dates and see which one was later. You can compute the time difference between two dates. Most things that work for numbers will in a way also work for times or dates.</p>
+<p>Allright, continuous data. So what’s all the fuss about?</p>
+<p>Well, time is a bit more complex. For starters, it has different components. Let’s start with looking at some dates.</p>
+</div>
+<div id="whats-in-a-date" class="section level2">
+<h2><span class="header-section-number">12.3</span> What’s in a date?</h2>
+<p>Easy question: days, month, and year.</p>
+<p>Of course, the tricky part is the order. Some first write the year, some the day. Some will write 1998, other will say 98. There is really no order you can think of which you cannot use. And then ther are different separators like spaces, -, ., /. Let’s look at this completely random date, which we have noted down in different formats.</p>
+<ul>
+<li>1991-06-28</li>
+<li>28 06 1991</li>
+<li>28 June 91</li>
+<li>June 28, 1991</li>
+<li>280691</li>
+<li>1991/06/28</li>
+</ul>
+<p>The possibilities are endless. However, thanks to lubridate, we don’t need to bother much. We only need to know the order of the compoments Day, Month and Year.</p>
+<p>Consider the following code. We create a character containing the date above.</p>
+<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb421-1" title="1">date &lt;-<span class="st"> &quot;1991-06-28&quot;</span></a></code></pre></div>
+<p>Let’s say I want to know the difference between that day and today. The following will obviously not work.</p>
+<pre><code>## &quot;2020-02-24&quot; - &quot;1991-06-28&quot;</code></pre>
+<p>I don’t know about you, but I have learned that we cannot substract two words from each other. What about if we remove the "’s?</p>
+<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb423-1" title="1"><span class="dv">2019-04-29</span> <span class="op">-</span><span class="st"> </span><span class="dv">1991-06-28</span></a></code></pre></div>
+<pre><code>## [1] -39</code></pre>
+<p>Unless we can travel it time, 28-06-1991, happened almost 28 years before 29-04-2019, not 39 years in the other direction. The difference is also not 39 days or 39 months. I assume you see what’s going on here.</p>
+<p>What we need is a new type of object. Not character, not numeric, not integer, not factor. We need a date!</p>
+<p>We can make a date with the aptly-named ‘make_date’ function in lubridate, where we can give year, month and date as an argument.</p>
+<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb425-1" title="1">date &lt;-<span class="st"> </span><span class="kw">make_date</span>(<span class="dt">year =</span> <span class="dv">1991</span>, <span class="dt">month =</span> <span class="dv">6</span>, <span class="dt">day =</span> <span class="dv">28</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb426-1" title="1">date</a></code></pre></div>
+<pre><code>## [1] &quot;1991-06-28&quot;</code></pre>
+<p>Printing it doesn’t really change a thing. Let’s look at the class.<a href="#fn51" class="footnote-ref" id="fnref51"><sup>51</sup></a></p>
+<div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb428-1" title="1"><span class="kw">class</span>(date)</a></code></pre></div>
+<pre><code>## [1] &quot;Date&quot;</code></pre>
+<p>Well, that seems alright.</p>
+<p>Let’s make a bunch of dates - let’s say each day in april. Do you still remember the code blow? We saw it to create data.frames a long time ago. We use tbl_df to transform the data.frame to the easier to print tibble format.</p>
+<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb430-1" title="1">dates_of_april &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">year =</span> <span class="dv">2019</span>,</a>
+<a class="sourceLine" id="cb430-2" title="2">           <span class="dt">month =</span> <span class="dv">4</span>,</a>
+<a class="sourceLine" id="cb430-3" title="3">           <span class="dt">day =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">30</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb430-4" title="4"><span class="st">    </span><span class="kw">tbl_df</span>()</a>
+<a class="sourceLine" id="cb430-5" title="5">dates_of_april</a></code></pre></div>
+<pre><code>## # A tibble: 30 x 3
+##     year month   day
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;
+##  1  2019     4     1
+##  2  2019     4     2
+##  3  2019     4     3
+##  4  2019     4     4
+##  5  2019     4     5
+##  6  2019     4     6
+##  7  2019     4     7
+##  8  2019     4     8
+##  9  2019     4     9
+## 10  2019     4    10
+## # ... with 20 more rows</code></pre>
+<p>Using mutate, we can now add the date as a separate variable.</p>
+<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb432-1" title="1">dates_of_april <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb432-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">date =</span> <span class="kw">make_date</span>(year, month, day)) -&gt;<span class="st"> </span>dates_of_april</a>
+<a class="sourceLine" id="cb432-3" title="3">dates_of_april</a></code></pre></div>
+<pre><code>## # A tibble: 30 x 4
+##     year month   day date      
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;date&gt;    
+##  1  2019     4     1 2019-04-01
+##  2  2019     4     2 2019-04-02
+##  3  2019     4     3 2019-04-03
+##  4  2019     4     4 2019-04-04
+##  5  2019     4     5 2019-04-05
+##  6  2019     4     6 2019-04-06
+##  7  2019     4     7 2019-04-07
+##  8  2019     4     8 2019-04-08
+##  9  2019     4     9 2019-04-09
+## 10  2019     4    10 2019-04-10
+## # ... with 20 more rows</code></pre>
+<p>Look again at the type of this variable. It’s called a Date.</p>
+<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb434-1" title="1">dates_of_april <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb434-2" title="2"><span class="st">    </span>glimpse</a></code></pre></div>
+<pre><code>## Observations: 30
+## Variables: 4
+## $ year  &lt;dbl&gt; 2019, 2019, 2019, 2019, 2019, 2019, 2019, 2019, 2019, 2019, 2...
+## $ month &lt;dbl&gt; 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4...
+## $ day   &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18...
+## $ date  &lt;date&gt; 2019-04-01, 2019-04-02, 2019-04-03, 2019-04-04, 2019-04-05, ...</code></pre>
+<p>Of course, this only solves part of the problem. How do we go from something as “28-06-1991” to 28 and 6 and 1991 to a date? Suppose we have a table of dates where each date is stored as a character, like below. [^unite]</p>
+<p>[^unite]; You can actually make this table yourself by uniting the year, month, day column of dates_of_april using tidyr’s unite.</p>
+<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb436-1" title="1">dates_of_april_text</a></code></pre></div>
+<pre><code>## # A tibble: 30 x 1
+##    date     
+##    &lt;chr&gt;    
+##  1 2019-4-1 
+##  2 2019-4-2 
+##  3 2019-4-3 
+##  4 2019-4-4 
+##  5 2019-4-5 
+##  6 2019-4-6 
+##  7 2019-4-7 
+##  8 2019-4-8 
+##  9 2019-4-9 
+## 10 2019-4-10
+## # ... with 20 more rows</code></pre>
+<p>Look closely, this date column is not a ‘date’, it is a character.</p>
+<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb438-1" title="1">dates_of_april_text <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb438-2" title="2"><span class="st">    </span><span class="kw">glimpse</span>()</a></code></pre></div>
+<pre><code>## Observations: 30
+## Variables: 1
+## $ date &lt;chr&gt; &quot;2019-4-1&quot;, &quot;2019-4-2&quot;, &quot;2019-4-3&quot;, &quot;2019-4-4&quot;, &quot;2019-4-5&quot;, &quot;2...</code></pre>
+<p>However, using separate, we could separate these characters, and then applying make_date.</p>
+<div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb440-1" title="1"><span class="kw">library</span>(tidyr)</a>
+<a class="sourceLine" id="cb440-2" title="2">dates_of_april_text <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb440-3" title="3"><span class="st">    </span><span class="kw">separate</span>(date, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">&quot;year&quot;</span>,<span class="st">&quot;month&quot;</span>,<span class="st">&quot;day&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb440-4" title="4"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">date =</span> <span class="kw">make_date</span>(year, month, day))</a></code></pre></div>
+<pre><code>## # A tibble: 30 x 4
+##    year  month day   date      
+##    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;date&gt;    
+##  1 2019  4     1     2019-04-01
+##  2 2019  4     2     2019-04-02
+##  3 2019  4     3     2019-04-03
+##  4 2019  4     4     2019-04-04
+##  5 2019  4     5     2019-04-05
+##  6 2019  4     6     2019-04-06
+##  7 2019  4     7     2019-04-07
+##  8 2019  4     8     2019-04-08
+##  9 2019  4     9     2019-04-09
+## 10 2019  4     10    2019-04-10
+## # ... with 20 more rows</code></pre>
+<p>Of course, that’s a lot of work, which we don’t like. However, we can use lubridate. Not only can it make dates from its components, it can also detect these components from a character! We only need it to tell the order of the component.</p>
+<p>Since year is written down first, then month, then day, the order of components is <em>ymd</em>. Well, there is a function in lubridate with that name. Let’s try with our earlier date.</p>
+<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb442-1" title="1">date &lt;-<span class="st"> </span><span class="kw">ymd</span>(<span class="st">&quot;1991-06-28&quot;</span>)</a>
+<a class="sourceLine" id="cb442-2" title="2">date</a></code></pre></div>
+<pre><code>## [1] &quot;1991-06-28&quot;</code></pre>
+<p>Let’s make a second date for today.<a href="#fn52" class="footnote-ref" id="fnref52"><sup>52</sup></a></p>
+<pre><code>## date2 &lt;- ymd(&quot;2020-02-24&quot;)</code></pre>
+<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb445-1" title="1">date2</a></code></pre></div>
+<pre><code>## [1] &quot;2020-02-24&quot;</code></pre>
+<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb447-1" title="1"><span class="kw">class</span>(date2)</a></code></pre></div>
+<pre><code>## [1] &quot;Date&quot;</code></pre>
+<p>There is actually a very useful function in lubridate for getting the date of today. It’s just to <code>today()</code></p>
+<div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb449-1" title="1"><span class="kw">today</span>()</a></code></pre></div>
+<pre><code>## [1] &quot;2020-02-24&quot;</code></pre>
+<p>When the date components are in a different order, you just have to change the order of the letters y, m and d. The following functions are all provided by lubridate.</p>
+<ul>
+<li>dmy</li>
+<li>dym</li>
+<li>mdy</li>
+<li>myd</li>
+<li>ymd</li>
+<li>ydm</li>
+</ul>
+<p>Here are some examples.</p>
+<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb451-1" title="1"><span class="kw">ymd</span>(<span class="st">&quot;2017-03-25&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;2017-03-25&quot;</code></pre>
+<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb453-1" title="1"><span class="kw">dmy</span>(<span class="st">&quot;25-03-2017&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;2017-03-25&quot;</code></pre>
+<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb455-1" title="1"><span class="kw">mdy</span>(<span class="st">&quot;03-25-2017&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;2017-03-25&quot;</code></pre>
+<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb457-1" title="1"><span class="kw">ymd</span>(<span class="st">&quot;17/03/25&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;2017-03-25&quot;</code></pre>
+<div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb459-1" title="1"><span class="kw">ymd</span>(<span class="st">&quot;20170325&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;2017-03-25&quot;</code></pre>
+<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb461-1" title="1"><span class="kw">ymd</span>(<span class="st">&quot;170325&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;2017-03-25&quot;</code></pre>
+<p>Note that lubridate will automagicaly find the components as long as it knows the order in which to look for - you don’t have to worry about how it is separated, whether month and days are written with or without a leading zero (i.e. 1/4/2019 or 01/04/2019), or whether years are written with 2 or 4 numbers. Lubridate is even so smart it will try to guess the correct century. Suppose we define the date we saw earlier, 28th June 1991, but only give lubridate year 91.</p>
+<div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb463-1" title="1"><span class="kw">ymd</span>(<span class="st">&quot;910628&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;1991-06-28&quot;</code></pre>
+<p>It turns 91 into 1991. But if we give it year 19 (i.e. the same day in 2019), it will turn 19 in 2019.</p>
+<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb465-1" title="1"><span class="kw">ymd</span>(<span class="st">&quot;190628&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;2019-06-28&quot;</code></pre>
+<p>This is very helpful of course (unless we are looking for the year 1919). However, after the <a href="https://www.britannica.com/technology/Y2K-bug">Y2K bug</a>, we will typically find yyyy-dates.<a href="#fn53" class="footnote-ref" id="fnref53"><sup>53</sup></a></p>
+<p>So, let’s go back to our table.</p>
+<div class="sourceCode" id="cb467"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb467-1" title="1">dates_of_april_text</a></code></pre></div>
+<pre><code>## # A tibble: 30 x 1
+##    date     
+##    &lt;chr&gt;    
+##  1 2019-4-1 
+##  2 2019-4-2 
+##  3 2019-4-3 
+##  4 2019-4-4 
+##  5 2019-4-5 
+##  6 2019-4-6 
+##  7 2019-4-7 
+##  8 2019-4-8 
+##  9 2019-4-9 
+## 10 2019-4-10
+## # ... with 20 more rows</code></pre>
+<p>Luckily, ymd works with vectors, as well as with singular dates. So, instead of this</p>
+<div class="sourceCode" id="cb469"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb469-1" title="1">dates_of_april_text <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb469-2" title="2"><span class="st">    </span><span class="kw">separate</span>(date, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">&quot;year&quot;</span>,<span class="st">&quot;month&quot;</span>,<span class="st">&quot;day&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb469-3" title="3"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">date =</span> <span class="kw">make_date</span>(year, month, day))</a></code></pre></div>
+<p>we can now just do this</p>
+<div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb470-1" title="1">dates_of_april_text <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb470-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">date =</span> <span class="kw">ymd</span>(date))</a></code></pre></div>
+<pre><code>## # A tibble: 30 x 1
+##    date      
+##    &lt;date&gt;    
+##  1 2019-04-01
+##  2 2019-04-02
+##  3 2019-04-03
+##  4 2019-04-04
+##  5 2019-04-05
+##  6 2019-04-06
+##  7 2019-04-07
+##  8 2019-04-08
+##  9 2019-04-09
+## 10 2019-04-10
+## # ... with 20 more rows</code></pre>
+<p>which obviously is a lot easier.</p>
+<p>Of course, there are always times when lubridate can make mistakes. Consider the funny first day of april. In some parts of the world, they write dates in a month-day-year order, especially in the <a href="https://en.wikipedia.org/wiki/Date_and_time_notation_in_the_United_States">United States</a>.</p>
+<p>Thus, the first day of april is written down as 04-01-2019. If we would see this day without any context, we would wrongly that 4 is the day, 1 the month and 2019 the year. Thus,</p>
+<div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb472-1" title="1"><span class="kw">dmy</span>(<span class="st">&quot;04-01-2019&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;2019-01-04&quot;</code></pre>
+<p>Lubridate will not see any problems because this is not an incorrect date. But, we are no longer taking about the first of April. We are talking about the 4 of January. The second of april will become the 4th of February using this code. Lubridate will sense that something is going wrong when we get to the 13th of april.</p>
+<div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb474-1" title="1"><span class="kw">dmy</span>(<span class="st">&quot;04-13-2019&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<p>Now lubridate will fail to see this as a correct dmy-date, and return an NA. However, it is good to know that lubridate doesn’t learn very good from its mistakes. Suppose we have again a whole data set of dates in this format.<a href="#fn54" class="footnote-ref" id="fnref54"><sup>54</sup></a></p>
+<div class="sourceCode" id="cb476"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb476-1" title="1">dates_of_april_us</a></code></pre></div>
+<pre><code>## # A tibble: 30 x 1
+##    date     
+##    &lt;chr&gt;    
+##  1 4-1-2019 
+##  2 4-2-2019 
+##  3 4-3-2019 
+##  4 4-4-2019 
+##  5 4-5-2019 
+##  6 4-6-2019 
+##  7 4-7-2019 
+##  8 4-8-2019 
+##  9 4-9-2019 
+## 10 4-10-2019
+## # ... with 20 more rows</code></pre>
+<p>When we try to convert is in a date using the wrong order, dmy. We get the following.</p>
+<pre><code>## # A tibble: 30 x 1
+##    date      
+##    &lt;date&gt;    
+##  1 2019-01-04
+##  2 2019-02-04
+##  3 2019-03-04
+##  4 2019-04-04
+##  5 2019-05-04
+##  6 2019-06-04
+##  7 2019-07-04
+##  8 2019-08-04
+##  9 2019-09-04
+## 10 2019-10-04
+## 11 2019-11-04
+## 12 2019-12-04
+## 13 NA        
+## 14 NA        
+## 15 NA        
+## 16 NA        
+## 17 NA        
+## 18 NA        
+## 19 NA        
+## 20 NA        
+## 21 NA        
+## 22 NA        
+## 23 NA        
+## 24 NA        
+## 25 NA        
+## 26 NA        
+## 27 NA        
+## 28 NA        
+## 29 NA        
+## 30 NA</code></pre>
+<div class="sourceCode" id="cb479"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb479-1" title="1">dates_of_april_us <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb479-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">date =</span> <span class="kw">dmy</span>(date))</a></code></pre></div>
+<p>Note that all dates till the 13th are (wrongly) converted. The remaining ones are not converted and replaced with NA, of which lubridate warns us. However, he’s not so smart to correct our mistake and replace the first 12 days with NA.<a href="#fn55" class="footnote-ref" id="fnref55"><sup>55</sup></a></p>
+<p>Let’s return to our dates we defined ealier</p>
+<div class="sourceCode" id="cb480"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb480-1" title="1">date</a></code></pre></div>
+<pre><code>## [1] &quot;1991-06-28&quot;</code></pre>
+<div class="sourceCode" id="cb482"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb482-1" title="1">date2</a></code></pre></div>
+<pre><code>## [1] &quot;2020-02-24&quot;</code></pre>
+<p>We can now calculate with these dates.</p>
+<div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb484-1" title="1">date2 <span class="op">-</span><span class="st"> </span>date</a></code></pre></div>
+<pre><code>## Time difference of 10468 days</code></pre>
+<p>Problem solved. Let’s add some other problems.</p>
+</div>
+<div id="theres-always-time" class="section level2">
+<h2><span class="header-section-number">12.4</span> There’s always time</h2>
+<p>Instead of dates, we can also have times. In this tutorial, we will only consider the combination of date and time, which we call a <em>datetime</em>. We can look at an example using the function <code>now</code>. While <code>today</code> gives us the date of today, <code>now</code> gives us the date time of, well, now.</p>
+<div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb486-1" title="1">current_time &lt;-<span class="st"> </span><span class="kw">now</span>()</a>
+<a class="sourceLine" id="cb486-2" title="2">current_time</a></code></pre></div>
+<pre><code>## [1] &quot;2020-02-24 17:03:10 CET&quot;</code></pre>
+<div class="sourceCode" id="cb488"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb488-1" title="1"><span class="kw">class</span>(current_time)</a></code></pre></div>
+<pre><code>## [1] &quot;POSIXct&quot; &quot;POSIXt&quot;</code></pre>
+<p>The class of a datetime is no longer a “date”, it is a “POSIXct” and “POSIXt”.<a href="#fn56" class="footnote-ref" id="fnref56"><sup>56</sup></a></p>
+<p>Similarly to dates, we can create datetimes in two ways.</p>
+<ol style="list-style-type: decimal">
+<li>Using make_datetime, and giving all components (hours, minutes, seconds and timezone).</li>
+<li>Using ymd_hms, and giving a character.</li>
+</ol>
+<p>Next to ymd_hms, there’s also dmy_hms, mdy_hms, etc. However, hours, minutes and second should always be in the same order. There is no ymd_smh for instances. But, we will never find a datetime in that format either, so no worries. There <em>is</em> a ymd_hm and a ymd_h (and this for all ymd orders), which we can use if we just have the hour, or the hour and the minutes, but not the more detailed parts.</p>
+<p>You will mostly use ymd_hms. Let’s see some examples. Note that the third notations, with a T between the date and time part, is very common in datasets, and lubridates takes care without problems.</p>
+<div class="sourceCode" id="cb490"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb490-1" title="1"><span class="kw">dmy_hms</span>(<span class="st">&quot;25-03-2017 10:30:00&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;2017-03-25 10:30:00 UTC&quot;</code></pre>
+<div class="sourceCode" id="cb492"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb492-1" title="1"><span class="kw">dmy_hms</span>(<span class="st">&quot;25032017103000&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;2017-03-25 10:30:00 UTC&quot;</code></pre>
+<div class="sourceCode" id="cb494"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb494-1" title="1"><span class="kw">dmy_hms</span>(<span class="st">&quot;25-03-2017T10:30:00&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;2017-03-25 10:30:00 UTC&quot;</code></pre>
+<div class="sourceCode" id="cb496"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb496-1" title="1"><span class="kw">ymd_hms</span>(<span class="st">&quot;2017-03-25 10.30.00&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;2017-03-25 10:30:00 UTC&quot;</code></pre>
+<div class="sourceCode" id="cb498"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb498-1" title="1"><span class="kw">dmy_hms</span>(<span class="st">&quot;25-03-2017 10h30m00s&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;2017-03-25 10:30:00 UTC&quot;</code></pre>
+<div class="sourceCode" id="cb500"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb500-1" title="1"><span class="kw">dmy_hm</span>(<span class="st">&quot;25-03-2017 10:30&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;2017-03-25 10:30:00 UTC&quot;</code></pre>
+<p>Again, you can use this on entire columns using mutate. Also, make sure to check what the actual order of components is. We already saw that lubridate can make mistakes also.</p>
+<p>Onces we have datetimes, we can again do calculations with them.</p>
+<div class="sourceCode" id="cb502"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb502-1" title="1">datetime &lt;-<span class="st"> </span><span class="kw">dmy_hms</span>(<span class="st">&quot;25-03-2017 10h30m00s&quot;</span>)</a>
+<a class="sourceLine" id="cb502-2" title="2"><span class="kw">now</span>() <span class="op">-</span><span class="st"> </span>datetime</a></code></pre></div>
+<pre><code>## Time difference of 1066.231 days</code></pre>
+<p>Or compare them.</p>
+<div class="sourceCode" id="cb504"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb504-1" title="1"><span class="kw">now</span>() <span class="op">&lt;</span><span class="st"> </span>datetime</a></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>We’ll learn a lot more what we can do with dates, but there is still one more hurdle to take.</p>
+</div>
+<div id="my-time-is-not-your-time" class="section level2">
+<h2><span class="header-section-number">12.5</span> My time is not your time</h2>
+<p>So, handling time is not much more difficult from handling dates. Just add a few additional letters to the ymd functions. This is mainly true if you stay in the same place, like a tree. Once you start moving to different countries, time gets more difficult. Just crossing the North Sea channel and we have to change our clocks.</p>
+<p>Below, you can see a map of all different time zones.</p>
+<p><img src="images/timezones.png" width="100%" style="display: block; margin: auto;" /></p>
+<p>When you graduate from this program you’ll most certainly become successful international businessleaders, so having a basic understanding about time zones is necessary. Let’s again look at the current time.</p>
+<div class="sourceCode" id="cb506"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb506-1" title="1"><span class="kw">now</span>()</a></code></pre></div>
+<pre><code>## [1] &quot;2020-02-24 17:03:10 CET&quot;</code></pre>
+<p>The last part of this time tells us the timezone we are in. At my pc, it currently says CEST, which is the Central European Summer Time.<a href="#fn57" class="footnote-ref" id="fnref57"><sup>57</sup></a> You also check the time zone you are in using Sys.timezone().</p>
+<div class="sourceCode" id="cb508"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb508-1" title="1"><span class="kw">Sys.timezone</span>()</a></code></pre></div>
+<pre><code>## [1] &quot;Europe/Paris&quot;</code></pre>
+<p>At this point, my pc tell me it is Europe/Paris instead of CEST. Indeed, there are multiple names for the same zone. It’s all a great master scheme to get you confused.</p>
+<p>The function olson_time_zones gives you a list of all time zones according to the Olson time database. This is notation of time zones using Continent/City. It is named after Arthur Olson</p>
+<div class="sourceCode" id="cb510"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb510-1" title="1"><span class="kw">olson_time_zones</span>()</a></code></pre></div>
+<p>Just try this in your console. It’s a long list, and we don’t want to spoil the environment with our paper usage.</p>
+<p>When we are creating a date with a ymd_hms-variant, it will automatically use UTC as a time zone.</p>
+<div class="sourceCode" id="cb511"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb511-1" title="1"><span class="kw">ymd_hms</span>(<span class="st">&quot;2017-03-25 10.30.00&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;2017-03-25 10:30:00 UTC&quot;</code></pre>
+<p>UTC is the Universal Coordinated Time, i.e. the standard, base-line time zone. CEST is UTC + 2, i.e. two hourse ahead of UTC. We can change that be setting the tz argument within the ymd_hms function. Let’s first take a more meaningful datetime.</p>
+<div class="sourceCode" id="cb513"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb513-1" title="1"><span class="kw">ymd_hms</span>(<span class="st">&quot;2017-01-20 17:30:00&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;2017-01-20 17:30:00 UTC&quot;</code></pre>
+<p>At time a sad event happened in Washinghton DC. So let’s define the time zone appropriately.</p>
+<div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb515-1" title="1"><span class="kw">ymd_hms</span>(<span class="st">&quot;2017-01-20 11:30:00&quot;</span>, <span class="dt">tz =</span> <span class="st">&quot;EST&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;2017-01-20 11:30:00 EST&quot;</code></pre>
+<p>Note that EST is the Eastern Standard time, the time zone used in winter in DC. You can see that the time doesn’t really change, only the indication of the timezone.</p>
+<p>We can now see what time it was back in Belgium, by showing this time in CET (Central European Time, that is, our winter time).</p>
+<p>First, we save the time as “doomsday”</p>
+<div class="sourceCode" id="cb517"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb517-1" title="1">doomsday &lt;-<span class="st"> </span><span class="kw">ymd_hms</span>(<span class="st">&quot;2017-01-20 11:30:00&quot;</span>, <span class="dt">tz =</span> <span class="st">&quot;EST&quot;</span>)</a></code></pre></div>
+<p>Using with_tz, we can show a point in time in a different timezone.</p>
+<div class="sourceCode" id="cb518"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb518-1" title="1"><span class="kw">with_tz</span>(doomsday, <span class="st">&quot;CET&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;2017-01-20 17:30:00 CET&quot;</code></pre>
+<p>So, at 11.30 in Washington, it was 17.30 here in Belgium when we were whatching the terrifying events occur live on your tv screens.</p>
+<p>But, both refer to the same point in time. They are just different representations of that same point.</p>
+<div class="sourceCode" id="cb520"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb520-1" title="1">doomsday_in_belgium &lt;-<span class="st"> </span><span class="kw">with_tz</span>(doomsday, <span class="st">&quot;CET&quot;</span>) </a>
+<a class="sourceLine" id="cb520-2" title="2"></a>
+<a class="sourceLine" id="cb520-3" title="3">doomsday_in_belgium <span class="op">-</span><span class="st"> </span>doomsday</a></code></pre></div>
+<pre><code>## Time difference of 0 secs</code></pre>
+<p>If we really want to change the time zone, i.e. refer to 11.30 in Belgium, we can use force_tz instead.</p>
+<div class="sourceCode" id="cb522"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb522-1" title="1"><span class="kw">force_tz</span>(doomsday, <span class="st">&quot;CET&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;2017-01-20 11:30:00 CET&quot;</code></pre>
+<p>At this point, we are not longer talking about the same point in time, but we are talking about the time 6 hours before doomsday.</p>
+<div class="sourceCode" id="cb524"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb524-1" title="1"><span class="kw">force_tz</span>(doomsday, <span class="st">&quot;CET&quot;</span>) <span class="op">-</span><span class="st"> </span>doomsday</a></code></pre></div>
+<pre><code>## Time difference of -6 hours</code></pre>
+<p>We’ll come back to time zones in a minute, because even in Belgium we change our clocks now and again (at least for now). First, let’s have a look at the things we can do with dates and times.</p>
+</div>
+<div id="extract-information-from-dates" class="section level2">
+<h2><span class="header-section-number">12.6</span> Extract information from dates</h2>
+<p>When we have a date (or datetime), we can easily extract information from it. For example, consider doomsday again.</p>
+<p>We can see which day it was.</p>
+<div class="sourceCode" id="cb526"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb526-1" title="1"><span class="kw">day</span>(doomsday)</a></code></pre></div>
+<pre><code>## [1] 20</code></pre>
+<p>or at which hour</p>
+<div class="sourceCode" id="cb528"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb528-1" title="1"><span class="kw">hour</span>(doomsday)</a></code></pre></div>
+<pre><code>## [1] 11</code></pre>
+<p>or even which day of the week</p>
+<div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb530-1" title="1"><span class="kw">wday</span>(doomsday)</a></code></pre></div>
+<pre><code>## [1] 6</code></pre>
+<p>It was the 6th day of the week. But if you remember doomsday as well as I, you will have it printed on your eyelids that it was a terrible friday?</p>
+<p>Indeed, lubridate will start counting on sunday - another American quirk. So, sunday is the first day of the week. Saturday the seventh. And friday the sixth.</p>
+<p>Luckily, the wday function has an argument label, which we can set to TRUE when we forgot the exact meaning.</p>
+<div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb532-1" title="1"><span class="kw">wday</span>(doomsday, <span class="dt">label =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<pre><code>## [1] Fri
+## Levels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat</code></pre>
+<p>Friday it was. Not that it is automatically an ordered factor, which is helpful. Also note that it might not be in English on your pc. Time is a little different for each of us.</p>
+<p>We can also ask for the month of doomsday as both a number and a label.</p>
+<div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb534-1" title="1"><span class="kw">month</span>(doomsday)</a></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode" id="cb536"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb536-1" title="1"><span class="kw">month</span>(doomsday, <span class="dt">label =</span> T)</a></code></pre></div>
+<pre><code>## [1] Jan
+## 12 Levels: Jan &lt; Feb &lt; Mar &lt; Apr &lt; May &lt; Jun &lt; Jul &lt; Aug &lt; Sep &lt; ... &lt; Dec</code></pre>
+<p>Or course, the first month of the year is Januari. Even in the US. (Might not be so in China though).</p>
+<p>Using these functions we can look at time data from very different angles. We can compare months, days of the week, hours, etc. It shows how complex time is, but also in how different ways we can use it to analyse something. That’s why it’s so important to know.</p>
+</div>
+<div id="time-differences" class="section level2">
+<h2><span class="header-section-number">12.7</span> Time differences</h2>
+<p>There are three different ways to express a time difference.</p>
+<ul>
+<li>A period</li>
+<li>A duration</li>
+<li>An interval</li>
+</ul>
+<p>A period is expressed in components: hours, days, months, years. It is how we <em>perceive</em> time</p>
+<p>A duration is expressed as an amount of seconds. It is like the a machine or clock counts time.</p>
+<p>An interval is a <em>exact</em> window of time, with a specific start date(time) and a specific end date(time). It is something totally different from periods and durations. Let’s look at those first.</p>
+<div id="period-1" class="section level3">
+<h3><span class="header-section-number">12.7.1</span> Period</h3>
+<p>We can create a period with the period function, by giving it a number of components.</p>
+<div class="sourceCode" id="cb538"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb538-1" title="1"><span class="kw">period</span>(<span class="dt">days =</span> <span class="dv">2</span>, <span class="dt">minutes =</span> <span class="dv">4</span>, <span class="dt">seconds =</span> <span class="dv">70</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;2d 0H 4M 70S&quot;</code></pre>
+<p>Note that it will just give us the period in easy to understand chunks of time. 2 hours, 4 minutes and 70 seconds. It won’t even change it to 2 hours, 5 minutes and 10 seconds, because that’s not what we said. Periods have a human touch to it.</p>
+<p>If our can be easily expressed in a single component, we can use the follow that components day (in plural).</p>
+<div class="sourceCode" id="cb540"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb540-1" title="1"><span class="kw">days</span>(<span class="dv">3</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;3d 0H 0M 0S&quot;</code></pre>
+<div class="sourceCode" id="cb542"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb542-1" title="1"><span class="kw">weeks</span>(<span class="dv">3</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;21d 0H 0M 0S&quot;</code></pre>
+<div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb544-1" title="1"><span class="kw">months</span>(<span class="dv">2</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;2m 0d 0H 0M 0S&quot;</code></pre>
+<div class="sourceCode" id="cb546"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb546-1" title="1"><span class="kw">years</span>(<span class="dv">4</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;4y 0m 0d 0H 0M 0S&quot;</code></pre>
+<p>We need to use the plural (days, not day), because we already used day to extract the day from a date (remember?). When we use weeks, it will translate each week to 7 days. When we use months or years, it will created additional components in its output.</p>
+<p>We can combine them.</p>
+<div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb548-1" title="1"><span class="kw">days</span>(<span class="dv">1</span>) <span class="op">+</span><span class="st"> </span><span class="kw">hours</span>(<span class="dv">1</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;1d 1H 0M 0S&quot;</code></pre>
+<p>We can also make negative periods.</p>
+<div class="sourceCode" id="cb550"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb550-1" title="1"><span class="kw">days</span>(<span class="op">-</span><span class="dv">10</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;-10d 0H 0M 0S&quot;</code></pre>
+<p>Or we can make vectors of periods.</p>
+<div class="sourceCode" id="cb552"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb552-1" title="1"><span class="kw">period</span>(<span class="dt">days =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dt">hours =</span> <span class="dv">3</span><span class="op">:</span><span class="dv">7</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;1d 3H 0M 0S&quot; &quot;2d 4H 0M 0S&quot; &quot;3d 5H 0M 0S&quot; &quot;4d 6H 0M 0S&quot; &quot;5d 7H 0M 0S&quot;</code></pre>
+<div class="sourceCode" id="cb554"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb554-1" title="1"><span class="kw">days</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">6</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;0S&quot;          &quot;1d 0H 0M 0S&quot; &quot;2d 0H 0M 0S&quot; &quot;3d 0H 0M 0S&quot; &quot;4d 0H 0M 0S&quot;
+## [6] &quot;5d 0H 0M 0S&quot; &quot;6d 0H 0M 0S&quot;</code></pre>
+<p>We can than also substract or add these periods to dates. Thus, if today is</p>
+<div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb556-1" title="1"><span class="kw">today</span>()</a></code></pre></div>
+<pre><code>## [1] &quot;2020-02-24&quot;</code></pre>
+<p>the next 6 days are</p>
+<div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb558-1" title="1"><span class="kw">today</span>() <span class="op">+</span><span class="st"> </span><span class="kw">days</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;2020-02-25&quot; &quot;2020-02-26&quot; &quot;2020-02-27&quot; &quot;2020-02-28&quot; &quot;2020-02-29&quot;
+## [6] &quot;2020-03-01&quot;</code></pre>
+</div>
+<div id="durations" class="section level3">
+<h3><span class="header-section-number">12.7.2</span> Durations</h3>
+<p>Instead of using these human-understandable components, durations translate all time difference to seconds. Just like <code>period</code>, we can use <code>duration</code>.</p>
+<div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb560-1" title="1"><span class="kw">duration</span>(<span class="dt">days =</span> <span class="dv">2</span>, <span class="dt">minutes =</span> <span class="dv">4</span>, <span class="dt">seconds =</span> <span class="dv">70</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;173110s (~2 days)&quot;</code></pre>
+<p>As you see, it will always try to give an approximation of the time differences in understandable terms for us, humans.</p>
+<p>Indeed, we can also do the math</p>
+<div class="sourceCode" id="cb562"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb562-1" title="1"><span class="dv">2</span><span class="op">*</span><span class="dv">24</span><span class="op">*</span><span class="dv">3600</span><span class="op">+</span><span class="dv">4</span><span class="op">*</span><span class="dv">60</span><span class="op">+</span><span class="dv">70</span></a></code></pre></div>
+<pre><code>## [1] 173110</code></pre>
+<p>Similarly, we can use ddays, dweek, dyears, etc.<a href="#fn58" class="footnote-ref" id="fnref58"><sup>58</sup></a></p>
+<div class="sourceCode" id="cb564"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb564-1" title="1"><span class="kw">ddays</span>(<span class="dv">3</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;259200s (~3 days)&quot;</code></pre>
+<div class="sourceCode" id="cb566"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb566-1" title="1"><span class="kw">dweeks</span>(<span class="dv">3</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;1814400s (~3 weeks)&quot;</code></pre>
+<div class="sourceCode" id="cb568"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb568-1" title="1"><span class="kw">dyears</span>(<span class="dv">4</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;126144000s (~4 years)&quot;</code></pre>
+<p>We can combine them.</p>
+<div class="sourceCode" id="cb570"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb570-1" title="1"><span class="kw">ddays</span>(<span class="dv">1</span>) <span class="op">+</span><span class="st"> </span><span class="kw">dhours</span>(<span class="dv">1</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;90000s (~1.04 days)&quot;</code></pre>
+<p>We can not make negative durations, but it wont really give an error.</p>
+<div class="sourceCode" id="cb572"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb572-1" title="1"><span class="kw">ddays</span>(<span class="op">-</span><span class="dv">10</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;864000s (~1.43 weeks)&quot;</code></pre>
+<p>Note that there is no such thing as a negative second.</p>
+<p>We can make vectors of periods.</p>
+<div class="sourceCode" id="cb574"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb574-1" title="1"><span class="kw">duration</span>(<span class="dt">days =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dt">hours =</span> <span class="dv">3</span><span class="op">:</span><span class="dv">7</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;97200s (~1.12 days)&quot;  &quot;187200s (~2.17 days)&quot; &quot;277200s (~3.21 days)&quot;
+## [4] &quot;367200s (~4.25 days)&quot; &quot;457200s (~5.29 days)&quot;</code></pre>
+<div class="sourceCode" id="cb576"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb576-1" title="1"><span class="kw">ddays</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">6</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;0s&quot;                &quot;86400s (~1 days)&quot;  &quot;172800s (~2 days)&quot;
+## [4] &quot;259200s (~3 days)&quot; &quot;345600s (~4 days)&quot; &quot;432000s (~5 days)&quot;
+## [7] &quot;518400s (~6 days)&quot;</code></pre>
+<p>We can than also substract or add these durations to dates. Thus, if today is</p>
+<div class="sourceCode" id="cb578"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb578-1" title="1"><span class="kw">today</span>()</a></code></pre></div>
+<pre><code>## [1] &quot;2020-02-24&quot;</code></pre>
+<p>the next 6 days are</p>
+<div class="sourceCode" id="cb580"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb580-1" title="1"><span class="kw">today</span>() <span class="op">+</span><span class="st"> </span><span class="kw">ddays</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;2020-02-25&quot; &quot;2020-02-26&quot; &quot;2020-02-27&quot; &quot;2020-02-28&quot; &quot;2020-02-29&quot;
+## [6] &quot;2020-03-01&quot;</code></pre>
+<p>Note that we cannot compute dmonths!</p>
+<div class="sourceCode" id="cb582"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb582-1" title="1"><span class="kw">dmonths</span>(<span class="dv">1</span>)</a></code></pre></div>
+<pre><code>## Error in dmonths(1): could not find function &quot;dmonths&quot;</code></pre>
+<p>There is no fixed length for months in number of seconds, of course.<a href="#fn59" class="footnote-ref" id="fnref59"><sup>59</sup></a></p>
+<p>Now, you wonder, why do we have both periods and durations? Well, there are some important differences.</p>
+</div>
+<div id="periods-are-not-durations" class="section level3">
+<h3><span class="header-section-number">12.7.3</span> Periods are not durations</h3>
+<p>As I already mentions, durations are machine-interpretable seconds, and periods are human-interpretable days.</p>
+<p>If we, humans, say “next month” on the 3th of februari, we mean the 3th of march. A machine wouldn’t know what a month is.</p>
+<p>Let’s look at some examples too make things clear.</p>
+<p>Let’s take the first day of 2019, which is not a leap year.</p>
+<div class="sourceCode" id="cb584"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb584-1" title="1"><span class="kw">ymd</span>(<span class="st">&quot;2019-01-01&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;2019-01-01&quot;</code></pre>
+<p>If we add a period-year</p>
+<div class="sourceCode" id="cb586"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb586-1" title="1"><span class="kw">ymd</span>(<span class="st">&quot;2019-01-01&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">years</span>(<span class="dv">1</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;2020-01-01&quot;</code></pre>
+<p>or a duration-year</p>
+<div class="sourceCode" id="cb588"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb588-1" title="1"><span class="kw">ymd</span>(<span class="st">&quot;2019-01-01&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">dyears</span>(<span class="dv">1</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;2020-01-01&quot;</code></pre>
+<p>both are the same, because how we perceive the length of 2019 (i.e. 365 days), is exactly the duration of a year.</p>
+<p>However, if we add 2 years, there is a difference, because 2020 is a leapyear and how we perceive it (366 days) is not the same as the duration of a default year.</p>
+<div class="sourceCode" id="cb590"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb590-1" title="1"><span class="kw">ymd</span>(<span class="st">&quot;2019-01-01&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;2019-01-01&quot;</code></pre>
+<p>If we add two period-years</p>
+<div class="sourceCode" id="cb592"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb592-1" title="1"><span class="kw">ymd</span>(<span class="st">&quot;2019-01-01&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">years</span>(<span class="dv">2</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;2021-01-01&quot;</code></pre>
+<p>or two duration-years</p>
+<div class="sourceCode" id="cb594"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb594-1" title="1"><span class="kw">ymd</span>(<span class="st">&quot;2019-01-01&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">dyears</span>(<span class="dv">2</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;2020-12-31&quot;</code></pre>
+<p>“Next year” on New Year 2020 for us humans means New Year 2021, eventhough it is a leapyear. For durations, it means New Years Eve, because it assumes a year has 365 days.</p>
+<p>Let’s take another example. On 31 march we changed from our winter time (CET) to summer time. What does it mean to add “a day” to 4pm on saturday.</p>
+<div class="sourceCode" id="cb596"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb596-1" title="1"><span class="kw">ymd_hms</span>(<span class="st">&quot;2019-03-30 16:00:00&quot;</span>, <span class="dt">tz =</span> <span class="st">&quot;CET&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">days</span>(<span class="dv">1</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;2019-03-31 16:00:00 CEST&quot;</code></pre>
+<div class="sourceCode" id="cb598"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb598-1" title="1"><span class="kw">ymd_hms</span>(<span class="st">&quot;2019-03-30 16:00:00&quot;</span>, <span class="dt">tz =</span> <span class="st">&quot;CET&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ddays</span>(<span class="dv">1</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;2019-03-31 17:00:00 CEST&quot;</code></pre>
+<p>If we add a human period, it will say 4pm on sunday, eventhough that’s only 23 hours later. If we a machine-duration, it will tell us that “a day later” is sunday at 5pm, because only then have 24 hours passed.</p>
+<p>Of course, there is no difference on any other day of the year.</p>
+<div class="sourceCode" id="cb600"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb600-1" title="1"><span class="kw">ymd_hms</span>(<span class="st">&quot;2019-04-30 16:00:00&quot;</span>, <span class="dt">tz =</span> <span class="st">&quot;CET&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">days</span>(<span class="dv">1</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;2019-05-01 16:00:00 CEST&quot;</code></pre>
+<div class="sourceCode" id="cb602"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb602-1" title="1"><span class="kw">ymd_hms</span>(<span class="st">&quot;2019-04-30 16:00:00&quot;</span>, <span class="dt">tz =</span> <span class="st">&quot;CET&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ddays</span>(<span class="dv">1</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;2019-05-01 16:00:00 CEST&quot;</code></pre>
+<p>So, the difference is only in special cases, but a difference still.</p>
+</div>
+</div>
+<div id="arithmetics" class="section level2">
+<h2><span class="header-section-number">12.8</span> Arithmetics</h2>
+<p>We’ve already seen quite a lot of computations we can do. Here are some other examples.</p>
+<div class="sourceCode" id="cb604"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb604-1" title="1">doomsday <span class="op">&gt;=</span><span class="st"> </span><span class="kw">now</span>()</a></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb606"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb606-1" title="1"><span class="kw">now</span>() <span class="op">-</span><span class="st"> </span>doomsday</a></code></pre></div>
+<pre><code>## Time difference of 1129.981 days</code></pre>
+<div class="sourceCode" id="cb608"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb608-1" title="1"><span class="kw">as.period</span>(<span class="kw">now</span>()<span class="op">-</span>doomsday)</a></code></pre></div>
+<pre><code>## [1] &quot;1129d 23H 33M 13.9116089344025S&quot;</code></pre>
+<div class="sourceCode" id="cb610"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb610-1" title="1">doomsday <span class="op">+</span><span class="st"> </span><span class="kw">period</span>(<span class="dv">1</span>,<span class="st">&quot;week&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;2017-01-27 11:30:00 EST&quot;</code></pre>
+<div class="sourceCode" id="cb612"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb612-1" title="1"><span class="kw">leap_year</span>(<span class="dv">2012</span>)</a></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb614"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb614-1" title="1"><span class="kw">leap_year</span>(<span class="kw">now</span>())</a></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb616"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb616-1" title="1"><span class="kw">now</span>() <span class="op">+</span><span class="st"> </span><span class="kw">weeks</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">2</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;2020-02-24 17:03:13 CET&quot; &quot;2020-03-02 17:03:13 CET&quot;
+## [3] &quot;2020-03-09 17:03:13 CET&quot;</code></pre>
+<p>Sometimes, calculations can go wrong. Especially with months.</p>
+<div class="sourceCode" id="cb618"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb618-1" title="1"><span class="kw">ymd</span>(<span class="dv">20190331</span>) <span class="op">+</span><span class="st"> </span><span class="kw">months</span>(<span class="dv">1</span>)</a></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<p>Well, the 31st of April doesn’t really exist. (I suppose we all would like to have an extra 24 hours, but we don’t.)</p>
+<p>You can use the special %m+% operator to make sure that your additions never go over the months end.</p>
+<div class="sourceCode" id="cb620"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb620-1" title="1"><span class="kw">ymd</span>(<span class="dv">20190331</span>) <span class="op">%m+%</span><span class="st"> </span><span class="kw">months</span>(<span class="dv">1</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;2019-04-30&quot;</code></pre>
+<p>Below, we have tried both to create a list of every months last day this year.</p>
+<div class="sourceCode" id="cb622"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb622-1" title="1"><span class="kw">ymd</span>(<span class="dv">20190131</span>) <span class="op">+</span><span class="st"> </span><span class="kw">months</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">11</span>)</a></code></pre></div>
+<pre><code>##  [1] &quot;2019-01-31&quot; NA           &quot;2019-03-31&quot; NA           &quot;2019-05-31&quot;
+##  [6] NA           &quot;2019-07-31&quot; &quot;2019-08-31&quot; NA           &quot;2019-10-31&quot;
+## [11] NA           &quot;2019-12-31&quot;</code></pre>
+<div class="sourceCode" id="cb624"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb624-1" title="1"><span class="kw">ymd</span>(<span class="dv">20190131</span>) <span class="op">%m+%</span><span class="st"> </span><span class="kw">months</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">11</span>)</a></code></pre></div>
+<pre><code>##  [1] &quot;2019-01-31&quot; &quot;2019-02-28&quot; &quot;2019-03-31&quot; &quot;2019-04-30&quot; &quot;2019-05-31&quot;
+##  [6] &quot;2019-06-30&quot; &quot;2019-07-31&quot; &quot;2019-08-31&quot; &quot;2019-09-30&quot; &quot;2019-10-31&quot;
+## [11] &quot;2019-11-30&quot; &quot;2019-12-31&quot;</code></pre>
+</div>
+<div id="interval-2" class="section level2">
+<h2><span class="header-section-number">12.9</span> Interval</h2>
+<p>Finally, let’s look at interval. Durations and periods only have a length. A period or a duration of a specific length can occur at any time.</p>
+<p>An interval is different, as it refers to on specific window in time. It is not defined by its length, but rather by its start and end point.</p>
+<p>Victor Hugo lived from February 26, 1802 until May 22, 1885. So we can define an interval using these two dates which represents his lifetime</p>
+<div class="sourceCode" id="cb626"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb626-1" title="1">hugo &lt;-<span class="st"> </span><span class="kw">interval</span>(<span class="kw">mdy</span>(<span class="dv">02261802</span>), <span class="kw">mdy</span>(<span class="dv">05221885</span>))</a>
+<a class="sourceLine" id="cb626-2" title="2">hugo</a></code></pre></div>
+<pre><code>## [1] 1802-02-26 UTC--1885-05-22 UTC</code></pre>
+<div class="sourceCode" id="cb628"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb628-1" title="1"><span class="kw">class</span>(hugo)</a></code></pre></div>
+<pre><code>## [1] &quot;Interval&quot;
+## attr(,&quot;package&quot;)
+## [1] &quot;lubridate&quot;</code></pre>
+<p>Note that we can of course also use datetimes to define an interval. (We just don’t have any specific information on Hugo’s hour of birth or death.)</p>
+<p>Oscar Wilde lived from October 16, 1854 until November 30, 1900. Thus,</p>
+<div class="sourceCode" id="cb630"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb630-1" title="1">wilde &lt;-<span class="st"> </span><span class="kw">interval</span>(<span class="kw">mdy</span>(<span class="dv">10161854</span>), <span class="kw">mdy</span>(<span class="dv">11301900</span>))</a>
+<a class="sourceLine" id="cb630-2" title="2">wilde</a></code></pre></div>
+<pre><code>## [1] 1854-10-16 UTC--1900-11-30 UTC</code></pre>
+<p>We can also create an interval with the special %–% operator. Thus the code above is equivalent to</p>
+<div class="sourceCode" id="cb632"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb632-1" title="1">wilde &lt;-<span class="st"> </span><span class="kw">mdy</span>(<span class="dv">10161854</span>) <span class="op">%--%</span><span class="st"> </span><span class="kw">mdy</span>(<span class="dv">11301900</span>)</a>
+<a class="sourceLine" id="cb632-2" title="2">wilde</a></code></pre></div>
+<pre><code>## [1] 1854-10-16 UTC--1900-11-30 UTC</code></pre>
+<p>It’s shorter to write, but using the function is somewhat more readable.</p>
+<p>We can check whether a date falls in an interval using the %within% function. (Not to be confused with the %in% function).</p>
+<p>Charles Dickens was born on the 7th of februari 1812.</p>
+<div class="sourceCode" id="cb634"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb634-1" title="1">dickens_birthday &lt;-<span class="st"> </span><span class="kw">dmy</span>(<span class="dv">7021812</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb635"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb635-1" title="1">dickens_birthday <span class="op">%within%</span><span class="st"> </span>hugo</a></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb637"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb637-1" title="1">dickens_birthday <span class="op">%within%</span><span class="st"> </span>wilde</a></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>Hugo lived on that day, as this day fall within the interval of his life. Wilde didn’t roam the earth on that day.</p>
+<p>We can check whether two intervals overlap. I.e. did Hugo and Wilde both live at a certain point in history.</p>
+<div class="sourceCode" id="cb639"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb639-1" title="1"><span class="kw">int_overlaps</span>(hugo, wilde)</a></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>Of course they did. We can also create the exact time interval both lived.</p>
+<div class="sourceCode" id="cb641"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb641-1" title="1"><span class="kw">intersect</span>(hugo, wilde)</a></code></pre></div>
+<pre><code>## [1] 1854-10-16 UTC--1885-05-22 UTC</code></pre>
+<p>Or the total time interval that at least one of them lived</p>
+<div class="sourceCode" id="cb643"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb643-1" title="1"><span class="kw">union</span>(hugo, wilde)</a></code></pre></div>
+<pre><code>## [1] 1802-02-26 UTC--1900-11-30 UTC</code></pre>
+<p><strong>Important</strong>: note that intersect and union only works if you did library(lubridate) after library(dplyr). This is because both packages have those functions, and the package that was loaded last is found first by R. It is like the book on top in your library, if you like. If you are not sure which you loaded first, you can solve this problem by placing the package name and two :’s before the function.</p>
+<div class="sourceCode" id="cb645"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb645-1" title="1">lubridate<span class="op">::</span><span class="kw">union</span>(hugo, wilde)</a></code></pre></div>
+<pre><code>## [1] 1802-02-26 UTC--1900-11-30 UTC</code></pre>
+<div class="sourceCode" id="cb647"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb647-1" title="1">lubridate<span class="op">::</span><span class="kw">intersect</span>(hugo, wilde)</a></code></pre></div>
+<pre><code>## [1] 1854-10-16 UTC--1885-05-22 UTC</code></pre>
+<p>Note that when we explicitly use the dplyr functions, we do not get anything useful for intervals.</p>
+<div class="sourceCode" id="cb649"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb649-1" title="1">dplyr<span class="op">::</span><span class="kw">union</span>(hugo, wilde)</a></code></pre></div>
+<pre><code>## [1] 2626646400 1455494400</code></pre>
+<div class="sourceCode" id="cb651"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb651-1" title="1">dplyr<span class="op">::</span><span class="kw">intersect</span>(hugo, wilde)</a></code></pre></div>
+<pre><code>## numeric(0)</code></pre>
+<p>Great, you have now learned so many functions that different packages are beginning to be in conflict with each other. You have thereby entered the realm of a true R-programmers and data scientists, congratz!</p>
+<p>— The End —</p>
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="footnotes">
+<hr />
+<ol start="51">
+<li id="fn51"><p>The words date and data are too different things. It’s again a common source of typos.<a href="tutorial-tijdsdata.html#fnref51" class="footnote-back">↩</a></p></li>
+<li id="fn52"><p>Of course, this is not the day when you are reading the tutorial, but the last day that the tutorial was updated.<a href="tutorial-tijdsdata.html#fnref52" class="footnote-back">↩</a></p></li>
+<li id="fn53"><p>Fun fact for geeks: lubridate will try to find a date within 50 years from now. Thus, all number from 69 to 99 will be regarded as 1999 to 1999, all other numbers will be regarded as years in the 21st century.<a href="tutorial-tijdsdata.html#fnref53" class="footnote-back">↩</a></p></li>
+<li id="fn54"><p>You can create this table yourself by uniting the columns dates_of_april table in the month, day, year order.<a href="tutorial-tijdsdata.html#fnref54" class="footnote-back">↩</a></p></li>
+<li id="fn55"><p>Not that lubridate date doesn’t learn retroactively (replacing the already converted dates with NA), but is also doesn’t learn for the future. If we shuffle the data such that we’ll see a wrong date faster, it will still wrongly convert all of the 12 first days of april. So he will always do his best, even if he has already had problems with some dates. Moral of the story: the data scientist should never be asleep and blindly trust tools.<a href="tutorial-tijdsdata.html#fnref55" class="footnote-back">↩</a></p></li>
+<li id="fn56"><p>What the hell does that mean? POSIXct is the number of seconds sinds the start of the first of January in 1970. R uses this number of seconds to store a datatime. Another way to store it is by storing, seperately the seconds, minutes, hours, etc. Then it is a POSIXlt. The difference between those to will not change for the user, only how the date is stored. POSIXt is a parent class which makes sure that most functions can work with both types of storage. There’s no need to remember these names. Just know that everything starting with POSI is a datetime, not just a date.<a href="tutorial-tijdsdata.html#fnref56" class="footnote-back">↩</a></p></li>
+<li id="fn57"><p>Note that if you read the online version of this tutorial, the time zones you see here may be different because it might be compiled on a server in a different time zone.<a href="tutorial-tijdsdata.html#fnref57" class="footnote-back">↩</a></p></li>
+<li id="fn58"><p>Evidently, this has nothing to do with D-Day. It’s just dat day and days were already taken, and d stands for duration.<a href="tutorial-tijdsdata.html#fnref58" class="footnote-back">↩</a></p></li>
+<li id="fn59"><p>You might wonder that there is also no fixed length for years, depending on whether we have a leap year or not. True, but dyears will implicitly use the common conventions that a year has 365 days, which is true more than 75% of the time. We don’t have such a convention for months.<a href="tutorial-tijdsdata.html#fnref59" class="footnote-back">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="tijdsdata.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["textbook.pdf"],
+"toc": {
+"collapse": "section",
+"depth": 3
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

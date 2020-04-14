@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 10 Tutorial - Tidy data | Exploratieve en Descriptieve Data Analyse</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 10 Tutorial - Tidy data | Exploratieve en Descriptieve Data Analyse" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 10 Tutorial - Tidy data | Exploratieve en Descriptieve Data Analyse" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Benoît Depaire, Gert Janssenswillen" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="tidy-data.html"/>
+<link rel="next" href="tijdsdata.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Exploratieve en descriptieve data analyse</a></li>
+<li><a href="https://beta.rstudioconnect.com/content/7904/studieleidraad_worksessions.html">Studieleidraad</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Voorwoord</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#hoe-de-lecture-notes-te-gebruiken"><i class="fa fa-check"></i>Hoe de lecture notes te gebruiken</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#hoe-de-tutorials-te-gebruiken"><i class="fa fa-check"></i>Hoe de tutorials te gebruiken</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#over-de-auteurs"><i class="fa fa-check"></i>Over de auteurs</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introductiecollege.html"><a href="introductiecollege.html"><i class="fa fa-check"></i><b>1</b> Introductiecollege</a><ul>
+<li class="chapter" data-level="1.1" data-path="introductiecollege.html"><a href="introductiecollege.html#data-science"><i class="fa fa-check"></i><b>1.1</b> Data science?</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="introductiecollege.html"><a href="introductiecollege.html#netflix"><i class="fa fa-check"></i><b>1.1.1</b> Netflix</a></li>
+<li class="chapter" data-level="1.1.2" data-path="introductiecollege.html"><a href="introductiecollege.html#waar-komt-data-vandaan"><i class="fa fa-check"></i><b>1.1.2</b> Waar komt data vandaan?</a></li>
+<li class="chapter" data-level="1.1.3" data-path="introductiecollege.html"><a href="introductiecollege.html#hoeveel-data-is-er-beschikbaar"><i class="fa fa-check"></i><b>1.1.3</b> Hoeveel data is er beschikbaar?</a></li>
+<li class="chapter" data-level="1.1.4" data-path="introductiecollege.html"><a href="introductiecollege.html#waar-wordt-data-voor-gebruikt-in-de-bedrijfswereld"><i class="fa fa-check"></i><b>1.1.4</b> Waar wordt data voor gebruikt in de bedrijfswereld?</a></li>
+<li class="chapter" data-level="1.1.5" data-path="introductiecollege.html"><a href="introductiecollege.html#waarover-verzamelen-bedrijven-data"><i class="fa fa-check"></i><b>1.1.5</b> Waarover verzamelen bedrijven data</a></li>
+<li class="chapter" data-level="1.1.6" data-path="introductiecollege.html"><a href="introductiecollege.html#van-data-tot-actionable-insights"><i class="fa fa-check"></i><b>1.1.6</b> Van data tot ‘actionable insights’</a></li>
+<li class="chapter" data-level="1.1.7" data-path="introductiecollege.html"><a href="introductiecollege.html#data-scientists"><i class="fa fa-check"></i><b>1.1.7</b> Data Scientists</a></li>
+<li class="chapter" data-level="1.1.8" data-path="introductiecollege.html"><a href="introductiecollege.html#verschillende-soorten-van-data-analyse"><i class="fa fa-check"></i><b>1.1.8</b> Verschillende soorten van data analyse</a></li>
+<li class="chapter" data-level="1.1.9" data-path="introductiecollege.html"><a href="introductiecollege.html#de-kunst-van-data-analyse"><i class="fa fa-check"></i><b>1.1.9</b> De kunst van data analyse</a></li>
+<li class="chapter" data-level="1.1.10" data-path="introductiecollege.html"><a href="introductiecollege.html#de-kracht-van-descriptieve-en-exploratieve-data-analyse"><i class="fa fa-check"></i><b>1.1.10</b> De kracht van descriptieve en exploratieve data analyse</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="introductiecollege.html"><a href="introductiecollege.html#gastcollege-bart-van-proeyen---kwarts"><i class="fa fa-check"></i><b>1.2</b> Gastcollege Bart Van Proeyen - Kwarts</a></li>
+<li class="chapter" data-level="1.3" data-path="introductiecollege.html"><a href="introductiecollege.html#data-data-types"><i class="fa fa-check"></i><b>1.3</b> Data &amp; Data types</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="introductiecollege.html"><a href="introductiecollege.html#dataset"><i class="fa fa-check"></i><b>1.3.1</b> Dataset</a></li>
+<li class="chapter" data-level="1.3.2" data-path="introductiecollege.html"><a href="introductiecollege.html#klassieke-datatypologie"><i class="fa fa-check"></i><b>1.3.2</b> Klassieke datatypologie</a></li>
+<li class="chapter" data-level="1.3.3" data-path="introductiecollege.html"><a href="introductiecollege.html#de-klassieke-datatypologie-is-misleidend"><i class="fa fa-check"></i><b>1.3.3</b> De klassieke datatypologie is misleidend</a></li>
+<li class="chapter" data-level="1.3.4" data-path="introductiecollege.html"><a href="introductiecollege.html#alternatieve-datatypologie"><i class="fa fa-check"></i><b>1.3.4</b> Alternatieve datatypologie</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="introductiecollege.html"><a href="introductiecollege.html#referenties"><i class="fa fa-check"></i><b>1.4</b> Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="data-visualizatie.html"><a href="data-visualizatie.html"><i class="fa fa-check"></i><b>2</b> Data visualizatie</a><ul>
+<li class="chapter" data-level="2.1" data-path="data-visualizatie.html"><a href="data-visualizatie.html#univariate-visualisaties-1-variabele"><i class="fa fa-check"></i><b>2.1</b> Univariate visualisaties (1 variabele)</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="data-visualizatie.html"><a href="data-visualizatie.html#categorische-variabele"><i class="fa fa-check"></i><b>2.1.1</b> Categorische variabele</a></li>
+<li class="chapter" data-level="2.1.2" data-path="data-visualizatie.html"><a href="data-visualizatie.html#continue-variabele"><i class="fa fa-check"></i><b>2.1.2</b> Continue variabele</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="data-visualizatie.html"><a href="data-visualizatie.html#bivariate-visualisatie-2-variabelen"><i class="fa fa-check"></i><b>2.2</b> Bivariate visualisatie (2 variabelen)</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="data-visualizatie.html"><a href="data-visualizatie.html#situatie-1-de-onafhankelijke-variabele-is-categorisch"><i class="fa fa-check"></i><b>2.2.1</b> Situatie 1: De onafhankelijke variabele is categorisch</a></li>
+<li class="chapter" data-level="2.2.2" data-path="data-visualizatie.html"><a href="data-visualizatie.html#situatie-2-de-onafhankelijke-variabele-is-continue"><i class="fa fa-check"></i><b>2.2.2</b> Situatie 2: De onafhankelijke variabele is continue</a></li>
+<li class="chapter" data-level="2.2.3" data-path="data-visualizatie.html"><a href="data-visualizatie.html#situatie-3-de-onafhankelijke-variabele-is-tijd"><i class="fa fa-check"></i><b>2.2.3</b> Situatie 3: De onafhankelijke variabele is tijd</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="data-visualizatie.html"><a href="data-visualizatie.html#multivariate-visualisaties-meer-dan-2-variabelen"><i class="fa fa-check"></i><b>2.3</b> Multivariate visualisaties (meer dan 2 variabelen)</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="data-visualizatie.html"><a href="data-visualizatie.html#voorbeeld-in-welke-mate-hangt-de-vertrek-vertraging-af-van-de-luchthaven-en-de-afstand"><i class="fa fa-check"></i><b>2.3.1</b> Voorbeeld: In welke mate hangt de vertrek vertraging af van de luchthaven en de afstand?</a></li>
+<li class="chapter" data-level="2.3.2" data-path="data-visualizatie.html"><a href="data-visualizatie.html#voorbeeld-multivariaat-tijd"><i class="fa fa-check"></i><b>2.3.2</b> Voorbeeld: multivariaat tijd</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="data-visualizatie.html"><a href="data-visualizatie.html#visualisaties-voor-communicatie"><i class="fa fa-check"></i><b>2.4</b> Visualisaties voor communicatie</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="data-visualizatie.html"><a href="data-visualizatie.html#voorbeeld-voor-goed-voor-exploratie"><i class="fa fa-check"></i><b>2.4.1</b> Voorbeeld: voor ~ goed voor exploratie</a></li>
+<li class="chapter" data-level="2.4.2" data-path="data-visualizatie.html"><a href="data-visualizatie.html#voorbeeld-na-goed-voor-communicatie"><i class="fa fa-check"></i><b>2.4.2</b> Voorbeeld: na ~ goed voor communicatie</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="data-visualizatie.html"><a href="data-visualizatie.html#how-charts-lie"><i class="fa fa-check"></i><b>2.5</b> How charts lie</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="data-visualizatie.html"><a href="data-visualizatie.html#causaliteit-vs-correlatie"><i class="fa fa-check"></i><b>2.5.1</b> Causaliteit vs correlatie</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="data-visualizatie.html"><a href="data-visualizatie.html#referenties-1"><i class="fa fa-check"></i><b>2.6</b> Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html"><i class="fa fa-check"></i><b>3</b> Tutorial - Data vizualisatie</a><ul>
+<li class="chapter" data-level="3.1" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#before-you-start"><i class="fa fa-check"></i><b>3.1</b> Before you start</a></li>
+<li class="chapter" data-level="3.2" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#introduction"><i class="fa fa-check"></i><b>3.2</b> Introduction</a></li>
+<li class="chapter" data-level="3.3" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#different-geometrics"><i class="fa fa-check"></i><b>3.3</b> Different geometrics</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#geom_point"><i class="fa fa-check"></i><b>3.3.1</b> geom_point</a></li>
+<li class="chapter" data-level="3.3.2" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#geom_histogram"><i class="fa fa-check"></i><b>3.3.2</b> geom_histogram</a></li>
+<li class="chapter" data-level="3.3.3" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#geom_boxplot"><i class="fa fa-check"></i><b>3.3.3</b> geom_boxplot</a></li>
+<li class="chapter" data-level="3.3.4" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#geom_violin"><i class="fa fa-check"></i><b>3.3.4</b> geom_violin</a></li>
+<li class="chapter" data-level="3.3.5" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#geom_bar"><i class="fa fa-check"></i><b>3.3.5</b> geom_bar</a></li>
+<li class="chapter" data-level="3.3.6" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#geom_col"><i class="fa fa-check"></i><b>3.3.6</b> geom_col</a></li>
+<li class="chapter" data-level="3.3.7" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#other-geometrics"><i class="fa fa-check"></i><b>3.3.7</b> Other geometrics</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#enhancing-the-appearance-of-our-plots"><i class="fa fa-check"></i><b>3.4</b> Enhancing the appearance of our plots</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#titles"><i class="fa fa-check"></i><b>3.4.1</b> Titles</a></li>
+<li class="chapter" data-level="3.4.2" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#theme"><i class="fa fa-check"></i><b>3.4.2</b> Theme</a></li>
+<li class="chapter" data-level="3.4.3" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#configuring-the-coordinate-system"><i class="fa fa-check"></i><b>3.4.3</b> Configuring the coordinate system</a></li>
+<li class="chapter" data-level="3.4.4" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#color-scales"><i class="fa fa-check"></i><b>3.4.4</b> Color scales</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#advanced-plots"><i class="fa fa-check"></i><b>3.5</b> Advanced plots</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#using-facets"><i class="fa fa-check"></i><b>3.5.1</b> Using Facets</a></li>
+<li class="chapter" data-level="3.5.2" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#combining-multiple-geometric-layers"><i class="fa fa-check"></i><b>3.5.2</b> Combining multiple geometric layers</a></li>
+<li class="chapter" data-level="3.5.3" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#aes-inheritance"><i class="fa fa-check"></i><b>3.5.3</b> Aes-inheritance</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="tutorial-data-vizualisatie.html"><a href="tutorial-data-vizualisatie.html#background-material"><i class="fa fa-check"></i><b>3.6</b> Background material</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html"><i class="fa fa-check"></i><b>4</b> Descriptieve statistieken</a><ul>
+<li class="chapter" data-level="4.1" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#beschrijvende-statistieken-versus-exploratieve-plots"><i class="fa fa-check"></i><b>4.1</b> Beschrijvende statistieken versus exploratieve plots</a></li>
+<li class="chapter" data-level="4.2" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#notatie"><i class="fa fa-check"></i><b>4.2</b> Notatie</a></li>
+<li class="chapter" data-level="4.3" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#data"><i class="fa fa-check"></i><b>4.3</b> Data</a></li>
+<li class="chapter" data-level="4.4" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#univariate-statistieken"><i class="fa fa-check"></i><b>4.4</b> Univariate statistieken</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#categorische-variabele-1"><i class="fa fa-check"></i><b>4.4.1</b> Categorische variabele</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#frequentietabel"><i class="fa fa-check"></i>Frequentietabel</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#centrummaten"><i class="fa fa-check"></i>Centrummaten</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#spreidingsmaten"><i class="fa fa-check"></i>Spreidingsmaten</a></li>
+<li class="chapter" data-level="4.4.2" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#continue-variabele-1"><i class="fa fa-check"></i><b>4.4.2</b> Continue variabele</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#centrummaten-1"><i class="fa fa-check"></i>Centrummaten</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#spreidingsmaten-1"><i class="fa fa-check"></i>Spreidingsmaten</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#bivariate-statistieken"><i class="fa fa-check"></i><b>4.5</b> Bivariate statistieken</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#continu-versus-continu"><i class="fa fa-check"></i><b>4.5.1</b> Continu versus Continu</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#correlatie"><i class="fa fa-check"></i>Correlatie</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#vergelijking-correlatiecoëfficiënten"><i class="fa fa-check"></i>Vergelijking correlatiecoëfficiënten</a></li>
+<li class="chapter" data-level="4.5.2" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#categorisch-versus-continu"><i class="fa fa-check"></i><b>4.5.2</b> Categorisch versus Continu</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#univariate-statistieken-per-categoriewaarde"><i class="fa fa-check"></i>Univariate statistieken per categoriewaarde</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#correlatie-1"><i class="fa fa-check"></i>Correlatie</a></li>
+<li class="chapter" data-level="4.5.3" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#categorisch-versus-categorisch"><i class="fa fa-check"></i><b>4.5.3</b> Categorisch versus Categorisch</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#univariate-statistieken-per-categoriewaarde-1"><i class="fa fa-check"></i>Univariate statistieken per categoriewaarde</a></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#contingentietabellen"><i class="fa fa-check"></i>Contingentietabellen</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="descriptieve-statistieken.html"><a href="descriptieve-statistieken.html#referenties-2"><i class="fa fa-check"></i>Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html"><i class="fa fa-check"></i><b>5</b> Tutorial - Descriptieve statistieken</a><ul>
+<li class="chapter" data-level="5.1" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#before-you-start-1"><i class="fa fa-check"></i><b>5.1</b> Before you start</a></li>
+<li class="chapter" data-level="5.2" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#introduction-1"><i class="fa fa-check"></i><b>5.2</b> Introduction</a></li>
+<li class="chapter" data-level="5.3" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#helpful-dplyr-functions"><i class="fa fa-check"></i><b>5.3</b> Helpful dplyr functions</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#tibbles"><i class="fa fa-check"></i><b>5.3.1</b> Tibbles</a></li>
+<li class="chapter" data-level="5.3.2" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#glimpse"><i class="fa fa-check"></i><b>5.3.2</b> Glimpse</a></li>
+<li class="chapter" data-level="5.3.3" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#section"><i class="fa fa-check"></i><b>5.3.3</b> %&gt;%</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#univariate-analysis-of-a-continuous-variable"><i class="fa fa-check"></i><b>5.4</b> Univariate analysis of a continuous variable</a></li>
+<li class="chapter" data-level="5.5" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#bivariate-analysis-of-a-continuous-variable-with-respect-to-a-categorical-variable"><i class="fa fa-check"></i><b>5.5</b> Bivariate analysis of a continuous variable with respect to a categorical variable</a></li>
+<li class="chapter" data-level="5.6" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#univariate-analysis-of-a-categorical-variable"><i class="fa fa-check"></i><b>5.6</b> Univariate analysis of a categorical variable</a></li>
+<li class="chapter" data-level="5.7" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#bivariate-analysis-of-a-continuous-variable-with-respect-to-another-continuous-variable"><i class="fa fa-check"></i><b>5.7</b> Bivariate analysis of a continuous variable with respect to another continuous variable</a></li>
+<li class="chapter" data-level="5.8" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#bivariate-analysis-of-a-categorical-variable-with-respect-to-another-categorical-variable"><i class="fa fa-check"></i><b>5.8</b> Bivariate analysis of a categorical variable with respect to another categorical variable</a></li>
+<li class="chapter" data-level="5.9" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#background-material-1"><i class="fa fa-check"></i><b>5.9</b> Background material</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="storytelling-van-data-tot-inzicht.html"><a href="storytelling-van-data-tot-inzicht.html"><i class="fa fa-check"></i><b>6</b> Storytelling - van data tot inzicht</a></li>
+<li class="chapter" data-level="7" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html"><i class="fa fa-check"></i><b>7</b> Data voorbereiden</a><ul>
+<li class="chapter" data-level="7.1" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#beginnen-bij-het-begin"><i class="fa fa-check"></i><b>7.1</b> Beginnen bij het begin</a></li>
+<li class="chapter" data-level="7.2" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#data-inlezen"><i class="fa fa-check"></i><b>7.2</b> Data inlezen</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#uitdagingen-bij-het-correct-inlezen-van-data"><i class="fa fa-check"></i><b>7.2.1</b> Uitdagingen bij het correct inlezen van data</a></li>
+<li class="chapter" data-level="7.2.2" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#dataformaten"><i class="fa fa-check"></i><b>7.2.2</b> Dataformaten</a></li>
+<li class="chapter" data-level="7.2.3" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#data-encodering"><i class="fa fa-check"></i><b>7.2.3</b> Data-encodering</a></li>
+<li class="chapter" data-level="7.2.4" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#datatypes-controlleren-en-corrigeren"><i class="fa fa-check"></i><b>7.2.4</b> Datatypes controlleren en corrigeren</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#dataproblemen-identificeren-en-corrigeren"><i class="fa fa-check"></i><b>7.3</b> Dataproblemen identificeren en corrigeren</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#overzicht"><i class="fa fa-check"></i><b>7.3.1</b> Overzicht</a></li>
+<li class="chapter" data-level="7.3.2" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#foutieve-waarden"><i class="fa fa-check"></i><b>7.3.2</b> Foutieve waarden</a></li>
+<li class="chapter" data-level="7.3.3" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#ontbrekende-waarden"><i class="fa fa-check"></i><b>7.3.3</b> Ontbrekende waarden</a></li>
+<li class="chapter" data-level="7.3.4" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#inconsistente-waarden"><i class="fa fa-check"></i><b>7.3.4</b> Inconsistente waarden</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#data-opwaarderen"><i class="fa fa-check"></i><b>7.4</b> Data opwaarderen</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#sampling"><i class="fa fa-check"></i><b>7.4.1</b> Sampling</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="data-voorbereiden.html"><a href="data-voorbereiden.html#referenties-3"><i class="fa fa-check"></i>Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html"><i class="fa fa-check"></i><b>8</b> Tutorial - Data voorbereiden</a><ul>
+<li class="chapter" data-level="8.1" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#before-you-start-2"><i class="fa fa-check"></i><b>8.1</b> Before you start</a></li>
+<li class="chapter" data-level="8.2" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#introduction-2"><i class="fa fa-check"></i><b>8.2</b> Introduction</a></li>
+<li class="chapter" data-level="8.3" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#reading-data"><i class="fa fa-check"></i><b>8.3</b> Reading data</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#csv-and-tsv"><i class="fa fa-check"></i><b>8.3.1</b> CSV and TSV</a></li>
+<li class="chapter" data-level="8.3.2" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#excel"><i class="fa fa-check"></i><b>8.3.2</b> Excel</a></li>
+<li class="chapter" data-level="8.3.3" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#json-and-xml"><i class="fa fa-check"></i><b>8.3.3</b> JSON and XML</a></li>
+<li class="chapter" data-level="8.3.4" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#other-statistical-packages"><i class="fa fa-check"></i><b>8.3.4</b> Other statistical packages</a></li>
+<li class="chapter" data-level="8.3.5" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#databases"><i class="fa fa-check"></i><b>8.3.5</b> Databases</a></li>
+<li class="chapter" data-level="8.3.6" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#background-material-2"><i class="fa fa-check"></i><b>8.3.6</b> Background material</a></li>
+<li class="chapter" data-level="8.3.7" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#converting-variables"><i class="fa fa-check"></i><b>8.3.7</b> Converting variables</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#cleaning-data"><i class="fa fa-check"></i><b>8.4</b> Cleaning Data</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#duplicates-removal"><i class="fa fa-check"></i><b>8.4.1</b> Duplicates Removal</a></li>
+<li class="chapter" data-level="8.4.2" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#cleaning-categorical-variables"><i class="fa fa-check"></i><b>8.4.2</b> Cleaning Categorical Variables</a></li>
+<li class="chapter" data-level="8.4.3" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#recode-categorical-variables"><i class="fa fa-check"></i><b>8.4.3</b> Recode Categorical Variables</a></li>
+<li class="chapter" data-level="8.4.4" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#reorder-categorical-variables"><i class="fa fa-check"></i><b>8.4.4</b> Reorder Categorical Variables</a></li>
+<li class="chapter" data-level="8.4.5" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#cleaning-continuous-data"><i class="fa fa-check"></i><b>8.4.5</b> Cleaning continuous data</a></li>
+<li class="chapter" data-level="8.4.6" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#errors"><i class="fa fa-check"></i><b>8.4.6</b> Errors</a></li>
+<li class="chapter" data-level="8.4.7" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#outliers"><i class="fa fa-check"></i><b>8.4.7</b> Outliers</a></li>
+<li class="chapter" data-level="8.4.8" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#data-inconsistencies"><i class="fa fa-check"></i><b>8.4.8</b> Data inconsistencies</a></li>
+<li class="chapter" data-level="8.4.9" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#missing-values"><i class="fa fa-check"></i><b>8.4.9</b> Missing values</a></li>
+<li class="chapter" data-level="8.4.10" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#analyzing-missing-data"><i class="fa fa-check"></i><b>8.4.10</b> Analyzing missing data</a></li>
+<li class="chapter" data-level="8.4.11" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#working-around-missing-data"><i class="fa fa-check"></i><b>8.4.11</b> Working around missing data</a></li>
+<li class="chapter" data-level="8.4.12" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#visualizations"><i class="fa fa-check"></i><b>8.4.12</b> Visualizations</a></li>
+<li class="chapter" data-level="8.4.13" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#numerical-analysis"><i class="fa fa-check"></i><b>8.4.13</b> Numerical analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#transforming-data"><i class="fa fa-check"></i><b>8.5</b> Transforming Data</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#discretization-of-continuous-variables"><i class="fa fa-check"></i><b>8.5.1</b> Discretization of continuous variables</a></li>
+<li class="chapter" data-level="8.5.2" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#rescaling-continuous-variables"><i class="fa fa-check"></i><b>8.5.2</b> Rescaling continuous variables</a></li>
+<li class="chapter" data-level="8.5.3" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#adding-calculated-variables"><i class="fa fa-check"></i><b>8.5.3</b> Adding calculated variables</a></li>
+<li class="chapter" data-level="8.5.4" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#recode-categorical-variables-1"><i class="fa fa-check"></i><b>8.5.4</b> Recode Categorical Variables</a></li>
+<li class="chapter" data-level="8.5.5" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#collapsing-factors"><i class="fa fa-check"></i><b>8.5.5</b> Collapsing factors</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#using-transformations-in-visualizations."><i class="fa fa-check"></i><b>8.6</b> Using transformations in visualizations.</a></li>
+<li class="chapter" data-level="8.7" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#background-material-3"><i class="fa fa-check"></i><b>8.7</b> Background Material</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>9</b> Tidy data</a><ul>
+<li class="chapter" data-level="9.1" data-path="tidy-data.html"><a href="tidy-data.html#inleiding"><i class="fa fa-check"></i><b>9.1</b> Inleiding</a></li>
+<li class="chapter" data-level="9.2" data-path="tidy-data.html"><a href="tidy-data.html#case-nyc-vluchten-2013"><i class="fa fa-check"></i><b>9.2</b> Case: NYC Vluchten 2013</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="tidy-data.html"><a href="tidy-data.html#datasets-samenvoegen"><i class="fa fa-check"></i><b>9.2.1</b> Datasets samenvoegen</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="tidy-data.html"><a href="tidy-data.html#data-in-een-lang-formaat-plaatsen-voor-visuele-analyses"><i class="fa fa-check"></i><b>9.3</b> Data in een lang formaat plaatsen (voor visuele analyses)</a></li>
+<li class="chapter" data-level="9.4" data-path="tidy-data.html"><a href="tidy-data.html#data-in-een-breed-formaat-plaatsen-voor-overzichtelijke-tabellen"><i class="fa fa-check"></i><b>9.4</b> Data in een breed formaat plaatsen (voor overzichtelijke tabellen)</a></li>
+<li class="chapter" data-level="9.5" data-path="tidy-data.html"><a href="tidy-data.html#referenties-4"><i class="fa fa-check"></i><b>9.5</b> Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html"><i class="fa fa-check"></i><b>10</b> Tutorial - Tidy data</a><ul>
+<li class="chapter" data-level="10.1" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#before-you-start-3"><i class="fa fa-check"></i><b>10.1</b> Before you start</a></li>
+<li class="chapter" data-level="" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#disclaimer"><i class="fa fa-check"></i>Disclaimer</a></li>
+<li class="chapter" data-level="10.2" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#merging-data"><i class="fa fa-check"></i><b>10.2</b> Merging data</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#joining-data"><i class="fa fa-check"></i><b>10.2.1</b> Joining data</a></li>
+<li class="chapter" data-level="10.2.2" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#inner-join"><i class="fa fa-check"></i><b>10.2.2</b> Inner join</a></li>
+<li class="chapter" data-level="10.2.3" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#left-join"><i class="fa fa-check"></i><b>10.2.3</b> Left join</a></li>
+<li class="chapter" data-level="10.2.4" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#right-join"><i class="fa fa-check"></i><b>10.2.4</b> Right join</a></li>
+<li class="chapter" data-level="10.2.5" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#full-join"><i class="fa fa-check"></i><b>10.2.5</b> Full join</a></li>
+<li class="chapter" data-level="10.2.6" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#duplicates"><i class="fa fa-check"></i><b>10.2.6</b> Duplicates</a></li>
+<li class="chapter" data-level="10.2.7" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#an-example"><i class="fa fa-check"></i><b>10.2.7</b> An example</a></li>
+<li class="chapter" data-level="10.2.8" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#binding-data"><i class="fa fa-check"></i><b>10.2.8</b> Binding data</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#transforming-data-1"><i class="fa fa-check"></i><b>10.3</b> Transforming data</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#unite-variables"><i class="fa fa-check"></i><b>10.3.1</b> Unite variables</a></li>
+<li class="chapter" data-level="10.3.2" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#separate-variables"><i class="fa fa-check"></i><b>10.3.2</b> Separate variables</a></li>
+<li class="chapter" data-level="10.3.3" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#spread-data"><i class="fa fa-check"></i><b>10.3.3</b> Spread data</a></li>
+<li class="chapter" data-level="10.3.4" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#gather-data"><i class="fa fa-check"></i><b>10.3.4</b> Gather data</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#case-study-who"><i class="fa fa-check"></i><b>10.4</b> [Case study]: WHO</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="tijdsdata.html"><a href="tijdsdata.html"><i class="fa fa-check"></i><b>11</b> Tijdsdata</a><ul>
+<li class="chapter" data-level="11.1" data-path="tijdsdata.html"><a href="tijdsdata.html#inleiding-1"><i class="fa fa-check"></i><b>11.1</b> Inleiding</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="tijdsdata.html"><a href="tijdsdata.html#tijdstippen-versus-periodes"><i class="fa fa-check"></i><b>11.1.1</b> Tijdstippen versus periodes</a></li>
+<li class="chapter" data-level="11.1.2" data-path="tijdsdata.html"><a href="tijdsdata.html#afronden-van-tijdstippen"><i class="fa fa-check"></i><b>11.1.2</b> Afronden van tijdstippen</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="tijdsdata.html"><a href="tijdsdata.html#periode-data"><i class="fa fa-check"></i><b>11.2</b> Periode-data</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="tijdsdata.html"><a href="tijdsdata.html#interval-1"><i class="fa fa-check"></i><b>11.2.1</b> Interval</a></li>
+<li class="chapter" data-level="11.2.2" data-path="tijdsdata.html"><a href="tijdsdata.html#duration"><i class="fa fa-check"></i><b>11.2.2</b> Duration</a></li>
+<li class="chapter" data-level="11.2.3" data-path="tijdsdata.html"><a href="tijdsdata.html#period"><i class="fa fa-check"></i><b>11.2.3</b> Period</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="tijdsdata.html"><a href="tijdsdata.html#analyseren-van-tijdgerelateerde-data"><i class="fa fa-check"></i><b>11.3</b> Analyseren van tijdgerelateerde data</a></li>
+<li class="chapter" data-level="11.4" data-path="tijdsdata.html"><a href="tijdsdata.html#referenties-5"><i class="fa fa-check"></i><b>11.4</b> Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html"><i class="fa fa-check"></i><b>12</b> Tutorial - tijdsdata</a><ul>
+<li class="chapter" data-level="12.1" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#before-we-start"><i class="fa fa-check"></i><b>12.1</b> Before we start</a></li>
+<li class="chapter" data-level="12.2" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#introduction-3"><i class="fa fa-check"></i><b>12.2</b> Introduction</a></li>
+<li class="chapter" data-level="12.3" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#whats-in-a-date"><i class="fa fa-check"></i><b>12.3</b> What’s in a date?</a></li>
+<li class="chapter" data-level="12.4" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#theres-always-time"><i class="fa fa-check"></i><b>12.4</b> There’s always time</a></li>
+<li class="chapter" data-level="12.5" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#my-time-is-not-your-time"><i class="fa fa-check"></i><b>12.5</b> My time is not your time</a></li>
+<li class="chapter" data-level="12.6" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#extract-information-from-dates"><i class="fa fa-check"></i><b>12.6</b> Extract information from dates</a></li>
+<li class="chapter" data-level="12.7" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#time-differences"><i class="fa fa-check"></i><b>12.7</b> Time differences</a><ul>
+<li class="chapter" data-level="12.7.1" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#period-1"><i class="fa fa-check"></i><b>12.7.1</b> Period</a></li>
+<li class="chapter" data-level="12.7.2" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#durations"><i class="fa fa-check"></i><b>12.7.2</b> Durations</a></li>
+<li class="chapter" data-level="12.7.3" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#periods-are-not-durations"><i class="fa fa-check"></i><b>12.7.3</b> Periods are not durations</a></li>
+</ul></li>
+<li class="chapter" data-level="12.8" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#arithmetics"><i class="fa fa-check"></i><b>12.8</b> Arithmetics</a></li>
+<li class="chapter" data-level="12.9" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#interval-2"><i class="fa fa-check"></i><b>12.9</b> Interval</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Exploratieve en Descriptieve Data Analyse</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="tutorial---tidy-data" class="section level1">
+<h1><span class="header-section-number">Chapter 10</span> Tutorial - Tidy data</h1>
+<div id="before-you-start-3" class="section level2">
+<h2><span class="header-section-number">10.1</span> Before you start</h2>
+<p>During this tutorial, we’ll use several r-packages. Make sure to install and load them, if needed.</p>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb315-1" title="1"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb315-2" title="2"><span class="kw">library</span>(tidyr)</a>
+<a class="sourceLine" id="cb315-3" title="3"><span class="kw">library</span>(stringr)</a></code></pre></div>
+<p>Our old friend dplyr will provide us with some functions to combined different datasets into one. We will use tidyr to transform datasets, and stringr to do some munipulations of character variables.</p>
+<p>This tutorial consist of two major parts:</p>
+<ol style="list-style-type: decimal">
+<li>Merging datasets</li>
+<li>Transforming datasets</li>
+</ol>
+<p>Thereafter, in an additional part, we will go through a case study as an example.</p>
+</div>
+<div id="disclaimer" class="section level2 unnumbered">
+<h2>Disclaimer</h2>
+<ol style="list-style-type: decimal">
+<li>There are many datasets used in this tutorial. A loadscript has been provided to create all datasets for you. Just run the script and you are good to go.</li>
+</ol>
+<p>Let’s get started!</p>
+</div>
+<div id="merging-data" class="section level2">
+<h2><span class="header-section-number">10.2</span> Merging data</h2>
+<p>We can merge different datasets by <strong>joining</strong> or <strong>binding</strong>.</p>
+<ul>
+<li>We <strong>join</strong> different datasets which contain different information about the same observations. For example, we can have 1) a dataset of countries with their population and 2) a dataset of countries with their life expectancy. These we can <em>join</em> together.</li>
+</ul>
+<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb316-1" title="1">countries_population</a></code></pre></div>
+<pre><code>## # A tibble: 114 x 2
+##    country             pop
+##    &lt;fct&gt;             &lt;int&gt;
+##  1 Botswana        1639131
+##  2 Greece         10706290
+##  3 South Africa   43997828
+##  4 Ethiopia       76511887
+##  5 Zimbabwe       12311143
+##  6 Yemen, Rep.    22211743
+##  7 Nepal          28901790
+##  8 Netherlands    16570613
+##  9 United States 301139947
+## 10 New Zealand     4115771
+## # ... with 104 more rows</code></pre>
+<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb318-1" title="1">countries_lifeExp</a></code></pre></div>
+<pre><code>## # A tibble: 85 x 2
+##    country          lifeExp
+##    &lt;fct&gt;              &lt;dbl&gt;
+##  1 United States       78.2
+##  2 Argentina           75.3
+##  3 Korea, Dem. Rep.    67.3
+##  4 Bulgaria            73.0
+##  5 Chile               78.6
+##  6 Croatia             75.7
+##  7 Canada              80.7
+##  8 Honduras            70.2
+##  9 Liberia             45.7
+## 10 Mexico              76.2
+## # ... with 75 more rows</code></pre>
+<ul>
+<li>We <strong>bind</strong> different datasets which contain the same information on different observations. For example, we can have 1) a dataset of European countries with their population and 2) a dataset of African countries with their population. We can <em>bind</em> these two together.<a href="#fn44" class="footnote-ref" id="fnref44"><sup>44</sup></a></li>
+</ul>
+<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb320-1" title="1">population_africa</a></code></pre></div>
+<pre><code>## # A tibble: 52 x 2
+##    country                       pop
+##    &lt;fct&gt;                       &lt;int&gt;
+##  1 Algeria                  33333216
+##  2 Angola                   12420476
+##  3 Benin                     8078314
+##  4 Botswana                  1639131
+##  5 Burkina Faso             14326203
+##  6 Burundi                   8390505
+##  7 Cameroon                 17696293
+##  8 Central African Republic  4369038
+##  9 Chad                     10238807
+## 10 Comoros                    710960
+## # ... with 42 more rows</code></pre>
+<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb322-1" title="1">population_europe</a></code></pre></div>
+<pre><code>## # A tibble: 30 x 2
+##    country                     pop
+##    &lt;fct&gt;                     &lt;int&gt;
+##  1 Albania                 3600523
+##  2 Austria                 8199783
+##  3 Belgium                10392226
+##  4 Bosnia and Herzegovina  4552198
+##  5 Bulgaria                7322858
+##  6 Croatia                 4493312
+##  7 Czech Republic         10228744
+##  8 Denmark                 5468120
+##  9 Finland                 5238460
+## 10 France                 61083916
+## # ... with 20 more rows</code></pre>
+<p>Let’s see how we can join data.</p>
+<div id="joining-data" class="section level3">
+<h3><span class="header-section-number">10.2.1</span> Joining data</h3>
+<p>Remember, we join datasets if they contain different information on the same observations. This means that there needs to be a way to <em>link</em> the datasets. These links we call <em>ids</em> or <em>keys</em>.</p>
+<p>If we have population and life expectancy data about countries, than the name, code or abbreviation of the country is our key to link both datasets.</p>
+<p>Note that, when both datasets use different keys, for example one uses the name (Belgium) and the other the code (BE), we cannot join them. In such a case, we would need to recode one of the variables or find another datasets which can serve as an intermediary link (i.e. one that contains both the names and the codes. There exist many different country codes, so this is a common problem. But we are good to go in our case)</p>
+<p>The join functions we will introduce in a second will always look for variables with the same names in both tables and uses these as the keys to link them. You can explicitly set the keys using the by argument. This is especially useful if</p>
+<ol style="list-style-type: lower-alpha">
+<li>The keys have a different name in both datasets. For example country vs ctry</li>
+<li>Not all common variables are actually keys.</li>
+</ol>
+<p>For now, we will always let the keys be chosen by the functions. A message will tell us which keys they used.</p>
+<p>Now, there are 4 ways to join datasets.</p>
+<ul>
+<li>inner_join</li>
+<li>left_join</li>
+<li>right_join</li>
+<li>full_join</li>
+</ul>
+<p>Why four? Well, if we want to join two datasets, it typically happens that they don’t contain information on <em>exactly</em> the same observations. Have a closer look at the population and life expectancy data. The first one contains information on 114 countries and the second one contains information on 85 countries. So they can impossibly contain information on the same set of countries. The different joins will tackles this problem differently.</p>
+</div>
+<div id="inner-join" class="section level3">
+<h3><span class="header-section-number">10.2.2</span> Inner join</h3>
+<p>Inner join means: I only keep information about keys that occur in both tables. So, if I don’t have the population of country A, I don’t want its life expectancy.</p>
+<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb324-1" title="1"><span class="kw">inner_join</span>(countries_population, countries_lifeExp)</a></code></pre></div>
+<pre><code>## Joining, by = &quot;country&quot;</code></pre>
+<pre><code>## # A tibble: 73 x 3
+##    country             pop lifeExp
+##    &lt;fct&gt;             &lt;int&gt;   &lt;dbl&gt;
+##  1 Botswana        1639131    50.7
+##  2 South Africa   43997828    49.3
+##  3 Ethiopia       76511887    52.9
+##  4 Zimbabwe       12311143    43.5
+##  5 Yemen, Rep.    22211743    62.7
+##  6 Netherlands    16570613    79.8
+##  7 United States 301139947    78.2
+##  8 Kuwait          2505559    77.6
+##  9 Colombia       44227550    72.9
+## 10 Austria         8199783    79.8
+## # ... with 63 more rows</code></pre>
+<p>This join gives us 73 observations, which is the subset of countries on which we have both types of information. Also note how the <code>inner_join</code> tells you which key it used.</p>
+</div>
+<div id="left-join" class="section level3">
+<h3><span class="header-section-number">10.2.3</span> Left join</h3>
+<p>Left join means: I keep all information in my first (left) table. So, even if I don’t have the life expectancy, still give me the population. The missing part of the new observation (i.e. the life expectancy), is now NA.</p>
+<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb327-1" title="1"><span class="kw">left_join</span>(countries_population, countries_lifeExp)</a></code></pre></div>
+<pre><code>## Joining, by = &quot;country&quot;</code></pre>
+<pre><code>## # A tibble: 114 x 3
+##    country             pop lifeExp
+##    &lt;fct&gt;             &lt;int&gt;   &lt;dbl&gt;
+##  1 Botswana        1639131    50.7
+##  2 Greece         10706290    NA  
+##  3 South Africa   43997828    49.3
+##  4 Ethiopia       76511887    52.9
+##  5 Zimbabwe       12311143    43.5
+##  6 Yemen, Rep.    22211743    62.7
+##  7 Nepal          28901790    NA  
+##  8 Netherlands    16570613    79.8
+##  9 United States 301139947    78.2
+## 10 New Zealand     4115771    NA  
+## # ... with 104 more rows</code></pre>
+<p>This join gives us 114 observations, which is the number of countries for which we have information on the population. Also note how it inserts NA’s for the lifeExp variable.</p>
+<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb330-1" title="1"><span class="kw">left_join</span>(countries_population, countries_lifeExp) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb330-2" title="2"><span class="st">    </span><span class="kw">summary</span>()</a></code></pre></div>
+<pre><code>## Joining, by = &quot;country&quot;</code></pre>
+<pre><code>##        country         pop               lifeExp     
+##  Algeria   :  1   Min.   :1.996e+05   Min.   :42.59  
+##  Angola    :  1   1st Qu.:4.120e+06   1st Qu.:59.44  
+##  Australia :  1   Median :1.009e+07   Median :71.88  
+##  Austria   :  1   Mean   :4.751e+07   Mean   :67.78  
+##  Bahrain   :  1   3rd Qu.:2.885e+07   3rd Qu.:76.44  
+##  Bangladesh:  1   Max.   :1.319e+09   Max.   :82.21  
+##  (Other)   :108                       NA&#39;s   :41</code></pre>
+</div>
+<div id="right-join" class="section level3">
+<h3><span class="header-section-number">10.2.4</span> Right join</h3>
+<p>Right join means: the opposite of left join. I keep all information in my second (right) table.</p>
+<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb333-1" title="1"><span class="kw">right_join</span>(countries_population, countries_lifeExp)</a></code></pre></div>
+<pre><code>## Joining, by = &quot;country&quot;</code></pre>
+<pre><code>## # A tibble: 85 x 3
+##    country                pop lifeExp
+##    &lt;fct&gt;                &lt;int&gt;   &lt;dbl&gt;
+##  1 United States    301139947    78.2
+##  2 Argentina               NA    75.3
+##  3 Korea, Dem. Rep.  23301725    67.3
+##  4 Bulgaria           7322858    73.0
+##  5 Chile             16284741    78.6
+##  6 Croatia            4493312    75.7
+##  7 Canada            33390141    80.7
+##  8 Honduras                NA    70.2
+##  9 Liberia                 NA    45.7
+## 10 Mexico           108700891    76.2
+## # ... with 75 more rows</code></pre>
+<p>This join gives us 85 observations, which is the number of countries for which we have information on the life expectancy.</p>
+</div>
+<div id="full-join" class="section level3">
+<h3><span class="header-section-number">10.2.5</span> Full join</h3>
+<p>Full join means: I want to keep all information I have. So also populations for countries without life expectancy and vice versa remain in the dataset. All missing information is filled in as NA.</p>
+<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb336-1" title="1"><span class="kw">full_join</span>(countries_population, countries_lifeExp)</a></code></pre></div>
+<pre><code>## Joining, by = &quot;country&quot;</code></pre>
+<pre><code>## # A tibble: 126 x 3
+##    country             pop lifeExp
+##    &lt;fct&gt;             &lt;int&gt;   &lt;dbl&gt;
+##  1 Botswana        1639131    50.7
+##  2 Greece         10706290    NA  
+##  3 South Africa   43997828    49.3
+##  4 Ethiopia       76511887    52.9
+##  5 Zimbabwe       12311143    43.5
+##  6 Yemen, Rep.    22211743    62.7
+##  7 Nepal          28901790    NA  
+##  8 Netherlands    16570613    79.8
+##  9 United States 301139947    78.2
+## 10 New Zealand     4115771    NA  
+## # ... with 116 more rows</code></pre>
+<p>This join gives us 126 observations, which is the total number of countries for which we have at least one piece of information.</p>
+<p>A schematical overview of the four types can be seen below. The coloured numbers represent the keys (countries in our example) while the x and y values represent the values (population and life expectancy in our example). Of course, there can be as many values as there are, it doesn’t just have to be one. We will see other examples soon enough.</p>
+<p><img src="images/join_types.PNG" width="100%" /></p>
+</div>
+<div id="duplicates" class="section level3">
+<h3><span class="header-section-number">10.2.6</span> Duplicates</h3>
+<p>Sometimes one or both datasets contain duplicate keys: for example, we have information of the population in each country for more than a single year, so for each country we have more than one observation. In such cases, each observation will be joined multiple times, as in the figure below.<a href="#fn45" class="footnote-ref" id="fnref45"><sup>45</sup></a></p>
+<p><img src="images/join_duplicates.PNG" width="100%" /></p>
+</div>
+<div id="an-example" class="section level3">
+<h3><span class="header-section-number">10.2.7</span> An example</h3>
+<p>The package nycflights13 contains different datasets about flights from NYC in 2013.</p>
+<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb339-1" title="1"><span class="kw">library</span>(nycflights13)</a></code></pre></div>
+<p>One of the datasets is called flights</p>
+<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb340-1" title="1">flights <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb340-2" title="2"><span class="st">    </span>glimpse</a></code></pre></div>
+<pre><code>## Observations: 336,776
+## Variables: 19
+## $ year           &lt;int&gt; 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2013...
+## $ month          &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1...
+## $ day            &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1...
+## $ dep_time       &lt;int&gt; 517, 533, 542, 544, 554, 554, 555, 557, 557, 558, 55...
+## $ sched_dep_time &lt;int&gt; 515, 529, 540, 545, 600, 558, 600, 600, 600, 600, 60...
+## $ dep_delay      &lt;dbl&gt; 2, 4, 2, -1, -6, -4, -5, -3, -3, -2, -2, -2, -2, -2,...
+## $ arr_time       &lt;int&gt; 830, 850, 923, 1004, 812, 740, 913, 709, 838, 753, 8...
+## $ sched_arr_time &lt;int&gt; 819, 830, 850, 1022, 837, 728, 854, 723, 846, 745, 8...
+## $ arr_delay      &lt;dbl&gt; 11, 20, 33, -18, -25, 12, 19, -14, -8, 8, -2, -3, 7,...
+## $ carrier        &lt;chr&gt; &quot;UA&quot;, &quot;UA&quot;, &quot;AA&quot;, &quot;B6&quot;, &quot;DL&quot;, &quot;UA&quot;, &quot;B6&quot;, &quot;EV&quot;, &quot;B6&quot;...
+## $ flight         &lt;int&gt; 1545, 1714, 1141, 725, 461, 1696, 507, 5708, 79, 301...
+## $ tailnum        &lt;chr&gt; &quot;N14228&quot;, &quot;N24211&quot;, &quot;N619AA&quot;, &quot;N804JB&quot;, &quot;N668DN&quot;, &quot;N...
+## $ origin         &lt;chr&gt; &quot;EWR&quot;, &quot;LGA&quot;, &quot;JFK&quot;, &quot;JFK&quot;, &quot;LGA&quot;, &quot;EWR&quot;, &quot;EWR&quot;, &quot;LG...
+## $ dest           &lt;chr&gt; &quot;IAH&quot;, &quot;IAH&quot;, &quot;MIA&quot;, &quot;BQN&quot;, &quot;ATL&quot;, &quot;ORD&quot;, &quot;FLL&quot;, &quot;IA...
+## $ air_time       &lt;dbl&gt; 227, 227, 160, 183, 116, 150, 158, 53, 140, 138, 149...
+## $ distance       &lt;dbl&gt; 1400, 1416, 1089, 1576, 762, 719, 1065, 229, 944, 73...
+## $ hour           &lt;dbl&gt; 5, 5, 5, 5, 6, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 5, 6, 6...
+## $ minute         &lt;dbl&gt; 15, 29, 40, 45, 0, 58, 0, 0, 0, 0, 0, 0, 0, 0, 0, 59...
+## $ time_hour      &lt;dttm&gt; 2013-01-01 05:00:00, 2013-01-01 05:00:00, 2013-01-0...</code></pre>
+<p>Another one is airlines; with more information on the arilines, evidently.</p>
+<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb342-1" title="1">airlines <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb342-2" title="2"><span class="st">    </span>glimpse</a></code></pre></div>
+<pre><code>## Observations: 16
+## Variables: 2
+## $ carrier &lt;chr&gt; &quot;9E&quot;, &quot;AA&quot;, &quot;AS&quot;, &quot;B6&quot;, &quot;DL&quot;, &quot;EV&quot;, &quot;F9&quot;, &quot;FL&quot;, &quot;HA&quot;, &quot;MQ&quot;,...
+## $ name    &lt;chr&gt; &quot;Endeavor Air Inc.&quot;, &quot;American Airlines Inc.&quot;, &quot;Alaska Airl...</code></pre>
+<p>You can see they have the carrier variable in common, which contains a code for each airline. We can add the name of the airline to the flights</p>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb344-1" title="1">flights <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb344-2" title="2"><span class="st">    </span><span class="kw">inner_join</span>(airlines)</a></code></pre></div>
+<pre><code>## Joining, by = &quot;carrier&quot;</code></pre>
+<pre><code>## # A tibble: 336,776 x 20
+##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
+##  1  2013     1     1      517            515         2      830            819
+##  2  2013     1     1      533            529         4      850            830
+##  3  2013     1     1      542            540         2      923            850
+##  4  2013     1     1      544            545        -1     1004           1022
+##  5  2013     1     1      554            600        -6      812            837
+##  6  2013     1     1      554            558        -4      740            728
+##  7  2013     1     1      555            600        -5      913            854
+##  8  2013     1     1      557            600        -3      709            723
+##  9  2013     1     1      557            600        -3      838            846
+## 10  2013     1     1      558            600        -2      753            745
+## # ... with 336,766 more rows, and 12 more variables: arr_delay &lt;dbl&gt;,
+## #   carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,
+## #   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;,
+## #   name &lt;chr&gt;</code></pre>
+<p>Note that we did an inner join and our number of flights didn’t decrease. This means that every carrier in flights is also available in airlines. In other words, for all carriers we have seen flights of, we know the name of the airline.</p>
+<p>For a more advanced example, let’s look at weather.</p>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb347-1" title="1">weather <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb347-2" title="2"><span class="st">    </span>glimpse</a></code></pre></div>
+<pre><code>## Observations: 26,115
+## Variables: 15
+## $ origin     &lt;chr&gt; &quot;EWR&quot;, &quot;EWR&quot;, &quot;EWR&quot;, &quot;EWR&quot;, &quot;EWR&quot;, &quot;EWR&quot;, &quot;EWR&quot;, &quot;EWR&quot;, ...
+## $ year       &lt;int&gt; 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2013, 20...
+## $ month      &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,...
+## $ day        &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,...
+## $ hour       &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 1...
+## $ temp       &lt;dbl&gt; 39.02, 39.02, 39.02, 39.92, 39.02, 37.94, 39.02, 39.92, ...
+## $ dewp       &lt;dbl&gt; 26.06, 26.96, 28.04, 28.04, 28.04, 28.04, 28.04, 28.04, ...
+## $ humid      &lt;dbl&gt; 59.37, 61.63, 64.43, 62.21, 64.43, 67.21, 64.43, 62.21, ...
+## $ wind_dir   &lt;dbl&gt; 270, 250, 240, 250, 260, 240, 240, 250, 260, 260, 260, 3...
+## $ wind_speed &lt;dbl&gt; 10.35702, 8.05546, 11.50780, 12.65858, 12.65858, 11.5078...
+## $ wind_gust  &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, ...
+## $ precip     &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,...
+## $ pressure   &lt;dbl&gt; 1012.0, 1012.3, 1012.5, 1012.2, 1011.9, 1012.4, 1012.2, ...
+## $ visib      &lt;dbl&gt; 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, ...
+## $ time_hour  &lt;dttm&gt; 2013-01-01 01:00:00, 2013-01-01 02:00:00, 2013-01-01 03...</code></pre>
+<p>It contains information on place and time: the same we also have for flights, and it contains several variables about the weather (wind, temperature, precipitation, etc.)</p>
+<p>Let’s join the flights data with the weather.</p>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb349-1" title="1">flights <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb349-2" title="2"><span class="st">    </span><span class="kw">inner_join</span>(airlines) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb349-3" title="3"><span class="st">    </span><span class="kw">inner_join</span>(weather) -&gt;<span class="st"> </span>flights</a></code></pre></div>
+<pre><code>## Joining, by = &quot;carrier&quot;</code></pre>
+<pre><code>## Joining, by = c(&quot;year&quot;, &quot;month&quot;, &quot;day&quot;, &quot;origin&quot;, &quot;hour&quot;, &quot;time_hour&quot;)</code></pre>
+<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb352-1" title="1">flights <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb352-2" title="2"><span class="st">    </span>glimpse</a></code></pre></div>
+<pre><code>## Observations: 335,220
+## Variables: 29
+## $ year           &lt;int&gt; 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2013...
+## $ month          &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1...
+## $ day            &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1...
+## $ dep_time       &lt;int&gt; 517, 533, 542, 544, 554, 554, 555, 557, 557, 558, 55...
+## $ sched_dep_time &lt;int&gt; 515, 529, 540, 545, 600, 558, 600, 600, 600, 600, 60...
+## $ dep_delay      &lt;dbl&gt; 2, 4, 2, -1, -6, -4, -5, -3, -3, -2, -2, -2, -2, -2,...
+## $ arr_time       &lt;int&gt; 830, 850, 923, 1004, 812, 740, 913, 709, 838, 753, 8...
+## $ sched_arr_time &lt;int&gt; 819, 830, 850, 1022, 837, 728, 854, 723, 846, 745, 8...
+## $ arr_delay      &lt;dbl&gt; 11, 20, 33, -18, -25, 12, 19, -14, -8, 8, -2, -3, 7,...
+## $ carrier        &lt;chr&gt; &quot;UA&quot;, &quot;UA&quot;, &quot;AA&quot;, &quot;B6&quot;, &quot;DL&quot;, &quot;UA&quot;, &quot;B6&quot;, &quot;EV&quot;, &quot;B6&quot;...
+## $ flight         &lt;int&gt; 1545, 1714, 1141, 725, 461, 1696, 507, 5708, 79, 301...
+## $ tailnum        &lt;chr&gt; &quot;N14228&quot;, &quot;N24211&quot;, &quot;N619AA&quot;, &quot;N804JB&quot;, &quot;N668DN&quot;, &quot;N...
+## $ origin         &lt;chr&gt; &quot;EWR&quot;, &quot;LGA&quot;, &quot;JFK&quot;, &quot;JFK&quot;, &quot;LGA&quot;, &quot;EWR&quot;, &quot;EWR&quot;, &quot;LG...
+## $ dest           &lt;chr&gt; &quot;IAH&quot;, &quot;IAH&quot;, &quot;MIA&quot;, &quot;BQN&quot;, &quot;ATL&quot;, &quot;ORD&quot;, &quot;FLL&quot;, &quot;IA...
+## $ air_time       &lt;dbl&gt; 227, 227, 160, 183, 116, 150, 158, 53, 140, 138, 149...
+## $ distance       &lt;dbl&gt; 1400, 1416, 1089, 1576, 762, 719, 1065, 229, 944, 73...
+## $ hour           &lt;dbl&gt; 5, 5, 5, 5, 6, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 5, 6, 6...
+## $ minute         &lt;dbl&gt; 15, 29, 40, 45, 0, 58, 0, 0, 0, 0, 0, 0, 0, 0, 0, 59...
+## $ time_hour      &lt;dttm&gt; 2013-01-01 05:00:00, 2013-01-01 05:00:00, 2013-01-0...
+## $ name           &lt;chr&gt; &quot;United Air Lines Inc.&quot;, &quot;United Air Lines Inc.&quot;, &quot;A...
+## $ temp           &lt;dbl&gt; 39.02, 39.92, 39.02, 39.02, 39.92, 39.02, 37.94, 39....
+## $ dewp           &lt;dbl&gt; 28.04, 24.98, 26.96, 26.96, 24.98, 28.04, 28.04, 24....
+## $ humid          &lt;dbl&gt; 64.43, 54.81, 61.63, 61.63, 54.81, 64.43, 67.21, 54....
+## $ wind_dir       &lt;dbl&gt; 260, 250, 260, 260, 260, 260, 240, 260, 260, 260, 26...
+## $ wind_speed     &lt;dbl&gt; 12.65858, 14.96014, 14.96014, 14.96014, 16.11092, 12...
+## $ wind_gust      &lt;dbl&gt; NA, 21.86482, NA, NA, 23.01560, NA, NA, 23.01560, NA...
+## $ precip         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0...
+## $ pressure       &lt;dbl&gt; 1011.9, 1011.4, 1012.1, 1012.1, 1011.7, 1011.9, 1012...
+## $ visib          &lt;dbl&gt; 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, ...</code></pre>
+<p>Note that the second join used variables year, month, origin, hour and time_hour to join the weather of the correct place and time to each flight.</p>
+</div>
+<div id="binding-data" class="section level3">
+<h3><span class="header-section-number">10.2.8</span> Binding data</h3>
+<p>The data we joined above were always different pieces of information which we somehow linked (same country, same, time, same place, same airline, etc.) Sometimes we have dataset on separate objects which are not linked, but contain the same information. Recall the datasets on African and European countries.</p>
+<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb354-1" title="1">population_africa</a></code></pre></div>
+<pre><code>## # A tibble: 52 x 2
+##    country                       pop
+##    &lt;fct&gt;                       &lt;int&gt;
+##  1 Algeria                  33333216
+##  2 Angola                   12420476
+##  3 Benin                     8078314
+##  4 Botswana                  1639131
+##  5 Burkina Faso             14326203
+##  6 Burundi                   8390505
+##  7 Cameroon                 17696293
+##  8 Central African Republic  4369038
+##  9 Chad                     10238807
+## 10 Comoros                    710960
+## # ... with 42 more rows</code></pre>
+<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb356-1" title="1">population_europe</a></code></pre></div>
+<pre><code>## # A tibble: 30 x 2
+##    country                     pop
+##    &lt;fct&gt;                     &lt;int&gt;
+##  1 Albania                 3600523
+##  2 Austria                 8199783
+##  3 Belgium                10392226
+##  4 Bosnia and Herzegovina  4552198
+##  5 Bulgaria                7322858
+##  6 Croatia                 4493312
+##  7 Czech Republic         10228744
+##  8 Denmark                 5468120
+##  9 Finland                 5238460
+## 10 France                 61083916
+## # ... with 20 more rows</code></pre>
+<p>These observation are not linked (there is no link between an African country and a European one), but they contain the same pieces of information (i.e. population).</p>
+<p>We can <strong>bind</strong> these <strong>rows</strong> together.</p>
+<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb358-1" title="1"><span class="kw">bind_rows</span>(population_africa, population_europe)</a></code></pre></div>
+<pre><code>## # A tibble: 82 x 2
+##    country                       pop
+##    &lt;fct&gt;                       &lt;int&gt;
+##  1 Algeria                  33333216
+##  2 Angola                   12420476
+##  3 Benin                     8078314
+##  4 Botswana                  1639131
+##  5 Burkina Faso             14326203
+##  6 Burundi                   8390505
+##  7 Cameroon                 17696293
+##  8 Central African Republic  4369038
+##  9 Chad                     10238807
+## 10 Comoros                    710960
+## # ... with 72 more rows</code></pre>
+<p>Note that we had 52 African countries and 30 European countries. Together, this makes for 82 countries.</p>
+<p>For bind rows, it is not necesarry to have exactly the same information. Suppose that we have life expectancy for African countries, but not for European. Consider the dataset <code>information_africa</code>.</p>
+<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb360-1" title="1">information_africa </a></code></pre></div>
+<pre><code>## # A tibble: 52 x 3
+##    country                       pop lifeExp
+##    &lt;fct&gt;                       &lt;int&gt;   &lt;dbl&gt;
+##  1 Algeria                  33333216    72.3
+##  2 Angola                   12420476    42.7
+##  3 Benin                     8078314    56.7
+##  4 Botswana                  1639131    50.7
+##  5 Burkina Faso             14326203    52.3
+##  6 Burundi                   8390505    49.6
+##  7 Cameroon                 17696293    50.4
+##  8 Central African Republic  4369038    44.7
+##  9 Chad                     10238807    50.7
+## 10 Comoros                    710960    65.2
+## # ... with 42 more rows</code></pre>
+<p>And we bind these two datasets.</p>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb362-1" title="1"><span class="kw">bind_rows</span>(information_africa, population_europe) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb362-2" title="2"><span class="st">    </span>summary</a></code></pre></div>
+<pre><code>##     country        pop               lifeExp     
+##  Albania: 1   Min.   :   199579   Min.   :39.61  
+##  Algeria: 1   1st Qu.:  4174074   1st Qu.:47.83  
+##  Angola : 1   Median :  9951961   Median :52.93  
+##  Austria: 1   Mean   : 18483393   Mean   :54.81  
+##  Belgium: 1   3rd Qu.: 19755656   3rd Qu.:59.44  
+##  Benin  : 1   Max.   :135031164   Max.   :76.44  
+##  (Other):76                       NA&#39;s   :30</code></pre>
+<p>What we could have expected did indeed happen: the 30 European countries received an NA for life expectancy. However, be wary: if both datasets have different information, maybe bind_rows is not what you are looking for, and maybe you need a join? Be sure that you understand how your datasets related to one another and how you should combine them.</p>
+<p>That said, one more remark on merging data. If there is a bind_rows, there must surely be a bind_cols for binding columns? Yes, there is. However, we will not use this function (hurray!). bind_cols can do as it says: binding columns together just like bind_rows binds rows together. However, binding columns together means that we have 2 sets of information about the same observations? That sounds a lot like it needs a join, doesn’t it? Indeed! The main difference between bind_rows and joins is that joins will combine rows that have the same key. However, bind_rows will combine rows by position, i.e. the first row of dataset A will be combined with first row of dataset B. It won’t be looking at any keys. So if dataset A and B are in a different order, you have messed up your data. So, just forget about bind_cols. Bind_rows and joins should be able to get you where you want to be.</p>
+</div>
+</div>
+<div id="transforming-data-1" class="section level2">
+<h2><span class="header-section-number">10.3</span> Transforming data</h2>
+<p>Next to merging data, we will also be learn how to transform data. The difference? For merging we need two datasets, for transforming, we will only use a single one.</p>
+<p>The main goal of transforming our data is to make sure it is <em>tidy</em>. This means: every row is an observation, and every column is a variable.</p>
+<p><img src="images/tidydata.png" width="100%" /></p>
+<p>Now, tidying is primarly important in the initial fase of your project, as shown in the figure below. However, it can also be useful during analyses. For some graph, it might happen that you need to transform your data - change what your observations are. This makes data transformation both essential and difficult. It is very important to understand what the current shape of your data is, and in which shape you need it to be for your analysis. This requires practice and time.</p>
+<p><img src="images/tidyverse.JPG" width="100%" /></p>
+<p>We will discuss four different transformations.<a href="#fn46" class="footnote-ref" id="fnref46"><sup>46</sup></a></p>
+<p>There are 2 easy transformations:</p>
+<ol style="list-style-type: decimal">
+<li>Combine variables</li>
+<li>Split variables</li>
+</ol>
+<p>and 2 difficult ones</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Spread a dataset</li>
+<li>Gather a dataset</li>
+</ol>
+<p>Below we show the schematically - the easy ones on the right, and the difficult ones on the left. Let’s look at each of them.<a href="#fn47" class="footnote-ref" id="fnref47"><sup>47</sup></a></p>
+<p><img src="images/operations2.png" width="100%" /></p>
+<div id="unite-variables" class="section level3">
+<h3><span class="header-section-number">10.3.1</span> Unite variables</h3>
+<p>We use the function <code>unite</code> when we have several variables that we want to combine into a single one. The syntax for unite is as follows. Suppose we have information about students, with a first_name and last_name, and we want a single “name” variable.</p>
+<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb364-1" title="1">students</a></code></pre></div>
+<pre><code>## # A tibble: 10 x 2
+##    first_name last_name
+##    &lt;chr&gt;      &lt;chr&gt;    
+##  1 Kemba      Raylin   
+##  2 Orean      Elisha   
+##  3 Kirstyn    Francico 
+##  4 Amparo     Theoplis 
+##  5 Belen      Ashea    
+##  6 Rayshaun   Angela   
+##  7 Brazil     Essie    
+##  8 Chaston    Allyn    
+##  9 Reyn       Tanita   
+## 10 Ogechi     Sherriann</code></pre>
+<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb366-1" title="1">students <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb366-2" title="2"><span class="st">    </span><span class="kw">unite</span>(<span class="dt">col =</span> name, first_name, last_name)</a></code></pre></div>
+<pre><code>## # A tibble: 10 x 1
+##    name            
+##    &lt;chr&gt;           
+##  1 Kemba_Raylin    
+##  2 Orean_Elisha    
+##  3 Kirstyn_Francico
+##  4 Amparo_Theoplis 
+##  5 Belen_Ashea     
+##  6 Rayshaun_Angela 
+##  7 Brazil_Essie    
+##  8 Chaston_Allyn   
+##  9 Reyn_Tanita     
+## 10 Ogechi_Sherriann</code></pre>
+<p>We first specify the name for the new column (which here is just name), then we list all columns we want to unite. Note that be default, unite will put a _ between the colums. We can change this with the argument sep.</p>
+<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb368-1" title="1">students <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb368-2" title="2"><span class="st">    </span><span class="kw">unite</span>(<span class="dt">col =</span> name, first_name, last_name, <span class="dt">sep =</span> <span class="st">&quot; &quot;</span>)</a></code></pre></div>
+<pre><code>## # A tibble: 10 x 1
+##    name            
+##    &lt;chr&gt;           
+##  1 Kemba Raylin    
+##  2 Orean Elisha    
+##  3 Kirstyn Francico
+##  4 Amparo Theoplis 
+##  5 Belen Ashea     
+##  6 Rayshaun Angela 
+##  7 Brazil Essie    
+##  8 Chaston Allyn   
+##  9 Reyn Tanita     
+## 10 Ogechi Sherriann</code></pre>
+<p>Sometimes we also prefer to keep the original variables. We can ask not te remove them as follows.</p>
+<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb370-1" title="1">students <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb370-2" title="2"><span class="st">    </span><span class="kw">unite</span>(<span class="dt">col =</span> name, first_name, last_name, <span class="dt">sep  =</span><span class="st">&quot; &quot;</span>, <span class="dt">remove =</span> F)</a></code></pre></div>
+<pre><code>## # A tibble: 10 x 3
+##    name             first_name last_name
+##    &lt;chr&gt;            &lt;chr&gt;      &lt;chr&gt;    
+##  1 Kemba Raylin     Kemba      Raylin   
+##  2 Orean Elisha     Orean      Elisha   
+##  3 Kirstyn Francico Kirstyn    Francico 
+##  4 Amparo Theoplis  Amparo     Theoplis 
+##  5 Belen Ashea      Belen      Ashea    
+##  6 Rayshaun Angela  Rayshaun   Angela   
+##  7 Brazil Essie     Brazil     Essie    
+##  8 Chaston Allyn    Chaston    Allyn    
+##  9 Reyn Tanita      Reyn       Tanita   
+## 10 Ogechi Sherriann Ogechi     Sherriann</code></pre>
+</div>
+<div id="separate-variables" class="section level3">
+<h3><span class="header-section-number">10.3.2</span> Separate variables</h3>
+<p>Separate works the other way around: it separates a single variable into multiple ones. Suppose we have a list of students (students2) with their full names, and we want to separate them.<a href="#fn48" class="footnote-ref" id="fnref48"><sup>48</sup></a></p>
+<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb372-1" title="1">students_<span class="dv">2</span></a></code></pre></div>
+<pre><code>## # A tibble: 10 x 1
+##    name            
+##    &lt;chr&gt;           
+##  1 Vashawn Heathr  
+##  2 Hans Musab      
+##  3 Shihab Mahogany 
+##  4 Daden Braun     
+##  5 Shiloh Billi    
+##  6 Hashir Magdalena
+##  7 Latangela Lois  
+##  8 Lydon Aliha     
+##  9 Garcelle Ziah   
+## 10 Jaleal Nancy</code></pre>
+<p>We can use separate in a similar way. First tell which column you want separated. Then tell them into which columns you want to put the pieces.<a href="#fn49" class="footnote-ref" id="fnref49"><sup>49</sup></a></p>
+<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb374-1" title="1">students_<span class="dv">2</span> <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb374-2" title="2"><span class="st">    </span><span class="kw">separate</span>(<span class="dt">col =</span> name, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">&quot;first_name&quot;</span>,<span class="st">&quot;last_name&quot;</span>))</a></code></pre></div>
+<pre><code>## # A tibble: 10 x 2
+##    first_name last_name
+##    &lt;chr&gt;      &lt;chr&gt;    
+##  1 Vashawn    Heathr   
+##  2 Hans       Musab    
+##  3 Shihab     Mahogany 
+##  4 Daden      Braun    
+##  5 Shiloh     Billi    
+##  6 Hashir     Magdalena
+##  7 Latangela  Lois     
+##  8 Lydon      Aliha    
+##  9 Garcelle   Ziah     
+## 10 Jaleal     Nancy</code></pre>
+<p>Default, separate will split the columns on any character which is not alphanumerical: anything except numbers and letters. So, he correctly used spaces, which with we are perfectly happy. If you want to changes this, you can again set the sep argument. For example, when there is a combined surname like Janssen-Swilden (let’s say such a ridiculous name actually exists), it would be split on the - sign. We don’t want that, so we should tell separate to split only on spaces, i.e. sep = " ".</p>
+<p>Separate will create exactly as many columns as the number of names you provide in into. If he finds more or less pieces than that number for any observation, he will warn you about this. If there are less, NA will appear, if there are more, the last ones will be discarded. Also, you can use remove = F to keep the original variables.</p>
+<p>Now let’s get ready for those difficult ones!</p>
+</div>
+<div id="spread-data" class="section level3">
+<h3><span class="header-section-number">10.3.3</span> Spread data</h3>
+<p>We can use spread to take a pair of variables - a <em>key</em> and a <em>value</em> - and spread them over different columns: one for each <em>key</em> with the corresponding <em>value</em> in it.</p>
+<p><img src="images/spread.PNG" width="100%" /></p>
+<p>If at this moment you hear it thundering in Keulen, it might be time for you to revise earlier tutorials. Because we have actually already seen spread before (Did we?) (Yes we did.)</p>
+<p>The following example might refresh things a bit.</p>
+<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb376-1" title="1"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb376-2" title="2">diamonds <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb376-3" title="3"><span class="st">    </span><span class="kw">count</span>(color, clarity)</a></code></pre></div>
+<pre><code>## # A tibble: 56 x 3
+##    color clarity     n
+##    &lt;ord&gt; &lt;ord&gt;   &lt;int&gt;
+##  1 D     I1         42
+##  2 D     SI2      1370
+##  3 D     SI1      2083
+##  4 D     VS2      1697
+##  5 D     VS1       705
+##  6 D     VVS2      553
+##  7 D     VVS1      252
+##  8 D     IF         73
+##  9 E     I1        102
+## 10 E     SI2      1713
+## # ... with 46 more rows</code></pre>
+<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb378-1" title="1">diamonds <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb378-2" title="2"><span class="st">    </span><span class="kw">count</span>(color, clarity) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb378-3" title="3"><span class="st">    </span><span class="kw">spread</span>(clarity, n)</a></code></pre></div>
+<pre><code>## # A tibble: 7 x 9
+##   color    I1   SI2   SI1   VS2   VS1  VVS2  VVS1    IF
+##   &lt;ord&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+## 1 D        42  1370  2083  1697   705   553   252    73
+## 2 E       102  1713  2426  2470  1281   991   656   158
+## 3 F       143  1609  2131  2201  1364   975   734   385
+## 4 G       150  1548  1976  2347  2148  1443   999   681
+## 5 H       162  1563  2275  1643  1169   608   585   299
+## 6 I        92   912  1424  1169   962   365   355   143
+## 7 J        50   479   750   731   542   131    74    51</code></pre>
+<p>When we <em>spread</em> data, we go from a <em>long</em> dataset to a <em>wide</em> dataset. Just look back at the example and the schematic figure. Make sure to remember this.</p>
+</div>
+<div id="gather-data" class="section level3">
+<h3><span class="header-section-number">10.3.4</span> Gather data</h3>
+<p>If we already knew spread, gather is a piece of cake. It does the opposite of spread. How straightforward! So, with gather we go from a <em>wide</em> dataset to a <em>long</em> dataset, by <em>gathering</em> several observations into a single one.</p>
+<p>Just look at this figure.</p>
+<p><img src="images/gather.PNG" width="100%" /></p>
+<p>Let’s look at an example.</p>
+<p>The dataset below shows the population for every country on earth after each 5 year interval, starting in 1952, ending in 2007.</p>
+<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb380-1" title="1">yearly_population</a></code></pre></div>
+<pre><code>## # A tibble: 142 x 14
+##    country continent `1952` `1957` `1962` `1967` `1972` `1977` `1982` `1987`
+##    &lt;fct&gt;   &lt;fct&gt;      &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;
+##  1 Afghan~ Asia      8.43e6 9.24e6 1.03e7 1.15e7 1.31e7 1.49e7 1.29e7 1.39e7
+##  2 Albania Europe    1.28e6 1.48e6 1.73e6 1.98e6 2.26e6 2.51e6 2.78e6 3.08e6
+##  3 Algeria Africa    9.28e6 1.03e7 1.10e7 1.28e7 1.48e7 1.72e7 2.00e7 2.33e7
+##  4 Angola  Africa    4.23e6 4.56e6 4.83e6 5.25e6 5.89e6 6.16e6 7.02e6 7.87e6
+##  5 Argent~ Americas  1.79e7 1.96e7 2.13e7 2.29e7 2.48e7 2.70e7 2.93e7 3.16e7
+##  6 Austra~ Oceania   8.69e6 9.71e6 1.08e7 1.19e7 1.32e7 1.41e7 1.52e7 1.63e7
+##  7 Austria Europe    6.93e6 6.97e6 7.13e6 7.38e6 7.54e6 7.57e6 7.57e6 7.58e6
+##  8 Bahrain Asia      1.20e5 1.39e5 1.72e5 2.02e5 2.31e5 2.97e5 3.78e5 4.55e5
+##  9 Bangla~ Asia      4.69e7 5.14e7 5.68e7 6.28e7 7.08e7 8.04e7 9.31e7 1.04e8
+## 10 Belgium Europe    8.73e6 8.99e6 9.22e6 9.56e6 9.71e6 9.82e6 9.86e6 9.87e6
+## # ... with 132 more rows, and 4 more variables: `1992` &lt;int&gt;, `1997` &lt;int&gt;,
+## #   `2002` &lt;int&gt;, `2007` &lt;int&gt;</code></pre>
+<p>Pretty well-arranged table, isn’t it? Let’s make a line plot of the evolution. We would need time (years) on the x-asis and population on the y-axis. But…? Well, f*ck me! Those variables don’t exist?! How can I make my line plot?</p>
+<p>Let’s <em>gather</em> the data into those to variables.</p>
+<ul>
+<li>The key argument is the <strong>new</strong> variable in which we want old variable <strong>names</strong> to go. In our case, we want all the years as a <em>time</em> variable, so we can use them, instead of being scatterd over 12 variables.</li>
+<li>The value argument is the <strong>new</strong> variable in which the <strong>values</strong> of the old variables go. Thus, these would be the population numbers.</li>
+<li>After that, we specify all the columns we want to gather. In our case all years. So, we can just say that we don’t want to gather country and continent instead.<a href="#fn50" class="footnote-ref" id="fnref50"><sup>50</sup></a></li>
+</ul>
+<p>Let’s see what happens.</p>
+<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb382-1" title="1">yearly_population <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb382-2" title="2"><span class="st">    </span><span class="kw">gather</span>(<span class="dt">key =</span> time, <span class="dt">value =</span> population, <span class="op">-</span>country, <span class="op">-</span>continent)</a></code></pre></div>
+<pre><code>## # A tibble: 1,704 x 4
+##    country     continent time  population
+##    &lt;fct&gt;       &lt;fct&gt;     &lt;chr&gt;      &lt;int&gt;
+##  1 Afghanistan Asia      1952     8425333
+##  2 Albania     Europe    1952     1282697
+##  3 Algeria     Africa    1952     9279525
+##  4 Angola      Africa    1952     4232095
+##  5 Argentina   Americas  1952    17876956
+##  6 Australia   Oceania   1952     8691212
+##  7 Austria     Europe    1952     6927772
+##  8 Bahrain     Asia      1952      120447
+##  9 Bangladesh  Asia      1952    46886859
+## 10 Belgium     Europe    1952     8730405
+## # ... with 1,694 more rows</code></pre>
+<p>Well, exactly the opposite of spread, isn’t it? A bunch of old variables (1952, 1957, 1962, etc.) are <em>gathered</em> into a single new variable time. While the contents of those old variables are placed next to them in the population variable.</p>
+<p>Note how we went from a dataset with 13 colums and 142 rows (= WIDE) to a dataset with only 3 columns but 1704 rows ( = LONG).</p>
+<p>So, let’s wrap this up.</p>
+<ul>
+<li>For gather, key and value are <em>new</em> columnames. You can choose them as you like (just like I chose time and population)</li>
+<li>For spread, key and value are <em>existing</em> columns. The ones you want to spread out.</li>
+<li>With gather, you provide a list of <em>existing</em> columns which you want to gather/combine. You can also say which you don’t want using -. In fact, you can use all the select-tricks here. If you don’t tell it anything except for key and value, all columns will be gathered.</li>
+<li>With gather, only key and value are necessary arguemnts.</li>
+</ul>
+<p>Easy, isn’t it?</p>
+<p>Unfortunately, no. It isn’t.</p>
+<p>Spread and gather are probably the least intuitive functions you will learn in this course. Try to read this section several times, and look very good at the examples. Try to see what’s happening. Things can get very complicated with spread and gather, as they change the structure of your data entirely. Combining them with joins only increases the difficulty. So, don’t go easy on this. Spend some time in trying to understand the functions, and learn how to use the cheatsheet. The functions are not easy at all, but you will need them sooner than you think. Let’s see them at work in other example. We will use some real-life data of the World Hearlth Organisations WHO!</p>
+<p>Oh, I almost forgot! We would make a line plot of the population data. Well, you see, once we have gather, it gets easy. We can almost directly go to ggplot.</p>
+<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb384-1" title="1">yearly_population <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb384-2" title="2"><span class="st">    </span><span class="kw">gather</span>(<span class="dt">key =</span> time, <span class="dt">value =</span> population, <span class="op">-</span>country, <span class="op">-</span>continent) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb384-3" title="3"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">time =</span> <span class="kw">as.numeric</span>(time)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb384-4" title="4"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(time, population<span class="op">/</span>(<span class="dv">10</span><span class="op">^</span><span class="dv">9</span>), <span class="dt">group =</span> country, <span class="dt">color =</span> continent)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb384-5" title="5"><span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb384-6" title="6"><span class="st">    </span><span class="kw">facet_grid</span>(.<span class="op">~</span>continent) <span class="op">+</span></a>
+<a class="sourceLine" id="cb384-7" title="7"><span class="st">    </span><span class="kw">theme_light</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb384-8" title="8"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Population (in billion)&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb384-9" title="9"><span class="st">    </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;top&quot;</span>)</a></code></pre></div>
+<p><img src="textbook_files/figure-html/unnamed-chunk-273-1.png" width="100%" /></p>
+<p>Can you tell which countries are the two soaring lines in Asia? (Please tell me you can.)</p>
+<p>So, let’s study some health!</p>
+</div>
+</div>
+<div id="case-study-who" class="section level2">
+<h2><span class="header-section-number">10.4</span> [Case study]: WHO</h2>
+<p>We gathered (pun intended) data about the number of (new) Tuberculosis cases broken down by</p>
+<ul>
+<li>year</li>
+<li>country</li>
+<li>age (7 groups)</li>
+<li>gender</li>
+<li>type of TB
+<ul>
+<li>new/old -&gt; (all new in our case)</li>
+<li>diagnosis method
+<ul>
+<li>rel: relapse</li>
+<li>sp: smear positive</li>
+<li>sn: smear negative</li>
+<li>ep: extrapulmonary</li>
+</ul></li>
+</ul></li>
+</ul>
+<p>(No need to know the different diagnosis methods.)</p>
+<p>The data looks as follows.</p>
+<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb385-1" title="1">who <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb385-2" title="2"><span class="st">    </span><span class="kw">glimpse</span>()</a></code></pre></div>
+<pre><code>## Observations: 7,240
+## Variables: 60
+## $ country      &lt;chr&gt; &quot;Afghanistan&quot;, &quot;Afghanistan&quot;, &quot;Afghanistan&quot;, &quot;Afghanis...
+## $ iso2         &lt;chr&gt; &quot;AF&quot;, &quot;AF&quot;, &quot;AF&quot;, &quot;AF&quot;, &quot;AF&quot;, &quot;AF&quot;, &quot;AF&quot;, &quot;AF&quot;, &quot;AF&quot;, ...
+## $ iso3         &lt;chr&gt; &quot;AFG&quot;, &quot;AFG&quot;, &quot;AFG&quot;, &quot;AFG&quot;, &quot;AFG&quot;, &quot;AFG&quot;, &quot;AFG&quot;, &quot;AFG&quot;...
+## $ year         &lt;int&gt; 1980, 1981, 1982, 1983, 1984, 1985, 1986, 1987, 1988, ...
+## $ new_sp_m014  &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ new_sp_m1524 &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ new_sp_m2534 &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ new_sp_m3544 &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ new_sp_m4554 &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ new_sp_m5564 &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ new_sp_m65   &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ new_sp_f014  &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ new_sp_f1524 &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ new_sp_f2534 &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ new_sp_f3544 &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ new_sp_f4554 &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ new_sp_f5564 &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ new_sp_f65   &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ new_sn_m014  &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ new_sn_m1524 &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ new_sn_m2534 &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ new_sn_m3544 &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ new_sn_m4554 &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ new_sn_m5564 &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ new_sn_m65   &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ new_sn_f014  &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ new_sn_f1524 &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ new_sn_f2534 &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ new_sn_f3544 &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ new_sn_f4554 &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ new_sn_f5564 &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ new_sn_f65   &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ new_ep_m014  &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ new_ep_m1524 &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ new_ep_m2534 &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ new_ep_m3544 &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ new_ep_m4554 &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ new_ep_m5564 &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ new_ep_m65   &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ new_ep_f014  &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ new_ep_f1524 &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ new_ep_f2534 &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ new_ep_f3544 &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ new_ep_f4554 &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ new_ep_f5564 &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ new_ep_f65   &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ newrel_m014  &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ newrel_m1524 &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ newrel_m2534 &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ newrel_m3544 &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ newrel_m4554 &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ newrel_m5564 &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ newrel_m65   &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ newrel_f014  &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ newrel_f1524 &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ newrel_f2534 &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ newrel_f3544 &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ newrel_f4554 &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ newrel_f5564 &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
+## $ newrel_f65   &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...</code></pre>
+<p>To be honest: quite a mess. We don’t really need 60 variables for the data we just described, do we? What’s going on?</p>
+<p>It seems that for each country and each year, the data contains one row. Let’s verify.</p>
+<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb387-1" title="1">who <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb387-2" title="2"><span class="st">    </span><span class="kw">count</span>(country, year)</a></code></pre></div>
+<pre><code>## # A tibble: 7,240 x 3
+##    country      year     n
+##    &lt;chr&gt;       &lt;int&gt; &lt;int&gt;
+##  1 Afghanistan  1980     1
+##  2 Afghanistan  1981     1
+##  3 Afghanistan  1982     1
+##  4 Afghanistan  1983     1
+##  5 Afghanistan  1984     1
+##  6 Afghanistan  1985     1
+##  7 Afghanistan  1986     1
+##  8 Afghanistan  1987     1
+##  9 Afghanistan  1988     1
+## 10 Afghanistan  1989     1
+## # ... with 7,230 more rows</code></pre>
+<p>We see mostly ones. Let’s check for sure.</p>
+<div class="sourceCode" id="cb389"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb389-1" title="1">who <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb389-2" title="2"><span class="st">    </span><span class="kw">count</span>(country, year) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb389-3" title="3"><span class="st">    </span><span class="kw">filter</span>(n <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span>)</a></code></pre></div>
+<pre><code>## # A tibble: 0 x 3
+## # ... with 3 variables: country &lt;chr&gt;, year &lt;int&gt;, n &lt;int&gt;</code></pre>
+<p>Ok. So, each year, each country, one row. We have 7240 rows because we have</p>
+<div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb391-1" title="1">who <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">count</span>(year) <span class="op">%&gt;%</span><span class="st"> </span>nrow</a></code></pre></div>
+<pre><code>## [1] 34</code></pre>
+<p>34 years, and</p>
+<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb393-1" title="1">who <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">count</span>(country) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">nrow</span>()</a></code></pre></div>
+<pre><code>## [1] 219</code></pre>
+<p>219 countries.</p>
+<p>Thus we expect this many rows:</p>
+<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb395-1" title="1"><span class="dv">219</span><span class="op">*</span><span class="dv">34</span></a></code></pre></div>
+<pre><code>## [1] 7446</code></pre>
+<p>It seems we are missing 206 rows. I.e. there are countries for which we don’t have all years, or vice versa. It is not really important here, but these are the kind of things a good data analyst checks.</p>
+<p>Let’s go back to our problem.</p>
+<p>Of the 60 variables, the first 3 all depict country (Remember that I told you that there are different ways to abbreviate a country), and the 4th contains the year. So, there remain 56 variables.</p>
+<p>Well, we have information on 7 age groups, 2 genders, and 4 diagnosis methods. 7 times 2 times 4 equals 56. Aha! All the different cases are putted in a different variable. That’s not really easy to work with.</p>
+<p>Why not, I heard you think?</p>
+<p>Let’s try to solve the following questions.</p>
+<ul>
+<li>How many women older, 25 or older in Belgium were diagnosed with TB in 2000? How many of those had a relaps?</li>
+<li>What is the total number of TB cases in Belgium in each year?</li>
+<li>Can you graphically show the evolution of the number of cases for different genders and age groups?</li>
+</ul>
+<p>No, you can’t. At least, not without a lot of work, or without tidying our data. So, let’s start.</p>
+<p>It is often helpful to think about the format we would like our data to be in, without getting lost in transformation. Ideally, we would like to have the following variables:</p>
+<ul>
+<li>country</li>
+<li>year</li>
+<li>is_new</li>
+<li>diagnosis</li>
+<li>gender</li>
+<li>age</li>
+<li>cases (the number of TB cases)</li>
+</ul>
+<p>First of all, let’s go to a dataset in a long format, by gathering all the different types of diagnosis and cases into a long list. We will not gather the first 4 columns. The old columns will be a variable “type”, and the numbers will be called “cases”.</p>
+<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb397-1" title="1">who <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb397-2" title="2"><span class="st">    </span><span class="kw">gather</span>(<span class="dt">key =</span> type, <span class="dt">value =</span> cases, <span class="op">-</span>country<span class="op">:-</span>year)</a></code></pre></div>
+<pre><code>## # A tibble: 405,440 x 6
+##    country     iso2  iso3   year type        cases
+##    &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;chr&gt;       &lt;int&gt;
+##  1 Afghanistan AF    AFG    1980 new_sp_m014    NA
+##  2 Afghanistan AF    AFG    1981 new_sp_m014    NA
+##  3 Afghanistan AF    AFG    1982 new_sp_m014    NA
+##  4 Afghanistan AF    AFG    1983 new_sp_m014    NA
+##  5 Afghanistan AF    AFG    1984 new_sp_m014    NA
+##  6 Afghanistan AF    AFG    1985 new_sp_m014    NA
+##  7 Afghanistan AF    AFG    1986 new_sp_m014    NA
+##  8 Afghanistan AF    AFG    1987 new_sp_m014    NA
+##  9 Afghanistan AF    AFG    1988 new_sp_m014    NA
+## 10 Afghanistan AF    AFG    1989 new_sp_m014    NA
+## # ... with 405,430 more rows</code></pre>
+<p>See what happened? Take a good look.</p>
+<p>Had you figured out that we first needed to gather the data? If yes, congratulations, you start to get what data transformation is and which transformations you need where. If no, don’t worry. Remember that I told you this is a hard skill. Furthermore, there are probably different ways to do this.</p>
+<p>We can get rid of iso2 and iso3. Note that they might be useful for joining the data with other data about countries, but we have no plans to do so. Just, let’s get them out of our way.</p>
+<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb399-1" title="1">who <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb399-2" title="2"><span class="st">    </span><span class="kw">gather</span>(<span class="dt">key =</span> type, <span class="dt">value =</span> cases, <span class="op">-</span>country<span class="op">:-</span>year) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb399-3" title="3"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>iso2, <span class="op">-</span>iso3)</a></code></pre></div>
+<pre><code>## # A tibble: 405,440 x 4
+##    country      year type        cases
+##    &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;       &lt;int&gt;
+##  1 Afghanistan  1980 new_sp_m014    NA
+##  2 Afghanistan  1981 new_sp_m014    NA
+##  3 Afghanistan  1982 new_sp_m014    NA
+##  4 Afghanistan  1983 new_sp_m014    NA
+##  5 Afghanistan  1984 new_sp_m014    NA
+##  6 Afghanistan  1985 new_sp_m014    NA
+##  7 Afghanistan  1986 new_sp_m014    NA
+##  8 Afghanistan  1987 new_sp_m014    NA
+##  9 Afghanistan  1988 new_sp_m014    NA
+## 10 Afghanistan  1989 new_sp_m014    NA
+## # ... with 405,430 more rows</code></pre>
+<p>Now, there is a lot of information in the type variable. Actually, there are more variables in this single variable. let’s separate them. (See how that thought process goes?)</p>
+<p>First, let’s look at the different levels by doing a quick count.</p>
+<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb401-1" title="1">who <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb401-2" title="2"><span class="st">    </span><span class="kw">gather</span>(<span class="dt">key =</span> type, <span class="dt">value =</span> cases, <span class="op">-</span>country<span class="op">:-</span>year) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb401-3" title="3"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>iso2, <span class="op">-</span>iso3) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb401-4" title="4"><span class="st">    </span><span class="kw">count</span>(type) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb401-5" title="5"><span class="st">    </span><span class="kw">print</span>(<span class="dt">n =</span> <span class="ot">Inf</span>) <span class="co"># I want to see all of them</span></a></code></pre></div>
+<pre><code>## # A tibble: 56 x 2
+##    type             n
+##    &lt;chr&gt;        &lt;int&gt;
+##  1 new_ep_f014   7240
+##  2 new_ep_f1524  7240
+##  3 new_ep_f2534  7240
+##  4 new_ep_f3544  7240
+##  5 new_ep_f4554  7240
+##  6 new_ep_f5564  7240
+##  7 new_ep_f65    7240
+##  8 new_ep_m014   7240
+##  9 new_ep_m1524  7240
+## 10 new_ep_m2534  7240
+## 11 new_ep_m3544  7240
+## 12 new_ep_m4554  7240
+## 13 new_ep_m5564  7240
+## 14 new_ep_m65    7240
+## 15 new_sn_f014   7240
+## 16 new_sn_f1524  7240
+## 17 new_sn_f2534  7240
+## 18 new_sn_f3544  7240
+## 19 new_sn_f4554  7240
+## 20 new_sn_f5564  7240
+## 21 new_sn_f65    7240
+## 22 new_sn_m014   7240
+## 23 new_sn_m1524  7240
+## 24 new_sn_m2534  7240
+## 25 new_sn_m3544  7240
+## 26 new_sn_m4554  7240
+## 27 new_sn_m5564  7240
+## 28 new_sn_m65    7240
+## 29 new_sp_f014   7240
+## 30 new_sp_f1524  7240
+## 31 new_sp_f2534  7240
+## 32 new_sp_f3544  7240
+## 33 new_sp_f4554  7240
+## 34 new_sp_f5564  7240
+## 35 new_sp_f65    7240
+## 36 new_sp_m014   7240
+## 37 new_sp_m1524  7240
+## 38 new_sp_m2534  7240
+## 39 new_sp_m3544  7240
+## 40 new_sp_m4554  7240
+## 41 new_sp_m5564  7240
+## 42 new_sp_m65    7240
+## 43 newrel_f014   7240
+## 44 newrel_f1524  7240
+## 45 newrel_f2534  7240
+## 46 newrel_f3544  7240
+## 47 newrel_f4554  7240
+## 48 newrel_f5564  7240
+## 49 newrel_f65    7240
+## 50 newrel_m014   7240
+## 51 newrel_m1524  7240
+## 52 newrel_m2534  7240
+## 53 newrel_m3544  7240
+## 54 newrel_m4554  7240
+## 55 newrel_m5564  7240
+## 56 newrel_m65    7240</code></pre>
+<p>Oh crap. The first 42 levels are nicely separated by 2 underscores. But the last are not. It’s all “newrel” instead of “new_rel”. Separate will not be able to split that…</p>
+<p>So, let’s pull together a neat trick. We are going to replace all the little “newrel” part with “new_rel”. How? Using the stringr package for string manipulation. It has a useful function <code>str_replace</code>. Here we go.</p>
+<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb403-1" title="1">who <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb403-2" title="2"><span class="st">    </span><span class="kw">gather</span>(<span class="dt">key =</span> type, <span class="dt">value =</span> cases, <span class="op">-</span>country<span class="op">:-</span>year) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb403-3" title="3"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>iso2, <span class="op">-</span>iso3) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb403-4" title="4"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">type =</span> <span class="kw">str_replace</span>(type, <span class="st">&quot;newrel&quot;</span>, <span class="st">&quot;new_rel&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb403-5" title="5"><span class="st">    </span><span class="kw">count</span>(type) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb403-6" title="6"><span class="st">    </span><span class="kw">print</span>(<span class="dt">n =</span> <span class="ot">Inf</span>)</a></code></pre></div>
+<pre><code>## # A tibble: 56 x 2
+##    type              n
+##    &lt;chr&gt;         &lt;int&gt;
+##  1 new_ep_f014    7240
+##  2 new_ep_f1524   7240
+##  3 new_ep_f2534   7240
+##  4 new_ep_f3544   7240
+##  5 new_ep_f4554   7240
+##  6 new_ep_f5564   7240
+##  7 new_ep_f65     7240
+##  8 new_ep_m014    7240
+##  9 new_ep_m1524   7240
+## 10 new_ep_m2534   7240
+## 11 new_ep_m3544   7240
+## 12 new_ep_m4554   7240
+## 13 new_ep_m5564   7240
+## 14 new_ep_m65     7240
+## 15 new_rel_f014   7240
+## 16 new_rel_f1524  7240
+## 17 new_rel_f2534  7240
+## 18 new_rel_f3544  7240
+## 19 new_rel_f4554  7240
+## 20 new_rel_f5564  7240
+## 21 new_rel_f65    7240
+## 22 new_rel_m014   7240
+## 23 new_rel_m1524  7240
+## 24 new_rel_m2534  7240
+## 25 new_rel_m3544  7240
+## 26 new_rel_m4554  7240
+## 27 new_rel_m5564  7240
+## 28 new_rel_m65    7240
+## 29 new_sn_f014    7240
+## 30 new_sn_f1524   7240
+## 31 new_sn_f2534   7240
+## 32 new_sn_f3544   7240
+## 33 new_sn_f4554   7240
+## 34 new_sn_f5564   7240
+## 35 new_sn_f65     7240
+## 36 new_sn_m014    7240
+## 37 new_sn_m1524   7240
+## 38 new_sn_m2534   7240
+## 39 new_sn_m3544   7240
+## 40 new_sn_m4554   7240
+## 41 new_sn_m5564   7240
+## 42 new_sn_m65     7240
+## 43 new_sp_f014    7240
+## 44 new_sp_f1524   7240
+## 45 new_sp_f2534   7240
+## 46 new_sp_f3544   7240
+## 47 new_sp_f4554   7240
+## 48 new_sp_f5564   7240
+## 49 new_sp_f65     7240
+## 50 new_sp_m014    7240
+## 51 new_sp_m1524   7240
+## 52 new_sp_m2534   7240
+## 53 new_sp_m3544   7240
+## 54 new_sp_m4554   7240
+## 55 new_sp_m5564   7240
+## 56 new_sp_m65     7240</code></pre>
+<p>That’s better, isn’t it? By the way, do you see how we at each point build on what we did before? This way we can easily change mistakes if we make some. Only when our data is correctly transformed, we save it, and put the code in our loadscript.</p>
+<p>But now, we can separate the data. The first part will become the is_new variable, the second part the diagnosis variable, and the last part… well, it contaisn both the gender (f/m) and the age category. Let’s just call it age_gender, and tackle that problem later.</p>
+<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb405-1" title="1">who <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb405-2" title="2"><span class="st">    </span><span class="kw">gather</span>(<span class="dt">key =</span> type, <span class="dt">value =</span> cases, <span class="op">-</span>country<span class="op">:-</span>year) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb405-3" title="3"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>iso2, <span class="op">-</span>iso3) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb405-4" title="4"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">type =</span> <span class="kw">str_replace</span>(type, <span class="st">&quot;newrel&quot;</span>, <span class="st">&quot;new_rel&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb405-5" title="5"><span class="st">    </span><span class="kw">separate</span>(type, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">&quot;is_new&quot;</span>, <span class="st">&quot;diagnosis&quot;</span>, <span class="st">&quot;gender_age&quot;</span>)) </a></code></pre></div>
+<pre><code>## # A tibble: 405,440 x 6
+##    country      year is_new diagnosis gender_age cases
+##    &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;     &lt;chr&gt;      &lt;int&gt;
+##  1 Afghanistan  1980 new    sp        m014          NA
+##  2 Afghanistan  1981 new    sp        m014          NA
+##  3 Afghanistan  1982 new    sp        m014          NA
+##  4 Afghanistan  1983 new    sp        m014          NA
+##  5 Afghanistan  1984 new    sp        m014          NA
+##  6 Afghanistan  1985 new    sp        m014          NA
+##  7 Afghanistan  1986 new    sp        m014          NA
+##  8 Afghanistan  1987 new    sp        m014          NA
+##  9 Afghanistan  1988 new    sp        m014          NA
+## 10 Afghanistan  1989 new    sp        m014          NA
+## # ... with 405,430 more rows</code></pre>
+<p>Cool, that worked! We didn’t even need to tell separate how to split. He decided this automagically. What a smart boy!</p>
+<p>Now, let’s split age_gender. But on what? There is no character to split on. However, separate is so smart, we can tell him to split after the <em>first</em> character - ’cause that one is the gender, the remainder is the age. We could actually do this for any character. We just need to set sep = n, where n is our number. In this case 1. Let’s try!</p>
+<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb407-1" title="1">who <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb407-2" title="2"><span class="st">    </span><span class="kw">gather</span>(<span class="dt">key =</span> type, <span class="dt">value =</span> cases, <span class="op">-</span>country<span class="op">:-</span>year) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb407-3" title="3"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>iso2, <span class="op">-</span>iso3) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb407-4" title="4"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">type =</span> <span class="kw">str_replace</span>(type, <span class="st">&quot;newrel&quot;</span>, <span class="st">&quot;new_rel&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb407-5" title="5"><span class="st">    </span><span class="kw">separate</span>(type, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">&quot;is_new&quot;</span>, <span class="st">&quot;diagnosis&quot;</span>, <span class="st">&quot;gender_age&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb407-6" title="6"><span class="st">    </span><span class="kw">separate</span>(gender_age, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">&quot;gender&quot;</span>,<span class="st">&quot;age&quot;</span>), <span class="dt">sep =</span> <span class="dv">1</span>)</a></code></pre></div>
+<pre><code>## # A tibble: 405,440 x 7
+##    country      year is_new diagnosis gender age   cases
+##    &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt; &lt;int&gt;
+##  1 Afghanistan  1980 new    sp        m      014      NA
+##  2 Afghanistan  1981 new    sp        m      014      NA
+##  3 Afghanistan  1982 new    sp        m      014      NA
+##  4 Afghanistan  1983 new    sp        m      014      NA
+##  5 Afghanistan  1984 new    sp        m      014      NA
+##  6 Afghanistan  1985 new    sp        m      014      NA
+##  7 Afghanistan  1986 new    sp        m      014      NA
+##  8 Afghanistan  1987 new    sp        m      014      NA
+##  9 Afghanistan  1988 new    sp        m      014      NA
+## 10 Afghanistan  1989 new    sp        m      014      NA
+## # ... with 405,430 more rows</code></pre>
+<p>I don’t know about you, but I think this is exactly how we wanted the data to be! Let’s save it now.</p>
+<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb409-1" title="1">who <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb409-2" title="2"><span class="st">    </span><span class="kw">gather</span>(<span class="dt">key =</span> type, <span class="dt">value =</span> cases, <span class="op">-</span>country<span class="op">:-</span>year) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb409-3" title="3"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>iso2, <span class="op">-</span>iso3) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb409-4" title="4"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">type =</span> <span class="kw">str_replace</span>(type, <span class="st">&quot;newrel&quot;</span>, <span class="st">&quot;new_rel&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb409-5" title="5"><span class="st">    </span><span class="kw">separate</span>(type, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">&quot;is_new&quot;</span>, <span class="st">&quot;diagnosis&quot;</span>, <span class="st">&quot;gender_age&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb409-6" title="6"><span class="st">    </span><span class="kw">separate</span>(gender_age, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">&quot;gender&quot;</span>,<span class="st">&quot;age&quot;</span>), <span class="dt">sep =</span> <span class="dv">1</span>) -&gt;<span class="st"> </span>tidy_who</a></code></pre></div>
+<p>And just for fun, let us solve the questions we had earlier.</p>
+<ul>
+<li>How many women older, 25 or older in Belgium were diagnosed with TB in 2000? How many of those had a relaps?</li>
+</ul>
+<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb410-1" title="1">tidy_who <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb410-2" title="2"><span class="st">    </span><span class="kw">filter</span>(gender <span class="op">==</span><span class="st"> &quot;f&quot;</span>, <span class="op">!</span>(age <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;014&quot;</span>,<span class="st">&quot;1524&quot;</span>)), country <span class="op">==</span><span class="st"> &quot;Belgium&quot;</span>, year <span class="op">==</span><span class="st"> </span><span class="dv">2000</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb410-3" title="3"><span class="st">    </span><span class="kw">group_by</span>(diagnosis) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb410-4" title="4"><span class="st">    </span><span class="kw">summarize</span>(<span class="dt">n_cases =</span> <span class="kw">sum</span>(cases, <span class="dt">na.rm =</span> T))</a></code></pre></div>
+<pre><code>## # A tibble: 4 x 2
+##   diagnosis n_cases
+##   &lt;chr&gt;       &lt;int&gt;
+## 1 ep              0
+## 2 rel             0
+## 3 sn              0
+## 4 sp             78</code></pre>
+<p>According to this data, there were 78 cases, and none of them were relapses.</p>
+<ul>
+<li>What is the total number of TB cases in Belgium in each year?</li>
+</ul>
+<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb412-1" title="1">tidy_who <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb412-2" title="2"><span class="st">    </span><span class="kw">filter</span>(country <span class="op">==</span><span class="st"> &quot;Belgium&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb412-3" title="3"><span class="st">    </span><span class="kw">group_by</span>(year) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb412-4" title="4"><span class="st">    </span><span class="kw">summarize</span>(<span class="dt">n_cases =</span> <span class="kw">sum</span>(cases, <span class="dt">na.rm =</span> T))</a></code></pre></div>
+<pre><code>## # A tibble: 34 x 2
+##     year n_cases
+##    &lt;int&gt;   &lt;int&gt;
+##  1  1980       0
+##  2  1981       0
+##  3  1982       0
+##  4  1983       0
+##  5  1984       0
+##  6  1985       0
+##  7  1986       0
+##  8  1987       0
+##  9  1988       0
+## 10  1989       0
+## # ... with 24 more rows</code></pre>
+<p>(It seems there were no cases of TB in Belgium before 1995. Or we are just missing data? That’s the thing na.rm can do. You must be careful.)</p>
+<ul>
+<li>Can you graphically show the evolution of the number of cases for different genders and age groups?</li>
+</ul>
+<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb414-1" title="1">tidy_who <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb414-2" title="2"><span class="st">    </span><span class="kw">group_by</span>(year, age, gender) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb414-3" title="3"><span class="st">    </span><span class="kw">summarize</span>(<span class="dt">n_cases =</span> <span class="kw">sum</span>(cases, <span class="dt">na.rm =</span> T)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb414-4" title="4"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(year, n_cases)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb414-5" title="5"><span class="st">    </span><span class="kw">geom_line</span>(<span class="dt">color =</span> <span class="st">&quot;pink4&quot;</span>, <span class="dt">lwd =</span> <span class="dv">1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb414-6" title="6"><span class="st">    </span><span class="kw">facet_grid</span>(gender<span class="op">~</span>age) <span class="op">+</span></a>
+<a class="sourceLine" id="cb414-7" title="7"><span class="st">    </span><span class="kw">theme_light</span>()</a></code></pre></div>
+<p><img src="textbook_files/figure-html/unnamed-chunk-290-1.png" width="100%" /></p>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="44">
+<li id="fn44"><p>There are actually ofther cases in which we can bind datasets together, but please don’t bother about that for now. Just remind: bind different observations, join different information]<a href="tutorial-tidy-data.html#fnref44" class="footnote-back">↩</a></p></li>
+<li id="fn45"><p>Of course, if we have both population data about multiple years and life expectancy data about multiple years, we should just include the <em>year</em> as a key variable. We don’t want them to mix up. In that case, each observation is defined by both country and year.<a href="tutorial-tidy-data.html#fnref45" class="footnote-back">↩</a></p></li>
+<li id="fn46"><p>Note that we used the term <em>transformation</em> for different things. We have used it before to transform <em>variables</em> (recode factors, rescale numerics, etc). At this moment we use it to transform <em>data</em>, which means that we are talking about multiple variable or complete datasets. The word choice is not to confuse you, we are actually doing the same thing, but at different levels.<a href="tutorial-tidy-data.html#fnref46" class="footnote-back">↩</a></p></li>
+<li id="fn47"><p>Note that all the join and transformation functions discussed here are included on the cheatsheet of Data Manipulation. Make sure you can use it during exercises and exams!<a href="tutorial-tidy-data.html#fnref47" class="footnote-back">↩</a></p></li>
+<li id="fn48"><p>Note how you spell separate. An e, followed by an a, another a, and another e. Can you remember that? Congratulations, you have just avoided a series of very common mistakes!<a href="tutorial-tidy-data.html#fnref48" class="footnote-back">↩</a></p></li>
+<li id="fn49"><p>Note that the col argument in unite is the new column, the col argument in separate is the existing column! Also note that the new columns created by separate should be given as a character vector, not as a list of unquoted names like we did in unite.<a href="tutorial-tidy-data.html#fnref49" class="footnote-back">↩</a></p></li>
+<li id="fn50"><p>Actually, there is a more important reason we want to use -country and -continent instead of listing all years, apart from being lazy. Remember that all object and variable names in R need to start with a letter, not a number? Well, the year columns clearly don’t. Selecting them would need a special technique. Just saying 1952:2007 would unfortunately not work. But, luckily, that’s a story for another time.<a href="tutorial-tidy-data.html#fnref50" class="footnote-back">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="tidy-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="tijdsdata.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section",
+"depth": 3
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+library(tidyverse)
+library(lubridate)
+
+data %>% 
+    mutate(hour = hour(datum),
+           day_of_week = wday(datum, label = T)) -> data
+
+data %>%
+    ggplot() + 
+    geom_boxplot(aes((hour), vertrek_vertraging, group = hour)) +
+    facet_grid(luchthaven~day_of_week) +
+    coord_cartesian(ylim = c(-20, 150)) + 
+    theme_light()
+    
+
+data %>%
+    group_by(hour, day_of_week, luchthaven) %>%
+    summarize(mean = mean(vertrek_vertraging, na.rm = T)) %>%
+    na.omit() %>%
+    ggplot(aes(hour, day_of_week)) +
+    geom_tile(aes(fill = mean), color = "white") +
+    facet_grid(luchthaven~.) +
+    theme_minimal() +
+    scale_fill_viridis_c()
+
+data %>%
+    group_by(hour, day_of_week, luchthaven) %>%
+    summarize(mean = mean(vertrek_vertraging, na.rm = T)) %>%
+    na.omit() %>%
+    ggplot(aes(hour, mean, color = luchthaven)) +
+    geom_line() +
+    facet_wrap(~day_of_week) +
+    theme_light()

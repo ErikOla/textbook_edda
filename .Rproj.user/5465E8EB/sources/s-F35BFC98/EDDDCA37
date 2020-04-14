@@ -1,0 +1,27 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1586509571218.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "EDDDCA37",
+    "lastKnownWriteTime" : 1586509706,
+    "last_content_update" : 1586509706375,
+    "path" : "~/UH - Local/EDDA/textbook/04-descriptive-statistics.Rmd",
+    "project_path" : "04-descriptive-statistics.Rmd",
+    "properties" : {
+        "cursorPosition" : "334,81",
+        "docOutlineVisible" : "1",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 10,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

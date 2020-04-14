@@ -1,0 +1,11 @@
+"0","airlines %>%"
+"0","	glimpse"
+"1","Observations: 16
+"
+"1","Variables: 2
+"
+"1","$ carrier [3m[38;5;246m<chr>[39m[23m ""9E"", ""AA"", ""AS"", ""B6"", ""DL"", ""EV"", ""F9"", ""FL"", ""HA"",...
+"
+"1",""
+"1","$ name    [3m[38;5;246m<chr>[39m[23m ""Endeavor Air Inc."", ""American Airlines Inc."", ""Alask...
+"

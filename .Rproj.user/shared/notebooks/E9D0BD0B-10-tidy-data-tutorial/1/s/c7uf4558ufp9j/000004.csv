@@ -1,0 +1,6 @@
+"0","who %>%"
+"0","	gather(key = type, value = cases, -country:-year) %>%"
+"0","	select(-iso2, -iso3) %>%"
+"0","	mutate(type = str_replace(type, ""newrel"", ""new_rel"")) %>%"
+"0","	separate(type, into = c(""is_new"", ""diagnosis"", ""gender_age"")) %>%"
+"0","	separate(gender_age, into = c(""gender"",""age""), sep = 1)"

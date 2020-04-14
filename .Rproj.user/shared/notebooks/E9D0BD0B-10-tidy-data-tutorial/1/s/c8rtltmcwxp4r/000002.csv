@@ -1,0 +1,6 @@
+"0","who %>%"
+"0","	gather(key = type, value = cases, -country:-year) %>%"
+"0","	select(-iso2, -iso3) %>%"
+"0","	mutate(type = str_replace(type, ""newrel"", ""new_rel"")) %>%"
+"0","	count(type) %>%"
+"0","	print(n = Inf)"
