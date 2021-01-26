@@ -45,6 +45,7 @@
 \usepackage{natbib}
 \bibliographystyle{apalike}
 
+
 % pandoc syntax highlighting
 \usepackage{color}
 \usepackage{fancyvrb}
@@ -120,6 +121,20 @@
 \hypersetup{colorlinks=false,
 allbordercolors={0 0 0},
 pdfborderstyle={/S/U/W 1}}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
 
 \begin{document}
 
@@ -1309,8 +1324,8 @@ JFK & JetBlue Airways & 2013-01-01 06:00:00 & -2 & -2 & 1028 & 149\\
 De grafieken in dit hoofdstuk zijn gebaseerd op volgende dataset omtrent vluchten vertrekkende uit New York.
 
 \begin{verbatim}
-## Observations: 329,174
-## Variables: 7
+## Rows: 329,174
+## Columns: 7
 ## $ luchthaven          <fct> EWR, LGA, JFK, LGA, EWR, EWR, LGA, JFK, LGA, JF...
 ## $ maatschappij        <chr> "United Air Lines Inc.", "United Air Lines Inc....
 ## $ datum               <dttm> 2013-01-01 05:15:00, 2013-01-01 05:29:00, 2013...
@@ -1909,14 +1924,22 @@ Indien de afhankelijke variabele categorisch is, dan kan je niet rechtstreeks ee
     \end{itemize}
   \end{itemize}
 \item
-  Wanneer we één enkele variabele voorstellen doorheen de tijd is er per tijdseenheid maar 1 data punt. Hieronder wordt de gemiddelde vertrekvertraging per dag getoond.\\
-
-  \begin{figure}
-  \includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-14-1} \caption[Puntenwolk met tijd op x-as]{Puntenwolk met tijd op x-as}\label{fig:unnamed-chunk-14}
-  \end{figure}
+  Wanneer we één enkele variabele voorstellen doorheen de tijd is er per tijdseenheid maar 1 data punt. Hieronder wordt de gemiddelde vertrekvertraging per dag getoond.
 \end{itemize}
 
+\begin{verbatim}
+## `summarise()` ungrouping output (override with `.groups` argument)
+\end{verbatim}
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-14-1} \caption[Puntenwolk met tijd op x-as]{Puntenwolk met tijd op x-as}\label{fig:unnamed-chunk-14}
+\end{figure}
+
 In dat geval is het beter om in plaats van punten een lijngrafiek te gebruiken.
+
+\begin{verbatim}
+## `summarise()` ungrouping output (override with `.groups` argument)
+\end{verbatim}
 
 \begin{figure}
 \includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-15-1} \caption[Lijngrafiek]{Lijngrafiek}\label{fig:unnamed-chunk-15}
@@ -1924,11 +1947,19 @@ In dat geval is het beter om in plaats van punten een lijngrafiek te gebruiken.
 
 Indien je een beperkt aantal punten hebt (hieronder bijvoorbeeld één maand van de vluchtgegevens) kan je ervoor kiezen om zowel punten als lijnen te tonen. Op die manier is het makkelijker individuele data punten af te lezen.
 
+\begin{verbatim}
+## `summarise()` ungrouping output (override with `.groups` argument)
+\end{verbatim}
+
 \begin{figure}
 \includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-16-1} \caption[Lijn grafiek met punten]{Lijn grafiek met punten}\label{fig:unnamed-chunk-16}
 \end{figure}
 
 Indien we veel datapunten hebben, wat hier het geval is, kan een lijngrafiek zeer chaotisch worden. We kunnen daarom ervoor kiezen om onze tijd in te delen in categoriëen. Bijvoorbeeld, in plaats van de dagelijkse gemiddelde vertrekvertraging, kunnen we de gemiddelde vertrekvertraging per maand berekenen en tonen.
+
+\begin{verbatim}
+## `summarise()` ungrouping output (override with `.groups` argument)
+\end{verbatim}
 
 \begin{figure}
 \includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-17-1} \caption[Lijngrafiek van gemiddelde vertrekvertraging per maand]{Lijngrafiek van gemiddelde vertrekvertraging per maand.}\label{fig:unnamed-chunk-17}
@@ -1939,6 +1970,10 @@ Indien we veel datapunten hebben, wat hier het geval is, kan een lijngrafiek zee
 \item
   Op dit moment verliezen we daardoor wel veel informatie. Maar we kunnen dit nu ook beschouwen als een visualizatie van een categorische variabele (maand) t.o.v. een continue. Waardoor we de technieken voor dit type bivariate visualizaties kunnen toepassen. Bijvoorbeeld boxplots. We zien nu zowel de algemene trend als outliers. In februari was er bijvoorbeeld een dag waar de gemiddelde vertraging ver boven de normale trend lag.
 \end{itemize}
+
+\begin{verbatim}
+## `summarise()` regrouping output by 'date' (override with `.groups` argument)
+\end{verbatim}
 
 \begin{figure}
 \includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-18-1} \caption[Boxplots van gemiddelde dagelijske vertrekvertraging voor elke maand]{Boxplots van gemiddelde dagelijske vertrekvertraging voor elke maand.}\label{fig:unnamed-chunk-18}
@@ -2069,6 +2104,10 @@ Stap 2. Voeg invloed van luchthaven toe.
 
 Voorbeeld: vertrekvertraging en aankomstvertraging. Je kan lijngrafieken tekenen met meerdere lijnen op hetzelfde assenstelsel.
 
+\begin{verbatim}
+## `summarise()` regrouping output by 'date' (override with `.groups` argument)
+\end{verbatim}
+
 \begin{figure}
 \includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-24-1} \caption[Evolutie van 2 variabelen over tijd in één grafiek (zelfde meeteenheid)]{Evolutie van 2 variabelen over tijd in één grafiek (zelfde meeteenheid)}\label{fig:unnamed-chunk-24}
 \end{figure}
@@ -2079,6 +2118,10 @@ Voorbeeld: vertrekvertraging en aankomstvertraging. Je kan lijngrafieken tekenen
   Of je kan er voor kiezen elke lijn in een afzonderlijk paneel te tonen
 \end{itemize}
 
+\begin{verbatim}
+## `summarise()` regrouping output by 'date' (override with `.groups` argument)
+\end{verbatim}
+
 \begin{figure}
 \includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-25-1} \caption[Evolutie van 2 variabelen over tijd in afzondelijke panels]{Evolutie van 2 variabelen over tijd in afzondelijke panels.}\label{fig:unnamed-chunk-25}
 \end{figure}
@@ -2088,17 +2131,29 @@ Voorbeeld: vertrekvertraging en aankomstvertraging. Je kan lijngrafieken tekenen
 
 Voorbeeld: de gemiddelde levensverwachting en gdp per capita doorheen de tijd. In dit geval ben je genoodzaakt 2 panelen te gebruiken.
 
+\begin{verbatim}
+## `summarise()` regrouping output by 'year' (override with `.groups` argument)
+\end{verbatim}
+
 \begin{figure}
 \includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-26-1} \caption[Evolutie van 2 variabelen met andere eenheden in afzonderlijke panels]{Evolutie van 2 variabelen met andere eenheden in afzonderlijke panels.}\label{fig:unnamed-chunk-26}
 \end{figure}
 
 Optie 2: Maak een connected scatterplot. Toon een punt voor elke meting, waarbij x en y elk een variabele voorstellen. Verbindt dat elk punt in chronologische volgorde.
 
+\begin{verbatim}
+## `summarise()` regrouping output by 'year' (override with `.groups` argument)
+\end{verbatim}
+
 \begin{figure}
 \includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-27-1} \caption[Evolutie van 2 variabelen (levensverwachting en inkomen per capita) aan de hand van connected scatterplot]{Evolutie van 2 variabelen (levensverwachting en inkomen per capita) aan de hand van connected scatterplot.}\label{fig:unnamed-chunk-27}
 \end{figure}
 
 Variant, per continent:
+
+\begin{verbatim}
+## `summarise()` regrouping output by 'year', 'key' (override with `.groups` argument)
+\end{verbatim}
 
 \begin{figure}
 \includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-28-1} \caption[Evolutie van 2 variabelen aan de hand van connected scatterplot - verschillende groepen]{Evolutie van 2 variabelen aan de hand van connected scatterplot - verschillende groepen.}\label{fig:unnamed-chunk-28}

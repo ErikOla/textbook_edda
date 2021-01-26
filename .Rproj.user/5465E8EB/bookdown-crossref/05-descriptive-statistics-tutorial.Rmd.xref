@@ -1,0 +1,14 @@
+h1:tutorial---descriptieve-statistieken Tutorial - Descriptieve statistieken
+h2:before-you-start Before you start
+h2:introduction Introduction
+h2:helpful-dplyr-functions Helpful dplyr functions
+h3:tibbles Tibbles
+h3:glimpse Glimpse
+h3:section %>%
+h2:univariate-analysis-of-a-continuous-variable Univariate analysis of a continuous variable
+h2:bivariate-analysis-of-a-continuous-variable-with-respect-to-a-categorical-variable Bivariate analysis of a continuous variable with respect to a categorical variable
+h2:univariate-analysis-of-a-categorical-variable Univariate analysis of a categorical variable
+h2:bivariate-analysis-of-a-continuous-variable-with-respect-to-another-continuous-variable Bivariate analysis of a continuous variable with respect to another continuous variable
+h2:bivariate-analysis-of-a-categorical-variable-with-respect-to-another-categorical-variable Bivariate analysis of a categorical variable with respect to another categorical variable
+h2:background-material Background material
+

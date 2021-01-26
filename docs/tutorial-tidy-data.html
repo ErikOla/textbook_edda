@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 10 Tutorial - Tidy data | Exploratieve en Descriptieve Data Analyse</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
-  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 10 Tutorial - Tidy data | Exploratieve en Descriptieve Data Analyse" />
   <meta property="og:type" content="book" />
@@ -49,7 +49,10 @@
 
 
 
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -388,9 +391,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="before-you-start-3" class="section level2">
 <h2><span class="header-section-number">10.1</span> Before you start</h2>
 <p>During this tutorial, we’ll use several r-packages. Make sure to install and load them, if needed.</p>
-<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb315-1" title="1"><span class="kw">library</span>(dplyr)</a>
-<a class="sourceLine" id="cb315-2" title="2"><span class="kw">library</span>(tidyr)</a>
-<a class="sourceLine" id="cb315-3" title="3"><span class="kw">library</span>(stringr)</a></code></pre></div>
+<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb325-1" title="1"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb325-2" title="2"><span class="kw">library</span>(tidyr)</a>
+<a class="sourceLine" id="cb325-3" title="3"><span class="kw">library</span>(stringr)</a></code></pre></div>
 <p>Our old friend dplyr will provide us with some functions to combined different datasets into one. We will use tidyr to transform datasets, and stringr to do some munipulations of character variables.</p>
 <p>This tutorial consist of two major parts:</p>
 <ol style="list-style-type: decimal">
@@ -412,7 +415,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>We <strong>join</strong> different datasets which contain different information about the same observations. For example, we can have 1) a dataset of countries with their population and 2) a dataset of countries with their life expectancy. These we can <em>join</em> together.</li>
 </ul>
-<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb316-1" title="1">countries_population</a></code></pre></div>
+<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb326-1" title="1">countries_population</a></code></pre></div>
 <pre><code>## # A tibble: 114 x 2
 ##    country             pop
 ##    &lt;fct&gt;             &lt;int&gt;
@@ -427,7 +430,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  9 United States 301139947
 ## 10 New Zealand     4115771
 ## # ... with 104 more rows</code></pre>
-<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb318-1" title="1">countries_lifeExp</a></code></pre></div>
+<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb328-1" title="1">countries_lifeExp</a></code></pre></div>
 <pre><code>## # A tibble: 85 x 2
 ##    country          lifeExp
 ##    &lt;fct&gt;              &lt;dbl&gt;
@@ -445,7 +448,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>We <strong>bind</strong> different datasets which contain the same information on different observations. For example, we can have 1) a dataset of European countries with their population and 2) a dataset of African countries with their population. We can <em>bind</em> these two together.<a href="#fn44" class="footnote-ref" id="fnref44"><sup>44</sup></a></li>
 </ul>
-<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb320-1" title="1">population_africa</a></code></pre></div>
+<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb330-1" title="1">population_africa</a></code></pre></div>
 <pre><code>## # A tibble: 52 x 2
 ##    country                       pop
 ##    &lt;fct&gt;                       &lt;int&gt;
@@ -460,7 +463,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  9 Chad                     10238807
 ## 10 Comoros                    710960
 ## # ... with 42 more rows</code></pre>
-<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb322-1" title="1">population_europe</a></code></pre></div>
+<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb332-1" title="1">population_europe</a></code></pre></div>
 <pre><code>## # A tibble: 30 x 2
 ##    country                     pop
 ##    &lt;fct&gt;                     &lt;int&gt;
@@ -499,7 +502,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="inner-join" class="section level3">
 <h3><span class="header-section-number">10.2.2</span> Inner join</h3>
 <p>Inner join means: I only keep information about keys that occur in both tables. So, if I don’t have the population of country A, I don’t want its life expectancy.</p>
-<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb324-1" title="1"><span class="kw">inner_join</span>(countries_population, countries_lifeExp)</a></code></pre></div>
+<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb334-1" title="1"><span class="kw">inner_join</span>(countries_population, countries_lifeExp)</a></code></pre></div>
 <pre><code>## Joining, by = &quot;country&quot;</code></pre>
 <pre><code>## # A tibble: 73 x 3
 ##    country             pop lifeExp
@@ -520,7 +523,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="left-join" class="section level3">
 <h3><span class="header-section-number">10.2.3</span> Left join</h3>
 <p>Left join means: I keep all information in my first (left) table. So, even if I don’t have the life expectancy, still give me the population. The missing part of the new observation (i.e. the life expectancy), is now NA.</p>
-<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb327-1" title="1"><span class="kw">left_join</span>(countries_population, countries_lifeExp)</a></code></pre></div>
+<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb337-1" title="1"><span class="kw">left_join</span>(countries_population, countries_lifeExp)</a></code></pre></div>
 <pre><code>## Joining, by = &quot;country&quot;</code></pre>
 <pre><code>## # A tibble: 114 x 3
 ##    country             pop lifeExp
@@ -537,8 +540,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10 New Zealand     4115771    NA  
 ## # ... with 104 more rows</code></pre>
 <p>This join gives us 114 observations, which is the number of countries for which we have information on the population. Also note how it inserts NA’s for the lifeExp variable.</p>
-<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb330-1" title="1"><span class="kw">left_join</span>(countries_population, countries_lifeExp) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb330-2" title="2"><span class="st">    </span><span class="kw">summary</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb340-1" title="1"><span class="kw">left_join</span>(countries_population, countries_lifeExp) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb340-2" title="2"><span class="st">    </span><span class="kw">summary</span>()</a></code></pre></div>
 <pre><code>## Joining, by = &quot;country&quot;</code></pre>
 <pre><code>##        country         pop               lifeExp     
 ##  Algeria   :  1   Min.   :1.996e+05   Min.   :42.59  
@@ -552,7 +555,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="right-join" class="section level3">
 <h3><span class="header-section-number">10.2.4</span> Right join</h3>
 <p>Right join means: the opposite of left join. I keep all information in my second (right) table.</p>
-<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb333-1" title="1"><span class="kw">right_join</span>(countries_population, countries_lifeExp)</a></code></pre></div>
+<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb343-1" title="1"><span class="kw">right_join</span>(countries_population, countries_lifeExp)</a></code></pre></div>
 <pre><code>## Joining, by = &quot;country&quot;</code></pre>
 <pre><code>## # A tibble: 85 x 3
 ##    country                pop lifeExp
@@ -573,7 +576,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="full-join" class="section level3">
 <h3><span class="header-section-number">10.2.5</span> Full join</h3>
 <p>Full join means: I want to keep all information I have. So also populations for countries without life expectancy and vice versa remain in the dataset. All missing information is filled in as NA.</p>
-<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb336-1" title="1"><span class="kw">full_join</span>(countries_population, countries_lifeExp)</a></code></pre></div>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb346-1" title="1"><span class="kw">full_join</span>(countries_population, countries_lifeExp)</a></code></pre></div>
 <pre><code>## Joining, by = &quot;country&quot;</code></pre>
 <pre><code>## # A tibble: 126 x 3
 ##    country             pop lifeExp
@@ -601,10 +604,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="an-example" class="section level3">
 <h3><span class="header-section-number">10.2.7</span> An example</h3>
 <p>The package nycflights13 contains different datasets about flights from NYC in 2013.</p>
-<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb339-1" title="1"><span class="kw">library</span>(nycflights13)</a></code></pre></div>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb349-1" title="1"><span class="kw">library</span>(nycflights13)</a></code></pre></div>
 <p>One of the datasets is called flights</p>
-<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb340-1" title="1">flights <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb340-2" title="2"><span class="st">    </span>glimpse</a></code></pre></div>
+<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb350-1" title="1">flights <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb350-2" title="2"><span class="st">    </span>glimpse</a></code></pre></div>
 <pre><code>## Observations: 336,776
 ## Variables: 19
 ## $ year           &lt;int&gt; 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2013...
@@ -627,15 +630,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## $ minute         &lt;dbl&gt; 15, 29, 40, 45, 0, 58, 0, 0, 0, 0, 0, 0, 0, 0, 0, 59...
 ## $ time_hour      &lt;dttm&gt; 2013-01-01 05:00:00, 2013-01-01 05:00:00, 2013-01-0...</code></pre>
 <p>Another one is airlines; with more information on the arilines, evidently.</p>
-<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb342-1" title="1">airlines <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb342-2" title="2"><span class="st">    </span>glimpse</a></code></pre></div>
+<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb352-1" title="1">airlines <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb352-2" title="2"><span class="st">    </span>glimpse</a></code></pre></div>
 <pre><code>## Observations: 16
 ## Variables: 2
 ## $ carrier &lt;chr&gt; &quot;9E&quot;, &quot;AA&quot;, &quot;AS&quot;, &quot;B6&quot;, &quot;DL&quot;, &quot;EV&quot;, &quot;F9&quot;, &quot;FL&quot;, &quot;HA&quot;, &quot;MQ&quot;,...
 ## $ name    &lt;chr&gt; &quot;Endeavor Air Inc.&quot;, &quot;American Airlines Inc.&quot;, &quot;Alaska Airl...</code></pre>
 <p>You can see they have the carrier variable in common, which contains a code for each airline. We can add the name of the airline to the flights</p>
-<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb344-1" title="1">flights <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb344-2" title="2"><span class="st">    </span><span class="kw">inner_join</span>(airlines)</a></code></pre></div>
+<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb354-1" title="1">flights <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb354-2" title="2"><span class="st">    </span><span class="kw">inner_join</span>(airlines)</a></code></pre></div>
 <pre><code>## Joining, by = &quot;carrier&quot;</code></pre>
 <pre><code>## # A tibble: 336,776 x 20
 ##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
@@ -656,8 +659,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## #   name &lt;chr&gt;</code></pre>
 <p>Note that we did an inner join and our number of flights didn’t decrease. This means that every carrier in flights is also available in airlines. In other words, for all carriers we have seen flights of, we know the name of the airline.</p>
 <p>For a more advanced example, let’s look at weather.</p>
-<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb347-1" title="1">weather <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb347-2" title="2"><span class="st">    </span>glimpse</a></code></pre></div>
+<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb357-1" title="1">weather <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb357-2" title="2"><span class="st">    </span>glimpse</a></code></pre></div>
 <pre><code>## Observations: 26,115
 ## Variables: 15
 ## $ origin     &lt;chr&gt; &quot;EWR&quot;, &quot;EWR&quot;, &quot;EWR&quot;, &quot;EWR&quot;, &quot;EWR&quot;, &quot;EWR&quot;, &quot;EWR&quot;, &quot;EWR&quot;, ...
@@ -677,13 +680,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## $ time_hour  &lt;dttm&gt; 2013-01-01 01:00:00, 2013-01-01 02:00:00, 2013-01-01 03...</code></pre>
 <p>It contains information on place and time: the same we also have for flights, and it contains several variables about the weather (wind, temperature, precipitation, etc.)</p>
 <p>Let’s join the flights data with the weather.</p>
-<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb349-1" title="1">flights <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb349-2" title="2"><span class="st">    </span><span class="kw">inner_join</span>(airlines) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb349-3" title="3"><span class="st">    </span><span class="kw">inner_join</span>(weather) -&gt;<span class="st"> </span>flights</a></code></pre></div>
+<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb359-1" title="1">flights <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb359-2" title="2"><span class="st">    </span><span class="kw">inner_join</span>(airlines) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb359-3" title="3"><span class="st">    </span><span class="kw">inner_join</span>(weather) -&gt;<span class="st"> </span>flights</a></code></pre></div>
 <pre><code>## Joining, by = &quot;carrier&quot;</code></pre>
 <pre><code>## Joining, by = c(&quot;year&quot;, &quot;month&quot;, &quot;day&quot;, &quot;origin&quot;, &quot;hour&quot;, &quot;time_hour&quot;)</code></pre>
-<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb352-1" title="1">flights <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb352-2" title="2"><span class="st">    </span>glimpse</a></code></pre></div>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb362-1" title="1">flights <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb362-2" title="2"><span class="st">    </span>glimpse</a></code></pre></div>
 <pre><code>## Observations: 335,220
 ## Variables: 29
 ## $ year           &lt;int&gt; 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2013...
@@ -720,7 +723,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="binding-data" class="section level3">
 <h3><span class="header-section-number">10.2.8</span> Binding data</h3>
 <p>The data we joined above were always different pieces of information which we somehow linked (same country, same, time, same place, same airline, etc.) Sometimes we have dataset on separate objects which are not linked, but contain the same information. Recall the datasets on African and European countries.</p>
-<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb354-1" title="1">population_africa</a></code></pre></div>
+<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb364-1" title="1">population_africa</a></code></pre></div>
 <pre><code>## # A tibble: 52 x 2
 ##    country                       pop
 ##    &lt;fct&gt;                       &lt;int&gt;
@@ -735,7 +738,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  9 Chad                     10238807
 ## 10 Comoros                    710960
 ## # ... with 42 more rows</code></pre>
-<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb356-1" title="1">population_europe</a></code></pre></div>
+<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb366-1" title="1">population_europe</a></code></pre></div>
 <pre><code>## # A tibble: 30 x 2
 ##    country                     pop
 ##    &lt;fct&gt;                     &lt;int&gt;
@@ -752,7 +755,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## # ... with 20 more rows</code></pre>
 <p>These observation are not linked (there is no link between an African country and a European one), but they contain the same pieces of information (i.e. population).</p>
 <p>We can <strong>bind</strong> these <strong>rows</strong> together.</p>
-<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb358-1" title="1"><span class="kw">bind_rows</span>(population_africa, population_europe)</a></code></pre></div>
+<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb368-1" title="1"><span class="kw">bind_rows</span>(population_africa, population_europe)</a></code></pre></div>
 <pre><code>## # A tibble: 82 x 2
 ##    country                       pop
 ##    &lt;fct&gt;                       &lt;int&gt;
@@ -769,7 +772,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## # ... with 72 more rows</code></pre>
 <p>Note that we had 52 African countries and 30 European countries. Together, this makes for 82 countries.</p>
 <p>For bind rows, it is not necesarry to have exactly the same information. Suppose that we have life expectancy for African countries, but not for European. Consider the dataset <code>information_africa</code>.</p>
-<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb360-1" title="1">information_africa </a></code></pre></div>
+<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb370-1" title="1">information_africa </a></code></pre></div>
 <pre><code>## # A tibble: 52 x 3
 ##    country                       pop lifeExp
 ##    &lt;fct&gt;                       &lt;int&gt;   &lt;dbl&gt;
@@ -785,8 +788,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10 Comoros                    710960    65.2
 ## # ... with 42 more rows</code></pre>
 <p>And we bind these two datasets.</p>
-<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb362-1" title="1"><span class="kw">bind_rows</span>(information_africa, population_europe) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb362-2" title="2"><span class="st">    </span>summary</a></code></pre></div>
+<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb372-1" title="1"><span class="kw">bind_rows</span>(information_africa, population_europe) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb372-2" title="2"><span class="st">    </span>summary</a></code></pre></div>
 <pre><code>##     country        pop               lifeExp     
 ##  Albania: 1   Min.   :   199579   Min.   :39.61  
 ##  Algeria: 1   1st Qu.:  4174074   1st Qu.:47.83  
@@ -822,7 +825,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="unite-variables" class="section level3">
 <h3><span class="header-section-number">10.3.1</span> Unite variables</h3>
 <p>We use the function <code>unite</code> when we have several variables that we want to combine into a single one. The syntax for unite is as follows. Suppose we have information about students, with a first_name and last_name, and we want a single “name” variable.</p>
-<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb364-1" title="1">students</a></code></pre></div>
+<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb374-1" title="1">students</a></code></pre></div>
 <pre><code>## # A tibble: 10 x 2
 ##    first_name last_name
 ##    &lt;chr&gt;      &lt;chr&gt;    
@@ -836,8 +839,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 Chaston    Allyn    
 ##  9 Reyn       Tanita   
 ## 10 Ogechi     Sherriann</code></pre>
-<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb366-1" title="1">students <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb366-2" title="2"><span class="st">    </span><span class="kw">unite</span>(<span class="dt">col =</span> name, first_name, last_name)</a></code></pre></div>
+<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb376-1" title="1">students <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb376-2" title="2"><span class="st">    </span><span class="kw">unite</span>(<span class="dt">col =</span> name, first_name, last_name)</a></code></pre></div>
 <pre><code>## # A tibble: 10 x 1
 ##    name            
 ##    &lt;chr&gt;           
@@ -852,8 +855,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  9 Reyn_Tanita     
 ## 10 Ogechi_Sherriann</code></pre>
 <p>We first specify the name for the new column (which here is just name), then we list all columns we want to unite. Note that be default, unite will put a _ between the colums. We can change this with the argument sep.</p>
-<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb368-1" title="1">students <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb368-2" title="2"><span class="st">    </span><span class="kw">unite</span>(<span class="dt">col =</span> name, first_name, last_name, <span class="dt">sep =</span> <span class="st">&quot; &quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb378-1" title="1">students <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb378-2" title="2"><span class="st">    </span><span class="kw">unite</span>(<span class="dt">col =</span> name, first_name, last_name, <span class="dt">sep =</span> <span class="st">&quot; &quot;</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 10 x 1
 ##    name            
 ##    &lt;chr&gt;           
@@ -868,8 +871,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  9 Reyn Tanita     
 ## 10 Ogechi Sherriann</code></pre>
 <p>Sometimes we also prefer to keep the original variables. We can ask not te remove them as follows.</p>
-<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb370-1" title="1">students <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb370-2" title="2"><span class="st">    </span><span class="kw">unite</span>(<span class="dt">col =</span> name, first_name, last_name, <span class="dt">sep  =</span><span class="st">&quot; &quot;</span>, <span class="dt">remove =</span> F)</a></code></pre></div>
+<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb380-1" title="1">students <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb380-2" title="2"><span class="st">    </span><span class="kw">unite</span>(<span class="dt">col =</span> name, first_name, last_name, <span class="dt">sep  =</span><span class="st">&quot; &quot;</span>, <span class="dt">remove =</span> F)</a></code></pre></div>
 <pre><code>## # A tibble: 10 x 3
 ##    name             first_name last_name
 ##    &lt;chr&gt;            &lt;chr&gt;      &lt;chr&gt;    
@@ -887,7 +890,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="separate-variables" class="section level3">
 <h3><span class="header-section-number">10.3.2</span> Separate variables</h3>
 <p>Separate works the other way around: it separates a single variable into multiple ones. Suppose we have a list of students (students2) with their full names, and we want to separate them.<a href="#fn48" class="footnote-ref" id="fnref48"><sup>48</sup></a></p>
-<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb372-1" title="1">students_<span class="dv">2</span></a></code></pre></div>
+<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb382-1" title="1">students_<span class="dv">2</span></a></code></pre></div>
 <pre><code>## # A tibble: 10 x 1
 ##    name            
 ##    &lt;chr&gt;           
@@ -902,8 +905,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  9 Garcelle Ziah   
 ## 10 Jaleal Nancy</code></pre>
 <p>We can use separate in a similar way. First tell which column you want separated. Then tell them into which columns you want to put the pieces.<a href="#fn49" class="footnote-ref" id="fnref49"><sup>49</sup></a></p>
-<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb374-1" title="1">students_<span class="dv">2</span> <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb374-2" title="2"><span class="st">    </span><span class="kw">separate</span>(<span class="dt">col =</span> name, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">&quot;first_name&quot;</span>,<span class="st">&quot;last_name&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb384-1" title="1">students_<span class="dv">2</span> <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb384-2" title="2"><span class="st">    </span><span class="kw">separate</span>(<span class="dt">col =</span> name, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">&quot;first_name&quot;</span>,<span class="st">&quot;last_name&quot;</span>))</a></code></pre></div>
 <pre><code>## # A tibble: 10 x 2
 ##    first_name last_name
 ##    &lt;chr&gt;      &lt;chr&gt;    
@@ -927,9 +930,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="images/spread.PNG" width="100%" /></p>
 <p>If at this moment you hear it thundering in Keulen, it might be time for you to revise earlier tutorials. Because we have actually already seen spread before (Did we?) (Yes we did.)</p>
 <p>The following example might refresh things a bit.</p>
-<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb376-1" title="1"><span class="kw">library</span>(ggplot2)</a>
-<a class="sourceLine" id="cb376-2" title="2">diamonds <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb376-3" title="3"><span class="st">    </span><span class="kw">count</span>(color, clarity)</a></code></pre></div>
+<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb386-1" title="1"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb386-2" title="2">diamonds <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb386-3" title="3"><span class="st">    </span><span class="kw">count</span>(color, clarity)</a></code></pre></div>
 <pre><code>## # A tibble: 56 x 3
 ##    color clarity     n
 ##    &lt;ord&gt; &lt;ord&gt;   &lt;int&gt;
@@ -944,9 +947,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  9 E     I1        102
 ## 10 E     SI2      1713
 ## # ... with 46 more rows</code></pre>
-<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb378-1" title="1">diamonds <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb378-2" title="2"><span class="st">    </span><span class="kw">count</span>(color, clarity) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb378-3" title="3"><span class="st">    </span><span class="kw">spread</span>(clarity, n)</a></code></pre></div>
+<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb388-1" title="1">diamonds <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb388-2" title="2"><span class="st">    </span><span class="kw">count</span>(color, clarity) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb388-3" title="3"><span class="st">    </span><span class="kw">spread</span>(clarity, n)</a></code></pre></div>
 <pre><code>## # A tibble: 7 x 9
 ##   color    I1   SI2   SI1   VS2   VS1  VVS2  VVS1    IF
 ##   &lt;ord&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
@@ -966,7 +969,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="images/gather.PNG" width="100%" /></p>
 <p>Let’s look at an example.</p>
 <p>The dataset below shows the population for every country on earth after each 5 year interval, starting in 1952, ending in 2007.</p>
-<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb380-1" title="1">yearly_population</a></code></pre></div>
+<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb390-1" title="1">yearly_population</a></code></pre></div>
 <pre><code>## # A tibble: 142 x 14
 ##    country continent `1952` `1957` `1962` `1967` `1972` `1977` `1982` `1987`
 ##    &lt;fct&gt;   &lt;fct&gt;      &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;
@@ -990,8 +993,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>After that, we specify all the columns we want to gather. In our case all years. So, we can just say that we don’t want to gather country and continent instead.<a href="#fn50" class="footnote-ref" id="fnref50"><sup>50</sup></a></li>
 </ul>
 <p>Let’s see what happens.</p>
-<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb382-1" title="1">yearly_population <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb382-2" title="2"><span class="st">    </span><span class="kw">gather</span>(<span class="dt">key =</span> time, <span class="dt">value =</span> population, <span class="op">-</span>country, <span class="op">-</span>continent)</a></code></pre></div>
+<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb392-1" title="1">yearly_population <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb392-2" title="2"><span class="st">    </span><span class="kw">gather</span>(<span class="dt">key =</span> time, <span class="dt">value =</span> population, <span class="op">-</span>country, <span class="op">-</span>continent)</a></code></pre></div>
 <pre><code>## # A tibble: 1,704 x 4
 ##    country     continent time  population
 ##    &lt;fct&gt;       &lt;fct&gt;     &lt;chr&gt;      &lt;int&gt;
@@ -1019,15 +1022,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Unfortunately, no. It isn’t.</p>
 <p>Spread and gather are probably the least intuitive functions you will learn in this course. Try to read this section several times, and look very good at the examples. Try to see what’s happening. Things can get very complicated with spread and gather, as they change the structure of your data entirely. Combining them with joins only increases the difficulty. So, don’t go easy on this. Spend some time in trying to understand the functions, and learn how to use the cheatsheet. The functions are not easy at all, but you will need them sooner than you think. Let’s see them at work in other example. We will use some real-life data of the World Hearlth Organisations WHO!</p>
 <p>Oh, I almost forgot! We would make a line plot of the population data. Well, you see, once we have gather, it gets easy. We can almost directly go to ggplot.</p>
-<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb384-1" title="1">yearly_population <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb384-2" title="2"><span class="st">    </span><span class="kw">gather</span>(<span class="dt">key =</span> time, <span class="dt">value =</span> population, <span class="op">-</span>country, <span class="op">-</span>continent) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb384-3" title="3"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">time =</span> <span class="kw">as.numeric</span>(time)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb384-4" title="4"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(time, population<span class="op">/</span>(<span class="dv">10</span><span class="op">^</span><span class="dv">9</span>), <span class="dt">group =</span> country, <span class="dt">color =</span> continent)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb384-5" title="5"><span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb384-6" title="6"><span class="st">    </span><span class="kw">facet_grid</span>(.<span class="op">~</span>continent) <span class="op">+</span></a>
-<a class="sourceLine" id="cb384-7" title="7"><span class="st">    </span><span class="kw">theme_light</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb384-8" title="8"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Population (in billion)&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb384-9" title="9"><span class="st">    </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;top&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb394-1" title="1">yearly_population <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb394-2" title="2"><span class="st">    </span><span class="kw">gather</span>(<span class="dt">key =</span> time, <span class="dt">value =</span> population, <span class="op">-</span>country, <span class="op">-</span>continent) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb394-3" title="3"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">time =</span> <span class="kw">as.numeric</span>(time)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb394-4" title="4"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(time, population<span class="op">/</span>(<span class="dv">10</span><span class="op">^</span><span class="dv">9</span>), <span class="dt">group =</span> country, <span class="dt">color =</span> continent)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb394-5" title="5"><span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb394-6" title="6"><span class="st">    </span><span class="kw">facet_grid</span>(.<span class="op">~</span>continent) <span class="op">+</span></a>
+<a class="sourceLine" id="cb394-7" title="7"><span class="st">    </span><span class="kw">theme_light</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb394-8" title="8"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Population (in billion)&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb394-9" title="9"><span class="st">    </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;top&quot;</span>)</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-273-1.png" width="100%" /></p>
 <p>Can you tell which countries are the two soaring lines in Asia? (Please tell me you can.)</p>
 <p>So, let’s study some health!</p>
@@ -1055,8 +1058,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>(No need to know the different diagnosis methods.)</p>
 <p>The data looks as follows.</p>
-<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb385-1" title="1">who <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb385-2" title="2"><span class="st">    </span><span class="kw">glimpse</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb395-1" title="1">who <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb395-2" title="2"><span class="st">    </span><span class="kw">glimpse</span>()</a></code></pre></div>
 <pre><code>## Observations: 7,240
 ## Variables: 60
 ## $ country      &lt;chr&gt; &quot;Afghanistan&quot;, &quot;Afghanistan&quot;, &quot;Afghanistan&quot;, &quot;Afghanis...
@@ -1121,8 +1124,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## $ newrel_f65   &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...</code></pre>
 <p>To be honest: quite a mess. We don’t really need 60 variables for the data we just described, do we? What’s going on?</p>
 <p>It seems that for each country and each year, the data contains one row. Let’s verify.</p>
-<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb387-1" title="1">who <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb387-2" title="2"><span class="st">    </span><span class="kw">count</span>(country, year)</a></code></pre></div>
+<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb397-1" title="1">who <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb397-2" title="2"><span class="st">    </span><span class="kw">count</span>(country, year)</a></code></pre></div>
 <pre><code>## # A tibble: 7,240 x 3
 ##    country      year     n
 ##    &lt;chr&gt;       &lt;int&gt; &lt;int&gt;
@@ -1138,20 +1141,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10 Afghanistan  1989     1
 ## # ... with 7,230 more rows</code></pre>
 <p>We see mostly ones. Let’s check for sure.</p>
-<div class="sourceCode" id="cb389"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb389-1" title="1">who <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb389-2" title="2"><span class="st">    </span><span class="kw">count</span>(country, year) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb389-3" title="3"><span class="st">    </span><span class="kw">filter</span>(n <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb399-1" title="1">who <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb399-2" title="2"><span class="st">    </span><span class="kw">count</span>(country, year) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb399-3" title="3"><span class="st">    </span><span class="kw">filter</span>(n <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 0 x 3
 ## # ... with 3 variables: country &lt;chr&gt;, year &lt;int&gt;, n &lt;int&gt;</code></pre>
 <p>Ok. So, each year, each country, one row. We have 7240 rows because we have</p>
-<div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb391-1" title="1">who <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">count</span>(year) <span class="op">%&gt;%</span><span class="st"> </span>nrow</a></code></pre></div>
+<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb401-1" title="1">who <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">count</span>(year) <span class="op">%&gt;%</span><span class="st"> </span>nrow</a></code></pre></div>
 <pre><code>## [1] 34</code></pre>
 <p>34 years, and</p>
-<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb393-1" title="1">who <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">count</span>(country) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">nrow</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb403-1" title="1">who <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">count</span>(country) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">nrow</span>()</a></code></pre></div>
 <pre><code>## [1] 219</code></pre>
 <p>219 countries.</p>
 <p>Thus we expect this many rows:</p>
-<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb395-1" title="1"><span class="dv">219</span><span class="op">*</span><span class="dv">34</span></a></code></pre></div>
+<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb405-1" title="1"><span class="dv">219</span><span class="op">*</span><span class="dv">34</span></a></code></pre></div>
 <pre><code>## [1] 7446</code></pre>
 <p>It seems we are missing 206 rows. I.e. there are countries for which we don’t have all years, or vice versa. It is not really important here, but these are the kind of things a good data analyst checks.</p>
 <p>Let’s go back to our problem.</p>
@@ -1176,8 +1179,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>cases (the number of TB cases)</li>
 </ul>
 <p>First of all, let’s go to a dataset in a long format, by gathering all the different types of diagnosis and cases into a long list. We will not gather the first 4 columns. The old columns will be a variable “type”, and the numbers will be called “cases”.</p>
-<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb397-1" title="1">who <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb397-2" title="2"><span class="st">    </span><span class="kw">gather</span>(<span class="dt">key =</span> type, <span class="dt">value =</span> cases, <span class="op">-</span>country<span class="op">:-</span>year)</a></code></pre></div>
+<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb407-1" title="1">who <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb407-2" title="2"><span class="st">    </span><span class="kw">gather</span>(<span class="dt">key =</span> type, <span class="dt">value =</span> cases, <span class="op">-</span>country<span class="op">:-</span>year)</a></code></pre></div>
 <pre><code>## # A tibble: 405,440 x 6
 ##    country     iso2  iso3   year type        cases
 ##    &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;chr&gt;       &lt;int&gt;
@@ -1195,9 +1198,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>See what happened? Take a good look.</p>
 <p>Had you figured out that we first needed to gather the data? If yes, congratulations, you start to get what data transformation is and which transformations you need where. If no, don’t worry. Remember that I told you this is a hard skill. Furthermore, there are probably different ways to do this.</p>
 <p>We can get rid of iso2 and iso3. Note that they might be useful for joining the data with other data about countries, but we have no plans to do so. Just, let’s get them out of our way.</p>
-<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb399-1" title="1">who <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb399-2" title="2"><span class="st">    </span><span class="kw">gather</span>(<span class="dt">key =</span> type, <span class="dt">value =</span> cases, <span class="op">-</span>country<span class="op">:-</span>year) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb399-3" title="3"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>iso2, <span class="op">-</span>iso3)</a></code></pre></div>
+<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb409-1" title="1">who <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb409-2" title="2"><span class="st">    </span><span class="kw">gather</span>(<span class="dt">key =</span> type, <span class="dt">value =</span> cases, <span class="op">-</span>country<span class="op">:-</span>year) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb409-3" title="3"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>iso2, <span class="op">-</span>iso3)</a></code></pre></div>
 <pre><code>## # A tibble: 405,440 x 4
 ##    country      year type        cases
 ##    &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;       &lt;int&gt;
@@ -1214,11 +1217,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## # ... with 405,430 more rows</code></pre>
 <p>Now, there is a lot of information in the type variable. Actually, there are more variables in this single variable. let’s separate them. (See how that thought process goes?)</p>
 <p>First, let’s look at the different levels by doing a quick count.</p>
-<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb401-1" title="1">who <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb401-2" title="2"><span class="st">    </span><span class="kw">gather</span>(<span class="dt">key =</span> type, <span class="dt">value =</span> cases, <span class="op">-</span>country<span class="op">:-</span>year) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb401-3" title="3"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>iso2, <span class="op">-</span>iso3) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb401-4" title="4"><span class="st">    </span><span class="kw">count</span>(type) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb401-5" title="5"><span class="st">    </span><span class="kw">print</span>(<span class="dt">n =</span> <span class="ot">Inf</span>) <span class="co"># I want to see all of them</span></a></code></pre></div>
+<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb411-1" title="1">who <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb411-2" title="2"><span class="st">    </span><span class="kw">gather</span>(<span class="dt">key =</span> type, <span class="dt">value =</span> cases, <span class="op">-</span>country<span class="op">:-</span>year) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb411-3" title="3"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>iso2, <span class="op">-</span>iso3) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb411-4" title="4"><span class="st">    </span><span class="kw">count</span>(type) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb411-5" title="5"><span class="st">    </span><span class="kw">print</span>(<span class="dt">n =</span> <span class="ot">Inf</span>) <span class="co"># I want to see all of them</span></a></code></pre></div>
 <pre><code>## # A tibble: 56 x 2
 ##    type             n
 ##    &lt;chr&gt;        &lt;int&gt;
@@ -1280,12 +1283,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 56 newrel_m65    7240</code></pre>
 <p>Oh crap. The first 42 levels are nicely separated by 2 underscores. But the last are not. It’s all “newrel” instead of “new_rel”. Separate will not be able to split that…</p>
 <p>So, let’s pull together a neat trick. We are going to replace all the little “newrel” part with “new_rel”. How? Using the stringr package for string manipulation. It has a useful function <code>str_replace</code>. Here we go.</p>
-<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb403-1" title="1">who <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb403-2" title="2"><span class="st">    </span><span class="kw">gather</span>(<span class="dt">key =</span> type, <span class="dt">value =</span> cases, <span class="op">-</span>country<span class="op">:-</span>year) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb403-3" title="3"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>iso2, <span class="op">-</span>iso3) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb403-4" title="4"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">type =</span> <span class="kw">str_replace</span>(type, <span class="st">&quot;newrel&quot;</span>, <span class="st">&quot;new_rel&quot;</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb403-5" title="5"><span class="st">    </span><span class="kw">count</span>(type) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb403-6" title="6"><span class="st">    </span><span class="kw">print</span>(<span class="dt">n =</span> <span class="ot">Inf</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb413-1" title="1">who <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb413-2" title="2"><span class="st">    </span><span class="kw">gather</span>(<span class="dt">key =</span> type, <span class="dt">value =</span> cases, <span class="op">-</span>country<span class="op">:-</span>year) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb413-3" title="3"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>iso2, <span class="op">-</span>iso3) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb413-4" title="4"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">type =</span> <span class="kw">str_replace</span>(type, <span class="st">&quot;newrel&quot;</span>, <span class="st">&quot;new_rel&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb413-5" title="5"><span class="st">    </span><span class="kw">count</span>(type) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb413-6" title="6"><span class="st">    </span><span class="kw">print</span>(<span class="dt">n =</span> <span class="ot">Inf</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 56 x 2
 ##    type              n
 ##    &lt;chr&gt;         &lt;int&gt;
@@ -1347,11 +1350,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 56 new_sp_m65     7240</code></pre>
 <p>That’s better, isn’t it? By the way, do you see how we at each point build on what we did before? This way we can easily change mistakes if we make some. Only when our data is correctly transformed, we save it, and put the code in our loadscript.</p>
 <p>But now, we can separate the data. The first part will become the is_new variable, the second part the diagnosis variable, and the last part… well, it contaisn both the gender (f/m) and the age category. Let’s just call it age_gender, and tackle that problem later.</p>
-<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb405-1" title="1">who <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb405-2" title="2"><span class="st">    </span><span class="kw">gather</span>(<span class="dt">key =</span> type, <span class="dt">value =</span> cases, <span class="op">-</span>country<span class="op">:-</span>year) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb405-3" title="3"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>iso2, <span class="op">-</span>iso3) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb405-4" title="4"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">type =</span> <span class="kw">str_replace</span>(type, <span class="st">&quot;newrel&quot;</span>, <span class="st">&quot;new_rel&quot;</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb405-5" title="5"><span class="st">    </span><span class="kw">separate</span>(type, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">&quot;is_new&quot;</span>, <span class="st">&quot;diagnosis&quot;</span>, <span class="st">&quot;gender_age&quot;</span>)) </a></code></pre></div>
+<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb415-1" title="1">who <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb415-2" title="2"><span class="st">    </span><span class="kw">gather</span>(<span class="dt">key =</span> type, <span class="dt">value =</span> cases, <span class="op">-</span>country<span class="op">:-</span>year) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb415-3" title="3"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>iso2, <span class="op">-</span>iso3) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb415-4" title="4"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">type =</span> <span class="kw">str_replace</span>(type, <span class="st">&quot;newrel&quot;</span>, <span class="st">&quot;new_rel&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb415-5" title="5"><span class="st">    </span><span class="kw">separate</span>(type, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">&quot;is_new&quot;</span>, <span class="st">&quot;diagnosis&quot;</span>, <span class="st">&quot;gender_age&quot;</span>)) </a></code></pre></div>
 <pre><code>## # A tibble: 405,440 x 6
 ##    country      year is_new diagnosis gender_age cases
 ##    &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;     &lt;chr&gt;      &lt;int&gt;
@@ -1368,12 +1371,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## # ... with 405,430 more rows</code></pre>
 <p>Cool, that worked! We didn’t even need to tell separate how to split. He decided this automagically. What a smart boy!</p>
 <p>Now, let’s split age_gender. But on what? There is no character to split on. However, separate is so smart, we can tell him to split after the <em>first</em> character - ’cause that one is the gender, the remainder is the age. We could actually do this for any character. We just need to set sep = n, where n is our number. In this case 1. Let’s try!</p>
-<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb407-1" title="1">who <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb407-2" title="2"><span class="st">    </span><span class="kw">gather</span>(<span class="dt">key =</span> type, <span class="dt">value =</span> cases, <span class="op">-</span>country<span class="op">:-</span>year) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb407-3" title="3"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>iso2, <span class="op">-</span>iso3) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb407-4" title="4"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">type =</span> <span class="kw">str_replace</span>(type, <span class="st">&quot;newrel&quot;</span>, <span class="st">&quot;new_rel&quot;</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb407-5" title="5"><span class="st">    </span><span class="kw">separate</span>(type, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">&quot;is_new&quot;</span>, <span class="st">&quot;diagnosis&quot;</span>, <span class="st">&quot;gender_age&quot;</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb407-6" title="6"><span class="st">    </span><span class="kw">separate</span>(gender_age, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">&quot;gender&quot;</span>,<span class="st">&quot;age&quot;</span>), <span class="dt">sep =</span> <span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb417-1" title="1">who <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb417-2" title="2"><span class="st">    </span><span class="kw">gather</span>(<span class="dt">key =</span> type, <span class="dt">value =</span> cases, <span class="op">-</span>country<span class="op">:-</span>year) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb417-3" title="3"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>iso2, <span class="op">-</span>iso3) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb417-4" title="4"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">type =</span> <span class="kw">str_replace</span>(type, <span class="st">&quot;newrel&quot;</span>, <span class="st">&quot;new_rel&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb417-5" title="5"><span class="st">    </span><span class="kw">separate</span>(type, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">&quot;is_new&quot;</span>, <span class="st">&quot;diagnosis&quot;</span>, <span class="st">&quot;gender_age&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb417-6" title="6"><span class="st">    </span><span class="kw">separate</span>(gender_age, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">&quot;gender&quot;</span>,<span class="st">&quot;age&quot;</span>), <span class="dt">sep =</span> <span class="dv">1</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 405,440 x 7
 ##    country      year is_new diagnosis gender age   cases
 ##    &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt; &lt;int&gt;
@@ -1389,20 +1392,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10 Afghanistan  1989 new    sp        m      014      NA
 ## # ... with 405,430 more rows</code></pre>
 <p>I don’t know about you, but I think this is exactly how we wanted the data to be! Let’s save it now.</p>
-<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb409-1" title="1">who <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb409-2" title="2"><span class="st">    </span><span class="kw">gather</span>(<span class="dt">key =</span> type, <span class="dt">value =</span> cases, <span class="op">-</span>country<span class="op">:-</span>year) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb409-3" title="3"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>iso2, <span class="op">-</span>iso3) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb409-4" title="4"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">type =</span> <span class="kw">str_replace</span>(type, <span class="st">&quot;newrel&quot;</span>, <span class="st">&quot;new_rel&quot;</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb409-5" title="5"><span class="st">    </span><span class="kw">separate</span>(type, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">&quot;is_new&quot;</span>, <span class="st">&quot;diagnosis&quot;</span>, <span class="st">&quot;gender_age&quot;</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb409-6" title="6"><span class="st">    </span><span class="kw">separate</span>(gender_age, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">&quot;gender&quot;</span>,<span class="st">&quot;age&quot;</span>), <span class="dt">sep =</span> <span class="dv">1</span>) -&gt;<span class="st"> </span>tidy_who</a></code></pre></div>
+<div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb419-1" title="1">who <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb419-2" title="2"><span class="st">    </span><span class="kw">gather</span>(<span class="dt">key =</span> type, <span class="dt">value =</span> cases, <span class="op">-</span>country<span class="op">:-</span>year) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb419-3" title="3"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>iso2, <span class="op">-</span>iso3) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb419-4" title="4"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">type =</span> <span class="kw">str_replace</span>(type, <span class="st">&quot;newrel&quot;</span>, <span class="st">&quot;new_rel&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb419-5" title="5"><span class="st">    </span><span class="kw">separate</span>(type, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">&quot;is_new&quot;</span>, <span class="st">&quot;diagnosis&quot;</span>, <span class="st">&quot;gender_age&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb419-6" title="6"><span class="st">    </span><span class="kw">separate</span>(gender_age, <span class="dt">into =</span> <span class="kw">c</span>(<span class="st">&quot;gender&quot;</span>,<span class="st">&quot;age&quot;</span>), <span class="dt">sep =</span> <span class="dv">1</span>) -&gt;<span class="st"> </span>tidy_who</a></code></pre></div>
 <p>And just for fun, let us solve the questions we had earlier.</p>
 <ul>
 <li>How many women older, 25 or older in Belgium were diagnosed with TB in 2000? How many of those had a relaps?</li>
 </ul>
-<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb410-1" title="1">tidy_who <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb410-2" title="2"><span class="st">    </span><span class="kw">filter</span>(gender <span class="op">==</span><span class="st"> &quot;f&quot;</span>, <span class="op">!</span>(age <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;014&quot;</span>,<span class="st">&quot;1524&quot;</span>)), country <span class="op">==</span><span class="st"> &quot;Belgium&quot;</span>, year <span class="op">==</span><span class="st"> </span><span class="dv">2000</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb410-3" title="3"><span class="st">    </span><span class="kw">group_by</span>(diagnosis) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb410-4" title="4"><span class="st">    </span><span class="kw">summarize</span>(<span class="dt">n_cases =</span> <span class="kw">sum</span>(cases, <span class="dt">na.rm =</span> T))</a></code></pre></div>
+<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb420-1" title="1">tidy_who <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb420-2" title="2"><span class="st">    </span><span class="kw">filter</span>(gender <span class="op">==</span><span class="st"> &quot;f&quot;</span>, <span class="op">!</span>(age <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;014&quot;</span>,<span class="st">&quot;1524&quot;</span>)), country <span class="op">==</span><span class="st"> &quot;Belgium&quot;</span>, year <span class="op">==</span><span class="st"> </span><span class="dv">2000</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb420-3" title="3"><span class="st">    </span><span class="kw">group_by</span>(diagnosis) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb420-4" title="4"><span class="st">    </span><span class="kw">summarize</span>(<span class="dt">n_cases =</span> <span class="kw">sum</span>(cases, <span class="dt">na.rm =</span> T))</a></code></pre></div>
 <pre><code>## # A tibble: 4 x 2
 ##   diagnosis n_cases
 ##   &lt;chr&gt;       &lt;int&gt;
@@ -1414,10 +1417,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>What is the total number of TB cases in Belgium in each year?</li>
 </ul>
-<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb412-1" title="1">tidy_who <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb412-2" title="2"><span class="st">    </span><span class="kw">filter</span>(country <span class="op">==</span><span class="st"> &quot;Belgium&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb412-3" title="3"><span class="st">    </span><span class="kw">group_by</span>(year) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb412-4" title="4"><span class="st">    </span><span class="kw">summarize</span>(<span class="dt">n_cases =</span> <span class="kw">sum</span>(cases, <span class="dt">na.rm =</span> T))</a></code></pre></div>
+<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb422-1" title="1">tidy_who <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb422-2" title="2"><span class="st">    </span><span class="kw">filter</span>(country <span class="op">==</span><span class="st"> &quot;Belgium&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb422-3" title="3"><span class="st">    </span><span class="kw">group_by</span>(year) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb422-4" title="4"><span class="st">    </span><span class="kw">summarize</span>(<span class="dt">n_cases =</span> <span class="kw">sum</span>(cases, <span class="dt">na.rm =</span> T))</a></code></pre></div>
 <pre><code>## # A tibble: 34 x 2
 ##     year n_cases
 ##    &lt;int&gt;   &lt;int&gt;
@@ -1436,13 +1439,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Can you graphically show the evolution of the number of cases for different genders and age groups?</li>
 </ul>
-<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb414-1" title="1">tidy_who <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb414-2" title="2"><span class="st">    </span><span class="kw">group_by</span>(year, age, gender) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb414-3" title="3"><span class="st">    </span><span class="kw">summarize</span>(<span class="dt">n_cases =</span> <span class="kw">sum</span>(cases, <span class="dt">na.rm =</span> T)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb414-4" title="4"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(year, n_cases)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb414-5" title="5"><span class="st">    </span><span class="kw">geom_line</span>(<span class="dt">color =</span> <span class="st">&quot;pink4&quot;</span>, <span class="dt">lwd =</span> <span class="dv">1</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb414-6" title="6"><span class="st">    </span><span class="kw">facet_grid</span>(gender<span class="op">~</span>age) <span class="op">+</span></a>
-<a class="sourceLine" id="cb414-7" title="7"><span class="st">    </span><span class="kw">theme_light</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb424-1" title="1">tidy_who <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb424-2" title="2"><span class="st">    </span><span class="kw">group_by</span>(year, age, gender) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb424-3" title="3"><span class="st">    </span><span class="kw">summarize</span>(<span class="dt">n_cases =</span> <span class="kw">sum</span>(cases, <span class="dt">na.rm =</span> T)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb424-4" title="4"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(year, n_cases)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb424-5" title="5"><span class="st">    </span><span class="kw">geom_line</span>(<span class="dt">color =</span> <span class="st">&quot;pink4&quot;</span>, <span class="dt">lwd =</span> <span class="dv">1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb424-6" title="6"><span class="st">    </span><span class="kw">facet_grid</span>(gender<span class="op">~</span>age) <span class="op">+</span></a>
+<a class="sourceLine" id="cb424-7" title="7"><span class="st">    </span><span class="kw">theme_light</span>()</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-290-1.png" width="100%" /></p>
 
 </div>
@@ -1484,12 +1487,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -1504,7 +1506,11 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"view": {
+"link": null,
+"text": null
+},
+"download": ["textbook.pdf"],
 "toc": {
 "collapse": "section",
 "depth": 3

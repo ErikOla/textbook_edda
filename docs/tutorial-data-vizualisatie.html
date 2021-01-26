@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 3 Tutorial - Data vizualisatie | Exploratieve en Descriptieve Data Analyse</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
-  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 Tutorial - Data vizualisatie | Exploratieve en Descriptieve Data Analyse" />
   <meta property="og:type" content="book" />
@@ -49,7 +49,10 @@
 
 
 
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -388,12 +391,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="before-you-start" class="section level2">
 <h2><span class="header-section-number">3.1</span> Before you start</h2>
 <p>Before you start this tutorial, make sure to install the package <code>ggplot2</code>, if you haven’t already done so. You can do this using the following line of code:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</a></code></pre></div>
 <p>In any case, you need to load the package into your session.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">library</span>(ggplot2)</a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1"><span class="kw">library</span>(ggplot2)</a></code></pre></div>
 <p>You also need two datasets, <code>movies</code> and <code>diamonds</code>. Both will be provided as a .RDS file with this tutorial.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1">movies &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;movies.RDS&quot;</span>)</a>
-<a class="sourceLine" id="cb4-2" title="2">diamonds &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;diamonds.RDS&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1">movies &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;movies.RDS&quot;</span>)</a>
+<a class="sourceLine" id="cb14-2" title="2">diamonds &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;diamonds.RDS&quot;</span>)</a></code></pre></div>
 </div>
 <div id="introduction" class="section level2">
 <h2><span class="header-section-number">3.2</span> Introduction</h2>
@@ -403,16 +406,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>mapping</strong>: the mapping will define how the variables are <em>mapped</em> onto the aesthetics<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> of the plot, as will be explained further on. This mapping must always be created using the <code>aes()</code> function .</li>
 </ul>
 <p>For example, we might want to make a scatterplot of the movies in which we use the x-axis for their budget and the y-axis for their rating. We then call ggplot as follows:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> movies, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> budget, <span class="dt">y =</span> rating))</a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> movies, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> budget, <span class="dt">y =</span> rating))</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-36-1.png" width="100%" /></p>
 <p>As you can see, this line of code creates a plot with the axes as defined. However, there is no data visualised. The reason herefore is that ggplot doesn’t know yet how we want to visualise it. We have to add what is called <em>a geometric layer</em>. To create a scatterplot, which consists of <em>points</em>, we add <code>geom_point</code> to the plot.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> movies, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> budget, <span class="dt">y =</span> rating)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb6-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> movies, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> budget, <span class="dt">y =</span> rating)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb16-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>()</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-37-1.png" width="100%" /></p>
 <p>This already looks more like it. Remark that the geometric layer was added to the plot by using the <code>+</code> symbol. In this way, multiple layers can be added to the same plot, as well as titles, labels, and configurations of the lay-out, as we will see further on.</p>
 <p>Note that we can also place the mapping of the aesthetics in the geometric layer itself. This will make our code slightly more readable for now, as we place the geometric layer and its mapping on the same line.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> movies) <span class="op">+</span></a>
-<a class="sourceLine" id="cb7-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> budget, <span class="dt">y =</span> rating))</a></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> movies) <span class="op">+</span></a>
+<a class="sourceLine" id="cb17-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> budget, <span class="dt">y =</span> rating))</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-38-1.png" width="100%" /></p>
 <p>We have now created our very first plot! In the following sections we will learn how to use different geometrics and aesthetics and how to enhance the layout of our graphs.</p>
 </div>
@@ -441,12 +444,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>alpha</strong>: this will define the degree of transparancy</li>
 </ul>
 <p>For example, the graph below will plot black triangles filled with red with a size of 2. Note that the position of the triangles is exactly the same as the position of the points in the previous plot.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> movies) <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> budget, <span class="dt">y =</span> rating), </a>
-<a class="sourceLine" id="cb8-3" title="3">               <span class="dt">shape =</span> <span class="dv">24</span>, </a>
-<a class="sourceLine" id="cb8-4" title="4">               <span class="dt">fill =</span> <span class="st">&quot;red&quot;</span>, </a>
-<a class="sourceLine" id="cb8-5" title="5">               <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, </a>
-<a class="sourceLine" id="cb8-6" title="6">               <span class="dt">size =</span> <span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> movies) <span class="op">+</span></a>
+<a class="sourceLine" id="cb18-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> budget, <span class="dt">y =</span> rating), </a>
+<a class="sourceLine" id="cb18-3" title="3">               <span class="dt">shape =</span> <span class="dv">24</span>, </a>
+<a class="sourceLine" id="cb18-4" title="4">               <span class="dt">fill =</span> <span class="st">&quot;red&quot;</span>, </a>
+<a class="sourceLine" id="cb18-5" title="5">               <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, </a>
+<a class="sourceLine" id="cb18-6" title="6">               <span class="dt">size =</span> <span class="dv">2</span>)</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-39-1.png" width="100%" /></p>
 <p>But wait, there is something important going on here! While the x and y-aesthetics were defined inside the aes-mapping, the other aesthetics were defined outside of it. Why’s that?</p>
 <p>Actually, aesthetics can be set in two different ways:</p>
@@ -455,18 +458,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>They can be set to one fixed value.</li>
 </ol>
 <p>In our example, x and y are mapped to two variables in the data, i.e. budget and rating, while the other aesthetics, shape, fill, color and size, are set to fixed values. Although some of the aesthetics typically are always mapped, such as x and y-positions, some others can be a fixed value as well as a mapped variable. For instance, what happens if we map the color of points to a variable, say the variable Action.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> movies) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> budget, </a>
-<a class="sourceLine" id="cb9-3" title="3">                             <span class="dt">y =</span> rating, </a>
-<a class="sourceLine" id="cb9-4" title="4">                             <span class="dt">color =</span> Action))</a></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> movies) <span class="op">+</span></a>
+<a class="sourceLine" id="cb19-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> budget, </a>
+<a class="sourceLine" id="cb19-3" title="3">                             <span class="dt">y =</span> rating, </a>
+<a class="sourceLine" id="cb19-4" title="4">                             <span class="dt">color =</span> Action))</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-40-1.png" width="100%" /></p>
 <p>We see that points are now colored with respect to the value in the variable Action. Action movies receive a green color, while other movies receive a red color, which we can see in the legend that appeared.</p>
 <p>Also the other fixed aesthetics can be used in a mapping. The next example uses the variable Animation for the shape mapping.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> movies) <span class="op">+</span></a>
-<a class="sourceLine" id="cb10-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> budget, </a>
-<a class="sourceLine" id="cb10-3" title="3">                             <span class="dt">y =</span> rating, </a>
-<a class="sourceLine" id="cb10-4" title="4">                             <span class="dt">color =</span> Action, </a>
-<a class="sourceLine" id="cb10-5" title="5">                              <span class="dt">shape =</span> Animation))</a></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> movies) <span class="op">+</span></a>
+<a class="sourceLine" id="cb20-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> budget, </a>
+<a class="sourceLine" id="cb20-3" title="3">                             <span class="dt">y =</span> rating, </a>
+<a class="sourceLine" id="cb20-4" title="4">                             <span class="dt">color =</span> Action, </a>
+<a class="sourceLine" id="cb20-5" title="5">                              <span class="dt">shape =</span> Animation))</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-41-1.png" width="100%" /></p>
 <p>Great! We now completely understand the geom_point layer, and the working of the aesthetics-mapping. Now it’s time to look at some other geometric layers. We start with histograms.</p>
 </div>
@@ -484,26 +487,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>Using our knowledge on how to use aesthetics from before, it is now very easy to make a histogram. Let’s make a histogram for the rating of movies. We will give it a black border with a white fill. Ready to try?</p>
 <p>Let’s have a look.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span></a>
-<a class="sourceLine" id="cb11-2" title="2"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(rating), <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span></a>
+<a class="sourceLine" id="cb21-2" title="2"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(rating), <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>)</a></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="textbook_files/figure-html/unnamed-chunk-42-1.png" width="100%" /></p>
 <p>Note that several things were omitted in these two lines of codes. In particular, the argument name <em>data</em> in ggplot, <em>mapping</em> in geom_histogram and <em>x</em> in aes. Since we know that these are the first arguments of these functions, we can safely omit them, as long as we follow the correct order of arguments. However, we cannot omit <em>color</em> and <em>fill</em>, as these are not the second and third argument of geom_histogram. Whenever in doubt, just play safe and write down the proper argument names.</p>
 <p>However, that’s not the only thing which is tricky here. Indeed, a warning pops up: <code>stat_bin()</code> using <code>bins = 30</code>. Pick better value with <code>binwidth</code>. This warning reminds us to the fact that a default value for the number of bins is chosen by geom_histogram, which is propably not suitable for our graph. We can change the binwidth by adding it as an argument to the geom_histogram call.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span></a>
-<a class="sourceLine" id="cb13-2" title="2"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(rating), <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">binwidth =</span> <span class="fl">0.5</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span></a>
+<a class="sourceLine" id="cb23-2" title="2"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(rating), <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">binwidth =</span> <span class="fl">0.5</span>)</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-43-1.png" width="100%" /></p>
 <p>Often, the binwidth has an important impact on how the obtained histogram looks like. Carefully configuring this argument by experimenting with different values is therefore important.</p>
 <p>In the last plot, we used a fixed color for filling the bars of the histogram. But as we already know by now, we can also map it to a variable in the data. Let’s use the variable <em>Action</em> one more time.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span></a>
-<a class="sourceLine" id="cb14-2" title="2"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(rating, <span class="dt">fill =</span> Action), <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">binwidth =</span> <span class="fl">0.5</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span></a>
+<a class="sourceLine" id="cb24-2" title="2"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(rating, <span class="dt">fill =</span> Action), <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">binwidth =</span> <span class="fl">0.5</span>)</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-44-1.png" width="100%" /></p>
 <p>Note how we moved the fill argument inside the <code>aes</code>function. Now, each of the bars is filled with two colors: one part for Action movies, and the remainder for other movies. Although it is not very clear in this graph, it appears that the center of the histogram for action movies is slightly more to the left.</p>
 <p>Note how the punctuation changes when moving to the aes-mapping: variable names are always used without quotes, i.e. <em>bare</em> variable names, while fixed aesthetics (colors, shapes, linetypes) are used with quotes (except for numbers). It is important to not mess this up!</p>
 <p>By default, the histogram for the different <em>fills</em> are stacked, i.e. placed on top of each other. However, we can use the <em>position</em> argument of geom_histogram to put the bars next to each other, or <em>dodged</em>.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span></a>
-<a class="sourceLine" id="cb15-2" title="2"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(rating, <span class="dt">fill =</span> Action), </a>
-<a class="sourceLine" id="cb15-3" title="3">                   <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">binwidth =</span> <span class="fl">0.5</span>, <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span></a>
+<a class="sourceLine" id="cb25-2" title="2"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(rating, <span class="dt">fill =</span> Action), </a>
+<a class="sourceLine" id="cb25-3" title="3">                   <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">binwidth =</span> <span class="fl">0.5</span>, <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>)</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-45-1.png" width="100%" /></p>
 <p>Using position = “dodge”, the bars for Action movies and non-Action movies are placed next to each other, instead of on top of one another. We can go back to the original graph by using position = “stack”, or just omitting this argument. Later on we will see how to handle such things better by using grids of different plots, or so-called <em>facets</em>.</p>
 <p>All good so far? Let’s look at another way to visualize the distribution of continuous variables, i.e. the boxplot.</p>
@@ -522,13 +525,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>weight</strong>: this will define how observations should be weigthed. By default, each observation is weigthed as one.</li>
 </ul>
 <p>Thus, the boxplot needs both an x-variable and an y-variable? That seems strange at first sight. The reason behind this is that in the philosophy of ggplot, always <em>something</em> must be plot on both x and y-axes. Although only a x-variable is given to a histogram, it will compute frequencies to plot on the y-axis. However, there is no such thing going to happen for boxplots. As a result, the x-axis should be used to map different categories for which the distribution can then be compared. For instance, we can compare the rating for Action movies with those for other movies.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb16-2" title="2"><span class="st">    </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(Action, rating))</a></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb26-2" title="2"><span class="st">    </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(Action, rating))</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-46-1.png" width="100%" /></p>
 <p>Here we see that, as we already suspected, Action movies tend to have a lower rating compared to other movies. We can change the color and the fill of the boxplot just like before, as well as the linetype, the size of the border, or the transparency.</p>
 <p>But, what if we just want to plot a boxplot of the overal rating, without having to specify a variable for the x-axis? A little workaround is needed here. One possibility is to use an <em>empty string</em> for the x-axis mapping.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span></a>
-<a class="sourceLine" id="cb17-2" title="2"><span class="st">    </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="st">&quot;&quot;</span>, rating))</a></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span></a>
+<a class="sourceLine" id="cb27-2" title="2"><span class="st">    </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="st">&quot;&quot;</span>, rating))</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-47-1.png" width="100%" /></p>
 <p>Note that this creates the label “x” for the x-axis, where we would normally find the name of the variable mapped onto it. Later we will see how to omit this label to make our graph a little nicer.</p>
 </div>
@@ -546,12 +549,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>weight</strong>: this will define how observations should be weighted. By default, each observation is weigthed as one.</li>
 </ul>
 <p>Let’s make the same graphs, now using the violin-plot.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb18-2" title="2"><span class="st">    </span><span class="kw">geom_violin</span>(<span class="kw">aes</span>(Action, rating))</a></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb28-2" title="2"><span class="st">    </span><span class="kw">geom_violin</span>(<span class="kw">aes</span>(Action, rating))</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-48-1.png" width="100%" /></p>
 <p>It’s probably clear now where this type of graph got its name from. As you can see, violin plots somehow sit in between boxplots and histograms. However, since their width is normalized, they can be used better for comparison. Also here, we can use the same workaround if we want to plot the overal distribution.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span></a>
-<a class="sourceLine" id="cb19-2" title="2"><span class="st">    </span><span class="kw">geom_violin</span>(<span class="kw">aes</span>(<span class="st">&quot;&quot;</span>, rating))</a></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span></a>
+<a class="sourceLine" id="cb29-2" title="2"><span class="st">    </span><span class="kw">geom_violin</span>(<span class="kw">aes</span>(<span class="st">&quot;&quot;</span>, rating))</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-49-1.png" width="100%" /></p>
 <p>So far, we have seen three different ways to analyse the distribution of continuous variables. Now, we will look into barplots, which can be used to represent categorical distribution.</p>
 </div>
@@ -568,29 +571,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>weight</strong>: this will define how observations should be weigthed. By default, each observation is weigthed as one.</li>
 </ul>
 <p>We can make a simple bar chart that shows how many Action movies there are, and how many other movies, as follows.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span></a>
-<a class="sourceLine" id="cb20-2" title="2"><span class="st">    </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(Action))</a></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span></a>
+<a class="sourceLine" id="cb30-2" title="2"><span class="st">    </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(Action))</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-50-1.png" width="100%" /></p>
 <p>Furthermore, we could add colors to this, according to the number of Animation movies. We immediately see that there are almost no Action movies which are also animation movies.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span></a>
-<a class="sourceLine" id="cb21-2" title="2"><span class="st">    </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(Action, <span class="dt">fill =</span> Animation)) </a></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span></a>
+<a class="sourceLine" id="cb31-2" title="2"><span class="st">    </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(Action, <span class="dt">fill =</span> Animation)) </a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-51-1.png" width="100%" /></p>
 <p>We can do the same for Romance and Comedy movies.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span></a>
-<a class="sourceLine" id="cb22-2" title="2"><span class="st">    </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(Romance, <span class="dt">fill =</span> Comedy)) </a></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span></a>
+<a class="sourceLine" id="cb32-2" title="2"><span class="st">    </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(Romance, <span class="dt">fill =</span> Comedy)) </a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-52-1.png" width="100%" /></p>
 <p>In contrast, it can be seen here that approximately half of the Romantic movies are also comedy, which is more compared to non-romantic movies.</p>
 <p>Remember that, in case of histograms, we could change the position to “dodge”, which placed the bars next to each other. The same can be done here.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span></a>
-<a class="sourceLine" id="cb23-2" title="2"><span class="st">    </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(Romance, <span class="dt">fill =</span> Comedy), <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>) </a></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span></a>
+<a class="sourceLine" id="cb33-2" title="2"><span class="st">    </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(Romance, <span class="dt">fill =</span> Comedy), <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>) </a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-53-1.png" width="100%" /></p>
 <p>A third option that is available for the position is to extend the bars so that they have the same height. As a result, we will observe the distribution of values as a part of a whole. Instead of the count, the labels on the y-axis will now depict the percentage points.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span></a>
-<a class="sourceLine" id="cb24-2" title="2"><span class="st">    </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(Romance, <span class="dt">fill =</span> Comedy), <span class="dt">position =</span> <span class="st">&quot;fill&quot;</span>) </a></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span></a>
+<a class="sourceLine" id="cb34-2" title="2"><span class="st">    </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(Romance, <span class="dt">fill =</span> Comedy), <span class="dt">position =</span> <span class="st">&quot;fill&quot;</span>) </a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-54-1.png" width="100%" /></p>
 <p>Finally, if we want to do this to show the distribution of one variable, we can use the same workaround as before and set the x-aesthetic to "". The plot below will show the portion of all movies that are comedies.<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a></p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span></a>
-<a class="sourceLine" id="cb25-2" title="2"><span class="st">    </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(<span class="st">&quot;&quot;</span>, <span class="dt">fill =</span> Comedy), <span class="dt">position =</span> <span class="st">&quot;fill&quot;</span>) </a></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span></a>
+<a class="sourceLine" id="cb35-2" title="2"><span class="st">    </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(<span class="st">&quot;&quot;</span>, <span class="dt">fill =</span> Comedy), <span class="dt">position =</span> <span class="st">&quot;fill&quot;</span>) </a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-55-1.png" width="100%" /></p>
 </div>
 <div id="geom_col" class="section level3">
@@ -607,9 +610,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>weight</strong>: this will define how observations should be weigthed. By default, each observation is weigthed as one.</li>
 </ul>
 <p>Let’s make a barplot depicting the budget of all movies from 2004 where the budget was higher than 100 million.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1"><span class="kw">filter</span>(movies, year <span class="op">==</span><span class="st"> </span><span class="dv">2004</span>, budget <span class="op">&gt;</span><span class="st"> </span><span class="dv">100000000</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb26-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb26-3" title="3"><span class="st">    </span><span class="kw">geom_col</span>(<span class="kw">aes</span>(title, budget))</a></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" title="1"><span class="kw">filter</span>(movies, year <span class="op">==</span><span class="st"> </span><span class="dv">2004</span>, budget <span class="op">&gt;</span><span class="st"> </span><span class="dv">100000000</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb36-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb36-3" title="3"><span class="st">    </span><span class="kw">geom_col</span>(<span class="kw">aes</span>(title, budget))</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-56-1.png" width="100%" /></p>
 <p>Do you notice something strange in the code? Don’t worry if you don’t understand the first line. All you need to know is that we filtered movies from 2004 with a budget higher than 100 million. The strange looking %&gt;% symbol will make sure this data is passed to ggplot. We will come back to this in another session.<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a></p>
 <p>We have now plotted movie titles on the x-axis and budget on the y-axis. Great! Or not so? The values on the x-asis are somewhat cluttered and unreadable. It’s time now to give some attention to the layout of our plots!</p>
@@ -624,19 +627,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">3.4</span> Enhancing the appearance of our plots</h2>
 <p>So far, we have mainly looked at different types of plots and how to map them on our data. In this section, we will focus on the presentation of the plot, e.g. titles, colors, axes, etc. The concepts introduced in this section can be applied for any type of plot, no matter which geometric object is used.</p>
 <p>In this section, the dataset “diamonds” will be used. The plot below will be used as a starting point.<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a></p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" title="1"><span class="kw">ggplot</span>(diamonds) <span class="op">+</span></a>
-<a class="sourceLine" id="cb27-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(table, depth, <span class="dt">color =</span> cut))</a></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" title="1"><span class="kw">ggplot</span>(diamonds) <span class="op">+</span></a>
+<a class="sourceLine" id="cb37-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(table, depth, <span class="dt">color =</span> cut))</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-57-1.png" width="100%" /></p>
 <div id="titles" class="section level3">
 <h3><span class="header-section-number">3.4.1</span> Titles</h3>
 <p>One of the most important things to add to our plot are titles. Titles are used to give meaning to the axis as well as the plot itself. The most straightforward way to add titles is to use the function <code>labs()</code>. In this function, 4 arguments can be set: the title, the subtitle, x for the x label and y for the y label. The labs function can just be added to the plot as an extra layer.</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" title="1"><span class="kw">data</span>(<span class="st">&quot;diamonds&quot;</span>)</a>
-<a class="sourceLine" id="cb28-2" title="2"><span class="kw">ggplot</span>(diamonds) <span class="op">+</span></a>
-<a class="sourceLine" id="cb28-3" title="3"><span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(table, depth, <span class="dt">color =</span> cut)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb28-4" title="4"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Comparing table and depth of diamonds&quot;</span>,</a>
-<a class="sourceLine" id="cb28-5" title="5">         <span class="dt">subtitle =</span> <span class="st">&quot;What combination of table and depth gives good quality diamonds?&quot;</span>,</a>
-<a class="sourceLine" id="cb28-6" title="6">         <span class="dt">x =</span> <span class="st">&quot;Table&quot;</span>,</a>
-<a class="sourceLine" id="cb28-7" title="7">         <span class="dt">y =</span> <span class="st">&quot;Depth&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" title="1"><span class="kw">data</span>(<span class="st">&quot;diamonds&quot;</span>)</a>
+<a class="sourceLine" id="cb38-2" title="2"><span class="kw">ggplot</span>(diamonds) <span class="op">+</span></a>
+<a class="sourceLine" id="cb38-3" title="3"><span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(table, depth, <span class="dt">color =</span> cut)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb38-4" title="4"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Comparing table and depth of diamonds&quot;</span>,</a>
+<a class="sourceLine" id="cb38-5" title="5">         <span class="dt">subtitle =</span> <span class="st">&quot;What combination of table and depth gives good quality diamonds?&quot;</span>,</a>
+<a class="sourceLine" id="cb38-6" title="6">         <span class="dt">x =</span> <span class="st">&quot;Table&quot;</span>,</a>
+<a class="sourceLine" id="cb38-7" title="7">         <span class="dt">y =</span> <span class="st">&quot;Depth&quot;</span>)</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-58-1.png" width="100%" /></p>
 <p>You’ll see that our graph already looks much better when titles are added! However, there is much more to improve.</p>
 </div>
@@ -654,27 +657,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>theme_void</strong>: an empty theme</li>
 </ul>
 <p>Feel free to experiment with some of these themes. Preferably, you can use some of the minimal themes. Here, we used the theme_light theme.<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a></p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" title="1"><span class="kw">ggplot</span>(diamonds) <span class="op">+</span></a>
-<a class="sourceLine" id="cb29-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(table, depth, <span class="dt">color =</span> cut)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb29-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Comparing table and depth of diamonds&quot;</span>,</a>
-<a class="sourceLine" id="cb29-4" title="4">         <span class="dt">subtitle =</span> <span class="st">&quot;What combination of table and depth gives good quality diamonds?&quot;</span>,</a>
-<a class="sourceLine" id="cb29-5" title="5">         <span class="dt">x =</span> <span class="st">&quot;Table&quot;</span>,</a>
-<a class="sourceLine" id="cb29-6" title="6">         <span class="dt">y =</span> <span class="st">&quot;Depth&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb29-7" title="7"><span class="st">    </span><span class="kw">theme_light</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" title="1"><span class="kw">ggplot</span>(diamonds) <span class="op">+</span></a>
+<a class="sourceLine" id="cb39-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(table, depth, <span class="dt">color =</span> cut)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb39-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Comparing table and depth of diamonds&quot;</span>,</a>
+<a class="sourceLine" id="cb39-4" title="4">         <span class="dt">subtitle =</span> <span class="st">&quot;What combination of table and depth gives good quality diamonds?&quot;</span>,</a>
+<a class="sourceLine" id="cb39-5" title="5">         <span class="dt">x =</span> <span class="st">&quot;Table&quot;</span>,</a>
+<a class="sourceLine" id="cb39-6" title="6">         <span class="dt">y =</span> <span class="st">&quot;Depth&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb39-7" title="7"><span class="st">    </span><span class="kw">theme_light</span>()</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-59-1.png" width="100%" /></p>
 <p>When you are not yet satisfied with any of these themes, you can install the package <code>ggthemes</code> to get hold of even more themes, such as the theme from <em>The Economist</em>, <em>fivethirtyeight.com</em>, or <em>Google Docs</em>.</p>
 </div>
 <div id="configuring-the-coordinate-system" class="section level3">
 <h3><span class="header-section-number">3.4.3</span> Configuring the coordinate system</h3>
 <p>The appearance of the graph is not only defined by the titles and the graphics. Also the axes in the coordinate system need some attention. One thing to decide on are the limits of the coordinate system. This can be done using the function <code>coord_cartesian</code> and its arguments <em>xlim</em> and <em>ylim</em>. Both arguments expect a numerical vector of length two. Let’s see how this works in our example.<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a></p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" title="1"><span class="kw">ggplot</span>(diamonds) <span class="op">+</span></a>
-<a class="sourceLine" id="cb30-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(table, depth, <span class="dt">color =</span> cut)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb30-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Comparing table and depth of diamonds&quot;</span>,</a>
-<a class="sourceLine" id="cb30-4" title="4">         <span class="dt">subtitle =</span> <span class="st">&quot;What combination of table and depth gives good quality diamonds?&quot;</span>,</a>
-<a class="sourceLine" id="cb30-5" title="5">         <span class="dt">x =</span> <span class="st">&quot;Table&quot;</span>,</a>
-<a class="sourceLine" id="cb30-6" title="6">         <span class="dt">y =</span> <span class="st">&quot;Depth&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb30-7" title="7"><span class="st">    </span><span class="kw">theme_light</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb30-8" title="8"><span class="st">    </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">45</span>,<span class="dv">75</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">75</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" title="1"><span class="kw">ggplot</span>(diamonds) <span class="op">+</span></a>
+<a class="sourceLine" id="cb40-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(table, depth, <span class="dt">color =</span> cut)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb40-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Comparing table and depth of diamonds&quot;</span>,</a>
+<a class="sourceLine" id="cb40-4" title="4">         <span class="dt">subtitle =</span> <span class="st">&quot;What combination of table and depth gives good quality diamonds?&quot;</span>,</a>
+<a class="sourceLine" id="cb40-5" title="5">         <span class="dt">x =</span> <span class="st">&quot;Table&quot;</span>,</a>
+<a class="sourceLine" id="cb40-6" title="6">         <span class="dt">y =</span> <span class="st">&quot;Depth&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb40-7" title="7"><span class="st">    </span><span class="kw">theme_light</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb40-8" title="8"><span class="st">    </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">45</span>,<span class="dv">75</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">75</span>))</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-60-1.png" width="100%" /></p>
 <p>We have now limited the x-axis to the interval from 45 to 75, while we have limited the y-axis to the interval 50 to 75. There are some alternatives to the cartesian coordinate system which are less often used. Notable ones are:</p>
 <ul>
@@ -684,28 +687,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>coord_map: a coordinate system for plotting geographical data.</li>
 </ul>
 <p>Next to setting the limits of the coordinate system, we can also set the breaks on the x-axis and y-axis. This can be done using the functions <code>scale_x_continuous</code> and <code>scale_y_continuous</code> respectively. Both functions have a <em>breaks</em> argument. This argument can be given a vector of values to be plot as labels on the axis.<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a> We can use the function <code>seq</code> to create this vector: i.e. <code>seq(0,10,5)</code> will return a vector starting at 0 and increasing to ten with intervals of 5.<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a></p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" title="1"><span class="kw">ggplot</span>(diamonds) <span class="op">+</span></a>
-<a class="sourceLine" id="cb31-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(table, depth, <span class="dt">color =</span> cut)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb31-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Comparing table and depth of diamonds&quot;</span>,</a>
-<a class="sourceLine" id="cb31-4" title="4">         <span class="dt">subtitle =</span> <span class="st">&quot;What combination of table</span></a>
-<a class="sourceLine" id="cb31-5" title="5"><span class="st">         and depth gives good quality diamonds?&quot;</span>,</a>
-<a class="sourceLine" id="cb31-6" title="6">         <span class="dt">x =</span> <span class="st">&quot;Table&quot;</span>,</a>
-<a class="sourceLine" id="cb31-7" title="7">         <span class="dt">y =</span> <span class="st">&quot;Depth&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb31-8" title="8"><span class="st">    </span><span class="kw">theme_light</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb31-9" title="9"><span class="st">    </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">45</span>,<span class="dv">75</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">75</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb31-10" title="10"><span class="st">    </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">45</span>,<span class="dv">75</span>,<span class="dv">5</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb31-11" title="11"><span class="st">    </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">50</span>,<span class="dv">75</span>,<span class="dv">5</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" title="1"><span class="kw">ggplot</span>(diamonds) <span class="op">+</span></a>
+<a class="sourceLine" id="cb41-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(table, depth, <span class="dt">color =</span> cut)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb41-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Comparing table and depth of diamonds&quot;</span>,</a>
+<a class="sourceLine" id="cb41-4" title="4">         <span class="dt">subtitle =</span> <span class="st">&quot;What combination of table</span></a>
+<a class="sourceLine" id="cb41-5" title="5"><span class="st">         and depth gives good quality diamonds?&quot;</span>,</a>
+<a class="sourceLine" id="cb41-6" title="6">         <span class="dt">x =</span> <span class="st">&quot;Table&quot;</span>,</a>
+<a class="sourceLine" id="cb41-7" title="7">         <span class="dt">y =</span> <span class="st">&quot;Depth&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb41-8" title="8"><span class="st">    </span><span class="kw">theme_light</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb41-9" title="9"><span class="st">    </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">45</span>,<span class="dv">75</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">75</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb41-10" title="10"><span class="st">    </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">45</span>,<span class="dv">75</span>,<span class="dv">5</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb41-11" title="11"><span class="st">    </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">50</span>,<span class="dv">75</span>,<span class="dv">5</span>))</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-61-1.png" width="100%" /></p>
 <p>Another useful function is the <code>coord_flip</code> function, which we will illustrate with the following graph we saw earlier.</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" title="1"><span class="kw">filter</span>(movies, year <span class="op">==</span><span class="st"> </span><span class="dv">2004</span>, budget <span class="op">&gt;</span><span class="st"> </span><span class="dv">100000000</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb32-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb32-3" title="3"><span class="st">    </span><span class="kw">geom_col</span>(<span class="kw">aes</span>(title, budget))</a></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" title="1"><span class="kw">filter</span>(movies, year <span class="op">==</span><span class="st"> </span><span class="dv">2004</span>, budget <span class="op">&gt;</span><span class="st"> </span><span class="dv">100000000</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb42-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb42-3" title="3"><span class="st">    </span><span class="kw">geom_col</span>(<span class="kw">aes</span>(title, budget))</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-62-1.png" width="100%" /></p>
 <p>As you may remember, the movie titles on the x-axis were overlapping and therefore unreadable. One way to fix this is to <em>flip</em> the entire graph, such that the labels of the x-asis are placed on the y-axis, and can be read horizontally.</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" title="1"><span class="kw">filter</span>(movies, year <span class="op">==</span><span class="st"> </span><span class="dv">2004</span>, budget <span class="op">&gt;</span><span class="st"> </span><span class="dv">100000000</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb33-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb33-3" title="3"><span class="st">    </span><span class="kw">geom_col</span>(<span class="kw">aes</span>(title, budget)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb33-4" title="4"><span class="st">    </span><span class="kw">coord_flip</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" title="1"><span class="kw">filter</span>(movies, year <span class="op">==</span><span class="st"> </span><span class="dv">2004</span>, budget <span class="op">&gt;</span><span class="st"> </span><span class="dv">100000000</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb43-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb43-3" title="3"><span class="st">    </span><span class="kw">geom_col</span>(<span class="kw">aes</span>(title, budget)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb43-4" title="4"><span class="st">    </span><span class="kw">coord_flip</span>()</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-63-1.png" width="100%" /></p>
 <p>Another option is to keep the original orientation, but the change the orientation of the labels on the x-axis. You could rotate them by 45 or 90 degrees, for instance. This can be done with the <code>theme</code> function. Ready to experiment? Challenge yourself!</p>
 <p>As our code contains more and more lines, our plot is getting nicer and nicer! Good job! The last thing on our list are colors.</p>
@@ -718,30 +721,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p class="caption">R color palettes</p>
 </div>
 <p>For instance, let’s use the Set1 pallete.</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" title="1"><span class="kw">ggplot</span>(diamonds) <span class="op">+</span></a>
-<a class="sourceLine" id="cb34-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(table, depth, <span class="dt">col =</span> cut)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb34-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Comparing table and depth of diamonds&quot;</span>,</a>
-<a class="sourceLine" id="cb34-4" title="4">         <span class="dt">subtitle =</span> <span class="st">&quot;What combination of table and depth gives good quality diamonds?&quot;</span>,</a>
-<a class="sourceLine" id="cb34-5" title="5">         <span class="dt">x =</span> <span class="st">&quot;Table&quot;</span>,</a>
-<a class="sourceLine" id="cb34-6" title="6">         <span class="dt">y =</span> <span class="st">&quot;Depth&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb34-7" title="7"><span class="st">    </span><span class="kw">theme_light</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb34-8" title="8"><span class="st">    </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">45</span>,<span class="dv">75</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">75</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb34-9" title="9"><span class="st">    </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">45</span>,<span class="dv">75</span>,<span class="dv">5</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb34-10" title="10"><span class="st">    </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">50</span>,<span class="dv">75</span>,<span class="dv">5</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb34-11" title="11"><span class="st">    </span><span class="kw">scale_color_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" title="1"><span class="kw">ggplot</span>(diamonds) <span class="op">+</span></a>
+<a class="sourceLine" id="cb44-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(table, depth, <span class="dt">col =</span> cut)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb44-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Comparing table and depth of diamonds&quot;</span>,</a>
+<a class="sourceLine" id="cb44-4" title="4">         <span class="dt">subtitle =</span> <span class="st">&quot;What combination of table and depth gives good quality diamonds?&quot;</span>,</a>
+<a class="sourceLine" id="cb44-5" title="5">         <span class="dt">x =</span> <span class="st">&quot;Table&quot;</span>,</a>
+<a class="sourceLine" id="cb44-6" title="6">         <span class="dt">y =</span> <span class="st">&quot;Depth&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb44-7" title="7"><span class="st">    </span><span class="kw">theme_light</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb44-8" title="8"><span class="st">    </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">45</span>,<span class="dv">75</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">75</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb44-9" title="9"><span class="st">    </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">45</span>,<span class="dv">75</span>,<span class="dv">5</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb44-10" title="10"><span class="st">    </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">50</span>,<span class="dv">75</span>,<span class="dv">5</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb44-11" title="11"><span class="st">    </span><span class="kw">scale_color_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>)</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-64-1.png" width="100%" /></p>
 <p>The scale_._brewer functions also have the argument <code>name</code>, which we can use to set the name of the legend, and the argument <code>guide</code>, which will remove the legend if set to FALSE.</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" title="1"><span class="kw">ggplot</span>(diamonds) <span class="op">+</span></a>
-<a class="sourceLine" id="cb35-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(table, depth, <span class="dt">col =</span> cut)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb35-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Comparing table and depth of diamonds&quot;</span>,</a>
-<a class="sourceLine" id="cb35-4" title="4">         <span class="dt">subtitle =</span> <span class="st">&quot;What combination of table and depth gives good quality diamonds?&quot;</span>,</a>
-<a class="sourceLine" id="cb35-5" title="5">         <span class="dt">x =</span> <span class="st">&quot;Table&quot;</span>,</a>
-<a class="sourceLine" id="cb35-6" title="6">         <span class="dt">y =</span> <span class="st">&quot;Depth&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb35-7" title="7"><span class="st">    </span><span class="kw">theme_light</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb35-8" title="8"><span class="st">    </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">45</span>,<span class="dv">75</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">75</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb35-9" title="9"><span class="st">    </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">45</span>,<span class="dv">75</span>,<span class="dv">5</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb35-10" title="10"><span class="st">    </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">50</span>,<span class="dv">75</span>,<span class="dv">5</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb35-11" title="11"><span class="st">    </span><span class="kw">scale_color_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>, <span class="dt">name =</span> <span class="st">&quot;Diamond Cut Quality&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" title="1"><span class="kw">ggplot</span>(diamonds) <span class="op">+</span></a>
+<a class="sourceLine" id="cb45-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(table, depth, <span class="dt">col =</span> cut)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb45-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Comparing table and depth of diamonds&quot;</span>,</a>
+<a class="sourceLine" id="cb45-4" title="4">         <span class="dt">subtitle =</span> <span class="st">&quot;What combination of table and depth gives good quality diamonds?&quot;</span>,</a>
+<a class="sourceLine" id="cb45-5" title="5">         <span class="dt">x =</span> <span class="st">&quot;Table&quot;</span>,</a>
+<a class="sourceLine" id="cb45-6" title="6">         <span class="dt">y =</span> <span class="st">&quot;Depth&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb45-7" title="7"><span class="st">    </span><span class="kw">theme_light</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb45-8" title="8"><span class="st">    </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">45</span>,<span class="dv">75</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">75</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb45-9" title="9"><span class="st">    </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">45</span>,<span class="dv">75</span>,<span class="dv">5</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb45-10" title="10"><span class="st">    </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">50</span>,<span class="dv">75</span>,<span class="dv">5</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb45-11" title="11"><span class="st">    </span><span class="kw">scale_color_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>, <span class="dt">name =</span> <span class="st">&quot;Diamond Cut Quality&quot;</span>)</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-65-1.png" width="100%" /></p>
 <p>Next to the standard color palettes avaiable, many more can be found in the packages <code>ggthemes</code> and <code>ggsci</code>. They can be used by adding <em>scale_color</em>+ name of the palette. Feel free to explore some more!</p>
 </div>
@@ -753,62 +756,62 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">3.5.1</span> Using Facets</h3>
 <p>This function expects a formula in the form of <code>A ~ B</code> where A and B are two categorical variables. For each combination of values of A and B, a different plot will be constructed, and they will be arranged in a grid where the values of A each constitute a row and the values of B each constitute a column. Comparisons of more than 2 variables are possible using a formula of the form <code>A + B ~ C</code>. A comparison along one variable is possible by using a dot instead of a variable name, i.e. <code>. ~ A</code> or <code>A ~ .</code> .</p>
 <p>In the following plot, we use facets to redraw our plot for each of the clarity levels. Furthermore, the legend is placed on top to create more space.</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" title="1"><span class="kw">ggplot</span>(diamonds) <span class="op">+</span></a>
-<a class="sourceLine" id="cb36-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(table, depth, <span class="dt">col =</span> cut)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb36-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Comparing table and depth of diamonds&quot;</span>,</a>
-<a class="sourceLine" id="cb36-4" title="4">         <span class="dt">subtitle =</span> <span class="st">&quot;What combination of table and depth gives good quality diamonds?&quot;</span>,</a>
-<a class="sourceLine" id="cb36-5" title="5">         <span class="dt">x =</span> <span class="st">&quot;Table&quot;</span>,</a>
-<a class="sourceLine" id="cb36-6" title="6">         <span class="dt">y =</span> <span class="st">&quot;Depth&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb36-7" title="7"><span class="st">    </span><span class="kw">theme_light</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb36-8" title="8"><span class="st">    </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">45</span>,<span class="dv">75</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">75</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb36-9" title="9"><span class="st">    </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">45</span>,<span class="dv">75</span>,<span class="dv">5</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb36-10" title="10"><span class="st">    </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">50</span>,<span class="dv">75</span>,<span class="dv">5</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb36-11" title="11"><span class="st">    </span><span class="kw">scale_color_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>, <span class="dt">name =</span> <span class="st">&quot;Diamond Cut Quality&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb36-12" title="12"><span class="st">    </span><span class="kw">facet_grid</span>(. <span class="op">~</span><span class="st"> </span>clarity) <span class="op">+</span></a>
-<a class="sourceLine" id="cb36-13" title="13"><span class="st">    </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;top&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" title="1"><span class="kw">ggplot</span>(diamonds) <span class="op">+</span></a>
+<a class="sourceLine" id="cb46-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(table, depth, <span class="dt">col =</span> cut)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb46-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Comparing table and depth of diamonds&quot;</span>,</a>
+<a class="sourceLine" id="cb46-4" title="4">         <span class="dt">subtitle =</span> <span class="st">&quot;What combination of table and depth gives good quality diamonds?&quot;</span>,</a>
+<a class="sourceLine" id="cb46-5" title="5">         <span class="dt">x =</span> <span class="st">&quot;Table&quot;</span>,</a>
+<a class="sourceLine" id="cb46-6" title="6">         <span class="dt">y =</span> <span class="st">&quot;Depth&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb46-7" title="7"><span class="st">    </span><span class="kw">theme_light</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb46-8" title="8"><span class="st">    </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">45</span>,<span class="dv">75</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">75</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb46-9" title="9"><span class="st">    </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">45</span>,<span class="dv">75</span>,<span class="dv">5</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb46-10" title="10"><span class="st">    </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">50</span>,<span class="dv">75</span>,<span class="dv">5</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb46-11" title="11"><span class="st">    </span><span class="kw">scale_color_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>, <span class="dt">name =</span> <span class="st">&quot;Diamond Cut Quality&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb46-12" title="12"><span class="st">    </span><span class="kw">facet_grid</span>(. <span class="op">~</span><span class="st"> </span>clarity) <span class="op">+</span></a>
+<a class="sourceLine" id="cb46-13" title="13"><span class="st">    </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;top&quot;</span>)</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-66-1.png" width="100%" /></p>
 <p>An alternative, mostly suitable for comparisons along one variable, is facet_wrap. Instead of making one row (like facet_grid does), it will order the plots in a grid with a specified number of columns or rows. Below, we ordered them in 3 columns.</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" title="1"><span class="kw">ggplot</span>(diamonds) <span class="op">+</span></a>
-<a class="sourceLine" id="cb37-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(table, depth, <span class="dt">col =</span> cut)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb37-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Comparing table and depth of diamonds&quot;</span>,</a>
-<a class="sourceLine" id="cb37-4" title="4">         <span class="dt">subtitle =</span> <span class="st">&quot;What combination of table and depth gives good quality diamonds?&quot;</span>,</a>
-<a class="sourceLine" id="cb37-5" title="5">         <span class="dt">x =</span> <span class="st">&quot;Table&quot;</span>,</a>
-<a class="sourceLine" id="cb37-6" title="6">         <span class="dt">y =</span> <span class="st">&quot;Depth&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb37-7" title="7"><span class="st">    </span><span class="kw">theme_light</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb37-8" title="8"><span class="st">    </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">45</span>,<span class="dv">75</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">75</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb37-9" title="9"><span class="st">    </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">45</span>,<span class="dv">75</span>,<span class="dv">5</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb37-10" title="10"><span class="st">    </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">50</span>,<span class="dv">75</span>,<span class="dv">5</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb37-11" title="11"><span class="st">    </span><span class="kw">scale_color_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>, <span class="dt">name =</span> <span class="st">&quot;Diamond Cut Quality&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb37-12" title="12"><span class="st">    </span><span class="kw">facet_wrap</span>( <span class="op">~</span><span class="st"> </span>clarity, <span class="dt">ncol =</span> <span class="dv">3</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb37-13" title="13"><span class="st">    </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;top&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" title="1"><span class="kw">ggplot</span>(diamonds) <span class="op">+</span></a>
+<a class="sourceLine" id="cb47-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(table, depth, <span class="dt">col =</span> cut)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb47-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Comparing table and depth of diamonds&quot;</span>,</a>
+<a class="sourceLine" id="cb47-4" title="4">         <span class="dt">subtitle =</span> <span class="st">&quot;What combination of table and depth gives good quality diamonds?&quot;</span>,</a>
+<a class="sourceLine" id="cb47-5" title="5">         <span class="dt">x =</span> <span class="st">&quot;Table&quot;</span>,</a>
+<a class="sourceLine" id="cb47-6" title="6">         <span class="dt">y =</span> <span class="st">&quot;Depth&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb47-7" title="7"><span class="st">    </span><span class="kw">theme_light</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb47-8" title="8"><span class="st">    </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">45</span>,<span class="dv">75</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">75</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb47-9" title="9"><span class="st">    </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">45</span>,<span class="dv">75</span>,<span class="dv">5</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb47-10" title="10"><span class="st">    </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">50</span>,<span class="dv">75</span>,<span class="dv">5</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb47-11" title="11"><span class="st">    </span><span class="kw">scale_color_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>, <span class="dt">name =</span> <span class="st">&quot;Diamond Cut Quality&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb47-12" title="12"><span class="st">    </span><span class="kw">facet_wrap</span>( <span class="op">~</span><span class="st"> </span>clarity, <span class="dt">ncol =</span> <span class="dv">3</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb47-13" title="13"><span class="st">    </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;top&quot;</span>)</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-67-1.png" width="100%" /></p>
 </div>
 <div id="combining-multiple-geometric-layers" class="section level3">
 <h3><span class="header-section-number">3.5.2</span> Combining multiple geometric layers</h3>
 <p>So far, we only used one geometric layer at a time. However, it is perfectly possible to combine different layers. For instance, we can use the <code>geom_text</code> label to add data labels to a bar plot. Geom_text is a geometric layer which we can use, indeed, to put text in a graph. We didn’t see geom_text before, however, its working will be straigtforward, based on all the things we already know. We build further upon the last graph, which we have given a slightly nicer appearance</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" title="1"><span class="kw">filter</span>(movies, year <span class="op">==</span><span class="st"> </span><span class="dv">2004</span>, budget <span class="op">&gt;</span><span class="st"> </span><span class="dv">100000000</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb38-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb38-3" title="3"><span class="st">    </span><span class="kw">geom_col</span>(<span class="kw">aes</span>(<span class="kw">reorder</span>(title, budget), budget<span class="op">/</span><span class="dv">1000000</span>), <span class="dt">fill =</span> <span class="st">&quot;grey&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb38-4" title="4"><span class="st">    </span><span class="kw">coord_flip</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb38-5" title="5"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Movies budgets&quot;</span>,</a>
-<a class="sourceLine" id="cb38-6" title="6">         <span class="dt">subtitle =</span> <span class="st">&quot;What was the budget of the movies from 2004 with a budget higher than 100 million?&quot;</span>,</a>
-<a class="sourceLine" id="cb38-7" title="7">         <span class="dt">x =</span> <span class="st">&quot;Title&quot;</span>,</a>
-<a class="sourceLine" id="cb38-8" title="8">         <span class="dt">y =</span> <span class="st">&quot;Budget (in million dollars)&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb38-9" title="9"><span class="st">    </span><span class="kw">theme_light</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" title="1"><span class="kw">filter</span>(movies, year <span class="op">==</span><span class="st"> </span><span class="dv">2004</span>, budget <span class="op">&gt;</span><span class="st"> </span><span class="dv">100000000</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb48-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb48-3" title="3"><span class="st">    </span><span class="kw">geom_col</span>(<span class="kw">aes</span>(<span class="kw">reorder</span>(title, budget), budget<span class="op">/</span><span class="dv">1000000</span>), <span class="dt">fill =</span> <span class="st">&quot;grey&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb48-4" title="4"><span class="st">    </span><span class="kw">coord_flip</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb48-5" title="5"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Movies budgets&quot;</span>,</a>
+<a class="sourceLine" id="cb48-6" title="6">         <span class="dt">subtitle =</span> <span class="st">&quot;What was the budget of the movies from 2004 with a budget higher than 100 million?&quot;</span>,</a>
+<a class="sourceLine" id="cb48-7" title="7">         <span class="dt">x =</span> <span class="st">&quot;Title&quot;</span>,</a>
+<a class="sourceLine" id="cb48-8" title="8">         <span class="dt">y =</span> <span class="st">&quot;Budget (in million dollars)&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb48-9" title="9"><span class="st">    </span><span class="kw">theme_light</span>()</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-68-1.png" width="100%" /></p>
 <p>Note that we changed the y-aesthetic to budget/1000000, such that the values are in millions. Furthermore, it is important to remark that, since we used coord_flip, our labels set in labs also switched. Thus the x-label appears on the y-axis and the y-label on the x-axis. This is exactly what we would prefer, as removing coord_flip in the future won’t mess up the labels.</p>
 <p>We would now like to put the exact number of millions on top of the bars. In order to do this, we add geom_text, and give it the same mapping for x and y as the geom_col layer. Furthermore, we add a mapping for the label, i.e. the text to be displayed. We give the text a bold fontface and a white color. Finally, setting hjust to 1 will make sure that the textlabels are horizontally aligned to the left. This makes sure that the text is entirely within the bars, and doesn’t fall out of them.</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" title="1"><span class="kw">filter</span>(movies, year <span class="op">==</span><span class="st"> </span><span class="dv">2004</span>, budget <span class="op">&gt;</span><span class="st"> </span><span class="dv">100000000</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb39-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb39-3" title="3"><span class="st">    </span><span class="kw">geom_col</span>(<span class="kw">aes</span>(<span class="kw">reorder</span>(title, budget), budget<span class="op">/</span><span class="dv">1000000</span>), <span class="dt">fill =</span> <span class="st">&quot;grey&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb39-4" title="4"><span class="st">    </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="kw">reorder</span>(title, budget), budget<span class="op">/</span><span class="dv">1000000</span>, </a>
-<a class="sourceLine" id="cb39-5" title="5">                  <span class="dt">label =</span> budget<span class="op">/</span><span class="dv">1000000</span>), <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">fontface =</span> <span class="st">&quot;bold&quot;</span>, <span class="dt">hjust =</span> <span class="dv">1</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb39-6" title="6"><span class="st">    </span><span class="kw">coord_flip</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb39-7" title="7"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Movies budgets&quot;</span>,</a>
-<a class="sourceLine" id="cb39-8" title="8">         <span class="dt">subtitle =</span> <span class="st">&quot;What was the budget of the movies from 2004 with a budget higher than 100 million?&quot;</span>,</a>
-<a class="sourceLine" id="cb39-9" title="9">         <span class="dt">x =</span> <span class="st">&quot;Title&quot;</span>,</a>
-<a class="sourceLine" id="cb39-10" title="10">         <span class="dt">y =</span> <span class="st">&quot;Budget (in million dollars)&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb39-11" title="11"><span class="st">    </span><span class="kw">theme_light</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" title="1"><span class="kw">filter</span>(movies, year <span class="op">==</span><span class="st"> </span><span class="dv">2004</span>, budget <span class="op">&gt;</span><span class="st"> </span><span class="dv">100000000</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb49-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb49-3" title="3"><span class="st">    </span><span class="kw">geom_col</span>(<span class="kw">aes</span>(<span class="kw">reorder</span>(title, budget), budget<span class="op">/</span><span class="dv">1000000</span>), <span class="dt">fill =</span> <span class="st">&quot;grey&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb49-4" title="4"><span class="st">    </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="kw">reorder</span>(title, budget), budget<span class="op">/</span><span class="dv">1000000</span>, </a>
+<a class="sourceLine" id="cb49-5" title="5">                  <span class="dt">label =</span> budget<span class="op">/</span><span class="dv">1000000</span>), <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">fontface =</span> <span class="st">&quot;bold&quot;</span>, <span class="dt">hjust =</span> <span class="dv">1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb49-6" title="6"><span class="st">    </span><span class="kw">coord_flip</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb49-7" title="7"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Movies budgets&quot;</span>,</a>
+<a class="sourceLine" id="cb49-8" title="8">         <span class="dt">subtitle =</span> <span class="st">&quot;What was the budget of the movies from 2004 with a budget higher than 100 million?&quot;</span>,</a>
+<a class="sourceLine" id="cb49-9" title="9">         <span class="dt">x =</span> <span class="st">&quot;Title&quot;</span>,</a>
+<a class="sourceLine" id="cb49-10" title="10">         <span class="dt">y =</span> <span class="st">&quot;Budget (in million dollars)&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb49-11" title="11"><span class="st">    </span><span class="kw">theme_light</span>()</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-69-1.png" width="100%" /></p>
 <p>The addition of the second geom layer seemed a little bit cumbersome, as we needed to repeat the mapping for x and y, which was made even worse because it involved the reorder function and the division by a million. Surely, there is a better way to do this? We call it aes-inheritance.</p>
 </div>
@@ -817,16 +820,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Aes-inheritance, or inheritance of the aes-mapping, means that each of the geom layers which is added to a <code>ggplot</code> call <em>inherits</em> the mapping which is specified in that ggplot function call. As you may remember from the very beginning, an aes-mapping can be placed in both geom layers as in ggplot. In the end, we learn there is a little but importance difference.</p>
 <p>When different layers have (part of) a mapping in common, it is best practice to move this part to the <code>ggplot</code> call. As such, you don’t have to repeat this in any of the layers which use it. And, if any of the layers doesn’t use this mapping, you can easily overwrite it by specifying a new mapping whithin that layer. Let’s look at an example.</p>
 <p>The previous plot we made can more easily be made as follows:</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" title="1"><span class="kw">filter</span>(movies, year <span class="op">==</span><span class="st"> </span><span class="dv">2004</span>, budget <span class="op">&gt;</span><span class="st"> </span><span class="dv">100000000</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb40-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="kw">reorder</span>(title, budget), budget<span class="op">/</span><span class="dv">1000000</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb40-3" title="3"><span class="st">    </span><span class="kw">geom_col</span>(<span class="dt">fill =</span> <span class="st">&quot;grey&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb40-4" title="4"><span class="st">    </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">label =</span> budget<span class="op">/</span><span class="dv">1000000</span>), <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">fontface =</span> <span class="st">&quot;bold&quot;</span>, <span class="dt">hjust =</span> <span class="dv">1</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb40-5" title="5"><span class="st">    </span><span class="kw">coord_flip</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb40-6" title="6"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Movies budgets&quot;</span>,</a>
-<a class="sourceLine" id="cb40-7" title="7">         <span class="dt">subtitle =</span> <span class="st">&quot;What was the budget of the movies from 2004 with a budget higher than 100 million?&quot;</span>,</a>
-<a class="sourceLine" id="cb40-8" title="8">         <span class="dt">x =</span> <span class="st">&quot;Title&quot;</span>,</a>
-<a class="sourceLine" id="cb40-9" title="9">         <span class="dt">y =</span> <span class="st">&quot;Budget (in million dollars)&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb40-10" title="10"><span class="st">    </span><span class="kw">theme_light</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" title="1"><span class="kw">filter</span>(movies, year <span class="op">==</span><span class="st"> </span><span class="dv">2004</span>, budget <span class="op">&gt;</span><span class="st"> </span><span class="dv">100000000</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb50-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="kw">reorder</span>(title, budget), budget<span class="op">/</span><span class="dv">1000000</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb50-3" title="3"><span class="st">    </span><span class="kw">geom_col</span>(<span class="dt">fill =</span> <span class="st">&quot;grey&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb50-4" title="4"><span class="st">    </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">label =</span> budget<span class="op">/</span><span class="dv">1000000</span>), <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">fontface =</span> <span class="st">&quot;bold&quot;</span>, <span class="dt">hjust =</span> <span class="dv">1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb50-5" title="5"><span class="st">    </span><span class="kw">coord_flip</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb50-6" title="6"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Movies budgets&quot;</span>,</a>
+<a class="sourceLine" id="cb50-7" title="7">         <span class="dt">subtitle =</span> <span class="st">&quot;What was the budget of the movies from 2004 with a budget higher than 100 million?&quot;</span>,</a>
+<a class="sourceLine" id="cb50-8" title="8">         <span class="dt">x =</span> <span class="st">&quot;Title&quot;</span>,</a>
+<a class="sourceLine" id="cb50-9" title="9">         <span class="dt">y =</span> <span class="st">&quot;Budget (in million dollars)&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb50-10" title="10"><span class="st">    </span><span class="kw">theme_light</span>()</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-70-1.png" width="100%" /></p>
 <p>By moving the mapping for x and y to ggplot, there is no mapping needed in geom_col, and only a mapping for label in geom_text. Both geom layers inherit the other part of the mapping for the ggplot function call. Truly, this seems far more efficient!</p>
 </div>
@@ -883,12 +886,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -903,7 +905,11 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"view": {
+"link": null,
+"text": null
+},
+"download": ["textbook.pdf"],
 "toc": {
 "collapse": "section",
 "depth": 3

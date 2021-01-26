@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 8 Tutorial - Data voorbereiden | Exploratieve en Descriptieve Data Analyse</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
-  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 8 Tutorial - Data voorbereiden | Exploratieve en Descriptieve Data Analyse" />
   <meta property="og:type" content="book" />
@@ -49,7 +49,10 @@
 
 
 
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -388,15 +391,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="before-you-start-2" class="section level2">
 <h2><span class="header-section-number">8.1</span> Before you start</h2>
 <p>During this tutorial, we’ll use several r-packages. Make sure to install and load them, if needed.</p>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb155-1" title="1"><span class="kw">library</span>(ggplot2)</a>
-<a class="sourceLine" id="cb155-2" title="2"><span class="kw">library</span>(dplyr)</a>
-<a class="sourceLine" id="cb155-3" title="3"><span class="kw">library</span>(forcats)</a>
-<a class="sourceLine" id="cb155-4" title="4"><span class="kw">library</span>(mice)</a></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb165-1" title="1"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb165-2" title="2"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb165-3" title="3"><span class="kw">library</span>(forcats)</a>
+<a class="sourceLine" id="cb165-4" title="4"><span class="kw">library</span>(mice)</a></code></pre></div>
 <p>The <code>forcats</code> package contains a series of functions to easily manipulate factors (of which <em>forcats</em> is an anagram). The <code>mice</code> package can be used to analyze the occurence of missing values (<em>MICE</em> stands for <em>Multiple Imputation by Chained Equations</em>, refering to a technique to estimate missing values).</p>
 <p>We also assume that you are familiar with the content of both our <code>ggplot2</code> and <code>dplyr</code> tutorial. You can read the survey<a href="#fn29" class="footnote-ref" id="fnref29"><sup>29</sup></a> dataset provided with this tutorial if you want to try things out yourself.[^try]</p>
 <p>If you want to try things yourself, make sure to follow the tutorial step by step. The incremental nature of the cleaning and transformation process does not allow to perform parts of this tutorial in isolation.</p>
-<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb156-1" title="1">survey &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;survey.RDS&quot;</span>)</a>
-<a class="sourceLine" id="cb156-2" title="2"><span class="kw">glimpse</span>(survey)</a></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb166-1" title="1">survey &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;survey.RDS&quot;</span>)</a>
+<a class="sourceLine" id="cb166-2" title="2"><span class="kw">glimpse</span>(survey)</a></code></pre></div>
 <pre><code>## Observations: 21,483
 ## Variables: 9
 ## $ year    &lt;chr&gt; &quot;2000&quot;, &quot;2000&quot;, &quot;2000&quot;, &quot;2000&quot;, &quot;2000&quot;, &quot;2000&quot;, &quot;2000&quot;, &quot;20...
@@ -425,21 +428,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="reading-data" class="section level2">
 <h2><span class="header-section-number">8.3</span> Reading data</h2>
 <p>For our purpose, we will not discuss different data formats and how to read them at length.<a href="#fn30" class="footnote-ref" id="fnref30"><sup>30</sup></a> Mostly we will use the <code>readRDS</code> function, which you probably have seen before. For example,</p>
-<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb158-1" title="1">survey &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;survey.RDS&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb168-1" title="1">survey &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;survey.RDS&quot;</span>)</a></code></pre></div>
 <p>A .RDS-file stores a <strong>single</strong> R-object in a serialized way. (RDS can be thought of a R Data Serialized). We can create an .RDS-file using <code>saveRDS</code> and read one using <code>readRDS</code>. Information systems will <strong>never</strong> export data as .RDS files – all .RDS-files are created within R. All the .RDS-files you have been using in the exercises and tutorials have been prepared by us. So, in which type of files can data be found in the wild? Let’s give you a quick tour of common file formats.</p>
 <div id="csv-and-tsv" class="section level3">
 <h3><span class="header-section-number">8.3.1</span> CSV and TSV</h3>
 <p>CSV-files are probably thé most common type of data files. CSV stand for Comma Seperated Values. These files can be seen as ordinary text files, where each line is an observation, i.e. a row, and columns are separated with commas (therefore its name). The first row can contain the names of the column, although this is not necessary. TSV is a much less common variant, which stands for Tab Separated Values. As its name suggests, values in this files are not seperated with commas but with tabs.</p>
 <p>For CSV-files, there are two varying import functions: <code>read.csv</code> and <code>read.csv2</code>. The first is for regular comma separated files, while the latter is for semicolon seperated files. Otherwise, the usage is similar to <code>readRDS</code>. The functions for TSV are similar – just with a T instead of a C.</p>
-<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb159-1" title="1">data &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;path/to/data/file.csv&quot;</span>)</a>
-<a class="sourceLine" id="cb159-2" title="2"></a>
-<a class="sourceLine" id="cb159-3" title="3">data &lt;-<span class="st"> </span><span class="kw">read.csv2</span>(<span class="st">&quot;path/to/data/file.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb169-1" title="1">data &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;path/to/data/file.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb169-2" title="2"></a>
+<a class="sourceLine" id="cb169-3" title="3">data &lt;-<span class="st"> </span><span class="kw">read.csv2</span>(<span class="st">&quot;path/to/data/file.csv&quot;</span>)</a></code></pre></div>
 <p>Both these functions are base-R function, and have many additional arguments to fine-tune the resulting data.frame based on peculiarities in the data file. However, the have become less used since the <code>readr</code> package from the tidyverse introduced faster functions which better defaults. These functions are <code>read_csv</code> and <code>read_csv2</code>, i.e. with an underscore instead of a period.</p>
 </div>
 <div id="excel" class="section level3">
 <h3><span class="header-section-number">8.3.2</span> Excel</h3>
 <p>While we do not like Excel very much, many people unfortunately still do. As such, it will be probable that you have to read an Excel file sooner or later. Reading Excel files can be done using the special <code>readxl</code> package. This package contains the <code>read_excel</code> function.</p>
-<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb160-1" title="1">data &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;path/to/excel/file.xlsx&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb170-1" title="1">data &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;path/to/excel/file.xlsx&quot;</span>)</a></code></pre></div>
 <p>Again, just like for csv, there are many additional arguments in <code>read_excel</code>. For example, you can set the sheet in the excel file you want to read, you can configure the types of the variables, and you can even specify a range in the excel file that you want to read, i.e. B3:G8.</p>
 </div>
 <div id="json-and-xml" class="section level3">
@@ -453,14 +456,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="other-statistical-packages" class="section level3">
 <h3><span class="header-section-number">8.3.4</span> Other statistical packages</h3>
 <p>Sometimes you will need to read data which comes from other commercial data analysis and statistical software used by less R-savvy co-workers. Often you need this because the analysis at hand cannot be done by the commercial packages and R needs to rescue you. In particular, files can come from SPSS, STATA and SAS. For each of these files, the <code>haven</code> package contains a read-function.</p>
-<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb161-1" title="1"><span class="co"># SPSS</span></a>
-<a class="sourceLine" id="cb161-2" title="2"><span class="kw">read_spps</span>(<span class="st">&quot;file&quot;</span>)</a>
-<a class="sourceLine" id="cb161-3" title="3"></a>
-<a class="sourceLine" id="cb161-4" title="4"><span class="co"># Stata </span></a>
-<a class="sourceLine" id="cb161-5" title="5"><span class="kw">read_dta</span>(<span class="st">&quot;file&quot;</span>)</a>
-<a class="sourceLine" id="cb161-6" title="6"></a>
-<a class="sourceLine" id="cb161-7" title="7"><span class="co">#sas</span></a>
-<a class="sourceLine" id="cb161-8" title="8"><span class="kw">read_sas</span>(<span class="st">&quot;file&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb171-1" title="1"><span class="co"># SPSS</span></a>
+<a class="sourceLine" id="cb171-2" title="2"><span class="kw">read_spps</span>(<span class="st">&quot;file&quot;</span>)</a>
+<a class="sourceLine" id="cb171-3" title="3"></a>
+<a class="sourceLine" id="cb171-4" title="4"><span class="co"># Stata </span></a>
+<a class="sourceLine" id="cb171-5" title="5"><span class="kw">read_dta</span>(<span class="st">&quot;file&quot;</span>)</a>
+<a class="sourceLine" id="cb171-6" title="6"></a>
+<a class="sourceLine" id="cb171-7" title="7"><span class="co">#sas</span></a>
+<a class="sourceLine" id="cb171-8" title="8"><span class="kw">read_sas</span>(<span class="st">&quot;file&quot;</span>)</a></code></pre></div>
 </div>
 <div id="databases" class="section level3">
 <h3><span class="header-section-number">8.3.5</span> Databases</h3>
@@ -474,7 +477,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="converting-variables" class="section level3">
 <h3><span class="header-section-number">8.3.7</span> Converting variables</h3>
 <p>Often an integral part of reading data from files, is making sure that all the variables in our data are correctly stored. Let factors be factors, and numbers be numbers. So, let’s have a look at the dataset.</p>
-<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb162-1" title="1"><span class="kw">glimpse</span>(survey)</a></code></pre></div>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb172-1" title="1"><span class="kw">glimpse</span>(survey)</a></code></pre></div>
 <pre><code>## Observations: 21,483
 ## Variables: 9
 ## $ year    &lt;chr&gt; &quot;2000&quot;, &quot;2000&quot;, &quot;2000&quot;, &quot;2000&quot;, &quot;2000&quot;, &quot;2000&quot;, &quot;2000&quot;, &quot;20...
@@ -496,17 +499,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>as.character</code> -&gt; for character variables</li>
 </ul>
 <p>In order to fix this, let’s use an old acquaintance from <code>dplyr</code>: <code>mutate</code>. We already learned that mutate can be used to add new variables to a datasets, but we can just as well use it to <em>overwrite</em> existing ones.</p>
-<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb164-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb164-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">year =</span> <span class="kw">as.integer</span>(year),</a>
-<a class="sourceLine" id="cb164-3" title="3">           <span class="dt">marital =</span> <span class="kw">as.factor</span>(marital),</a>
-<a class="sourceLine" id="cb164-4" title="4">           <span class="dt">age =</span> <span class="kw">as.integer</span>(age),</a>
-<a class="sourceLine" id="cb164-5" title="5">           <span class="dt">race =</span> <span class="kw">as.factor</span>(race),</a>
-<a class="sourceLine" id="cb164-6" title="6">           <span class="dt">rincome =</span> <span class="kw">as.factor</span>(rincome),</a>
-<a class="sourceLine" id="cb164-7" title="7">           <span class="dt">partyid =</span> <span class="kw">as.factor</span>(partyid),</a>
-<a class="sourceLine" id="cb164-8" title="8">           <span class="dt">relig =</span> <span class="kw">as.factor</span>(relig),</a>
-<a class="sourceLine" id="cb164-9" title="9">           <span class="dt">denom =</span> <span class="kw">as.factor</span>(denom),</a>
-<a class="sourceLine" id="cb164-10" title="10">           <span class="dt">tvhours =</span> <span class="kw">as.numeric</span>(tvhours)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb164-11" title="11"><span class="st">    </span>glimpse </a></code></pre></div>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb174-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb174-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">year =</span> <span class="kw">as.integer</span>(year),</a>
+<a class="sourceLine" id="cb174-3" title="3">           <span class="dt">marital =</span> <span class="kw">as.factor</span>(marital),</a>
+<a class="sourceLine" id="cb174-4" title="4">           <span class="dt">age =</span> <span class="kw">as.integer</span>(age),</a>
+<a class="sourceLine" id="cb174-5" title="5">           <span class="dt">race =</span> <span class="kw">as.factor</span>(race),</a>
+<a class="sourceLine" id="cb174-6" title="6">           <span class="dt">rincome =</span> <span class="kw">as.factor</span>(rincome),</a>
+<a class="sourceLine" id="cb174-7" title="7">           <span class="dt">partyid =</span> <span class="kw">as.factor</span>(partyid),</a>
+<a class="sourceLine" id="cb174-8" title="8">           <span class="dt">relig =</span> <span class="kw">as.factor</span>(relig),</a>
+<a class="sourceLine" id="cb174-9" title="9">           <span class="dt">denom =</span> <span class="kw">as.factor</span>(denom),</a>
+<a class="sourceLine" id="cb174-10" title="10">           <span class="dt">tvhours =</span> <span class="kw">as.numeric</span>(tvhours)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb174-11" title="11"><span class="st">    </span>glimpse </a></code></pre></div>
 <pre><code>## Observations: 21,483
 ## Variables: 9
 ## $ year    &lt;int&gt; 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000,...
@@ -519,22 +522,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## $ denom   &lt;fct&gt; Southern baptist, Baptist-dk which, No denomination, Not ap...
 ## $ tvhours &lt;dbl&gt; 12, NA, 2, 4, 1, NA, 3, NA, 0, 3, 2, NA, 1, NA, 1, 7, NA, 3...</code></pre>
 <p>That already looks better! However, observe that we did not yet store the result of our efforts. In fact, we want to use this opportunity to give all variables an easy name and undestandable name. For this, we can use the <code>rename</code> function. <code>rename</code> is a dplyr function with a very clear task: renaming variables. You can use it by giving it a list of new names connected to old names: <code>new_name = old_name</code>.</p>
-<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb166-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb166-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">year =</span> <span class="kw">as.integer</span>(year),</a>
-<a class="sourceLine" id="cb166-3" title="3">           <span class="dt">marital =</span> <span class="kw">as.factor</span>(marital),</a>
-<a class="sourceLine" id="cb166-4" title="4">           <span class="dt">age =</span> <span class="kw">as.integer</span>(age),</a>
-<a class="sourceLine" id="cb166-5" title="5">           <span class="dt">race =</span> <span class="kw">as.factor</span>(race),</a>
-<a class="sourceLine" id="cb166-6" title="6">           <span class="dt">rincome =</span> <span class="kw">as.factor</span>(rincome),</a>
-<a class="sourceLine" id="cb166-7" title="7">           <span class="dt">partyid =</span> <span class="kw">as.factor</span>(partyid),</a>
-<a class="sourceLine" id="cb166-8" title="8">           <span class="dt">relig =</span> <span class="kw">as.factor</span>(relig),</a>
-<a class="sourceLine" id="cb166-9" title="9">           <span class="dt">denom =</span> <span class="kw">as.factor</span>(denom),</a>
-<a class="sourceLine" id="cb166-10" title="10">           <span class="dt">tvhours =</span> <span class="kw">as.numeric</span>(tvhours)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb166-11" title="11"><span class="st">    </span><span class="kw">rename</span>(<span class="dt">reported_income =</span> rincome,</a>
-<a class="sourceLine" id="cb166-12" title="12">           <span class="dt">party =</span> partyid,</a>
-<a class="sourceLine" id="cb166-13" title="13">           <span class="dt">religion =</span> relig,</a>
-<a class="sourceLine" id="cb166-14" title="14">           <span class="dt">denomination =</span> denom,</a>
-<a class="sourceLine" id="cb166-15" title="15">           <span class="dt">tv_hours =</span> tvhours) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb166-16" title="16"><span class="st">    </span>glimpse </a></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb176-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb176-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">year =</span> <span class="kw">as.integer</span>(year),</a>
+<a class="sourceLine" id="cb176-3" title="3">           <span class="dt">marital =</span> <span class="kw">as.factor</span>(marital),</a>
+<a class="sourceLine" id="cb176-4" title="4">           <span class="dt">age =</span> <span class="kw">as.integer</span>(age),</a>
+<a class="sourceLine" id="cb176-5" title="5">           <span class="dt">race =</span> <span class="kw">as.factor</span>(race),</a>
+<a class="sourceLine" id="cb176-6" title="6">           <span class="dt">rincome =</span> <span class="kw">as.factor</span>(rincome),</a>
+<a class="sourceLine" id="cb176-7" title="7">           <span class="dt">partyid =</span> <span class="kw">as.factor</span>(partyid),</a>
+<a class="sourceLine" id="cb176-8" title="8">           <span class="dt">relig =</span> <span class="kw">as.factor</span>(relig),</a>
+<a class="sourceLine" id="cb176-9" title="9">           <span class="dt">denom =</span> <span class="kw">as.factor</span>(denom),</a>
+<a class="sourceLine" id="cb176-10" title="10">           <span class="dt">tvhours =</span> <span class="kw">as.numeric</span>(tvhours)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb176-11" title="11"><span class="st">    </span><span class="kw">rename</span>(<span class="dt">reported_income =</span> rincome,</a>
+<a class="sourceLine" id="cb176-12" title="12">           <span class="dt">party =</span> partyid,</a>
+<a class="sourceLine" id="cb176-13" title="13">           <span class="dt">religion =</span> relig,</a>
+<a class="sourceLine" id="cb176-14" title="14">           <span class="dt">denomination =</span> denom,</a>
+<a class="sourceLine" id="cb176-15" title="15">           <span class="dt">tv_hours =</span> tvhours) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb176-16" title="16"><span class="st">    </span>glimpse </a></code></pre></div>
 <pre><code>## Observations: 21,483
 ## Variables: 9
 ## $ year            &lt;int&gt; 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 200...
@@ -548,18 +551,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## $ tv_hours        &lt;dbl&gt; 12, NA, 2, 4, 1, NA, 3, NA, 0, 3, 2, NA, 1, NA, 1, ...</code></pre>
 <p>Certainly, there is no right answer in naming variables. Just make sure their names are understandable, easy to use and somewhat uniformly typesetted.</p>
 <p>Furthermore, note that what we just did is not the only possible way. For instance, we could also directly create the new variable names with mutate, although we will have to remove the old names afterwards.</p>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb168-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb168-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">year =</span> <span class="kw">as.integer</span>(year),</a>
-<a class="sourceLine" id="cb168-3" title="3">           <span class="dt">marital =</span> <span class="kw">as.factor</span>(marital),</a>
-<a class="sourceLine" id="cb168-4" title="4">           <span class="dt">age =</span> <span class="kw">as.integer</span>(age),</a>
-<a class="sourceLine" id="cb168-5" title="5">           <span class="dt">race =</span> <span class="kw">as.factor</span>(race),</a>
-<a class="sourceLine" id="cb168-6" title="6">           <span class="dt">reported_income =</span> <span class="kw">as.factor</span>(rincome),</a>
-<a class="sourceLine" id="cb168-7" title="7">           <span class="dt">party =</span> <span class="kw">as.factor</span>(partyid),</a>
-<a class="sourceLine" id="cb168-8" title="8">           <span class="dt">religion =</span> <span class="kw">as.factor</span>(relig),</a>
-<a class="sourceLine" id="cb168-9" title="9">           <span class="dt">denomination =</span> <span class="kw">as.factor</span>(denom),</a>
-<a class="sourceLine" id="cb168-10" title="10">           <span class="dt">tv_hours =</span> <span class="kw">as.numeric</span>(tvhours)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb168-11" title="11"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>rincome<span class="op">:-</span>tvhours) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb168-12" title="12"><span class="st">    </span>glimpse </a></code></pre></div>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb178-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb178-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">year =</span> <span class="kw">as.integer</span>(year),</a>
+<a class="sourceLine" id="cb178-3" title="3">           <span class="dt">marital =</span> <span class="kw">as.factor</span>(marital),</a>
+<a class="sourceLine" id="cb178-4" title="4">           <span class="dt">age =</span> <span class="kw">as.integer</span>(age),</a>
+<a class="sourceLine" id="cb178-5" title="5">           <span class="dt">race =</span> <span class="kw">as.factor</span>(race),</a>
+<a class="sourceLine" id="cb178-6" title="6">           <span class="dt">reported_income =</span> <span class="kw">as.factor</span>(rincome),</a>
+<a class="sourceLine" id="cb178-7" title="7">           <span class="dt">party =</span> <span class="kw">as.factor</span>(partyid),</a>
+<a class="sourceLine" id="cb178-8" title="8">           <span class="dt">religion =</span> <span class="kw">as.factor</span>(relig),</a>
+<a class="sourceLine" id="cb178-9" title="9">           <span class="dt">denomination =</span> <span class="kw">as.factor</span>(denom),</a>
+<a class="sourceLine" id="cb178-10" title="10">           <span class="dt">tv_hours =</span> <span class="kw">as.numeric</span>(tvhours)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb178-11" title="11"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>rincome<span class="op">:-</span>tvhours) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb178-12" title="12"><span class="st">    </span>glimpse </a></code></pre></div>
 <pre><code>## Observations: 21,483
 ## Variables: 9
 ## $ year            &lt;int&gt; 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 200...
@@ -579,17 +582,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>Don’t worry. You’ll come a long way if you can use select, mutate and rename. But don’t be afraid to challenge yourself and check out the more advanced stuff.</p>
 <p>Now, let’s continue. Before we do, we copy the last part of code, this time storing the result again as <code>survey</code>, thereby overwriting the old version. You can do this in two ways: either put <code>survey &lt;-</code> before the piece of code, or put <code>-&gt; survey</code> after the piece of code. Again, there is no wrong or right way. Personally, I prefer the later option, as it nicely fits our narrative we created with the <code>%&gt;%</code> symbol: we take a dataset, we perform some steps, and then we store it.</p>
-<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb170-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb170-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">year =</span> <span class="kw">as.integer</span>(year),</a>
-<a class="sourceLine" id="cb170-3" title="3">           <span class="dt">marital =</span> <span class="kw">as.factor</span>(marital),</a>
-<a class="sourceLine" id="cb170-4" title="4">           <span class="dt">age =</span> <span class="kw">as.integer</span>(age),</a>
-<a class="sourceLine" id="cb170-5" title="5">           <span class="dt">race =</span> <span class="kw">as.factor</span>(race),</a>
-<a class="sourceLine" id="cb170-6" title="6">           <span class="dt">reported_income =</span> <span class="kw">as.factor</span>(rincome),</a>
-<a class="sourceLine" id="cb170-7" title="7">           <span class="dt">party =</span> <span class="kw">as.factor</span>(partyid),</a>
-<a class="sourceLine" id="cb170-8" title="8">           <span class="dt">religion =</span> <span class="kw">as.factor</span>(relig),</a>
-<a class="sourceLine" id="cb170-9" title="9">           <span class="dt">denomination =</span> <span class="kw">as.factor</span>(denom),</a>
-<a class="sourceLine" id="cb170-10" title="10">           <span class="dt">tv_hours =</span> <span class="kw">as.numeric</span>(tvhours)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb170-11" title="11"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>rincome<span class="op">:-</span>tvhours) -&gt;<span class="st"> </span>survey</a></code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb180-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb180-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">year =</span> <span class="kw">as.integer</span>(year),</a>
+<a class="sourceLine" id="cb180-3" title="3">           <span class="dt">marital =</span> <span class="kw">as.factor</span>(marital),</a>
+<a class="sourceLine" id="cb180-4" title="4">           <span class="dt">age =</span> <span class="kw">as.integer</span>(age),</a>
+<a class="sourceLine" id="cb180-5" title="5">           <span class="dt">race =</span> <span class="kw">as.factor</span>(race),</a>
+<a class="sourceLine" id="cb180-6" title="6">           <span class="dt">reported_income =</span> <span class="kw">as.factor</span>(rincome),</a>
+<a class="sourceLine" id="cb180-7" title="7">           <span class="dt">party =</span> <span class="kw">as.factor</span>(partyid),</a>
+<a class="sourceLine" id="cb180-8" title="8">           <span class="dt">religion =</span> <span class="kw">as.factor</span>(relig),</a>
+<a class="sourceLine" id="cb180-9" title="9">           <span class="dt">denomination =</span> <span class="kw">as.factor</span>(denom),</a>
+<a class="sourceLine" id="cb180-10" title="10">           <span class="dt">tv_hours =</span> <span class="kw">as.numeric</span>(tvhours)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb180-11" title="11"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>rincome<span class="op">:-</span>tvhours) -&gt;<span class="st"> </span>survey</a></code></pre></div>
 <p>This is a good place to pay attention to work-flow aspects. Before, during the analysis of data, different pieces of code rarely depended on each other. For example, if we made graph A and then table B, both could be made independent from each other. We never stored the results we created to be used later (apart from a sample of data we sometimes took.) However, now that we will be cleaning and transforming the data, we will always update the data.frame, typically under the same name. Indeed, we don’t want to end up with a list of survey, survey2, survey3, survey4, without remembering their differences. So, at each step, we update the previous version of survey.</p>
 <p>However, there is a risk. If we make a mistake, our data could be broken. For example, if we erroneously converted race to numeric, the as.numeric function will fail to do so and create a column full of NAs instead. We can then quickly correct our mistake in the code, but this won’t bring the original race variable back – it was gone the moment we mistakenly converted it.</p>
 <p>To right our wrongs, we will need to reload the data, and all the transformations we already applied before. Just correcting the code is no longer going to be sufficient, <strong>we need to correct our data</strong>. When working in R Markdown, this is easiest done with the central button in an R-chunk, as this will rerun all the previous R-chunks, bringing our data in the state it was in before.</p>
@@ -610,14 +613,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">8.4.1</span> Duplicates Removal</h3>
 <p>Sometimes, it might happen that some rows were accidently included multiple times in the dataset. There is an easy way to find these, and to remove them.</p>
 <p>The <code>duplicated</code> function (a base R function), returns a logical vector indicating duplicate rows in a dataset. The vector will have the same length as the number of rows in the dataset, and will be <code>TRUE</code> for rows which are not unique, and <code>FALSE</code> otherwise.</p>
-<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb171-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb171-2" title="2"><span class="st">    </span>duplicated <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb171-3" title="3"><span class="st">    </span>summary</a></code></pre></div>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb181-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb181-2" title="2"><span class="st">    </span>duplicated <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb181-3" title="3"><span class="st">    </span>summary</a></code></pre></div>
 <pre><code>##    Mode   FALSE    TRUE 
 ## logical   21220     263</code></pre>
 <p>It seems that there are 263 in our data which are not unique. We can take a look at these by using the output of duplicated as an input of filter.[^point]</p>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb173-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb173-2" title="2"><span class="st">    </span><span class="kw">filter</span>(<span class="kw">duplicated</span>(.))</a></code></pre></div>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb183-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb183-2" title="2"><span class="st">    </span><span class="kw">filter</span>(<span class="kw">duplicated</span>(.))</a></code></pre></div>
 <pre><code>## # A tibble: 263 x 9
 ##     year marital   age race  reported_income party religion denomination
 ##    &lt;int&gt; &lt;fct&gt;   &lt;int&gt; &lt;fct&gt; &lt;fct&gt;           &lt;fct&gt; &lt;fct&gt;    &lt;fct&gt;       
@@ -634,8 +637,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## # ... with 253 more rows, and 1 more variable: tv_hours &lt;dbl&gt;</code></pre>
 <p>Notice the . within the <code>duplicated</code> function? The point has a special significance if used together with the piping symbol. Internally, it will be replaced with the input coming through the piping symbol. As such, <code>survey %&gt;% filter(duplicated(.))</code> is equal to <code>filter(survey, duplicated(survey))</code>. It’s very convenient if you need to refer to the piping input multiple times, not only as the first argument of the function.</p>
 <p>Right now we selected the duplicate rows and we can have a look at them. If we only want to retain the unique rows, we can add a !-symbol to negate the selection.</p>
-<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb175-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb175-2" title="2"><span class="st">    </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">duplicated</span>(.))</a></code></pre></div>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb185-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb185-2" title="2"><span class="st">    </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">duplicated</span>(.))</a></code></pre></div>
 <pre><code>## # A tibble: 21,220 x 9
 ##     year marital   age race  reported_income party religion denomination
 ##    &lt;int&gt; &lt;fct&gt;   &lt;int&gt; &lt;fct&gt; &lt;fct&gt;           &lt;fct&gt; &lt;fct&gt;    &lt;fct&gt;       
@@ -651,8 +654,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10  2000 Married    47 White $25000 or more  Stro~ Protest~ Southern ba~
 ## # ... with 21,210 more rows, and 1 more variable: tv_hours &lt;dbl&gt;</code></pre>
 <p>However, this is a little bit verbose. Therefore, <code>dplyr</code> contains a very handy short cut: the <code>distinct</code> function.</p>
-<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb177-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb177-2" title="2"><span class="st">    </span>distinct</a></code></pre></div>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb187-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb187-2" title="2"><span class="st">    </span>distinct</a></code></pre></div>
 <pre><code>## # A tibble: 21,220 x 9
 ##     year marital   age race  reported_income party religion denomination
 ##    &lt;int&gt; &lt;fct&gt;   &lt;int&gt; &lt;fct&gt; &lt;fct&gt;           &lt;fct&gt; &lt;fct&gt;    &lt;fct&gt;       
@@ -681,8 +684,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="recode-categorical-variables" class="section level3">
 <h3><span class="header-section-number">8.4.3</span> Recode Categorical Variables</h3>
 <p>Sometimes, categorical variables, i.e. factors, have weird or even wrong labels. In that case, we would like to <em>recode</em> these values. Finding wrong labels isn’t always easy, and often these mistakes will surface later during the analysis, in which case you have to take a step back and correct them afterwards. Nonetheless, looking at frequency tables in alphabetical order, or ordered from least to most frequent, can point to some mistakes.<a href="#fn32" class="footnote-ref" id="fnref32"><sup>32</sup></a> Let’s take the party variable as an example.</p>
-<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb179-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb179-2" title="2"><span class="st">    </span><span class="kw">count</span>(party) </a></code></pre></div>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb189-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb189-2" title="2"><span class="st">    </span><span class="kw">count</span>(party) </a></code></pre></div>
 <pre><code>## # A tibble: 10 x 2
 ##    party                  n
 ##    &lt;fct&gt;              &lt;int&gt;
@@ -697,27 +700,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  9 Strong democrat     3490
 ## 10 Strong republican   2314</code></pre>
 <p>While the values for party are not really wrong, they are not every uniform: Str and Strong, Ind and Independent. Let’s change them. We can recode factor levels using the <code>fct_recode</code> function from forcats. As arguments, we need to say which variable to recode, and which levels to changes.</p>
-<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb181-1" title="1">data <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb181-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="op">&lt;</span>factor_name<span class="op">&gt;</span><span class="st"> </span><span class="er">=</span><span class="st"> </span><span class="kw">fct_recode</span>(<span class="op">&lt;</span>factor_name<span class="op">&gt;</span>, </a>
-<a class="sourceLine" id="cb181-3" title="3">                                      <span class="st">&quot;&lt;new_level1&gt;&quot;</span> =<span class="st"> &quot;&lt;old_level1&gt;&quot;</span>,</a>
-<a class="sourceLine" id="cb181-4" title="4">                                      <span class="st">&quot;&lt;new_level2&gt;&quot;</span> =<span class="st"> &quot;&lt;old_level2&gt;&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb191-1" title="1">data <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb191-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="op">&lt;</span>factor_name<span class="op">&gt;</span><span class="st"> </span><span class="er">=</span><span class="st"> </span><span class="kw">fct_recode</span>(<span class="op">&lt;</span>factor_name<span class="op">&gt;</span>, </a>
+<a class="sourceLine" id="cb191-3" title="3">                                      <span class="st">&quot;&lt;new_level1&gt;&quot;</span> =<span class="st"> &quot;&lt;old_level1&gt;&quot;</span>,</a>
+<a class="sourceLine" id="cb191-4" title="4">                                      <span class="st">&quot;&lt;new_level2&gt;&quot;</span> =<span class="st"> &quot;&lt;old_level2&gt;&quot;</span>)</a></code></pre></div>
 <p>We can recode as many old levels into new levels as we want. Furthermore, you can replace several old levels by the same new level. Any level not mentioned will be left unchanged. Let’s create some uniformity in the political affiliations.</p>
-<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb182-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb182-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">party =</span> <span class="kw">fct_recode</span>(party,</a>
-<a class="sourceLine" id="cb182-3" title="3">                                <span class="st">&quot;Republican, strong&quot;</span>    =<span class="st"> &quot;Strong republican&quot;</span>,</a>
-<a class="sourceLine" id="cb182-4" title="4">                                <span class="st">&quot;Republican, weak&quot;</span>      =<span class="st"> &quot;Not str republican&quot;</span>,</a>
-<a class="sourceLine" id="cb182-5" title="5">                                <span class="st">&quot;Independent, near rep&quot;</span> =<span class="st"> &quot;Ind,near rep&quot;</span>,</a>
-<a class="sourceLine" id="cb182-6" title="6">                                <span class="st">&quot;Independent, near dem&quot;</span> =<span class="st"> &quot;Ind,near dem&quot;</span>,</a>
-<a class="sourceLine" id="cb182-7" title="7">                                <span class="st">&quot;Democrat, weak&quot;</span>        =<span class="st"> &quot;Not str democrat&quot;</span>,</a>
-<a class="sourceLine" id="cb182-8" title="8">                                <span class="st">&quot;Democrat, strong&quot;</span>      =<span class="st"> &quot;Strong democrat&quot;</span></a>
-<a class="sourceLine" id="cb182-9" title="9">    )) -&gt;<span class="st"> </span>survey </a></code></pre></div>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb192-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb192-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">party =</span> <span class="kw">fct_recode</span>(party,</a>
+<a class="sourceLine" id="cb192-3" title="3">                                <span class="st">&quot;Republican, strong&quot;</span>    =<span class="st"> &quot;Strong republican&quot;</span>,</a>
+<a class="sourceLine" id="cb192-4" title="4">                                <span class="st">&quot;Republican, weak&quot;</span>      =<span class="st"> &quot;Not str republican&quot;</span>,</a>
+<a class="sourceLine" id="cb192-5" title="5">                                <span class="st">&quot;Independent, near rep&quot;</span> =<span class="st"> &quot;Ind,near rep&quot;</span>,</a>
+<a class="sourceLine" id="cb192-6" title="6">                                <span class="st">&quot;Independent, near dem&quot;</span> =<span class="st"> &quot;Ind,near dem&quot;</span>,</a>
+<a class="sourceLine" id="cb192-7" title="7">                                <span class="st">&quot;Democrat, weak&quot;</span>        =<span class="st"> &quot;Not str democrat&quot;</span>,</a>
+<a class="sourceLine" id="cb192-8" title="8">                                <span class="st">&quot;Democrat, strong&quot;</span>      =<span class="st"> &quot;Strong democrat&quot;</span></a>
+<a class="sourceLine" id="cb192-9" title="9">    )) -&gt;<span class="st"> </span>survey </a></code></pre></div>
 <p>Don’t forget to update the dataset!</p>
 </div>
 <div id="reorder-categorical-variables" class="section level3">
 <h3><span class="header-section-number">8.4.4</span> Reorder Categorical Variables</h3>
 <p>Another possibility, especially for ordinal factors, is that the values are not really wrong, but they are in the wrong order. For instance, take a look at the reported income.</p>
-<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb183-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb183-2" title="2"><span class="st">    </span><span class="kw">count</span>(reported_income)</a></code></pre></div>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb193-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb193-2" title="2"><span class="st">    </span><span class="kw">count</span>(reported_income)</a></code></pre></div>
 <pre><code>## # A tibble: 16 x 2
 ##    reported_income     n
 ##    &lt;fct&gt;           &lt;int&gt;
@@ -739,20 +742,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 16 Refused           975</code></pre>
 <p>The value “Lt $1000” - meaning Limited, or less than $1000 - should be shown first, but instead it is in the wrong place. Here, we need another forcats function, namely <code>fct_relevel</code>. This function can be used in two different ways to put a level into a different place.</p>
 <p><strong>Option 1</strong>: Move one (or more) level(s) to the front</p>
-<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb185-1" title="1">data <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb185-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">factor_name =</span> <span class="kw">fct_relevel</span>(factor_name, </a>
-<a class="sourceLine" id="cb185-3" title="3">                                     <span class="st">&quot;level1_to_move&quot;</span>,<span class="st">&quot;level2_to move&quot;</span>, <span class="st">&quot;...&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb195-1" title="1">data <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb195-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">factor_name =</span> <span class="kw">fct_relevel</span>(factor_name, </a>
+<a class="sourceLine" id="cb195-3" title="3">                                     <span class="st">&quot;level1_to_move&quot;</span>,<span class="st">&quot;level2_to move&quot;</span>, <span class="st">&quot;...&quot;</span>))</a></code></pre></div>
 <p><strong>Option 2</strong>: Insert one (or more) level(s) after a number N of levels</p>
-<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb186-1" title="1">data <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb186-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">factor_name =</span> <span class="kw">fct_relevel</span>(factor_name, </a>
-<a class="sourceLine" id="cb186-3" title="3">                                     <span class="st">&quot;level1_to_move&quot;</span>,<span class="st">&quot;level2_to move&quot;</span>, <span class="st">&quot;...&quot;</span>, <span class="dt">after =</span> N))</a></code></pre></div>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb196-1" title="1">data <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb196-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">factor_name =</span> <span class="kw">fct_relevel</span>(factor_name, </a>
+<a class="sourceLine" id="cb196-3" title="3">                                     <span class="st">&quot;level1_to_move&quot;</span>,<span class="st">&quot;level2_to move&quot;</span>, <span class="st">&quot;...&quot;</span>, <span class="dt">after =</span> N))</a></code></pre></div>
 <p>So, let’s move the LT $1000 level to the first place.</p>
-<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb187-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb187-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">reported_income =</span> <span class="kw">fct_relevel</span>(reported_income, </a>
-<a class="sourceLine" id="cb187-3" title="3">                                         <span class="st">&quot;Lt $1000&quot;</span>)) -&gt;<span class="st"> </span>survey</a></code></pre></div>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb197-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb197-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">reported_income =</span> <span class="kw">fct_relevel</span>(reported_income, </a>
+<a class="sourceLine" id="cb197-3" title="3">                                         <span class="st">&quot;Lt $1000&quot;</span>)) -&gt;<span class="st"> </span>survey</a></code></pre></div>
 <p>We can check the results by using count on the updated <code>survey</code> data.frame.</p>
-<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb188-1" title="1">survey <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb188-2" title="2"><span class="st">    </span><span class="kw">count</span>(reported_income)</a></code></pre></div>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb198-1" title="1">survey <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb198-2" title="2"><span class="st">    </span><span class="kw">count</span>(reported_income)</a></code></pre></div>
 <pre><code>## # A tibble: 16 x 2
 ##    reported_income     n
 ##    &lt;fct&gt;           &lt;int&gt;
@@ -773,8 +776,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 15 Not applicable   7043
 ## 16 Refused           975</code></pre>
 <p>Changing the order of levels of a categorical variable is useful for both nominal and ordinal data. For ordinal data, it is logical that we want to order of the levels to be the correct one. But also for nominal data we might want to change the order. For example, there are often catch-all values such as “Other” or “Various”. It is good practice to treat these values differently compared to the regular values in a nominal, by putting them last. As such, they will shown up on one end of a graph or table, and not in between the other values. Let’s take a look at party.</p>
-<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb190-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb190-2" title="2"><span class="st">    </span><span class="kw">count</span>(party)</a></code></pre></div>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb200-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb200-2" title="2"><span class="st">    </span><span class="kw">count</span>(party)</a></code></pre></div>
 <pre><code>## # A tibble: 10 x 2
 ##    party                     n
 ##    &lt;fct&gt;                 &lt;int&gt;
@@ -789,28 +792,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  9 Democrat, strong       3490
 ## 10 Republican, strong     2314</code></pre>
 <p>Deciding whether a factor is ordinal or not is not always that straigthforward. If we look at the reported income, it is clear that there is an order. However, we didn’t define <code>party</code> as an ordered factor. There is no “best” or “superior” political party, so explicitly program this variable as a ordinal factor would be one bridge too far – we would have to decide which end of the political spectrum is the “lowest” and which the “highest”. However, this is somewhat undesirable if we make graphs.</p>
-<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb192-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb192-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(party)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb192-3" title="3"><span class="st">    </span><span class="kw">geom_bar</span>(<span class="dt">fill =</span> <span class="st">&quot;dodgerblue4&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb192-4" title="4"><span class="st">    </span><span class="kw">theme_light</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb192-5" title="5"><span class="st">    </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">45</span>, <span class="dt">hjust =</span> <span class="dv">1</span>)) </a></code></pre></div>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb202-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb202-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(party)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb202-3" title="3"><span class="st">    </span><span class="kw">geom_bar</span>(<span class="dt">fill =</span> <span class="st">&quot;dodgerblue4&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb202-4" title="4"><span class="st">    </span><span class="kw">theme_light</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb202-5" title="5"><span class="st">    </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">45</span>, <span class="dt">hjust =</span> <span class="dv">1</span>)) </a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-167-1.png" width="100%" /></p>
 <p>When we don’t have an ordinal factor, the order of labels will be often be alphabetical. In this case, because we recoded the labels before, they are not even in alphabetical order any more..<a href="#fn33" class="footnote-ref" id="fnref33"><sup>33</sup></a> The resulting graph is difficult to read, as the x-axis is scrambled. A natural reflex would be to order the bar chart according to frequency, but that would not really improve the readability in this special case. Instead, we can apply a more logical order, without necessary considering party as an ordinal variable. Such a logical order is readily available for the current variable, as we often speak of left and right-wing politics. We can leave the alternative answers (Don’t know, No Answer, Other Party), either at the start or end of the order. By not noticing them in the code below, the latter will happen.</p>
-<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb193-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb193-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">party =</span> <span class="kw">fct_relevel</span>(party, </a>
-<a class="sourceLine" id="cb193-3" title="3">                               <span class="st">&quot;Democrat, strong&quot;</span>,</a>
-<a class="sourceLine" id="cb193-4" title="4">                               <span class="st">&quot;Democrat, weak&quot;</span>, </a>
-<a class="sourceLine" id="cb193-5" title="5">                               <span class="st">&quot;Independent, near dem&quot;</span>,</a>
-<a class="sourceLine" id="cb193-6" title="6">                               <span class="st">&quot;Independent&quot;</span>, </a>
-<a class="sourceLine" id="cb193-7" title="7">                               <span class="st">&quot;Independent, near rep&quot;</span>,</a>
-<a class="sourceLine" id="cb193-8" title="8">                               <span class="st">&quot;Republican, weak&quot;</span>,</a>
-<a class="sourceLine" id="cb193-9" title="9">                               <span class="st">&quot;Republican, strong&quot;</span>)) -&gt;<span class="st"> </span>survey</a></code></pre></div>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb203-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb203-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">party =</span> <span class="kw">fct_relevel</span>(party, </a>
+<a class="sourceLine" id="cb203-3" title="3">                               <span class="st">&quot;Democrat, strong&quot;</span>,</a>
+<a class="sourceLine" id="cb203-4" title="4">                               <span class="st">&quot;Democrat, weak&quot;</span>, </a>
+<a class="sourceLine" id="cb203-5" title="5">                               <span class="st">&quot;Independent, near dem&quot;</span>,</a>
+<a class="sourceLine" id="cb203-6" title="6">                               <span class="st">&quot;Independent&quot;</span>, </a>
+<a class="sourceLine" id="cb203-7" title="7">                               <span class="st">&quot;Independent, near rep&quot;</span>,</a>
+<a class="sourceLine" id="cb203-8" title="8">                               <span class="st">&quot;Republican, weak&quot;</span>,</a>
+<a class="sourceLine" id="cb203-9" title="9">                               <span class="st">&quot;Republican, strong&quot;</span>)) -&gt;<span class="st"> </span>survey</a></code></pre></div>
 <p>Our graph now looks as follows. Better, isn’t it?<a href="#fn34" class="footnote-ref" id="fnref34"><sup>34</sup></a></p>
-<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb194-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb194-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(party)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb194-3" title="3"><span class="st">    </span><span class="kw">geom_bar</span>(<span class="dt">fill =</span> <span class="st">&quot;dodgerblue4&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb194-4" title="4"><span class="st">    </span><span class="kw">theme_light</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb194-5" title="5"><span class="st">    </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">45</span>, <span class="dt">hjust =</span> <span class="dv">1</span>)) </a></code></pre></div>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb204-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb204-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(party)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb204-3" title="3"><span class="st">    </span><span class="kw">geom_bar</span>(<span class="dt">fill =</span> <span class="st">&quot;dodgerblue4&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb204-4" title="4"><span class="st">    </span><span class="kw">theme_light</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb204-5" title="5"><span class="st">    </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">45</span>, <span class="dt">hjust =</span> <span class="dv">1</span>)) </a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-169-1.png" width="100%" /></p>
 <p>In conclusion we use</p>
 <ul>
@@ -826,23 +829,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="errors" class="section level3">
 <h3><span class="header-section-number">8.4.6</span> Errors</h3>
 <p>In the <code>survey</code> data.frame, there are three continuous variables: year, age and (daily) tv_hours. For each of these variables, we have a certain idea about the possible range of values. The age will probably by somewhere between 20 and 100 (knowing that the dataset contains information on adults). The number of tv hours should be between 0 and 24, as there are 24 hours in a day. Also for year we more or less know what to expect. Let’s have a look at each.<a href="#fn35" class="footnote-ref" id="fnref35"><sup>35</sup></a></p>
-<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb195-1" title="1"><span class="kw">summary</span>(survey<span class="op">$</span>year)</a></code></pre></div>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb205-1" title="1"><span class="kw">summary</span>(survey<span class="op">$</span>year)</a></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##    2000    2002    2006    2007    2010    2014</code></pre>
 <p>For year, everything seems allright. We converted it already to an integer variable before, so we don’t have to check for erroneous decimal years. Furthermore, the minimum and maximum seems quite alright. When year contains errors, we most likely observe it at thise extremes: 2102 instead of 2012, 1099 instead of 1999, or 9999 indicating that it is actually missing.</p>
 <p>Let’s look at age then.</p>
-<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb197-1" title="1"><span class="kw">summary</span>(survey<span class="op">$</span>age)</a></code></pre></div>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb207-1" title="1"><span class="kw">summary</span>(survey<span class="op">$</span>age)</a></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
 ##   18.00   33.00   46.00   47.18   59.00   89.00      76</code></pre>
 <p>On first sight, there does not seem to be problems with age. There are 76 missing values, but the values present are situated between 18 and 89 years, which again is a logical range. Also age was converted without problems to an integer variable before, so all values are integer numbers.</p>
 <p>If we look at tv hours, we see something peculiar.</p>
-<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb199-1" title="1"><span class="kw">summary</span>(survey<span class="op">$</span>tv_hours)</a></code></pre></div>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb209-1" title="1"><span class="kw">summary</span>(survey<span class="op">$</span>tv_hours)</a></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
 ##   0.000   1.000   2.000   3.004   4.000  84.000   10146</code></pre>
 <p>We see there are 10146 missing values, which is high but not necessarily wrong (unless we accidently removed some values, which we didn’t). There are no negative values, as the minimum number of hours someone watched tv is zero. However, on the other side, we see that the number of tv hours goes up to 84 hours a day - this is clearly wrong. We all have just 24 hours in a day.</p>
 <p>We can further look at the records for which the tv hours are more than 24.</p>
-<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb201-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb201-2" title="2"><span class="st">    </span><span class="kw">filter</span>(tv_hours <span class="op">&gt;</span><span class="st"> </span><span class="dv">24</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb211-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb211-2" title="2"><span class="st">    </span><span class="kw">filter</span>(tv_hours <span class="op">&gt;</span><span class="st"> </span><span class="dv">24</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 5 x 9
 ##    year marital   age race  reported_income party religion denomination tv_hours
 ##   &lt;int&gt; &lt;fct&gt;   &lt;int&gt; &lt;fct&gt; &lt;fct&gt;           &lt;fct&gt; &lt;fct&gt;    &lt;fct&gt;           &lt;dbl&gt;
@@ -853,12 +856,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5  2014 Separa~    30 White Not applicable  Inde~ None     Not applica~       28</code></pre>
 <p>There seem to be 5 observations for which the number of tv hours is clearly wrong, and we need to correct them. However, we don’t have a clue how to correct them in our case. The only thing we can do, is to deleted these values, and make them missing.<a href="#fn36" class="footnote-ref" id="fnref36"><sup>36</sup></a> Observe, we do not delete the entire observations, just the tvhours variable for these observations. The other variables can still be used for these 5 rows.</p>
 <p>We can do this by using the <code>ifelse</code> function. This function is a very generic function which returns a value dependent on a logical test.<a href="#fn37" class="footnote-ref" id="fnref37"><sup>37</sup></a> The function can be used as follows.</p>
-<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb203-1" title="1"><span class="kw">if_else</span>( <span class="op">&lt;</span>condition<span class="op">&gt;</span>, <span class="op">&lt;</span>value_a<span class="op">&gt;</span>, <span class="op">&lt;</span>value_b<span class="op">&gt;</span><span class="st"> </span>)</a></code></pre></div>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb213-1" title="1"><span class="kw">if_else</span>( <span class="op">&lt;</span>condition<span class="op">&gt;</span>, <span class="op">&lt;</span>value_a<span class="op">&gt;</span>, <span class="op">&lt;</span>value_b<span class="op">&gt;</span><span class="st"> </span>)</a></code></pre></div>
 <p>Suppose we have a vector <code>score</code> containing student scores. We can use the <code>ifelse</code> function to create a vector <code>grade</code> with values <code>FAILED</code> and <code>PASSED</code>.</p>
-<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb204-1" title="1">grade &lt;-<span class="st"> </span><span class="kw">ifelse</span>(score <span class="op">&gt;=</span><span class="st"> </span><span class="dv">10</span>, <span class="st">&quot;PASSED&quot;</span>, <span class="st">&quot;FAILED&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb214-1" title="1">grade &lt;-<span class="st"> </span><span class="kw">ifelse</span>(score <span class="op">&gt;=</span><span class="st"> </span><span class="dv">10</span>, <span class="st">&quot;PASSED&quot;</span>, <span class="st">&quot;FAILED&quot;</span>)</a></code></pre></div>
 <p>Now, let’s use the function to update the tv hours variable.</p>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb205-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb205-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">tv_hours =</span> <span class="kw">ifelse</span>(tv_hours <span class="op">&gt;</span><span class="st"> </span><span class="dv">24</span>, <span class="ot">NA</span>, tv_hours)) -&gt;<span class="st"> </span>survey</a></code></pre></div>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb215-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb215-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">tv_hours =</span> <span class="kw">ifelse</span>(tv_hours <span class="op">&gt;</span><span class="st"> </span><span class="dv">24</span>, <span class="ot">NA</span>, tv_hours)) -&gt;<span class="st"> </span>survey</a></code></pre></div>
 <p>So, what happens? The tv_hours variable is updated using <code>mutate</code>. If it is larger than 24, the new value will be <code>NA</code>, i.e. not available. Otherwise, the new value will just be the old value of tv_hours. After the column is updated, the new data.frame is again stored as <code>survey</code>.</p>
 <p>Checking for errors, both categorical and continuous, can be a <em>street without ending</em>. Usually, you do the best you can by using the tricks discussed above for each variable. If this seems like a lot of work, remember that 70% of a typical data project goes to cleaning and transforming data, and only 30% to actual analysis and interpretation.</p>
 <p>And even then, despite all your time and efforts, in can happen that your discover data errors in the analysis phase. Not surprisingly, as you will really look at the data in detail at that point. When this happens, you go back to your cleaning and transformation scripts and modify them where needed. As such, it is important that you store the original data as well as all the changes you performed. Even more important is to make sure that all your analysis are stored as a script of RMarkdown, so that they can quickly be rerun after correcting the error. This is called <em>reproducible research</em> and will save you a lot of time and mistakes. Have a look at <a href="https://www.youtube.com/watch?v=s3JldKoA0zw">this video</a> for an illustration of reproducible work-flows.</p>
@@ -866,18 +869,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="outliers" class="section level3">
 <h3><span class="header-section-number">8.4.7</span> Outliers</h3>
 <p>It also happens that some continuous values are not necessarily wrong, but <em>exceptionally</em> high or low. These exceptions we don’t call error, but instead we call outliers – a data point that is distant from other observations. For example, consider tv hours. Before we removed values greater than 24 hours, because there are logically errors. Let’s have a look at the remaining values.</p>
-<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb206-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb206-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(tv_hours)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb206-3" title="3"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">1</span>,</a>
-<a class="sourceLine" id="cb206-4" title="4">                   <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;dodgerblue4&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb206-5" title="5"><span class="st">    </span><span class="kw">theme_light</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb216-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb216-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(tv_hours)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb216-3" title="3"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb216-4" title="4">                   <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;dodgerblue4&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb216-5" title="5"><span class="st">    </span><span class="kw">theme_light</span>()</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-177-1.png" width="100%" /></p>
 <p>It seems that while most people watch television between 0 and 5 hour a day, there are some exceptionally high values. It’s not clear whether they are mistakes like the onces we removed before, or just abnormal tv-addicts. Let’s have a look at the 25 highest values, and compare them with some related attributes, such as age, income and marital status (comparing them with religion or party might be regarded as politically incorrect, so let’s steer clear from that danger zone).<a href="#fn38" class="footnote-ref" id="fnref38"><sup>38</sup></a></p>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb207-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb207-2" title="2"><span class="st">    </span><span class="kw">arrange</span>(<span class="op">-</span>tv_hours) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb207-3" title="3"><span class="st">    </span><span class="kw">slice</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">25</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb207-4" title="4"><span class="st">    </span><span class="kw">select</span>(tv_hours, marital, age, reported_income) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb207-5" title="5"><span class="st">    </span><span class="kw">pander</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb217-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb217-2" title="2"><span class="st">    </span><span class="kw">arrange</span>(<span class="op">-</span>tv_hours) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb217-3" title="3"><span class="st">    </span><span class="kw">slice</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">25</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb217-4" title="4"><span class="st">    </span><span class="kw">select</span>(tv_hours, marital, age, reported_income) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb217-5" title="5"><span class="st">    </span><span class="kw">pander</span>()</a></code></pre></div>
 <table style="width:71%;">
 <colgroup>
 <col width="15%" />
@@ -1053,13 +1056,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>These are people who weren’t very honest when filling out their information (also not reporting any income).</li>
 </ul>
 <p>Deciding whether something is wrong or exceptional is not trivial and requires certain domain knowledge and assumptions. In this case, the logical assumption is that these numbers are incorrect (even lazy, tv-binging people need to sleep now and then). The more difficult question is at what point something becomes incorrect. 20 hours? 16? For continuous variables it can help to look at a boxplot and see until where the whiskers go. However, this is no exact science, especially when variables are not distributed symmetrically.</p>
-<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb208-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb208-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="st">&quot;&quot;</span>, tv_hours)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb208-3" title="3"><span class="st">    </span><span class="kw">geom_boxplot</span>() </a></code></pre></div>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb218-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb218-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="st">&quot;&quot;</span>, tv_hours)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb218-3" title="3"><span class="st">    </span><span class="kw">geom_boxplot</span>() </a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-179-1.png" width="100%" /></p>
 <p>For the current case, we can say the people who watch more than 8 hours tv either filled in an incorrect number, or are exceptional tv-watchers. As such, we remove all values higher than 8.</p>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb209-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb209-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">tv_hours =</span> <span class="kw">ifelse</span>(tv_hours <span class="op">&gt;</span><span class="st"> </span><span class="dv">8</span>, <span class="ot">NA</span>, tv_hours)) -&gt;<span class="st"> </span>survey</a></code></pre></div>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb219-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb219-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">tv_hours =</span> <span class="kw">ifelse</span>(tv_hours <span class="op">&gt;</span><span class="st"> </span><span class="dv">8</span>, <span class="ot">NA</span>, tv_hours)) -&gt;<span class="st"> </span>survey</a></code></pre></div>
 </div>
 <div id="data-inconsistencies" class="section level3">
 <h3><span class="header-section-number">8.4.8</span> Data inconsistencies</h3>
@@ -1085,7 +1088,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Not Missing at Random (NMAR)</li>
 </ul>
 <p>Below, we illustrate some techniques to analyse the missing values in your data. The most obvious way to check whether your data contains missing values is by looking at the summary.</p>
-<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb210-1" title="1"><span class="kw">summary</span>(survey)</a></code></pre></div>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb220-1" title="1"><span class="kw">summary</span>(survey)</a></code></pre></div>
 <pre><code>##       year               marital           age           race      
 ##  Min.   :2000   Divorced     : 3383   Min.   :18.00   Black: 3129  
 ##  1st Qu.:2002   Married      :10117   1st Qu.:33.00   Other: 1959  
@@ -1111,7 +1114,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  United methodist: 1067   Max.   :8.000  
 ##  (Other)         : 3134   NA&#39;s   :10509</code></pre>
 <p>This tells us for which variables there are missing data, and how many. However, it does not tell us anything about the relationships between missing values. In order to look at <em>patterns</em> of missing data, we can use the <code>md.pattern</code> function (missing data patterns) from the package <code>mice</code>.</p>
-<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb212-1" title="1"><span class="kw">md.pattern</span>(survey)</a></code></pre></div>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb222-1" title="1"><span class="kw">md.pattern</span>(survey)</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-182-1.png" width="100%" /></p>
 <pre><code>##       year marital race reported_income party religion denomination age
 ## 10936    1       1    1               1     1        1            1   1
@@ -1130,46 +1133,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The output of md.patterns can show us whether the occurence of missing values are related. For example, if age is missing, then tv hourse is also missing. The latter is not the case, as there are as many observaties where age is missing and tv hours not, as there are observations were age is missing and tv hours also.</p>
 <p>Next to <code>md.pattern</code> we can also check whether the occurence of missing values is related to the value for other variables. As such, we can ask ourselves whether people from certain religions or political affiliations are more or less likely to report there age our the number of hours they watch tv. These patterns can be checked using ggplot/dplyr, by creating a new variable that indicates whether an observation has a missing value.</p>
 <p>Let’s consider age. We add a variable to indicate that age is or is not missing. Note that to check this, we need a special function. We cannot use age == NA to see if age is missing. In the latter condition, we are comparing age with NA, i.e. we are comparing age with something we don’t have. We can never know whether age is equal to something we don’t have, so the result of that is always NA, regardless of the value of age. As an example, consider the variables a and b, of which a is missing and b is not.</p>
-<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb214-1" title="1">a &lt;-<span class="st"> </span><span class="ot">NA</span></a>
-<a class="sourceLine" id="cb214-2" title="2">b &lt;-<span class="st"> </span><span class="dv">1</span></a>
-<a class="sourceLine" id="cb214-3" title="3"></a>
-<a class="sourceLine" id="cb214-4" title="4">a <span class="op">==</span><span class="st"> </span><span class="ot">NA</span></a></code></pre></div>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb224-1" title="1">a &lt;-<span class="st"> </span><span class="ot">NA</span></a>
+<a class="sourceLine" id="cb224-2" title="2">b &lt;-<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb224-3" title="3"></a>
+<a class="sourceLine" id="cb224-4" title="4">a <span class="op">==</span><span class="st"> </span><span class="ot">NA</span></a></code></pre></div>
 <pre><code>## [1] NA</code></pre>
-<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb216-1" title="1">b <span class="op">==</span><span class="st"> </span><span class="ot">NA</span></a></code></pre></div>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb226-1" title="1">b <span class="op">==</span><span class="st"> </span><span class="ot">NA</span></a></code></pre></div>
 <pre><code>## [1] NA</code></pre>
 <p>So, how do we check if something is NA? We use the special function <code>is.na</code> for that.</p>
-<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb218-1" title="1"><span class="kw">is.na</span>(a)</a></code></pre></div>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb228-1" title="1"><span class="kw">is.na</span>(a)</a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb220-1" title="1"><span class="kw">is.na</span>(b)</a></code></pre></div>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb230-1" title="1"><span class="kw">is.na</span>(b)</a></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
 <p>Thus, for the survey data:</p>
-<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb222-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb222-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">age_missing =</span> <span class="kw">is.na</span>(age),</a>
-<a class="sourceLine" id="cb222-3" title="3">           <span class="dt">tv_missing =</span> <span class="kw">is.na</span>(tv_hours)) -&gt;<span class="st"> </span>survey_md</a></code></pre></div>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb232-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb232-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">age_missing =</span> <span class="kw">is.na</span>(age),</a>
+<a class="sourceLine" id="cb232-3" title="3">           <span class="dt">tv_missing =</span> <span class="kw">is.na</span>(tv_hours)) -&gt;<span class="st"> </span>survey_md</a></code></pre></div>
 <p>Note that we store the data.frame with the additional variables under another name, since we will not need these variables in the eventual analysis stage, just for looking at the missing data for the moment.</p>
 <p>When we compare the missing/not missing variable with a categorical variable, we have in fact 2 categorical variables. Thus, we can use a graph or table which is appropriate for comparing categorical variables. As we all (should) know by now, we can use a bar chart.</p>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb223-1" title="1">survey_md <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb223-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(reported_income, <span class="dt">fill =</span> age_missing)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb223-3" title="3"><span class="st">    </span><span class="kw">geom_bar</span>(<span class="dt">position =</span> <span class="st">&quot;fill&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb223-4" title="4"><span class="st">    </span><span class="kw">coord_flip</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb233-1" title="1">survey_md <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb233-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(reported_income, <span class="dt">fill =</span> age_missing)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb233-3" title="3"><span class="st">    </span><span class="kw">geom_bar</span>(<span class="dt">position =</span> <span class="st">&quot;fill&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb233-4" title="4"><span class="st">    </span><span class="kw">coord_flip</span>()</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-186-1.png" width="100%" /></p>
 <p>The bar chart shows that people who didn’t report their income, were more likely to not report their age also..<a href="#fn39" class="footnote-ref" id="fnref39"><sup>39</sup></a></p>
 <p>We can do the same for tv-hours. We then see that the percentage of missing values varies – being somewhat higher or lower for certain incomes – but no clear patterns exist.</p>
-<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb224-1" title="1">survey_md <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb224-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(reported_income, <span class="dt">fill =</span> tv_missing)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb224-3" title="3"><span class="st">    </span><span class="kw">geom_bar</span>(<span class="dt">position =</span> <span class="st">&quot;fill&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb224-4" title="4"><span class="st">    </span><span class="kw">coord_flip</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb234-1" title="1">survey_md <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb234-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(reported_income, <span class="dt">fill =</span> tv_missing)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb234-3" title="3"><span class="st">    </span><span class="kw">geom_bar</span>(<span class="dt">position =</span> <span class="st">&quot;fill&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb234-4" title="4"><span class="st">    </span><span class="kw">coord_flip</span>()</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-187-1.png" width="100%" /></p>
 <p>Of course, the occurence of missing values can be compared with more than one variable, not just income. Below we show the comparison of tv-hours missing with political affiliation. Here we can clearly see that there is one answer for political party which was only used for observations which did not include the tv hours.</p>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb225-1" title="1">survey_md <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb225-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(party, <span class="dt">fill =</span> tv_missing)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb225-3" title="3"><span class="st">    </span><span class="kw">geom_bar</span>(<span class="dt">position =</span> <span class="st">&quot;fill&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb225-4" title="4"><span class="st">    </span><span class="kw">coord_flip</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb235-1" title="1">survey_md <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb235-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(party, <span class="dt">fill =</span> tv_missing)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb235-3" title="3"><span class="st">    </span><span class="kw">geom_bar</span>(<span class="dt">position =</span> <span class="st">&quot;fill&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb235-4" title="4"><span class="st">    </span><span class="kw">coord_flip</span>()</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-188-1.png" width="100%" /></p>
 <p>As a final example, we can compare the missing of tv hours with a continuous variable, let’s say age. Are people who didn’t report the number of hours they watch tv generally older or younger? The boxplots below don’t show any difference.</p>
-<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb226-1" title="1">survey_md <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb226-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(tv_missing, age, <span class="dt">color =</span> tv_missing)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb226-3" title="3"><span class="st">    </span><span class="kw">geom_boxplot</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb236-1" title="1">survey_md <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb236-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(tv_missing, age, <span class="dt">color =</span> tv_missing)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb236-3" title="3"><span class="st">    </span><span class="kw">geom_boxplot</span>()</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-189-1.png" width="100%" /></p>
 <p>How many comparisons you make for each variable where data is missing is up to you – but you have to gather reasonable evidence whether you missing values are MAR, MCAR or NMAR.</p>
 </div>
@@ -1180,17 +1183,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="visualizations" class="section level3">
 <h3><span class="header-section-number">8.4.12</span> Visualizations</h3>
 <p>First, consider visualizations. When working with ggplot, missing values will often be ignored automagically. For instance, if we try to create a histogram of the age, ggplot will tell us that it ignored some missing values through a warning.</p>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb227-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb227-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(age)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb227-3" title="3"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">5</span>, <span class="dt">fill =</span> <span class="st">&quot;dodgerblue4&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb227-4" title="4"><span class="st">    </span><span class="kw">theme_light</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb237-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb237-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(age)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb237-3" title="3"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">5</span>, <span class="dt">fill =</span> <span class="st">&quot;dodgerblue4&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb237-4" title="4"><span class="st">    </span><span class="kw">theme_light</span>()</a></code></pre></div>
 <pre><code>## Warning: Removed 76 rows containing non-finite values (stat_bin).</code></pre>
 <p><img src="textbook_files/figure-html/unnamed-chunk-190-1.png" width="100%" /></p>
 <p>The warning</p>
-<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb229-1" title="1"><span class="co">## Warning: Removed 76 rows containing non-finite values (stat_bin).</span></a></code></pre></div>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb239-1" title="1"><span class="co">## Warning: Removed 76 rows containing non-finite values (stat_bin).</span></a></code></pre></div>
 <p>tells us when and how many missing values are ignored.</p>
 <p>In case that a categorical variable has missing values, NA will appear as a seperate category. For example, consider the dataset survey2 (which we will just use here as example), which has missing values for several variables.</p>
-<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb230-1" title="1"><span class="kw">summary</span>(survey2)</a></code></pre></div>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb240-1" title="1"><span class="kw">summary</span>(survey2)</a></code></pre></div>
 <pre><code>##       age                  denomination           marital    
 ##  Min.   :18.00   Not applicable  :9960   Divorced     :3351  
 ##  1st Qu.:33.00   Other           :2508   Married      :9999  
@@ -1216,22 +1219,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  (Other)       :3544   Max.   :8.000   Max.   :2014  
 ##  NA&#39;s          : 205   NA&#39;s   :10596   NA&#39;s   :206</code></pre>
 <p>Let’s say we make a bar chart of the religion variable. The NA value then appears as a seperate category and gets its own bar. Automatically, this category will be plotted at the side of the others, not between them.</p>
-<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb232-1" title="1">survey2 <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb232-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(religion)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb232-3" title="3"><span class="st">    </span><span class="kw">geom_bar</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb232-4" title="4"><span class="st">    </span><span class="kw">coord_flip</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb242-1" title="1">survey2 <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb242-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(religion)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb242-3" title="3"><span class="st">    </span><span class="kw">geom_bar</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb242-4" title="4"><span class="st">    </span><span class="kw">coord_flip</span>()</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-194-1.png" width="100%" /></p>
 <p>As such, ggplot handles missing values without problem and quite transparent. The same is not true when we go to numeric computations.</p>
 </div>
 <div id="numerical-analysis" class="section level3">
 <h3><span class="header-section-number">8.4.13</span> Numerical analysis</h3>
 <p>Let’s start with the good news. If we create a frequency table of a categorical value with missing values, the NA’s will be considered just as any other value. For example, we can make a frequency table to support the graph above for survey2.</p>
-<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb233-1" title="1">survey2 <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb233-2" title="2"><span class="st">    </span><span class="kw">group_by</span>(religion) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb233-3" title="3"><span class="st">    </span><span class="kw">summarize</span>(<span class="dt">frequency =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb233-4" title="4"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">relative_frequency =</span> frequency<span class="op">/</span><span class="kw">sum</span>(frequency)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb233-5" title="5"><span class="st">    </span><span class="kw">arrange</span>(<span class="op">-</span>frequency) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb233-6" title="6"><span class="st">    </span>pander</a></code></pre></div>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb243-1" title="1">survey2 <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb243-2" title="2"><span class="st">    </span><span class="kw">group_by</span>(religion) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb243-3" title="3"><span class="st">    </span><span class="kw">summarize</span>(<span class="dt">frequency =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb243-4" title="4"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">relative_frequency =</span> frequency<span class="op">/</span><span class="kw">sum</span>(frequency)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb243-5" title="5"><span class="st">    </span><span class="kw">arrange</span>(<span class="op">-</span>frequency) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb243-6" title="6"><span class="st">    </span>pander</a></code></pre></div>
 <table style="width:82%;">
 <colgroup>
 <col width="36%" />
@@ -1329,39 +1332,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p>Unfortunately, the same is not true when we start to compute metrics for centrality or spread. By design, when you apply a function on a vector containing missing values, the function will return a missing value. Consider the vector below, of which we want to know the mean and sum</p>
-<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb234-1" title="1">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">12</span>, <span class="ot">NA</span>, <span class="dv">43</span>)</a>
-<a class="sourceLine" id="cb234-2" title="2"><span class="kw">mean</span>(x)</a></code></pre></div>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb244-1" title="1">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">12</span>, <span class="ot">NA</span>, <span class="dv">43</span>)</a>
+<a class="sourceLine" id="cb244-2" title="2"><span class="kw">mean</span>(x)</a></code></pre></div>
 <pre><code>## [1] NA</code></pre>
-<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb236-1" title="1"><span class="kw">sum</span>(x)</a></code></pre></div>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb246-1" title="1"><span class="kw">sum</span>(x)</a></code></pre></div>
 <pre><code>## [1] NA</code></pre>
 <p>Just as the warning we got when using ggplot with missing values, this result is warning. It warns us that we want to compute something about a vector which partly misses. However, the warning is quite strong here; it doesn’t give us anything we can use.</p>
 <p>In order to circumvent this from happening, each of these functions has a argument which is called <code>na.rm</code> – meaning “NA remove”. If we say <code>na.rm = T</code>, missing values will be removed and ignored, and the function will compute the result with the remaining value. Thus,</p>
-<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb238-1" title="1"><span class="kw">mean</span>(x, <span class="dt">na.rm =</span> T)</a></code></pre></div>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb248-1" title="1"><span class="kw">mean</span>(x, <span class="dt">na.rm =</span> T)</a></code></pre></div>
 <pre><code>## [1] 16.5</code></pre>
-<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb240-1" title="1"><span class="kw">sum</span>(x, <span class="dt">na.rm =</span> T)</a></code></pre></div>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb250-1" title="1"><span class="kw">sum</span>(x, <span class="dt">na.rm =</span> T)</a></code></pre></div>
 <pre><code>## [1] 66</code></pre>
 <p>The fact that we have to explicitly state that we want to ignore missing values is R’s safety mechanism which prevents us from ignoring missing values by accident.</p>
 <p>Thus, if we want to compute measures of centrality and spread for, let’s say, age, we will need to use this argument if we want to come up with anything.<a href="#fn40" class="footnote-ref" id="fnref40"><sup>40</sup></a></p>
-<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb242-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb242-2" title="2"><span class="st">    </span><span class="kw">summarize</span>(<span class="dt">min =</span> <span class="kw">min</span>(age, <span class="dt">na.rm =</span> T), </a>
-<a class="sourceLine" id="cb242-3" title="3">              <span class="dt">mean =</span> <span class="kw">mean</span>(age, <span class="dt">na.rm =</span> T), </a>
-<a class="sourceLine" id="cb242-4" title="4">              <span class="dt">max =</span> <span class="kw">max</span>(age, <span class="dt">na.rm =</span> T), </a>
-<a class="sourceLine" id="cb242-5" title="5">              <span class="dt">iqr =</span> <span class="kw">IQR</span>(age, <span class="dt">na.rm =</span> T))</a></code></pre></div>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb252-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb252-2" title="2"><span class="st">    </span><span class="kw">summarize</span>(<span class="dt">min =</span> <span class="kw">min</span>(age, <span class="dt">na.rm =</span> T), </a>
+<a class="sourceLine" id="cb252-3" title="3">              <span class="dt">mean =</span> <span class="kw">mean</span>(age, <span class="dt">na.rm =</span> T), </a>
+<a class="sourceLine" id="cb252-4" title="4">              <span class="dt">max =</span> <span class="kw">max</span>(age, <span class="dt">na.rm =</span> T), </a>
+<a class="sourceLine" id="cb252-5" title="5">              <span class="dt">iqr =</span> <span class="kw">IQR</span>(age, <span class="dt">na.rm =</span> T))</a></code></pre></div>
 <pre><code>## # A tibble: 1 x 4
 ##     min  mean   max   iqr
 ##   &lt;int&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt;
 ## 1    18  47.2    89    26</code></pre>
 <p>Finally, what happens when we want to compute correlations? For instance, how is age and tv hours correlated. Both of these have missing values. We could try the following:</p>
-<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb244-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb244-2" title="2"><span class="st">    </span><span class="kw">select</span>(age, tv_hours) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb244-3" title="3"><span class="st">    </span><span class="kw">cor</span>(<span class="dt">na.rm =</span> T)</a></code></pre></div>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb254-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb254-2" title="2"><span class="st">    </span><span class="kw">select</span>(age, tv_hours) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb254-3" title="3"><span class="st">    </span><span class="kw">cor</span>(<span class="dt">na.rm =</span> T)</a></code></pre></div>
 <pre><code>## Error in cor(., na.rm = T): unused argument (na.rm = T)</code></pre>
 <p>Oops, that was wishful thinking from my part. It seems that the <code>na.rm</code> argument doesn’t exist for the <code>cor</code> function. So far for consistency in base R functions.</p>
 <p>In order to compute correlations, we need to ensure that we only consider rows without missing values. We can do this with the <code>na.omit</code> function. This functions removes – omits – all rows which have one or more missing values.</p>
-<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb246-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb246-2" title="2"><span class="st">    </span><span class="kw">select</span>(age, tv_hours) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb246-3" title="3"><span class="st">    </span><span class="kw">na.omit</span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb246-4" title="4"><span class="st">    </span><span class="kw">summary</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb256-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb256-2" title="2"><span class="st">    </span><span class="kw">select</span>(age, tv_hours) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb256-3" title="3"><span class="st">    </span><span class="kw">na.omit</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb256-4" title="4"><span class="st">    </span><span class="kw">summary</span>()</a></code></pre></div>
 <pre><code>##       age           tv_hours    
 ##  Min.   :18.00   Min.   :0.000  
 ##  1st Qu.:33.00   1st Qu.:1.000  
@@ -1370,28 +1373,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  3rd Qu.:60.00   3rd Qu.:4.000  
 ##  Max.   :89.00   Max.   :8.000</code></pre>
 <p>Then, we can compute the correlation.</p>
-<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb248-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb248-2" title="2"><span class="st">    </span><span class="kw">select</span>(age, tv_hours) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb248-3" title="3"><span class="st">    </span><span class="kw">na.omit</span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb248-4" title="4"><span class="st">    </span><span class="kw">cor</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb258-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb258-2" title="2"><span class="st">    </span><span class="kw">select</span>(age, tv_hours) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb258-3" title="3"><span class="st">    </span><span class="kw">na.omit</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb258-4" title="4"><span class="st">    </span><span class="kw">cor</span>()</a></code></pre></div>
 <pre><code>##                age  tv_hours
 ## age      1.0000000 0.1895392
 ## tv_hours 0.1895392 1.0000000</code></pre>
 <p>The <code>na.omit</code> function can be somewhat dangerous and should only be used in exceptional cases as these. It can make a huge difference if we do it before select. Consider again the <code>survey2</code> dataset, where all variables have some missing values.</p>
 <p>This dataset has the following number of rows.</p>
-<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb250-1" title="1">survey2 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">nrow</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb260-1" title="1">survey2 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">nrow</span>()</a></code></pre></div>
 <pre><code>## [1] 21483</code></pre>
 <p>If we select age and tv hours, and remove rows with missing values, we are left with the following number of rows</p>
-<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb252-1" title="1">survey2 <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb252-2" title="2"><span class="st">    </span><span class="kw">select</span>(age, tv_hours) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb252-3" title="3"><span class="st">    </span><span class="kw">na.omit</span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb252-4" title="4"><span class="st">    </span><span class="kw">nrow</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb262-1" title="1">survey2 <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb262-2" title="2"><span class="st">    </span><span class="kw">select</span>(age, tv_hours) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb262-3" title="3"><span class="st">    </span><span class="kw">na.omit</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb262-4" title="4"><span class="st">    </span><span class="kw">nrow</span>()</a></code></pre></div>
 <pre><code>## [1] 10732</code></pre>
 <p>But, if we first remove rows with missing values, and then select the two variables, we are only left with the following number of rows.</p>
-<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb254-1" title="1">survey2 <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb254-2" title="2"><span class="st">    </span><span class="kw">na.omit</span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb254-3" title="3"><span class="st">    </span><span class="kw">select</span>(age, tv_hours) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb254-4" title="4"><span class="st">    </span><span class="kw">nrow</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb264-1" title="1">survey2 <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb264-2" title="2"><span class="st">    </span><span class="kw">na.omit</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb264-3" title="3"><span class="st">    </span><span class="kw">select</span>(age, tv_hours) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb264-4" title="4"><span class="st">    </span><span class="kw">nrow</span>()</a></code></pre></div>
 <pre><code>## [1] 9974</code></pre>
 <p>Do you see what’s different? Have a good look. If we perform the removal before the select, it will take into account missing values for ALL variables. If we do the select first, it will only check for the variables we retain. This nuance can make a huge difference in practice. Using the <code>na.omit</code> function should always raise an alert in your mind that directs you to be cautious.</p>
 <p>In conclusion, it is advised to be cautious all the way when working with missing value. And with those wise words, we end our cleaning efforts, and proceed to transformations.</p>
@@ -1411,9 +1414,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>cut_number</code>: creating a specific number of interval with an equal number of observations.</li>
 </ul>
 <p>For example, we can <em>cut</em> tv hours into interval of width 4.<a href="#fn41" class="footnote-ref" id="fnref41"><sup>41</sup></a></p>
-<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb256-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb256-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">tv_hours =</span> <span class="kw">cut_width</span>(tv_hours, <span class="dt">width =</span> <span class="dv">4</span>, <span class="dt">boundary =</span> <span class="dv">0</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb256-3" title="3"><span class="st">    </span><span class="kw">count</span>(tv_hours)</a></code></pre></div>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb266-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb266-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">tv_hours =</span> <span class="kw">cut_width</span>(tv_hours, <span class="dt">width =</span> <span class="dv">4</span>, <span class="dt">boundary =</span> <span class="dv">0</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb266-3" title="3"><span class="st">    </span><span class="kw">count</span>(tv_hours)</a></code></pre></div>
 <pre><code>## # A tibble: 3 x 2
 ##   tv_hours     n
 ##   &lt;fct&gt;    &lt;int&gt;
@@ -1421,9 +1424,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 2 (4,8]     1553
 ## 3 &lt;NA&gt;     10509</code></pre>
 <p>Alternatively, we can <em>cut</em> tv hours into 4 intervals of equal with.</p>
-<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb258-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb258-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">tv_hours =</span> <span class="kw">cut_interval</span>(tv_hours, <span class="dt">n =</span> <span class="dv">4</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb258-3" title="3"><span class="st">    </span><span class="kw">count</span>(tv_hours)</a></code></pre></div>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb268-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb268-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">tv_hours =</span> <span class="kw">cut_interval</span>(tv_hours, <span class="dt">n =</span> <span class="dv">4</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb268-3" title="3"><span class="st">    </span><span class="kw">count</span>(tv_hours)</a></code></pre></div>
 <pre><code>## # A tibble: 5 x 2
 ##   tv_hours     n
 ##   &lt;fct&gt;    &lt;int&gt;
@@ -1433,9 +1436,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4 (6,8]      381
 ## 5 &lt;NA&gt;     10509</code></pre>
 <p>Or, we can <em>cut</em> tv hours into three intervals which contain an equal number of observations.</p>
-<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb260-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb260-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">tv_hours =</span> <span class="kw">cut_number</span>(tv_hours, <span class="dt">n =</span> <span class="dv">3</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb260-3" title="3"><span class="st">    </span><span class="kw">count</span>(tv_hours)</a></code></pre></div>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb270-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb270-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">tv_hours =</span> <span class="kw">cut_number</span>(tv_hours, <span class="dt">n =</span> <span class="dv">3</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb270-3" title="3"><span class="st">    </span><span class="kw">count</span>(tv_hours)</a></code></pre></div>
 <pre><code>## # A tibble: 4 x 2
 ##   tv_hours     n
 ##   &lt;fct&gt;    &lt;int&gt;
@@ -1444,9 +1447,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 3 (3,8]     2959
 ## 4 &lt;NA&gt;     10509</code></pre>
 <p>Here, it should be noted that the intervals do not contain the equal amount of observations at all. This is because there are many observations with a unique value wich cannot be split further. But nevertheless, cut_number will try its best, which will turn out better if the values of the variable are more unique. For example, age lends itself better for this:</p>
-<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb262-1" title="1">survey <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb262-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">age =</span> <span class="kw">cut_number</span>(age, <span class="dt">n =</span> <span class="dv">5</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb262-3" title="3"><span class="st">    </span><span class="kw">count</span>(age)</a></code></pre></div>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb272-1" title="1">survey <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb272-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">age =</span> <span class="kw">cut_number</span>(age, <span class="dt">n =</span> <span class="dv">5</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb272-3" title="3"><span class="st">    </span><span class="kw">count</span>(age)</a></code></pre></div>
 <pre><code>## # A tibble: 6 x 2
 ##   age         n
 ##   &lt;fct&gt;   &lt;int&gt;
@@ -1457,10 +1460,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5 (63,89]  4090
 ## 6 &lt;NA&gt;       76</code></pre>
 <p>Each of the discritization functions allows us to modify the names of the categories – instead of the default interval notation by providing a vector of names to the <code>labels</code> argument. For example</p>
-<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb264-1" title="1">survey <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb264-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">age_category =</span> <span class="kw">cut_number</span>(age, <span class="dt">n =</span> <span class="dv">3</span>, <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Young&quot;</span>,<span class="st">&quot;Middle-aged&quot;</span>,<span class="st">&quot;Old&quot;</span>))) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb264-3" title="3"><span class="st">    </span><span class="kw">group_by</span>(age_category) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb264-4" title="4"><span class="st">    </span><span class="kw">summarize</span>(<span class="dt">min =</span> <span class="kw">min</span>(age), <span class="dt">max =</span> <span class="kw">max</span>(age), <span class="dt">frequency =</span> <span class="kw">n</span>())</a></code></pre></div>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb274-1" title="1">survey <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb274-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">age_category =</span> <span class="kw">cut_number</span>(age, <span class="dt">n =</span> <span class="dv">3</span>, <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Young&quot;</span>,<span class="st">&quot;Middle-aged&quot;</span>,<span class="st">&quot;Old&quot;</span>))) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb274-3" title="3"><span class="st">    </span><span class="kw">group_by</span>(age_category) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb274-4" title="4"><span class="st">    </span><span class="kw">summarize</span>(<span class="dt">min =</span> <span class="kw">min</span>(age), <span class="dt">max =</span> <span class="kw">max</span>(age), <span class="dt">frequency =</span> <span class="kw">n</span>())</a></code></pre></div>
 <pre><code>## # A tibble: 4 x 4
 ##   age_category   min   max frequency
 ##   &lt;fct&gt;        &lt;dbl&gt; &lt;dbl&gt;     &lt;int&gt;
@@ -1473,9 +1476,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="rescaling-continuous-variables" class="section level3">
 <h3><span class="header-section-number">8.5.2</span> Rescaling continuous variables</h3>
 <p>When we have continuous variables, we can also adjust there scale. For example, we can compute the percentage of tv hours per day by dividing tv hours by 24.</p>
-<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb266-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb266-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">tv_per_day =</span> tv_hours<span class="op">/</span><span class="dv">24</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb266-3" title="3"><span class="st">    </span>summary</a></code></pre></div>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb276-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb276-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">tv_per_day =</span> tv_hours<span class="op">/</span><span class="dv">24</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb276-3" title="3"><span class="st">    </span>summary</a></code></pre></div>
 <pre><code>##       year               marital           age           race      
 ##  Min.   :2000   Divorced     : 3383   Min.   :18.00   Black: 3129  
 ##  1st Qu.:2002   Married      :10117   1st Qu.:33.00   Other: 1959  
@@ -1511,10 +1514,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">8.5.3</span> Adding calculated variables</h3>
 <p>The addition of calculated variables is similar to rescaling variables. The only difference is that rescaling only relates to one variable, while calculated variables can concern different variables.</p>
 <p>For example, we can compute the year of birth for people in our data.</p>
-<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb268-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb268-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">year_of_birth =</span> year <span class="op">-</span><span class="st"> </span>age) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb268-3" title="3"><span class="st">    </span><span class="kw">select</span>(year, age, year_of_birth) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb268-4" title="4"><span class="st">    </span>summary</a></code></pre></div>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb278-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb278-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">year_of_birth =</span> year <span class="op">-</span><span class="st"> </span>age) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb278-3" title="3"><span class="st">    </span><span class="kw">select</span>(year, age, year_of_birth) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb278-4" title="4"><span class="st">    </span>summary</a></code></pre></div>
 <pre><code>##       year           age        year_of_birth 
 ##  Min.   :2000   Min.   :18.00   Min.   :1911  
 ##  1st Qu.:2002   1st Qu.:33.00   1st Qu.:1947  
@@ -1536,36 +1539,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="collapsing-factors" class="section level3">
 <h3><span class="header-section-number">8.5.5</span> Collapsing factors</h3>
 <p>Collapsing a factor can be done as shown below. For each group of levels that you want to collapse, you create a vector. Subsequently, you can give each group a new name.<a href="#fn42" class="footnote-ref" id="fnref42"><sup>42</sup></a> All levels which you do not mentioned will be left untouched.</p>
-<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb270-1" title="1"><span class="kw">fct_collapse</span>(factor,</a>
-<a class="sourceLine" id="cb270-2" title="2">    <span class="dt">new_group_1 =</span> <span class="kw">c</span>(<span class="st">&quot;old_level_1&quot;</span>, <span class="st">&quot;old_level_2&quot;</span>, <span class="st">&quot;...&quot;</span>),</a>
-<a class="sourceLine" id="cb270-3" title="3">    <span class="dt">new_group_2 =</span> <span class="kw">c</span>(<span class="st">&quot;old_level_a&quot;</span>, <span class="st">&quot;old_level_b&quot;</span>, <span class="st">&quot;...&quot;</span>),</a>
-<a class="sourceLine" id="cb270-4" title="4">    ...)</a></code></pre></div>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb280-1" title="1"><span class="kw">fct_collapse</span>(factor,</a>
+<a class="sourceLine" id="cb280-2" title="2">    <span class="dt">new_group_1 =</span> <span class="kw">c</span>(<span class="st">&quot;old_level_1&quot;</span>, <span class="st">&quot;old_level_2&quot;</span>, <span class="st">&quot;...&quot;</span>),</a>
+<a class="sourceLine" id="cb280-3" title="3">    <span class="dt">new_group_2 =</span> <span class="kw">c</span>(<span class="st">&quot;old_level_a&quot;</span>, <span class="st">&quot;old_level_b&quot;</span>, <span class="st">&quot;...&quot;</span>),</a>
+<a class="sourceLine" id="cb280-4" title="4">    ...)</a></code></pre></div>
 <p>In our survey data, we can collapse the party variable into different groups: “Democrat”,“Republican”,“Independent” and “Other”. We save the new variable as party_group.</p>
-<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb271-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb271-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">party_group =</span> <span class="kw">fct_collapse</span>(party,</a>
-<a class="sourceLine" id="cb271-3" title="3">                                      <span class="dt">Other =</span> <span class="kw">c</span>(<span class="st">&quot;No answer&quot;</span>, <span class="st">&quot;Don&#39;t know&quot;</span>, <span class="st">&quot;Other party&quot;</span>),</a>
-<a class="sourceLine" id="cb271-4" title="4">                                      <span class="dt">Republican =</span> <span class="kw">c</span>(<span class="st">&quot;Republican, strong&quot;</span>, <span class="st">&quot;Republican, weak&quot;</span>),</a>
-<a class="sourceLine" id="cb271-5" title="5">                                      <span class="dt">Independent =</span> <span class="kw">c</span>(<span class="st">&quot;Independent, near rep&quot;</span>, <span class="st">&quot;Independent&quot;</span>, <span class="st">&quot;Independent, near dem&quot;</span>),</a>
-<a class="sourceLine" id="cb271-6" title="6">                                      <span class="dt">Democrat =</span> <span class="kw">c</span>(<span class="st">&quot;Democrat, weak&quot;</span>, <span class="st">&quot;Democrat, strong&quot;</span>)</a>
-<a class="sourceLine" id="cb271-7" title="7">    )) -&gt;<span class="st"> </span>survey</a></code></pre></div>
+<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb281-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb281-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">party_group =</span> <span class="kw">fct_collapse</span>(party,</a>
+<a class="sourceLine" id="cb281-3" title="3">                                      <span class="dt">Other =</span> <span class="kw">c</span>(<span class="st">&quot;No answer&quot;</span>, <span class="st">&quot;Don&#39;t know&quot;</span>, <span class="st">&quot;Other party&quot;</span>),</a>
+<a class="sourceLine" id="cb281-4" title="4">                                      <span class="dt">Republican =</span> <span class="kw">c</span>(<span class="st">&quot;Republican, strong&quot;</span>, <span class="st">&quot;Republican, weak&quot;</span>),</a>
+<a class="sourceLine" id="cb281-5" title="5">                                      <span class="dt">Independent =</span> <span class="kw">c</span>(<span class="st">&quot;Independent, near rep&quot;</span>, <span class="st">&quot;Independent&quot;</span>, <span class="st">&quot;Independent, near dem&quot;</span>),</a>
+<a class="sourceLine" id="cb281-6" title="6">                                      <span class="dt">Democrat =</span> <span class="kw">c</span>(<span class="st">&quot;Democrat, weak&quot;</span>, <span class="st">&quot;Democrat, strong&quot;</span>)</a>
+<a class="sourceLine" id="cb281-7" title="7">    )) -&gt;<span class="st"> </span>survey</a></code></pre></div>
 <p>Transformations as these can be useful in there own right: reducing the number of categories as in this plot.</p>
-<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb272-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb272-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(party_group)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb272-3" title="3"><span class="st">    </span><span class="kw">geom_bar</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb272-4" title="4"><span class="st">    </span><span class="kw">coord_flip</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb282-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb282-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(party_group)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb282-3" title="3"><span class="st">    </span><span class="kw">geom_bar</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb282-4" title="4"><span class="st">    </span><span class="kw">coord_flip</span>()</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-214-1.png" width="100%" /></p>
 <p>But they can as well be used in combination with the original levels. For example to improve visuals:<a href="#fn43" class="footnote-ref" id="fnref43"><sup>43</sup></a></p>
-<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb273-1" title="1"><span class="kw">library</span>(ggthemes)</a>
-<a class="sourceLine" id="cb273-2" title="2">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb273-3" title="3"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(party, <span class="dt">fill =</span> party_group)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb273-4" title="4"><span class="st">    </span><span class="kw">geom_bar</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb273-5" title="5"><span class="st">    </span><span class="kw">facet_grid</span>(<span class="kw">fct_rev</span>(party_group)<span class="op">~</span>., <span class="dt">scales =</span> <span class="st">&quot;free&quot;</span>, <span class="dt">space =</span> <span class="st">&quot;free&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb273-6" title="6"><span class="st">    </span><span class="kw">coord_flip</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb273-7" title="7"><span class="st">    </span><span class="kw">scale_fill_tableau</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb283-1" title="1"><span class="kw">library</span>(ggthemes)</a>
+<a class="sourceLine" id="cb283-2" title="2">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb283-3" title="3"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(party, <span class="dt">fill =</span> party_group)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb283-4" title="4"><span class="st">    </span><span class="kw">geom_bar</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb283-5" title="5"><span class="st">    </span><span class="kw">facet_grid</span>(<span class="kw">fct_rev</span>(party_group)<span class="op">~</span>., <span class="dt">scales =</span> <span class="st">&quot;free&quot;</span>, <span class="dt">space =</span> <span class="st">&quot;free&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb283-6" title="6"><span class="st">    </span><span class="kw">coord_flip</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb283-7" title="7"><span class="st">    </span><span class="kw">scale_fill_tableau</span>()</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-215-1.png" width="100%" /></p>
 <p>Alternatively, we can use fct_lump to create an other category. For example, take a look at the religions.</p>
-<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb274-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb274-2" title="2"><span class="st">    </span><span class="kw">count</span>(religion)</a></code></pre></div>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb284-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb284-2" title="2"><span class="st">    </span><span class="kw">count</span>(religion)</a></code></pre></div>
 <pre><code>## # A tibble: 15 x 2
 ##    religion                    n
 ##    &lt;fct&gt;                   &lt;int&gt;
@@ -1585,9 +1588,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 14 Other eastern              32
 ## 15 Protestant              10846</code></pre>
 <p>Let’s say we want to keep only the 5 most frequent religions. We can do this as follows.</p>
-<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb276-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb276-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">religion =</span> <span class="kw">fct_lump</span>(religion, <span class="dt">n =</span> <span class="dv">5</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb276-3" title="3"><span class="st">    </span><span class="kw">count</span>(religion)</a></code></pre></div>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb286-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb286-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">religion =</span> <span class="kw">fct_lump</span>(religion, <span class="dt">n =</span> <span class="dv">5</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb286-3" title="3"><span class="st">    </span><span class="kw">count</span>(religion)</a></code></pre></div>
 <pre><code>## # A tibble: 6 x 2
 ##   religion       n
 ##   &lt;fct&gt;      &lt;int&gt;
@@ -1598,9 +1601,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5 Protestant 10846
 ## 6 Other        913</code></pre>
 <p>The “Other” label can be changed as you like.</p>
-<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb278-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb278-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">religion =</span> <span class="kw">fct_lump</span>(religion, <span class="dt">n =</span> <span class="dv">5</span>, <span class="dt">other_level =</span> <span class="st">&quot;Other religions&quot;</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb278-3" title="3"><span class="st">    </span><span class="kw">count</span>(religion)</a></code></pre></div>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb288-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb288-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">religion =</span> <span class="kw">fct_lump</span>(religion, <span class="dt">n =</span> <span class="dv">5</span>, <span class="dt">other_level =</span> <span class="st">&quot;Other religions&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb288-3" title="3"><span class="st">    </span><span class="kw">count</span>(religion)</a></code></pre></div>
 <pre><code>## # A tibble: 6 x 2
 ##   religion            n
 ##   &lt;fct&gt;           &lt;int&gt;
@@ -1611,9 +1614,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5 Protestant      10846
 ## 6 Other religions   913</code></pre>
 <p>Instead of specifying the number of levels to retain, you can also specify a minimal relative frequenties using the <code>prop</code> argument.</p>
-<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb280-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb280-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">religion =</span> <span class="kw">fct_lump</span>(religion, <span class="dt">prop =</span> <span class="fl">0.02</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb280-3" title="3"><span class="st">    </span><span class="kw">count</span>(religion)</a></code></pre></div>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb290-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb290-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">religion =</span> <span class="kw">fct_lump</span>(religion, <span class="dt">prop =</span> <span class="fl">0.02</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb290-3" title="3"><span class="st">    </span><span class="kw">count</span>(religion)</a></code></pre></div>
 <pre><code>## # A tibble: 5 x 2
 ##   religion       n
 ##   &lt;fct&gt;      &lt;int&gt;
@@ -1629,40 +1632,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">8.6</span> Using transformations in visualizations.</h2>
 <p>When visualization categorical variables, we often want to change to order of levels according to frequency or based on another variable. We already saw <code>fct_relevel</code> to manually reorder levels, but its not very suited to automatically reorder levels. For this, we will use two new functions: fct_infreq and fct_reorder.</p>
 <p>We start with the following graph.</p>
-<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb282-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb282-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(religion)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb282-3" title="3"><span class="st">    </span><span class="kw">geom_bar</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb282-4" title="4"><span class="st">    </span><span class="kw">coord_flip</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb292-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb292-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(religion)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb292-3" title="3"><span class="st">    </span><span class="kw">geom_bar</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb292-4" title="4"><span class="st">    </span><span class="kw">coord_flip</span>()</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-220-1.png" width="100%" /></p>
 <p>A factor can be ordered based on the (in)frequency of each level using the fct_infreq function. Its use is simple. We can choose to add the function directly within ggplot, or to update the religion variable using mutate in advance of plotting.</p>
-<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb283-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb283-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="kw">fct_infreq</span>(religion))) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb283-3" title="3"><span class="st">    </span><span class="kw">geom_bar</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb283-4" title="4"><span class="st">    </span><span class="kw">coord_flip</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb293-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb293-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="kw">fct_infreq</span>(religion))) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb293-3" title="3"><span class="st">    </span><span class="kw">geom_bar</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb293-4" title="4"><span class="st">    </span><span class="kw">coord_flip</span>()</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-221-1.png" width="100%" /></p>
 <p><code>fct_infreq</code> will count for each of the levels – religions in this case – how often it occurs, and reorder the levels accordingly. Now, suppose that we don’t want absolute frequencies like in the last plot, but relative. In that case, we need to compute them ourselves and use <code>geom_col</code>.</p>
-<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb284-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb284-2" title="2"><span class="st">    </span><span class="kw">group_by</span>(religion) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb284-3" title="3"><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">freq =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb284-4" title="4"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">rel_freq =</span> freq<span class="op">/</span><span class="kw">sum</span>(freq)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb284-5" title="5"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> religion, <span class="dt">y =</span> rel_freq)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb284-6" title="6"><span class="st">    </span><span class="kw">geom_col</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb284-7" title="7"><span class="st">    </span><span class="kw">coord_flip</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb294-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb294-2" title="2"><span class="st">    </span><span class="kw">group_by</span>(religion) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb294-3" title="3"><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">freq =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb294-4" title="4"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">rel_freq =</span> freq<span class="op">/</span><span class="kw">sum</span>(freq)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb294-5" title="5"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> religion, <span class="dt">y =</span> rel_freq)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb294-6" title="6"><span class="st">    </span><span class="kw">geom_col</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb294-7" title="7"><span class="st">    </span><span class="kw">coord_flip</span>()</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-222-1.png" width="100%" /></p>
 <p>We now can see read the relative frequencies from the chart. Now let’s order the bars once more.</p>
-<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb285-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb285-2" title="2"><span class="st">    </span><span class="kw">group_by</span>(religion) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb285-3" title="3"><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">freq =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb285-4" title="4"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">rel_freq =</span> freq<span class="op">/</span><span class="kw">sum</span>(freq)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb285-5" title="5"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">fct_infreq</span>(religion), <span class="dt">y =</span> rel_freq)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb285-6" title="6"><span class="st">    </span><span class="kw">geom_col</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb285-7" title="7"><span class="st">    </span><span class="kw">coord_flip</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb295-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb295-2" title="2"><span class="st">    </span><span class="kw">group_by</span>(religion) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb295-3" title="3"><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">freq =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb295-4" title="4"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">rel_freq =</span> freq<span class="op">/</span><span class="kw">sum</span>(freq)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb295-5" title="5"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">fct_infreq</span>(religion), <span class="dt">y =</span> rel_freq)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb295-6" title="6"><span class="st">    </span><span class="kw">geom_col</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb295-7" title="7"><span class="st">    </span><span class="kw">coord_flip</span>()</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-223-1.png" width="100%" /></p>
 <p>Oops, that didn’t seem to work. Why not? Let’s look at the data we gave to ggplot.</p>
-<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb286-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb286-2" title="2"><span class="st">    </span><span class="kw">group_by</span>(religion) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb286-3" title="3"><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">freq =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb286-4" title="4"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">rel_freq =</span> freq<span class="op">/</span><span class="kw">sum</span>(freq))</a></code></pre></div>
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb296-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb296-2" title="2"><span class="st">    </span><span class="kw">group_by</span>(religion) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb296-3" title="3"><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">freq =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb296-4" title="4"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">rel_freq =</span> freq<span class="op">/</span><span class="kw">sum</span>(freq))</a></code></pre></div>
 <pre><code>## # A tibble: 15 x 3
 ##    religion                 freq rel_freq
 ##    &lt;fct&gt;                   &lt;int&gt;    &lt;dbl&gt;
@@ -1683,28 +1686,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 15 Protestant              10846 0.505</code></pre>
 <p>The data – a frequency table – contains one row for each religion. When we use <code>fct_infreq</code> on this table, all religions appear once, so there are all equally frequent. <code>fct_infreq</code> implicitly tries to compute frequencies, but we already did that. As a result, the ordering failed. It is similar to using <code>geom_bar</code> based on a frequency table – we are trying to compute the frequencies twice, which results in unintended plots.</p>
 <p>So, what can we do instead? Well, we want to order the religions based on frequency. That shouldn’t be hard, because the frequency is already there. The function <code>fct_reorder</code> can help us. In contrast to <code>fct_infreq</code> it will use a second variable we provide to order the factor. Thus:</p>
-<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb288-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb288-2" title="2"><span class="st">    </span><span class="kw">group_by</span>(religion) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb288-3" title="3"><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">freq =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb288-4" title="4"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">rel_freq =</span> freq<span class="op">/</span><span class="kw">sum</span>(freq)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb288-5" title="5"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">fct_reorder</span>(religion, rel_freq), <span class="dt">y =</span> rel_freq)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb288-6" title="6"><span class="st">    </span><span class="kw">geom_col</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb288-7" title="7"><span class="st">    </span><span class="kw">coord_flip</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb298-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb298-2" title="2"><span class="st">    </span><span class="kw">group_by</span>(religion) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb298-3" title="3"><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">freq =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb298-4" title="4"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">rel_freq =</span> freq<span class="op">/</span><span class="kw">sum</span>(freq)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb298-5" title="5"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">fct_reorder</span>(religion, rel_freq), <span class="dt">y =</span> rel_freq)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb298-6" title="6"><span class="st">    </span><span class="kw">geom_col</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb298-7" title="7"><span class="st">    </span><span class="kw">coord_flip</span>()</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-225-1.png" width="100%" /></p>
 <p>Note how we refer to rel_freq twice: once to order, and once to use as y-axis. Also note that the order of the bars is reversed: <code>fct_infreq</code> will always order from most to least frequent, while our current configuration with <code>fct_reorder</code> is ordering from least to most frequent. We can simply change it using desc(), as we have done before.</p>
-<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb289-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb289-2" title="2"><span class="st">    </span><span class="kw">group_by</span>(religion) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb289-3" title="3"><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">freq =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb289-4" title="4"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">rel_freq =</span> freq<span class="op">/</span><span class="kw">sum</span>(freq)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb289-5" title="5"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">fct_reorder</span>(religion, <span class="kw">desc</span>(rel_freq)), <span class="dt">y =</span> rel_freq)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb289-6" title="6"><span class="st">    </span><span class="kw">geom_col</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb289-7" title="7"><span class="st">    </span><span class="kw">coord_flip</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb299-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb299-2" title="2"><span class="st">    </span><span class="kw">group_by</span>(religion) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb299-3" title="3"><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">freq =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb299-4" title="4"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">rel_freq =</span> freq<span class="op">/</span><span class="kw">sum</span>(freq)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb299-5" title="5"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">fct_reorder</span>(religion, <span class="kw">desc</span>(rel_freq)), <span class="dt">y =</span> rel_freq)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb299-6" title="6"><span class="st">    </span><span class="kw">geom_col</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb299-7" title="7"><span class="st">    </span><span class="kw">coord_flip</span>()</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-226-1.png" width="100%" /></p>
 <p>Alternatively, we can use the <code>fct_rev</code> function: this function will reverse the order of a factor. For example, we can reverse the order made by <code>fct_infreq</code>.</p>
-<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb290-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb290-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="kw">fct_rev</span>(<span class="kw">fct_infreq</span>(religion)))) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb290-3" title="3"><span class="st">    </span><span class="kw">geom_bar</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb290-4" title="4"><span class="st">    </span><span class="kw">coord_flip</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb300-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb300-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="kw">fct_rev</span>(<span class="kw">fct_infreq</span>(religion)))) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb300-3" title="3"><span class="st">    </span><span class="kw">geom_bar</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb300-4" title="4"><span class="st">    </span><span class="kw">coord_flip</span>()</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-227-1.png" width="100%" /></p>
 <p>Thus, summarizing:</p>
 <ul>
@@ -1714,14 +1717,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>In general, you should use <code>fct_infreq</code> only on the original data, and when you have a frequency table as input to ggplot, you should use <code>fct_reorder</code>.</p>
 <p>However, there is one more thing we need to cover. <code>fct_reorder(f,x)</code> can reorder on any variable x, not just frequency. For example, look at the following plot.</p>
-<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb291-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb291-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(marital, age)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb291-3" title="3"><span class="st">    </span><span class="kw">geom_boxplot</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb301-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb301-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(marital, age)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb301-3" title="3"><span class="st">    </span><span class="kw">geom_boxplot</span>()</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-228-1.png" width="100%" /></p>
 <p>This plot shows the distribution of age for different marital statuses. Let’s say we want to sort these boxplots according to age. We use <code>fct_reorder</code> just as we did before.</p>
-<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb292-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb292-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="kw">fct_reorder</span>(marital, age), age)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb292-3" title="3"><span class="st">    </span><span class="kw">geom_boxplot</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb302-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb302-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="kw">fct_reorder</span>(marital, age), age)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb302-3" title="3"><span class="st">    </span><span class="kw">geom_boxplot</span>()</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-229-1.png" width="100%" /></p>
 <p>Again, the results are not as we would expect. What’s different compared to the previous use with frequencies?</p>
 <p>There are actually two differences.</p>
@@ -1736,9 +1739,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Computing any function when there are missing values leads to a missing value. We have to make sure that missing values are ignored. Any argument we add to fct_reorder after the .fun argument will be considered as a argument to this function. Thus, the following will correctly sort the marital variable</p>
 <p>fct_reorder(marital, age, .fun = median, na.rm = T)</p>
 <p>Putting it to the test:</p>
-<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb293-1" title="1">survey <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb293-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="kw">fct_reorder</span>(marital, age, <span class="dt">.fun =</span> median, <span class="dt">na.rm =</span> T), age)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb293-3" title="3"><span class="st">    </span><span class="kw">geom_boxplot</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb303-1" title="1">survey <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb303-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="kw">fct_reorder</span>(marital, age, <span class="dt">.fun =</span> median, <span class="dt">na.rm =</span> T), age)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb303-3" title="3"><span class="st">    </span><span class="kw">geom_boxplot</span>()</a></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-230-1.png" width="100%" /></p>
 <p>This looks better. So, let’s summarize once again.</p>
 <ul>
@@ -1806,12 +1809,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -1826,7 +1828,11 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"view": {
+"link": null,
+"text": null
+},
+"download": ["textbook.pdf"],
 "toc": {
 "collapse": "section",
 "depth": 3

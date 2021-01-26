@@ -1,0 +1,76 @@
+h1:data-visualizatie Data visualizatie
+h2:univariate-visualisaties-1-variabele Univariate visualisaties (1 variabele)
+h3:categorische-variabele Categorische variabele
+h4:staafdiagram Staafdiagram
+fig:2-3a Staafdiagram luchthavens
+fig:2-3b Staafdiagram maatschappijen
+fig:2-3c Staafdiagram met geroteerde labels
+fig:2-3d Staafdiagram gesorteerd op frequentie
+fig:2-3e Verticaal staafdiagram gesorteerd op frequentie
+h4:dotplot Dotplot
+fig:2-5a Dotplot maatschappij
+fig:2-5b Verticale dotplot
+h4:stacked-staafdiagram  staafdiagram
+fig:2-6a Stacked barplot
+fig:2-6b Horizontale stacked barplot
+h4:andere-soorten Andere soorten
+h3:continue-variabele Continue variabele
+h4:histogram Histogram
+fig:2-7a Histogram with binwidth 1000
+fig:2-7b Histogram with binwidth 250
+fig:2-7c Histogram with binwidth 50
+h4:density Density
+fig:2-density Density plot
+h4:boxplot Boxplot
+fig:2-8 Verticale boxplot vertrekvertraging
+fig:2-9 Horizontale boxplot vertrekvertraging
+h4:violin-plot Violin plot
+fig:2-10a Verticale violin plot afstand
+fig:2-10b Horizontale violin plot vertrekvertraging
+h4:jitter-plot Jitter plot
+fig:2-jitter Violin, boxplot, point en jitter
+h2:bivariate-visualisatie-2-variabelen Bivariate visualisatie (2 variabelen)
+h3:situatie-1-de-onafhankelijke-variabele-is-categorisch Situatie 1: De onafhankelijke variabele is categorisch
+fig:2-12a Bivariate boxplot
+fig:2-12b Bivariate violin plot
+fig:2-12c Bivariate histogram plot
+fig:2-12d Bivariate density plot - apart
+fig:2-12e Bivariate density plot - overlappend
+fig:2-13a Bivariate barplot
+fig:2-13b Bivariate stacked barplot
+fig:echo Twee verschillende stacked barcharts van luchthaven en maatschappij.
+fig:echo Treemap luchthaven en maatschappij.
+fig:echo Mosaic plot luchthaven en maatschappij.
+h3:situatie-2-de-onafhankelijke-variabele-is-continue Situatie 2: De onafhankelijke variabele is continue
+fig:213c Scatterplot
+fig:2-13d Scatterplot met trendlijn
+h3:situatie-3-de-onafhankelijke-variabele-is-tijd Situatie 3: De onafhankelijke variabele is tijd
+fig:echo Puntenwolk met tijd op x-as
+fig:echo Lijngrafiek
+fig:echo Lijn grafiek met punten
+fig:echo Lijngrafiek van gemiddelde vertrekvertraging per maand.
+fig:echo Boxplots van gemiddelde dagelijske vertrekvertraging voor elke maand.
+fig:echo Verdeling van aantal vluchten over maatschappijen per maand.
+fig:echo Verdeling van aantal vluchten over maatschappijen per dag van de week.
+fig:echo Verdeling van aantal vluchten over maatschappijen per vertrekuur.
+h2:multivariate-visualisaties-meer-dan-2-variabelen Multivariate visualisaties (meer dan 2 variabelen)
+h3:voorbeeld-in-welke-mate-hangt-de-vertrek-vertraging-af-van-de-luchthaven-en-de-afstand Voorbeeld: In welke mate hangt de vertrek vertraging af van de luchthaven en de afstand?
+fig:labelke Vertrekvertraging vs afstand
+fig:labelke2 Vertrekvertraging vs afstand en luchthaven
+fig:echo Vertrekvertraging vs afstand en luchthaven
+fig:echo Vertrekvertraging vs afstand en luchthaven, hexbins
+h3:voorbeeld-multivariaat-tijd Voorbeeld: multivariaat tijd
+h4:situatie-1-variabelen-hebben-dezelfde-eenheid. Situatie 1: Variabelen hebben dezelfde eenheid.
+fig:echo Evolutie van 2 variabelen over tijd in één grafiek (zelfde meeteenheid)
+fig:echo Evolutie van 2 variabelen over tijd in afzondelijke panels.
+h4:situatie-2-variabelen-hebben-niet-dezelfde-eenheid Situatie 2: Variabelen hebben niet dezelfde eenheid
+fig:echo Evolutie van 2 variabelen met andere eenheden in afzonderlijke panels.
+fig:echo Evolutie van 2 variabelen (levensverwachting en inkomen per capita) aan de hand van connected scatterplot.
+fig:echo Evolutie van 2 variabelen aan de hand van connected scatterplot - verschillende groepen.
+h2:visualisaties-voor-communicatie Visualisaties voor communicatie
+h3:voorbeeld-voor-goed-voor-exploratie Voorbeeld: voor ~ goed voor exploratie
+h3:voorbeeld-na-goed-voor-communicatie Voorbeeld: na ~ goed voor communicatie
+h2:how-charts-lie How charts lie
+h3:causaliteit-vs-correlatie Causaliteit vs correlatie
+h2:referenties Referenties
+

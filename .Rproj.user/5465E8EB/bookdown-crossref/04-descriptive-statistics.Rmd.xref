@@ -1,0 +1,38 @@
+h1:descriptieve-statistieken Descriptieve statistieken
+h2:beschrijvende-statistieken-versus-exploratieve-plots Beschrijvende statistieken versus exploratieve plots
+h2:notatie Notatie
+h2:data Data
+h2:univariate-statistieken Univariate statistieken
+h3:categorische-variabele Categorische variabele
+h3:frequentietabel Frequentietabel
+tab:4-4 Aantal vluchten per luchthaven
+h3:centrummaten Centrummaten
+tab:4-5 Aantal vluchten per vluchttype
+tab:4-6 Centrummaten voor vluchttype
+h3:spreidingsmaten Spreidingsmaten
+tab:4-7 Kwantielen voor vluchttype
+h3:continue-variabele Continue variabele
+h3:centrummaten-1 Centrummaten
+tab:4-9 Afstand (centrummaten)
+h3:spreidingsmaten-1 Spreidingsmaten
+tab:4-10 Afstand (spreidingsmaten)
+h2:bivariate-statistieken Bivariate statistieken
+h3:continu-versus-continu Continu versus Continu
+h3:correlatie Correlatie
+tab:4-12 Correlatie tussen afstand en vliegtijd
+h3:vergelijking-correlatiecoëfficiënten Vergelijking correlatiecoëfficiënten
+tab:4-13 Fictieve dataset
+tab:4-15 Correlatiecoëfficiënten fictieve dataset
+h3:categorisch-versus-continu Categorisch versus Continu
+h3:univariate-statistieken-per-categoriewaarde Univariate statistieken per categoriewaarde
+tab:4-17 Afstand-Luchthaven (centrummaten)
+tab:4-18 Afstand-Luchthaven (spreidingsmaten)
+h3:correlatie-1 Correlatie
+tab:echo Correlatie tussen vluchttype en vliegtijd
+h3:categorisch-versus-categorisch Categorisch versus Categorisch
+h3:univariate-statistieken-per-categoriewaarde-1 Univariate statistieken per categoriewaarde
+tab:echo Centrummaten voor vluchttype-luchthaven
+tab:echo Kwantielen voor vluchttype-luchthaven
+h3:contingentietabellen Contingentietabellen
+h2:referenties Referenties
+

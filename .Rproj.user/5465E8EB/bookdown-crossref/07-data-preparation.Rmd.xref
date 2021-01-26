@@ -1,0 +1,39 @@
+h1:data-voorbereiden Data voorbereiden
+h2:beginnen-bij-het-begin Beginnen bij het begin
+h2:data-inlezen Data inlezen
+h3:uitdagingen-bij-het-correct-inlezen-van-data Uitdagingen bij het correct inlezen van data
+h3:dataformaten Dataformaten
+h4:flat-file-databestanden Flat-file databestanden
+h4:hiërarchische-databestanden Hiërarchische databestanden
+h5:xml-bestanden XML-bestanden
+h5:json-bestanden JSON-bestanden
+h4:applicatie-specifieke-dataformaten Applicatie-specifieke dataformaten
+h4:r-packages-voor-het-inladen-van-diverse-dataformaten R-packages voor het inladen van diverse dataformaten
+h3:data-encodering Data-encodering
+h4:binair-decimaal-en-hexadecimaal-rekenstelsel Binair, decimaal en hexadecimaal rekenstelsel
+h4:tekst-opslaan Tekst opslaan
+h3:datatypes-controlleren-en-corrigeren Datatypes controlleren en corrigeren
+h2:dataproblemen-identificeren-en-corrigeren Dataproblemen identificeren en corrigeren
+h3:overzicht Overzicht
+h3:foutieve-waarden Foutieve waarden
+h4:categorische-variabele Categorische variabele
+h4:case-vluchtdata-nyc Case: Vluchtdata NYC
+tab:5-5b Maatschappijen geordend volgens stijgende frequentie.
+tab:5-6b Maatschappij alfabetisch geordend.
+tab:5-8b Maatschappij alfabetisch geordend.
+h4:ordinale-variabelen Ordinale variabelen
+h4:continue-variabelen Continue variabelen
+tab:5-11b Vluchten met kortste vliegtijd.
+tab:5-12b Vluchten met langste vliegtijd.
+tab:5-13b Vluchten met kortste vliegtijd.
+h3:ontbrekende-waarden Ontbrekende waarden
+h3:inconsistente-waarden Inconsistente waarden
+h2:data-opwaarderen Data opwaarderen
+h4:categorische-variabelen Categorische variabelen
+tab:5-22b Luchtvaartmaatschappijen geordend volgens stijgend aantal vluchten.
+tab:5-24b Luchtvaartmaatschappijen geordend volgens stijgend aantal vluchten.
+h4:continue-variabelen-1 Continue variabelen
+tab:5-27b Frequentietabel vliegtijd (factor)
+h3:sampling Sampling
+h2:referenties Referenties
+

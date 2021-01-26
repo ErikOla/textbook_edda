@@ -1,0 +1,34 @@
+h1:tutorial---data-voorbereiden Tutorial - Data voorbereiden
+h2:before-you-start Before you start
+h2:introduction Introduction
+h2:reading-data Reading data
+h3:csv-and-tsv CSV and TSV
+h3:excel Excel
+h3:json-and-xml JSON and XML
+h3:other-statistical-packages Other statistical packages
+h3:databases Databases
+h3:background-material Background material
+h3:converting-variables Converting variables
+h2:cleaning-data Cleaning Data
+h3:duplicates-removal Duplicates Removal
+h3:cleaning-categorical-variables Cleaning Categorical Variables
+h3:recode-categorical-variables Recode Categorical Variables
+h3:reorder-categorical-variables Reorder Categorical Variables
+h3:cleaning-continuous-data Cleaning continuous data
+h3:errors Errors
+h3:outliers Outliers
+h3:data-inconsistencies Data inconsistencies
+h3:missing-values Missing values
+h3:analyzing-missing-data Analyzing missing data
+h3:working-around-missing-data Working around missing data
+h3:visualizations Visualizations
+h3:numerical-analysis Numerical analysis
+h2:transforming-data Transforming Data
+h3:discretization-of-continuous-variables Discretization of continuous variables
+h3:rescaling-continuous-variables Rescaling continuous variables
+h3:adding-calculated-variables Adding calculated variables
+h3:recode-categorical-variables-1 Recode Categorical Variables
+h3:collapsing-factors Collapsing factors
+h2:using-transformations-in-visualizations. Using transformations in visualizations.
+h2:background-material-1 Background Material
+

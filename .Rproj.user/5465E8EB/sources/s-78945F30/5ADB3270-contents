@@ -1,0 +1,238 @@
+
+# Tijdsdata
+
+
+```{r include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = F, cache = T)
+library(tufte)
+library(pander)
+source("prepare_session.R")
+knitr::opts_chunk$set(out.width = "100%",
+                      fig.width = 6, fig.asp = 0.6, tidy='styler',
+                      cache = T,
+                      echo = F,
+                      warning = F)
+```
+
+
+```{r 6-1, message=FALSE, warning=FALSE, echo=FALSE}
+df <- flights %>%
+	inner_join(airports, by = c("dest"="faa")) %>%
+	inner_join(airlines, by= "carrier") %>%
+  mutate(dep_hour = dep_time %/% 100, dep_minute = dep_time %% 100,
+         sched_dep_hour = sched_dep_time %/% 100, sched_dep_minute = sched_dep_time %% 100,
+         arr_hour = arr_time %/% 100, arr_minute = arr_time %% 100,
+         sched_arr_hour = sched_arr_time %/% 100, sched_arr_minute = sched_arr_time %% 100) %>%
+  unite(departure_datetime, day, month, year, dep_hour, dep_minute, sep="-", remove = F) %>%
+  mutate(departure_datetime = dmy_hm(departure_datetime)) %>%
+  unite(arrival_datetime, day, month, year, arr_hour, arr_minute, sep = "-", remove = F) %>%
+  mutate(arrival_datetime = dmy_hm(arrival_datetime)) %>%
+  filter(!is.na(departure_datetime), !is.na(arrival_datetime), !is.na(arr_delay)) %>%
+  mutate(overnight = arrival_datetime < departure_datetime,
+         arrival_datetime = arrival_datetime + days(overnight * 1)) %>%
+  mutate(arrival_datetime = as.character(arrival_datetime)) %>%
+  select(vertrekluchthaven = origin, 
+         aankomstluchthaven = name.x, 
+         maatschappij = name.y,
+         jaar_vertrek = year,
+         maand_vertrek = month,
+         dag_vertrek = day,
+         uur_vertrek = dep_hour,
+         minuut_vertrek = dep_minute,
+         tijdstip_aankomst = arrival_datetime,
+         vertrek_vertraging = dep_delay,
+         aankomst_vertraging = arr_delay,
+         afstand = distance) %>%
+  as_tibble()
+
+```
+## Inleiding
+
+### Tijdstippen versus periodes
+* We kunnen tijdgerelateerde data in twee categorieën onderverdelen: tijdstippen en periodes.
+ * Tijdstip.
+    * Verwijst naar een specifiek moment in de tijd.
+    * 3 varianten:
+        * datum ("01-01-2017") verwijst naar een specifieke dag.
+        * datum-tijdstip ("01-01-2017 13:54") verwijst naar een specifiek moment op een specifieke dag.
+        * tijdstip ("13:54") verwijst naar een specifiek moment op een ongedefinieerde dag.
+ * Periode.
+    * Verwijst naar een periode en wordt typisch uitgedrukt aan de hand van de duur van de periode.
+        * Bijvoorbeeld: Een periode van "3605 seconden"" of een periode van "2 maanden en 1 dag".
+    * Soms wordt een periode specifiek gedefinieerd aan de hand van twee specifieke tijdstippen die het begin en het einde van de periode aangeven. 
+        * Bijvoorbeeld: De periode van 01-01-2017 tot 03-01-2017.
+* __Bestudeer hoofdstuk 16 van het boek 'R for Data Science' van Grolemund en Wickham !__ 
+
+
+### Afronden van tijdstippen
+
+* Ieder tijdstip heeft een zekere nauwkeurigheid. Sommige tijdstippen zijn tot op de seconde gedefinieerd terwijl andere slechts een nauwkeurigheid hebben van weken of maanden.
+* Soms kan het voor visualisaties of analyses zinvol zijn om tijdstippen minder nauwkeurig te maken en deze af te ronden. 
+
+
+```{r 6-3, echo=F}
+df %>% 
+  mutate(tijdstip_aankomst = ymd_hms(tijdstip_aankomst)) -> df
+```
+
+```{r 6-4, echo=F}
+df %>%
+  mutate(tijdstip_vertrek = make_datetime(jaar_vertrek, 
+                                          maand_vertrek, 
+                                          dag_vertrek, 
+                                          uur_vertrek, 
+                                          minuut_vertrek)) %>%
+  select(- jaar_vertrek, 
+         -maand_vertrek, 
+         -dag_vertrek, 
+         -uur_vertrek, 
+         -minuut_vertrek) -> df
+```
+
+```{r 6-5, echo=F}
+df %>%
+  mutate(weekdag_vertrek = wday(tijdstip_vertrek, label = T),
+         week_vertrek = week(tijdstip_vertrek),
+         maand_vertrek = month(tijdstip_vertrek),
+         maanddag_vertrek = mday(tijdstip_vertrek)) -> df
+```
+
+
+```{r 6-6, echo=F}
+df %>%
+  mutate(dag_vertrek = floor_date(tijdstip_vertrek, "day")) -> df
+```
+
+## Periode-data
+
+* We kunnen 3 soorten van periodes onderscheiden, waarbij het eerste type (interval) naar een specifieke periode tussen 2 tijdstippen verwijst en de 2 andere types (_duration_ en _period_) naar een periode van een specifieke duur verwijzen maar telkens onafhankelijk van het specifieke tijdstip.
+
+
+### Interval
+* Een interval is een periode die bepaald wordt door twee specifieke tijdstippen.
+* Intervals worden weinig gebruikt om rechtstreeks te analyseren, maar kunnen als tussenstap gebruikt worden om de duurtijd van specifieke periodes te bepalen. 
+
+### Duration
+* Duration is de duur van een periode uitgedrukt als het exact aantal seconden die feitelijk verstreken zijn tussen twee tijdstippen.
+* Tussen '26 maart 2017 02:00:00' en '26 maart 2017 03:00:01' is slechts 1 seconde feitelijk verstreken omdat we van 2u naar 3u zijn overgeschakeld op het zomeruur.
+* Durations gebruik je voornamelijk als je de werkelijke tijd tussen twee tijdstippen wenst te berekenen of wanneer je een aantal seconden wenst toe te voegen bij of af te trekken van een specifiek tijdstip.
+
+### Period
+
+* De tijd die verstreken 'lijkt' te zijn (op een klok) tussen twee tijdstippen.
+* Dus tussen '26 maart 2017 02:00:00' en '26 maart 2017 03:00:01' zit een period van 1 uur en 1 seconde.
+ * Periods gebruik je voornamelijk als je periodes wilt toevoegen aan tijdstippen zonder rekening te moeten houden met onverwachte sprongen in de tijd (zomertijd/wintertijd, schrikkeljaren, ...).
+    * Dus als je bij ieder tijdstip 1 dag (24u) wenst toe te voegen, kan je beter een period gebruiken dan een duration, omdat je anders rekening moet houden met de dag waarop we van zomer- naar winteruur gaan en omgekeerd. 
+
+
+
+```{r 6-16, echo=F}
+df %>%
+  mutate(vertrek_werkelijk = tijdstip_vertrek + dminutes(vertrek_vertraging),
+         aankomst_werkelijk = tijdstip_aankomst + dminutes(aankomst_vertraging)) %>%
+  rename(aankomst_gepland = tijdstip_aankomst,
+         vertrek_gepland = tijdstip_vertrek) %>%
+  select(vertrekluchthaven, aankomstluchthaven, maatschappij, vertrek_gepland, 
+         vertrek_werkelijk, vertrek_vertraging, aankomst_gepland, 
+         aankomst_werkelijk, aankomst_vertraging, afstand, weekdag_vertrek, 
+         week_vertrek, maand_vertrek, dag_vertrek, maanddag_vertrek) -> df
+```
+
+## Analyseren van tijdgerelateerde data
+
+
+
+* Een eerste stap om inzicht te krijgen in de tijdgerelateerde data is met behulp van de _summary()_ functie. Het is vooral nuttig om naar de minima en maxima te kijken. Dit geeft vaak aan of de tijdsperiode waarvoor de data verzameld is overeenkomt met de verwachte periode. In onderstaand geval blijkt dit in orde te zijn.
+
+```{r 6_17, echo=F}
+summary(df)
+```
+
+#### Analyse visuele tijdreekspatronen
+* Eén van de meest voorkomende exploratieve visuele analysetechnieken voor tijdgerelateerde data is het zoeken naar patronen hoe een variabele doorheen de tijd verandert.
+* De eerste stap is hierbij telkens de tijdreekspatronen te visualiseren. Om dit te doen kan je volgend stappenplan toepassen.
+    * Bepaal over welke tijdsdimensie je patronen wenst te bestuderen. Dit is je __X__-variabele. De __X__-variabele bepaalt de granulariteit van je visualisatie. Wens je op niveau van dagen te visualiseren, dan is je tijdsdimensie 'dag', en dan ga je gedetailleerder naar de patronen kijken, dan wanneer je op niveau van bijvoorbeeld 'maand' naar de data kijkt.
+    * Bepaal welke variabele je doorheen de tijd wenst te bestuderen. Dit is je __Y__-variabele. 
+    * Je gaat voor iedere **X** waarde 1 **Y** waarde moeten hebben. Vaak betekent dit dat je deze **Y**-variabele nog moet aanmaken. Mogelijke **Y** variabelen zijn _het aantal observaties_ per tijdseenheid of de centrummaat (bv. mediaan) van een specifieke variabele.
+    * Je R-code vertrekt steeds van de oorspronkelijke dataset, groepeert vervolgens op de tijdsdimensie, berekent de gewenste samenvattende statistiek (*summarise()*) en visualiseert vervolgens via *ggplot() + geom_line()*.
+* We willen bijvoorbeeld de evolutie zien van het aantal vluchten per dag. De tijdsdimensie is dus *dag_vertrek* en de **Y**-variabele wordt gemaakt door het aantal rijen per dag te tellen. 
+* De analyse van onderstaande grafiek toont een aantal opvallende zaken:
+    * Er is een zware en niet-wederkerende daling tussen januari en april. Hier moet iets uitzonderlijks gebeurd zijn.
+    * We zien een terugkerend patroon, waarbij om de aantal dagen een daling is in het aantal vluchten.
+    * De schommelingen en met name de daling op het einde van ieder terugkerend patroon wordt groter op het einde van het jaar.
+
+```{r 6_18, echo=F}
+df %>%
+  group_by(dag_vertrek) %>%
+  summarise(aantal_vluchten = n()) %>%
+  ggplot(aes(x=dag_vertrek, y=aantal_vluchten)) +
+  geom_line()
+```
+
+* We kunnen een soortgelijke analyse doen voor de gemiddelde vertrekvertraging.
+
+```{r 6_19, echo=F}
+df %>%
+  group_by(dag_vertrek) %>%
+  summarise(gemiddelde_vertrekvertraging = mean(vertrek_vertraging)) %>%
+  ggplot(aes(x=dag_vertrek, y=gemiddelde_vertrekvertraging)) +
+  geom_line()
+```
+
+* Een volgende stap is vaak om de tijdreekspatronen apart te visualiseren voor de verschillende waarden van een categorische variabele.
+* Dit kan op eenvoudige wijze door in onze R-code deze categorische variabele op te nemen in het *group_by()* gedeelte en vervolgens aparte plots te creëren met behulp van *facet_wrap()*.
+* Laten we de evolutie van het aantal vluchten per dag bijvoorbeeld uitsplitsen per luchthaven.
+* Uit onderstaande analyse blijkt dan dat het aantal vluchten vanuit JFK veel minder sterk schommelt dan EWR en LGA. Wel valt op dat alle drie de luchthavens een sterke uitzonderlijke daling kenden in de eerste helft van het jaar.
+
+```{r 6_20, echo=F}
+df %>%
+  group_by(dag_vertrek, vertrekluchthaven) %>%
+  summarise(aantal_vluchten = n()) %>%
+  ggplot(aes(x = dag_vertrek, y = aantal_vluchten, colour=vertrekluchthaven)) + 
+  geom_line() + facet_wrap(~vertrekluchthaven, ncol = 1)
+```
+
+#### Identificeren van opmerkelijke gebeurtenissen in een tijdreeks
+
+* In de evolutie van het aantal vluchten valt op dat er een uitzonderlijke daling plaatsvond in de periode tussen januari en april. 
+* In zulke gevallen is het best te achterhalen wat hier precies de oorzaak is. 
+* De eerste stap is dan ook het exacte tijdstip te identificeren. 
+* We kunnen dit doen door de data te filteren op die dagen dat er zeer weinig vluchten zijn.
+
+```{r 6_21, echo=F}
+df %>%
+  group_by(dag_vertrek, vertrekluchthaven) %>%
+  summarise(aantal_vluchten = n()) %>%
+  filter(aantal_vluchten < 160)
+```
+
+* Uit deze analyse blijkt dat de daling  plaatsvond op 8 en 9 februari 2013. Na enig opzoekwerk blijkt dat New York toen geteisterd werd door een hevige sneeuwstorm waardoor zeer veel vluchten geannuleerd moesten worden. 
+* Omdat dit moment niet representatief is voor een normaal jaar, beslissen we om enkel met de tijdgerelateerde data van maart tot en met december verder te gaan.
+
+```{r 6_22}
+df %>%
+  filter(vertrek_gepland >= ymd(130301)) -> df_mardec
+```
+
+* We kunnen de tijdreeks van de nieuwe periode opnieuw visualiseren.
+
+```{r 6_23}
+df_mardec %>%  
+  group_by(dag_vertrek, vertrekluchthaven) %>%
+  summarise(aantal_vluchten=n()) %>%
+  ggplot(aes(x = dag_vertrek, y= aantal_vluchten, colour=vertrekluchthaven)) + 
+  geom_line() +  facet_wrap(~ vertrekluchthaven, ncol = 1)
+```
+
+* We kunnen verder inzoomen in de data door naar de tijdreekspatronen te kijken per maand en per luchthaven.
+
+```{r 6_24, echo=F}
+df_mardec %>%
+  group_by(maanddag_vertrek, maand_vertrek, vertrekluchthaven) %>%
+  summarise(aantal_vluchten = n()) %>%
+  ggplot(aes(x=maanddag_vertrek, y=aantal_vluchten, colour=vertrekluchthaven)) +
+  geom_line() + facet_grid(maand_vertrek ~ vertrekluchthaven)
+```
+
+## Referenties
+1. ['R for Data Science' van Grolemund en Wickham](http://r4ds.had.co.nz/)

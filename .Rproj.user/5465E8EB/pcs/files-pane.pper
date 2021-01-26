@@ -1,9 +1,9 @@
 {
-    "path" : "~/UH - Local/EDDA/textbook",
-    "sortOrder" : [
+    "path": "~/UH - Local/EDDA/textbook/_book",
+    "sortOrder": [
         {
-            "ascending" : true,
-            "columnIndex" : 2
+            "columnIndex": 2,
+            "ascending": true
         }
     ]
 }

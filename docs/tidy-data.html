@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 9 Tidy data | Exploratieve en Descriptieve Data Analyse</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
-  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 9 Tidy data | Exploratieve en Descriptieve Data Analyse" />
   <meta property="og:type" content="book" />
@@ -49,7 +49,10 @@
 
 
 
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -405,7 +408,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>We vertrekken van een dataset met vluchten opgestegen vanuit NYC in 2013. Hieronder een overzicht van de variabelen in de dataset.</li>
 </ul>
-<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb294-1" title="1"><span class="kw">glimpse</span>(df)</a></code></pre></div>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb304-1" title="1"><span class="kw">glimpse</span>(df)</a></code></pre></div>
 <pre><code>## Observations: 319,809
 ## Variables: 13
 ## $ id                  &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, ...
@@ -424,7 +427,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>We beschikken nu ook over een tweede dataset met de gegevens van de luchthavens. Hieronder een overzicht van de variabelen in deze dataset.</li>
 </ul>
-<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb296-1" title="1"><span class="kw">glimpse</span>(airports)</a></code></pre></div>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb306-1" title="1"><span class="kw">glimpse</span>(airports)</a></code></pre></div>
 <pre><code>## Observations: 1,458
 ## Variables: 8
 ## $ faa   &lt;chr&gt; &quot;04G&quot;, &quot;06A&quot;, &quot;06C&quot;, &quot;06N&quot;, &quot;09J&quot;, &quot;0A9&quot;, &quot;0G6&quot;, &quot;0G7&quot;, &quot;0P2&quot;...
@@ -449,17 +452,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>In zulke gevallen gaat R de vlucht dupliceren en iedere kopie (van de vlucht) koppelen aan een andere luchthaven uit de airports-dataset met faa-code EWR.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb298-1" title="1">airports <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb298-2" title="2"><span class="st">  </span><span class="kw">count</span>(faa) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb298-3" title="3"><span class="st">  </span><span class="kw">filter</span>(n<span class="op">&gt;</span><span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb308-1" title="1">airports <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb308-2" title="2"><span class="st">  </span><span class="kw">count</span>(faa) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb308-3" title="3"><span class="st">  </span><span class="kw">filter</span>(n<span class="op">&gt;</span><span class="dv">1</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 0 x 2
 ## # ... with 2 variables: faa &lt;chr&gt;, n &lt;int&gt;</code></pre>
 <ul>
 <li>Uit bovenstaande analyse blijkt dat er geen twee rijen zijn in de airports-dataset met dezelfde faa-code.</li>
 <li>We kunnen nu de gegevens van de airports-dataset toevoegen aan het oorspronkelijk dataframe. We doen dit met behulp van een <em>left_join()</em> en geven aan via welke variabelen de link gelegd moet worden.</li>
 </ul>
-<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb300-1" title="1">df &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">left_join</span>(airports, <span class="dt">by=</span><span class="kw">c</span>(<span class="st">&quot;vertrekluchthaven&quot;</span>=<span class="st">&quot;faa&quot;</span>))</a>
-<a class="sourceLine" id="cb300-2" title="2"><span class="kw">glimpse</span>(df)</a></code></pre></div>
+<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb310-1" title="1">df &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">left_join</span>(airports, <span class="dt">by=</span><span class="kw">c</span>(<span class="st">&quot;vertrekluchthaven&quot;</span>=<span class="st">&quot;faa&quot;</span>))</a>
+<a class="sourceLine" id="cb310-2" title="2"><span class="kw">glimpse</span>(df)</a></code></pre></div>
 <pre><code>## Observations: 319,809
 ## Variables: 20
 ## $ id                  &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, ...
@@ -488,10 +491,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Controleer ook altijd of het aantal observaties niet gewijzigd is, daar dit vaak wijst op een fout in de join. In dit geval is het aantal observaties niet veranderd.</li>
 <li>In een volgende stap verwijderen we een aantal kolommen die we verder niet nodig gaan hebben en veranderen we de kolom ‘name’ in ‘vertrekluchthaven’. Zoals je in het resultaat kan zien bevat onze nieuwe dataset nu de volledige naam van de vertrekluchthaven en niet enkel de faa-code.</li>
 </ul>
-<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb302-1" title="1">df &lt;-<span class="st"> </span>df  <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb302-2" title="2"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>vertrekluchthaven, <span class="op">-</span>lat, <span class="op">-</span>lon, <span class="op">-</span>alt, <span class="op">-</span>tz, <span class="op">-</span>dst, <span class="op">-</span>tzone) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb302-3" title="3"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">vertrekluchthaven =</span> name)</a>
-<a class="sourceLine" id="cb302-4" title="4"><span class="kw">glimpse</span>(df)</a></code></pre></div>
+<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb312-1" title="1">df &lt;-<span class="st"> </span>df  <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb312-2" title="2"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>vertrekluchthaven, <span class="op">-</span>lat, <span class="op">-</span>lon, <span class="op">-</span>alt, <span class="op">-</span>tz, <span class="op">-</span>dst, <span class="op">-</span>tzone) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb312-3" title="3"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">vertrekluchthaven =</span> name)</a>
+<a class="sourceLine" id="cb312-4" title="4"><span class="kw">glimpse</span>(df)</a></code></pre></div>
 <pre><code>## Observations: 319,809
 ## Variables: 13
 ## $ id                  &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, ...
@@ -521,23 +524,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Hieronder zie je de bijhorende plots.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb304-1" title="1">df <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb304-2" title="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>weekdag_vertrek, <span class="dt">y=</span>afstand)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb304-3" title="3"><span class="st">  </span><span class="kw">geom_boxplot</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb314-1" title="1">df <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb314-2" title="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>weekdag_vertrek, <span class="dt">y=</span>afstand)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb314-3" title="3"><span class="st">  </span><span class="kw">geom_boxplot</span>()</a></code></pre></div>
 <p><img src="textbook_files/figure-html/7-7-1.png" width="100%" /></p>
-<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb305-1" title="1">df <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb305-2" title="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>weekdag_vertrek, <span class="dt">y=</span>afstand, <span class="dt">colour=</span>vertrekluchthaven)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb305-3" title="3"><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb305-4" title="4"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>vertrekluchthaven, <span class="dt">ncol=</span><span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb315-1" title="1">df <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb315-2" title="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>weekdag_vertrek, <span class="dt">y=</span>afstand, <span class="dt">colour=</span>vertrekluchthaven)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb315-3" title="3"><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb315-4" title="4"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>vertrekluchthaven, <span class="dt">ncol=</span><span class="dv">1</span>)</a></code></pre></div>
 <p><img src="textbook_files/figure-html/7-8-1.png" width="100%" /></p>
 <ul>
 <li>Stel nu dat je het effect wenst te weten van de weekdag van vertrek op de vertraging van een vlucht, maar je wil hierbij onderscheid maken tussen vertrek- en aankomstvertraging.</li>
 <li>Volgens bovenstaande aanpak zou je dan een Y-variabele moeten hebben die de vertraging meet en een Z-variabele die het type van vertraging aangeeft (aankomst of vertrek).</li>
 <li>Onze dataset is echter anders opgebouwd. In de beschikbare data is de vertraging van een vlucht opgeslagen met behulp van twee aparte variabelen, namelijk vertrek- en aankomstvertraging. Dit blijkt uit onderstaande tabel.</li>
 </ul>
-<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb306-1" title="1">df_temp &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb306-2" title="2"><span class="st">  </span><span class="kw">select</span>(id, vertrekluchthaven, vertrek_vertraging, aankomst_vertraging, weekdag_vertrek)</a>
-<a class="sourceLine" id="cb306-3" title="3">df_temp</a></code></pre></div>
+<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb316-1" title="1">df_temp &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb316-2" title="2"><span class="st">  </span><span class="kw">select</span>(id, vertrekluchthaven, vertrek_vertraging, aankomst_vertraging, weekdag_vertrek)</a>
+<a class="sourceLine" id="cb316-3" title="3">df_temp</a></code></pre></div>
 <pre><code>## # A tibble: 319,809 x 5
 ##       id vertrekluchthaven  vertrek_vertraging aankomst_vertrag~ weekdag_vertrek
 ##    &lt;int&gt; &lt;chr&gt;                           &lt;dbl&gt;             &lt;dbl&gt; &lt;ord&gt;          
@@ -566,10 +569,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Tenslotte geef je de naam van de nieuwe value-variabele.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb308-1" title="1">df_long &lt;-<span class="st"> </span>df_temp <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb308-2" title="2"><span class="st">  </span><span class="kw">gather</span>(vertrek_vertraging, aankomst_vertraging, <span class="dt">key=</span><span class="st">&quot;type_vertraging&quot;</span>, <span class="dt">value=</span><span class="st">&quot;vertraging&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb308-3" title="3"><span class="st">  </span><span class="kw">arrange</span>(id)</a>
-<a class="sourceLine" id="cb308-4" title="4">df_long</a></code></pre></div>
+<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb318-1" title="1">df_long &lt;-<span class="st"> </span>df_temp <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb318-2" title="2"><span class="st">  </span><span class="kw">gather</span>(vertrek_vertraging, aankomst_vertraging, <span class="dt">key=</span><span class="st">&quot;type_vertraging&quot;</span>, <span class="dt">value=</span><span class="st">&quot;vertraging&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb318-3" title="3"><span class="st">  </span><span class="kw">arrange</span>(id)</a>
+<a class="sourceLine" id="cb318-4" title="4">df_long</a></code></pre></div>
 <pre><code>## # A tibble: 639,618 x 5
 ##       id vertrekluchthaven   weekdag_vertrek type_vertraging     vertraging
 ##    &lt;int&gt; &lt;chr&gt;               &lt;ord&gt;           &lt;chr&gt;                    &lt;dbl&gt;
@@ -594,16 +597,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Data in een lang formaat zijn voornamelijk nuttig om visualisaties te realiseren met ggplot.</li>
 <li>Met dit lange formaat kunnen we de relatie tussen weekdag van vertrek en de vertraging, uitgesplitst volgens vertrek- of aankomstvertraging, visualiseren.</li>
 </ul>
-<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb310-1" title="1">df_long <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb310-2" title="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>weekdag_vertrek, <span class="dt">y=</span> vertraging, <span class="dt">colour=</span>type_vertraging)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_violin</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb320-1" title="1">df_long <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb320-2" title="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>weekdag_vertrek, <span class="dt">y=</span> vertraging, <span class="dt">colour=</span>type_vertraging)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_violin</span>()</a></code></pre></div>
 <p><img src="textbook_files/figure-html/7-11-1.png" width="100%" /></p>
 <ul>
 <li>Indien we de relatie tussen we weekdag en de gemiddelde vertraging, uitgesplitst volgens vertragingtype, wensen te visualiseren, moeten we eerst de gemiddelde vertraging berekenen.</li>
 </ul>
-<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb311-1" title="1">df_long_summary &lt;-<span class="st"> </span>df_long <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb311-2" title="2"><span class="st">  </span><span class="kw">group_by</span>(vertrekluchthaven, type_vertraging, weekdag_vertrek) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb311-3" title="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">gem_vertraging =</span> <span class="kw">mean</span>(vertraging))</a>
-<a class="sourceLine" id="cb311-4" title="4">df_long_summary</a></code></pre></div>
+<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb321-1" title="1">df_long_summary &lt;-<span class="st"> </span>df_long <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb321-2" title="2"><span class="st">  </span><span class="kw">group_by</span>(vertrekluchthaven, type_vertraging, weekdag_vertrek) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb321-3" title="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">gem_vertraging =</span> <span class="kw">mean</span>(vertraging))</a>
+<a class="sourceLine" id="cb321-4" title="4">df_long_summary</a></code></pre></div>
 <pre><code>## # A tibble: 42 x 4
 ## # Groups:   vertrekluchthaven, type_vertraging [6]
 ##    vertrekluchthaven   type_vertraging     weekdag_vertrek gem_vertraging
@@ -619,12 +622,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  9 John F Kennedy Intl vertrek_vertraging  Mon                      14.7 
 ## 10 John F Kennedy Intl vertrek_vertraging  Tue                      10.5 
 ## # ... with 32 more rows</code></pre>
-<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb313-1" title="1">df_long_summary <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb313-2" title="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>weekdag_vertrek, </a>
-<a class="sourceLine" id="cb313-3" title="3">             <span class="dt">y=</span>gem_vertraging, </a>
-<a class="sourceLine" id="cb313-4" title="4">             <span class="dt">colour=</span>type_vertraging,  </a>
-<a class="sourceLine" id="cb313-5" title="5">             <span class="dt">group=</span><span class="kw">interaction</span>(type_vertraging,vertrekluchthaven))) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb313-6" title="6"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>vertrekluchthaven, <span class="dt">ncol=</span><span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb323-1" title="1">df_long_summary <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb323-2" title="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>weekdag_vertrek, </a>
+<a class="sourceLine" id="cb323-3" title="3">             <span class="dt">y=</span>gem_vertraging, </a>
+<a class="sourceLine" id="cb323-4" title="4">             <span class="dt">colour=</span>type_vertraging,  </a>
+<a class="sourceLine" id="cb323-5" title="5">             <span class="dt">group=</span><span class="kw">interaction</span>(type_vertraging,vertrekluchthaven))) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb323-6" title="6"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>vertrekluchthaven, <span class="dt">ncol=</span><span class="dv">1</span>)</a></code></pre></div>
 <p><img src="textbook_files/figure-html/7-13-1.png" width="100%" /></p>
 </div>
 <div id="data-in-een-breed-formaat-plaatsen-voor-overzichtelijke-tabellen" class="section level2">
@@ -1252,9 +1255,9 @@ vertrek_vertraging
 </ul></li>
 <li>Je kan een dataset van lang naar breed formaat omzetten met behulp van de <em>spread()</em> functie.</li>
 </ul>
-<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb314-1" title="1">df_long_summary <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb314-2" title="2"><span class="st">  </span><span class="kw">spread</span>(<span class="dt">key=</span>weekdag_vertrek, <span class="dt">value=</span>gem_vertraging) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb314-3" title="3"><span class="st">  </span><span class="kw">arrange</span>(vertrekluchthaven, type_vertraging)</a></code></pre></div>
+<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb324-1" title="1">df_long_summary <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb324-2" title="2"><span class="st">  </span><span class="kw">spread</span>(<span class="dt">key=</span>weekdag_vertrek, <span class="dt">value=</span>gem_vertraging) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb324-3" title="3"><span class="st">  </span><span class="kw">arrange</span>(vertrekluchthaven, type_vertraging)</a></code></pre></div>
 <table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:7-15b">Table 9.2: </span>Gemiddelde vertraging (breed formaat).
@@ -1501,12 +1504,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -1521,7 +1523,11 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"view": {
+"link": null,
+"text": null
+},
+"download": ["textbook.pdf"],
 "toc": {
 "collapse": "section",
 "depth": 3
