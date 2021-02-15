@@ -1,7 +1,7 @@
-h1:tutorial---data-vizualisatie Tutorial - Data vizualisatie
-h2:before-you-start Before you start
-h2:introduction Introduction
-h2:different-geometrics Different geometrics
+h1:tutorial---data-visualisatie Tutorial - Data visualisatie
+h2:voor-je-begint Voor je begint
+h2:introductie Introductie
+h2:verschillende-geometrics Verschillende geometrics
 h3:geom_point geom_point
 h3:geom_histogram geom_histogram
 h3:geom_boxplot geom_boxplot
@@ -9,14 +9,14 @@ h3:geom_violin geom_violin
 h3:geom_bar geom_bar
 h3:geom_col geom_col
 h3:other-geometrics Other geometrics
-h2:enhancing-the-appearance-of-our-plots Enhancing the appearance of our plots
-h3:titles Titles
+h2:layout-van-onze-grafieken-verbeteren Layout van onze grafieken verbeteren
+h3:titels Titels
 h3:theme Theme
-h3:configuring-the-coordinate-system Configuring the coordinate system
+h3:het-coördinatenstelsel Het coördinatenstelsel
 h3:color-scales Color scales
-h2:advanced-plots Advanced plots
-h3:using-facets Using Facets
-h3:combining-multiple-geometric-layers Combining multiple geometric layers
-h3:aes-inheritance Aes-inheritance
+h2:geavanceerde-plots Geavanceerde plots
+h3:gebruikmaken-van-facets Gebruikmaken van Facets
+h3:meerdere-layers-combineren Meerdere layers combineren
+h3:aes-overerving Aes-overerving
 h2:background-material Background material
 

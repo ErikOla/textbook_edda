@@ -39,8 +39,8 @@ fig:2-12e Bivariate density plot - overlappend
 fig:2-13a Bivariate barplot
 fig:2-13b Bivariate stacked barplot
 fig:echo Twee verschillende stacked barcharts van luchthaven en maatschappij.
-fig:echo Treemap luchthaven en maatschappij.
-fig:echo Mosaic plot luchthaven en maatschappij.
+fig:treemap Treemap luchthaven en maatschappij.
+fig:mosaic Mosaic plot luchthaven en maatschappij.
 h3:situatie-2-de-onafhankelijke-variabele-is-continue Situatie 2: De onafhankelijke variabele is continue
 fig:213c Scatterplot
 fig:2-13d Scatterplot met trendlijn
