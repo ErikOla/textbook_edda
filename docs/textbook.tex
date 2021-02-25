@@ -14730,6 +14730,13 @@ According to this data, there were 78 cases, and none of them were relapses.
 \hypertarget{before-we-start}{%
 \section{Before we start}\label{before-we-start}}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(dplyr) }
+\KeywordTok{library}\NormalTok{(lubridate)}
+\end{Highlighting}
+\end{Shaded}
+
 Congratulations on reaching the final tutorial of this course. In this tutorial we will be playing with dates and times. To do this in an easy way, we will use the package lubridate, which you might need to install. We will also load dplyr for when we will use time in a data.frame context. We will not need any dataset, we will make all data ourselfs (How cool is that?).
 
 \hypertarget{introduction-2}{%
@@ -14790,6 +14797,12 @@ The possibilities are endless. However, thanks to lubridate, we don't need to bo
 
 Consider the following code. We create a character containing the date above.
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{date <-}\StringTok{ "1991-06-28"}
+\end{Highlighting}
+\end{Shaded}
+
 Let's say I want to know the difference between that day and today. The following will obviously not work.
 
 \begin{verbatim}
@@ -14797,6 +14810,12 @@ Let's say I want to know the difference between that day and today. The followin
 \end{verbatim}
 
 I don't know about you, but I have learned that we cannot substract two words from each other. What about if we remove the "'s?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{2019-04-29} \OperatorTok{-}\StringTok{ }\DecValTok{1991-06-28}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] -39
@@ -14808,11 +14827,29 @@ What we need is a new type of object. Not character, not numeric, not integer, n
 
 We can make a date with the aptly-named `make\_date' function in lubridate, where we can give year, month and date as an argument.
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{date <-}\StringTok{ }\KeywordTok{make_date}\NormalTok{(}\DataTypeTok{year =} \DecValTok{1991}\NormalTok{, }\DataTypeTok{month =} \DecValTok{6}\NormalTok{, }\DataTypeTok{day =} \DecValTok{28}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{date}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
 ## [1] "1991-06-28"
 \end{verbatim}
 
 Printing it doesn't really change a thing. Let's look at the class. \footnote{The words date and data are too different things. It's again a common source of typos.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{class}\NormalTok{(date)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] "Date"
@@ -14821,6 +14858,16 @@ Printing it doesn't really change a thing. Let's look at the class. \footnote{Th
 Well, that seems alright.
 
 Let's make a bunch of dates - let's say each day in april. Do you still remember the code blow? We saw it to create data.frames a long time ago. We use tbl\_df to transform the data.frame to the easier to print tibble format.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dates_of_april <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{year =} \DecValTok{2019}\NormalTok{,}
+           \DataTypeTok{month =} \DecValTok{4}\NormalTok{,}
+           \DataTypeTok{day =} \DecValTok{1}\OperatorTok{:}\DecValTok{30}\NormalTok{) }\OperatorTok{%>%}
+\StringTok{    }\KeywordTok{tbl_df}\NormalTok{()}
+\NormalTok{dates_of_april}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## # A tibble: 30 x 3
@@ -14841,6 +14888,14 @@ Let's make a bunch of dates - let's say each day in april. Do you still remember
 
 Using mutate, we can now add the date as a separate variable.
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dates_of_april }\OperatorTok{%>%}
+\StringTok{    }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{date =} \KeywordTok{make_date}\NormalTok{(year, month, day)) ->}\StringTok{ }\NormalTok{dates_of_april}
+\NormalTok{dates_of_april}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
 ## # A tibble: 30 x 4
 ##     year month   day date      
@@ -14860,6 +14915,13 @@ Using mutate, we can now add the date as a separate variable.
 
 Look again at the type of this variable. It's called a Date.
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dates_of_april }\OperatorTok{%>%}
+\StringTok{    }\NormalTok{glimpse}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
 ## Rows: 30
 ## Columns: 4
@@ -14872,6 +14934,12 @@ Look again at the type of this variable. It's called a Date.
 Of course, this only solves part of the problem. How do we go from something as ``28-06-1991'' to 28 and 6 and 1991 to a date? Suppose we have a table of dates where each date is stored as a character, like below. {[}\^{}unite{]}
 
 {[}\^{}unite{]}; You can actually make this table yourself by uniting the year, month, day column of dates\_of\_april using tidyr's unite.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dates_of_april_text}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## # A tibble: 30 x 1
@@ -14892,6 +14960,13 @@ Of course, this only solves part of the problem. How do we go from something as 
 
 Look closely, this date column is not a `date', it is a character.
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dates_of_april_text }\OperatorTok{%>%}
+\StringTok{    }\KeywordTok{glimpse}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
 ## Rows: 30
 ## Columns: 1
@@ -14899,6 +14974,15 @@ Look closely, this date column is not a `date', it is a character.
 \end{verbatim}
 
 However, using separate, we could separate these characters, and then applying make\_date.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(tidyr)}
+\NormalTok{dates_of_april_text }\OperatorTok{%>%}
+\StringTok{    }\KeywordTok{separate}\NormalTok{(date, }\DataTypeTok{into =} \KeywordTok{c}\NormalTok{(}\StringTok{"year"}\NormalTok{,}\StringTok{"month"}\NormalTok{,}\StringTok{"day"}\NormalTok{)) }\OperatorTok{%>%}
+\StringTok{    }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{date =} \KeywordTok{make_date}\NormalTok{(year, month, day))}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## # A tibble: 30 x 4
@@ -14921,6 +15005,13 @@ Of course, that's a lot of work, which we don't like. However, we can use lubrid
 
 Since year is written down first, then month, then day, the order of components is \emph{ymd}. Well, there is a function in lubridate with that name. Let's try with our earlier date.
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{date <-}\StringTok{ }\KeywordTok{ymd}\NormalTok{(}\StringTok{"1991-06-28"}\NormalTok{)}
+\NormalTok{date}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
 ## [1] "1991-06-28"
 \end{verbatim}
@@ -14931,9 +15022,21 @@ Let's make a second date for today. \footnote{Of course, this is not the day whe
 ## date2 <- ymd("2021-02-15")
 \end{verbatim}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{date2}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
 ## [1] "2021-02-15"
 \end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{class}\NormalTok{(date2)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] "Date"
@@ -14941,8 +15044,14 @@ Let's make a second date for today. \footnote{Of course, this is not the day whe
 
 There is actually a very useful function in lubridate for getting the date of today. It's just to \texttt{today()}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{today}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
-## [1] "2021-02-15"
+## [1] "2021-02-25"
 \end{verbatim}
 
 When the date components are in a different order, you just have to change the order of the letters y, m and d.~The following functions are all provided by lubridate.
@@ -14965,25 +15074,61 @@ When the date components are in a different order, you just have to change the o
 
 Here are some examples.
 
-\begin{verbatim}
-## [1] "2017-03-25"
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ymd}\NormalTok{(}\StringTok{"2017-03-25"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] "2017-03-25"
 \end{verbatim}
 
-\begin{verbatim}
-## [1] "2017-03-25"
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{dmy}\NormalTok{(}\StringTok{"25-03-2017"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] "2017-03-25"
 \end{verbatim}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{mdy}\NormalTok{(}\StringTok{"03-25-2017"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
 ## [1] "2017-03-25"
 \end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ymd}\NormalTok{(}\StringTok{"17/03/25"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "2017-03-25"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ymd}\NormalTok{(}\StringTok{"20170325"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "2017-03-25"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ymd}\NormalTok{(}\StringTok{"170325"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] "2017-03-25"
@@ -14991,11 +15136,23 @@ Here are some examples.
 
 Note that lubridate will automagicaly find the components as long as it knows the order in which to look for - you don't have to worry about how it is separated, whether month and days are written with or without a leading zero (i.e.~1/4/2019 or 01/04/2019), or whether years are written with 2 or 4 numbers. Lubridate is even so smart it will try to guess the correct century. Suppose we define the date we saw earlier, 28th June 1991, but only give lubridate year 91.
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ymd}\NormalTok{(}\StringTok{"910628"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
 ## [1] "1991-06-28"
 \end{verbatim}
 
 It turns 91 into 1991. But if we give it year 19 (i.e.~the same day in 2019), it will turn 19 in 2019.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ymd}\NormalTok{(}\StringTok{"190628"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] "2019-06-28"
@@ -15004,6 +15161,12 @@ It turns 91 into 1991. But if we give it year 19 (i.e.~the same day in 2019), it
 This is very helpful of course (unless we are looking for the year 1919). However, after the \href{https://www.britannica.com/technology/Y2K-bug}{Y2K bug}, we will typically find yyyy-dates. \footnote{Fun fact for geeks: lubridate will try to find a date within 50 years from now. Thus, all number from 69 to 99 will be regarded as 1999 to 1999, all other numbers will be regarded as years in the 21st century.}
 
 So, let's go back to our table.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dates_of_april_text}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## # A tibble: 30 x 1
@@ -15024,7 +15187,22 @@ So, let's go back to our table.
 
 Luckily, ymd works with vectors, as well as with singular dates. So, instead of this
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dates_of_april_text }\OperatorTok{%>%}
+\StringTok{    }\KeywordTok{separate}\NormalTok{(date, }\DataTypeTok{into =} \KeywordTok{c}\NormalTok{(}\StringTok{"year"}\NormalTok{,}\StringTok{"month"}\NormalTok{,}\StringTok{"day"}\NormalTok{)) }\OperatorTok{%>%}
+\StringTok{    }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{date =} \KeywordTok{make_date}\NormalTok{(year, month, day))}
+\end{Highlighting}
+\end{Shaded}
+
 we can now just do this
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dates_of_april_text }\OperatorTok{%>%}
+\StringTok{    }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{date =} \KeywordTok{ymd}\NormalTok{(date))}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## # A tibble: 30 x 1
@@ -15049,17 +15227,35 @@ Of course, there are always times when lubridate can make mistakes. Consider the
 
 Thus, the first day of april is written down as 04-01-2019. If we would see this day without any context, we would wrongly that 4 is the day, 1 the month and 2019 the year. Thus,
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{dmy}\NormalTok{(}\StringTok{"04-01-2019"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
 ## [1] "2019-01-04"
 \end{verbatim}
 
 Lubridate will not see any problems because this is not an incorrect date. But, we are no longer taking about the first of April. We are talking about the 4 of January. The second of april will become the 4th of February using this code. Lubridate will sense that something is going wrong when we get to the 13th of april.
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{dmy}\NormalTok{(}\StringTok{"04-13-2019"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
 ## [1] NA
 \end{verbatim}
 
 Now lubridate will fail to see this as a correct dmy-date, and return an NA. However, it is good to know that lubridate doesn't learn very good from its mistakes. Suppose we have again a whole data set of dates in this format. \footnote{You can create this table yourself by uniting the columns dates\_of\_april table in the month, day, year order.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dates_of_april_us}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## # A tibble: 30 x 1
@@ -15116,19 +15312,44 @@ When we try to convert is in a date using the wrong order, dmy. We get the follo
 ## 30 NA
 \end{verbatim}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dates_of_april_us }\OperatorTok{%>%}
+\StringTok{    }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{date =} \KeywordTok{dmy}\NormalTok{(date))}
+\end{Highlighting}
+\end{Shaded}
+
 Note that all dates till the 13th are (wrongly) converted. The remaining ones are not converted and replaced with NA, of which lubridate warns us. However, he's not so smart to correct our mistake and replace the first 12 days with NA. \footnote{Not that lubridate date doesn't learn retroactively (replacing the already converted dates with NA), but is also doesn't learn for the future. If we shuffle the data such that we'll see a wrong date faster, it will still wrongly convert all of the 12 first days of april. So he will always do his best, even if he has already had problems with some dates. Moral of the story: the data scientist should never be asleep and blindly trust tools.}
 
 Let's return to our dates we defined ealier
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{date}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
 ## [1] "1991-06-28"
 \end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{date2}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] "2021-02-15"
 \end{verbatim}
 
 We can now calculate with these dates.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{date2 }\OperatorTok{-}\StringTok{ }\NormalTok{date}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## Time difference of 10825 days
@@ -15141,9 +15362,22 @@ Problem solved. Let's add some other problems.
 
 Instead of dates, we can also have times. In this tutorial, we will only consider the combination of date and time, which we call a \emph{datetime}. We can look at an example using the function \texttt{now}. While \texttt{today} gives us the date of today, \texttt{now} gives us the date time of, well, now.
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{current_time <-}\StringTok{ }\KeywordTok{now}\NormalTok{()}
+\NormalTok{current_time}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
-## [1] "2021-02-15 00:37:12 CET"
+## [1] "2021-02-25 15:12:04 CET"
 \end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{class}\NormalTok{(current_time)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] "POSIXct" "POSIXt"
@@ -15166,25 +15400,61 @@ Next to ymd\_hms, there's also dmy\_hms, mdy\_hms, etc. However, hours, minutes 
 
 You will mostly use ymd\_hms. Let's see some examples. Note that the third notations, with a T between the date and time part, is very common in datasets, and lubridates takes care without problems.
 
-\begin{verbatim}
-## [1] "2017-03-25 10:30:00 UTC"
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{dmy_hms}\NormalTok{(}\StringTok{"25-03-2017 10:30:00"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] "2017-03-25 10:30:00 UTC"
 \end{verbatim}
 
-\begin{verbatim}
-## [1] "2017-03-25 10:30:00 UTC"
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{dmy_hms}\NormalTok{(}\StringTok{"25032017103000"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] "2017-03-25 10:30:00 UTC"
 \end{verbatim}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{dmy_hms}\NormalTok{(}\StringTok{"25-03-2017T10:30:00"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
 ## [1] "2017-03-25 10:30:00 UTC"
 \end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ymd_hms}\NormalTok{(}\StringTok{"2017-03-25 10.30.00"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "2017-03-25 10:30:00 UTC"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{dmy_hms}\NormalTok{(}\StringTok{"25-03-2017 10h30m00s"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "2017-03-25 10:30:00 UTC"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{dmy_hm}\NormalTok{(}\StringTok{"25-03-2017 10:30"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] "2017-03-25 10:30:00 UTC"
@@ -15194,11 +15464,24 @@ Again, you can use this on entire columns using mutate. Also, make sure to check
 
 Onces we have datetimes, we can again do calculations with them.
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{datetime <-}\StringTok{ }\KeywordTok{dmy_hms}\NormalTok{(}\StringTok{"25-03-2017 10h30m00s"}\NormalTok{)}
+\KeywordTok{now}\NormalTok{() }\OperatorTok{-}\StringTok{ }\NormalTok{datetime}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
-## Time difference of 1422.547 days
+## Time difference of 1433.154 days
 \end{verbatim}
 
 Or compare them.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{now}\NormalTok{() }\OperatorTok{<}\StringTok{ }\NormalTok{datetime}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] FALSE
@@ -15217,11 +15500,23 @@ Below, you can see a map of all different time zones.
 
 When you graduate from this program you'll most certainly become successful international businessleaders, so having a basic understanding about time zones is necessary. Let's again look at the current time.
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{now}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
-## [1] "2021-02-15 00:37:13 CET"
+## [1] "2021-02-25 15:12:05 CET"
 \end{verbatim}
 
 The last part of this time tells us the timezone we are in. At my pc, it currently says CEST, which is the Central European Summer Time \footnote{Note that if you read the online version of this tutorial, the time zones you see here may be different because it might be compiled on a server in a different time zone.}. You also check the time zone you are in using Sys.timezone().
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{Sys.timezone}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] "Europe/Paris"
@@ -15231,9 +15526,21 @@ At this point, my pc tell me it is Europe/Paris instead of CEST. Indeed, there a
 
 The function olson\_time\_zones gives you a list of all time zones according to the Olson time database. This is notation of time zones using Continent/City. It is named after Arthur Olson
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{olson_time_zones}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
 Just try this in your console. It's a long list, and we don't want to spoil the environment with our paper usage.
 
 When we are creating a date with a ymd\_hms-variant, it will automatically use UTC as a time zone.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ymd_hms}\NormalTok{(}\StringTok{"2017-03-25 10.30.00"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] "2017-03-25 10:30:00 UTC"
@@ -15241,11 +15548,23 @@ When we are creating a date with a ymd\_hms-variant, it will automatically use U
 
 UTC is the Universal Coordinated Time, i.e.~the standard, base-line time zone. CEST is UTC + 2, i.e.~two hourse ahead of UTC. We can change that be setting the tz argument within the ymd\_hms function. Let's first take a more meaningful datetime.
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ymd_hms}\NormalTok{(}\StringTok{"2017-01-20 17:30:00"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
 ## [1] "2017-01-20 17:30:00 UTC"
 \end{verbatim}
 
 At time a sad event happened in Washinghton DC. So let's define the time zone appropriately.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ymd_hms}\NormalTok{(}\StringTok{"2017-01-20 11:30:00"}\NormalTok{, }\DataTypeTok{tz =} \StringTok{"EST"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] "2017-01-20 11:30:00 EST"
@@ -15257,7 +15576,19 @@ We can now see what time it was back in Belgium, by showing this time in CET (Ce
 
 First, we save the time as ``doomsday''
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{doomsday <-}\StringTok{ }\KeywordTok{ymd_hms}\NormalTok{(}\StringTok{"2017-01-20 11:30:00"}\NormalTok{, }\DataTypeTok{tz =} \StringTok{"EST"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
 Using with\_tz, we can show a point in time in a different timezone.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{with_tz}\NormalTok{(doomsday, }\StringTok{"CET"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] "2017-01-20 17:30:00 CET"
@@ -15267,17 +15598,37 @@ So, at 11.30 in Washington, it was 17.30 here in Belgium when we were whatching 
 
 But, both refer to the same point in time. They are just different representations of that same point.
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{doomsday_in_belgium <-}\StringTok{ }\KeywordTok{with_tz}\NormalTok{(doomsday, }\StringTok{"CET"}\NormalTok{) }
+
+\NormalTok{doomsday_in_belgium }\OperatorTok{-}\StringTok{ }\NormalTok{doomsday}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
 ## Time difference of 0 secs
 \end{verbatim}
 
 If we really want to change the time zone, i.e.~refer to 11.30 in Belgium, we can use force\_tz instead.
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{force_tz}\NormalTok{(doomsday, }\StringTok{"CET"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
 ## [1] "2017-01-20 11:30:00 CET"
 \end{verbatim}
 
 At this point, we are not longer talking about the same point in time, but we are talking about the time 6 hours before doomsday.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{force_tz}\NormalTok{(doomsday, }\StringTok{"CET"}\NormalTok{) }\OperatorTok{-}\StringTok{ }\NormalTok{doomsday}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## Time difference of -6 hours
@@ -15292,17 +15643,35 @@ When we have a date (or datetime), we can easily extract information from it. Fo
 
 We can see which day it was.
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{day}\NormalTok{(doomsday)}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
 ## [1] 20
 \end{verbatim}
 
 or at which hour
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{hour}\NormalTok{(doomsday)}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
 ## [1] 11
 \end{verbatim}
 
 or even which day of the week
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{wday}\NormalTok{(doomsday)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] 6
@@ -15314,6 +15683,12 @@ Indeed, lubridate will start counting on sunday - another American quirk. So, su
 
 Luckily, the wday function has an argument label, which we can set to TRUE when we forgot the exact meaning.
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{wday}\NormalTok{(doomsday, }\DataTypeTok{label =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
 ## [1] Fri
 ## Levels: Sun < Mon < Tue < Wed < Thu < Fri < Sat
@@ -15323,9 +15698,21 @@ Friday it was. Not that it is automatically an ordered factor, which is helpful.
 
 We can also ask for the month of doomsday as both a number and a label.
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{month}\NormalTok{(doomsday)}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
 ## [1] 1
 \end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{month}\NormalTok{(doomsday, }\DataTypeTok{label =}\NormalTok{ T)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] Jan
@@ -15362,6 +15749,12 @@ An interval is a \emph{exact} window of time, with a specific start date(time) a
 
 We can create a period with the period function, by giving it a number of components.
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{period}\NormalTok{(}\DataTypeTok{days =} \DecValTok{2}\NormalTok{, }\DataTypeTok{minutes =} \DecValTok{4}\NormalTok{, }\DataTypeTok{seconds =} \DecValTok{70}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
 ## [1] "2d 0H 4M 70S"
 \end{verbatim}
@@ -15370,17 +15763,41 @@ Note that it will just give us the period in easy to understand chunks of time. 
 
 If our can be easily expressed in a single component, we can use the follow that components day (in plural).
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{days}\NormalTok{(}\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
 ## [1] "3d 0H 0M 0S"
 \end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{weeks}\NormalTok{(}\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] "21d 0H 0M 0S"
 \end{verbatim}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{months}\NormalTok{(}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
 ## [1] "2m 0d 0H 0M 0S"
 \end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{years}\NormalTok{(}\DecValTok{4}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] "4y 0m 0d 0H 0M 0S"
@@ -15390,11 +15807,23 @@ We need to use the plural (days, not day), because we already used day to extrac
 
 We can combine them.
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{days}\NormalTok{(}\DecValTok{1}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{hours}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
 ## [1] "1d 1H 0M 0S"
 \end{verbatim}
 
 We can also make negative periods.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{days}\NormalTok{(}\OperatorTok{-}\DecValTok{10}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] "-10d 0H 0M 0S"
@@ -15402,9 +15831,21 @@ We can also make negative periods.
 
 Or we can make vectors of periods.
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{period}\NormalTok{(}\DataTypeTok{days =} \DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{, }\DataTypeTok{hours =} \DecValTok{3}\OperatorTok{:}\DecValTok{7}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
 ## [1] "1d 3H 0M 0S" "2d 4H 0M 0S" "3d 5H 0M 0S" "4d 6H 0M 0S" "5d 7H 0M 0S"
 \end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{days}\NormalTok{(}\DecValTok{0}\OperatorTok{:}\DecValTok{6}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] "0S"          "1d 0H 0M 0S" "2d 0H 0M 0S" "3d 0H 0M 0S" "4d 0H 0M 0S"
@@ -15413,21 +15854,39 @@ Or we can make vectors of periods.
 
 We can than also substract or add these periods to dates. Thus, if today is
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{today}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
-## [1] "2021-02-15"
+## [1] "2021-02-25"
 \end{verbatim}
 
 the next 6 days are
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{today}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{days}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{6}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
-## [1] "2021-02-16" "2021-02-17" "2021-02-18" "2021-02-19" "2021-02-20"
-## [6] "2021-02-21"
+## [1] "2021-02-26" "2021-02-27" "2021-02-28" "2021-03-01" "2021-03-02"
+## [6] "2021-03-03"
 \end{verbatim}
 
 \hypertarget{durations}{%
 \subsection{Durations}\label{durations}}
 
 Instead of using these human-understandable components, durations translate all time difference to seconds. Just like \texttt{period}, we can use \texttt{duration}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{duration}\NormalTok{(}\DataTypeTok{days =} \DecValTok{2}\NormalTok{, }\DataTypeTok{minutes =} \DecValTok{4}\NormalTok{, }\DataTypeTok{seconds =} \DecValTok{70}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] "173110s (~2 days)"
@@ -15437,19 +15896,43 @@ As you see, it will always try to give an approximation of the time differences 
 
 Indeed, we can also do the math
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{2}\OperatorTok{*}\DecValTok{24}\OperatorTok{*}\DecValTok{3600}\OperatorTok{+}\DecValTok{4}\OperatorTok{*}\DecValTok{60}\OperatorTok{+}\DecValTok{70}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
 ## [1] 173110
 \end{verbatim}
 
 Similarly, we can use ddays, dweek, dyears, etc. \footnote{Evidently, this has nothing to do with D-Day. It's just dat day and days were already taken, and d stands for duration.}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ddays}\NormalTok{(}\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
 ## [1] "259200s (~3 days)"
 \end{verbatim}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{dweeks}\NormalTok{(}\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
 ## [1] "1814400s (~3 weeks)"
 \end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{dyears}\NormalTok{(}\DecValTok{4}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] "126230400s (~4 years)"
@@ -15457,11 +15940,23 @@ Similarly, we can use ddays, dweek, dyears, etc. \footnote{Evidently, this has n
 
 We can combine them.
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ddays}\NormalTok{(}\DecValTok{1}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{dhours}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
 ## [1] "90000s (~1.04 days)"
 \end{verbatim}
 
 We can not make negative durations, but it wont really give an error.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ddays}\NormalTok{(}\OperatorTok{-}\DecValTok{10}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] "-864000s (~-1.43 weeks)"
@@ -15471,10 +15966,22 @@ Note that there is no such thing as a negative second.
 
 We can make vectors of periods.
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{duration}\NormalTok{(}\DataTypeTok{days =} \DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{, }\DataTypeTok{hours =} \DecValTok{3}\OperatorTok{:}\DecValTok{7}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
 ## [1] "97200s (~1.12 days)"  "187200s (~2.17 days)" "277200s (~3.21 days)"
 ## [4] "367200s (~4.25 days)" "457200s (~5.29 days)"
 \end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ddays}\NormalTok{(}\DecValTok{0}\OperatorTok{:}\DecValTok{6}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] "0s"                "86400s (~1 days)"  "172800s (~2 days)"
@@ -15484,18 +15991,36 @@ We can make vectors of periods.
 
 We can than also substract or add these durations to dates. Thus, if today is
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{today}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
-## [1] "2021-02-15"
+## [1] "2021-02-25"
 \end{verbatim}
 
 the next 6 days are
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{today}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{ddays}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{6}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
-## [1] "2021-02-16" "2021-02-17" "2021-02-18" "2021-02-19" "2021-02-20"
-## [6] "2021-02-21"
+## [1] "2021-02-26" "2021-02-27" "2021-02-28" "2021-03-01" "2021-03-02"
+## [6] "2021-03-03"
 \end{verbatim}
 
 Note that we cannot compute dmonths!
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{dmonths}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] "2629800s (~4.35 weeks)"
@@ -15516,17 +16041,35 @@ Let's look at some examples too make things clear.
 
 Let's take the first day of 2019, which is not a leap year.
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ymd}\NormalTok{(}\StringTok{"2019-01-01"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
 ## [1] "2019-01-01"
 \end{verbatim}
 
 If we add a period-year
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ymd}\NormalTok{(}\StringTok{"2019-01-01"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{years}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
 ## [1] "2020-01-01"
 \end{verbatim}
 
 or a duration-year
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ymd}\NormalTok{(}\StringTok{"2019-01-01"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{dyears}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] "2020-01-01 06:00:00 UTC"
@@ -15536,17 +16079,35 @@ both are the same, because how we perceive the length of 2019 (i.e.~365 days), i
 
 However, if we add 2 years, there is a difference, because 2020 is a leapyear and how we perceive it (366 days) is not the same as the duration of a default year.
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ymd}\NormalTok{(}\StringTok{"2019-01-01"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
 ## [1] "2019-01-01"
 \end{verbatim}
 
 If we add two period-years
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ymd}\NormalTok{(}\StringTok{"2019-01-01"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{years}\NormalTok{(}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
 ## [1] "2021-01-01"
 \end{verbatim}
 
 or two duration-years
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ymd}\NormalTok{(}\StringTok{"2019-01-01"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{dyears}\NormalTok{(}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] "2020-12-31 12:00:00 UTC"
@@ -15556,9 +16117,21 @@ or two duration-years
 
 Let's take another example. On 31 march we changed from our winter time (CET) to summer time. What does it mean to add ``a day'' to 4pm on saturday.
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ymd_hms}\NormalTok{(}\StringTok{"2019-03-30 16:00:00"}\NormalTok{, }\DataTypeTok{tz =} \StringTok{"CET"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{days}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
 ## [1] "2019-03-31 16:00:00 CEST"
 \end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ymd_hms}\NormalTok{(}\StringTok{"2019-03-30 16:00:00"}\NormalTok{, }\DataTypeTok{tz =} \StringTok{"CET"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{ddays}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] "2019-03-31 17:00:00 CEST"
@@ -15568,9 +16141,21 @@ If we add a human period, it will say 4pm on sunday, eventhough that's only 23 h
 
 Of course, there is no difference on any other day of the year.
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ymd_hms}\NormalTok{(}\StringTok{"2019-04-30 16:00:00"}\NormalTok{, }\DataTypeTok{tz =} \StringTok{"CET"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{days}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
 ## [1] "2019-05-01 16:00:00 CEST"
 \end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ymd_hms}\NormalTok{(}\StringTok{"2019-04-30 16:00:00"}\NormalTok{, }\DataTypeTok{tz =} \StringTok{"CET"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{ddays}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] "2019-05-01 16:00:00 CEST"
@@ -15583,36 +16168,84 @@ So, the difference is only in special cases, but a difference still.
 
 We've already seen quite a lot of computations we can do. Here are some other examples.
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{doomsday }\OperatorTok{>=}\StringTok{ }\KeywordTok{now}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
 ## [1] FALSE
 \end{verbatim}
 
-\begin{verbatim}
-## Time difference of 1486.297 days
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{now}\NormalTok{() }\OperatorTok{-}\StringTok{ }\NormalTok{doomsday}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
-## [1] "1486d 7H 7M 18.3462429046631S"
+## Time difference of 1496.904 days
 \end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{as.period}\NormalTok{(}\KeywordTok{now}\NormalTok{()}\OperatorTok{-}\NormalTok{doomsday)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "1496d 21H 42M 11.6204628944397S"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{doomsday }\OperatorTok{+}\StringTok{ }\KeywordTok{period}\NormalTok{(}\DecValTok{1}\NormalTok{,}\StringTok{"week"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] "2017-01-27 11:30:00 EST"
 \end{verbatim}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{leap_year}\NormalTok{(}\DecValTok{2012}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
 ## [1] TRUE
 \end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{leap_year}\NormalTok{(}\KeywordTok{now}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] FALSE
 \end{verbatim}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{now}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{weeks}\NormalTok{(}\DecValTok{0}\OperatorTok{:}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
-## [1] "2021-02-15 00:37:18 CET" "2021-02-22 00:37:18 CET"
-## [3] "2021-03-01 00:37:18 CET"
+## [1] "2021-02-25 15:12:11 CET" "2021-03-04 15:12:11 CET"
+## [3] "2021-03-11 15:12:11 CET"
 \end{verbatim}
 
 Sometimes, calculations can go wrong. Especially with months.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ymd}\NormalTok{(}\DecValTok{20190331}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{months}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] NA
@@ -15622,17 +16255,35 @@ Well, the 31st of April doesn't really exist. (I suppose we all would like to ha
 
 You can use the special \%m+\% operator to make sure that your additions never go over the months end.
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ymd}\NormalTok{(}\DecValTok{20190331}\NormalTok{) }\OperatorTok{%m+%}\StringTok{ }\KeywordTok{months}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
 ## [1] "2019-04-30"
 \end{verbatim}
 
 Below, we have tried both to create a list of every months last day this year.
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ymd}\NormalTok{(}\DecValTok{20190131}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{months}\NormalTok{(}\DecValTok{0}\OperatorTok{:}\DecValTok{11}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
 ##  [1] "2019-01-31" NA           "2019-03-31" NA           "2019-05-31"
 ##  [6] NA           "2019-07-31" "2019-08-31" NA           "2019-10-31"
 ## [11] NA           "2019-12-31"
 \end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ymd}\NormalTok{(}\DecValTok{20190131}\NormalTok{) }\OperatorTok{%m+%}\StringTok{ }\KeywordTok{months}\NormalTok{(}\DecValTok{0}\OperatorTok{:}\DecValTok{11}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ##  [1] "2019-01-31" "2019-02-28" "2019-03-31" "2019-04-30" "2019-05-31"
@@ -15649,9 +16300,22 @@ An interval is different, as it refers to on specific window in time. It is not 
 
 Victor Hugo lived from February 26, 1802 until May 22, 1885. So we can define an interval using these two dates which represents his lifetime
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{hugo <-}\StringTok{ }\KeywordTok{interval}\NormalTok{(}\KeywordTok{mdy}\NormalTok{(}\DecValTok{02261802}\NormalTok{), }\KeywordTok{mdy}\NormalTok{(}\DecValTok{05221885}\NormalTok{))}
+\NormalTok{hugo}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
 ## [1] 1802-02-26 UTC--1885-05-22 UTC
 \end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{class}\NormalTok{(hugo)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] "Interval"
@@ -15663,11 +16327,25 @@ Note that we can of course also use datetimes to define an interval. (We just do
 
 Oscar Wilde lived from October 16, 1854 until November 30, 1900. Thus,
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{wilde <-}\StringTok{ }\KeywordTok{interval}\NormalTok{(}\KeywordTok{mdy}\NormalTok{(}\DecValTok{10161854}\NormalTok{), }\KeywordTok{mdy}\NormalTok{(}\DecValTok{11301900}\NormalTok{))}
+\NormalTok{wilde}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
 ## [1] 1854-10-16 UTC--1900-11-30 UTC
 \end{verbatim}
 
 We can also create an interval with the special \%--\% operator. Thus the code above is equivalent to
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{wilde <-}\StringTok{ }\KeywordTok{mdy}\NormalTok{(}\DecValTok{10161854}\NormalTok{) }\OperatorTok{%--%}\StringTok{ }\KeywordTok{mdy}\NormalTok{(}\DecValTok{11301900}\NormalTok{)}
+\NormalTok{wilde}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] 1854-10-16 UTC--1900-11-30 UTC
@@ -15679,9 +16357,27 @@ We can check whether a date falls in an interval using the \%within\% function. 
 
 Charles Dickens was born on the 7th of februari 1812.
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dickens_birthday <-}\StringTok{ }\KeywordTok{dmy}\NormalTok{(}\DecValTok{7021812}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dickens_birthday }\OperatorTok{%within%}\StringTok{ }\NormalTok{hugo}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
 ## [1] TRUE
 \end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dickens_birthday }\OperatorTok{%within%}\StringTok{ }\NormalTok{wilde}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] FALSE
@@ -15691,11 +16387,23 @@ Hugo lived on that day, as this day fall within the interval of his life. Wilde 
 
 We can check whether two intervals overlap. I.e. did Hugo and Wilde both live at a certain point in history.
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{int_overlaps}\NormalTok{(hugo, wilde)}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
 ## [1] TRUE
 \end{verbatim}
 
 Of course they did. We can also create the exact time interval both lived.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{intersect}\NormalTok{(hugo, wilde)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] 1854-10-16 UTC--1885-05-22 UTC
@@ -15703,15 +16411,33 @@ Of course they did. We can also create the exact time interval both lived.
 
 Or the total time interval that at least one of them lived
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{union}\NormalTok{(hugo, wilde)}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
 ## [1] 1802-02-26 UTC--1900-11-30 UTC
 \end{verbatim}
 
 \textbf{Important}: note that intersect and union only works if you did library(lubridate) after library(dplyr). This is because both packages have those functions, and the package that was loaded last is found first by R. It is like the book on top in your library, if you like. If you are not sure which you loaded first, you can solve this problem by placing the package name and two :'s before the function.
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lubridate}\OperatorTok{::}\KeywordTok{union}\NormalTok{(hugo, wilde)}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
 ## [1] 1802-02-26 UTC--1900-11-30 UTC
 \end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lubridate}\OperatorTok{::}\KeywordTok{intersect}\NormalTok{(hugo, wilde)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] 1854-10-16 UTC--1885-05-22 UTC
@@ -15719,9 +16445,21 @@ Or the total time interval that at least one of them lived
 
 Note that when we explicitly use the dplyr functions, we do not get anything useful for intervals.
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{union}\NormalTok{(hugo, wilde)}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
 ## [1] 1802-02-26 UTC--1900-11-30 UTC
 \end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{intersect}\NormalTok{(hugo, wilde)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] 1854-10-16 UTC--1885-05-22 UTC

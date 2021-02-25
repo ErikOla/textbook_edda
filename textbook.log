@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.2.14)  15 FEB 2021 00:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.2.19)  25 FEB 2021 15:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **textbook.tex
 (./textbook.tex
 LaTeX2e <2020-10-01> patch level 4
-L3 programming layer <2021-02-06>
+L3 programming layer <2021-02-18>
 (c:/Users/lucp8407/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tufte-latex/tuf
 te-book.cls
 Document Class: tufte-book 2015/06/21 v3.5.2 Tufte-book class
@@ -28,7 +28,7 @@ ils.tex
 
 (c:/Users/lucp8407/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xkeyval/keyva
 l.tex))
-\XKV@depth=\count177
+\XKV@depth=\count179
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
 (c:/Users/lucp8407/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/xifthen/xifthen
@@ -36,15 +36,15 @@ File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 Package: xifthen 2015/11/05 v1.4.0 Extended ifthen features
 (c:/Users/lucp8407/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count178
-\calc@Bcount=\count179
+\calc@Acount=\count180
+\calc@Bcount=\count181
 \calc@Adimen=\dimen138
 \calc@Bdimen=\dimen139
 \calc@Askip=\skip47
 \calc@Bskip=\skip48
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count180
+\calc@Ccount=\count182
 \calc@Cskip=\skip49
 )
 (c:/Users/lucp8407/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/ifthen.sty
@@ -83,9 +83,9 @@ Package pdftexcmds Info: \pdfdraftmode found.
 .sty
 Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
 )
-\hw@charcount=\count181
-\hw@wordcount=\count182
-\hw@maxprintline=\count183
+\hw@charcount=\count183
+\hw@wordcount=\count184
+\hw@maxprintline=\count185
 )
 Class tufte-book Info: Loading the base class `book'
 (c:/Users/lucp8407/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/book.cls
@@ -93,15 +93,15 @@ Document Class: book 2020/04/10 v1.4m Standard LaTeX document class
 (c:/Users/lucp8407/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/bk10.clo
 File: bk10.clo 2020/04/10 v1.4m Standard LaTeX file (size option)
 )
-\c@part=\count184
-\c@chapter=\count185
-\c@section=\count186
-\c@subsection=\count187
-\c@subsubsection=\count188
-\c@paragraph=\count189
-\c@subparagraph=\count190
-\c@figure=\count191
-\c@table=\count192
+\c@part=\count186
+\c@chapter=\count187
+\c@section=\count188
+\c@subsection=\count189
+\c@subsubsection=\count190
+\c@paragraph=\count191
+\c@subparagraph=\count192
+\c@figure=\count193
+\c@table=\count194
 \abovecaptionskip=\skip50
 \belowcaptionskip=\skip51
 \bibindent=\dimen140
@@ -165,8 +165,8 @@ ions.sty
 Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
 )
 \@linkdim=\dimen147
-\Hy@linkcounter=\count193
-\Hy@pagecounter=\count194
+\Hy@linkcounter=\count195
+\Hy@pagecounter=\count196
 
 (c:/Users/lucp8407/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc
 .def
@@ -187,7 +187,7 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 cmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count195
+\Hy@SavedSpaceFactor=\count197
 
 (c:/Users/lucp8407/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.
 def
@@ -204,7 +204,7 @@ Package hyperref Info: Plain pages OFF on input line 4207.
 Package hyperref Info: Backreferencing OFF on input line 4212.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4445.
-\c@Hy@tempcnt=\count196
+\c@Hy@tempcnt=\count198
 (c:/Users/lucp8407/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip16
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
@@ -221,7 +221,7 @@ gintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count197
+\Fld@menulength=\count199
 \Field@Width=\dimen149
 \Fld@charsize=\dimen150
 Package hyperref Info: Hyper figures OFF on input line 6075.
@@ -240,8 +240,8 @@ Package: atbegshi-ltx 2020/08/17 v1.0a Emulation of the original atbegshi packa
 ge
 with kernel methods
 )
-\Hy@abspage=\count198
-\c@Item=\count199
+\Hy@abspage=\count266
+\c@Item=\count267
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
@@ -255,8 +255,8 @@ Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atvery packag
 e
 with kernel methods
 )
-\Fld@listcount=\count266
-\c@bookmark@seq@number=\count267
+\Fld@listcount=\count268
+\c@bookmark@seq@number=\count269
 
 (c:/Users/lucp8407/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/
 rerunfilecheck.sty
@@ -304,9 +304,9 @@ Package: geometry 2020/01/02 v5.9 Page Geometry
 sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count268
-\Gm@cntv=\count269
-\c@Gm@tempcnt=\count270
+\Gm@cnth=\count270
+\Gm@cntv=\count271
+\c@Gm@tempcnt=\count272
 \Gm@bindingoffset=\dimen151
 \Gm@wd@mp=\dimen152
 \Gm@odd@mp=\dimen153
@@ -320,8 +320,8 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 (c:/Users/lucp8407/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/changepage/chan
 gepage.sty
 Package: changepage 2009/10/20 v1.0c check page and change page layout
-\c@cp@cntr=\count271
-\cp@tempcnt=\count272
+\c@cp@cntr=\count273
+\cp@tempcnt=\count274
 )
 \@tufte@overhang=\skip69
 \@tufte@fullwidth=\skip70
@@ -387,14 +387,14 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip76
 \bibsep=\skip77
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count273
+\c@NAT@ctr=\count275
 )
 (c:/Users/lucp8407/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/natbib/bibentry
 .sty
 Package: bibentry 2007/10/30 1.5 (PWD)
 )
 No file textbook.bbl.
-\c@@tufte@num@bibkeys=\count274
+\c@@tufte@num@bibkeys=\count276
 
 (c:/Users/lucp8407/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/sauerj/optparam
 s.sty
@@ -439,14 +439,14 @@ rs
 (c:/Users/lucp8407/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/multicol.
 sty
 Package: multicol 2019/12/09 v1.8y multicolumn formatting (FMi)
-\c@tracingmulticols=\count275
+\c@tracingmulticols=\count277
 \mult@box=\box51
 \multicol@leftmargin=\dimen159
-\c@unbalance=\count276
-\c@collectmore=\count277
-\doublecol@number=\count278
-\multicoltolerance=\count279
-\multicolpretolerance=\count280
+\c@unbalance=\count278
+\c@collectmore=\count279
+\doublecol@number=\count280
+\multicoltolerance=\count281
+\multicolpretolerance=\count282
 \full@width=\dimen160
 \page@free=\dimen161
 \premulticols=\dimen162
@@ -497,15 +497,15 @@ Package: multicol 2019/12/09 v1.8y multicolumn formatting (FMi)
 \@tempa=\box92
 \@tempa=\box93
 \@tempa=\box94
-\c@minrows=\count281
-\c@columnbadness=\count282
-\c@finalcolumnbadness=\count283
+\c@minrows=\count283
+\c@columnbadness=\count284
+\c@finalcolumnbadness=\count285
 \last@try=\dimen165
 \multicolovershoot=\dimen166
 \multicolundershoot=\dimen167
 \mult@nat@firstbox=\box95
 \colbreak@box=\box96
-\mc@col@check@num=\count284
+\mc@col@check@num=\count286
 )))
 (c:/Users/lucp8407/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/amssym
 b.sty
@@ -546,13 +546,13 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count285
+\inf@bad=\count287
 LaTeX Info: Redefining \frac on input line 234.
-\uproot@=\count286
-\leftroot@=\count287
+\uproot@=\count288
+\leftroot@=\count289
 LaTeX Info: Redefining \overline on input line 399.
-\classnum@=\count288
-\DOTSCASE@=\count289
+\classnum@=\count290
+\DOTSCASE@=\count291
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
@@ -561,15 +561,15 @@ LaTeX Info: Redefining \cdots on input line 620.
 \big@size=\dimen170
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count290
-\c@MaxMatrixCols=\count291
+\macc@depth=\count292
+\c@MaxMatrixCols=\count293
 \dotsspace@=\muskip17
-\c@parentequation=\count292
-\dspbrk@lvl=\count293
+\c@parentequation=\count294
+\dspbrk@lvl=\count295
 \tag@help=\toks22
-\row@=\count294
-\column@=\count295
-\maxfields@=\count296
+\row@=\count296
+\column@=\count297
+\maxfields@=\count298
 \andhelp@=\toks23
 \eqnshift@=\dimen171
 \alignsep@=\dimen172
@@ -639,12 +639,12 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \cmidrulesep=\dimen186
 \cmidrulekern=\dimen187
 \defaultaddspace=\dimen188
-\@cmidla=\count297
-\@cmidlb=\count298
+\@cmidla=\count299
+\@cmidlb=\count300
 \@aboverulesep=\dimen189
 \@belowrulesep=\dimen190
-\@thisruleclass=\count299
-\@lastruleclass=\count300
+\@thisruleclass=\count301
+\@lastruleclass=\count302
 \@thisrulewidth=\dimen191
 )
 (c:/Users/lucp8407/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/units/units.sty
@@ -660,11 +660,11 @@ Package: nicefrac 1998/08/04 v0.9b Nice fractions
 (c:/Users/lucp8407/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fancyvrb/fancyv
 rb.sty
 Package: fancyvrb 2021/01/20 v3.7 verbatim text (tvz,hv)
-\FV@CodeLineNo=\count301
+\FV@CodeLineNo=\count303
 \FV@InFile=\read2
 \FV@TabBox=\box99
-\c@FancyVerbLine=\count302
-\FV@StepNumber=\count303
+\c@FancyVerbLine=\count304
+\FV@StepNumber=\count305
 \FV@OutFile=\write3
 )
 (c:/Users/lucp8407/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/longtable
@@ -674,16 +674,16 @@ Package: longtable 2020/01/07 v4.13 Multi-page Table package (DPC)
 \LTright=\skip100
 \LTpre=\skip101
 \LTpost=\skip102
-\LTchunksize=\count304
+\LTchunksize=\count306
 \LTcapwidth=\dimen192
 \LT@head=\box100
 \LT@firsthead=\box101
 \LT@foot=\box102
 \LT@lastfoot=\box103
-\LT@cols=\count305
-\LT@rows=\count306
-\c@LT@tables=\count307
-\c@LT@chunks=\count308
+\LT@cols=\count307
+\LT@rows=\count308
+\c@LT@tables=\count309
+\c@LT@chunks=\count310
 \LT@p@ftn=\toks28
 )
 (c:/Users/lucp8407/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ulem/ulem.sty
@@ -692,7 +692,7 @@ Package: longtable 2020/01/07 v4.13 Multi-page Table package (DPC)
 \UL@skip=\skip103
 \UL@hook=\toks29
 \UL@height=\dimen193
-\UL@pe=\count309
+\UL@pe=\count311
 \UL@pixel=\dimen194
 \ULC@box=\box106
 Package: ulem 2019/11/18
@@ -722,16 +722,16 @@ Package: array 2020/10/01 v2.5c Tabular extension package (FMi)
 th.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \@vwid@box=\box109
-\sift@deathcycles=\count310
+\sift@deathcycles=\count312
 \@vwid@loff=\dimen198
 \@vwid@roff=\dimen199
 )
-\c@taburow=\count311
-\tabu@nbcols=\count312
-\tabu@cnt=\count313
-\tabu@Xcol=\count314
-\tabu@alloc=\count315
-\tabu@nested=\count316
+\c@taburow=\count313
+\tabu@nbcols=\count314
+\tabu@cnt=\count315
+\tabu@Xcol=\count316
+\tabu@alloc=\count317
+\tabu@nested=\count318
 \tabu@target=\dimen256
 \tabu@spreadtarget=\dimen257
 \tabu@naturalX=\dimen258
@@ -755,7 +755,7 @@ Package hyperref Info: Option `colorlinks' set `false' on input line 123.
 ow.sty
 Package: multirow 2021/01/29 v2.7 Span multiple rows of a table
 \multirow@colwidth=\skip107
-\multirow@cntb=\count317
+\multirow@cntb=\count319
 \multirow@dima=\skip108
 \bigstrutjot=\dimen265
 )
@@ -763,14 +763,14 @@ Package: multirow 2021/01/29 v2.7 Span multiple rows of a table
 .sty
 \wrapoverhang=\dimen266
 \WF@size=\dimen267
-\c@WF@wrappedlines=\count318
+\c@WF@wrappedlines=\count320
 \WF@box=\box114
 \WF@everypar=\toks33
 Package: wrapfig 2003/01/31  v 3.6
 )
 (c:/Users/lucp8407/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count319
+\c@float@type=\count321
 \float@exts=\toks34
 \float@box=\box115
 \@float@everytoks=\toks35
@@ -815,13 +815,13 @@ Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 ll.sty
 Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
 \rotheadsize=\dimen268
-\c@nlinenum=\count320
+\c@nlinenum=\count322
 \TeXr@lab=\toks37
 )
 (c:/Users/lucp8407/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3bac
 kend-pdftex.def
-File: l3backend-pdftex.def 2021-02-06 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count321
+File: l3backend-pdftex.def 2021-02-18 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count323
 \l__pdf_internal_box=\box118
 ) (./textbook.aux)
 \openout1 = `textbook.aux'.
@@ -858,7 +858,7 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 g/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count322
+\c@section@level=\count324
 )
 LaTeX Info: Redefining \ref on input line 139.
 LaTeX Info: Redefining \pageref on input line 139.
@@ -8518,44 +8518,50 @@ This message occurred on input line 14728.
 Chapter 12.
 [283]
 
-LaTeX Warning: Marginpar on page 284 moved.
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 14829.
+
+[284]
+
+LaTeX Warning: Marginpar on page 285 moved.
 
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 14819.
+This message occurred on input line 14914.
 
-[284]
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14870--14870
+[285]
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14932--14932
 []\T1/cmtt/m/n/10 ## $ year  <dbl> 2019, 2019, 2019, 2019, 2019, 2019, 2019, 20
 19, 2019, 2019, 2...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14870--14870
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14932--14932
 []\T1/cmtt/m/n/10 ## $ month <dbl> 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4,
  4, 4, 4, 4, 4, 4...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14870--14870
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14932--14932
 []\T1/cmtt/m/n/10 ## $ day   <int> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 1
 4, 15, 16, 17, 18...[] 
  []
 
 
-Class tufte-book Warning: Proper spacing of small-caps letters has not been set
- up.
-This message occurred on input line 14870.
-
-[285]
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14870--14870
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14932--14932
 []\T1/cmtt/m/n/10 ## $ date  <date> 2019-04-01, 2019-04-02, 2019-04-03, 2019-04
 -04, 2019-04-05, ...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14899--14899
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 14959.
+
+[286]
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14974--14974
 []\T1/cmtt/m/n/10 ## $ date <chr> "2019-4-1", "2019-4-2", "2019-4-3", "2019-4-4
 ", "2019-4-5", "2...[] 
  []
@@ -8563,16 +8569,7 @@ Overfull \hbox (113.14618pt too wide) in paragraph at lines 14899--14899
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 14918.
-
-[286]
-
-LaTeX Warning: Marginpar on page 287 moved.
-
-
-Class tufte-book Warning: Proper spacing of small-caps letters has not been set
- up.
-This message occurred on input line 14993.
+This message occurred on input line 15020.
 
 [287]
 
@@ -8581,7 +8578,7 @@ LaTeX Warning: Marginpar on page 288 moved.
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 15044.
+This message occurred on input line 15138.
 
 [288]
 
@@ -8590,16 +8587,13 @@ LaTeX Warning: Marginpar on page 289 moved.
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 15082.
+This message occurred on input line 15195.
 
 [289]
 
-LaTeX Warning: Marginpar on page 290 moved.
-
-
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 15133.
+This message occurred on input line 15253.
 
 [290]
 
@@ -8608,30 +8602,54 @@ LaTeX Warning: Marginpar on page 291 moved.
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 15203.
+This message occurred on input line 15313.
 
 [291]
-<images/timezones.png, id=3329, 963.6pt x 552.0625pt>
-File: images/timezones.png Graphic file (type png)
-<use images/timezones.png>
-Package pdftex.def Info: images/timezones.png  used on input line 15216.
-(pdftex.def)             Requested size: 311.99002pt x 178.74428pt.
 
 LaTeX Warning: Marginpar on page 292 moved.
 
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 15231.
+This message occurred on input line 15387.
 
-[292 <./images/timezones.png>]
+[292]
+
+LaTeX Warning: Marginpar on page 293 moved.
+
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 15287.
+This message occurred on input line 15476.
 
 [293]
-Overfull \hbox (92.1513pt too wide) in paragraph at lines 15333--15333
+<images/timezones.png, id=3337, 963.6pt x 552.0625pt>
+File: images/timezones.png Graphic file (type png)
+<use images/timezones.png>
+Package pdftex.def Info: images/timezones.png  used on input line 15499.
+(pdftex.def)             Requested size: 311.99002pt x 178.74428pt.
+
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 15514.
+
+[294 <./images/timezones.png>]
+
+LaTeX Warning: Marginpar on page 295 moved.
+
+
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 15590.
+
+[295]
+
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 15678.
+
+[296]
+Overfull \hbox (92.1513pt too wide) in paragraph at lines 15720--15720
 []\T1/cmtt/m/n/10 ## 12 Levels: Jan < Feb < Mar < Apr < May < Jun < Jul < Aug <
  Sep < ... < Dec[] 
  []
@@ -8639,103 +8657,109 @@ Overfull \hbox (92.1513pt too wide) in paragraph at lines 15333--15333
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 15347.
+This message occurred on input line 15743.
 
-[294]
-Overfull \hbox (6.70145pt too wide) in paragraph at lines 15358--15359
+[297]
+Overfull \hbox (6.70145pt too wide) in paragraph at lines 15745--15746
 []\T1/cmr/m/n/10 An in-ter-val is a \T1/cmr/m/it/10 ex-act \T1/cmr/m/n/10 win-d
 ow of time, with a spe-cific start date(time) 
  []
 
 
-Overfull \hbox (86.90259pt too wide) in paragraph at lines 15407--15407
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 15825.
+
+[298]
+Overfull \hbox (86.90259pt too wide) in paragraph at lines 15842--15842
 []\T1/cmtt/m/n/10 ## [1] "1d 3H 0M 0S" "2d 4H 0M 0S" "3d 5H 0M 0S" "4d 6H 0M 0S
 " "5d 7H 0M 0S"[] 
  []
 
 
-Overfull \hbox (86.90259pt too wide) in paragraph at lines 15412--15412
+Overfull \hbox (86.90259pt too wide) in paragraph at lines 15853--15853
 []\T1/cmtt/m/n/10 ## [1] "0S"          "1d 0H 0M 0S" "2d 0H 0M 0S" "3d 0H 0M 0S
 " "4d 0H 0M 0S"[] 
  []
 
 
-Class tufte-book Warning: Proper spacing of small-caps letters has not been set
- up.
-This message occurred on input line 15412.
-
-[295]
-Overfull \hbox (60.659pt too wide) in paragraph at lines 15425--15425
-[]\T1/cmtt/m/n/10 ## [1] "2021-02-16" "2021-02-17" "2021-02-18" "2021-02-19" "2
-021-02-20"[] 
+Overfull \hbox (60.659pt too wide) in paragraph at lines 15878--15878
+[]\T1/cmtt/m/n/10 ## [1] "2021-02-26" "2021-02-27" "2021-02-28" "2021-03-01" "2
+021-03-02"[] 
  []
 
 
-LaTeX Warning: Marginpar on page 296 moved.
+LaTeX Warning: Marginpar on page 299 moved.
 
 
-Overfull \hbox (81.65387pt too wide) in paragraph at lines 15477--15477
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 15929.
+
+[299]
+Overfull \hbox (81.65387pt too wide) in paragraph at lines 15978--15978
 []\T1/cmtt/m/n/10 ## [1] "97200s (~1.12 days)"  "187200s (~2.17 days)" "277200s
  (~3.21 days)"[] 
  []
 
 
-Overfull \hbox (34.4154pt too wide) in paragraph at lines 15483--15483
+Overfull \hbox (34.4154pt too wide) in paragraph at lines 15990--15990
 []\T1/cmtt/m/n/10 ## [1] "0s"                "86400s (~1 days)"  "172800s (~2 d
 ays)"[] 
  []
 
 
-Overfull \hbox (34.4154pt too wide) in paragraph at lines 15483--15483
+Overfull \hbox (34.4154pt too wide) in paragraph at lines 15990--15990
 []\T1/cmtt/m/n/10 ## [4] "259200s (~3 days)" "345600s (~4 days)" "432000s (~5 d
 ays)"[] 
  []
 
 
-Class tufte-book Warning: Proper spacing of small-caps letters has not been set
- up.
-This message occurred on input line 15486.
-
-[296]
-Overfull \hbox (60.659pt too wide) in paragraph at lines 15496--15496
-[]\T1/cmtt/m/n/10 ## [1] "2021-02-16" "2021-02-17" "2021-02-18" "2021-02-19" "2
-021-02-20"[] 
+Overfull \hbox (60.659pt too wide) in paragraph at lines 16015--16015
+[]\T1/cmtt/m/n/10 ## [1] "2021-02-26" "2021-02-27" "2021-02-28" "2021-03-01" "2
+021-03-02"[] 
  []
 
 
-LaTeX Warning: Marginpar on page 297 moved.
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 16027.
+
+[300]
+
+LaTeX Warning: Marginpar on page 301 moved.
 
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 15547.
+This message occurred on input line 16107.
 
-[297]
+[301]
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 15622.
+This message occurred on input line 16199.
 
-[298]
-Overfull \hbox (65.90771pt too wide) in paragraph at lines 15635--15635
+[302]
+Overfull \hbox (65.90771pt too wide) in paragraph at lines 16280--16280
 []\T1/cmtt/m/n/10 ##  [1] "2019-01-31" NA           "2019-03-31" NA           "
 2019-05-31"[] 
  []
 
 
-Overfull \hbox (65.90771pt too wide) in paragraph at lines 15635--15635
+Overfull \hbox (65.90771pt too wide) in paragraph at lines 16280--16280
 []\T1/cmtt/m/n/10 ##  [6] NA           "2019-07-31" "2019-08-31" NA           "
 2019-10-31"[] 
  []
 
 
-Overfull \hbox (65.90771pt too wide) in paragraph at lines 15641--15641
+Overfull \hbox (65.90771pt too wide) in paragraph at lines 16292--16292
 []\T1/cmtt/m/n/10 ##  [1] "2019-01-31" "2019-02-28" "2019-03-31" "2019-04-30" "
 2019-05-31"[] 
  []
 
 
-Overfull \hbox (65.90771pt too wide) in paragraph at lines 15641--15641
+Overfull \hbox (65.90771pt too wide) in paragraph at lines 16292--16292
 []\T1/cmtt/m/n/10 ##  [6] "2019-06-30" "2019-07-31" "2019-08-31" "2019-09-30" "
 2019-10-31"[] 
  []
@@ -8743,27 +8767,33 @@ Overfull \hbox (65.90771pt too wide) in paragraph at lines 15641--15641
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 15674.
+This message occurred on input line 16298.
 
-[299]
-Overfull \hbox (1.75964pt too wide) in paragraph at lines 15678--15679
+[303]
+Overfull \hbox (1.75964pt too wide) in paragraph at lines 16356--16357
 []\T1/cmr/m/n/10 We can check whether a date falls in an in-ter-val us-ing the 
 %within% 
  []
 
+
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 16384.
+
+[304]
+
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 16470.
+
+[305]
 No file textbook.bbl.
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 15738.
+This message occurred on input line 16476.
 
-[300]
-
-Class tufte-book Warning: Proper spacing of small-caps letters has not been set
- up.
-This message occurred on input line 15738.
-
-[301] (./textbook.aux)
+[306] (./textbook.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.72pt have occurred.
@@ -8772,10 +8802,10 @@ Package rerunfilecheck Info: File `textbook.out' has not changed.
 (rerunfilecheck)             Checksum: 409ED80B52B179230B630AFDE7F4BC29;14616.
  ) 
 Here is how much of TeX's memory you used:
- 16841 strings out of 481210
- 286184 string characters out of 5912737
- 614547 words of memory out of 5000000
- 32351 multiletter control sequences out of 15000+600000
+ 16819 strings out of 480931
+ 285499 string characters out of 5904883
+ 627618 words of memory out of 5000000
+ 32603 multiletter control sequences out of 15000+600000
  425255 words of font info for 73 fonts, out of 8000000 for 9000
  54 hyphenation exceptions out of 8191
  92i,17n,91p,1429b,630s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -8813,10 +8843,10 @@ c/amsfonts/cm/cmr5.pfb><c:/Users/lucp8407/AppData/Roaming/TinyTeX/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmr7.pfb><c:/Users/lucp8407/AppData/Roaming/TinyTe
 X/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/Users/lucp8407/AppDa
 ta/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on textbook.pdf (301 pages, 20954494 bytes).
+Output written on textbook.pdf (306 pages, 20960927 bytes).
 PDF statistics:
- 4511 PDF objects out of 5155 (max. 8388607)
- 2910 compressed objects within 30 object streams
- 888 named destinations out of 1000 (max. 500000)
+ 4532 PDF objects out of 5155 (max. 8388607)
+ 2926 compressed objects within 30 object streams
+ 893 named destinations out of 1000 (max. 500000)
  1497 words of extra memory for PDF output out of 10000 (max. 10000000)
 
