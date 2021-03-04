@@ -2256,7 +2256,7 @@ Het maken van een plot met ggplot2 begint met de \texttt{ggplot()} functie. De g
 \item
   \textbf{data}: dit definieert de dataset die voor de plot moet worden gebruikt. Dit moet een data.frame zijn.
 \item
-  \textbf{mapping}: de mapping zal bepalen hoe de variabelen worden \emph{mapped} op de esthetica\footnote{Although it might make certain analyses more interesting when you are familiar with the meaning of the different variables, no specific knowledge about cars is required in order to complete this tutorial.} van de plot, zoals verderop zal worden uitgelegd. Deze mapping moet altijd worden gemaakt met de \texttt{aes()} functie .
+  \textbf{mapping}: de mapping zal bepalen hoe de variabelen worden \emph{mapped} op de esthetica\footnote{Hoewel het bepaalde analyses interessanter maakt als je bekend bent met de betekenis van de verschillende variabelen, is geen specifieke kennis van auto's vereist om deze tutorial te voltooien.} van de plot, zoals verderop zal worden uitgelegd. Deze mapping moet altijd worden gemaakt met de \texttt{aes()} functie .
 \end{itemize}
 
 We willen bijvoorbeeld een scatterplot maken van de films, waarbij we de x-as gebruiken voor hun budget en de y-as voor hun waardering. We roepen ggplot dan als volgt aan:
@@ -2330,7 +2330,7 @@ We hebben \texttt{geom\_point} al gebruikt om onze eerste grafiek te maken, waar
 \item
   \textbf{color}: hiermee bepaal je de kleur van de punten
 \item
-  \textbf{shape}: hiermee bepaal je het type punten dat uitgezet moet worden\footnote{\includegraphics{images/tidyverse.png} The \emph{tidyverse} is a set of packages for data science that work in harmony because they share common data representations and API design. The \texttt{tidyverse}-package is designed to make it easy to install and load core packages from the tidyverse in a single command. The tidyverse includes packages such as: ggplot2, dplyr, tidyr, readr, purrr, tibble, hms, stringr, lubridate, forcats, jsonlite, readxl, broom, and others. Hadley Wickham can be regarded as the founding father of the tidyverse. The best place to learn about these packages is by reading this book: \href{http://r4ds.had.co.nz/}{R for Data Science}, written by Hadley and Garret Grolemund.}
+  \textbf{shape}: hiermee bepaal je het type punten dat uitgezet moet worden\footnote{\includegraphics{images/tidyverse.png} Het \emph{tidyverse} is een set van pakketten voor data science die in harmonie werken omdat ze gemeenschappelijke data representaties en API ontwerp delen. Het \texttt{tidyverse}-pakket is ontworpen om het gemakkelijk te maken om kernpakketten van de tidyverse te installeren en te laden met een enkel commando. De tidyverse bevat pakketten zoals: ggplot2, dplyr, tidyr, readr, purrr, tibble, hms, stringr, lubridate, forcats, jsonlite, readxl, broom, en anderen. Hadley Wickham kan beschouwd worden als de grondlegger van het tidyverse. De beste plaats om deze pakketten te leren kennen is door dit boek te lezen: \href{http://r4ds.had.co.nz/}{R for Data Science}, geschreven door Hadley en Garret Grolemund.}
 \item
   \textbf{fill}: hiermee bepaal je hoe de punten gevuld worden (voor vormen 21-25)
 \item
@@ -2416,7 +2416,7 @@ De \emph{geom\_histogram} layer kan worden gebruikt om een histogram uit te zett
 \item
   \textbf{size}: hiermee bepaal je de grootte van de rand
 \item
-  \textbf{linetype}: hiermee bepaal je het type van de rand \footnote{Note the capital letter I}
+  \textbf{linetype}: hiermee bepaal je het type van de rand \footnote{Let op de hoofdletter I}
 \item
   \textbf{alpha}: hiermee bepaal je de mate van doorzichtigheid
 \item
@@ -2704,7 +2704,7 @@ Laten we een staafdiagram maken van het budget van alle films uit 2004 waarvan h
 
 \includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-54-1}
 
-Zie je iets vreemds in de code? Maak je geen zorgen als je de eerste regel niet begrijpt. Al wat je moet weten is dat we films uit 2004 hebben gefilterd met een budget hoger dan 100 miljoen. Het vreemd uitziende \%\textgreater\% symbool zal ervoor zorgen dat deze gegevens doorgegeven worden aan ggplot. We zullen hier in een andere sessie op terugkomen. \footnote{\includegraphics{images/pipe.jpg} The piping symbol was first introduced in the package \texttt{magrittr}, evidently named after the Belgian surrealist artist René Magritte, well-known for his painting \emph{The Threachery of Images}, aka \emph{Ceci n'est pas un pipe}.}
+Zie je iets vreemds in de code? Maak je geen zorgen als je de eerste regel niet begrijpt. Al wat je moet weten is dat we films uit 2004 hebben gefilterd met een budget hoger dan 100 miljoen. Het vreemd uitziende \%\textgreater\% symbool zal ervoor zorgen dat deze gegevens doorgegeven worden aan ggplot. We zullen hier in een andere sessie op terugkomen. \footnote{\includegraphics{images/pipe.jpg} Het piping-symbool werd voor het eerst geïntroduceerd in het pakket \texttt{magrittr}, genoemd naar de Belgische surrealistische kunstenaar René Magritte, bekend van zijn schilderij \emph{The Threachery of Images}, oftewel \emph{Ceci n'est pas un pipe}.}
 
 We hebben nu filmtitels uitgezet op de x-as en budget op de y-as. Geweldig! Of toch niet? De waarden op de x-as zijn wat onoverzichtelijk en onleesbaar. Het is nu tijd om aandacht te besteden aan de layout van onze plots!
 
@@ -3736,10 +3736,10 @@ x-y & 0.55 & 1 & 1\\
 \hypertarget{tutorial---descriptieve-statistieken}{%
 \chapter{Tutorial - Descriptieve statistieken}\label{tutorial---descriptieve-statistieken}}
 
-\hypertarget{before-you-start}{%
-\section{Before you start}\label{before-you-start}}
+\hypertarget{voor-je-begint-1}{%
+\section{Voor je begint}\label{voor-je-begint-1}}
 
-Before you start this tutorial, make sure to have installed the packages \texttt{dplyr}, \texttt{tidyr}, \texttt{ggcorrplot}, and \texttt{ggplot2}, \textbf{if you haven't already done so}. You can load these using the \texttt{library} function. If you need to install some of them, use \texttt{install.packages} first.
+Voordat je aan deze tutorial begint, moet je eerst de pakketten \texttt{dplyr}, \texttt{tidyr}, \texttt{ggcorrplot}, en \texttt{ggplot2} geïnstalleerd hebben, \textbf{als je dat nog niet gedaan hebt}. Deze kunt u laden met de \texttt{library} functie. Als je sommige nog moet installeren, gebruik dan eerst \texttt{install.packages}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3749,7 +3749,7 @@ Before you start this tutorial, make sure to have installed the packages \texttt
 \end{Highlighting}
 \end{Shaded}
 
-Additionally, you might also want to use the following packages. They will appear useful at some point in this tutorial, but are not strictly necessary.
+Daarnaast wil je misschien ook de volgende packages gebruiken. Ze zullen nuttig blijken op een bepaald punt in deze tutorial, maar zijn niet strikt noodzakelijk.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3758,7 +3758,7 @@ Additionally, you might also want to use the following packages. They will appea
 \end{Highlighting}
 \end{Shaded}
 
-This tutorial will use the \texttt{mpg} data set, containing information on 234 different cars. The \texttt{mpg.RDS} file is distributed with this tutorial.
+Deze tutorial maakt gebruik van de \texttt{mpg} dataset, die informatie bevat over 234 verschillende auto's. Het \texttt{mpg.RDS} bestand wordt met deze tutorial meegeleverd.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3766,109 +3766,109 @@ This tutorial will use the \texttt{mpg} data set, containing information on 234 
 \end{Highlighting}
 \end{Shaded}
 
-The data set contains the following variables:\footnote{Although it might make certain analyses more interesting when you are familiar with the meaning of the different variables, no specific knowledge about cars is required in order to complete this tutorial.}
+De dataset bevat de volgende variabelen: \footnote{Hoewel het bepaalde analyses interessanter maakt als je bekend bent met de betekenis van de verschillende variabelen, is geen specifieke kennis van auto's vereist om deze tutorial te voltooien.}
 
 \begin{longtable}[]{@{}ll@{}}
 \toprule
 \begin{minipage}[b]{0.35\columnwidth}\raggedright
-Variable\strut
+Variabele\strut
 \end{minipage} & \begin{minipage}[b]{0.59\columnwidth}\raggedright
-Description\strut
+Beschrijving\strut
 \end{minipage}\tabularnewline
 \midrule
 \endhead
 \begin{minipage}[t]{0.35\columnwidth}\raggedright
 manufacturer\strut
 \end{minipage} & \begin{minipage}[t]{0.59\columnwidth}\raggedright
-The manufacturer\strut
+De fabrikant\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.35\columnwidth}\raggedright
 model\strut
 \end{minipage} & \begin{minipage}[t]{0.59\columnwidth}\raggedright
-The model name\strut
+De naam van het model\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.35\columnwidth}\raggedright
 displ\strut
 \end{minipage} & \begin{minipage}[t]{0.59\columnwidth}\raggedright
-Engine displacement, in liters\strut
+Motorinhoud, in liters\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.35\columnwidth}\raggedright
 year\strut
 \end{minipage} & \begin{minipage}[t]{0.59\columnwidth}\raggedright
-Year of manufacture\strut
+bouwjaar\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.35\columnwidth}\raggedright
 cyl\strut
 \end{minipage} & \begin{minipage}[t]{0.59\columnwidth}\raggedright
-Number of cylinders\strut
+Aantal cilinders\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.35\columnwidth}\raggedright
 trans\strut
 \end{minipage} & \begin{minipage}[t]{0.59\columnwidth}\raggedright
-Type of transmission (\emph{koppeling})\strut
+Type transmissie (\emph{koppeling})\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.35\columnwidth}\raggedright
 drv\strut
 \end{minipage} & \begin{minipage}[t]{0.59\columnwidth}\raggedright
-f = front-wheel drive, r = rear wheel drive, 4 = 4wd\strut
+f = voorwielaandrijving, r = achterwielaandrijving, 4 = 4wd\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.35\columnwidth}\raggedright
 cty\strut
 \end{minipage} & \begin{minipage}[t]{0.59\columnwidth}\raggedright
-City miles per gallon of fuel\strut
+Aantal mijl per gallon brandstof in stadsomgeving\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.35\columnwidth}\raggedright
 hwy\strut
 \end{minipage} & \begin{minipage}[t]{0.59\columnwidth}\raggedright
-Highway miles per gallon of fuel\strut
+Aantal mijl per gallon brandstof op snelweg\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.35\columnwidth}\raggedright
 fl\strut
 \end{minipage} & \begin{minipage}[t]{0.59\columnwidth}\raggedright
-Fuel type (c,d,e,p,r)\strut
+Brandstoftype (c,d,e,p,r)\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.35\columnwidth}\raggedright
 class\strut
 \end{minipage} & \begin{minipage}[t]{0.59\columnwidth}\raggedright
-Type of car (2seater, compact, midsize, minivan, pickup, subcompact, suv)\strut
+Type auto (2seater, compact, midsize, minivan, pickup, subcompact, suv)\strut
 \end{minipage}\tabularnewline
 \bottomrule
 \end{longtable}
 
-\hypertarget{introduction}{%
-\section{Introduction}\label{introduction}}
+\hypertarget{introductie-1}{%
+\section{Introductie}\label{introductie-1}}
 
-The aim of this tutorial is to perform both univariate and bivariate analysis with the \texttt{dplyr} package. Furthermore, the \texttt{tidyr} and \texttt{ggcorrplot} packages will be used in a limited number of cases for extra support.
+Het doel van deze tutorial is om zowel univariate als bivariate analyses uit te voeren met het \texttt{dplyr} package. Verder zullen in een beperkt aantal gevallen de \texttt{tidyr} en \texttt{ggcorrplot} packages. worden gebruikt voor extra ondersteuning.
 
-The univariate analysis will be done for both categorical and continuous variables. The bivariate analysis will be done for each of the following pairs: continuous-categorical, continuous-continuous and categorical-categorical. Next to a \emph{numerical} analysis using functions from the aforementioned packages, the analyses will be accompanied by appropriate graphs made with \texttt{ggplot2}. A basic understanding of \texttt{ggplot2} is required.
+De univariate analyse wordt uitgevoerd voor zowel categorische als continue variabelen. De bivariate analyse wordt uitgevoerd voor elk van de volgende paren: continu-categorisch, continu-continu en categorisch-categorisch. Naast een \emph{numerieke} analyse met behulp van functies uit de eerder genoemde pakketten, zullen de analyses vergezeld gaan van passende grafieken gemaakt met \texttt{ggplot2}. Een basiskennis van \texttt{ggplot2} is vereist.
 
-The tutorial is structured as follows:
+De tutorial is als volgt opgebouwd:
 
 \begin{itemize}
 \tightlist
 \item
-  Some general dplyr functions which are helpful
+  Enkele algemene, nuttige dplyr functies
 \item
-  Univariate analysis of a continuous variable
+  Univariate analyse van een continue variabele
 \item
-  Bivariate analysis of a continuous variable with respect to a categorical variable
+  Bivariate analyse van een continue variabele vs.~een categorische variabele
 \item
-  Univariate analysis of a categorical variable
+  Univariate analyse van een categorische variabele
 \item
-  Bivariate analysis of a continuous variable with respect to another continuous variable
+  Bivariate analyse van een continue variabele vs.~een andere continue variabele
 \item
-  Bivariate analysis of a categorical variable with respect to another categorical variable
+  Bivariate analyse van een categorische variabele vs.~een andere categorische variabele
 \end{itemize}
 
-\hypertarget{helpful-dplyr-functions}{%
-\section{Helpful dplyr functions}\label{helpful-dplyr-functions}}
+\hypertarget{nuttige-dplyr-functies}{%
+\section{Nuttige dplyr functies}\label{nuttige-dplyr-functies}}
 
-Before turning to analyzing our data set, there are a few helpful auxiliary functions contained in dplyr which we can use to handle and analyze or data. The first one is \texttt{tbl\_df}, pronounced as \emph{tibble data.frame}.
+Voordat we overgaan tot het analyseren van onze dataset, zijn er een paar handige hulpfuncties in dplyr die we kunnen gebruiken om onze gegevens te verwerken en te analyseren. De eerste is \texttt{as\_tibble}.
 
 \hypertarget{tibbles}{%
 \subsection{Tibbles}\label{tibbles}}
 
-Given a data.frame \texttt{df}, \texttt{tbl\_df(df)} will turn it into a \emph{tibble}. A tibble is a special kind of data.frame used by dplyr and other packages of the tidyverse.\footnote{\includegraphics{images/tidyverse.png} The \emph{tidyverse} is a set of packages for data science that work in harmony because they share common data representations and API design. The \texttt{tidyverse}-package is designed to make it easy to install and load core packages from the tidyverse in a single command. The tidyverse includes packages such as: ggplot2, dplyr, tidyr, readr, purrr, tibble, hms, stringr, lubridate, forcats, jsonlite, readxl, broom, and others. Hadley Wickham can be regarded as the founding father of the tidyverse. The best place to learn about these packages is by reading this book: \href{http://r4ds.had.co.nz/}{R for Data Science}, written by Hadley and Garret Grolemund.} When a data.frame is turned into a tibble its class will change.
+Gegeven een data.frame \texttt{df}, zal \texttt{as\_tibble(df)} het in een \emph{tibble} veranderen. Een tibble is een speciaal soort data.frame dat gebruikt wordt door dplyr en andere pakketten van het tidyverse.\footnote{\includegraphics{images/tidyverse.png} Het \emph{tidyverse} is een set van pakketten voor data science die in harmonie werken omdat ze gemeenschappelijke data representaties en API ontwerp delen. Het \texttt{tidyverse}-pakket is ontworpen om het gemakkelijk te maken om kernpakketten van de tidyverse te installeren en te laden met een enkel commando. De tidyverse bevat pakketten zoals: ggplot2, dplyr, tidyr, readr, purrr, tibble, hms, stringr, lubridate, forcats, jsonlite, readxl, broom, en anderen. Hadley Wickham kan beschouwd worden als de grondlegger van het tidyverse. De beste plaats om deze pakketten te leren kennen is door dit boek te lezen: \href{http://r4ds.had.co.nz/}{R for Data Science}, geschreven door Hadley en Garret Grolemund.} Wanneer een data.frame wordt omgezet in een tibble zal de klasse veranderen.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3882,7 +3882,7 @@ Given a data.frame \texttt{df}, \texttt{tbl\_df(df)} will turn it into a \emph{t
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{mpg <-}\StringTok{ }\KeywordTok{tbl_df}\NormalTok{(mpg)}
+\NormalTok{mpg <-}\StringTok{ }\KeywordTok{as_tibble}\NormalTok{(mpg)}
 \KeywordTok{class}\NormalTok{(mpg)}
 \end{Highlighting}
 \end{Shaded}
@@ -3891,38 +3891,38 @@ Given a data.frame \texttt{df}, \texttt{tbl\_df(df)} will turn it into a \emph{t
 ## [1] "tbl_df"     "tbl"        "data.frame"
 \end{verbatim}
 
-You can see that the \texttt{mpg} object now has three different \texttt{class} labels. It is still a data.frame, but a special kind of data.frame, i.e.~a tibble data.frame.
+Je kunt zien dat het \texttt{mpg} object nu drie verschillende \texttt{class} labels heeft. Het is nog steeds een data.frame, maar een speciaal soort data.frame, namelijk een tibble data.frame.
 
-The difference between an ordinary data.frame and a tibble data.frame is most noticeable when printing (large) data.frames. Just try to print the data set with the following two lines in the console.
+Het verschil tussen een gewoon data.frame en een tibble data.frame is het meest merkbaar bij het afdrukken van (grote) data.frames. Probeer maar eens de dataset met de volgende twee regels in de console af te drukken.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{#These lines are not executed here }
-\CommentTok{#you can try them in the console.}
+\CommentTok{#Deze regels worden hier niet uitgevoerd }
+\CommentTok{#je kunt ze proberen in de console.}
 \KeywordTok{as.data.frame}\NormalTok{(mpg)}
 \NormalTok{mpg}
 \end{Highlighting}
 \end{Shaded}
 
-Do you notice the difference? When printing an ordinary data.frame, an abundance of observations will be printed in the console. As a result you'll have to scroll back up to see the variable names. Even worse, when the columns don't fit on a single page, each observation will be scattered among different lines, making the output quite unreadable. \footnote{Since we turned \texttt{mpg} into a tibble data.frame, we can only print it as if it were a normal data.frame by using the \texttt{as.data.frame} function. However, we don't update the object since we don't store it using the \texttt{\textless{}-}.}
+Merk je het verschil? Bij het afdrukken van een gewoon data.frame, zal een overvloed aan observaties worden afgedrukt in de console. Het resultaat is dat je terug naar boven moet scrollen om de variabelnamen te zien. Erger nog, wanneer de kolommen niet op een enkele pagina passen, zal elke observatie verspreid worden over verschillende lijnen, waardoor de uitvoer onleesbaar wordt. \footnote{Omdat we \texttt{mpg} daarnet in een tibble data.frame hebben veranderd, kunnen we het alleen afdrukken alsof het een normaal data.frame is door de \texttt{as.data.frame} functie te gebruiken. We updaten het object echter niet, omdat we het niet opslaan met de \texttt{\textless{}-}.}
 
-However, when printing a tibble data.frame, only the first 10 rows will be printed by default, and variables that don't fit within the width of the page or console will be hidden. This makes the printed data set much more readable and our console less messed up.
+Wanneer echter een tibble data.frame wordt afgedrukt, worden standaard alleen de eerste 10 rijen afgedrukt, en variabelen die niet binnen de breedte van de pagina of console passen worden verborgen. Dit maakt de afgedrukte dataset veel leesbaarder en onze console minder rommelig.
 
-The downside of this approach is that, sometimes, you want to see more observations or more variables, without turning your tibble back into a data.frame. You can solve this by explicitly using the \texttt{print} function and setting the arguments \texttt{n} and \texttt{width}. The following line will print all rows and columns, by setting both arguments to \texttt{Inf}, which stands for infinity.\footnote{Note the capital letter I} You can also use other values to print varying numbers of columns and rows. Later we will see how we can print specific rows and columns.
+Het nadeel van deze aanpak is dat je soms meer waarnemingen of meer variabelen wil zien, zonder je tibble terug in een data.frame te veranderen. Je kunt dit oplossen door expliciet de \texttt{print} functie te gebruiken en de argumenten \texttt{n} en \texttt{width} in te stellen. De volgende regel drukt alle rijen en kolommen af, door beide argumenten op \texttt{Inf} te zetten, wat staat voor oneindig.\footnote{Let op de hoofdletter I} Je kunt ook andere waarden gebruiken om ander aantallen kolommen en rijen te printen. Later zullen we zien hoe we specifieke rijen en kolommen kunnen printen. Merk daarnaast op dat je altijd \texttt{View()} kan gebruiken om de volledige dataset te tonen in een apart Rstudio panel.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{#This line is not executed here - you can try it in the console.}
+\CommentTok{#Deze regel wordt hier niet uitgevoerd - je kunt het in de console proberen.}
 \KeywordTok{print}\NormalTok{(mpg, }\DataTypeTok{n =} \OtherTok{Inf}\NormalTok{, }\DataTypeTok{width =} \OtherTok{Inf}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-Except for printing, tibbles allow for some easier manipulations compared the a normal \texttt{data.frame} when you install the package \texttt{tibble}. However, this falls outside of the scope of this tutorial. Furthermore, you will see that the output of \texttt{dplyr} functions discussed in the remainder of this tutorial are automatically tibbles. This means that often you do not explicitly need to use \texttt{tbl\_df}. So, for now, it suffices to understand the difference.
+Behalve voor het printen, laten tibbles enkele eenvoudiger manipulaties toe vergeleken met een normaal \texttt{data.frame} als je het pakket \texttt{tibble} installeert. Dit valt echter buiten het bereik van deze tutorial. Verder zal je zien dat de uitvoer van \texttt{dplyr} functies die in de rest van deze tutorial worden besproken automatisch tibbles zijn. Dit betekent dat je vaak niet expliciet \texttt{as\_tibble} hoeft te gebruiken. Voor nu is het dus voldoende om het verschil te begrijpen.
 
 \hypertarget{glimpse}{%
 \subsection{Glimpse}\label{glimpse}}
 
-A second useful function is the \texttt{glimpse} function. This function is the \texttt{dplyr}-alternative to the well-known \texttt{str} function for base R, and is thus helpful for a first inspection of the data set at hand. It will give a slightly different output compared to \texttt{str}, and is by some perceived as more neat.
+Een tweede handige functie is de \texttt{glimpse} functie. Deze functie is het \texttt{dplyr}-alternatief voor de bekende \texttt{str}-functie voor base-R, en is dus nuttig voor een eerste inspectie van de dataset die voorhanden is. Het zal een iets andere output geven dan \texttt{str}, en wordt door sommigen als netter ervaren.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3970,31 +3970,35 @@ A second useful function is the \texttt{glimpse} function. This function is the 
 \hypertarget{section}{%
 \subsection{\%\textgreater\%}\label{section}}
 
-Another helpful function is a very special one, and is called \emph{the piping symbol}.\footnote{\includegraphics{images/pipe.jpg} The piping symbol was first introduced in the package \texttt{magrittr}, evidently named after the Belgian surrealist artist René Magritte, well-known for his painting \emph{The Threachery of Images}, aka \emph{Ceci n'est pas un pipe}.} The piping symbol consist of a greater-than sign, preceded and followed by a \%-sign The piping symbol can be used to \emph{pipe} different statements together. You can compare it with pipes in a waterworks system. Within a water purification station, pipes will transport the water from one treatment station to the next and eventually to the households. Here, we use the piping symbol to bring our data from one manipulation to the next. Consider this very simple example.
+Een andere handige functie is een heel speciale, en heet \emph{het piping-symbool}.\footnote{\includegraphics{images/pipe.jpg} Het piping-symbool werd voor het eerst geïntroduceerd in het pakket \texttt{magrittr}, genoemd naar de Belgische surrealistische kunstenaar René Magritte, bekend van zijn schilderij \emph{The Threachery of Images}, oftewel \emph{Ceci n'est pas un pipe}.} Het piping-symbool bestaat uit een groter-dan-teken, voorafgegaan en gevolgd door een \%-teken.
+
+Het piping-symbool kan worden gebruikt om verschillende commandos \emph{met elkaar te verbinden}. Je kunt het vergelijken met leidingen in een waterleidingnet. Binnen een waterzuiveringsstation vervoeren leidingen het water van het ene zuiveringsstation naar het volgende en uiteindelijk naar de huishoudens. Hier gebruiken we het piping-symbool om onze gegevens van de ene manipulatie naar de volgende te brengen. Beschouw dit zeer eenvoudige voorbeeld:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{#This line is not executed here - you can try it in the console.}
+\CommentTok{#Deze regel wordt hier niet uitgevoerd }
+\CommentTok{#je kunt het in de console proberen.}
 \KeywordTok{head}\NormalTok{(mpg)}
 \end{Highlighting}
 \end{Shaded}
 
-We can paraphrase this line as: ``Take the head (i.e.~the first 6 rows) of the data set \texttt{mpg}.''
+We kunnen deze regel parafraseren als: ``Neem het hoofd (d.w.z. de eerste 6 rijen) van de dataset \texttt{mpg}.''
 
-When we use the piping symbol, the first argument of a function can be placed \emph{before} the function call instead of inside it. The last line of code is therefore equivalent to the following line.\footnote{You can even omit the brackets of the functions when there are no arguments left. As such \texttt{mpg\ \%\textgreater{}\%\ head} would work just fine. However, do not confuse this with adding layers to a \texttt{ggplot} call. Here, you need would need to keep the brackets of empty function calls. E.g. don't add \texttt{coord\_flip} to a \texttt{ggplot} object, but add \texttt{coord\_flip()}. Be aware of this difference.}
+Wanneer we het piping-symbool gebruiken, kan het eerste argument van een functie \emph{voor} de functie-aanroep worden geplaatst in plaats van erbinnen. De laatste regel code is daarom gelijk aan de volgende regel.\footnote{Je kunt zelfs de haakjes van de functies weglaten als er geen argumenten meer zijn. Zo zou \texttt{mpg\ \%\textgreater{}\%\ head} prima werken. Verwar dit echter niet met het toevoegen van lagen aan een \texttt{ggplot} aanroep. Hier zou je de haakjes van lege functie-aanroepen moeten behouden. Voeg bijvoorbeeld niet \texttt{coord\_flip} toe aan een \texttt{ggplot} object, maar voeg \texttt{coord\_flip()} toe. Wees je bewust van dit verschil. Uit veiligheidsoverwegingen is het aan te raden consistent de haakjes te laten staan.}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{#This line is not executed here - you can try it in the console.}
+\CommentTok{#Deze regel wordt hier niet uitgevoerd }
+\CommentTok{#je kunt het in de console proberen.}
 \NormalTok{mpg }\OperatorTok{%>%}\StringTok{ }\KeywordTok{head}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
-We can now say: ``We take the data set mpg and then take the head of it.'' This sentence seems more natural, as it is very easy to extend it with the further steps you are going to take.
+We kunnen nu zeggen: ``We nemen de dataset mpg en nemen dan het hoofd ervan.'' Deze zin lijkt natuurlijker, want hij is heel gemakkelijk uit te breiden met de verdere stappen die je gaat nemen.
 
-As pipes bring water from one place to the next in a waterworks system, the piping symbol brings our data from one place to the next, in this case the head function. At this point, it might seem ridiculous to do this, but as we will see very soon, this symbol comes in very handy.
+Zoals leidingen water van de ene plaats naar de volgende brengen in een waterleidingnet, brengt het piping-symbool onze gegevens van de ene plaats naar de volgende, in dit geval de head-functie. Op dit moment lijkt het misschien belachelijk om dit te doen, maar zoals we heel snel zullen zien, komt dit symbool heel goed van pas.
 
-As another example, the next two hypothetical statements are equivalent
+Als ander voorbeeld: merk op dat de volgende twee hypothetische verklaringen zijn gelijkwaardig
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4003,30 +4007,30 @@ As another example, the next two hypothetical statements are equivalent
 \end{Highlighting}
 \end{Shaded}
 
-And when we have two functions, say \texttt{f} and \texttt{g} which we called in a nested way, i.e.~one within the other, we can do the following.
+En als we twee functies hebben, bv. \texttt{f} en \texttt{g} die we genest hebben aangeroepen, d.w.z. de een binnen de ander, dan kunnen we het volgende doen.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{f}\NormalTok{(}\KeywordTok{g}\NormalTok{(x,y),z)}
-\CommentTok{# Bring the first argument of f to the front}
+\CommentTok{# Breng het eerste argument van f naar voren}
 \KeywordTok{g}\NormalTok{(x,y) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{f}\NormalTok{(z) }
-\CommentTok{# Bring the first argument of g to the front}
+\CommentTok{# Breng het eerste argument van g naar voren}
 \NormalTok{x }\OperatorTok{%>%}\StringTok{ }\KeywordTok{g}\NormalTok{(y) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{f}\NormalTok{(z)}
 \end{Highlighting}
 \end{Shaded}
 
-Thus, this command takes x, performs function g with argument y and then the result is given to function f with second argument z. This is much more easy to read than the original line, were we performed function f on the result of function g on x and y, and using z as second argument to f.
+Dus, dit commando neemt x, voert functie g uit met argument y en dan wordt het resultaat gegeven aan functie f met tweede argument z. Dit is veel gemakkelijker te lezen dan de originele regel, waar we functie f uitvoerden op het resultaat van functie g op x en y, en z gebruikten als tweede argument voor f.
 
-However, that's enough of abstract concepts. It's time to do something with our data and put this symbol to good use.
+Echter, dat is genoeg wat betreft abstracte concepten. Het is tijd om iets met onze dataset te doen en dit symbool nuttig te gebruiken.
 
-\hypertarget{univariate-analysis-of-a-continuous-variable}{%
-\section{Univariate analysis of a continuous variable}\label{univariate-analysis-of-a-continuous-variable}}
+\hypertarget{univariate-analyse-van-een-continue-variabele}{%
+\section{Univariate analyse van een continue variabele}\label{univariate-analyse-van-een-continue-variabele}}
 
-We start with a uniform analysis of continuous variables. Examples of continuous variables are age, distance, speed, weight, etc. For these kind of variables we can measure the centrality and the spread. Measures of centrality are mean, median. Measures of spread are standard deviation, quantiles, min and max, range, interquartile range.
+We beginnen met een uniforme analyse van continue variabelen. Voorbeelden van continue variabelen zijn leeftijd, afstand, snelheid, gewicht, enz. Voor dit soort variabelen kunnen we het centrulm en de spreiding meten. Maatstaven voor centrum zijn gemiddelde en mediaan. Maatstaven voor spreiding zijn standaardafwijking, kwantielen, min en max, interkwartielafstand en bereik.
 
-All these measures have one thing in common: they \emph{summarise} a continuous variable by way of \emph{one} number, \emph{one} value. This can be performed using the \texttt{summarise} function of \texttt{dplyr}.\footnote{Both the British English \emph{summarise} as the American English \emph{summarize} can be used.}
+Al deze maatstaven hebben één ding gemeen: zij \emph{vatten} een continue variabele \emph{samen} door middel van \emph{één} getal, \emph{één} waarde. Dit kan worden uitgevoerd met behulp van de \texttt{summarise} functie van \texttt{dplyr}.\footnote{Zowel het Brits-Engelse \emph{summarise} als het Amerikaans-Engelse \emph{summarize} kan worden gebruikt.}
 
-As an example, suppose we want to compute the mean and the standard deviation of the \texttt{cty}.
+Als voorbeeld, stel dat we het gemiddelde en de standaardafwijking van de \texttt{cty} willen berekenen.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4041,9 +4045,11 @@ As an example, suppose we want to compute the mean and the standard deviation of
 ## 1     16.9       4.26
 \end{verbatim}
 
-The first argument of \texttt{summarize} is the data argument. All the following arguments will become new columns is the resulting tables. \emph{mean\_cty} and \emph{st\_dev\_cty} are the names of the new columns. These names can be whatever that you want them to be.\footnote{Instead of providing names without quotation marks (e.g.~mean\_cty), you can also add quotation marks. This allows you to use spaces. When your output is final and not intended for further manipulation, you might want to do this, to have nice column headers. For example \texttt{mpg\ \%\textgreater{}\%\ summarize("Mean\ cty"\ =\ mean(cty))}. However, in general, spaces should be avoided.} The parts after the =-sign will become the contents of the columns, i.e.~the mean (computed by the \texttt{mean} function) and the standard deviation (computed by the \texttt{sd} function).
+Het eerste argument van \texttt{summarize} is het data argument. Alle volgende argumenten worden nieuwe kolommen in de resulterende tabellen. \emph{mean\_cty} en \emph{st\_dev\_cty} zijn de namen van de nieuwe kolommen. Deze namen kan je volledig zelf beslissen. De delen na het =-teken worden de inhoud van de kolommen, d.w.z. het gemiddelde (berekend met de \texttt{mean} functie) en de standaardafwijking (berekend met de \texttt{sd} functie).
 
-We can rewrite the line above by using the \%\textgreater\% symbol. Notice that after this symbol, we used \emph{enter}, so that summarize begins on a new line, with an indentation. The indentation points to the fact that these lines actually form one statement (i.e.~one line cannot be executed without the other).\footnote{Remember that we use pander to improve the layout of our tables, and you shouldn't pay attention to that.}
+In plaats van namen zonder aanhalingstekens te geven (bijv. mean\_cty), kan je ook aanhalingstekens toevoegen. Hierdoor kunt u spaties gebruiken. Wanneer je uitvoer definitief is en niet bedoeld is voor verdere manipulatie, zou u dit kunnen doen, om mooie kolomnamen te hebben in je rapport. Bijvoorbeeld\texttt{mpg\ \%\textgreater{}\%\ summarize("Gemiddelde\ cty"\ =\ mean(cty))}. In het algemeen kan je spaties echter beter vermijden.
+
+We kunnen de bovenstaande regel herschrijven door het \%\textgreater\% symbool te gebruiken. Merk op dat na dit symbool, we \emph{enter} hebben gebruikt, zodat summarize op een nieuwe regel begint, met een inspringing. De inspringing wijst erop dat deze regels eigenlijk één statement vormen (d.w.z. de ene regel kan niet worden uitgevoerd zonder de andere).\footnote{Merk op dat we ook de \texttt{pander} functie aan dit statement hebben toegevoegd. Deze functie komt uit het \texttt{pander} pakket en is afgeleid van de naam \emph{pandoc}, een gratis, open-source software document converter. Merk op dat de resulterende tabel mooier geformatteerd is dan het resultaat van het vorige statement zonder het gebruik van \texttt{pander}. Het dient echter alleen om te gebruiken in een markdown document als opmaak belangrijk is. Het heeft geen zin te gebruiken worden bij het programmeren in de console of in r-scripts. Je kunt dit statement gewoon negeren voor de rest van deze tutorial.}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4070,7 +4076,7 @@ st\_dev\_cty\strut
 \bottomrule
 \end{longtable}
 
-All functions used within the \texttt{summarize} function should return \emph{one} and only \emph{one} value, i.e.~the mean, the median, the interquartile range, etc. We call these functions \emph{summary functions}. An (incomplete) list of summary functions is included here:
+Alle functies die gebruikt worden binnen de \texttt{summarize} functie moeten \emph{één} en slechts \emph{één} waarde teruggeven, d.w.z. het gemiddelde, de mediaan, de interkwartielafstand, enz. We noemen deze functies \emph{summary-functies}. Een (onvolledige) lijst van samenvattende functies is hier opgenomen:
 
 \begin{itemize}
 \tightlist
@@ -4083,33 +4089,33 @@ All functions used within the \texttt{summarize} function should return \emph{on
 \item
   \texttt{median}
 \item
-  \texttt{first} (first element of vector)
+  \texttt{first} (eerste element van vector)
 \item
-  \texttt{last} (last element of vector)
+  \texttt{last} (laatste element van vector)
 \item
-  \texttt{n} (number of values)\footnote{WARNING: only use \texttt{n} within summarize. This function cannot be used on normal vectors.}
+  \texttt{n} (aantal waarden in een dataset)\footnote{WAARSCHUWING: gebruik \texttt{n} alleen binnen summarize, en telt het aantal observaties in de dataset. In tegenstelling tot alle andere functies hier neemt deze functie geen input aan. Deze functie kan dus ook niet gebruikt worden op normale vectoren, wat voor de andere functies wel geldt.}
 \item
-  \texttt{nth} (n-th value of a vector)
+  \texttt{nth} (n-de waarde van vector)
 \item
-  \texttt{n\_distinct} (number of distinct values in a vector)
+  \texttt{n\_distinct} (aantal verschillende waarden in vecetor)
 \item
-  \texttt{IQR} (interquartile range)
+  \texttt{IQR} (interkwartielafstand)
 \item
-  \texttt{var} (variance)
+  \texttt{var} (variantie)
 \item
-  \texttt{sd} (standard deviation)
+  \texttt{sd} (standaardafwijking)
 \item
   \texttt{quantile}
 \item
   \texttt{sum}
 \end{itemize}
 
-Note that (except \texttt{n}) all these functions can also be used on normal vectors, i.e.~not inside the \texttt{summarize} function. The other way round, these are not the only functions that can be used within \texttt{summarize}. In general, all function that return a single value can be used. Moreover, we can also include columns of which we set the value manually. For instance, we can update the last example and include that we used the \texttt{cty} variable as a character column. In this case, we don't need a summary function, but only a value, e.g.~``cty''.
+Merk op dat (behalve \texttt{n}) al deze functies ook gebruikt kunnen worden op normale vectoren, dus niet binnen de \texttt{summarize} functie. Omgekeerd zijn dit niet de enige functies die binnen \texttt{summarize} gebruikt kunnen worden. In het algemeen kunnen alle functies die één enkele waarde teruggeven worden gebruikt. Bovendien kunnen we ook kolommen opnemen waarvan we de waarde handmatig hebben ingesteld. Bijvoorbeeld, we kunnen het laatste voorbeeld bijwerken en opnemen dat we de \texttt{cty} variabele als kolom hebben gebruikt. In dit geval hebben we geen summary-functie nodig, maar alleen een waarde, bijvoorbeeld ``cty''.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{mpg }\OperatorTok{%>%}
-\StringTok{    }\KeywordTok{summarize}\NormalTok{(}\DataTypeTok{variable =} \StringTok{"cty"}\NormalTok{, }\DataTypeTok{mean_cty =} \KeywordTok{mean}\NormalTok{(cty), }\DataTypeTok{st_dev_cty =} \KeywordTok{sd}\NormalTok{(cty)) }\OperatorTok{%>%}
+\StringTok{    }\KeywordTok{summarize}\NormalTok{(}\DataTypeTok{variable =} \StringTok{"cty"}\NormalTok{, }\DataTypeTok{mean =} \KeywordTok{mean}\NormalTok{(cty), }\DataTypeTok{st_dev =} \KeywordTok{sd}\NormalTok{(cty)) }\OperatorTok{%>%}
 \StringTok{    }\NormalTok{pander}
 \end{Highlighting}
 \end{Shaded}
@@ -4118,24 +4124,24 @@ Note that (except \texttt{n}) all these functions can also be used on normal vec
 \toprule
 \begin{minipage}[b]{0.14\columnwidth}\centering
 variable\strut
-\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\centering
-mean\_cty\strut
-\end{minipage} & \begin{minipage}[b]{0.16\columnwidth}\centering
-st\_dev\_cty\strut
+\end{minipage} & \begin{minipage}[b]{0.10\columnwidth}\centering
+mean\strut
+\end{minipage} & \begin{minipage}[b]{0.11\columnwidth}\centering
+st\_dev\strut
 \end{minipage}\tabularnewline
 \midrule
 \endhead
 \begin{minipage}[t]{0.14\columnwidth}\centering
 cty\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.10\columnwidth}\centering
 16.86\strut
-\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\centering
+\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\centering
 4.256\strut
 \end{minipage}\tabularnewline
 \bottomrule
 \end{longtable}
 
-Some summary functions need additional arguments, such as the \texttt{nth} function which need a value for n, and possibly specify an ordering. The \texttt{quantile} function needs a \texttt{probs} argument, which stands for probability. For instance, to calculate the first 10\% percentile, we set \texttt{probs\ =\ 0.1}.
+Sommige overzichtsfuncties hebben extra argumenten nodig, zoals de \texttt{nth} functie, die een waarde voor n nodig heeft, en eventueel een ordening kan opgeven. De \texttt{quantile} functie heeft een \texttt{probs} argument nodig, dat staat voor het percentiel. Bijvoorbeeld, om het eerste 10\% percentiel te berekenen, stellen we \texttt{probs\ =\ 0.1} in. Hieronder berekenen we bijvoorbeelde de kwintielen van de cty variabele.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4178,9 +4184,9 @@ cty\strut
 \bottomrule
 \end{longtable}
 
-We can see that 20\% of the \emph{cty} values is less than or equal to 13, and 20\% of the \emph{cty} values is greater than or equal to 20. In the last block of code, we have put each variable on a new line. Rstudio will automatically indent all lines, such that it is clear that they are arguments of the \texttt{summarize} function. The pander function came again on a new line, using the same indentation as \texttt{summarize}.
+We zien dat 20\% van de \emph{cty} waarden kleiner is dan of gelijk is aan 13, en 20\% van de \emph{cty} waarden groter is dan of gelijk is aan 20. In het laatste blok code hebben we elke variabele op een nieuwe regel gezet. Rstudio zal alle regels automatisch laten inspringen, zodat het duidelijk is dat het om argumenten van de \texttt{summarize} functie gaat. De pander functie komt weer op een nieuwe regel, met dezelfde inspringing als \texttt{summarize}. Geef aandacht aan je opmaak van je code, zodat deze voor anderen alsook jezelf leesbaar is.
 
-If we want to support our results with graphical output, we can plot a box plot or histogram using \texttt{ggplot2}. For an introduction to ggplot2, we refer to our ggplot2 tutorial. Below, we have plotted a histogram. We have also added a vertical line to indicate the mean of cty, using \texttt{geom\_vline}.
+Als we onze resultaten willen ondersteunen met een grafiek, kunnen we een box plot of histogram plotten met \texttt{ggplot2}. Voor een introductie in ggplot2, verwijzen we naar de ggplot2 tutorial. Hieronder hebben we een histogram uitgezet. We hebben ook een verticale lijn toegevoegd om het gemiddelde van cty aan te geven, met \texttt{geom\_vline}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4196,14 +4202,16 @@ If we want to support our results with graphical output, we can plot a box plot 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-93-1}
+\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-92-1}
 
-With the summarize function we can perform a univariate analysis of the spread and centrality of any continuous variable. Great! Now, it is time to go one step further and start with bivariate analysis of continuous variables in combination with categorical variables.
+Merk op hoe we ook hier het \%\textgreater\%-symbool gebruiken om de dataset uit de ggplot() functie te halen. In ggplot() hoeven we dan enkel nog de aesthetics te definiëren. Maar let op, na ggplot gebruik je + om nieuwe layers toe te voegen, niet \%\textgreater\%!
+
+Met de summarize functie kunnen we een univariate analyse uitvoeren van de spreiding en centraliteit van elke continue variabele. Geweldig! Nu is het tijd om een stap verder te gaan en te beginnen met bivariate analyse van continue variabelen in combinatie met categorische variabelen.
 
 \hypertarget{bivariate-analysis-of-a-continuous-variable-with-respect-to-a-categorical-variable}{%
 \section{Bivariate analysis of a continuous variable with respect to a categorical variable}\label{bivariate-analysis-of-a-continuous-variable-with-respect-to-a-categorical-variable}}
 
-Before we start our calculations, let's continue in a graphical way. Before, we have analyzed the distribution of cty, as shown with the histogram above. Now we want to analyse it for different types of drivings (e.g.~4-wheel drive, front wheel drive or rear wheel drive), as recorded by the variable \texttt{drv}. Graphically, we can plot different histograms for each of these three categories using facets.
+Laten we, voor we met onze berekeningen beginnen, eerst grafisch verder gaan. Voordien hebben wij de verdeling van de cty geanalyseerd, zoals blijkt uit het histogram hierboven. Nu willen we deze analyseren voor verschillende soorten aandrijving (b.v. vierwielaandrijving, voorwielaandrijving of achterwielaandrijving), zoals geregistreerd door de variabele \texttt{drv}. Grafisch kunnen we verschillende histogrammen plotten voor elk van deze drie categorieën met behulp van facetten.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4219,9 +4227,9 @@ Before we start our calculations, let's continue in a graphical way. Before, we 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-94-1}
+\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-93-1}
 
-Clearly, there are some differences among these categories. Let's try to put these into numbers. What we effectively want to do is calculate the centrality and spread for each of these categories, i.e.~for each \emph{group} of cars. We therefore introduce a new dplyr-function called \texttt{group\_by}. The first argument of this function is needed for the data, all other arguments (which should normally be categorical) will be used the group the data.
+Het is duidelijk dat er een aantal verschillen zijn tussen deze categorieën. Laten we proberen deze in cijfers uit te drukken. Wat we in feite willen doen is de centrum- en spreidingsmaten berekenen voor elk van deze categorieën, d.w.z. voor elke \emph{groep} van auto's. Daarom introduceren we een nieuwe dplyr-functie, genaamd \texttt{group\_by}. Het eerste argument van deze functie is nodig voor de gegevens, alle andere argumenten (die normaal altijd categorisch zijn) zullen worden gebruikt om de gegevens te groeperen.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4247,7 +4255,9 @@ Clearly, there are some differences among these categories. Let's try to put the
 ## # ... with 224 more rows
 \end{verbatim}
 
-The output of this line just returns us a tibble, with no remarkable modifications. But don't be fooled, because there are! On the second line printed we read ``Groups: drv {[}3{]}''. Thus, this tibble is grouped on the variable \emph{drv}, and there are three different groups. Just for the sake of example, let us also add \emph{trans} as a group.
+De uitvoer van deze regel geeft ons gewoon een tibble, zonder opmerkelijke wijzigingen. Maar laat je niet misleiden, want die zijn er wel! Op de tweede geprinte regel lezen we ``Groups: drv {[}3{]}''. Deze tibble is dus gegroepeerd op de variabele \emph{drv}, en er zijn drie verschillende groepen. Laten we, om een voorbeeld te geven, ook \emph{trans} als groep toevoegen.
+
+De variabelen die je gebruikt om een dataset te groeperen zijn meestal - al zijn er uitzonderingen - categorisch. Vaak heeft het geen zin om continue variabelen te gebruiken als groep. Bijvoorbeeld, stel dat je personen groepeert op lengte, in meter. Afhankelijk van het aantal personen in je dataset, ga je maar weinig observaties per groep hebben, aangezien het gaat om een continue variabele, die heel veel waarden kan hebben. Zoals altijd zijn er uitzonderingen, zoals bv jaartallen. Het gaat dan steeds over continue variabelen waarvan het aantal verschillende waarden enigszins beperkt is - wat vaak neer komt op gehele getallen en een beperkte domein van mogelijke waarden.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4273,7 +4283,7 @@ The output of this line just returns us a tibble, with no remarkable modificatio
 ## # ... with 224 more rows
 \end{verbatim}
 
-We can just put \emph{trans} after \emph{drv} in the \texttt{group\_by} function. Now, we can see that the tibble is grouped on these two variables, and there are 24 different groups\footnote{In particular, there are 3 \emph{drv} values and 10 \emph{trans} values. Thus, there could be maximum 30 different groups. The fact that we see only 24 groups, means that not all possible combinations of \emph{drv} and \emph{trans} values occur in the data.}. We can also check the grouping of data.frame by using the \texttt{groups} function. This saves us from printing the entire data to check the grouping. Note that below, we again use the piping symbol effectively.
+We kunnen gewoon \emph{trans} achter \emph{drv} zetten in de \texttt{group\_by} functie. Nu kunnen we zien dat de tibble gegroepeerd is op deze twee variabelen, en er zijn 24 verschillende groepen\footnote{In het bijzonder zijn er 3 \emph{drv} waarden en 10 \emph{trans} waarden. Er zouden dus maximaal 30 verschillende groepen kunnen zijn. Het feit dat er slechts 24 groepen worden aangegeven, betekent dat niet alle mogelijke combinaties van \emph{drv} en \emph{trans} waarden in de gegevens voorkomen.}. We kunnen de groepering van data.frame ook controleren door de \texttt{groups} functie te gebruiken. Dit bespaart ons het afdrukken van de hele data om de groepering te controleren. Merk op dat we hieronder weer effectief gebruik maken van het piping symbool.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4291,14 +4301,14 @@ We can just put \emph{trans} after \emph{drv} in the \texttt{group\_by} function
 ## trans
 \end{verbatim}
 
-Ok, but wait a minute. If nothing else changes, why are we doing this? Once a data.frame is grouped, the next operations will be performed for each group separately. Isn't that just what we needed? Indeed. For each \emph{drv} group, we wanted to compute the centrality and spread. Let's give it a try.
+Oké, maar wacht eens even. Als er verder niets verandert, waarom doen we dit dan? Wel, zodra een data.frame is gegroepeerd, worden de volgende bewerkingen voor elke groep apart uitgevoerd. Is dat niet precies wat we nodig hadden? Inderdaad. Voor elke \emph{drv} groep, wilden we de centrum en spreidingsmaten berekenen. Laten we het eens proberen.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{mpg }\OperatorTok{%>%}
 \StringTok{    }\KeywordTok{group_by}\NormalTok{(drv) }\OperatorTok{%>%}
 \StringTok{    }\KeywordTok{summarize}\NormalTok{(}\DataTypeTok{mean_cty =} \KeywordTok{mean}\NormalTok{(cty), }\DataTypeTok{sd_cty =} \KeywordTok{sd}\NormalTok{(cty)) }\OperatorTok{%>%}
-\StringTok{    }\NormalTok{pander}
+\StringTok{    }\KeywordTok{pander}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
@@ -4339,7 +4349,7 @@ r\strut
 \bottomrule
 \end{longtable}
 
-Great! Calling summarize will no longer give us 1 row of values. Instead, it will return 1 row for each group. We can see that the mean cty is much larger for cars with a front wheel drive than for other cars, as was already suspected based on the histogram. Another way of visualizing this, without using facets, is to use box plots.
+Geweldig. Het gebruiken van summarize zal ons niet langer 1 rij met waarden geven. In plaats daarvan zal het 1 rij voor elke groep teruggeven. We kunnen zien dat de gemiddelde cty veel groter is voor auto's met voorwielaandrijving dan voor andere auto's, zoals reeds werd vermoed op basis van het histogram. Een andere manier om dit te visualiseren, zonder facets te gebruiken, is het gebruik van boxplots.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4354,22 +4364,25 @@ Great! Calling summarize will no longer give us 1 row of values. Instead, it wil
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-99-1}
+\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-98-1}
 
-We can now analyse the centrality and spread of a continuous variable, both univariately and bivariately with respect to a categorical variable. To do this, we have learned to use two new functions: \texttt{summarize} and \texttt{group\_by}. Summarizing an ungrouped data.frame will return a data.frame with 1 row. Summarizing a grouped data.frame will return a data.frame where the number of rows is equal to the number of groups.
+Wij kunnen nu de centraliteit en de spreiding van een continue variabele analyseren, zowel univariaat als bivariaat, ten opzichte van een categorische variabele. Om dit te doen, hebben we geleerd om twee nieuwe functies te gebruiken: \texttt{summarize} en \texttt{group\_by}. Het samenvatten van een niet gegroepeerd data.frame levert een data.frame op met 1 rij. Het samenvatten van een gegroepeerd data.frame zal een data.frame teruggeven waarvan het aantal rijen gelijk is aan het aantal groepen.
 
-The next thing on our list is the univariate analysis of a categorical variable. For this, we will compute frequency tables and learn yet some additional new exciting functions: \texttt{mutate}, \texttt{arrange} and \texttt{slice}. Let's get on with it!
+Het volgende op onze lijst is de univariate analyse van een categorische variabele. Hiervoor zullen we frequentietabellen berekenen en nog een paar nieuwe interessante functies leren: \texttt{mutate}, \texttt{arrange} en \texttt{slice}. Laten we aan de slag gaan!
 
-\hypertarget{univariate-analysis-of-a-categorical-variable}{%
-\section{Univariate analysis of a categorical variable}\label{univariate-analysis-of-a-categorical-variable}}
+\newpage
 
-In our data, there are 15 manufacturers. Assume we want to know more about these, i.e.~which manufacturer has a lot of cars in our data, and which one has less. Graphically, we can already do this using a bar chart.\footnote{\includegraphics{images/forcats.jpg} Did you notice the function \texttt{fct\_infreq} wrapped around the \emph{manufacturer} variable within the geom\_bar mapping? This function makes sure that the bars are ordered from infrequent to frequent. This function is one of the helpful functions for factors from the package \texttt{forcats}, which is an anagram of \emph{factors} and it symbolizes the fact that many people in the R community are cat lovers (seriously). If you want, you can install it and use the \texttt{fct\_infreq} function (short for ``reorder this factor based on (in)frequency)''. However, full acquaintance with this package is not expected (for now).}
+\hypertarget{univariate-analyse-van-een-categorische-variabele}{%
+\section{Univariate analyse van een categorische variabele}\label{univariate-analyse-van-een-categorische-variabele}}
+
+In onze gegevens zijn er 15 fabrikanten. Stel dat we daar meer over willen weten, d.w.z. welke fabrikant veel auto's in onze gegevens heeft, en welke minder. Grafisch kunnen we dit al doen met behulp van een staafdiagram.\footnote{\includegraphics{images/forcats.jpg} Heb je de functie \texttt{fct\_infreq} gezien die rond de \emph{manufacturer} variabele is gewikkeld in de geom\_bar mapping? Deze functie zorgt ervoor dat de staven worden gerangschikt van infrequent naar frequent. Deze functie is een van de handige functies voor factoren uit het pakket \texttt{forcats}, dat een anagram is van \emph{factors} en het symboliseert het feit dat veel mensen in de R-gemeenschap kattenliefhebbers zijn (serieus). Als je wilt, kan je het installeren en de \texttt{fct\_infreq} functie gebruiken (afkorting voor ``reorder this factor based on (in)frequency)''. Een volledige kennismaking met dit pakket wordt (voorlopig) niet verwacht.}
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{mpg }\OperatorTok{%>%}
 \StringTok{    }\KeywordTok{ggplot}\NormalTok{() }\OperatorTok{+}
-\StringTok{    }\KeywordTok{geom_bar}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\KeywordTok{fct_infreq}\NormalTok{(manufacturer)), }\DataTypeTok{color =} \StringTok{"black"}\NormalTok{,}\DataTypeTok{fill =} \StringTok{"grey"}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_bar}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\KeywordTok{fct_infreq}\NormalTok{(manufacturer)), }
+             \DataTypeTok{color =} \StringTok{"black"}\NormalTok{,}\DataTypeTok{fill =} \StringTok{"grey"}\NormalTok{) }\OperatorTok{+}
 \StringTok{    }\KeywordTok{coord_flip}\NormalTok{() }\OperatorTok{+}
 \StringTok{    }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{title =} \StringTok{"Number of cars per manufacturer"}\NormalTok{,}
          \DataTypeTok{x =} \StringTok{"Manufacturer"}\NormalTok{,}
@@ -4379,9 +4392,9 @@ In our data, there are 15 manufacturers. Assume we want to know more about these
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-100-1}
+\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-99-1}
 
-Now, we want to analyze this numerically. The most obvious way to do this is with a frequency table. Below, we see the end product of this analysis. Subsequently, we will start constructing it step by step.
+Nu willen we dit numeriek analyseren. De meest voor de hand liggende manier om dit te doen is met een frequentietabel. Hieronder zien we het eindproduct van deze analyse. Vervolgens zullen we deze stap voor stap gaan construeren.
 
 \texttt{summarise()} ungrouping output (override with \texttt{.groups} argument)
 
@@ -4568,7 +4581,7 @@ lincoln\strut
 \bottomrule
 \end{longtable}
 
-Let's start. The first thing to do is to count the number of observations for each value of the categorical variable. Thus, how many cars are there for each manufacturer? We can do this by grouping the data on \emph{manufacturer} and then counting the number of rows using \texttt{n}.
+Laten we beginnen. Het eerste wat we moeten doen is het aantal waarnemingen tellen voor elke waarde van de categorische variabele. Dus, hoeveel auto's zijn er voor elke fabrikant? We kunnen dit doen door de gegevens te groeperen op \emph{manufacturer} en dan het aantal rijen te tellen met \texttt{n}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4668,7 +4681,7 @@ volkswagen\strut
 \bottomrule
 \end{longtable}
 
-The function \texttt{n()} does not require any argument. It will just calculate the number of rows there are in a data.frame, or, as in this case, in each group. The next step is to order these manufacturers according to the number of cars. In order to \emph{arrange} rows, we use the function \texttt{arrange} from \texttt{dplyr}. Since we want to arrange the manufacturers by decreasing frequency, we use the function \texttt{desc} (descending). In particular, the following will do the trick:
+De functie \texttt{n()} heeft geen enkel argument nodig. Het berekent gewoon het aantal rijen in een data.frame, of, zoals in dit geval, in elke groep. De volgende stap is om deze fabrikanten te rangschikken op basis van het aantal auto's. Om de rijen te sorteren gebruiken we de functie \texttt{arrange} van \texttt{dplyr}. Omdat we de fabrikanten willen rangschikken volgens afnemende frequentie, gebruiken we de functie \texttt{desc} (aflopend). Het volgende zal de truc doen:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4769,9 +4782,9 @@ lincoln\strut
 \bottomrule
 \end{longtable}
 
-The first argument of \texttt{arrange} is again the data, which is given to it using the piping symbol. The other arguments will then be used to order the data. Note that more than one variable can be specified. The data will then by arranged firstly using the first variable. Subsequently, the next variables will be used to break ties. When \texttt{desc} is placed around a variable name, this variable will be arranged decreasingly. Just try out some different orderings yourself!
+Het eerste argument van \texttt{arrange} is weer de data, die aan wordt gegeven met het piping-symbool. De andere argumenten worden dan gebruikt om de gegevens te ordenen. Merk op dat meer dan één variabele kan worden opgegeven. De gegevens worden dan eerst gerangschikt met behulp van de eerste variabele. Daarna zullen de volgende variabelen worden gebruikt om ex aequo's te verbreken. Wanneer \texttt{desc} rond een variabele naam wordt geplaatst, wordt deze variabele in aflopende volgorde gerangschikt. Probeer zelf maar eens wat verschillende rangschikkingen uit!
 
-Now, we need to add a new column for the relative frequencies. To do this we use the function \texttt{mutate} from \texttt{dplyr}, which literally means \emph{to change}. The \texttt{mutate} function call is similar to that of \texttt{summarize}: the first argument is the data, the others are of the form \texttt{variable\_name\ =\ value}. The variable name is the name that will appear as name of the new column. The value is the value for the new column. This can either be function which returns a vector with a length equal to that of the data.frame, or it can be a simple computation using other variables in the data.frame. The following statement will compute the relative frequencies, by dividing each frequency, with the sum of all frequencies.
+Nu moeten we een nieuwe kolom toevoegen voor de relatieve frequenties. Hiervoor gebruiken we de functie \texttt{mutate} van \texttt{dplyr}, wat letterlijk \emph{veranderen} (muteren) betekent. De \texttt{mutate} functie-aanroep is vergelijkbaar met die van \texttt{summarize}: het eerste argument is de data, de andere zijn van de vorm \texttt{variabele\_naam\ =\ waarde}. De variabele naam is de naam die als naam van de nieuwe kolom zal verschijnen. De waarde is de waarde voor de nieuwe kolom. Dit kan een functie zijn die een vector teruggeeft met een lengte gelijk aan die van het data.frame, of het kan een eenvoudige berekening zijn waarbij gebruik wordt gemaakt van andere variabelen in het data.frame. Het volgende statement berekent de relatieve frequenties, door elke frequentie te delen door de som van alle frequenties.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4905,7 +4918,7 @@ lincoln\strut
 \bottomrule
 \end{longtable}
 
-Here, \texttt{sum(frequency)} refers to the sum of the frequency column, while \texttt{frequency} refers to the specific values in each row. Next, we will add the cumulative relative frequency. We can add this to the same \texttt{mutate} call.
+Hier verwijst \texttt{sum(frequency)} naar de som van de frequentiekolom, terwijl \texttt{frequency} verwijst naar de specifieke waarden in elke rij. Vervolgens zullen we de cumulatieve relatieve frequentie toevoegen. We kunnen dit toevoegen aan dezelfde \texttt{mutate} aanroep.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5072,28 +5085,28 @@ lincoln\strut
 \bottomrule
 \end{longtable}
 
-While the computation of relative frequency was a simple formula, the cumulative frequency is computed using the \texttt{cumsum}. This is what is called a \emph{window function}. While summary functions always return one value, window functions return the same number of values as the vector used as input. Thus, our 15 relative frequencies will result in 15 cumulative frequencies. Other window functions are list below.
+Terwijl de berekening van de relatieve frequentie een eenvoudige formule was, wordt de cumulatieve frequentie berekend met behulp van de \texttt{cumsum}. Dit is wat men noemt een \emph{windowfunctie}. Terwijl summary-functies altijd één waarde teruggeven, geven windowfuncties hetzelfde aantal waarden terug als de vector die als invoer wordt gebruikt. Dus, onze 15 relatieve frequenties zullen resulteren in 15 cumulatieve frequenties. Andere windowfuncties worden hieronder opgesomd.
 
 \textbf{Cumulative functions}
 
 \begin{itemize}
 \tightlist
 \item
-  cumsum: The cumulative sum of a vector
+  cumsum: De cumulatieve som van een vector
 \item
-  cummax: The cumulative maximum of a vector
+  cummax: Het cumulatieve maximum van een vector
 \item
-  cummin: The cumulative minimum of a vector
+  cummin: Het cumulatieve minimum van een vector
 \item
-  cumprod: The cumulative product of a vector
+  cumprod: Het cumulatieve product van een vector
 \item
-  cummean: A cumulative, or rolling, mean
+  cummean: Een cumulatief, of voortschrijdend, gemiddelde
 \item
-  cumany: For logical values, a cumulative ``or''
+  cumany: Voor logische waarden, een cumulatieve ``of''
 \item
-  cumall: For logical values, a cumulative ``and''
+  cumall: Voor logische waarden, een cumulatief ``en''
 \item
-  cume\_dist: Cumulative distribution
+  cume\_dist: Cumulatieve verdeling
 \end{itemize}
 
 \textbf{Element-wise function of more than one variable}
@@ -5101,9 +5114,9 @@ While the computation of relative frequency was a simple formula, the cumulative
 \begin{itemize}
 \tightlist
 \item
-  pmax: Element/pair-wise maximum of a vector
+  pmax: Element/paar-gewijs maximum van een vector
 \item
-  pmin: Element/pair-wise minimum of a vector
+  pmin: Element/paar-gewijs minimum van een vector
 \end{itemize}
 
 \textbf{Ranking function}
@@ -5111,13 +5124,13 @@ While the computation of relative frequency was a simple formula, the cumulative
 \begin{itemize}
 \tightlist
 \item
-  percent\_rank: ranks rescaled to {[}0,1{]}
+  percent\_rank: rangen geschaald naar {[}0,1{]}
 \item
-  row\_number: Rank which breaks ties by taking elements by first occurrence (mostly alphabetically)
+  row\_number: Rang die banden breekt door elementen te nemen door eerste voorkomen (meestal alfabetisch)
 \item
-  min\_rank: Rank which breaks ties by giving them the same rank and omitting the next rank
+  min\_rank: Rang die groepen breekt door ze dezelfde rang te geven en de volgende rang weg te laten
 \item
-  dense\_rank: Same as min\_rank, but without omission
+  dense\_rank: Zelfde als min\_rank, maar zonder weglating
 \end{itemize}
 
 \textbf{Shifting functions}
@@ -5125,9 +5138,9 @@ While the computation of relative frequency was a simple formula, the cumulative
 \begin{itemize}
 \tightlist
 \item
-  lead(n): shift values n places to the front, add n NA's as last values
+  lead(n): verschuif waarden n plaatsen naar voren, voeg n NA's toe als laatste waarden
 \item
-  lag(n): shift values n places to the back, add n NA's as first values
+  lag(n): verschuif waarden n plaatsen naar achteren, voeg n NA's toe als eerste waarden
 \end{itemize}
 
 \textbf{Other}
@@ -5135,16 +5148,120 @@ While the computation of relative frequency was a simple formula, the cumulative
 \begin{itemize}
 \tightlist
 \item
-  between(a,b): Lie the values of a vector between a and b? Returns logical
+  between(a,b): Liggen de waarden van een vector tussen a en b? Geeft logisch
 \item
-  ntile(x,n): Use variable x to arrange the observations and put them in n equally sized groups.
+  ntile(x,n): Gebruik variabele x om de waarnemingen te rangschikken en ze in n even grote groepen te plaatsen.
 \end{itemize}
 
-That's a long list, and not all of them are important. You will use some of them alot (like cumsum), and others only in rare instances. In case of need, come back to this list.
+Dat is een lange lijst, en ze zijn niet allemaal belangrijk. Sommige zul je veel gebruiken (zoals cumsum), en andere alleen in zeldzame gevallen (of nooit). In geval van nood, kom dan terug naar deze lijst.
 
-The \texttt{pmin} function returns the pairwise minimum of x and y, while the \texttt{pmax} function will return the pairwise maximum of x and y. Although the p in these functions points to \emph{pair} it can be used on more than two vectors.
+De \texttt{pmin} functie geeft het paarsgewijze minimum van x en y, terwijl de \texttt{pmax} functie het paarsgewijze maximum van x en y geeft. Hoewel de p in deze functies wijst naar \emph{paar} kan het gebruikt worden op meer dan twee vectoren. Ze verschillen van \texttt{min} en \texttt{max} aangezien deze laatste sumaary functies werken, die op basis van een getal het minimum/maximum teruggeven.
 
-Percent rank will assign a value with between 0 and 1. The smallest value will get zero and the highest value will be one (when there are no ties). But, when two observations are equal, they get the same value, and there will be a \emph{gap} between subsequent values. Row number will break ties randomly. As such, the highest value will always be equal to the number of observations. Minimum rank assigns the minimum rank equally among ties, and also includes \emph{gaps}, like percent rank. Finally, dense rank will also assign ties the same rank, but will not allow gaps in the ranking.
+Een voorbeeld:
+
+Beschouw de vectoren x en y met 10 willekeurige waarden
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{runif}\NormalTok{(}\DecValTok{10}\NormalTok{)}
+\NormalTok{y <-}\StringTok{ }\KeywordTok{runif}\NormalTok{(}\DecValTok{10}\NormalTok{)}
+\NormalTok{x}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] 0.02509755 0.52685544 0.74447147 0.41505208 0.18001737 0.89297414
+##  [7] 0.92517795 0.65886502 0.25179933 0.26237555
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{y}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] 0.09193593 0.46589865 0.36637979 0.48577091 0.40897611 0.18151983
+##  [7] 0.33992111 0.58584940 0.60069579 0.53975707
+\end{verbatim}
+
+Gebruik van summary-functies
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{min}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.02509755
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{min}\NormalTok{(y)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.09193593
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{max}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.925178
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{max}\NormalTok{(y)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.6006958
+\end{verbatim}
+
+Gebruik van de pair-wise window functies.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{pmin}\NormalTok{(x,y)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] 0.02509755 0.46589865 0.36637979 0.41505208 0.18001737 0.18151983
+##  [7] 0.33992111 0.58584940 0.25179933 0.26237555
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{pmax}\NormalTok{(x,y)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] 0.09193593 0.52685544 0.74447147 0.48577091 0.40897611 0.89297414
+##  [7] 0.92517795 0.65886502 0.60069579 0.53975707
+\end{verbatim}
+
+Merk op dat max(x,y) het maximum geeft uit beide vectors, waar pmax(x,y) het maximum geeft op elke positie in de vectoren.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{max}\NormalTok{(x,y)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.925178
+\end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5173,95 +5290,62 @@ ntile(x, 5)\strut
 \midrule
 \endhead
 \begin{minipage}[t]{0.06\columnwidth}\centering
-6\strut
-\end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\centering
-1\strut
-\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\centering
-NA\strut
-\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\centering
-TRUE\strut
-\end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\centering
-3\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.06\columnwidth}\centering
-1\strut
-\end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\centering
 10\strut
+\end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\centering
+3\strut
 \end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\centering
 NA\strut
 \end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\centering
 FALSE\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\centering
-1\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.06\columnwidth}\centering
-10\strut
-\end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\centering
-2\strut
-\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\centering
-6\strut
-\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\centering
-FALSE\strut
-\end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\centering
 5\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.06\columnwidth}\centering
-2\strut
+3\strut
 \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\centering
-9\strut
+2\strut
 \end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\centering
-1\strut
+NA\strut
 \end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\centering
 FALSE\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\centering
-1\strut
+2\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.06\columnwidth}\centering
-9\strut
+2\strut
 \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\centering
-4\strut
+7\strut
 \end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\centering
 10\strut
 \end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\centering
 FALSE\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\centering
-5\strut
+1\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.06\columnwidth}\centering
-4\strut
-\end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\centering
 7\strut
+\end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\centering
+1\strut
 \end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\centering
-2\strut
+3\strut
 \end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\centering
 TRUE\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\centering
-2\strut
+4\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.06\columnwidth}\centering
-7\strut
+1\strut
 \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\centering
-5\strut
-\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\centering
 9\strut
-\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\centering
-TRUE\strut
-\end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\centering
-4\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.06\columnwidth}\centering
-5\strut
-\end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\centering
-3\strut
 \end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\centering
-4\strut
+2\strut
 \end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\centering
-TRUE\strut
+FALSE\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\centering
-3\strut
+1\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.06\columnwidth}\centering
-3\strut
+9\strut
 \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\centering
 8\strut
 \end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\centering
@@ -5269,25 +5353,58 @@ TRUE\strut
 \end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\centering
 FALSE\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\centering
-2\strut
+5\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{0.06\columnwidth}\centering
 8\strut
 \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\centering
-NA\strut
+4\strut
 \end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\centering
-5\strut
+1\strut
 \end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\centering
 TRUE\strut
 \end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\centering
 4\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.06\columnwidth}\centering
+4\strut
+\end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\centering
+6\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\centering
+9\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\centering
+TRUE\strut
+\end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\centering
+2\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.06\columnwidth}\centering
+6\strut
+\end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\centering
+5\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\centering
+8\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\centering
+TRUE\strut
+\end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\centering
+3\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.06\columnwidth}\centering
+5\strut
+\end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\centering
+NA\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\centering
+4\strut
+\end{minipage} & \begin{minipage}[t]{0.23\columnwidth}\centering
+TRUE\strut
+\end{minipage} & \begin{minipage}[t]{0.17\columnwidth}\centering
+3\strut
 \end{minipage}\tabularnewline
 \bottomrule
 \end{longtable}
 
-An example of the last window functions is show above. The lead and lag functions shift values up and down. By default, they are shifted with one place. The between function tests whether values are between certain bound (including the boundary values). Finally, the ntile function will create a variable that groups observations in equal bins, in this case 5, according to a specific variable. Thus, values 1 and 2 of x are grouped in bin 1, values 3 and 4 in bin 2, etc. Note that, although the ntile function returns numbers, it is actually a categorical variable!
+Een voorbeeld van de vensterfuncties lead, lag, between en ntile wordt hierboven getoond. De lead en lag functies verschuiven waarden naar boven en beneden. Standaard worden ze met één plaats verschoven. De between functie test of waarden tussen bepaalde grenzen liggen (inclusief de grenswaarden). Tenslotte creëert de ntile-functie een variabele die waarnemingen groepeert in gelijke bins, in dit geval 5, volgens een bepaalde variabele. Zo worden waarden 1 en 2 van x gegroepeerd in bin 1, waarden 3 en 4 in bin 2, enz. Merk op dat, hoewel de ntile functie getallen teruggeeft, het eigenlijk een categorische variabele is!
 
-They may not all seen very obvious, but sometimes these window function can come in quite powerful and handy during an analysis. Make sure to remember their existence. But, let's get back to our frequency table now, as we have gotten a little bit of the beaten track. Below, we show again our last result.
+Ze zien er misschien niet allemaal even logisch uit, maar soms kunnen deze windowfuncties heel krachtig en handig zijn tijdens een analyse. Zorg ervoor dat je hun bestaan kent. Maar, laten we nu teruggaan naar onze frequentietabel, want we zijn een beetje van het gebaande pad afgeraakt. Hieronder tonen we nogmaals ons laatste resultaat.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5454,7 +5571,7 @@ lincoln\strut
 \bottomrule
 \end{longtable}
 
-We were quite finished, it seems, but we can still improve the table. One way to do so is to turn the relative (cumulative) frequencies into values between 0 and 100, and to round them to 2 decimals. That last thing can be done using the function \texttt{round} and specifying the number of decimals.
+We waren al klaar, zo lijkt het, maar we kunnen de tabel nog verbeteren. Een manier om dat te doen is om de relatieve (cumulatieve) frequenties om te zetten in waarden tussen 0 en 100, en om ze af te ronden op 2 decimalen. Dat laatste kan met de functie \texttt{round} en met opgave van het aantal decimalen.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5623,13 +5740,11 @@ lincoln\strut
 \bottomrule
 \end{longtable}
 
-What's important to note here is that we have put 4 different statements in mutate. In these statements, it is possible to use variables created before \textbf{within the same mutate call}: the second statement uses the variable in the first. Also, it is possible to overwrite variables, i.e.~statement 3 and 4 overwrite the variables created in statement 1 and 2.
+Wat hier belangrijk is om op te merken, is dat we 4 verschillende statements in mutate hebben gezet. In deze statements is het mogelijk om variabelen te gebruiken die eerder \textbf{binnen dezelfde mutate call} zijn aangemaakt: het tweede statement gebruikt de variabele in het eerste. Ook is het mogelijk om variabelen te overschrijven, d.w.z. statement 3 en 4 overschrijven de variabelen aangemaakt in statement 1 en 2.
 
-You might wonder why we use 4 statements instead of 2, and why didn't we round immediately? We could have done that for the cumulative frequency, but not for the relative frequency. Can you figure out why?
+Je vraag je misschien af waarom we 4 opgaven gebruiken in plaats van 2, en waarom we niet onmiddellijk hebben afgerond? Dat hadden we kunnen doen voor de cumulatieve frequentie, maar niet voor de relatieve frequentie. Kan je achterhalen waarom?
 
-Finally, we may want to add a ranking, i.e.~a row number, to the frequency table. Here, we use the \texttt{row\_number} function introduced above.
-
-Before we used \texttt{desc} to arrange decreasingly in \texttt{arrange}, and now we use the minus sign to allocate the row numbers according to decreasing frequency. Is \texttt{dplyr} really this inconsistent? Fortunately, the answer is no. Using the minus is a little trick to shorten your code, but can only be used for numerical variables. This is, because sorting a numerical variable decreasingly, is the same as sorting its negative mirror increasingly (Convince yourself!). As such, we could also have used the minus sign within arrange, and we could have used \texttt{desc} within row\_number. \textbf{But}, never use the minus sign to sort categorical values (they don't have a negative counter part, typically). It is best practice to be consistent in using - or \texttt{desc}, but as this is a tutorial, we show you different ways to do it.
+Tenslotte willen we soms een rangorde, d.w.z. een rijnummer, toevoegen aan de frequentietabel. Hier gebruiken we de \texttt{row\_number} functie die we hierboven hebben geïntroduceerd.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5831,7 +5946,9 @@ lincoln\strut
 \bottomrule
 \end{longtable}
 
-Mutate has added the number at the end of the table.\footnote{For the eager students who were wondering where the \texttt{split.table\ =\ 120} argument came from in the \texttt{pander} call: \texttt{pander} by default splits tables which are more than 80 characters wide. It will then add superfluous columns below the table in a \emph{second} table. In order to avoid this splitting, and since this document has a quite big side margin for the table to continue, I increased this parameter to 120 characters.} That's what we want in most of the cases, but not in this one. To change the order of the variables, we can use the \texttt{select} function from \texttt{dplyr}. This function can be used to \emph{select} variables, and will place them in the specified order. Thus, what we can do is the following.
+Eerder gebruikten we \texttt{desc} om aflopend te rangschikken in \texttt{arrange}, en nu gebruiken we het minteken om de rijnummers toe te wijzen volgens afnemende frequentie. Is \texttt{dplyr} echt zo inconsistent? Gelukkig is het antwoord nee. Het gebruik van het minteken is een trucje om je code te verkorten, maar kan alleen gebruikt worden voor numerieke variabelen. Dit komt omdat het afnemend sorteren van een numerieke variabele hetzelfde is als het toenemend sorteren van zijn negatieve spiegelbeeld (Overtuig jezelf!). Als zodanig, hadden we ook het minteken kunnen gebruiken binnen arrange, en we hadden \texttt{desc} kunnen gebruiken binnen row\_number. \textbf{Maar}, gebruik nooit het minteken om categorische waarden te sorteren (ze hebben geen negatieve tegenhanger, typisch). Het is best practice om consistent te zijn in het gebruik van - of \texttt{desc}, maar omdat dit een tutorial is, laten we je verschillende manieren zien om het te doen.
+
+Mutate heeft het nummer aan het eind van de tabel toegevoegd. Dat is wat we in de meeste gevallen willen, maar niet in dit geval. Om de volgorde van de variabelen te veranderen, kunnen we de \texttt{select} functie van \texttt{dplyr} gebruiken. Deze functie kan worden gebruikt om variabelen te \emph{selecteren}, en zal ze in de opgegeven volgorde plaatsen. Dus, wat we kunnen doen is het volgende.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6034,9 +6151,9 @@ lincoln\strut
 \bottomrule
 \end{longtable}
 
-Using the \texttt{select} statement does the trick. But I am still kind of lazy, and I don't want to write out all the variables, just to put one in the first position. We had only 5 variables here, but imagine what a waste of time it would be when we had more, like 6 for instance. Can't we just say, put \emph{nr} in the front, and then add all the other variables in their original order? Dplyr to the rescue!
+Het gebruik van het \texttt{select} statement doet de truc. Maar ik ben nog steeds een beetje lui, en ik wil niet alle variabelen uitschrijven, alleen maar om er één op de eerste positie te zetten. We hadden hier maar 5 variabelen, maar stel je voor wat een verspilling van tijd het zou zijn als we er meer hadden, zoals 6 bijvoorbeeld. Kunnen we niet gewoon zeggen, zet \emph{nr} vooraan, en voeg dan alle andere variabelen toe in hun oorspronkelijke volgorde? Dplyr biedt redding!
 
-Fortunately we can. We can just add the function \texttt{everything} to select. This will add all the columns after \emph{nr}, without repeating \emph{nr} for a second time. Great, isn't it?
+Gelukkig kunnen we dat. We kunnen gewoon de functie \texttt{everything} toevoegen aan select. Dit zal alle kolommen na \emph{nr} toevoegen, zonder \emph{nr} voor een tweede keer te herhalen. Geweldig, is het niet?
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6239,11 +6356,11 @@ lincoln\strut
 \bottomrule
 \end{longtable}
 
-Select, arrange, mutate, summarize, group\_by. We are really mastering dplyr already. Not so difficult after all, isn't it? Of course there are still other functions, but these 5 are really some of most important functions for data manipulation. Only \texttt{filter} misses in the dplyr hall of fame, but we leave that one for another time. It is always a good idea to have something to look forward to, don't you agree?
+Select, arrange, mutate, summary, group\_by. We hebben dplyr al aardig onder de knie. Toch niet zo moeilijk, is het niet? Natuurlijk zijn er nog meer functies, maar deze 5 behoren echt tot de belangrijkste functies voor data manipulatie. Alleen \texttt{filter} ontbreekt in de dplyr hall of fame, maar die laten we voor een andere keer. Het is altijd een goed idee om iets te hebben om naar uit te kijken, vind je niet?
 
-Before we continue with bivariate analysis, there are two more things we should do. Look at the \texttt{slice} function, and evaluate our piping symbol.
+Voordat we verder gaan met bivariate analyse, zijn er nog twee dingen die we moeten doen. Kijk naar de \texttt{slice} functie, en nog eens terugkijken naar het \%\textgreater\% symbool.
 
-The \texttt{slice} function can be used to \texttt{slice} rows from a data.frame. Suppose we have a very long frequency table, and we are only interested in the top 10 values. We can then slice the first 10 rows of this table as follows.
+De \texttt{slice} functie kan gebruikt worden om rijen uit een data.frame te \texttt{slicen}. Stel dat we een hele lange frequentietabel hebben, en we zijn alleen geïnteresseerd in de top 10 waarden. We kunnen dan de eerste 10 rijen van deze tabel als volgt slicen.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6392,7 +6509,7 @@ honda\strut
 \bottomrule
 \end{longtable}
 
-That's slicing. Nothing more, nothing less. We have build up some \emph{large} block of code, but our piping symbol neatly strings it together, doesn't it? Imagine for a moment that we didn't had this symbol. In such a case, we should put each first argument again in the function it is followed by. Thus, mpg should go inside group by. The group\_by should go inside summarize, etc. The result would be the following.
+Dat is slice. Niets meer, niets minder. We hebben een \emph{groot} blok code opgebouwd, maar ons pipingsymbool rijgt het netjes aan elkaar, nietwaar? Stel je even voor dat we dit symbool niet hadden. In zo'n geval zouden we elk eerste argument opnieuw moeten plaatsen in de functie waar het door wordt gevolgd. Dus, mpg moet in group by. De group\_by zou in summarize moeten staan, enz. Het resultaat zou het volgende zijn.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6418,14 +6535,14 @@ That's slicing. Nothing more, nothing less. We have build up some \emph{large} b
 \end{Highlighting}
 \end{Shaded}
 
-That's quite a mess, isn't it? All functions got separated from their arguments, and we cannot really make out what we were doing at all. Surely, the piping symbol does a great job at making our code readable and understandable. Make sure to use it wisely!
+Dat is nogal een puinhoop, is het niet? Alle functies zijn gescheiden van hun argumenten, en we kunnen niet echt opmaken wat we aan het doen waren. Het piping symbool doet zijn werk om onze code leesbaar en begrijpelijk te maken. Zorg ervoor dat je het verstandig gebruikt!
 
-Now we continue with the bivariate analysis of two continuous variables.
+Nu gaan we verder met de bivariate analyse van twee continue variabelen.
 
-\hypertarget{bivariate-analysis-of-a-continuous-variable-with-respect-to-another-continuous-variable}{%
-\section{Bivariate analysis of a continuous variable with respect to another continuous variable}\label{bivariate-analysis-of-a-continuous-variable-with-respect-to-another-continuous-variable}}
+\hypertarget{bivariate-analyse-van-een-continue-variabele-ten-opzichte-van-een-andere-continue-variabele}{%
+\section{Bivariate analyse van een continue variabele ten opzichte van een andere continue variabele}\label{bivariate-analyse-van-een-continue-variabele-ten-opzichte-van-een-andere-continue-variabele}}
 
-The relationship between two continuous variables can be easily shown graphically with a scatter plot. Let's look at \emph{cty} compared with \emph{hwy}.
+De relatie tussen twee continue variabelen kan gemakkelijk grafisch worden weergegeven met een scatter plot. Laten we eens kijken naar \emph{cty} ten opzichte van \emph{hwy}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6437,9 +6554,9 @@ The relationship between two continuous variables can be easily shown graphicall
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-114-1}
+\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-117-1}
 
-There is a very clear relation between these variables, and it appears to be quite linear. Let's draw a linear line through the scatter plot.
+Er is een zeer duidelijk verband tussen deze variabelen, en het blijkt vrij lineair te zijn. Laten we een lineaire lijn trekken door de puntenwolk.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6452,9 +6569,9 @@ There is a very clear relation between these variables, and it appears to be qui
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-115-1}
+\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-118-1}
 
-A linear relationship as this can be very effectively measured with the correlation coefficient. Computing correlations can be done with the base R function \texttt{cor}. However, this function expects a data.frame with only continuous variables, as it will compute all possible correlations between these. Correlations cannot be computed between categorical variables (except for ordinal ones). Thus, first, we select the continuous variables using the \texttt{select} function from \texttt{dplyr}. The variables we are interested in are \emph{displ, year, cty} and \emph{hwy}.
+Een lineair verband als dit kan zeer effectief worden gemeten met de correlatiecoëfficiënt. Het berekenen van correlaties kan worden gedaan met de base-R functie \texttt{cor}. Deze functie verwacht echter een data.frame met alleen continue variabelen, omdat het alle mogelijke correlaties tussen deze zal berekenen. Correlaties tussen categorische variabelen (behalve ordinale) kunnen niet worden berekend. Daarom selecteren we eerst de continue variabelen met de \texttt{select} functie van \texttt{dplyr}. De variabelen waarin we geïnteresseerd zijn, zijn \emph{displ, year, cty} en \emph{hwy}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6527,7 +6644,7 @@ hwy\strut
 \bottomrule
 \end{longtable}
 
-The \texttt{select} call might become large when selecting numeric variables in a large data set. We can rewrite it using the \texttt{select\_if} function, which doesn't expect variable names, but it requires a function to test whether a variable should be included. We can use the \texttt{is.numeric} function to test whether a vector is numeric. Thus, \footnote{Note how we specificy the is.numeric function within select\_if: without quotation marks and without brackets. This is important!}
+De \texttt{select} aanroep kan groot worden bij het selecteren van numerieke variabelen in een grote dataset. We kunnen het herschrijven met de \texttt{select\_if} functie, die geen variabele namen verwacht, maar wel een functie nodig heeft om te testen of een variabele meegenomen moet worden of niet. We kunnen de \texttt{is.numeric} functie gebruiken om te testen of een vector numeriek is. Dus, \footnote{Merk op hoe we de \texttt{is.numeric} functie binnen select\_if gebruiken: zonder aanhalingstekens en zonder haakjes. Dit is belangrijk!}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6599,9 +6716,9 @@ hwy\strut
 \bottomrule
 \end{longtable}
 
-Here we see the very strong correlation between cty and hwy. We also see strong negative correlations between \emph{displ} on the one hand and \emph{cty} and \emph{hwy} on the other hand. Can you try to visualize these as we did for \emph{cty} and \emph{hwy}?
+Hier zien we de zeer sterke correlatie tussen cty en hwy. Wij zien ook sterke negatieve correlaties tussen \emph{displ} enerzijds en \emph{cty} en \emph{hwy} anderzijds. Kan je proberen deze te visualiseren zoals wij hebben gedaan voor \emph{cty} en \emph{hwy}?
 
-We could also visualize the correlations computed by \texttt{cor} using ggplot, but something's amiss. The data returned by the correlation function isn't very tidy. There are variable names in the columns as well as in the rows?\footnote{Remember the tidyverse? There are different meanings related to ``tidy''. One thing is tidy functions, i.e.~functions that neatly work together with, for instance, the piping symbol. Another thing is tidy data. However, tidy data is out of the scope of this tutorial.} Even worse, it isn't a data.frame!
+We zouden ook de door \texttt{cor} berekende correlaties kunnen visualiseren met ggplot, maar er is iets mis. De gegevens die de correlatiefunctie oplevert zijn niet erg netjes. Er zijn variabele namen in de kolommen en in de rijen? Nog erger, het is geen data.frame!
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6616,11 +6733,11 @@ We could also visualize the correlations computed by \texttt{cor} using ggplot, 
 ## [1] "matrix" "array"
 \end{verbatim}
 
-Matrix? The movie? No, matrix is another type of object in R that you might not have heard of yet. While a data.frame is a collection of vectors, you can think of a matrix as a two dimensional vector. This means that, like in a vector, all elements in a matrix should have the same type. Like a vector can have names, also the rows and columns of a matrix can have names, like in our example.
+Matrix? De film? Nee, matrix is een ander type object in R waar je misschien nog niet van gehoord hebt. Terwijl een data.frame een verzameling vectoren is, kun je een matrix zien als een tweedimensionale vector. Dit betekent dat, net als in een vector, alle elementen in een matrix hetzelfde type moeten hebben. Zoals een vector namen kan hebben, kunnen ook de rijen en kolommen van een matrix namen hebben, zoals in ons voorbeeld.
 
-But, as we know, \texttt{ggplot2} can only work with data.frames. We are completely doomed! But, we could possibly turn a matrix into a data.frame\ldots{} And then we can reshape it such that all variables are on columns\ldots{} We could try\ldots{}
+Maar, zoals we weten, kan \texttt{ggplot2} alleen werken met data.frames. We zijn compleet verloren! Maar, we kunnen misschien van een matrix een data.frame maken. En dan kunnen we het zo aanpassen dat alle variabelen in kolommen staan. We kunnen het proberen\ldots{}
 
-But, that seems a lot of work. And we are still lazy. Luckily, most R-users are lazy to some extent, and someone must have done this work someday, and must have been so generous to put it into a package. \texttt{ggcorrplot} is the answer to all our needs. The \texttt{ggcorrplot} package has a single function that is useful for us: \texttt{ggcorrplot}. Note that both the package and its main function has been given the same name. How generous! But be careful: \texttt{cor} had one r, \texttt{ggcorrplot} has two.
+Maar, dat lijkt een hoop werk. En we zijn nog steeds lui. Gelukkig zijn de meeste R-gebruikers tot op zekere hoogte lui, en iemand moet dit werk ooit gedaan hebben, en moet zo genereus geweest zijn om het in een pakket te stoppen. \texttt{ggcorrplot} is het antwoord. Het \texttt{ggcorrplot} pakket heeft één enkele functie die nuttig is voor ons: \texttt{ggcorrplot}. Merk op dat zowel het pakket als de functie dezelfde naam hebben gekregen. Hoe genereus! Maar wees voorzichtig: \texttt{cor} had één r, \texttt{ggcorrplot} heeft er twee.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6637,37 +6754,37 @@ But, that seems a lot of work. And we are still lazy. Luckily, most R-users are 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-120-1}
+\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-123-1}
 
-What we get is a visual matrix. The color of the squares indicate the direction of the relationship (by default, red is positive and blue is negative), That's nice. However, there are many different options to make \texttt{ggcorrplot} just as we like it. Lets look at the most important ones:
+Wat we krijgen is een visuele matrix. De kleur van de vierkantjes geeft de richting van het verband aan (standaard is rood positief en blauw negatief). Er zijn echter veel verschillende opties om \texttt{ggcorrplot} te maken zoals we het willen. Laten we eens kijken naar de belangrijkste:
 
 \begin{itemize}
 \tightlist
 \item
-  method: ``square'' or ``circle'': the shape of the elements in the matrix
+  method: ``square'' of ``circle'': de vorm van de elementen in de matrix
 \item
-  lab: if TRUE, it will show the correlation values on top of the squares (or circles)
+  lab: indien TRUE, zullen de correlatiewaarden boven de vierkanten (of cirkels) worden getoond
 \item
-  lab\_col and lab\_size: allow us to modify how the values are printed
+  lab\_col en lab\_size: hiermee kunnen we veranderen hoe de waarden worden afgedrukt
 \item
-  outline\_color: the color of the borders of the squares
+  outline\_color: de kleur van de randen van de vierkanten
 \item
-  type: ``full'',``lower'' or ``upper'': a correlation matrix is symmetric, so we can chose to show only the lower or upper half.
+  type: ``full'', ``lower'' of ``upper'': een correlatiematrix is symmetrisch, dus we kunnen kiezen om alleen de onderste of de bovenste helft te tonen.
 \item
-  ggtheme: you can use any one of the default ggplot2 themes: theme\_grey, theme\_minimal, theme\_classic. Specify them without brackets or quotation marks, just as we did with \texttt{is.numeric} a few minutes ago.
+  ggtheme: je kan één van de standaard ggplot2-thema's gebruiken: theme\_grey, theme\_minimal, theme\_classic. Geef ze op zonder haakjes of aanhalingstekens, net zoals we een paar minuten geleden deden met \texttt{is.numeric}.
 \item
-  title
+  titel
 \item
-  legend.title
+  legende.titel
 \item
-  colors, a vector of three colors for the low, mid and high values. Default: c(``blue'',``white'',``red'')
+  colors, een vector van drie kleuren voor de lage, midden en hoge waarden. Standaard: c(``blauw'', ``wit'', ``rood'')
 \item
-  hc.order: if set to TRUE we can order the variables to show which variables are most related
+  hc.order: indien ingesteld op TRUE kunnen we de variabelen ordenen om te tonen welke variabelen het meest verwant zijn
 \item
-  show.diag: Show the diagonal if TRUE (in case type is equal to ``lower'' or ``upper'')
+  show.diag: Toon de diagonaal indien TRUE (in geval type gelijk is aan ``lower'' of ``upper'')
 \end{itemize}
 
-An example of a slightly modified version of our plot is the following: \footnote{More information and settings for these plots can be found in \href{https://github.com/kassambara/ggcorrplot}{this manual}}
+An example of a slightly modified version of our plot is the following: \footnote{Meer informatie en instellingen voor deze plots zijn te vinden in \href{https://github.com/kassambara/ggcorrplot}{deze handleiding}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6684,14 +6801,14 @@ An example of a slightly modified version of our plot is the following: \footnot
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-121-1}
+\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-124-1}
 
-We have already traveled a long and exciting way through the tidyverse! The final thing we want to achieve, is to do a bivariate analysis of two categorical variables. For this, we will learn to construct contingency tables. The end is really near now.
+We hebben al een lange en opwindende weg afgelegd door het tidyverse! Het laatste wat we willen kunnen, is een bivariate analyse doen van twee categorische variabelen. Hiervoor zullen we contingentietabellen leren construeren. We hebben bijna alle soorten beschrijvende analyse onder de knie.
 
-\hypertarget{bivariate-analysis-of-a-categorical-variable-with-respect-to-another-categorical-variable}{%
-\section{Bivariate analysis of a categorical variable with respect to another categorical variable}\label{bivariate-analysis-of-a-categorical-variable-with-respect-to-another-categorical-variable}}
+\hypertarget{bivariate-analyse-van-een-categorische-variabele-ten-opzichte-van-een-andere-categorische-variabele}{%
+\section{Bivariate analyse van een categorische variabele ten opzichte van een andere categorische variabele}\label{bivariate-analyse-van-een-categorische-variabele-ten-opzichte-van-een-andere-categorische-variabele}}
 
-We start again by a looking at a graph. Suppose we want to look at the relationship between \emph{class} and \emph{cyl}. We could make faceted bar charts.
+We beginnen weer met het bekijken van een grafiek. Stel dat we de relatie tussen \emph{class} en \emph{cyl} willen bekijken. We zouden facetted staafdiagrammen kunnen maken.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6703,9 +6820,9 @@ We start again by a looking at a graph. Suppose we want to look at the relations
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-122-1}
+\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-125-1}
 
-Here we see that the distributions of class differs when the number of cylinder changes. For 4 cylinders, most cars are compact, while for 8 cylinders, most cars are suv's. We could also look at it from another perspective however.
+Hier zien we dat de verdeling van de class verschilt wanneer het aantal cilinders verandert. Voor 4 cilinders zijn de meeste auto's compact, terwijl voor 8 cilinders de meeste auto's suv's zijn. We kunnen het echter ook vanuit een ander perspectief bekijken.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6716,9 +6833,9 @@ Here we see that the distributions of class differs when the number of cylinder 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-123-1}
+\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-126-1}
 
-And yet another
+En nog een
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6728,9 +6845,9 @@ And yet another
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-124-1}
+\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-127-1}
 
-And yet another
+En nog een
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6740,9 +6857,9 @@ And yet another
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-125-1}
+\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-128-1}
 
-And yet another
+En nog een
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6752,9 +6869,9 @@ And yet another
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-126-1}
+\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-129-1}
 
-Indeed, there are many ways to look at the relationship between two categorical variables. The many graphs that can be made indicate that there can also be multiple contingency tables. Everything really depends on the question you want to answer. Fortunately, we already know a lot of important functions by now, which we can put to good use. We start by counting how many cars there are for each cyl-class combination. Let's roll.
+Er zijn inderdaad vele manieren om de relatie tussen twee categorische variabelen te bekijken. De vele grafieken die kunnen worden gemaakt, geven aan dat er ook meerdere contingentietabellen kunnen zijn. Alles hangt echt af van de vraag die je wilt beantwoorden. Gelukkig kennen we inmiddels al een heleboel belangrijke functies, die we goed kunnen gebruiken. We beginnen met te tellen hoeveel auto's er zijn voor elke cilinder-klasse combinatie.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6914,9 +7031,9 @@ suv\strut
 \bottomrule
 \end{longtable}
 
-Great, that went perfect! To make a contingency table of this, we want to put one of the two variables on the columns. This will create a matrix-like structure. Here, we need a new functions, which is called \texttt{spread}. This function is from the \texttt{tidyr} package, which is used to tidy data. However, the other functions from this packages won't be discussed here.
+Geweldig, dat ging perfect! Om hier een contingentietabel van te maken, willen we een van de twee variabelen op de kolommen zetten. Dit zal een matrix-achtige structuur creëren. Hier hebben we een nieuwe functie voor nodig, die \texttt{spread} heet. Deze functie komt uit het \texttt{tidyr} pakket, dat wordt gebruikt om gegevens op te schonen. Echter, de andere functies uit dit pakket zullen hier niet worden besproken.
 
-The function spread has 2 arguments, \texttt{key} and \texttt{value} (apart from data, of course). The key refers to the variable of which we want to put the values as new columns, in this case \emph{class}. The value refers to the variable of which we want to place the values in the new columns, in this case, our frequency. No idea what is going to happen? Let's look at an example.
+De functie spread heeft 2 argumenten, \texttt{key} en \texttt{value} (behalve data, natuurlijk). De key verwijst naar de variabele waarvan we de waarden als nieuwe kolommen willen plaatsen, in dit geval \emph{class}. De value verwijst naar de variabele waarvan we de waarden in de nieuwe kolommen willen plaatsen, in dit geval onze frequentie. Geen idee wat er gaat gebeuren? Laten we eens naar een voorbeeld kijken.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7022,9 +7139,9 @@ NA\strut
 \bottomrule
 \end{longtable}
 
-Did you see what has happened? Just compare the last two tables. What happens if you use cyl as key?
+Heb je gezien wat er gebeurd is? Vergelijk gewoon de laatste twee tabellen. Wat gebeurt er als je cyl als key gebruikt?
 
-Now, why do some of the values in this data.frame show NA, which stands for not available? That's because not all class-cyl combinations exists, i.e., our list before only showed us 19 existing combinations. There are no cars for the other 9 combinations. However, we don't like NA's very much, so let's change them into zero's. Fortunately, this is a feature of the \texttt{spread} function. The argument \texttt{fill} will be used to ``fill'' the empty cells. We just need to set it to zero.\footnote{We have already encountered fill in different contexts. It is used to specify the fill-color in plots, it can be used as a position in geom\_bar to fill the bars to 100\%, and now we can used it to fill empty spaces in the contingency table. Don't mess things up here!}
+Nu, waarom tonen sommige van de waarden in dit data.frame NA, wat staat voor Not Available? Dat komt omdat niet alle class-cyl combinaties bestaan, d.w.z., onze lijst voordien toonde ons slechts 19 bestaande combinaties. Er zijn geen auto's voor de andere 9 combinaties. We houden echter niet zo van NA's, dus laten we ze veranderen in nullen. Gelukkig is dit een functie van de \texttt{spread} functie. Het argument \texttt{fill} wordt gebruikt om de lege cellen te ``vullen''. We hoeven het alleen maar op nul te zetten. \footnote{We zijn fill al in verschillende contexten tegengekomen. Het wordt gebruikt om de vulkleur in plots te specificeren, het kan gebruikt worden als een position in geom\_bar om de balken tot 100\% te vullen, en nu kunnen we het gebruiken om lege ruimtes in de contingentietabel op te vullen. Verwar ze niet met elkaar!}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7130,9 +7247,9 @@ suv\strut
 \bottomrule
 \end{longtable}
 
-Great. This is what I would call a ``Contingency table with absolute frequencies''. It shows us the absolute number of cars for each combination of cyl and class, and it tells us that the combination 8 and SUV is the most prominent in our data. This contingency table goes very well with our first two graphs.
+Geweldig. Dit is wat ik zou noemen een ``Contingentietabel met absolute frequenties''. Het toont ons het absolute aantal auto's voor elke combinatie van cilinder en klasse, en het vertelt ons dat de combinatie 8 cilinders en SUV het meest prominent is in onze gegevens. Deze contingentietabel past heel goed bij onze eerste twee grafieken.
 
-Another question we could ask is: If we look at cars with 4 cylinders, what is the specific distribution of classes? In this case, we would like to have relative frequencies. Let's try this.
+Een andere vraag die we kunnen stellen is: Als we kijken naar auto's met 4 cilinders, wat is dan de specifieke verdeling over de klassen? In dit geval zouden we relatieve frequenties willen hebben. Laten we dit eens proberen.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7333,13 +7450,13 @@ suv\strut
 \bottomrule
 \end{longtable}
 
-That's exactly what we wanted to have. But, don't you notice something strange?
+Dat is precies wat we wilden hebben. Maar, valt je niet iets vreemds op?
 
-Within each cyl group, the relative frequencies add up to one. For instance look at cyl = 5, there are 50\% compact cars and 50\% subcompact. That is what we wanted, but\ldots{} this is not what happened before when making frequency tables. What has changed?
+Binnen elke cilindergroep tellen de relatieve frequenties op tot één. Kijk bijvoorbeeld naar cyl = 5, daar zijn 50\% compacte auto's en 50\% subcompact. Dat is wat we wilden, maar\ldots{} dit is niet wat er eerder gebeurde bij het maken van frequentie tabellen. Wat is er veranderd?
 
-The answer is subtle, tricky and important.
+Het antwoord is subtiel, lastig en belangrijk.
 
-Every time a summarize is done of a grouped data.frame, the summarize function removes the last grouping variable. It is said that the summarize function \emph{peels} of group levels. In the case of our frequency table earlier:
+Telkens wanneer een sommatie wordt gedaan van een gegroepeerd data.frame, verwijdert summary de laatste groeperingsvariabele. In het geval van onze frequentietabel eerder:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7354,9 +7471,9 @@ Every time a summarize is done of a grouped data.frame, the summarize function r
 ## list()
 \end{verbatim}
 
-After the summarize, there are no grouping variables left. There was only one, and it has been removed. The summarize function implicitly assumes that the grouping has become useless after the summarize. This means that, when we used \texttt{sum(frequency)} in the next line to compute relative frequencies, it would compute the sum of the frequencies in the whole table.
+Na het samenvatten, zijn er geen groeperingsvariabelen meer. Er was er maar één, en die is verwijderd. De functie summarize gaat er impliciet van uit dat de groepering nutteloos is geworden na de summarize. Dit betekent dat, als we \texttt{sum(frequency)} in de volgende regel gebruiken om relatieve frequenties te berekenen, het de som van de frequenties in de hele tabel zou berekenen.
 
-Now, back to our example. After the frequencies are computed, the data is only grouped by cyl. Thus, the \texttt{sum(frequency)} will now compute the sum of the frequencies for each cyl-group. Indeed, remember, for a grouped data.frame, all operations happen separately for each group. That is exactly why the relative frequencies add to 1 within each cyl group.
+Nu, terug naar ons voorbeeld. Nadat de frequenties zijn berekend, zijn de gegevens alleen gegroepeerd per cyl. Dus \texttt{sum(frequency)} berekent nu de som van de frequenties voor elke cyl-groep. Inderdaad, vergeet niet, voor een gegroepeerd data.frame, gebeuren alle bewerkingen afzonderlijk voor elke groep. Dat is precies de reden waarom de relatieve frequenties binnen elke cyl-groep bij 1 optellen.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7372,7 +7489,7 @@ Now, back to our example. After the frequencies are computed, the data is only g
 ## cyl
 \end{verbatim}
 
-When we change the order of grouping levels in the \texttt{group\_by} function, we also change the relative frequencies which will get computed. If we put class first, the relative frequencies will add up to 1 for each of the classes.
+Als we de volgorde van de groeperingsniveaus in de \texttt{group\_by} functie veranderen, veranderen we ook de relatieve frequenties die berekend zullen worden. Als we de klasse eerst zetten, zullen de relatieve frequenties voor elk van de klassen opgeteld 1 zijn.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7573,9 +7690,9 @@ suv\strut
 \bottomrule
 \end{longtable}
 
-Admittedly, this is confusing, but at the same time it is very helpful, as it is already something useful in the case at hand. However, you should thus pay attention to the order of variables in the group\_by function, and to the number of summarizes used after grouping.
+Toegegeven, dit is verwarrend, maar tegelijkertijd is het zeer nuttig. Je moet dus wel letten op de volgorde van de variabelen in de group\_by functie, en op het aantal samenvattingen dat na het groeperen wordt gebruikt.
 
-Now that we have the relative frequencies, we can again reshape those with \texttt{spread} to create a matrix-like table. This time, we set relative\_frequency as the value.
+Nu we de relatieve frequenties hebben, kunnen we die met \texttt{spread} opnieuw vormgeven om een matrix-achtige tabel te maken. Deze keer stellen we de relatieve\_frequentie in als waarde.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7857,7 +7974,7 @@ suv\strut
 \bottomrule
 \end{longtable}
 
-Oh\ldots{} that's not what we had expected, is it? We expected to have one row for each class, but now we have more than one. The reason is simple. For each combination of class and cyl, we have two values: frequency and relative frequency. When we want to spread the relative frequencies onto one line, there is no more place for the frequencies to go. As a result, the lines cannot \emph{collapse} into one line, just as they did before. However, we can simply solve this by first getting rid of the frequencies.
+Oh\ldots{} dat is niet wat we verwacht hadden? We verwachtten één rij voor elke klasse, maar nu hebben we er meer dan één. De reden is eenvoudig. Voor elke combinatie van klasse en cilinder hebben wij twee waarden: frequentie en relatieve frequentie. Wanneer wij de relatieve frequenties over één lijn willen verdelen, is er geen plaats meer voor de frequenties. Het gevolg is dat de lijnen niet meer, zoals voorheen, tot één lijn kunnen \emph{samenvallen}. We kunnen dit echter eenvoudig oplossen door eerst de frequenties weg te nemen, door select te gebruiken.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7968,11 +8085,11 @@ suv\strut
 \bottomrule
 \end{longtable}
 
-This looks more like it. Note that instead of indicating the variables we want to keep with select, we indicate the variable we want to delete with a minus sign, which is much shorter. Do not confuse it with the minus sign when arranging data, because that is something quite different.
+Dit lijkt er meer op. Merk op dat in plaats van de variabelen die we willen houden aan te geven met select, we de variabele die we willen verwijderen aangeven met een minteken, wat veel korter is. Verwar het niet met het minteken bij het rangschikken van gegevens, want dat is iets heel anders.
 
-On each row we can now see the distribution of different cylinders for a specific class of cars. You could also turn it the other way around, and show the distribution of different classes for a specific number of cylinders. Just as we had many graphs to look at these two variables, we can make many contingency tables. Can you give it a try?
+Op elke rij kunnen we nu de verdeling van verschillende cilinders zien voor een bepaalde klasse auto's. Je zou het ook andersom kunnen draaien, en de verdeling van verschillende klassen voor een specifiek aantal cilinders kunnen laten zien. Net zoals we vele grafieken hadden om naar deze twee variabelen te kijken, kunnen we vele contingentietabellen maken.
 
-Finally, suppose we want a contingency table with overall relative frequencies. I.e. we want to answer the question: what percentage of the cars has 5 cylinders and is of the class compact. We can recycle the last piece of code, and we only have to add one line.
+Stel ten slotte dat we een contingentietabel willen met algemene relatieve frequenties. D.w.z. dat we de vraag willen beantwoorden: welk percentage van de auto's heeft 5 cilinders en is van de klasse compact. We kunnen het laatste stukje code recyclen, en we hoeven maar één regel toe te voegen.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -8084,14 +8201,14 @@ suv\strut
 \bottomrule
 \end{longtable}
 
-The ungroup function which we have added removes all the group. As a result, the sum of the frequency will be calculated over the complete data.frame. Thus, only the relative frequencies of all combinations will add to one (you can do the math).
+De functie ungroup die we hebben toegevoegd, verwijdert alle groepen. Als gevolg daarvan wordt de som van de frequenties berekend over het volledige data.frame. Dus, alleen de relatieve frequenties van alle combinaties zullen bij elkaar opgeteld één zijn (je kan het zelf narekenen).
 
 \hypertarget{background-material-1}{%
 \section{Background material}\label{background-material-1}}
 
-We have performed 5 different analyses and learned a lot of new helpful functions along the way.
+Wij hebben 5 verschillende analyses uitgevoerd en onderweg heel wat nieuwe nuttige functies geleerd. Vergeet zeker niet de belangrijkste: select, arrange, group\_by, summarize, mutate en spread!
 
-If you want to learn more, you can consult these materials
+Als je meer wilt weren, kan je deze materialen raadplegen:
 
 \begin{itemize}
 \tightlist
@@ -9866,8 +9983,8 @@ NA & 9368\\
 \hypertarget{tutorial---data-voorbereiden}{%
 \chapter{Tutorial - Data voorbereiden}\label{tutorial---data-voorbereiden}}
 
-\hypertarget{before-you-start-1}{%
-\section{Before you start}\label{before-you-start-1}}
+\hypertarget{before-you-start}{%
+\section{Before you start}\label{before-you-start}}
 
 During this tutorial, we'll use several r-packages. Make sure to install and load them, if needed.
 
@@ -9907,8 +10024,8 @@ If you want to try things yourself, make sure to follow the tutorial step by ste
 ## $ tvhours <chr> "12", NA, "2", "4", "1", NA, "3", NA, "0", "3", "2", NA, "1...
 \end{verbatim}
 
-\hypertarget{introduction-1}{%
-\section{Introduction}\label{introduction-1}}
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
 
 This tutorial on cleaning and transformation is divided into three different sections.
 
@@ -10530,7 +10647,7 @@ Deciding whether a factor is ordinal or not is not always that straigthforward. 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-165-1}
+\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-168-1}
 
 When we don't have an ordinal factor, the order of labels will be often be alphabetical. In this case, because we recoded the labels before, they are not even in alphabetical order any more. \footnote{When we first did as.factor(party), the levels were placed in alphabetical order. However, we then recoded some levels, but this didn't update the order. Thus ``Strong Republican'' because ``Republican Strong'' and ``Strong Democrate'' became ``Democrat Strong'', but both remained the last levels because they originally started with S. It's not expected that you are familiar with all the side-effects of some transformations, but this shows you the complexities when our actions start to depend on earlier actions, and how we are really working in an iterative context.}. The resulting graph is difficult to read, as the x-axis is scrambled. A natural reflex would be to order the bar chart according to frequency, but that would not really improve the readability in this special case. Instead, we can apply a more logical order, without necessary considering party as an ordinal variable. Such a logical order is readily available for the current variable, as we often speak of left and right-wing politics. We can leave the alternative answers (Don't know, No Answer, Other Party), either at the start or end of the order. By not noticing them in the code below, the latter will happen.
 
@@ -10560,7 +10677,7 @@ Our graph now looks as follows. Better, isn't it? \footnote{Of course, \emph{bet
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-167-1}
+\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-170-1}
 
 In conclusion we use
 
@@ -10695,7 +10812,7 @@ It also happens that some continuous values are not necessarily wrong, but \emph
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-175-1}
+\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-178-1}
 
 It seems that while most people watch television between 0 and 5 hour a day, there are some exceptionally high values. It's not clear whether they are mistakes like the onces we removed before, or just abnormal tv-addicts. Let's have a look at the 25 highest values, and compare them with some related attributes, such as age, income and marital status (comparing them with religion or party might be regarded as politically incorrect, so let's steer clear from that danger zone).\footnote{Remember that we use pander to improve the layout of our tables, and you shouldn't pay attention to that.}
 
@@ -10972,7 +11089,7 @@ Deciding whether something is wrong or exceptional is not trivial and requires c
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-177-1}
+\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-180-1}
 
 For the current case, we can say the people who watch more than 8 hours tv either filled in an incorrect number, or are exceptional tv-watchers. As such, we remove all values higher than 8.
 
@@ -11065,7 +11182,7 @@ This tells us for which variables there are missing data, and how many. However,
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-180-1}
+\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-183-1}
 
 \begin{verbatim}
 ##       year marital race reported_income party religion denomination age
@@ -11160,7 +11277,7 @@ When we compare the missing/not missing variable with a categorical variable, we
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-184-1}
+\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-187-1}
 
 The bar chart shows that people who didn't report their income, were more likely to not report their age also. \footnote{One could argue that we also coded the ``No answer'' value for reported income as NA. However, it this case, it was decided not to, in order to retain a clear distinction between the special categories (Refused, Not applicable, No answer and Don't know).}.
 
@@ -11175,7 +11292,7 @@ We can do the same for tv-hours. We then see that the percentage of missing valu
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-185-1}
+\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-188-1}
 
 Of course, the occurence of missing values can be compared with more than one variable, not just income. Below we show the comparison of tv-hours missing with political affiliation. Here we can clearly see that there is one answer for political party which was only used for observations which did not include the tv hours.
 
@@ -11188,7 +11305,7 @@ Of course, the occurence of missing values can be compared with more than one va
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-186-1}
+\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-189-1}
 
 As a final example, we can compare the missing of tv hours with a continuous variable, let's say age. Are people who didn't report the number of hours they watch tv generally older or younger? The boxplots below don't show any difference.
 
@@ -11200,7 +11317,7 @@ As a final example, we can compare the missing of tv hours with a continuous var
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-187-1}
+\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-190-1}
 
 How many comparisons you make for each variable where data is missing is up to you -- but you have to gather reasonable evidence whether you missing values are MAR, MCAR or NMAR.
 
@@ -11227,7 +11344,7 @@ First, consider visualizations. When working with ggplot, missing values will of
 ## Warning: Removed 76 rows containing non-finite values (stat_bin).
 \end{verbatim}
 
-\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-188-1}
+\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-191-1}
 
 The warning
 
@@ -11285,7 +11402,7 @@ Let's say we make a bar chart of the religion variable. The NA value then appear
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-192-1}
+\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-195-1}
 
 As such, ggplot handles missing values without problem and quite transparent. The same is not true when we go to numeric computations.
 
@@ -11865,7 +11982,7 @@ Transformations as these can be useful in there own right: reducing the number o
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-212-1}
+\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-215-1}
 
 But they can as well be used in combination with the original levels. For example to improve visuals: \footnote{In this example, we use the scale\_fill\_tableau color scale from the package ggthemes to have a color scale where Democrats are blue and Republicans are red. Furthermore, we use fct\_rev to reverse the order of the factors. fct\_rev will be discussed in a few moments.}
 
@@ -11881,7 +11998,7 @@ But they can as well be used in combination with the original levels. For exampl
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-213-1}
+\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-216-1}
 
 Alternatively, we can use fct\_lump to create an other category. For example, take a look at the religions.
 
@@ -11996,7 +12113,7 @@ We start with the following graph.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-218-1}
+\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-221-1}
 
 A factor can be ordered based on the (in)frequency of each level using the fct\_infreq function. Its use is simple. We can choose to add the function directly within ggplot, or to update the religion variable using mutate in advance of plotting.
 
@@ -12009,7 +12126,7 @@ A factor can be ordered based on the (in)frequency of each level using the fct\_
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-219-1}
+\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-222-1}
 
 \texttt{fct\_infreq} will count for each of the levels -- religions in this case -- how often it occurs, and reorder the levels accordingly. Now, suppose that we don't want absolute frequencies like in the last plot, but relative. In that case, we need to compute them ourselves and use \texttt{geom\_col}.
 
@@ -12025,7 +12142,7 @@ A factor can be ordered based on the (in)frequency of each level using the fct\_
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-220-1}
+\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-223-1}
 
 We now can see read the relative frequencies from the chart. Now let's order the bars once more.
 
@@ -12041,7 +12158,7 @@ We now can see read the relative frequencies from the chart. Now let's order the
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-221-1}
+\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-224-1}
 
 Oops, that didn't seem to work. Why not? Let's look at the data we gave to ggplot.
 
@@ -12091,7 +12208,7 @@ So, what can we do instead? Well, we want to order the religions based on freque
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-223-1}
+\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-226-1}
 
 Note how we refer to rel\_freq twice: once to order, and once to use as y-axis. Also note that the order of the bars is reversed: \texttt{fct\_infreq} will always order from most to least frequent, while our current configuration with \texttt{fct\_reorder} is ordering from least to most frequent. We can simply change it using desc(), as we have done before.
 
@@ -12107,7 +12224,7 @@ Note how we refer to rel\_freq twice: once to order, and once to use as y-axis. 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-224-1}
+\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-227-1}
 
 Alternatively, we can use the \texttt{fct\_rev} function: this function will reverse the order of a factor. For example, we can reverse the order made by \texttt{fct\_infreq}.
 
@@ -12120,7 +12237,7 @@ Alternatively, we can use the \texttt{fct\_rev} function: this function will rev
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-225-1}
+\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-228-1}
 
 Thus, summarizing:
 
@@ -12146,7 +12263,7 @@ However, there is one more thing we need to cover. \texttt{fct\_reorder(f,x)} ca
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-226-1}
+\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-229-1}
 
 This plot shows the distribution of age for different marital statuses. Let's say we want to sort these boxplots according to age. We use \texttt{fct\_reorder} just as we did before.
 
@@ -12158,7 +12275,7 @@ This plot shows the distribution of age for different marital statuses. Let's sa
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-227-1}
+\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-230-1}
 
 Again, the results are not as we would expect. What's different compared to the previous use with frequencies?
 
@@ -12197,7 +12314,7 @@ Putting it to the test:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-228-1}
+\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-231-1}
 
 This looks better. So, let's summarize once again.
 
@@ -12778,8 +12895,8 @@ Newark Liberty Intl & vertrek\_vertraging & 14.01 & 16.73 & 12.57 & 13.95 & 20.1
 \hypertarget{tutorial---tidy-data}{%
 \chapter{Tutorial - Tidy data}\label{tutorial---tidy-data}}
 
-\hypertarget{before-you-start-2}{%
-\section{Before you start}\label{before-you-start-2}}
+\hypertarget{before-you-start-1}{%
+\section{Before you start}\label{before-you-start-1}}
 
 During this tutorial, we'll use several r-packages. Make sure to install and load them, if needed.
 
@@ -13794,7 +13911,7 @@ Oh, I almost forgot! We would make a line plot of the population data. Well, you
 \end{Shaded}
 
 \begin{figure*}
-\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-271-1} \end{figure*}
+\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-274-1} \end{figure*}
 
 Can you tell which countries are the two soaring lines in Asia? (Please tell me you can.)
 
@@ -14407,7 +14524,7 @@ According to this data, there were 78 cases, and none of them were relapses.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-288-1}
+\includegraphics[width=1\linewidth]{textbook_files/figure-latex/unnamed-chunk-291-1}
 
 \hypertarget{tijdsdata}{%
 \chapter{Tijdsdata}\label{tijdsdata}}
@@ -14730,17 +14847,10 @@ According to this data, there were 78 cases, and none of them were relapses.
 \hypertarget{before-we-start}{%
 \section{Before we start}\label{before-we-start}}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(dplyr) }
-\KeywordTok{library}\NormalTok{(lubridate)}
-\end{Highlighting}
-\end{Shaded}
-
 Congratulations on reaching the final tutorial of this course. In this tutorial we will be playing with dates and times. To do this in an easy way, we will use the package lubridate, which you might need to install. We will also load dplyr for when we will use time in a data.frame context. We will not need any dataset, we will make all data ourselfs (How cool is that?).
 
-\hypertarget{introduction-2}{%
-\section{Introduction}\label{introduction-2}}
+\hypertarget{introduction-1}{%
+\section{Introduction}\label{introduction-1}}
 
 In current \emph{times}, time data is very important, so it is crucial that you know how to work with it. If you think about it, there are so many types of data which have a time component. Just look at the different datasets we have been using.
 
@@ -14797,25 +14907,13 @@ The possibilities are endless. However, thanks to lubridate, we don't need to bo
 
 Consider the following code. We create a character containing the date above.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{date <-}\StringTok{ "1991-06-28"}
-\end{Highlighting}
-\end{Shaded}
-
 Let's say I want to know the difference between that day and today. The following will obviously not work.
 
 \begin{verbatim}
-## "2021-02-15" - "1991-06-28"
+## "2021-03-04" - "1991-06-28"
 \end{verbatim}
 
 I don't know about you, but I have learned that we cannot substract two words from each other. What about if we remove the "'s?
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\DecValTok{2019-04-29} \OperatorTok{-}\StringTok{ }\DecValTok{1991-06-28}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## [1] -39
@@ -14827,29 +14925,11 @@ What we need is a new type of object. Not character, not numeric, not integer, n
 
 We can make a date with the aptly-named `make\_date' function in lubridate, where we can give year, month and date as an argument.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{date <-}\StringTok{ }\KeywordTok{make_date}\NormalTok{(}\DataTypeTok{year =} \DecValTok{1991}\NormalTok{, }\DataTypeTok{month =} \DecValTok{6}\NormalTok{, }\DataTypeTok{day =} \DecValTok{28}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{date}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## [1] "1991-06-28"
 \end{verbatim}
 
 Printing it doesn't really change a thing. Let's look at the class. \footnote{The words date and data are too different things. It's again a common source of typos.}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{class}\NormalTok{(date)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## [1] "Date"
@@ -14858,16 +14938,6 @@ Printing it doesn't really change a thing. Let's look at the class. \footnote{Th
 Well, that seems alright.
 
 Let's make a bunch of dates - let's say each day in april. Do you still remember the code blow? We saw it to create data.frames a long time ago. We use tbl\_df to transform the data.frame to the easier to print tibble format.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{dates_of_april <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{year =} \DecValTok{2019}\NormalTok{,}
-           \DataTypeTok{month =} \DecValTok{4}\NormalTok{,}
-           \DataTypeTok{day =} \DecValTok{1}\OperatorTok{:}\DecValTok{30}\NormalTok{) }\OperatorTok{%>%}
-\StringTok{    }\KeywordTok{tbl_df}\NormalTok{()}
-\NormalTok{dates_of_april}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## # A tibble: 30 x 3
@@ -14888,14 +14958,6 @@ Let's make a bunch of dates - let's say each day in april. Do you still remember
 
 Using mutate, we can now add the date as a separate variable.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{dates_of_april }\OperatorTok{%>%}
-\StringTok{    }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{date =} \KeywordTok{make_date}\NormalTok{(year, month, day)) ->}\StringTok{ }\NormalTok{dates_of_april}
-\NormalTok{dates_of_april}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## # A tibble: 30 x 4
 ##     year month   day date      
@@ -14915,13 +14977,6 @@ Using mutate, we can now add the date as a separate variable.
 
 Look again at the type of this variable. It's called a Date.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{dates_of_april }\OperatorTok{%>%}
-\StringTok{    }\NormalTok{glimpse}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## Rows: 30
 ## Columns: 4
@@ -14934,12 +14989,6 @@ Look again at the type of this variable. It's called a Date.
 Of course, this only solves part of the problem. How do we go from something as ``28-06-1991'' to 28 and 6 and 1991 to a date? Suppose we have a table of dates where each date is stored as a character, like below. {[}\^{}unite{]}
 
 {[}\^{}unite{]}; You can actually make this table yourself by uniting the year, month, day column of dates\_of\_april using tidyr's unite.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{dates_of_april_text}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## # A tibble: 30 x 1
@@ -14960,13 +15009,6 @@ Of course, this only solves part of the problem. How do we go from something as 
 
 Look closely, this date column is not a `date', it is a character.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{dates_of_april_text }\OperatorTok{%>%}
-\StringTok{    }\KeywordTok{glimpse}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## Rows: 30
 ## Columns: 1
@@ -14974,15 +15016,6 @@ Look closely, this date column is not a `date', it is a character.
 \end{verbatim}
 
 However, using separate, we could separate these characters, and then applying make\_date.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(tidyr)}
-\NormalTok{dates_of_april_text }\OperatorTok{%>%}
-\StringTok{    }\KeywordTok{separate}\NormalTok{(date, }\DataTypeTok{into =} \KeywordTok{c}\NormalTok{(}\StringTok{"year"}\NormalTok{,}\StringTok{"month"}\NormalTok{,}\StringTok{"day"}\NormalTok{)) }\OperatorTok{%>%}
-\StringTok{    }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{date =} \KeywordTok{make_date}\NormalTok{(year, month, day))}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## # A tibble: 30 x 4
@@ -15005,13 +15038,6 @@ Of course, that's a lot of work, which we don't like. However, we can use lubrid
 
 Since year is written down first, then month, then day, the order of components is \emph{ymd}. Well, there is a function in lubridate with that name. Let's try with our earlier date.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{date <-}\StringTok{ }\KeywordTok{ymd}\NormalTok{(}\StringTok{"1991-06-28"}\NormalTok{)}
-\NormalTok{date}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## [1] "1991-06-28"
 \end{verbatim}
@@ -15019,24 +15045,12 @@ Since year is written down first, then month, then day, the order of components 
 Let's make a second date for today. \footnote{Of course, this is not the day when you are reading the tutorial, but the last day that the tutorial was updated.}
 
 \begin{verbatim}
-## date2 <- ymd("2021-02-15")
+## date2 <- ymd("2021-03-04")
 \end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{date2}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
-## [1] "2021-02-15"
+## [1] "2021-03-04"
 \end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{class}\NormalTok{(date2)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## [1] "Date"
@@ -15044,14 +15058,8 @@ Let's make a second date for today. \footnote{Of course, this is not the day whe
 
 There is actually a very useful function in lubridate for getting the date of today. It's just to \texttt{today()}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{today}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
-## [1] "2021-02-25"
+## [1] "2021-03-04"
 \end{verbatim}
 
 When the date components are in a different order, you just have to change the order of the letters y, m and d.~The following functions are all provided by lubridate.
@@ -15074,61 +15082,25 @@ When the date components are in a different order, you just have to change the o
 
 Here are some examples.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ymd}\NormalTok{(}\StringTok{"2017-03-25"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
+\begin{verbatim}
+## [1] "2017-03-25"
+\end{verbatim}
 
 \begin{verbatim}
 ## [1] "2017-03-25"
 \end{verbatim}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{dmy}\NormalTok{(}\StringTok{"25-03-2017"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
+\begin{verbatim}
+## [1] "2017-03-25"
+\end{verbatim}
 
 \begin{verbatim}
 ## [1] "2017-03-25"
 \end{verbatim}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{mdy}\NormalTok{(}\StringTok{"03-25-2017"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## [1] "2017-03-25"
 \end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ymd}\NormalTok{(}\StringTok{"17/03/25"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] "2017-03-25"
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ymd}\NormalTok{(}\StringTok{"20170325"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] "2017-03-25"
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ymd}\NormalTok{(}\StringTok{"170325"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## [1] "2017-03-25"
@@ -15136,23 +15108,11 @@ Here are some examples.
 
 Note that lubridate will automagicaly find the components as long as it knows the order in which to look for - you don't have to worry about how it is separated, whether month and days are written with or without a leading zero (i.e.~1/4/2019 or 01/04/2019), or whether years are written with 2 or 4 numbers. Lubridate is even so smart it will try to guess the correct century. Suppose we define the date we saw earlier, 28th June 1991, but only give lubridate year 91.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ymd}\NormalTok{(}\StringTok{"910628"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## [1] "1991-06-28"
 \end{verbatim}
 
 It turns 91 into 1991. But if we give it year 19 (i.e.~the same day in 2019), it will turn 19 in 2019.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ymd}\NormalTok{(}\StringTok{"190628"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## [1] "2019-06-28"
@@ -15161,12 +15121,6 @@ It turns 91 into 1991. But if we give it year 19 (i.e.~the same day in 2019), it
 This is very helpful of course (unless we are looking for the year 1919). However, after the \href{https://www.britannica.com/technology/Y2K-bug}{Y2K bug}, we will typically find yyyy-dates. \footnote{Fun fact for geeks: lubridate will try to find a date within 50 years from now. Thus, all number from 69 to 99 will be regarded as 1999 to 1999, all other numbers will be regarded as years in the 21st century.}
 
 So, let's go back to our table.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{dates_of_april_text}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## # A tibble: 30 x 1
@@ -15187,22 +15141,7 @@ So, let's go back to our table.
 
 Luckily, ymd works with vectors, as well as with singular dates. So, instead of this
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{dates_of_april_text }\OperatorTok{%>%}
-\StringTok{    }\KeywordTok{separate}\NormalTok{(date, }\DataTypeTok{into =} \KeywordTok{c}\NormalTok{(}\StringTok{"year"}\NormalTok{,}\StringTok{"month"}\NormalTok{,}\StringTok{"day"}\NormalTok{)) }\OperatorTok{%>%}
-\StringTok{    }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{date =} \KeywordTok{make_date}\NormalTok{(year, month, day))}
-\end{Highlighting}
-\end{Shaded}
-
 we can now just do this
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{dates_of_april_text }\OperatorTok{%>%}
-\StringTok{    }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{date =} \KeywordTok{ymd}\NormalTok{(date))}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## # A tibble: 30 x 1
@@ -15227,35 +15166,17 @@ Of course, there are always times when lubridate can make mistakes. Consider the
 
 Thus, the first day of april is written down as 04-01-2019. If we would see this day without any context, we would wrongly that 4 is the day, 1 the month and 2019 the year. Thus,
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{dmy}\NormalTok{(}\StringTok{"04-01-2019"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## [1] "2019-01-04"
 \end{verbatim}
 
 Lubridate will not see any problems because this is not an incorrect date. But, we are no longer taking about the first of April. We are talking about the 4 of January. The second of april will become the 4th of February using this code. Lubridate will sense that something is going wrong when we get to the 13th of april.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{dmy}\NormalTok{(}\StringTok{"04-13-2019"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## [1] NA
 \end{verbatim}
 
 Now lubridate will fail to see this as a correct dmy-date, and return an NA. However, it is good to know that lubridate doesn't learn very good from its mistakes. Suppose we have again a whole data set of dates in this format. \footnote{You can create this table yourself by uniting the columns dates\_of\_april table in the month, day, year order.}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{dates_of_april_us}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## # A tibble: 30 x 1
@@ -15312,47 +15233,22 @@ When we try to convert is in a date using the wrong order, dmy. We get the follo
 ## 30 NA
 \end{verbatim}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{dates_of_april_us }\OperatorTok{%>%}
-\StringTok{    }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{date =} \KeywordTok{dmy}\NormalTok{(date))}
-\end{Highlighting}
-\end{Shaded}
-
 Note that all dates till the 13th are (wrongly) converted. The remaining ones are not converted and replaced with NA, of which lubridate warns us. However, he's not so smart to correct our mistake and replace the first 12 days with NA. \footnote{Not that lubridate date doesn't learn retroactively (replacing the already converted dates with NA), but is also doesn't learn for the future. If we shuffle the data such that we'll see a wrong date faster, it will still wrongly convert all of the 12 first days of april. So he will always do his best, even if he has already had problems with some dates. Moral of the story: the data scientist should never be asleep and blindly trust tools.}
 
 Let's return to our dates we defined ealier
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{date}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## [1] "1991-06-28"
 \end{verbatim}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{date2}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
-## [1] "2021-02-15"
+## [1] "2021-03-04"
 \end{verbatim}
 
 We can now calculate with these dates.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{date2 }\OperatorTok{-}\StringTok{ }\NormalTok{date}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
-## Time difference of 10825 days
+## Time difference of 10842 days
 \end{verbatim}
 
 Problem solved. Let's add some other problems.
@@ -15362,22 +15258,9 @@ Problem solved. Let's add some other problems.
 
 Instead of dates, we can also have times. In this tutorial, we will only consider the combination of date and time, which we call a \emph{datetime}. We can look at an example using the function \texttt{now}. While \texttt{today} gives us the date of today, \texttt{now} gives us the date time of, well, now.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{current_time <-}\StringTok{ }\KeywordTok{now}\NormalTok{()}
-\NormalTok{current_time}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
-## [1] "2021-02-25 15:12:04 CET"
+## [1] "2021-03-04 20:43:09 CET"
 \end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{class}\NormalTok{(current_time)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## [1] "POSIXct" "POSIXt"
@@ -15400,61 +15283,25 @@ Next to ymd\_hms, there's also dmy\_hms, mdy\_hms, etc. However, hours, minutes 
 
 You will mostly use ymd\_hms. Let's see some examples. Note that the third notations, with a T between the date and time part, is very common in datasets, and lubridates takes care without problems.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{dmy_hms}\NormalTok{(}\StringTok{"25-03-2017 10:30:00"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
+\begin{verbatim}
+## [1] "2017-03-25 10:30:00 UTC"
+\end{verbatim}
 
 \begin{verbatim}
 ## [1] "2017-03-25 10:30:00 UTC"
 \end{verbatim}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{dmy_hms}\NormalTok{(}\StringTok{"25032017103000"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
+\begin{verbatim}
+## [1] "2017-03-25 10:30:00 UTC"
+\end{verbatim}
 
 \begin{verbatim}
 ## [1] "2017-03-25 10:30:00 UTC"
 \end{verbatim}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{dmy_hms}\NormalTok{(}\StringTok{"25-03-2017T10:30:00"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## [1] "2017-03-25 10:30:00 UTC"
 \end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ymd_hms}\NormalTok{(}\StringTok{"2017-03-25 10.30.00"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] "2017-03-25 10:30:00 UTC"
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{dmy_hms}\NormalTok{(}\StringTok{"25-03-2017 10h30m00s"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] "2017-03-25 10:30:00 UTC"
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{dmy_hm}\NormalTok{(}\StringTok{"25-03-2017 10:30"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## [1] "2017-03-25 10:30:00 UTC"
@@ -15464,24 +15311,11 @@ Again, you can use this on entire columns using mutate. Also, make sure to check
 
 Onces we have datetimes, we can again do calculations with them.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{datetime <-}\StringTok{ }\KeywordTok{dmy_hms}\NormalTok{(}\StringTok{"25-03-2017 10h30m00s"}\NormalTok{)}
-\KeywordTok{now}\NormalTok{() }\OperatorTok{-}\StringTok{ }\NormalTok{datetime}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
-## Time difference of 1433.154 days
+## Time difference of 1440.384 days
 \end{verbatim}
 
 Or compare them.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{now}\NormalTok{() }\OperatorTok{<}\StringTok{ }\NormalTok{datetime}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## [1] FALSE
@@ -15500,23 +15334,11 @@ Below, you can see a map of all different time zones.
 
 When you graduate from this program you'll most certainly become successful international businessleaders, so having a basic understanding about time zones is necessary. Let's again look at the current time.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{now}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
-## [1] "2021-02-25 15:12:05 CET"
+## [1] "2021-03-04 20:43:10 CET"
 \end{verbatim}
 
 The last part of this time tells us the timezone we are in. At my pc, it currently says CEST, which is the Central European Summer Time \footnote{Note that if you read the online version of this tutorial, the time zones you see here may be different because it might be compiled on a server in a different time zone.}. You also check the time zone you are in using Sys.timezone().
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{Sys.timezone}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## [1] "Europe/Paris"
@@ -15526,21 +15348,9 @@ At this point, my pc tell me it is Europe/Paris instead of CEST. Indeed, there a
 
 The function olson\_time\_zones gives you a list of all time zones according to the Olson time database. This is notation of time zones using Continent/City. It is named after Arthur Olson
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{olson_time_zones}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
 Just try this in your console. It's a long list, and we don't want to spoil the environment with our paper usage.
 
 When we are creating a date with a ymd\_hms-variant, it will automatically use UTC as a time zone.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ymd_hms}\NormalTok{(}\StringTok{"2017-03-25 10.30.00"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## [1] "2017-03-25 10:30:00 UTC"
@@ -15548,23 +15358,11 @@ When we are creating a date with a ymd\_hms-variant, it will automatically use U
 
 UTC is the Universal Coordinated Time, i.e.~the standard, base-line time zone. CEST is UTC + 2, i.e.~two hourse ahead of UTC. We can change that be setting the tz argument within the ymd\_hms function. Let's first take a more meaningful datetime.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ymd_hms}\NormalTok{(}\StringTok{"2017-01-20 17:30:00"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## [1] "2017-01-20 17:30:00 UTC"
 \end{verbatim}
 
 At time a sad event happened in Washinghton DC. So let's define the time zone appropriately.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ymd_hms}\NormalTok{(}\StringTok{"2017-01-20 11:30:00"}\NormalTok{, }\DataTypeTok{tz =} \StringTok{"EST"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## [1] "2017-01-20 11:30:00 EST"
@@ -15576,19 +15374,7 @@ We can now see what time it was back in Belgium, by showing this time in CET (Ce
 
 First, we save the time as ``doomsday''
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{doomsday <-}\StringTok{ }\KeywordTok{ymd_hms}\NormalTok{(}\StringTok{"2017-01-20 11:30:00"}\NormalTok{, }\DataTypeTok{tz =} \StringTok{"EST"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 Using with\_tz, we can show a point in time in a different timezone.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{with_tz}\NormalTok{(doomsday, }\StringTok{"CET"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## [1] "2017-01-20 17:30:00 CET"
@@ -15598,37 +15384,17 @@ So, at 11.30 in Washington, it was 17.30 here in Belgium when we were whatching 
 
 But, both refer to the same point in time. They are just different representations of that same point.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{doomsday_in_belgium <-}\StringTok{ }\KeywordTok{with_tz}\NormalTok{(doomsday, }\StringTok{"CET"}\NormalTok{) }
-
-\NormalTok{doomsday_in_belgium }\OperatorTok{-}\StringTok{ }\NormalTok{doomsday}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## Time difference of 0 secs
 \end{verbatim}
 
 If we really want to change the time zone, i.e.~refer to 11.30 in Belgium, we can use force\_tz instead.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{force_tz}\NormalTok{(doomsday, }\StringTok{"CET"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## [1] "2017-01-20 11:30:00 CET"
 \end{verbatim}
 
 At this point, we are not longer talking about the same point in time, but we are talking about the time 6 hours before doomsday.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{force_tz}\NormalTok{(doomsday, }\StringTok{"CET"}\NormalTok{) }\OperatorTok{-}\StringTok{ }\NormalTok{doomsday}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## Time difference of -6 hours
@@ -15643,35 +15409,17 @@ When we have a date (or datetime), we can easily extract information from it. Fo
 
 We can see which day it was.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{day}\NormalTok{(doomsday)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## [1] 20
 \end{verbatim}
 
 or at which hour
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{hour}\NormalTok{(doomsday)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## [1] 11
 \end{verbatim}
 
 or even which day of the week
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{wday}\NormalTok{(doomsday)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## [1] 6
@@ -15683,12 +15431,6 @@ Indeed, lubridate will start counting on sunday - another American quirk. So, su
 
 Luckily, the wday function has an argument label, which we can set to TRUE when we forgot the exact meaning.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{wday}\NormalTok{(doomsday, }\DataTypeTok{label =} \OtherTok{TRUE}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## [1] Fri
 ## Levels: Sun < Mon < Tue < Wed < Thu < Fri < Sat
@@ -15698,21 +15440,9 @@ Friday it was. Not that it is automatically an ordered factor, which is helpful.
 
 We can also ask for the month of doomsday as both a number and a label.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{month}\NormalTok{(doomsday)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## [1] 1
 \end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{month}\NormalTok{(doomsday, }\DataTypeTok{label =}\NormalTok{ T)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## [1] Jan
@@ -15749,12 +15479,6 @@ An interval is a \emph{exact} window of time, with a specific start date(time) a
 
 We can create a period with the period function, by giving it a number of components.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{period}\NormalTok{(}\DataTypeTok{days =} \DecValTok{2}\NormalTok{, }\DataTypeTok{minutes =} \DecValTok{4}\NormalTok{, }\DataTypeTok{seconds =} \DecValTok{70}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## [1] "2d 0H 4M 70S"
 \end{verbatim}
@@ -15763,41 +15487,17 @@ Note that it will just give us the period in easy to understand chunks of time. 
 
 If our can be easily expressed in a single component, we can use the follow that components day (in plural).
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{days}\NormalTok{(}\DecValTok{3}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## [1] "3d 0H 0M 0S"
 \end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{weeks}\NormalTok{(}\DecValTok{3}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## [1] "21d 0H 0M 0S"
 \end{verbatim}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{months}\NormalTok{(}\DecValTok{2}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## [1] "2m 0d 0H 0M 0S"
 \end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{years}\NormalTok{(}\DecValTok{4}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## [1] "4y 0m 0d 0H 0M 0S"
@@ -15807,23 +15507,11 @@ We need to use the plural (days, not day), because we already used day to extrac
 
 We can combine them.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{days}\NormalTok{(}\DecValTok{1}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{hours}\NormalTok{(}\DecValTok{1}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## [1] "1d 1H 0M 0S"
 \end{verbatim}
 
 We can also make negative periods.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{days}\NormalTok{(}\OperatorTok{-}\DecValTok{10}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## [1] "-10d 0H 0M 0S"
@@ -15831,21 +15519,9 @@ We can also make negative periods.
 
 Or we can make vectors of periods.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{period}\NormalTok{(}\DataTypeTok{days =} \DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{, }\DataTypeTok{hours =} \DecValTok{3}\OperatorTok{:}\DecValTok{7}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## [1] "1d 3H 0M 0S" "2d 4H 0M 0S" "3d 5H 0M 0S" "4d 6H 0M 0S" "5d 7H 0M 0S"
 \end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{days}\NormalTok{(}\DecValTok{0}\OperatorTok{:}\DecValTok{6}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## [1] "0S"          "1d 0H 0M 0S" "2d 0H 0M 0S" "3d 0H 0M 0S" "4d 0H 0M 0S"
@@ -15854,39 +15530,21 @@ Or we can make vectors of periods.
 
 We can than also substract or add these periods to dates. Thus, if today is
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{today}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
-## [1] "2021-02-25"
+## [1] "2021-03-04"
 \end{verbatim}
 
 the next 6 days are
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{today}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{days}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{6}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
-## [1] "2021-02-26" "2021-02-27" "2021-02-28" "2021-03-01" "2021-03-02"
-## [6] "2021-03-03"
+## [1] "2021-03-05" "2021-03-06" "2021-03-07" "2021-03-08" "2021-03-09"
+## [6] "2021-03-10"
 \end{verbatim}
 
 \hypertarget{durations}{%
 \subsection{Durations}\label{durations}}
 
 Instead of using these human-understandable components, durations translate all time difference to seconds. Just like \texttt{period}, we can use \texttt{duration}.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{duration}\NormalTok{(}\DataTypeTok{days =} \DecValTok{2}\NormalTok{, }\DataTypeTok{minutes =} \DecValTok{4}\NormalTok{, }\DataTypeTok{seconds =} \DecValTok{70}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## [1] "173110s (~2 days)"
@@ -15896,43 +15554,19 @@ As you see, it will always try to give an approximation of the time differences 
 
 Indeed, we can also do the math
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\DecValTok{2}\OperatorTok{*}\DecValTok{24}\OperatorTok{*}\DecValTok{3600}\OperatorTok{+}\DecValTok{4}\OperatorTok{*}\DecValTok{60}\OperatorTok{+}\DecValTok{70}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## [1] 173110
 \end{verbatim}
 
 Similarly, we can use ddays, dweek, dyears, etc. \footnote{Evidently, this has nothing to do with D-Day. It's just dat day and days were already taken, and d stands for duration.}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ddays}\NormalTok{(}\DecValTok{3}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## [1] "259200s (~3 days)"
 \end{verbatim}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{dweeks}\NormalTok{(}\DecValTok{3}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## [1] "1814400s (~3 weeks)"
 \end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{dyears}\NormalTok{(}\DecValTok{4}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## [1] "126230400s (~4 years)"
@@ -15940,23 +15574,11 @@ Similarly, we can use ddays, dweek, dyears, etc. \footnote{Evidently, this has n
 
 We can combine them.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ddays}\NormalTok{(}\DecValTok{1}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{dhours}\NormalTok{(}\DecValTok{1}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## [1] "90000s (~1.04 days)"
 \end{verbatim}
 
 We can not make negative durations, but it wont really give an error.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ddays}\NormalTok{(}\OperatorTok{-}\DecValTok{10}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## [1] "-864000s (~-1.43 weeks)"
@@ -15966,22 +15588,10 @@ Note that there is no such thing as a negative second.
 
 We can make vectors of periods.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{duration}\NormalTok{(}\DataTypeTok{days =} \DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{, }\DataTypeTok{hours =} \DecValTok{3}\OperatorTok{:}\DecValTok{7}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## [1] "97200s (~1.12 days)"  "187200s (~2.17 days)" "277200s (~3.21 days)"
 ## [4] "367200s (~4.25 days)" "457200s (~5.29 days)"
 \end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ddays}\NormalTok{(}\DecValTok{0}\OperatorTok{:}\DecValTok{6}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## [1] "0s"                "86400s (~1 days)"  "172800s (~2 days)"
@@ -15991,36 +15601,18 @@ We can make vectors of periods.
 
 We can than also substract or add these durations to dates. Thus, if today is
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{today}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
-## [1] "2021-02-25"
+## [1] "2021-03-04"
 \end{verbatim}
 
 the next 6 days are
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{today}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{ddays}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{6}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
-## [1] "2021-02-26" "2021-02-27" "2021-02-28" "2021-03-01" "2021-03-02"
-## [6] "2021-03-03"
+## [1] "2021-03-05" "2021-03-06" "2021-03-07" "2021-03-08" "2021-03-09"
+## [6] "2021-03-10"
 \end{verbatim}
 
 Note that we cannot compute dmonths!
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{dmonths}\NormalTok{(}\DecValTok{1}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## [1] "2629800s (~4.35 weeks)"
@@ -16041,35 +15633,17 @@ Let's look at some examples too make things clear.
 
 Let's take the first day of 2019, which is not a leap year.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ymd}\NormalTok{(}\StringTok{"2019-01-01"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## [1] "2019-01-01"
 \end{verbatim}
 
 If we add a period-year
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ymd}\NormalTok{(}\StringTok{"2019-01-01"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{years}\NormalTok{(}\DecValTok{1}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## [1] "2020-01-01"
 \end{verbatim}
 
 or a duration-year
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ymd}\NormalTok{(}\StringTok{"2019-01-01"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{dyears}\NormalTok{(}\DecValTok{1}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## [1] "2020-01-01 06:00:00 UTC"
@@ -16079,35 +15653,17 @@ both are the same, because how we perceive the length of 2019 (i.e.~365 days), i
 
 However, if we add 2 years, there is a difference, because 2020 is a leapyear and how we perceive it (366 days) is not the same as the duration of a default year.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ymd}\NormalTok{(}\StringTok{"2019-01-01"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## [1] "2019-01-01"
 \end{verbatim}
 
 If we add two period-years
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ymd}\NormalTok{(}\StringTok{"2019-01-01"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{years}\NormalTok{(}\DecValTok{2}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## [1] "2021-01-01"
 \end{verbatim}
 
 or two duration-years
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ymd}\NormalTok{(}\StringTok{"2019-01-01"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{dyears}\NormalTok{(}\DecValTok{2}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## [1] "2020-12-31 12:00:00 UTC"
@@ -16117,21 +15673,9 @@ or two duration-years
 
 Let's take another example. On 31 march we changed from our winter time (CET) to summer time. What does it mean to add ``a day'' to 4pm on saturday.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ymd_hms}\NormalTok{(}\StringTok{"2019-03-30 16:00:00"}\NormalTok{, }\DataTypeTok{tz =} \StringTok{"CET"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{days}\NormalTok{(}\DecValTok{1}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## [1] "2019-03-31 16:00:00 CEST"
 \end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ymd_hms}\NormalTok{(}\StringTok{"2019-03-30 16:00:00"}\NormalTok{, }\DataTypeTok{tz =} \StringTok{"CET"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{ddays}\NormalTok{(}\DecValTok{1}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## [1] "2019-03-31 17:00:00 CEST"
@@ -16141,21 +15685,9 @@ If we add a human period, it will say 4pm on sunday, eventhough that's only 23 h
 
 Of course, there is no difference on any other day of the year.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ymd_hms}\NormalTok{(}\StringTok{"2019-04-30 16:00:00"}\NormalTok{, }\DataTypeTok{tz =} \StringTok{"CET"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{days}\NormalTok{(}\DecValTok{1}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## [1] "2019-05-01 16:00:00 CEST"
 \end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ymd_hms}\NormalTok{(}\StringTok{"2019-04-30 16:00:00"}\NormalTok{, }\DataTypeTok{tz =} \StringTok{"CET"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{ddays}\NormalTok{(}\DecValTok{1}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## [1] "2019-05-01 16:00:00 CEST"
@@ -16168,84 +15700,36 @@ So, the difference is only in special cases, but a difference still.
 
 We've already seen quite a lot of computations we can do. Here are some other examples.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{doomsday }\OperatorTok{>=}\StringTok{ }\KeywordTok{now}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## [1] FALSE
 \end{verbatim}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{now}\NormalTok{() }\OperatorTok{-}\StringTok{ }\NormalTok{doomsday}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
-## Time difference of 1496.904 days
+## Time difference of 1504.134 days
 \end{verbatim}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{as.period}\NormalTok{(}\KeywordTok{now}\NormalTok{()}\OperatorTok{-}\NormalTok{doomsday)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
-## [1] "1496d 21H 42M 11.6204628944397S"
+## [1] "1504d 3H 13M 15.345990896225S"
 \end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{doomsday }\OperatorTok{+}\StringTok{ }\KeywordTok{period}\NormalTok{(}\DecValTok{1}\NormalTok{,}\StringTok{"week"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## [1] "2017-01-27 11:30:00 EST"
 \end{verbatim}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{leap_year}\NormalTok{(}\DecValTok{2012}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## [1] TRUE
 \end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{leap_year}\NormalTok{(}\KeywordTok{now}\NormalTok{())}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## [1] FALSE
 \end{verbatim}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{now}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{weeks}\NormalTok{(}\DecValTok{0}\OperatorTok{:}\DecValTok{2}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
-## [1] "2021-02-25 15:12:11 CET" "2021-03-04 15:12:11 CET"
-## [3] "2021-03-11 15:12:11 CET"
+## [1] "2021-03-04 20:43:15 CET" "2021-03-11 20:43:15 CET"
+## [3] "2021-03-18 20:43:15 CET"
 \end{verbatim}
 
 Sometimes, calculations can go wrong. Especially with months.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ymd}\NormalTok{(}\DecValTok{20190331}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{months}\NormalTok{(}\DecValTok{1}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## [1] NA
@@ -16255,35 +15739,17 @@ Well, the 31st of April doesn't really exist. (I suppose we all would like to ha
 
 You can use the special \%m+\% operator to make sure that your additions never go over the months end.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ymd}\NormalTok{(}\DecValTok{20190331}\NormalTok{) }\OperatorTok{%m+%}\StringTok{ }\KeywordTok{months}\NormalTok{(}\DecValTok{1}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## [1] "2019-04-30"
 \end{verbatim}
 
 Below, we have tried both to create a list of every months last day this year.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ymd}\NormalTok{(}\DecValTok{20190131}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{months}\NormalTok{(}\DecValTok{0}\OperatorTok{:}\DecValTok{11}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ##  [1] "2019-01-31" NA           "2019-03-31" NA           "2019-05-31"
 ##  [6] NA           "2019-07-31" "2019-08-31" NA           "2019-10-31"
 ## [11] NA           "2019-12-31"
 \end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ymd}\NormalTok{(}\DecValTok{20190131}\NormalTok{) }\OperatorTok{%m+%}\StringTok{ }\KeywordTok{months}\NormalTok{(}\DecValTok{0}\OperatorTok{:}\DecValTok{11}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ##  [1] "2019-01-31" "2019-02-28" "2019-03-31" "2019-04-30" "2019-05-31"
@@ -16300,22 +15766,9 @@ An interval is different, as it refers to on specific window in time. It is not 
 
 Victor Hugo lived from February 26, 1802 until May 22, 1885. So we can define an interval using these two dates which represents his lifetime
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{hugo <-}\StringTok{ }\KeywordTok{interval}\NormalTok{(}\KeywordTok{mdy}\NormalTok{(}\DecValTok{02261802}\NormalTok{), }\KeywordTok{mdy}\NormalTok{(}\DecValTok{05221885}\NormalTok{))}
-\NormalTok{hugo}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## [1] 1802-02-26 UTC--1885-05-22 UTC
 \end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{class}\NormalTok{(hugo)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## [1] "Interval"
@@ -16327,25 +15780,11 @@ Note that we can of course also use datetimes to define an interval. (We just do
 
 Oscar Wilde lived from October 16, 1854 until November 30, 1900. Thus,
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{wilde <-}\StringTok{ }\KeywordTok{interval}\NormalTok{(}\KeywordTok{mdy}\NormalTok{(}\DecValTok{10161854}\NormalTok{), }\KeywordTok{mdy}\NormalTok{(}\DecValTok{11301900}\NormalTok{))}
-\NormalTok{wilde}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## [1] 1854-10-16 UTC--1900-11-30 UTC
 \end{verbatim}
 
 We can also create an interval with the special \%--\% operator. Thus the code above is equivalent to
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{wilde <-}\StringTok{ }\KeywordTok{mdy}\NormalTok{(}\DecValTok{10161854}\NormalTok{) }\OperatorTok{%--%}\StringTok{ }\KeywordTok{mdy}\NormalTok{(}\DecValTok{11301900}\NormalTok{)}
-\NormalTok{wilde}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## [1] 1854-10-16 UTC--1900-11-30 UTC
@@ -16357,27 +15796,9 @@ We can check whether a date falls in an interval using the \%within\% function. 
 
 Charles Dickens was born on the 7th of februari 1812.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{dickens_birthday <-}\StringTok{ }\KeywordTok{dmy}\NormalTok{(}\DecValTok{7021812}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{dickens_birthday }\OperatorTok{%within%}\StringTok{ }\NormalTok{hugo}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## [1] TRUE
 \end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{dickens_birthday }\OperatorTok{%within%}\StringTok{ }\NormalTok{wilde}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## [1] FALSE
@@ -16387,23 +15808,11 @@ Hugo lived on that day, as this day fall within the interval of his life. Wilde 
 
 We can check whether two intervals overlap. I.e. did Hugo and Wilde both live at a certain point in history.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{int_overlaps}\NormalTok{(hugo, wilde)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## [1] TRUE
 \end{verbatim}
 
 Of course they did. We can also create the exact time interval both lived.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{intersect}\NormalTok{(hugo, wilde)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## [1] 1854-10-16 UTC--1885-05-22 UTC
@@ -16411,33 +15820,15 @@ Of course they did. We can also create the exact time interval both lived.
 
 Or the total time interval that at least one of them lived
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{union}\NormalTok{(hugo, wilde)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## [1] 1802-02-26 UTC--1900-11-30 UTC
 \end{verbatim}
 
 \textbf{Important}: note that intersect and union only works if you did library(lubridate) after library(dplyr). This is because both packages have those functions, and the package that was loaded last is found first by R. It is like the book on top in your library, if you like. If you are not sure which you loaded first, you can solve this problem by placing the package name and two :'s before the function.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{lubridate}\OperatorTok{::}\KeywordTok{union}\NormalTok{(hugo, wilde)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## [1] 1802-02-26 UTC--1900-11-30 UTC
 \end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{lubridate}\OperatorTok{::}\KeywordTok{intersect}\NormalTok{(hugo, wilde)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## [1] 1854-10-16 UTC--1885-05-22 UTC
@@ -16445,21 +15836,9 @@ Or the total time interval that at least one of them lived
 
 Note that when we explicitly use the dplyr functions, we do not get anything useful for intervals.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{union}\NormalTok{(hugo, wilde)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## [1] 1802-02-26 UTC--1900-11-30 UTC
 \end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{intersect}\NormalTok{(hugo, wilde)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## [1] 1854-10-16 UTC--1885-05-22 UTC
