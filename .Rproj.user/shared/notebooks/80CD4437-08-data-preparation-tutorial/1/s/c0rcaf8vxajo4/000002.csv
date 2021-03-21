@@ -1,0 +1,4 @@
+"0","survey2 %>%"
+"0","	ggplot(aes(religion)) +"
+"0","	geom_bar() +"
+"0","	coord_flip()"

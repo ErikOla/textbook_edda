@@ -1,0 +1,1544 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 [Lecture notes] Descriptieve statistieken | Exploratieve en Descriptieve Data Analyse</title>
+  <meta name="description" content="Chapter 4 [Lecture notes] Descriptieve statistieken | Exploratieve en Descriptieve Data Analyse" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 [Lecture notes] Descriptieve statistieken | Exploratieve en Descriptieve Data Analyse" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 [Lecture notes] Descriptieve statistieken | Exploratieve en Descriptieve Data Analyse" />
+  
+  
+  
+
+<meta name="author" content="Gert Janssenswillen, Benoît Depaire" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="tutorial-data-visualisatie.html"/>
+<link rel="next" href="tutorial-descriptieve-statistieken.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Exploratieve en descriptieve data analyse</a></li>
+<li><a href="https://beta.rstudioconnect.com/content/e8fdb21e-22c3-4051-b0da-c75b1f2fac2f/_rev42337/studieleidraad_worksessions.html">Studieleidraad</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Voorwoord</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#hoe-de-lecture-notes-te-gebruiken"><i class="fa fa-check"></i>Hoe de lecture notes te gebruiken</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#hoe-de-tutorials-te-gebruiken"><i class="fa fa-check"></i>Hoe de tutorials te gebruiken</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#over-de-auteurs"><i class="fa fa-check"></i>Over de auteurs</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#disclaimer"><i class="fa fa-check"></i>Disclaimer</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="lecture-notes-introductiecollege.html"><a href="lecture-notes-introductiecollege.html"><i class="fa fa-check"></i><b>1</b> [Lecture notes] Introductiecollege</a><ul>
+<li class="chapter" data-level="1.1" data-path="lecture-notes-introductiecollege.html"><a href="lecture-notes-introductiecollege.html#data-science"><i class="fa fa-check"></i><b>1.1</b> Data science?</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="lecture-notes-introductiecollege.html"><a href="lecture-notes-introductiecollege.html#netflix"><i class="fa fa-check"></i><b>1.1.1</b> Netflix</a></li>
+<li class="chapter" data-level="1.1.2" data-path="lecture-notes-introductiecollege.html"><a href="lecture-notes-introductiecollege.html#waar-komt-data-vandaan"><i class="fa fa-check"></i><b>1.1.2</b> Waar komt data vandaan?</a></li>
+<li class="chapter" data-level="1.1.3" data-path="lecture-notes-introductiecollege.html"><a href="lecture-notes-introductiecollege.html#hoeveel-data-is-er-beschikbaar"><i class="fa fa-check"></i><b>1.1.3</b> Hoeveel data is er beschikbaar?</a></li>
+<li class="chapter" data-level="1.1.4" data-path="lecture-notes-introductiecollege.html"><a href="lecture-notes-introductiecollege.html#waar-wordt-data-voor-gebruikt-in-de-bedrijfswereld"><i class="fa fa-check"></i><b>1.1.4</b> Waar wordt data voor gebruikt in de bedrijfswereld?</a></li>
+<li class="chapter" data-level="1.1.5" data-path="lecture-notes-introductiecollege.html"><a href="lecture-notes-introductiecollege.html#waarover-verzamelen-bedrijven-data"><i class="fa fa-check"></i><b>1.1.5</b> Waarover verzamelen bedrijven data</a></li>
+<li class="chapter" data-level="1.1.6" data-path="lecture-notes-introductiecollege.html"><a href="lecture-notes-introductiecollege.html#van-data-tot-actionable-insights"><i class="fa fa-check"></i><b>1.1.6</b> Van data tot ‘actionable insights’</a></li>
+<li class="chapter" data-level="1.1.7" data-path="lecture-notes-introductiecollege.html"><a href="lecture-notes-introductiecollege.html#data-scientists"><i class="fa fa-check"></i><b>1.1.7</b> Data Scientists</a></li>
+<li class="chapter" data-level="1.1.8" data-path="lecture-notes-introductiecollege.html"><a href="lecture-notes-introductiecollege.html#verschillende-soorten-van-data-analyse"><i class="fa fa-check"></i><b>1.1.8</b> Verschillende soorten van data analyse</a></li>
+<li class="chapter" data-level="1.1.9" data-path="lecture-notes-introductiecollege.html"><a href="lecture-notes-introductiecollege.html#de-kunst-van-data-analyse"><i class="fa fa-check"></i><b>1.1.9</b> De kunst van data analyse</a></li>
+<li class="chapter" data-level="1.1.10" data-path="lecture-notes-introductiecollege.html"><a href="lecture-notes-introductiecollege.html#de-kracht-van-descriptieve-en-exploratieve-data-analyse"><i class="fa fa-check"></i><b>1.1.10</b> De kracht van descriptieve en exploratieve data analyse</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="lecture-notes-introductiecollege.html"><a href="lecture-notes-introductiecollege.html#data-data-types"><i class="fa fa-check"></i><b>1.2</b> Data &amp; Data types</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="lecture-notes-introductiecollege.html"><a href="lecture-notes-introductiecollege.html#dataset"><i class="fa fa-check"></i><b>1.2.1</b> Dataset</a></li>
+<li class="chapter" data-level="1.2.2" data-path="lecture-notes-introductiecollege.html"><a href="lecture-notes-introductiecollege.html#klassieke-datatypologie"><i class="fa fa-check"></i><b>1.2.2</b> Klassieke datatypologie</a></li>
+<li class="chapter" data-level="1.2.3" data-path="lecture-notes-introductiecollege.html"><a href="lecture-notes-introductiecollege.html#de-klassieke-datatypologie-is-misleidend"><i class="fa fa-check"></i><b>1.2.3</b> De klassieke datatypologie is misleidend</a></li>
+<li class="chapter" data-level="1.2.4" data-path="lecture-notes-introductiecollege.html"><a href="lecture-notes-introductiecollege.html#alternatieve-datatypologie"><i class="fa fa-check"></i><b>1.2.4</b> Alternatieve datatypologie</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="lecture-notes-introductiecollege.html"><a href="lecture-notes-introductiecollege.html#referenties"><i class="fa fa-check"></i><b>1.3</b> Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="lecture-notes-data-visualizatie.html"><a href="lecture-notes-data-visualizatie.html"><i class="fa fa-check"></i><b>2</b> [Lecture notes] Data visualizatie</a><ul>
+<li class="chapter" data-level="2.1" data-path="lecture-notes-data-visualizatie.html"><a href="lecture-notes-data-visualizatie.html#univariate-visualisaties-1-variabele"><i class="fa fa-check"></i><b>2.1</b> Univariate visualisaties (1 variabele)</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="lecture-notes-data-visualizatie.html"><a href="lecture-notes-data-visualizatie.html#categorische-variabele"><i class="fa fa-check"></i><b>2.1.1</b> Categorische variabele</a></li>
+<li class="chapter" data-level="2.1.2" data-path="lecture-notes-data-visualizatie.html"><a href="lecture-notes-data-visualizatie.html#continue-variabele"><i class="fa fa-check"></i><b>2.1.2</b> Continue variabele</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="lecture-notes-data-visualizatie.html"><a href="lecture-notes-data-visualizatie.html#bivariate-visualisatie-2-variabelen"><i class="fa fa-check"></i><b>2.2</b> Bivariate visualisatie (2 variabelen)</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="lecture-notes-data-visualizatie.html"><a href="lecture-notes-data-visualizatie.html#situatie-1-de-onafhankelijke-variabele-is-categorisch"><i class="fa fa-check"></i><b>2.2.1</b> Situatie 1: De onafhankelijke variabele is categorisch</a></li>
+<li class="chapter" data-level="2.2.2" data-path="lecture-notes-data-visualizatie.html"><a href="lecture-notes-data-visualizatie.html#situatie-2-de-onafhankelijke-variabele-is-continue"><i class="fa fa-check"></i><b>2.2.2</b> Situatie 2: De onafhankelijke variabele is continue</a></li>
+<li class="chapter" data-level="2.2.3" data-path="lecture-notes-data-visualizatie.html"><a href="lecture-notes-data-visualizatie.html#situatie-3-de-onafhankelijke-variabele-is-tijd"><i class="fa fa-check"></i><b>2.2.3</b> Situatie 3: De onafhankelijke variabele is tijd</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="lecture-notes-data-visualizatie.html"><a href="lecture-notes-data-visualizatie.html#multivariate-visualisaties-meer-dan-2-variabelen"><i class="fa fa-check"></i><b>2.3</b> Multivariate visualisaties (meer dan 2 variabelen)</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="lecture-notes-data-visualizatie.html"><a href="lecture-notes-data-visualizatie.html#voorbeeld-in-welke-mate-hangt-de-vertrek-vertraging-af-van-de-luchthaven-en-de-afstand"><i class="fa fa-check"></i><b>2.3.1</b> Voorbeeld: In welke mate hangt de vertrek vertraging af van de luchthaven en de afstand?</a></li>
+<li class="chapter" data-level="2.3.2" data-path="lecture-notes-data-visualizatie.html"><a href="lecture-notes-data-visualizatie.html#voorbeeld-multivariaat-tijd"><i class="fa fa-check"></i><b>2.3.2</b> Voorbeeld: multivariaat tijd</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="lecture-notes-data-visualizatie.html"><a href="lecture-notes-data-visualizatie.html#visualisaties-voor-communicatie"><i class="fa fa-check"></i><b>2.4</b> Visualisaties voor communicatie</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="lecture-notes-data-visualizatie.html"><a href="lecture-notes-data-visualizatie.html#voorbeeld-voor-goed-voor-exploratie"><i class="fa fa-check"></i><b>2.4.1</b> Voorbeeld: voor ~ goed voor exploratie</a></li>
+<li class="chapter" data-level="2.4.2" data-path="lecture-notes-data-visualizatie.html"><a href="lecture-notes-data-visualizatie.html#voorbeeld-na-goed-voor-communicatie"><i class="fa fa-check"></i><b>2.4.2</b> Voorbeeld: na ~ goed voor communicatie</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="lecture-notes-data-visualizatie.html"><a href="lecture-notes-data-visualizatie.html#how-charts-lie"><i class="fa fa-check"></i><b>2.5</b> How charts lie</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="lecture-notes-data-visualizatie.html"><a href="lecture-notes-data-visualizatie.html#causaliteit-vs-correlatie"><i class="fa fa-check"></i><b>2.5.1</b> Causaliteit vs correlatie</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="lecture-notes-data-visualizatie.html"><a href="lecture-notes-data-visualizatie.html#referenties-1"><i class="fa fa-check"></i><b>2.6</b> Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="tutorial-data-visualisatie.html"><a href="tutorial-data-visualisatie.html"><i class="fa fa-check"></i><b>3</b> [Tutorial] Data visualisatie</a><ul>
+<li class="chapter" data-level="3.1" data-path="tutorial-data-visualisatie.html"><a href="tutorial-data-visualisatie.html#voor-je-begint"><i class="fa fa-check"></i><b>3.1</b> Voor je begint</a></li>
+<li class="chapter" data-level="3.2" data-path="tutorial-data-visualisatie.html"><a href="tutorial-data-visualisatie.html#introductie"><i class="fa fa-check"></i><b>3.2</b> Introductie</a></li>
+<li class="chapter" data-level="3.3" data-path="tutorial-data-visualisatie.html"><a href="tutorial-data-visualisatie.html#verschillende-geometrics"><i class="fa fa-check"></i><b>3.3</b> Verschillende geometrics</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="tutorial-data-visualisatie.html"><a href="tutorial-data-visualisatie.html#geom_point"><i class="fa fa-check"></i><b>3.3.1</b> geom_point</a></li>
+<li class="chapter" data-level="3.3.2" data-path="tutorial-data-visualisatie.html"><a href="tutorial-data-visualisatie.html#geom_histogram"><i class="fa fa-check"></i><b>3.3.2</b> geom_histogram</a></li>
+<li class="chapter" data-level="3.3.3" data-path="tutorial-data-visualisatie.html"><a href="tutorial-data-visualisatie.html#geom_boxplot"><i class="fa fa-check"></i><b>3.3.3</b> geom_boxplot</a></li>
+<li class="chapter" data-level="3.3.4" data-path="tutorial-data-visualisatie.html"><a href="tutorial-data-visualisatie.html#geom_violin"><i class="fa fa-check"></i><b>3.3.4</b> geom_violin</a></li>
+<li class="chapter" data-level="3.3.5" data-path="tutorial-data-visualisatie.html"><a href="tutorial-data-visualisatie.html#geom_bar"><i class="fa fa-check"></i><b>3.3.5</b> geom_bar</a></li>
+<li class="chapter" data-level="3.3.6" data-path="tutorial-data-visualisatie.html"><a href="tutorial-data-visualisatie.html#geom_col"><i class="fa fa-check"></i><b>3.3.6</b> geom_col</a></li>
+<li class="chapter" data-level="3.3.7" data-path="tutorial-data-visualisatie.html"><a href="tutorial-data-visualisatie.html#other-geometrics"><i class="fa fa-check"></i><b>3.3.7</b> Other geometrics</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="tutorial-data-visualisatie.html"><a href="tutorial-data-visualisatie.html#layout-van-onze-grafieken-verbeteren"><i class="fa fa-check"></i><b>3.4</b> Layout van onze grafieken verbeteren</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="tutorial-data-visualisatie.html"><a href="tutorial-data-visualisatie.html#titels"><i class="fa fa-check"></i><b>3.4.1</b> Titels</a></li>
+<li class="chapter" data-level="3.4.2" data-path="tutorial-data-visualisatie.html"><a href="tutorial-data-visualisatie.html#theme"><i class="fa fa-check"></i><b>3.4.2</b> Theme</a></li>
+<li class="chapter" data-level="3.4.3" data-path="tutorial-data-visualisatie.html"><a href="tutorial-data-visualisatie.html#het-coördinatenstelsel"><i class="fa fa-check"></i><b>3.4.3</b> Het coördinatenstelsel</a></li>
+<li class="chapter" data-level="3.4.4" data-path="tutorial-data-visualisatie.html"><a href="tutorial-data-visualisatie.html#color-scales"><i class="fa fa-check"></i><b>3.4.4</b> Color scales</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="tutorial-data-visualisatie.html"><a href="tutorial-data-visualisatie.html#geavanceerde-plots"><i class="fa fa-check"></i><b>3.5</b> Geavanceerde plots</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="tutorial-data-visualisatie.html"><a href="tutorial-data-visualisatie.html#gebruikmaken-van-facets"><i class="fa fa-check"></i><b>3.5.1</b> Gebruikmaken van Facets</a></li>
+<li class="chapter" data-level="3.5.2" data-path="tutorial-data-visualisatie.html"><a href="tutorial-data-visualisatie.html#meerdere-layers-combineren"><i class="fa fa-check"></i><b>3.5.2</b> Meerdere layers combineren</a></li>
+<li class="chapter" data-level="3.5.3" data-path="tutorial-data-visualisatie.html"><a href="tutorial-data-visualisatie.html#aes-overerving"><i class="fa fa-check"></i><b>3.5.3</b> Aes-overerving</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="tutorial-data-visualisatie.html"><a href="tutorial-data-visualisatie.html#background-material"><i class="fa fa-check"></i><b>3.6</b> Background material</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="lecture-notes-descriptieve-statistieken.html"><a href="lecture-notes-descriptieve-statistieken.html"><i class="fa fa-check"></i><b>4</b> [Lecture notes] Descriptieve statistieken</a><ul>
+<li class="chapter" data-level="4.1" data-path="lecture-notes-descriptieve-statistieken.html"><a href="lecture-notes-descriptieve-statistieken.html#beschrijvende-statistieken-versus-exploratieve-plots"><i class="fa fa-check"></i><b>4.1</b> Beschrijvende statistieken versus exploratieve plots</a></li>
+<li class="chapter" data-level="4.2" data-path="lecture-notes-descriptieve-statistieken.html"><a href="lecture-notes-descriptieve-statistieken.html#notatie"><i class="fa fa-check"></i><b>4.2</b> Notatie</a></li>
+<li class="chapter" data-level="4.3" data-path="lecture-notes-descriptieve-statistieken.html"><a href="lecture-notes-descriptieve-statistieken.html#data"><i class="fa fa-check"></i><b>4.3</b> Data</a></li>
+<li class="chapter" data-level="4.4" data-path="lecture-notes-descriptieve-statistieken.html"><a href="lecture-notes-descriptieve-statistieken.html#univariate-statistieken"><i class="fa fa-check"></i><b>4.4</b> Univariate statistieken</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="lecture-notes-descriptieve-statistieken.html"><a href="lecture-notes-descriptieve-statistieken.html#continue-variabele-1"><i class="fa fa-check"></i><b>4.4.1</b> Continue variabele</a></li>
+<li class="chapter" data-level="" data-path="lecture-notes-descriptieve-statistieken.html"><a href="lecture-notes-descriptieve-statistieken.html#centrummaten"><i class="fa fa-check"></i>Centrummaten</a></li>
+<li class="chapter" data-level="" data-path="lecture-notes-descriptieve-statistieken.html"><a href="lecture-notes-descriptieve-statistieken.html#spreidingsmaten"><i class="fa fa-check"></i>Spreidingsmaten</a></li>
+<li class="chapter" data-level="4.4.2" data-path="lecture-notes-descriptieve-statistieken.html"><a href="lecture-notes-descriptieve-statistieken.html#categorische-variabele-1"><i class="fa fa-check"></i><b>4.4.2</b> Categorische variabele</a></li>
+<li class="chapter" data-level="" data-path="lecture-notes-descriptieve-statistieken.html"><a href="lecture-notes-descriptieve-statistieken.html#frequentietabel"><i class="fa fa-check"></i>Frequentietabel</a></li>
+<li class="chapter" data-level="" data-path="lecture-notes-descriptieve-statistieken.html"><a href="lecture-notes-descriptieve-statistieken.html#centrummaten-1"><i class="fa fa-check"></i>Centrummaten</a></li>
+<li class="chapter" data-level="" data-path="lecture-notes-descriptieve-statistieken.html"><a href="lecture-notes-descriptieve-statistieken.html#spreidingsmaten-1"><i class="fa fa-check"></i>Spreidingsmaten</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="lecture-notes-descriptieve-statistieken.html"><a href="lecture-notes-descriptieve-statistieken.html#bivariate-statistieken"><i class="fa fa-check"></i><b>4.5</b> Bivariate statistieken</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="lecture-notes-descriptieve-statistieken.html"><a href="lecture-notes-descriptieve-statistieken.html#categorisch-versus-categorisch"><i class="fa fa-check"></i><b>4.5.1</b> Categorisch versus Categorisch</a></li>
+<li class="chapter" data-level="" data-path="lecture-notes-descriptieve-statistieken.html"><a href="lecture-notes-descriptieve-statistieken.html#univariate-statistieken-per-categoriewaarde"><i class="fa fa-check"></i>Univariate statistieken per categoriewaarde</a></li>
+<li class="chapter" data-level="" data-path="lecture-notes-descriptieve-statistieken.html"><a href="lecture-notes-descriptieve-statistieken.html#contingentietabellen"><i class="fa fa-check"></i>Contingentietabellen</a></li>
+<li class="chapter" data-level="4.5.2" data-path="lecture-notes-descriptieve-statistieken.html"><a href="lecture-notes-descriptieve-statistieken.html#categorisch-versus-continu"><i class="fa fa-check"></i><b>4.5.2</b> Categorisch versus Continu</a></li>
+<li class="chapter" data-level="" data-path="lecture-notes-descriptieve-statistieken.html"><a href="lecture-notes-descriptieve-statistieken.html#univariate-statistieken-per-categoriewaarde-1"><i class="fa fa-check"></i>Univariate statistieken per categoriewaarde</a></li>
+<li class="chapter" data-level="" data-path="lecture-notes-descriptieve-statistieken.html"><a href="lecture-notes-descriptieve-statistieken.html#correlatie"><i class="fa fa-check"></i>Correlatie</a></li>
+<li class="chapter" data-level="4.5.3" data-path="lecture-notes-descriptieve-statistieken.html"><a href="lecture-notes-descriptieve-statistieken.html#continu-versus-continu"><i class="fa fa-check"></i><b>4.5.3</b> Continu versus Continu</a></li>
+<li class="chapter" data-level="" data-path="lecture-notes-descriptieve-statistieken.html"><a href="lecture-notes-descriptieve-statistieken.html#correlatie-1"><i class="fa fa-check"></i>Correlatie</a></li>
+<li class="chapter" data-level="" data-path="lecture-notes-descriptieve-statistieken.html"><a href="lecture-notes-descriptieve-statistieken.html#vergelijking-correlatiecoëfficiënten"><i class="fa fa-check"></i>Vergelijking correlatiecoëfficiënten</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="lecture-notes-descriptieve-statistieken.html"><a href="lecture-notes-descriptieve-statistieken.html#referenties-2"><i class="fa fa-check"></i>Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html"><i class="fa fa-check"></i><b>5</b> [Tutorial] Descriptieve statistieken</a><ul>
+<li class="chapter" data-level="5.1" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#voor-je-begint-1"><i class="fa fa-check"></i><b>5.1</b> Voor je begint</a></li>
+<li class="chapter" data-level="5.2" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#introductie-1"><i class="fa fa-check"></i><b>5.2</b> Introductie</a></li>
+<li class="chapter" data-level="5.3" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#nuttige-dplyr-functies"><i class="fa fa-check"></i><b>5.3</b> Nuttige dplyr functies</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#tibbles"><i class="fa fa-check"></i><b>5.3.1</b> Tibbles</a></li>
+<li class="chapter" data-level="5.3.2" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#glimpse"><i class="fa fa-check"></i><b>5.3.2</b> Glimpse</a></li>
+<li class="chapter" data-level="5.3.3" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#section"><i class="fa fa-check"></i><b>5.3.3</b> %&gt;%</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#univariate-analyse-van-een-continue-variabele"><i class="fa fa-check"></i><b>5.4</b> Univariate analyse van een continue variabele</a></li>
+<li class="chapter" data-level="5.5" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#bivariate-analysis-of-a-continuous-variable-with-respect-to-a-categorical-variable"><i class="fa fa-check"></i><b>5.5</b> Bivariate analysis of a continuous variable with respect to a categorical variable</a></li>
+<li class="chapter" data-level="5.6" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#univariate-analyse-van-een-categorische-variabele"><i class="fa fa-check"></i><b>5.6</b> Univariate analyse van een categorische variabele</a></li>
+<li class="chapter" data-level="5.7" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#bivariate-analyse-van-een-continue-variabele-ten-opzichte-van-een-andere-continue-variabele"><i class="fa fa-check"></i><b>5.7</b> Bivariate analyse van een continue variabele ten opzichte van een andere continue variabele</a></li>
+<li class="chapter" data-level="5.8" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#bivariate-analyse-van-een-categorische-variabele-ten-opzichte-van-een-andere-categorische-variabele"><i class="fa fa-check"></i><b>5.8</b> Bivariate analyse van een categorische variabele ten opzichte van een andere categorische variabele</a></li>
+<li class="chapter" data-level="5.9" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#background-material-1"><i class="fa fa-check"></i><b>5.9</b> Background material</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="lecture-notes-structuur-van-een-data-analyse-project-.html"><a href="lecture-notes-structuur-van-een-data-analyse-project-.html"><i class="fa fa-check"></i><b>6</b> [Lecture notes] Structuur van een data analyse project.</a></li>
+<li class="chapter" data-level="7" data-path="lecture-notes-data-voorbereiden.html"><a href="lecture-notes-data-voorbereiden.html"><i class="fa fa-check"></i><b>7</b> [Lecture notes] Data voorbereiden</a><ul>
+<li class="chapter" data-level="7.1" data-path="lecture-notes-data-voorbereiden.html"><a href="lecture-notes-data-voorbereiden.html#beginnen-bij-het-begin"><i class="fa fa-check"></i><b>7.1</b> Beginnen bij het begin</a></li>
+<li class="chapter" data-level="7.2" data-path="lecture-notes-data-voorbereiden.html"><a href="lecture-notes-data-voorbereiden.html#data-inlezen"><i class="fa fa-check"></i><b>7.2</b> Data inlezen</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="lecture-notes-data-voorbereiden.html"><a href="lecture-notes-data-voorbereiden.html#uitdagingen-bij-het-correct-inlezen-van-data"><i class="fa fa-check"></i><b>7.2.1</b> Uitdagingen bij het correct inlezen van data</a></li>
+<li class="chapter" data-level="7.2.2" data-path="lecture-notes-data-voorbereiden.html"><a href="lecture-notes-data-voorbereiden.html#dataformaten"><i class="fa fa-check"></i><b>7.2.2</b> Dataformaten</a></li>
+<li class="chapter" data-level="7.2.3" data-path="lecture-notes-data-voorbereiden.html"><a href="lecture-notes-data-voorbereiden.html#data-encodering"><i class="fa fa-check"></i><b>7.2.3</b> Data-encodering</a></li>
+<li class="chapter" data-level="7.2.4" data-path="lecture-notes-data-voorbereiden.html"><a href="lecture-notes-data-voorbereiden.html#datatypes-controlleren-en-corrigeren"><i class="fa fa-check"></i><b>7.2.4</b> Datatypes controlleren en corrigeren</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="lecture-notes-data-voorbereiden.html"><a href="lecture-notes-data-voorbereiden.html#dataproblemen-identificeren-en-corrigeren"><i class="fa fa-check"></i><b>7.3</b> Dataproblemen identificeren en corrigeren</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="lecture-notes-data-voorbereiden.html"><a href="lecture-notes-data-voorbereiden.html#overzicht"><i class="fa fa-check"></i><b>7.3.1</b> Overzicht</a></li>
+<li class="chapter" data-level="7.3.2" data-path="lecture-notes-data-voorbereiden.html"><a href="lecture-notes-data-voorbereiden.html#foutieve-waarden"><i class="fa fa-check"></i><b>7.3.2</b> Foutieve waarden</a></li>
+<li class="chapter" data-level="7.3.3" data-path="lecture-notes-data-voorbereiden.html"><a href="lecture-notes-data-voorbereiden.html#ontbrekende-waarden"><i class="fa fa-check"></i><b>7.3.3</b> Ontbrekende waarden</a></li>
+<li class="chapter" data-level="7.3.4" data-path="lecture-notes-data-voorbereiden.html"><a href="lecture-notes-data-voorbereiden.html#inconsistente-waarden"><i class="fa fa-check"></i><b>7.3.4</b> Inconsistente waarden</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="lecture-notes-data-voorbereiden.html"><a href="lecture-notes-data-voorbereiden.html#data-opwaarderen"><i class="fa fa-check"></i><b>7.4</b> Data opwaarderen</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="lecture-notes-data-voorbereiden.html"><a href="lecture-notes-data-voorbereiden.html#sampling"><i class="fa fa-check"></i><b>7.4.1</b> Sampling</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="lecture-notes-data-voorbereiden.html"><a href="lecture-notes-data-voorbereiden.html#referenties-3"><i class="fa fa-check"></i>Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html"><i class="fa fa-check"></i><b>8</b> [Tutorial] Data voorbereiden</a><ul>
+<li class="chapter" data-level="8.1" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#voor-je-begint-2"><i class="fa fa-check"></i><b>8.1</b> Voor je begint</a></li>
+<li class="chapter" data-level="8.2" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#inleiding"><i class="fa fa-check"></i><b>8.2</b> Inleiding</a></li>
+<li class="chapter" data-level="8.3" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#gegevens-lezen"><i class="fa fa-check"></i><b>8.3</b> Gegevens lezen</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#csv-and-tsv"><i class="fa fa-check"></i><b>8.3.1</b> CSV and TSV</a></li>
+<li class="chapter" data-level="8.3.2" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#excel"><i class="fa fa-check"></i><b>8.3.2</b> Excel</a></li>
+<li class="chapter" data-level="8.3.3" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#json-en-xml"><i class="fa fa-check"></i><b>8.3.3</b> JSON en XML</a></li>
+<li class="chapter" data-level="8.3.4" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#andere-statistische-pakketten"><i class="fa fa-check"></i><b>8.3.4</b> Andere statistische pakketten</a></li>
+<li class="chapter" data-level="8.3.5" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#databases"><i class="fa fa-check"></i><b>8.3.5</b> Databases</a></li>
+<li class="chapter" data-level="8.3.6" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#achtergrond-materiaal"><i class="fa fa-check"></i><b>8.3.6</b> Achtergrond materiaal</a></li>
+<li class="chapter" data-level="8.3.7" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#variabelen-omzetten"><i class="fa fa-check"></i><b>8.3.7</b> Variabelen omzetten</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#cleaning-data"><i class="fa fa-check"></i><b>8.4</b> Cleaning Data</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#dubbele-observaties"><i class="fa fa-check"></i><b>8.4.1</b> Dubbele observaties</a></li>
+<li class="chapter" data-level="8.4.2" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#cleaning-categorische-variabelen"><i class="fa fa-check"></i><b>8.4.2</b> Cleaning categorische variabelen</a></li>
+<li class="chapter" data-level="8.4.3" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#cleaning-continue-variabelen"><i class="fa fa-check"></i><b>8.4.3</b> Cleaning continue variabelen</a></li>
+<li class="chapter" data-level="8.4.4" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#data-inconsistenties"><i class="fa fa-check"></i><b>8.4.4</b> Data inconsistenties</a></li>
+<li class="chapter" data-level="8.4.5" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#missing-values"><i class="fa fa-check"></i><b>8.4.5</b> Missing values</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#data-transformatie"><i class="fa fa-check"></i><b>8.5</b> Data transformatie</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#discretisern-van-continue-variablen"><i class="fa fa-check"></i><b>8.5.1</b> Discretisern van continue variablen</a></li>
+<li class="chapter" data-level="8.5.2" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#herschalen-van-continue-variablen"><i class="fa fa-check"></i><b>8.5.2</b> Herschalen van continue variablen</a></li>
+<li class="chapter" data-level="8.5.3" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#toevoegen-van-calculated-variables"><i class="fa fa-check"></i><b>8.5.3</b> Toevoegen van calculated variables</a></li>
+<li class="chapter" data-level="8.5.4" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#factoren-transformeren"><i class="fa fa-check"></i><b>8.5.4</b> Factoren transformeren</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#data-transformaties-tijdens-data-visualizatie"><i class="fa fa-check"></i><b>8.6</b> Data transformaties tijdens data visualizatie</a></li>
+<li class="chapter" data-level="8.7" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#achtergrondmateriaal"><i class="fa fa-check"></i><b>8.7</b> Achtergrondmateriaal</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="lecture-notes-tidy-data.html"><a href="lecture-notes-tidy-data.html"><i class="fa fa-check"></i><b>9</b> [Lecture notes] Tidy data</a><ul>
+<li class="chapter" data-level="9.1" data-path="lecture-notes-tidy-data.html"><a href="lecture-notes-tidy-data.html#inleiding-1"><i class="fa fa-check"></i><b>9.1</b> Inleiding</a></li>
+<li class="chapter" data-level="9.2" data-path="lecture-notes-tidy-data.html"><a href="lecture-notes-tidy-data.html#case-nyc-vluchten-2013"><i class="fa fa-check"></i><b>9.2</b> Case: NYC Vluchten 2013</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="lecture-notes-tidy-data.html"><a href="lecture-notes-tidy-data.html#datasets-samenvoegen"><i class="fa fa-check"></i><b>9.2.1</b> Datasets samenvoegen</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="lecture-notes-tidy-data.html"><a href="lecture-notes-tidy-data.html#data-in-een-lang-formaat-plaatsen-voor-visuele-analyses"><i class="fa fa-check"></i><b>9.3</b> Data in een lang formaat plaatsen (voor visuele analyses)</a></li>
+<li class="chapter" data-level="9.4" data-path="lecture-notes-tidy-data.html"><a href="lecture-notes-tidy-data.html#data-in-een-breed-formaat-plaatsen-voor-overzichtelijke-tabellen"><i class="fa fa-check"></i><b>9.4</b> Data in een breed formaat plaatsen (voor overzichtelijke tabellen)</a></li>
+<li class="chapter" data-level="9.5" data-path="lecture-notes-tidy-data.html"><a href="lecture-notes-tidy-data.html#referenties-4"><i class="fa fa-check"></i><b>9.5</b> Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html"><i class="fa fa-check"></i><b>10</b> [Tutorial] Tidy data</a><ul>
+<li class="chapter" data-level="10.1" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#voor-je-begint-3"><i class="fa fa-check"></i><b>10.1</b> Voor je begint</a></li>
+<li class="chapter" data-level="" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#disclaimer-1"><i class="fa fa-check"></i>Disclaimer</a></li>
+<li class="chapter" data-level="10.2" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#data-samenvoegen"><i class="fa fa-check"></i><b>10.2</b> Data samenvoegen</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#joining-data"><i class="fa fa-check"></i><b>10.2.1</b> Joining data</a></li>
+<li class="chapter" data-level="10.2.2" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#inner-join"><i class="fa fa-check"></i><b>10.2.2</b> Inner join</a></li>
+<li class="chapter" data-level="10.2.3" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#left-join"><i class="fa fa-check"></i><b>10.2.3</b> Left join</a></li>
+<li class="chapter" data-level="10.2.4" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#right-join"><i class="fa fa-check"></i><b>10.2.4</b> Right join</a></li>
+<li class="chapter" data-level="10.2.5" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#full-join"><i class="fa fa-check"></i><b>10.2.5</b> Full join</a></li>
+<li class="chapter" data-level="10.2.6" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#duplicates"><i class="fa fa-check"></i><b>10.2.6</b> Duplicates</a></li>
+<li class="chapter" data-level="10.2.7" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#een-voorbeeld"><i class="fa fa-check"></i><b>10.2.7</b> Een voorbeeld</a></li>
+<li class="chapter" data-level="10.2.8" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#binding-data"><i class="fa fa-check"></i><b>10.2.8</b> Binding data</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#transforming-data"><i class="fa fa-check"></i><b>10.3</b> Transforming data</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#unite-variables"><i class="fa fa-check"></i><b>10.3.1</b> Unite variables</a></li>
+<li class="chapter" data-level="10.3.2" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#separate-variables"><i class="fa fa-check"></i><b>10.3.2</b> Separate variables</a></li>
+<li class="chapter" data-level="10.3.3" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#spread-data"><i class="fa fa-check"></i><b>10.3.3</b> Spread data</a></li>
+<li class="chapter" data-level="10.3.4" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#gather-data"><i class="fa fa-check"></i><b>10.3.4</b> Gather data</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#case-study-who"><i class="fa fa-check"></i><b>10.4</b> [Case study]: WHO</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="lecture-notes-tijdsdata.html"><a href="lecture-notes-tijdsdata.html"><i class="fa fa-check"></i><b>11</b> [Lecture notes] Tijdsdata</a><ul>
+<li class="chapter" data-level="11.1" data-path="lecture-notes-tijdsdata.html"><a href="lecture-notes-tijdsdata.html#inleiding-2"><i class="fa fa-check"></i><b>11.1</b> Inleiding</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="lecture-notes-tijdsdata.html"><a href="lecture-notes-tijdsdata.html#tijdstippen-versus-periodes"><i class="fa fa-check"></i><b>11.1.1</b> Tijdstippen versus periodes</a></li>
+<li class="chapter" data-level="11.1.2" data-path="lecture-notes-tijdsdata.html"><a href="lecture-notes-tijdsdata.html#afronden-van-tijdstippen"><i class="fa fa-check"></i><b>11.1.2</b> Afronden van tijdstippen</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="lecture-notes-tijdsdata.html"><a href="lecture-notes-tijdsdata.html#periode-data"><i class="fa fa-check"></i><b>11.2</b> Periode-data</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="lecture-notes-tijdsdata.html"><a href="lecture-notes-tijdsdata.html#interval-1"><i class="fa fa-check"></i><b>11.2.1</b> Interval</a></li>
+<li class="chapter" data-level="11.2.2" data-path="lecture-notes-tijdsdata.html"><a href="lecture-notes-tijdsdata.html#duration"><i class="fa fa-check"></i><b>11.2.2</b> Duration</a></li>
+<li class="chapter" data-level="11.2.3" data-path="lecture-notes-tijdsdata.html"><a href="lecture-notes-tijdsdata.html#period"><i class="fa fa-check"></i><b>11.2.3</b> Period</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="lecture-notes-tijdsdata.html"><a href="lecture-notes-tijdsdata.html#analyseren-van-tijdgerelateerde-data"><i class="fa fa-check"></i><b>11.3</b> Analyseren van tijdgerelateerde data</a></li>
+<li class="chapter" data-level="11.4" data-path="lecture-notes-tijdsdata.html"><a href="lecture-notes-tijdsdata.html#referenties-5"><i class="fa fa-check"></i><b>11.4</b> Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html"><i class="fa fa-check"></i><b>12</b> [Tutorial] Tijdsdata</a><ul>
+<li class="chapter" data-level="12.1" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#voor-we-beginnen"><i class="fa fa-check"></i><b>12.1</b> Voor we beginnen</a></li>
+<li class="chapter" data-level="12.2" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#introduction"><i class="fa fa-check"></i><b>12.2</b> Introduction</a></li>
+<li class="chapter" data-level="12.3" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#whats-in-a-date"><i class="fa fa-check"></i><b>12.3</b> What’s in a date?</a></li>
+<li class="chapter" data-level="12.4" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#theres-always-time"><i class="fa fa-check"></i><b>12.4</b> There’s always time</a></li>
+<li class="chapter" data-level="12.5" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#my-time-is-not-your-time"><i class="fa fa-check"></i><b>12.5</b> My time is not your time</a></li>
+<li class="chapter" data-level="12.6" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#extract-information-from-dates"><i class="fa fa-check"></i><b>12.6</b> Extract information from dates</a></li>
+<li class="chapter" data-level="12.7" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#time-differences"><i class="fa fa-check"></i><b>12.7</b> Time differences</a><ul>
+<li class="chapter" data-level="12.7.1" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#period-1"><i class="fa fa-check"></i><b>12.7.1</b> Period</a></li>
+<li class="chapter" data-level="12.7.2" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#durations"><i class="fa fa-check"></i><b>12.7.2</b> Durations</a></li>
+<li class="chapter" data-level="12.7.3" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#periods-are-not-durations"><i class="fa fa-check"></i><b>12.7.3</b> Periods are not durations</a></li>
+</ul></li>
+<li class="chapter" data-level="12.8" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#arithmetics"><i class="fa fa-check"></i><b>12.8</b> Arithmetics</a></li>
+<li class="chapter" data-level="12.9" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#interval-2"><i class="fa fa-check"></i><b>12.9</b> Interval</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Exploratieve en Descriptieve Data Analyse</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="lecture-notes-descriptieve-statistieken" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> [Lecture notes] Descriptieve statistieken</h1>
+<div id="beschrijvende-statistieken-versus-exploratieve-plots" class="section level2">
+<h2><span class="header-section-number">4.1</span> Beschrijvende statistieken versus exploratieve plots</h2>
+<ul>
+<li>Plots zijn vooral sterk om patronen in de data te visualiseren.</li>
+<li>Plots zijn minder geschikt om de ‘sterkte’ of ‘grootte’ van een patroon uit te drukken.</li>
+<li>Beschrijvende statistieken laten dit wel toe aangezien aspecten van de patronen in een exploratieve plot in exacte getallen worden gegoten.</li>
+<li>Er kunnen hoofdzakelijk 3 soorten beschrijvende statistieken worden onderscheiden:
+<ul>
+<li>Centrummaten</li>
+<li>Spreidingsmaten</li>
+<li>Associatiematen</li>
+</ul></li>
+<li>Centrummaten en spreidingsmaten zijn univariate statistieken en hebben als doel de verdeling van 1 variabele data samen te vatten in 2 cijfers.</li>
+<li>Associatiematen zijn typisch bivariate statistieken en hebben als doel de samenhang tussen twee variabelen samen te vatten.</li>
+</ul>
+</div>
+<div id="notatie" class="section level2">
+<h2><span class="header-section-number">4.2</span> Notatie</h2>
+<ul>
+<li><span class="math inline">\(n\)</span>: aantal observaties.</li>
+<li><span class="math inline">\(X, Y\)</span>: variabelen.</li>
+<li><span class="math inline">\(x_i, y_i\)</span>: de waarden voor variabelen <span class="math inline">\(X\)</span> en <span class="math inline">\(Y\)</span> voor observatie <span class="math inline">\(i\)</span>.</li>
+<li><span class="math inline">\(x_{(i)}\)</span>: de <span class="math inline">\(i\)</span>-de waarde voor <span class="math inline">\(X\)</span> na rangschikking van klein naar groot.</li>
+</ul>
+</div>
+<div id="data" class="section level2">
+<h2><span class="header-section-number">4.3</span> Data</h2>
+</div>
+<div id="univariate-statistieken" class="section level2">
+<h2><span class="header-section-number">4.4</span> Univariate statistieken</h2>
+<div id="continue-variabele-1" class="section level3">
+<h3><span class="header-section-number">4.4.1</span> Continue variabele</h3>
+<p><img src="textbook_files/figure-html/4-8-1.png" width="100%" /></p>
+</div>
+<div id="centrummaten" class="section level3 unnumbered">
+<h3>Centrummaten</h3>
+<ul>
+<li>Modus
+<ul>
+<li>Vaak minder bruikbaar bij een continue variabelen omdat iedere waarde zeer weinig voorkomt. Bijgevolg zijn er vaak zeer veel modi met telkens slechts enkele observaties.</li>
+</ul></li>
+<li>Mediaan
+<ul>
+<li>De middelste waarde na rangschikking van de gegevens.</li>
+<li>In geval van een oneven aantal observaties, komt dit overeen met <span class="math inline">\(x_{\frac{(n+1)}{2}}\)</span>.</li>
+<li>In geval van een even aantal observaties zijn er twee ‘middelste’ observaties en is de mediaan gelijk aan <span class="math inline">\(\frac{1}{2}( x_{\frac{n}{2}}+x_{\frac{n}{2}+1})\)</span></li>
+<li>De mediaan is robuust tegen uitschieters.</li>
+</ul></li>
+<li>(Rekenkundig) Gemiddelde
+<ul>
+<li><span class="math inline">\(\bar{x} = \frac{1}{n}\sum_{i=1}^n x_i\)</span></li>
+<li>Het gemiddelde is gevoelig voor uitschieters.</li>
+<li>Dit is de centrummaat die mensen intuïtief selecteren indien mogelijk.</li>
+</ul></li>
+</ul>
+<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:4-9">Table 4.1: </span>Afstand (centrummaten)
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+variabele
+</th>
+<th style="text-align:right;">
+gemiddelde
+</th>
+<th style="text-align:right;">
+mediaan
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+afstand
+</td>
+<td style="text-align:right;">
+1026.98
+</td>
+<td style="text-align:right;">
+820
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="spreidingsmaten" class="section level3 unnumbered">
+<h3>Spreidingsmaten</h3>
+<ul>
+<li>Kwantielen</li>
+<li>Bereik
+<ul>
+<li>Dit is het verschil tussen de grootste en kleinste waarde.</li>
+<li>Zeer gevoelig voor uitschieters.</li>
+<li>Is slechts gebaseerd op 2 observaties en bevat dus weinig informatie. Hiermee bedoelen we dat de spreiding van 2 variabelen sterk kan verschillen terwijl ze toch hetzelfde bereik hebben.</li>
+</ul></li>
+<li>Interkwartielafstand (IQR)
+<ul>
+<li>Dit is het verschil tussen Q75 en Q25.</li>
+<li>Zelfde principe als het bereik, maar minder gevoelig voor uitschieters.</li>
+<li>IQR is ook slechts gebaseerd op 2 observaties.</li>
+</ul></li>
+<li>Gemiddelde absolute afwijking (average absolute deviation)
+<ul>
+<li>Dit is de gemiddelde afwijking ten opzichte van het gemiddelde over alle observaties.</li>
+<li><span class="math inline">\(\frac{1}{n}\sum_{i=1}^{n}\lvert x_i - \bar{x} \rvert\)</span>.</li>
+</ul></li>
+<li>Variantie
+<ul>
+<li><span class="math inline">\(s^2 = \frac{1}{n-1}\sum_{i=1}^{n}(x_i - \bar{x})^2\)</span>.</li>
+<li>Vergelijkbaar met gemiddelde absolute afwijking, maar nu wordt het kwadraat gebruikt om te voorkomen dat de verschillen ten opzichte van het gemiddelde elkaar opheffen.</li>
+<li>Vanuit analytisch standpunt is deze spreidingsmaat interessanter (geen absolute waardes, waardoor afgeleiden bijvoorbeeld eenvoudiger worden om te berekenen).</li>
+<li>Wel gevoelig voor uitschieters en door het kwadraat wordt het effect van deze uitschieters ook nog eens vergroot.</li>
+<li>De wortel van de variantie wordt de standaardafwijking genoemd. De standaardafwijking heeft het voordeel dat het indezelfde eenheid uitgedrukt wordt als de oorspronkelijke data.</li>
+</ul></li>
+<li>Median Absolute Deviation (MAD)
+<ul>
+<li>Dit is de middelste afwijking ten opzichte van de mediaan over alle observaties.</li>
+<li><span class="math inline">\(\operatorname{MAD} = \operatorname{median}\left(\ \left| X_{i} - \operatorname{median} (X) \right|\ \right)\)</span>.</li>
+<li>Deze maatstaf is robuster tegen outliers.</li>
+</ul></li>
+</ul>
+<table class="table" style="font-size: 5px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:4-10">Table 4.2: </span>Afstand (spreidingsmaten)
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+variabele
+</th>
+<th style="text-align:right;">
+minimum
+</th>
+<th style="text-align:right;">
+Q25
+</th>
+<th style="text-align:right;">
+Q50
+</th>
+<th style="text-align:right;">
+Q75
+</th>
+<th style="text-align:right;">
+maximum
+</th>
+<th style="text-align:right;">
+bereik
+</th>
+<th style="text-align:right;">
+IQR
+</th>
+<th style="text-align:right;">
+var
+</th>
+<th style="text-align:right;">
+sd
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+afstand
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+502
+</td>
+<td style="text-align:right;">
+820
+</td>
+<td style="text-align:right;">
+1372
+</td>
+<td style="text-align:right;">
+4983
+</td>
+<td style="text-align:right;">
+4966
+</td>
+<td style="text-align:right;">
+870
+</td>
+<td style="text-align:right;">
+542630.2
+</td>
+<td style="text-align:right;">
+736.6344
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="categorische-variabele-1" class="section level3">
+<h3><span class="header-section-number">4.4.2</span> Categorische variabele</h3>
+<p><img src="textbook_files/figure-html/4-3-1.png" width="100%" /><img src="textbook_files/figure-html/4-3-2.png" width="100%" /></p>
+</div>
+<div id="frequentietabel" class="section level3 unnumbered">
+<h3>Frequentietabel</h3>
+<ul>
+<li>De absolute frequentie <span class="math inline">\(f\)</span> geeft aan hoe vaak een waarde voorkomt.</li>
+<li>De relatieve frequentie <span class="math inline">\(f/n\)</span> geeft aan welk aandeel deze frequentie heeft in het totaal aantal elementen <span class="math inline">\(n\)</span>.</li>
+<li>De cumulatieve frequentie <span class="math inline">\(F_n(x)\)</span> van een bepaalde waarde <span class="math inline">\(x\)</span> geeft aan hoeveel observaties kleiner zijn dan of gelijk zijn aan <span class="math inline">\(x\)</span>.</li>
+<li>De cumulatieve relatieve frequentie <span class="math inline">\(F_n(x)/n\)</span> van een bepaalde waarde <span class="math inline">\(x\)</span> geeft aan hoeveel percent van de observaties kleiner zijn dan of gelijk zijn aan <span class="math inline">\(x\)</span>.</li>
+<li>Een frequentietabel laat voor alle mogelijke waarden van een categorische variabele de absolute en relatieve frequentie zien (zowel normaal als cumulatief).</li>
+<li>Een frequentietabel laat zien waar een bepaalde waarde zich precies in de verdeling bevindt en hoe uitzonderlijk het is een specifieke waarde in de data te zien (of een waarde groter/kleiner dan) .</li>
+</ul>
+<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:4-4">Table 4.3: </span>Aantal vluchten per luchthaven
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+luchthaven
+</th>
+<th style="text-align:right;">
+freq
+</th>
+<th style="text-align:right;">
+rel_freq
+</th>
+<th style="text-align:right;">
+cum_freq
+</th>
+<th style="text-align:right;">
+cum_rel_freq
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+EWR
+</td>
+<td style="text-align:right;">
+119282
+</td>
+<td style="text-align:right;">
+0.36
+</td>
+<td style="text-align:right;">
+119282
+</td>
+<td style="text-align:right;">
+0.36
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JFK
+</td>
+<td style="text-align:right;">
+105230
+</td>
+<td style="text-align:right;">
+0.32
+</td>
+<td style="text-align:right;">
+224512
+</td>
+<td style="text-align:right;">
+0.68
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LGA
+</td>
+<td style="text-align:right;">
+104662
+</td>
+<td style="text-align:right;">
+0.32
+</td>
+<td style="text-align:right;">
+329174
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="centrummaten-1" class="section level3 unnumbered">
+<h3>Centrummaten</h3>
+<ul>
+<li>Modus
+<ul>
+<li>Meest voorkomende waarde.</li>
+<li>Enige centrummaat voor nominale variabele.</li>
+<li>Ook bruikbaar voor ordinale variabele.</li>
+<li>Een variabele kan meerdere modi hebben.</li>
+<li>De modus is robuust tegen uitschieters.</li>
+<li>De modus kan je aflezen als de eerste rij in een frequentietabel als je deze ordent van de meest voorkomende tot de minst voorkomende waarde.</li>
+</ul></li>
+<li>Mediaan
+<ul>
+<li>De middelste waarde na rangschikken van de gegevens.</li>
+<li>Voor ordinale variabelen definiëren we de mediaan aan de hand van de relatieve cumulatieve frequentie. De mediaan is de kleinste waarde waar 50% van de observaties kleiner dan of gelijk aan is.</li>
+<li>De mediaan is robuust tegen uitschieters.</li>
+</ul></li>
+</ul>
+<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:4-5">Table 4.4: </span>Aantal vluchten per vluchttype
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+vluchttype
+</th>
+<th style="text-align:right;">
+freq
+</th>
+<th style="text-align:right;">
+rel_freq
+</th>
+<th style="text-align:right;">
+cum_freq
+</th>
+<th style="text-align:right;">
+cum_rel_freq
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+kort
+</td>
+<td style="text-align:right;">
+245666
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+<td style="text-align:right;">
+245666
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+normaal
+</td>
+<td style="text-align:right;">
+31813
+</td>
+<td style="text-align:right;">
+0.10
+</td>
+<td style="text-align:right;">
+277479
+</td>
+<td style="text-align:right;">
+0.85
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lang
+</td>
+<td style="text-align:right;">
+50980
+</td>
+<td style="text-align:right;">
+0.15
+</td>
+<td style="text-align:right;">
+328459
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+intercontinentaal
+</td>
+<td style="text-align:right;">
+715
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+329174
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:4-6">Table 4.5: </span>Centrummaten voor vluchttype
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+variabele
+</th>
+<th style="text-align:left;">
+mediaan
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+vluchttype
+</td>
+<td style="text-align:left;">
+kort
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="spreidingsmaten-1" class="section level3 unnumbered">
+<h3>Spreidingsmaten</h3>
+<ul>
+<li>Kwantielen.
+<ul>
+<li>Kwantielen (of percentielen) zijn gebaseerd op de cumulatieve relatieve frequentie.</li>
+<li>Het p% kwantiel is de kleinste waarde waar p% van de observaties kleiner dan of gelijk aan is.</li>
+<li>Het 50% kwantiel komt overeen met de mediaan.</li>
+<li>Veel voorkomende kwantielen om de spreiding van de data weer te geven zijn het 25% en 75% kwantiel.</li>
+</ul></li>
+</ul>
+<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:4-7">Table 4.6: </span>Kwantielen voor vluchttype
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+variabele
+</th>
+<th style="text-align:left;">
+Q25
+</th>
+<th style="text-align:left;">
+Q50
+</th>
+<th style="text-align:left;">
+Q75
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+vluchttype
+</td>
+<td style="text-align:left;">
+kort
+</td>
+<td style="text-align:left;">
+kort
+</td>
+<td style="text-align:left;">
+normaal
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="bivariate-statistieken" class="section level2">
+<h2><span class="header-section-number">4.5</span> Bivariate statistieken</h2>
+<div id="categorisch-versus-categorisch" class="section level3">
+<h3><span class="header-section-number">4.5.1</span> Categorisch versus Categorisch</h3>
+<p><img src="textbook_files/figure-html/4-20-1.png" width="100%" /></p>
+</div>
+<div id="univariate-statistieken-per-categoriewaarde" class="section level3 unnumbered">
+<h3>Univariate statistieken per categoriewaarde</h3>
+<ul>
+<li>Je toont de relevante centrum- en spreidingsmaten voor de afhankelijke categorische variabele per waarde van de onafhankelijke categorische variabele. Dit is enkel mogelijk indien de afhankelijke categorische variabele ordinaal is, waarbij je minimum, mediaam, maximum en kwantielen kan berekenen.</li>
+</ul>
+<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:unnamed-chunk-71">Table 4.7: </span>Centrummaten voor vluchttype-luchthaven
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+luchthaven
+</th>
+<th style="text-align:left;">
+variabele
+</th>
+<th style="text-align:left;">
+mediaan
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+EWR
+</td>
+<td style="text-align:left;">
+vluchttype
+</td>
+<td style="text-align:left;">
+kort
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JFK
+</td>
+<td style="text-align:left;">
+vluchttype
+</td>
+<td style="text-align:left;">
+kort
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LGA
+</td>
+<td style="text-align:left;">
+vluchttype
+</td>
+<td style="text-align:left;">
+kort
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:unnamed-chunk-72">Table 4.8: </span>Kwantielen voor vluchttype-luchthaven
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+luchthaven
+</th>
+<th style="text-align:left;">
+variabele
+</th>
+<th style="text-align:left;">
+Q25
+</th>
+<th style="text-align:left;">
+Q50
+</th>
+<th style="text-align:left;">
+Q75
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+EWR
+</td>
+<td style="text-align:left;">
+vluchttype
+</td>
+<td style="text-align:left;">
+kort
+</td>
+<td style="text-align:left;">
+kort
+</td>
+<td style="text-align:left;">
+normaal
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JFK
+</td>
+<td style="text-align:left;">
+vluchttype
+</td>
+<td style="text-align:left;">
+kort
+</td>
+<td style="text-align:left;">
+kort
+</td>
+<td style="text-align:left;">
+lang
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LGA
+</td>
+<td style="text-align:left;">
+vluchttype
+</td>
+<td style="text-align:left;">
+kort
+</td>
+<td style="text-align:left;">
+kort
+</td>
+<td style="text-align:left;">
+kort
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="contingentietabellen" class="section level3 unnumbered">
+<h3>Contingentietabellen</h3>
+<p>Een andere mogelijkheid is het maken van 2-dimensionale frequentietabellen, ookal contingentietabellen genoemd. Meer info hierover lees je in de tutorial.</p>
+</div>
+<div id="categorisch-versus-continu" class="section level3">
+<h3><span class="header-section-number">4.5.2</span> Categorisch versus Continu</h3>
+<p><img src="textbook_files/figure-html/4-16-1.png" width="100%" /></p>
+</div>
+<div id="univariate-statistieken-per-categoriewaarde-1" class="section level3 unnumbered">
+<h3>Univariate statistieken per categoriewaarde</h3>
+<ul>
+<li>Je toont de relevante centrum- en spreidingsmaten voor de afhankelijke continue variabele per waarde van de onafhankelijke categorische variabele.</li>
+</ul>
+<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:4-17">Table 4.9: </span>Afstand-Luchthaven (centrummaten)
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+luchthaven
+</th>
+<th style="text-align:right;">
+gemiddelde
+</th>
+<th style="text-align:right;">
+mediaan
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+EWR
+</td>
+<td style="text-align:right;">
+1049.58
+</td>
+<td style="text-align:right;">
+872
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JFK
+</td>
+<td style="text-align:right;">
+1247.16
+</td>
+<td style="text-align:right;">
+1028
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LGA
+</td>
+<td style="text-align:right;">
+779.84
+</td>
+<td style="text-align:right;">
+762
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:4-18">Table 4.10: </span>Afstand-Luchthaven (spreidingsmaten)
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+luchthaven
+</th>
+<th style="text-align:right;">
+var
+</th>
+<th style="text-align:right;">
+min
+</th>
+<th style="text-align:right;">
+Q25
+</th>
+<th style="text-align:right;">
+Q50
+</th>
+<th style="text-align:right;">
+Q75
+</th>
+<th style="text-align:right;">
+max
+</th>
+<th style="text-align:right;">
+bereik
+</th>
+<th style="text-align:right;">
+IQR
+</th>
+<th style="text-align:right;">
+sd
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+EWR
+</td>
+<td style="text-align:right;">
+536177.0
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+529
+</td>
+<td style="text-align:right;">
+872
+</td>
+<td style="text-align:right;">
+1372
+</td>
+<td style="text-align:right;">
+4963
+</td>
+<td style="text-align:right;">
+4946
+</td>
+<td style="text-align:right;">
+843
+</td>
+<td style="text-align:right;">
+732.2411
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JFK
+</td>
+<td style="text-align:right;">
+842460.4
+</td>
+<td style="text-align:right;">
+94
+</td>
+<td style="text-align:right;">
+425
+</td>
+<td style="text-align:right;">
+1028
+</td>
+<td style="text-align:right;">
+2248
+</td>
+<td style="text-align:right;">
+4983
+</td>
+<td style="text-align:right;">
+4889
+</td>
+<td style="text-align:right;">
+1823
+</td>
+<td style="text-align:right;">
+917.8564
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LGA
+</td>
+<td style="text-align:right;">
+138132.3
+</td>
+<td style="text-align:right;">
+96
+</td>
+<td style="text-align:right;">
+502
+</td>
+<td style="text-align:right;">
+762
+</td>
+<td style="text-align:right;">
+1035
+</td>
+<td style="text-align:right;">
+1620
+</td>
+<td style="text-align:right;">
+1524
+</td>
+<td style="text-align:right;">
+533
+</td>
+<td style="text-align:right;">
+371.6615
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="correlatie" class="section level3 unnumbered">
+<h3>Correlatie</h3>
+<ul>
+<li>Enkel toepasbaar als de categorische variabele ordinaal is.</li>
+<li>Pearson’s correlatiecoëfficiënt kan je NIET toepassen.</li>
+<li>Spearman rangcorrelatiecoëfficiënt (<span class="math inline">\(\rho\)</span>).</li>
+<li>Kendall’s rangcorrelatiecoëfficiënt (<span class="math inline">\(\tau\)</span>) kan theoretisch wel toegepast worden, maar is in de praktijk vaak niet haalbaar.</li>
+</ul>
+<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:unnamed-chunk-73">Table 4.11: </span>Correlatie tussen vluchttype en vliegtijd
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+variabelenpaar
+</th>
+<th style="text-align:right;">
+spearman
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+vluchttype-vliegtijd
+</td>
+<td style="text-align:right;">
+0.76
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="continu-versus-continu" class="section level3">
+<h3><span class="header-section-number">4.5.3</span> Continu versus Continu</h3>
+<p><img src="textbook_files/figure-html/4-11-1.png" width="100%" /></p>
+</div>
+<div id="correlatie-1" class="section level3 unnumbered">
+<h3>Correlatie</h3>
+<ul>
+<li>Covariantie
+<ul>
+<li><span class="math inline">\(cov(x,y) = \frac{1}{n-1}\sum_{i=1}^{n}(x_i - \bar(x))(y_i-\bar(y))\)</span>.</li>
+<li>Bij een positieve associatie tussen twee variabelen zal de covariantie positief zijn.</li>
+<li>Bij een negatieve associatie tussen twee variabelen zal de covariantie negatief zijn.</li>
+<li>De covariantie is echter afhankelijk van de maateenheid van de variabelen, waardoor ze weinig bruikbaar is om de sterkte van de associatie weer te geven.</li>
+</ul></li>
+<li>Pearson correlatiecoëfficiënt
+<ul>
+<li>Herschaalt de covariantie naar de schaal <span class="math inline">\([-1,1]\)</span></li>
+<li>Laat toe om de sterkte van een associatie te evalueren.</li>
+<li><span class="math inline">\(r(x,y) = \frac{cov(x,y)}{s_x s_y}\)</span></li>
+<li><span class="math inline">\(r(x,y) = \frac{\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum_{i=1}^{n}(x_i-\bar{x})^2 \sum_{i=1}^{n}(y_i-\bar{y})^2}}\)</span></li>
+<li>Meet <strong>lineaire</strong> associatie tussen 2 variabelen.</li>
+<li>Twee variabelen kunnen positief geassocieerd zijn, maar in een niet-lineaire wijze, waardoor de correlatiecoëfficiënt naar nul gaat.</li>
+<li>Meest gebruikelijke correlatiecoëfficiënt voor continue variabelen.</li>
+<li>Daarom best altijd samen met een puntenwolk bekijken.</li>
+</ul></li>
+<li>Spearman’s rangcorrelatiecoëfficiënt.
+<ul>
+<li>Zelfde principe als Pearson’s, maar dan gebaseerd op de rangorde van de waarden in plaats van de waarden zelf.</li>
+<li><span class="math inline">\(r_i\)</span>: rangorde van waarde <span class="math inline">\(x_i\)</span>. Bijvoorbeeld <span class="math inline">\(r_i = 4\)</span> betekent dat de waarde <span class="math inline">\(x_i\)</span> de vierde kleinste waarde is.</li>
+<li><span class="math inline">\(s_i\)</span>: rangorde van waarde <span class="math inline">\(y_i\)</span>.</li>
+<li><span class="math inline">\(\rho(x,y) = \frac{\sum_{i=1}^{n}(r_i-\bar{r})(s_i-\bar{s})}{\sqrt{\sum_{i=1}^{n}(r_i-\bar{r})^2 \sum_{i=1}^{n}(s_i-\bar{s})^2}}\)</span></li>
+<li>Meet associatie tussen 2 variabelen, dus niet specifiek lineaire associatie.</li>
+</ul></li>
+<li>Kendall’s correlatiecoëfficiënt
+<ul>
+<li>Ook wel Kendall’s tau genoemd.</li>
+<li>De methode is gebaseerd door alle mogelijke observatieparen <span class="math inline">\((x_i, y_i)\)</span> en <span class="math inline">\((x_j,y_j)\)</span> te bestuderen.</li>
+<li>Net als Spearman’s aanpak gebaseerd op rangorde <span class="math inline">\((r_i, s_i)\)</span> en niet de feitelijke waarden.</li>
+<li>Indien <span class="math inline">\(r_i &gt; r_j\)</span> en <span class="math inline">\(s_i &gt; s_j\)</span> (of <span class="math inline">\(r_i &lt; r_j\)</span> en <span class="math inline">\(s_i &lt; s_j\)</span>) dan zijn observaties <span class="math inline">\(i\)</span> en <span class="math inline">\(j\)</span> concordant.</li>
+<li>Indien <span class="math inline">\(r_i &gt; r_j\)</span> en <span class="math inline">\(s_i &lt; s_j\)</span> (of <span class="math inline">\(r_i &lt; r_j\)</span> en <span class="math inline">\(s_i &gt; s_j\)</span>) dan zijn observaties <span class="math inline">\(i\)</span> en <span class="math inline">\(j\)</span> discordant.</li>
+<li>Notatie: <span class="math inline">\(C\)</span> en <span class="math inline">\(D\)</span> zijn respectievelijk het aantal concordante en discordante paren.</li>
+<li><span class="math inline">\(\tau = \frac{C-D}{\frac{1}{2}n(n-1)}\)</span></li>
+<li>Net als Spearman’s correlatiecoëfficiënt, focust Kendall’s tau op de associatie (positief of negatief) en niet specifiek op lineaire associatie.</li>
+<li>Het nadeel van Kendall’s tau is dat je alle observatieparen moet bestuderen en het aantal kan snel exploderen bij veel observaties. Immers het aantal paren is <span class="math inline">\(\frac{n!}{2!(n-2)!}\)</span>. Hierdoor kan je Kendall in de praktijk niet gebruiken als je veel observaties hebt.</li>
+</ul></li>
+</ul>
+<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:4-12">Table 4.12: </span>Correlatie tussen afstand en vliegtijd
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+variabelenpaar
+</th>
+<th style="text-align:right;">
+pearson
+</th>
+<th style="text-align:right;">
+spearman
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+afstand-vliegtijd
+</td>
+<td style="text-align:right;">
+0.99
+</td>
+<td style="text-align:right;">
+0.98
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="vergelijking-correlatiecoëfficiënten" class="section level3 unnumbered">
+<h3>Vergelijking correlatiecoëfficiënten</h3>
+<ul>
+<li>Rangcorrelatiecoëfficiënten meten associatie, terwijl Pearson correlatiecoëfficiënt <strong>lineaire</strong> associatie meet!</li>
+</ul>
+<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:4-13">Table 4.13: </span>Fictieve dataset
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+x
+</th>
+<th style="text-align:right;">
+y
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+4.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+5.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+5.5
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+7.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+15.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+15.6
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+16.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+50.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+1000.0
+</td>
+</tr>
+</tbody>
+</table>
+<p><img src="textbook_files/figure-html/4-14-1.png" width="100%" /></p>
+<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:4-15">Table 4.14: </span>Correlatiecoëfficiënten fictieve dataset
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+variabelenpaar
+</th>
+<th style="text-align:right;">
+pearson
+</th>
+<th style="text-align:right;">
+spearman
+</th>
+<th style="text-align:right;">
+kendall
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+x-y
+</td>
+<td style="text-align:right;">
+0.55
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="referenties-2" class="section level2 unnumbered">
+<h2>Referenties</h2>
+<ol style="list-style-type: decimal">
+<li>Tekst Beleidsstatistiek: Hoofdstukken 1 en 2 en secties 4.2 en 4.3 (Blackboard)</li>
+<li><a href="https://nl.wikipedia.org/wiki/Spearmans_rangcorrelatieco%C3%ABffici%C3%ABnt">Spearman’s rangcorrelatiecoëfficiënt</a></li>
+<li><a href="https://nl.wikipedia.org/wiki/Kendalls_tau">Kendall’s rangcorrelatiecoëfficiënt</a></li>
+<li><a href="https://www.researchgate.net/post/Does_Spearmans_rho_have_any_advantage_over_Kendalls_tau">Spearman versus Kendall’s correlatiecoëfficiënt</a></li>
+</ol>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="tutorial-data-visualisatie.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="tutorial-descriptieve-statistieken.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["textbook.pdf"],
+"toc": {
+"collapse": "section",
+"depth": 3
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

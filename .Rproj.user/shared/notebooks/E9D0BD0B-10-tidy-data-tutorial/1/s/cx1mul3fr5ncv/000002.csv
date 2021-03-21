@@ -1,4 +1,0 @@
-"0","tidy_who %>%"
-"0","	filter(gender == ""f"", !(age %in% c(""014"",""1524"")), country == ""Belgium"", year == 2000) %>%"
-"0","	group_by(diagnosis) %>%"
-"0","	summarize(n_cases = sum(cases, na.rm = T))"

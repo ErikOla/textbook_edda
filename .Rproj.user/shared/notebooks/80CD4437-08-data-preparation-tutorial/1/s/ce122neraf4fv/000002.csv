@@ -1,0 +1,6 @@
+"0","survey %>%"
+"0","	ggplot(aes(marital, age)) +"
+"0","	geom_boxplot()"
+"2","Error in survey %>% ggplot(aes(marital, age)) : 
+  could not find function ""%>%""
+"

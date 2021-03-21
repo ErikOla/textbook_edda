@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.2.19)  4 MAR 2021 22:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.3.15)  21 MAR 2021 20:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -134,7 +134,7 @@ Package: titletoc 2019/10/16 v2.13 TOC entries
 )
 (c:/Users/lucp8407/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hyperr
 ef.sty
-Package: hyperref 2021-02-10 v7.00j Hypertext links for LaTeX
+Package: hyperref 2021-02-27 v7.00k Hypertext links for LaTeX
 
 (c:/Users/lucp8407/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/kvsetkeys/kvs
 etkeys.sty
@@ -170,13 +170,13 @@ Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
 
 (c:/Users/lucp8407/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc
 .def
-File: pd1enc.def 2021-02-10 v7.00j Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2021-02-27 v7.00k Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
 (c:/Users/lucp8407/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hyperr
 ef-langpatches.def
-File: hyperref-langpatches.def 2021-02-10 v7.00j Hyperref: patches for babel la
+File: hyperref-langpatches.def 2021-02-27 v7.00k Hyperref: patches for babel la
 nguages
 )
 (c:/Users/lucp8407/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/intcalc/intca
@@ -191,7 +191,7 @@ Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 
 (c:/Users/lucp8407/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.
 def
-File: puenc.def 2021-02-10 v7.00j Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2021-02-27 v7.00k Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
@@ -247,7 +247,7 @@ Package hyperref Info: Driver (autodetected): hpdftex.
 
 (c:/Users/lucp8407/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hpdfte
 x.def
-File: hpdftex.def 2021-02-10 v7.00j Hyperref driver for pdfTeX
+File: hpdftex.def 2021-02-27 v7.00k Hyperref driver for pdfTeX
 
 (c:/Users/lucp8407/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/atveryend-
 ltx.sty
@@ -820,7 +820,7 @@ Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
 )
 (c:/Users/lucp8407/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3bac
 kend-pdftex.def
-File: l3backend-pdftex.def 2021-02-18 L3 backend support: PDF output (pdfTeX)
+File: l3backend-pdftex.def 2021-03-02 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count323
 \l__pdf_internal_box=\box118
 ) (./textbook.aux)
@@ -962,7 +962,7 @@ This message occurred on input line 149.
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 220.
+This message occurred on input line 217.
 
 [5])
 \tf@toc=\write5
@@ -4939,80 +4939,86 @@ LaTeX Warning: Marginpar on page 182 moved.
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 10067.
+This message occurred on input line 10064.
 
 [182]
-Overfull \hbox (2.36768pt too wide) in paragraph at lines 10096--10097
-\T1/cmr/m/n/10 JSON - or JavaScript Ob-ject No-ta-tion - and XML - eX-ten-si-bl
-e Markup 
+Overfull \hbox (21.58813pt too wide) in paragraph at lines 10094--10095
+[]\T1/cmr/m/n/10 Nogmaals, net als voor csv, zijn er veel ex-tra ar-gu-menten i
+n \T1/cmtt/m/n/10 read_excel\T1/cmr/m/n/10 . 
  []
 
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 10103.
+This message occurred on input line 10095.
 
 [183]
-Overfull \hbox (4.6449pt too wide) in paragraph at lines 10127--10128
-\T1/cmr/m/n/10 Finally, it is also pos-si-ble to anal-yse data which is stored 
-in a data.base. 
+Overfull \hbox (3.784pt too wide) in paragraph at lines 10130--10131
+\T1/cmr/m/n/10 Tenslotte is het ook mo-gelijk gegevens te anal-y-seren die in e
+en database 
+ []
+
+
+Overfull \hbox (2.11774pt too wide) in paragraph at lines 10130--10131
+\T1/cmr/m/n/10 zijn opges-la-gen. De manier waarop zal afhangen van het type da
+tabase. 
  []
 
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 10159.
+This message occurred on input line 10131.
 
 [184]
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 10159--10159
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 10162--10162
 []\T1/cmtt/m/n/10 ## $ year    <chr> "2000", "2000", "2000", "2000", "2000", "2
 000", "2000", "20...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 10159--10159
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 10162--10162
 []\T1/cmtt/m/n/10 ## $ marital <chr> "Never married", "Divorced", "Widowed", "N
 ever married", "D...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 10159--10159
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 10162--10162
 []\T1/cmtt/m/n/10 ## $ age     <chr> "26", "48", "67", "39", "25", "25", "36", 
 "44", "44", "47",...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 10159--10159
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 10162--10162
 []\T1/cmtt/m/n/10 ## $ race    <chr> "White", "White", "White", "White", "White
 ", "White", "Whit...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 10159--10159
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 10162--10162
 []\T1/cmtt/m/n/10 ## $ rincome <chr> "$8000 to 9999", "$8000 to 9999", "Not app
 licable", "Not ap...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 10159--10159
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 10162--10162
 []\T1/cmtt/m/n/10 ## $ partyid <chr> "Ind,near rep", "Not str republican", "Ind
 ependent", "Ind,n...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 10159--10159
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 10162--10162
 []\T1/cmtt/m/n/10 ## $ relig   <chr> "Protestant", "Protestant", "Protestant", 
 "Orthodox-christi...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 10159--10159
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 10162--10162
 []\T1/cmtt/m/n/10 ## $ denom   <chr> "Southern baptist", "Baptist-dk which", "N
 o denomination", ...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 10159--10159
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 10162--10162
 []\T1/cmtt/m/n/10 ## $ tvhours <chr> "12", NA, "2", "4", "1", NA, "3", NA, "0",
  "3", "2", NA, "1...[] 
  []
@@ -5021,173 +5027,178 @@ Overfull \hbox (113.14618pt too wide) in paragraph at lines 10159--10159
 LaTeX Warning: Marginpar on page 185 moved.
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 10209--10209
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 10183.
+
+[185]
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 10212--10212
 []\T1/cmtt/m/n/10 ## $ year    <int> 2000, 2000, 2000, 2000, 2000, 2000, 2000, 
 2000, 2000, 2000,...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 10209--10209
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 10212--10212
 []\T1/cmtt/m/n/10 ## $ marital <fct> Never married, Divorced, Widowed, Never ma
 rried, Divorced, ...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 10209--10209
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 10212--10212
 []\T1/cmtt/m/n/10 ## $ age     <int> 26, 48, 67, 39, 25, 25, 36, 44, 44, 47, 53
 , 52, 52, 51, 52,...[] 
  []
 
 
-Class tufte-book Warning: Proper spacing of small-caps letters has not been set
- up.
-This message occurred on input line 10209.
-
-[185]
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 10209--10209
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 10212--10212
 []\T1/cmtt/m/n/10 ## $ race    <fct> White, White, White, White, White, White, 
 White, White, Whi...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 10209--10209
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 10212--10212
 []\T1/cmtt/m/n/10 ## $ rincome <fct> $8000 to 9999, $8000 to 9999, Not applicab
 le, Not applicabl...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 10209--10209
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 10212--10212
 []\T1/cmtt/m/n/10 ## $ partyid <fct> "Ind,near rep", "Not str republican", "Ind
 ependent", "Ind,n...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 10209--10209
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 10212--10212
 []\T1/cmtt/m/n/10 ## $ relig   <fct> Protestant, Protestant, Protestant, Orthod
 ox-christian, Non...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 10209--10209
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 10212--10212
 []\T1/cmtt/m/n/10 ## $ denom   <fct> Southern baptist, Baptist-dk which, No den
 omination, Not ap...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 10209--10209
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 10212--10212
 []\T1/cmtt/m/n/10 ## $ tvhours <dbl> 12, NA, 2, 4, 1, NA, 3, NA, 0, 3, 2, NA, 1
 , NA, 1, 7, NA, 3...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 10246--10246
-[]\T1/cmtt/m/n/10 ## $ year            <int> 2000, 2000, 2000, 2000, 2000, 2000
-, 2000, 2000, 200...[] 
- []
-
-
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 10246--10246
-[]\T1/cmtt/m/n/10 ## $ marital         <fct> Never married, Divorced, Widowed, 
-Never married, Di...[] 
- []
-
-
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 10246--10246
-[]\T1/cmtt/m/n/10 ## $ age             <int> 26, 48, 67, 39, 25, 25, 36, 44, 44
-, 47, 53, 52, 52,...[] 
- []
-
-
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 10246--10246
-[]\T1/cmtt/m/n/10 ## $ race            <fct> White, White, White, White, White,
- White, White, Wh...[] 
- []
-
-
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 10246--10246
-[]\T1/cmtt/m/n/10 ## $ reported_income <fct> $8000 to 9999, $8000 to 9999, Not 
-applicable, Not a...[] 
- []
-
-
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 10246--10246
-[]\T1/cmtt/m/n/10 ## $ party           <fct> "Ind,near rep", "Not str republica
-n", "Independent"...[] 
- []
-
-
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 10246--10246
-[]\T1/cmtt/m/n/10 ## $ religion        <fct> Protestant, Protestant, Protestant
-, Orthodox-christ...[] 
- []
-
-
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 10246--10246
-[]\T1/cmtt/m/n/10 ## $ denomination    <fct> Southern baptist, Baptist-dk which
-, No denomination...[] 
- []
-
-
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 10246--10246
-[]\T1/cmtt/m/n/10 ## $ tv_hours        <dbl> 12, NA, 2, 4, 1, NA, 3, NA, 0, 3, 
-2, NA, 1, NA, 1, ...[] 
- []
-
-
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 10249.
+This message occurred on input line 10228.
 
 [186]
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 10281--10281
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 10249--10249
 []\T1/cmtt/m/n/10 ## $ year            <int> 2000, 2000, 2000, 2000, 2000, 2000
 , 2000, 2000, 200...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 10281--10281
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 10249--10249
 []\T1/cmtt/m/n/10 ## $ marital         <fct> Never married, Divorced, Widowed, 
 Never married, Di...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 10281--10281
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 10249--10249
 []\T1/cmtt/m/n/10 ## $ age             <int> 26, 48, 67, 39, 25, 25, 36, 44, 44
 , 47, 53, 52, 52,...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 10281--10281
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 10249--10249
 []\T1/cmtt/m/n/10 ## $ race            <fct> White, White, White, White, White,
  White, White, Wh...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 10281--10281
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 10249--10249
 []\T1/cmtt/m/n/10 ## $ reported_income <fct> $8000 to 9999, $8000 to 9999, Not 
 applicable, Not a...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 10281--10281
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 10249--10249
 []\T1/cmtt/m/n/10 ## $ party           <fct> "Ind,near rep", "Not str republica
 n", "Independent"...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 10281--10281
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 10249--10249
 []\T1/cmtt/m/n/10 ## $ religion        <fct> Protestant, Protestant, Protestant
 , Orthodox-christ...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 10281--10281
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 10249--10249
 []\T1/cmtt/m/n/10 ## $ denomination    <fct> Southern baptist, Baptist-dk which
 , No denomination...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 10281--10281
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 10249--10249
+[]\T1/cmtt/m/n/10 ## $ tv_hours        <dbl> 12, NA, 2, 4, 1, NA, 3, NA, 0, 3, 
+2, NA, 1, NA, 1, ...[] 
+ []
+
+
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 10284--10284
+[]\T1/cmtt/m/n/10 ## $ year            <int> 2000, 2000, 2000, 2000, 2000, 2000
+, 2000, 2000, 200...[] 
+ []
+
+
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 10284--10284
+[]\T1/cmtt/m/n/10 ## $ marital         <fct> Never married, Divorced, Widowed, 
+Never married, Di...[] 
+ []
+
+
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 10284--10284
+[]\T1/cmtt/m/n/10 ## $ age             <int> 26, 48, 67, 39, 25, 25, 36, 44, 44
+, 47, 53, 52, 52,...[] 
+ []
+
+
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 10284.
+
+[187]
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 10284--10284
+[]\T1/cmtt/m/n/10 ## $ race            <fct> White, White, White, White, White,
+ White, White, Wh...[] 
+ []
+
+
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 10284--10284
+[]\T1/cmtt/m/n/10 ## $ reported_income <fct> $8000 to 9999, $8000 to 9999, Not 
+applicable, Not a...[] 
+ []
+
+
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 10284--10284
+[]\T1/cmtt/m/n/10 ## $ party           <fct> "Ind,near rep", "Not str republica
+n", "Independent"...[] 
+ []
+
+
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 10284--10284
+[]\T1/cmtt/m/n/10 ## $ religion        <fct> Protestant, Protestant, Protestant
+, Orthodox-christ...[] 
+ []
+
+
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 10284--10284
+[]\T1/cmtt/m/n/10 ## $ denomination    <fct> Southern baptist, Baptist-dk which
+, No denomination...[] 
+ []
+
+
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 10284--10284
 []\T1/cmtt/m/n/10 ## $ tv_hours        <dbl> 12, NA, 2, 4, 1, NA, 3, NA, 0, 3, 
 2, NA, 1, NA, 1, ...[] 
  []
@@ -5195,406 +5206,393 @@ Overfull \hbox (113.14618pt too wide) in paragraph at lines 10281--10281
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 10298.
+This message occurred on input line 10319.
 
-[187]
+[188]
+Overfull \hbox (4.25903pt too wide) in paragraph at lines 10320--10321
+[]\T1/cmr/m/n/10 Er is echter een risico. Als wij een fout maken, kun-nen onze 
+gegevens 
+ []
+
+
+Underfull \vbox (badness 1418) has occurred while \output is active []
+
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 10324.
+This message occurred on input line 10350.
 
-[188]
-Overfull \hbox (81.65387pt too wide) in paragraph at lines 10386--10386
+[189]
+Overfull \hbox (81.65387pt too wide) in paragraph at lines 10388--10388
 []\T1/cmtt/m/n/10 ##     year marital   age race  reported_income party religio
 n denomination[] 
  []
 
 
-Overfull \hbox (44.91284pt too wide) in paragraph at lines 10386--10386
+Overfull \hbox (44.91284pt too wide) in paragraph at lines 10388--10388
 []\T1/cmtt/m/n/10 ##    <int> <fct>   <int> <fct> <fct>           <fct> <fct>  
   <fct>[] 
  []
 
 
-Overfull \hbox (81.65387pt too wide) in paragraph at lines 10386--10386
+Overfull \hbox (81.65387pt too wide) in paragraph at lines 10388--10388
 []\T1/cmtt/m/n/10 ##  1  2000 Married    48 White $25000 or more  Ind,~ Catholi
 c Not applica~[] 
  []
 
 
-Overfull \hbox (81.65387pt too wide) in paragraph at lines 10386--10386
+Overfull \hbox (81.65387pt too wide) in paragraph at lines 10388--10388
 []\T1/cmtt/m/n/10 ##  2  2000 Never ~    39 Other $25000 or more  Not ~ Catholi
 c Not applica~[] 
  []
 
 
-Overfull \hbox (81.65387pt too wide) in paragraph at lines 10386--10386
+Overfull \hbox (81.65387pt too wide) in paragraph at lines 10388--10388
 []\T1/cmtt/m/n/10 ##  3  2000 Married    36 Other $25000 or more  Not ~ Catholi
 c Not applica~[] 
  []
 
 
-Overfull \hbox (81.65387pt too wide) in paragraph at lines 10386--10386
+Overfull \hbox (81.65387pt too wide) in paragraph at lines 10388--10388
 []\T1/cmtt/m/n/10 ##  4  2000 Never ~    30 White $25000 or more  Not ~ Catholi
 c Not applica~[] 
  []
 
 
-Overfull \hbox (81.65387pt too wide) in paragraph at lines 10386--10386
+Overfull \hbox (81.65387pt too wide) in paragraph at lines 10388--10388
 []\T1/cmtt/m/n/10 ##  5  2000 Never ~    19 White $1000 to 2999   Not ~ Catholi
 c Not applica~[] 
  []
 
 
-Overfull \hbox (81.65387pt too wide) in paragraph at lines 10386--10386
+Overfull \hbox (81.65387pt too wide) in paragraph at lines 10388--10388
 []\T1/cmtt/m/n/10 ##  6  2000 Married    47 White $25000 or more  Not ~ Catholi
 c Not applica~[] 
  []
 
 
-Overfull \hbox (81.65387pt too wide) in paragraph at lines 10386--10386
+Overfull \hbox (81.65387pt too wide) in paragraph at lines 10388--10388
 []\T1/cmtt/m/n/10 ##  7  2000 Married    29 White $25000 or more  Inde~ Catholi
 c Not applica~[] 
  []
 
 
-Class tufte-book Warning: Proper spacing of small-caps letters has not been set
- up.
-This message occurred on input line 10386.
-
-[189]
-Overfull \hbox (81.65387pt too wide) in paragraph at lines 10386--10386
+Overfull \hbox (81.65387pt too wide) in paragraph at lines 10388--10388
 []\T1/cmtt/m/n/10 ##  8  2000 Married    39 White $10000 - 14999  Not ~ Catholi
 c Not applica~[] 
  []
 
 
-Overfull \hbox (81.65387pt too wide) in paragraph at lines 10386--10386
+Overfull \hbox (81.65387pt too wide) in paragraph at lines 10388--10388
 []\T1/cmtt/m/n/10 ##  9  2000 Widowed    80 White Not applicable  Stro~ Protest
 ~ Southern ba~[] 
  []
 
 
-Overfull \hbox (81.65387pt too wide) in paragraph at lines 10386--10386
+Overfull \hbox (81.65387pt too wide) in paragraph at lines 10388--10388
 []\T1/cmtt/m/n/10 ## 10  2002 Married    43 White Not applicable  Inde~ Catholi
 c Not applica~[] 
  []
 
 
-Overfull \hbox (23.91797pt too wide) in paragraph at lines 10386--10386
+Overfull \hbox (23.91797pt too wide) in paragraph at lines 10388--10388
 []\T1/cmtt/m/n/10 ## # ... with 253 more rows, and 1 more variable: tv_hours <d
 bl>[] 
  []
 
 
-Overfull \hbox (81.65387pt too wide) in paragraph at lines 10414--10414
-[]\T1/cmtt/m/n/10 ##     year marital   age race  reported_income party religio
-n denomination[] 
- []
-
-
-Overfull \hbox (44.91284pt too wide) in paragraph at lines 10414--10414
-[]\T1/cmtt/m/n/10 ##    <int> <fct>   <int> <fct> <fct>           <fct> <fct>  
-  <fct>[] 
- []
-
-
-Overfull \hbox (81.65387pt too wide) in paragraph at lines 10414--10414
-[]\T1/cmtt/m/n/10 ##  1  2000 Never ~    26 White $8000 to 9999   Ind,~ Protest
-~ Southern ba~[] 
- []
-
-
-Overfull \hbox (81.65387pt too wide) in paragraph at lines 10414--10414
-[]\T1/cmtt/m/n/10 ##  2  2000 Divorc~    48 White $8000 to 9999   Not ~ Protest
-~ Baptist-dk ~[] 
- []
-
-
-Overfull \hbox (81.65387pt too wide) in paragraph at lines 10414--10414
-[]\T1/cmtt/m/n/10 ##  3  2000 Widowed    67 White Not applicable  Inde~ Protest
-~ No denomina~[] 
- []
-
-
-Overfull \hbox (81.65387pt too wide) in paragraph at lines 10414--10414
-[]\T1/cmtt/m/n/10 ##  4  2000 Never ~    39 White Not applicable  Ind,~ Orthodo
-~ Not applica~[] 
- []
-
-
-Overfull \hbox (81.65387pt too wide) in paragraph at lines 10414--10414
-[]\T1/cmtt/m/n/10 ##  5  2000 Divorc~    25 White Not applicable  Not ~ None   
-  Not applica~[] 
- []
-
-
-Overfull \hbox (81.65387pt too wide) in paragraph at lines 10414--10414
-[]\T1/cmtt/m/n/10 ##  6  2000 Married    25 White $20000 - 24999  Stro~ Protest
-~ Southern ba~[] 
- []
-
-
-Overfull \hbox (81.65387pt too wide) in paragraph at lines 10414--10414
-[]\T1/cmtt/m/n/10 ##  7  2000 Never ~    36 White $25000 or more  Not ~ Christi
-~ Not applica~[] 
- []
-
-
-Overfull \hbox (81.65387pt too wide) in paragraph at lines 10414--10414
-[]\T1/cmtt/m/n/10 ##  8  2000 Divorc~    44 White $7000 to 7999   Ind,~ Protest
-~ Lutheran-mo~[] 
- []
-
-
-Overfull \hbox (44.91284pt too wide) in paragraph at lines 10414--10414
-[]\T1/cmtt/m/n/10 ##  9  2000 Married    44 White $25000 or more  Not ~ Protest
-~ Other[] 
- []
-
-
-Overfull \hbox (81.65387pt too wide) in paragraph at lines 10414--10414
-[]\T1/cmtt/m/n/10 ## 10  2000 Married    47 White $25000 or more  Stro~ Protest
-~ Southern ba~[] 
- []
-
-
-Overfull \hbox (39.66412pt too wide) in paragraph at lines 10414--10414
-[]\T1/cmtt/m/n/10 ## # ... with 21,210 more rows, and 1 more variable: tv_hours
- <dbl>[] 
- []
-
-
-Overfull \hbox (81.65387pt too wide) in paragraph at lines 10440--10440
-[]\T1/cmtt/m/n/10 ##     year marital   age race  reported_income party religio
-n denomination[] 
- []
-
-
-Overfull \hbox (44.91284pt too wide) in paragraph at lines 10440--10440
-[]\T1/cmtt/m/n/10 ##    <int> <fct>   <int> <fct> <fct>           <fct> <fct>  
-  <fct>[] 
- []
-
-
-Overfull \hbox (81.65387pt too wide) in paragraph at lines 10440--10440
-[]\T1/cmtt/m/n/10 ##  1  2000 Never ~    26 White $8000 to 9999   Ind,~ Protest
-~ Southern ba~[] 
- []
-
-
-Overfull \hbox (81.65387pt too wide) in paragraph at lines 10440--10440
-[]\T1/cmtt/m/n/10 ##  2  2000 Divorc~    48 White $8000 to 9999   Not ~ Protest
-~ Baptist-dk ~[] 
- []
-
-
-Overfull \hbox (81.65387pt too wide) in paragraph at lines 10440--10440
-[]\T1/cmtt/m/n/10 ##  3  2000 Widowed    67 White Not applicable  Inde~ Protest
-~ No denomina~[] 
- []
-
-
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 10440.
+This message occurred on input line 10398.
 
 [190]
-Overfull \hbox (81.65387pt too wide) in paragraph at lines 10440--10440
+Overfull \hbox (81.65387pt too wide) in paragraph at lines 10416--10416
+[]\T1/cmtt/m/n/10 ##     year marital   age race  reported_income party religio
+n denomination[] 
+ []
+
+
+Overfull \hbox (44.91284pt too wide) in paragraph at lines 10416--10416
+[]\T1/cmtt/m/n/10 ##    <int> <fct>   <int> <fct> <fct>           <fct> <fct>  
+  <fct>[] 
+ []
+
+
+Overfull \hbox (81.65387pt too wide) in paragraph at lines 10416--10416
+[]\T1/cmtt/m/n/10 ##  1  2000 Never ~    26 White $8000 to 9999   Ind,~ Protest
+~ Southern ba~[] 
+ []
+
+
+Overfull \hbox (81.65387pt too wide) in paragraph at lines 10416--10416
+[]\T1/cmtt/m/n/10 ##  2  2000 Divorc~    48 White $8000 to 9999   Not ~ Protest
+~ Baptist-dk ~[] 
+ []
+
+
+Overfull \hbox (81.65387pt too wide) in paragraph at lines 10416--10416
+[]\T1/cmtt/m/n/10 ##  3  2000 Widowed    67 White Not applicable  Inde~ Protest
+~ No denomina~[] 
+ []
+
+
+Overfull \hbox (81.65387pt too wide) in paragraph at lines 10416--10416
 []\T1/cmtt/m/n/10 ##  4  2000 Never ~    39 White Not applicable  Ind,~ Orthodo
 ~ Not applica~[] 
  []
 
 
-Overfull \hbox (81.65387pt too wide) in paragraph at lines 10440--10440
+Overfull \hbox (81.65387pt too wide) in paragraph at lines 10416--10416
 []\T1/cmtt/m/n/10 ##  5  2000 Divorc~    25 White Not applicable  Not ~ None   
   Not applica~[] 
  []
 
 
-Overfull \hbox (81.65387pt too wide) in paragraph at lines 10440--10440
+Overfull \hbox (81.65387pt too wide) in paragraph at lines 10416--10416
 []\T1/cmtt/m/n/10 ##  6  2000 Married    25 White $20000 - 24999  Stro~ Protest
 ~ Southern ba~[] 
  []
 
 
-Overfull \hbox (81.65387pt too wide) in paragraph at lines 10440--10440
+Overfull \hbox (81.65387pt too wide) in paragraph at lines 10416--10416
 []\T1/cmtt/m/n/10 ##  7  2000 Never ~    36 White $25000 or more  Not ~ Christi
 ~ Not applica~[] 
  []
 
 
-Overfull \hbox (81.65387pt too wide) in paragraph at lines 10440--10440
+Overfull \hbox (81.65387pt too wide) in paragraph at lines 10416--10416
 []\T1/cmtt/m/n/10 ##  8  2000 Divorc~    44 White $7000 to 7999   Ind,~ Protest
 ~ Lutheran-mo~[] 
  []
 
 
-Overfull \hbox (44.91284pt too wide) in paragraph at lines 10440--10440
+Overfull \hbox (44.91284pt too wide) in paragraph at lines 10416--10416
 []\T1/cmtt/m/n/10 ##  9  2000 Married    44 White $25000 or more  Not ~ Protest
 ~ Other[] 
  []
 
 
-Overfull \hbox (81.65387pt too wide) in paragraph at lines 10440--10440
+Overfull \hbox (81.65387pt too wide) in paragraph at lines 10416--10416
 []\T1/cmtt/m/n/10 ## 10  2000 Married    47 White $25000 or more  Stro~ Protest
 ~ Southern ba~[] 
  []
 
 
-Overfull \hbox (39.66412pt too wide) in paragraph at lines 10440--10440
+Overfull \hbox (39.66412pt too wide) in paragraph at lines 10416--10416
 []\T1/cmtt/m/n/10 ## # ... with 21,210 more rows, and 1 more variable: tv_hours
  <dbl>[] 
  []
 
 
-LaTeX Warning: Marginpar on page 191 moved.
+Overfull \hbox (81.65387pt too wide) in paragraph at lines 10442--10442
+[]\T1/cmtt/m/n/10 ##     year marital   age race  reported_income party religio
+n denomination[] 
+ []
+
+
+Overfull \hbox (44.91284pt too wide) in paragraph at lines 10442--10442
+[]\T1/cmtt/m/n/10 ##    <int> <fct>   <int> <fct> <fct>           <fct> <fct>  
+  <fct>[] 
+ []
+
+
+Overfull \hbox (81.65387pt too wide) in paragraph at lines 10442--10442
+[]\T1/cmtt/m/n/10 ##  1  2000 Never ~    26 White $8000 to 9999   Ind,~ Protest
+~ Southern ba~[] 
+ []
+
+
+Overfull \hbox (81.65387pt too wide) in paragraph at lines 10442--10442
+[]\T1/cmtt/m/n/10 ##  2  2000 Divorc~    48 White $8000 to 9999   Not ~ Protest
+~ Baptist-dk ~[] 
+ []
+
+
+Overfull \hbox (81.65387pt too wide) in paragraph at lines 10442--10442
+[]\T1/cmtt/m/n/10 ##  3  2000 Widowed    67 White Not applicable  Inde~ Protest
+~ No denomina~[] 
+ []
+
+
+Overfull \hbox (81.65387pt too wide) in paragraph at lines 10442--10442
+[]\T1/cmtt/m/n/10 ##  4  2000 Never ~    39 White Not applicable  Ind,~ Orthodo
+~ Not applica~[] 
+ []
+
+
+Overfull \hbox (81.65387pt too wide) in paragraph at lines 10442--10442
+[]\T1/cmtt/m/n/10 ##  5  2000 Divorc~    25 White Not applicable  Not ~ None   
+  Not applica~[] 
+ []
+
+
+Overfull \hbox (81.65387pt too wide) in paragraph at lines 10442--10442
+[]\T1/cmtt/m/n/10 ##  6  2000 Married    25 White $20000 - 24999  Stro~ Protest
+~ Southern ba~[] 
+ []
+
+
+Overfull \hbox (81.65387pt too wide) in paragraph at lines 10442--10442
+[]\T1/cmtt/m/n/10 ##  7  2000 Never ~    36 White $25000 or more  Not ~ Christi
+~ Not applica~[] 
+ []
+
+
+Overfull \hbox (81.65387pt too wide) in paragraph at lines 10442--10442
+[]\T1/cmtt/m/n/10 ##  8  2000 Divorc~    44 White $7000 to 7999   Ind,~ Protest
+~ Lutheran-mo~[] 
+ []
+
+
+Overfull \hbox (44.91284pt too wide) in paragraph at lines 10442--10442
+[]\T1/cmtt/m/n/10 ##  9  2000 Married    44 White $25000 or more  Not ~ Protest
+~ Other[] 
+ []
+
+
+Overfull \hbox (81.65387pt too wide) in paragraph at lines 10442--10442
+[]\T1/cmtt/m/n/10 ## 10  2000 Married    47 White $25000 or more  Stro~ Protest
+~ Southern ba~[] 
+ []
+
+
+Overfull \hbox (39.66412pt too wide) in paragraph at lines 10442--10442
+[]\T1/cmtt/m/n/10 ## # ... with 21,210 more rows, and 1 more variable: tv_hours
+ <dbl>[] 
+ []
 
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 10485.
+This message occurred on input line 10447.
 
 [191]
 
+LaTeX Warning: Marginpar on page 192 moved.
+
+
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 10548.
+This message occurred on input line 10497.
 
 [192]
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 10611.
+This message occurred on input line 10550.
 
 [193]
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 10639.
+This message occurred on input line 10613.
 
 [194]
-<textbook_files/figure-latex/unnamed-chunk-168-1.pdf, id=2579, 433.62pt x 259.9
+
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 10641.
+
+[195]
+<textbook_files/figure-latex/unnamed-chunk-168-1.pdf, id=2583, 433.62pt x 259.9
 7125pt>
 File: textbook_files/figure-latex/unnamed-chunk-168-1.pdf Graphic file (type pd
 f)
 <use textbook_files/figure-latex/unnamed-chunk-168-1.pdf>
 Package pdftex.def Info: textbook_files/figure-latex/unnamed-chunk-168-1.pdf  u
-sed on input line 10650.
+sed on input line 10652.
 (pdftex.def)             Requested size: 312.01428pt x 187.06412pt.
 
-Overfull \hbox (12.01428pt too wide) in paragraph at lines 10650--10651
+Overfull \hbox (12.01428pt too wide) in paragraph at lines 10652--10653
 [][]  
  []
 
 
-LaTeX Warning: Marginpar on page 195 moved.
+LaTeX Warning: Marginpar on page 196 moved.
 
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 10662.
+This message occurred on input line 10667.
 
-[195 <./textbook_files/figure-latex/unnamed-chunk-168-1.pdf>]
-
-LaTeX Warning: Marginpar on page 196 moved.
-
-<textbook_files/figure-latex/unnamed-chunk-170-1.pdf, id=2589, 433.62pt x 259.9
+[196 <./textbook_files/figure-latex/unnamed-chunk-168-1.pdf>]
+<textbook_files/figure-latex/unnamed-chunk-170-1.pdf, id=2593, 433.62pt x 259.9
 7125pt>
 File: textbook_files/figure-latex/unnamed-chunk-170-1.pdf Graphic file (type pd
 f)
 <use textbook_files/figure-latex/unnamed-chunk-170-1.pdf>
 Package pdftex.def Info: textbook_files/figure-latex/unnamed-chunk-170-1.pdf  u
-sed on input line 10680.
+sed on input line 10682.
 (pdftex.def)             Requested size: 312.01428pt x 187.06412pt.
 
-Overfull \hbox (12.01428pt too wide) in paragraph at lines 10680--10681
+Overfull \hbox (12.01428pt too wide) in paragraph at lines 10682--10683
 [][]  
  []
 
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 10703.
+This message occurred on input line 10705.
 
-[196 <./textbook_files/figure-latex/unnamed-chunk-170-1.pdf>]
+[197 <./textbook_files/figure-latex/unnamed-chunk-170-1.pdf>]
 
-LaTeX Warning: Marginpar on page 197 moved.
+LaTeX Warning: Marginpar on page 198 moved.
+
+
+Overfull \hbox (1.479pt too wide) in paragraph at lines 10747--10748
+\T1/cmr/m/n/10 hebben ver-wi-jderd, wat we niet hebben gedaan). Er zijn geen ne
+gatieve 
+ []
 
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 10765.
+This message occurred on input line 10755.
 
-[197]
-Overfull \hbox (123.64362pt too wide) in paragraph at lines 10765--10765
+[198]
+Overfull \hbox (123.64362pt too wide) in paragraph at lines 10767--10767
 []\T1/cmtt/m/n/10 ##    year marital   age race  reported_income party religion
  denomination tv_hours[] 
  []
 
 
-Overfull \hbox (123.64362pt too wide) in paragraph at lines 10765--10765
+Overfull \hbox (123.64362pt too wide) in paragraph at lines 10767--10767
 []\T1/cmtt/m/n/10 ##   <int> <fct>   <int> <fct> <fct>           <fct> <fct>   
  <fct>           <dbl>[] 
  []
 
 
-Overfull \hbox (123.64362pt too wide) in paragraph at lines 10765--10765
+Overfull \hbox (123.64362pt too wide) in paragraph at lines 10767--10767
 []\T1/cmtt/m/n/10 ## 1  2000 Married    84 White Not applicable  Inde~ Protest~
  No denomina~       28[] 
  []
 
 
-Overfull \hbox (123.64362pt too wide) in paragraph at lines 10765--10765
+Overfull \hbox (123.64362pt too wide) in paragraph at lines 10767--10767
 []\T1/cmtt/m/n/10 ## 2  2000 Widowed    68 White Not applicable  Inde~ Protest~
  Other luthe~       84[] 
  []
 
 
-Overfull \hbox (123.64362pt too wide) in paragraph at lines 10765--10765
+Overfull \hbox (123.64362pt too wide) in paragraph at lines 10767--10767
 []\T1/cmtt/m/n/10 ## 3  2010 Married    69 White Not applicable  Demo~ Protest~
  Baptist-dk ~       35[] 
  []
 
 
-Overfull \hbox (123.64362pt too wide) in paragraph at lines 10765--10765
+Overfull \hbox (123.64362pt too wide) in paragraph at lines 10767--10767
 []\T1/cmtt/m/n/10 ## 4  2010 Divorc~    57 White Not applicable  Demo~ Catholic
  Not applica~       56[] 
  []
 
 
-Overfull \hbox (123.64362pt too wide) in paragraph at lines 10765--10765
+Overfull \hbox (123.64362pt too wide) in paragraph at lines 10767--10767
 []\T1/cmtt/m/n/10 ## 5  2014 Separa~    30 White Not applicable  Inde~ None    
  Not applica~       28[] 
  []
 
 
-LaTeX Warning: Marginpar on page 198 moved.
-
-
-LaTeX Warning: Marginpar on page 198 moved.
-
-
-LaTeX Warning: Marginpar on page 198 moved.
-
-
-Class tufte-book Warning: Proper spacing of small-caps letters has not been set
- up.
-This message occurred on input line 10799.
-
-[198]
-<textbook_files/figure-latex/unnamed-chunk-178-1.pdf, id=2612, 433.62pt x 259.9
-7125pt>
-File: textbook_files/figure-latex/unnamed-chunk-178-1.pdf Graphic file (type pd
-f)
-<use textbook_files/figure-latex/unnamed-chunk-178-1.pdf>
-Package pdftex.def Info: textbook_files/figure-latex/unnamed-chunk-178-1.pdf  u
-sed on input line 10815.
-(pdftex.def)             Requested size: 312.01428pt x 187.06412pt.
-
-Overfull \hbox (12.01428pt too wide) in paragraph at lines 10815--10816
-[][]  
- []
+LaTeX Warning: Marginpar on page 199 moved.
 
 
 LaTeX Warning: Marginpar on page 199 moved.
@@ -5602,270 +5600,274 @@ LaTeX Warning: Marginpar on page 199 moved.
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 10823.
+This message occurred on input line 10799.
 
-[199 <./textbook_files/figure-latex/unnamed-chunk-178-1.pdf>]
-Overfull \hbox (6.67456pt too wide) in paragraph at lines 10838--10839
+[199]
+<textbook_files/figure-latex/unnamed-chunk-178-1.pdf, id=2617, 433.62pt x 259.9
+7125pt>
+File: textbook_files/figure-latex/unnamed-chunk-178-1.pdf Graphic file (type pd
+f)
+<use textbook_files/figure-latex/unnamed-chunk-178-1.pdf>
+Package pdftex.def Info: textbook_files/figure-latex/unnamed-chunk-178-1.pdf  u
+sed on input line 10819.
+(pdftex.def)             Requested size: 312.01428pt x 187.06412pt.
+
+Overfull \hbox (12.01428pt too wide) in paragraph at lines 10819--10820
+[][]  
+ []
+
+
+Underfull \vbox (badness 7238) has occurred while \output is active []
+
+
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 10821.
+
+[200]
+
+LaTeX Warning: Marginpar on page 201 moved.
+
+
+Overfull \hbox (6.67456pt too wide) in paragraph at lines 10842--10843
  []\T1/cmr/m/n/10 reported_income| 
  []
 
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 11071.
+This message occurred on input line 11072.
 
-[200]
-<textbook_files/figure-latex/unnamed-chunk-180-1.pdf, id=2630, 433.62pt x 259.9
+[201 <./textbook_files/figure-latex/unnamed-chunk-178-1.pdf>]
+
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 11089.
+
+[202]
+<textbook_files/figure-latex/unnamed-chunk-180-1.pdf, id=2638, 433.62pt x 259.9
 7125pt>
 File: textbook_files/figure-latex/unnamed-chunk-180-1.pdf Graphic file (type pd
 f)
 <use textbook_files/figure-latex/unnamed-chunk-180-1.pdf>
 Package pdftex.def Info: textbook_files/figure-latex/unnamed-chunk-180-1.pdf  u
-sed on input line 11092.
+sed on input line 11096.
 (pdftex.def)             Requested size: 312.01428pt x 187.06412pt.
 
-Overfull \hbox (12.01428pt too wide) in paragraph at lines 11092--11093
+Overfull \hbox (12.01428pt too wide) in paragraph at lines 11096--11097
 [][]  
  []
 
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 11107.
+This message occurred on input line 11124.
 
-[201 <./textbook_files/figure-latex/unnamed-chunk-180-1.pdf>]
-Overfull \hbox (23.91797pt too wide) in paragraph at lines 11175--11175
+[203 <./textbook_files/figure-latex/unnamed-chunk-180-1.pdf>]
+Overfull \hbox (23.91797pt too wide) in paragraph at lines 11180--11180
 []\T1/cmtt/m/n/10 ##       year               marital           age           r
 ace[] 
  []
 
 
-Class tufte-book Warning: Proper spacing of small-caps letters has not been set
- up.
-This message occurred on input line 11175.
-
-[202]
-Overfull \hbox (44.91284pt too wide) in paragraph at lines 11175--11175
+Overfull \hbox (44.91284pt too wide) in paragraph at lines 11180--11180
 []\T1/cmtt/m/n/10 ##  Min.   :2000   Divorced     : 3383   Min.   :18.00   Blac
 k: 3129[] 
  []
 
 
-Overfull \hbox (44.91284pt too wide) in paragraph at lines 11175--11175
+Overfull \hbox (44.91284pt too wide) in paragraph at lines 11180--11180
 []\T1/cmtt/m/n/10 ##  1st Qu.:2002   Married      :10117   1st Qu.:33.00   Othe
 r: 1959[] 
  []
 
 
-Overfull \hbox (44.91284pt too wide) in paragraph at lines 11175--11175
+Overfull \hbox (44.91284pt too wide) in paragraph at lines 11180--11180
 []\T1/cmtt/m/n/10 ##  Median :2006   Never married: 5416   Median :46.00   Whit
 e:16395[] 
  []
 
 
-Overfull \hbox (50.16156pt too wide) in paragraph at lines 11175--11175
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 11180.
+
+[204]
+Overfull \hbox (50.16156pt too wide) in paragraph at lines 11180--11180
 []\T1/cmtt/m/n/10 ##        reported_income                   party            
 religion[] 
  []
 
 
-Overfull \hbox (60.659pt too wide) in paragraph at lines 11175--11175
+Overfull \hbox (60.659pt too wide) in paragraph at lines 11180--11180
 []\T1/cmtt/m/n/10 ##  $25000 or more:7363   Independent          :4119   Protes
 tant:10846[] 
  []
 
 
-Overfull \hbox (60.659pt too wide) in paragraph at lines 11175--11175
+Overfull \hbox (60.659pt too wide) in paragraph at lines 11180--11180
 []\T1/cmtt/m/n/10 ##  Not applicable:7043   Democrat, weak       :3690   Cathol
 ic  : 5124[] 
  []
 
 
-Overfull \hbox (60.659pt too wide) in paragraph at lines 11175--11175
+Overfull \hbox (60.659pt too wide) in paragraph at lines 11180--11180
 []\T1/cmtt/m/n/10 ##  $20000 - 24999:1283   Democrat, strong     :3490   None  
     : 3523[] 
  []
 
 
-Overfull \hbox (60.659pt too wide) in paragraph at lines 11175--11175
+Overfull \hbox (60.659pt too wide) in paragraph at lines 11180--11180
 []\T1/cmtt/m/n/10 ##  $10000 - 14999:1168   Republican, weak     :3032   Christ
 ian :  689[] 
  []
 
 
-Overfull \hbox (60.659pt too wide) in paragraph at lines 11175--11175
+Overfull \hbox (60.659pt too wide) in paragraph at lines 11180--11180
 []\T1/cmtt/m/n/10 ##  $15000 - 19999:1048   Independent, near dem:2499   Jewish
     :  388[] 
  []
 
 
-Overfull \hbox (60.659pt too wide) in paragraph at lines 11175--11175
+Overfull \hbox (60.659pt too wide) in paragraph at lines 11180--11180
 []\T1/cmtt/m/n/10 ##  Refused       : 975   Republican, strong   :2314   Other 
     :  224[] 
  []
 
 
-Overfull \hbox (60.659pt too wide) in paragraph at lines 11175--11175
+Overfull \hbox (60.659pt too wide) in paragraph at lines 11180--11180
 []\T1/cmtt/m/n/10 ##  (Other)       :2603   (Other)              :2339   (Other
 )   :  689[] 
  []
 
-<textbook_files/figure-latex/unnamed-chunk-183-1.pdf, id=2654, 433.62pt x 259.9
+<textbook_files/figure-latex/unnamed-chunk-183-1.pdf, id=2662, 433.62pt x 259.9
 7125pt>
 File: textbook_files/figure-latex/unnamed-chunk-183-1.pdf Graphic file (type pd
 f)
 <use textbook_files/figure-latex/unnamed-chunk-183-1.pdf>
 Package pdftex.def Info: textbook_files/figure-latex/unnamed-chunk-183-1.pdf  u
-sed on input line 11185.
+sed on input line 11190.
 (pdftex.def)             Requested size: 312.01428pt x 187.06412pt.
 
-Overfull \hbox (12.01428pt too wide) in paragraph at lines 11185--11186
+Overfull \hbox (12.01428pt too wide) in paragraph at lines 11190--11191
 [][]  
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Class tufte-book Warning: Proper spacing of small-caps letters has not been set
- up.
-This message occurred on input line 11187.
-
-[203]
-Overfull \hbox (76.40515pt too wide) in paragraph at lines 11200--11200
+Overfull \hbox (76.40515pt too wide) in paragraph at lines 11205--11205
 []\T1/cmtt/m/n/10 ##       year marital race reported_income party religion den
 omination age[] 
  []
 
 
-Overfull \hbox (76.40515pt too wide) in paragraph at lines 11200--11200
+Overfull \hbox (76.40515pt too wide) in paragraph at lines 11205--11205
 []\T1/cmtt/m/n/10 ## 10936    1       1    1               1     1        1    
         1   1[] 
  []
 
 
-Overfull \hbox (76.40515pt too wide) in paragraph at lines 11200--11200
+Overfull \hbox (76.40515pt too wide) in paragraph at lines 11205--11205
 []\T1/cmtt/m/n/10 ## 10471    1       1    1               1     1        1    
         1   1[] 
  []
 
 
-Overfull \hbox (76.40515pt too wide) in paragraph at lines 11200--11200
+Overfull \hbox (76.40515pt too wide) in paragraph at lines 11205--11205
 []\T1/cmtt/m/n/10 ## 38       1       1    1               1     1        1    
         1   0[] 
  []
 
 
-Overfull \hbox (76.40515pt too wide) in paragraph at lines 11200--11200
+Overfull \hbox (76.40515pt too wide) in paragraph at lines 11205--11205
 []\T1/cmtt/m/n/10 ## 38       1       1    1               1     1        1    
         1   0[] 
  []
 
 
-Overfull \hbox (76.40515pt too wide) in paragraph at lines 11200--11200
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 11205.
+
+[205 <./textbook_files/figure-latex/unnamed-chunk-183-1.pdf>]
+Overfull \hbox (76.40515pt too wide) in paragraph at lines 11205--11205
 []\T1/cmtt/m/n/10 ##          0       0    0               0     0        0    
         0  76[] 
  []
 
 
-Class tufte-book Warning: Proper spacing of small-caps letters has not been set
- up.
-This message occurred on input line 11207.
+Underfull \vbox (badness 1895) has occurred while \output is active []
 
-[204 <./textbook_files/figure-latex/unnamed-chunk-183-1.pdf>]
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 11269.
+This message occurred on input line 11216.
 
-[205]
-<textbook_files/figure-latex/unnamed-chunk-187-1.pdf, id=2676, 433.62pt x 259.9
+[206]
+
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 11284.
+
+[207]
+<textbook_files/figure-latex/unnamed-chunk-187-1.pdf, id=2684, 433.62pt x 259.9
 7125pt>
 File: textbook_files/figure-latex/unnamed-chunk-187-1.pdf Graphic file (type pd
 f)
 <use textbook_files/figure-latex/unnamed-chunk-187-1.pdf>
 Package pdftex.def Info: textbook_files/figure-latex/unnamed-chunk-187-1.pdf  u
-sed on input line 11280.
+sed on input line 11287.
 (pdftex.def)             Requested size: 312.01428pt x 187.06412pt.
 
-Overfull \hbox (12.01428pt too wide) in paragraph at lines 11280--11281
+Overfull \hbox (12.01428pt too wide) in paragraph at lines 11287--11288
 [][]  
  []
 
 
-LaTeX Warning: Marginpar on page 206 moved.
+LaTeX Warning: Marginpar on page 208 moved.
 
-<textbook_files/figure-latex/unnamed-chunk-188-1.pdf, id=2677, 433.62pt x 259.9
+<textbook_files/figure-latex/unnamed-chunk-188-1.pdf, id=2685, 433.62pt x 259.9
 7125pt>
 File: textbook_files/figure-latex/unnamed-chunk-188-1.pdf Graphic file (type pd
 f)
 <use textbook_files/figure-latex/unnamed-chunk-188-1.pdf>
 Package pdftex.def Info: textbook_files/figure-latex/unnamed-chunk-188-1.pdf  u
-sed on input line 11295.
+sed on input line 11302.
 (pdftex.def)             Requested size: 312.01428pt x 187.06412pt.
 
-Overfull \hbox (12.01428pt too wide) in paragraph at lines 11295--11296
+Overfull \hbox (12.01428pt too wide) in paragraph at lines 11302--11303
 [][]  
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 11297.
+This message occurred on input line 11305.
 
-[206 <./textbook_files/figure-latex/unnamed-chunk-187-1.pdf>]
-<textbook_files/figure-latex/unnamed-chunk-189-1.pdf, id=2687, 433.62pt x 259.9
+[208 <./textbook_files/figure-latex/unnamed-chunk-187-1.pdf> <./textbook_files/
+figure-latex/unnamed-chunk-188-1.pdf>]
+<textbook_files/figure-latex/unnamed-chunk-189-1.pdf, id=2700, 433.62pt x 259.9
 7125pt>
 File: textbook_files/figure-latex/unnamed-chunk-189-1.pdf Graphic file (type pd
 f)
 <use textbook_files/figure-latex/unnamed-chunk-189-1.pdf>
 Package pdftex.def Info: textbook_files/figure-latex/unnamed-chunk-189-1.pdf  u
-sed on input line 11308.
+sed on input line 11315.
 (pdftex.def)             Requested size: 312.01428pt x 187.06412pt.
 
-Overfull \hbox (12.01428pt too wide) in paragraph at lines 11308--11309
+Overfull \hbox (12.01428pt too wide) in paragraph at lines 11315--11316
 [][]  
  []
 
-
-Class tufte-book Warning: Proper spacing of small-caps letters has not been set
- up.
-This message occurred on input line 11317.
-
-[207 <./textbook_files/figure-latex/unnamed-chunk-188-1.pdf> <./textbook_files/
-figure-latex/unnamed-chunk-189-1.pdf>]
-<textbook_files/figure-latex/unnamed-chunk-190-1.pdf, id=2702, 433.62pt x 259.9
+<textbook_files/figure-latex/unnamed-chunk-190-1.pdf, id=2701, 433.62pt x 259.9
 7125pt>
 File: textbook_files/figure-latex/unnamed-chunk-190-1.pdf Graphic file (type pd
 f)
 <use textbook_files/figure-latex/unnamed-chunk-190-1.pdf>
 Package pdftex.def Info: textbook_files/figure-latex/unnamed-chunk-190-1.pdf  u
-sed on input line 11320.
+sed on input line 11327.
 (pdftex.def)             Requested size: 312.01428pt x 187.06412pt.
 
-Overfull \hbox (12.01428pt too wide) in paragraph at lines 11320--11321
-[][]  
- []
-
-
-Overfull \hbox (44.91284pt too wide) in paragraph at lines 11345--11345
-[]\T1/cmtt/m/n/10 ## Warning: Removed 76 rows containing non-finite values (sta
-t_bin).[] 
- []
-
-<textbook_files/figure-latex/unnamed-chunk-191-1.pdf, id=2703, 433.62pt x 259.9
-7125pt>
-File: textbook_files/figure-latex/unnamed-chunk-191-1.pdf Graphic file (type pd
-f)
-<use textbook_files/figure-latex/unnamed-chunk-191-1.pdf>
-Package pdftex.def Info: textbook_files/figure-latex/unnamed-chunk-191-1.pdf  u
-sed on input line 11347.
-(pdftex.def)             Requested size: 312.01428pt x 187.06412pt.
-
-Overfull \hbox (12.01428pt too wide) in paragraph at lines 11347--11348
+Overfull \hbox (12.01428pt too wide) in paragraph at lines 11327--11328
 [][]  
  []
 
@@ -5875,100 +5877,133 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 11349.
+This message occurred on input line 11329.
 
-[208 <./textbook_files/figure-latex/unnamed-chunk-190-1.pdf>]
-Overfull \hbox (2.9231pt too wide) in paragraph at lines 11392--11392
+[209 <./textbook_files/figure-latex/unnamed-chunk-189-1.pdf>]
+Overfull \hbox (6.23077pt too wide) in paragraph at lines 11329--11330
+[]\T1/cmr/m/n/10 Hoeveel vergeli-jkin-gen u maakt voor elke vari-abele waar-voo
+r gegevens 
+ []
+
+
+Overfull \hbox (44.91284pt too wide) in paragraph at lines 11349--11349
+[]\T1/cmtt/m/n/10 ## Warning: Removed 76 rows containing non-finite values (sta
+t_bin).[] 
+ []
+
+<textbook_files/figure-latex/unnamed-chunk-191-1.pdf, id=2711, 433.62pt x 259.9
+7125pt>
+File: textbook_files/figure-latex/unnamed-chunk-191-1.pdf Graphic file (type pd
+f)
+<use textbook_files/figure-latex/unnamed-chunk-191-1.pdf>
+Package pdftex.def Info: textbook_files/figure-latex/unnamed-chunk-191-1.pdf  u
+sed on input line 11351.
+(pdftex.def)             Requested size: 312.01428pt x 187.06412pt.
+
+Overfull \hbox (12.01428pt too wide) in paragraph at lines 11351--11352
+[][]  
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 11353.
+
+[210 <./textbook_files/figure-latex/unnamed-chunk-190-1.pdf>]
+Overfull \hbox (2.9231pt too wide) in paragraph at lines 11395--11395
 []\T1/cmtt/m/n/10 ##       age                  denomination           marital[
 ] 
  []
 
 
-Overfull \hbox (13.42053pt too wide) in paragraph at lines 11392--11392
+Overfull \hbox (13.42053pt too wide) in paragraph at lines 11395--11395
 []\T1/cmtt/m/n/10 ##  Min.   :18.00   Not applicable  :9960   Divorced     :335
 1[] 
  []
 
 
-Overfull \hbox (13.42053pt too wide) in paragraph at lines 11392--11392
+Overfull \hbox (13.42053pt too wide) in paragraph at lines 11395--11395
 []\T1/cmtt/m/n/10 ##  1st Qu.:33.00   Other           :2508   Married      :999
 9[] 
  []
 
 
-Overfull \hbox (13.42053pt too wide) in paragraph at lines 11392--11392
+Overfull \hbox (13.42053pt too wide) in paragraph at lines 11395--11395
 []\T1/cmtt/m/n/10 ##  Median :46.00   No denomination :1665   Never married:535
 9[] 
  []
 
 
-Overfull \hbox (13.42053pt too wide) in paragraph at lines 11392--11392
+Overfull \hbox (13.42053pt too wide) in paragraph at lines 11395--11395
 []\T1/cmtt/m/n/10 ##  Mean   :47.18   Southern baptist:1521   No answer    :  1
 7[] 
  []
 
 
-Overfull \hbox (13.42053pt too wide) in paragraph at lines 11392--11392
+Overfull \hbox (13.42053pt too wide) in paragraph at lines 11395--11395
 []\T1/cmtt/m/n/10 ##  3rd Qu.:59.00   Baptist-dk which:1439   Separated    : 73
 8[] 
  []
 
 
-Overfull \hbox (13.42053pt too wide) in paragraph at lines 11392--11392
+Overfull \hbox (13.42053pt too wide) in paragraph at lines 11395--11395
 []\T1/cmtt/m/n/10 ##  Max.   :89.00   (Other)         :4159   Widowed      :178
 8[] 
  []
 
 
-Overfull \hbox (13.42053pt too wide) in paragraph at lines 11392--11392
+Overfull \hbox (13.42053pt too wide) in paragraph at lines 11395--11395
 []\T1/cmtt/m/n/10 ##  NA's   :280     NA's            : 231   NA's         : 23
 1[] 
  []
 
 
-Overfull \hbox (8.17181pt too wide) in paragraph at lines 11392--11392
+Overfull \hbox (8.17181pt too wide) in paragraph at lines 11395--11395
 []\T1/cmtt/m/n/10 ##                    party         race             religion
 [] 
  []
 
 
-Overfull \hbox (18.66925pt too wide) in paragraph at lines 11392--11392
+Overfull \hbox (18.66925pt too wide) in paragraph at lines 11395--11395
 []\T1/cmtt/m/n/10 ##  Independent          :4080   Black: 3098   Protestant:107
 33[] 
  []
 
 
-Overfull \hbox (18.66925pt too wide) in paragraph at lines 11392--11392
+Overfull \hbox (18.66925pt too wide) in paragraph at lines 11395--11395
 []\T1/cmtt/m/n/10 ##  Democrat, weak       :3658   Other: 1941   Catholic  : 50
 66[] 
  []
 
 
-Overfull \hbox (18.66925pt too wide) in paragraph at lines 11392--11392
+Overfull \hbox (18.66925pt too wide) in paragraph at lines 11395--11395
 []\T1/cmtt/m/n/10 ##  Democrat, strong     :3453   White:16226   None      : 34
 85[] 
  []
 
 
-Overfull \hbox (18.66925pt too wide) in paragraph at lines 11392--11392
+Overfull \hbox (18.66925pt too wide) in paragraph at lines 11395--11395
 []\T1/cmtt/m/n/10 ##  Republican, weak     :2997   NA's :  218   Christian :  6
 85[] 
  []
 
 
-Overfull \hbox (18.66925pt too wide) in paragraph at lines 11392--11392
+Overfull \hbox (18.66925pt too wide) in paragraph at lines 11395--11395
 []\T1/cmtt/m/n/10 ##  Independent, near dem:2479                 Jewish    :  3
 84[] 
  []
 
 
-Overfull \hbox (18.66925pt too wide) in paragraph at lines 11392--11392
+Overfull \hbox (18.66925pt too wide) in paragraph at lines 11395--11395
 []\T1/cmtt/m/n/10 ##  (Other)              :4604                 (Other)   :  9
 02[] 
  []
 
 
-Overfull \hbox (18.66925pt too wide) in paragraph at lines 11392--11392
+Overfull \hbox (18.66925pt too wide) in paragraph at lines 11395--11395
 []\T1/cmtt/m/n/10 ##  NA's                 : 212                 NA's      :  2
 28[] 
  []
@@ -5976,19 +6011,19 @@ Overfull \hbox (18.66925pt too wide) in paragraph at lines 11392--11392
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 11392.
+This message occurred on input line 11395.
 
-[209 <./textbook_files/figure-latex/unnamed-chunk-191-1.pdf>]
-<textbook_files/figure-latex/unnamed-chunk-195-1.pdf, id=2726, 433.62pt x 259.9
+[211 <./textbook_files/figure-latex/unnamed-chunk-191-1.pdf>]
+<textbook_files/figure-latex/unnamed-chunk-195-1.pdf, id=2733, 433.62pt x 259.9
 7125pt>
 File: textbook_files/figure-latex/unnamed-chunk-195-1.pdf Graphic file (type pd
 f)
 <use textbook_files/figure-latex/unnamed-chunk-195-1.pdf>
 Package pdftex.def Info: textbook_files/figure-latex/unnamed-chunk-195-1.pdf  u
-sed on input line 11405.
+sed on input line 11408.
 (pdftex.def)             Requested size: 312.01428pt x 187.06412pt.
 
-Overfull \hbox (12.01428pt too wide) in paragraph at lines 11405--11406
+Overfull \hbox (12.01428pt too wide) in paragraph at lines 11408--11409
 [][]  
  []
 
@@ -5997,61 +6032,54 @@ Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
 This message occurred on input line 11551.
 
-[210 <./textbook_files/figure-latex/unnamed-chunk-195-1.pdf>]
+[212 <./textbook_files/figure-latex/unnamed-chunk-195-1.pdf>]
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 11551.
+This message occurred on input line 11588.
 
-[211]
+[213]
 
-Class tufte-book Warning: Proper spacing of small-caps letters has not been set
- up.
-This message occurred on input line 11598.
-
-[212]
-
-LaTeX Warning: Marginpar on page 213 moved.
-
-
-Overfull \hbox (2.28436pt too wide) in paragraph at lines 11637--11638
-\T1/cmr/m/n/10 con-sider rows with-out miss-ing val-ues. We can do this with th
-e \T1/cmtt/m/n/10 na.omit 
- []
+LaTeX Warning: Marginpar on page 214 moved.
 
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
 This message occurred on input line 11656.
 
-[213]
-
-Class tufte-book Warning: Proper spacing of small-caps letters has not been set
- up.
-This message occurred on input line 11721.
-
 [214]
 
-LaTeX Warning: Marginpar on page 215 moved.
-
-
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 11764.
+This message occurred on input line 11720.
 
 [215]
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 11827.
+This message occurred on input line 11748.
 
 [216]
+
+LaTeX Warning: Marginpar on page 217 moved.
+
+
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 11810.
+
+[217]
 Overfull \hbox (23.91797pt too wide) in paragraph at lines 11890--11890
 []\T1/cmtt/m/n/10 ##       year               marital           age           r
 ace[] 
  []
 
 
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 11890.
+
+[218]
 Overfull \hbox (44.91284pt too wide) in paragraph at lines 11890--11890
 []\T1/cmtt/m/n/10 ##  Min.   :2000   Divorced     : 3383   Min.   :18.00   Blac
 k: 3129[] 
@@ -6070,11 +6098,6 @@ e:16395[]
  []
 
 
-Class tufte-book Warning: Proper spacing of small-caps letters has not been set
- up.
-This message occurred on input line 11890.
-
-[217]
 Overfull \hbox (50.16156pt too wide) in paragraph at lines 11890--11890
 []\T1/cmtt/m/n/10 ##        reported_income                   party            
 religion[] 
@@ -6125,203 +6148,44 @@ Overfull \hbox (60.659pt too wide) in paragraph at lines 11890--11890
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 11939.
-
-[218]
-
-LaTeX Warning: Marginpar on page 219 moved.
-
-<textbook_files/figure-latex/unnamed-chunk-215-1.pdf, id=2782, 433.62pt x 259.9
-7125pt>
-File: textbook_files/figure-latex/unnamed-chunk-215-1.pdf Graphic file (type pd
-f)
-<use textbook_files/figure-latex/unnamed-chunk-215-1.pdf>
-Package pdftex.def Info: textbook_files/figure-latex/unnamed-chunk-215-1.pdf  u
-sed on input line 11985.
-(pdftex.def)             Requested size: 312.01428pt x 187.06412pt.
-
-Overfull \hbox (12.01428pt too wide) in paragraph at lines 11985--11986
-[][]  
- []
-
-
-Underfull \vbox (badness 1067) has occurred while \output is active []
-
-
-Class tufte-book Warning: Proper spacing of small-caps letters has not been set
- up.
-This message occurred on input line 11987.
+This message occurred on input line 11929.
 
 [219]
 
 LaTeX Warning: Marginpar on page 220 moved.
 
-<textbook_files/figure-latex/unnamed-chunk-216-1.pdf, id=2790, 433.62pt x 259.9
+
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 11974.
+
+[220]
+<textbook_files/figure-latex/unnamed-chunk-215-1.pdf, id=2787, 433.62pt x 259.9
+7125pt>
+File: textbook_files/figure-latex/unnamed-chunk-215-1.pdf Graphic file (type pd
+f)
+<use textbook_files/figure-latex/unnamed-chunk-215-1.pdf>
+Package pdftex.def Info: textbook_files/figure-latex/unnamed-chunk-215-1.pdf  u
+sed on input line 11988.
+(pdftex.def)             Requested size: 312.01428pt x 187.06412pt.
+
+Overfull \hbox (12.01428pt too wide) in paragraph at lines 11988--11989
+[][]  
+ []
+
+
+LaTeX Warning: Marginpar on page 221 moved.
+
+<textbook_files/figure-latex/unnamed-chunk-216-1.pdf, id=2788, 433.62pt x 259.9
 7125pt>
 File: textbook_files/figure-latex/unnamed-chunk-216-1.pdf Graphic file (type pd
 f)
 <use textbook_files/figure-latex/unnamed-chunk-216-1.pdf>
 Package pdftex.def Info: textbook_files/figure-latex/unnamed-chunk-216-1.pdf  u
-sed on input line 12001.
+sed on input line 12005.
 (pdftex.def)             Requested size: 312.01428pt x 187.06412pt.
 
-Overfull \hbox (12.01428pt too wide) in paragraph at lines 12001--12002
-[][]  
- []
-
-
-Class tufte-book Warning: Proper spacing of small-caps letters has not been set
- up.
-This message occurred on input line 12031.
-
-[220 <./textbook_files/figure-latex/unnamed-chunk-215-1.pdf> <./textbook_files/
-figure-latex/unnamed-chunk-216-1.pdf>]
-
-Class tufte-book Warning: Proper spacing of small-caps letters has not been set
- up.
-This message occurred on input line 12075.
-
-[221]
-<textbook_files/figure-latex/unnamed-chunk-221-1.pdf, id=2809, 433.62pt x 259.9
-7125pt>
-File: textbook_files/figure-latex/unnamed-chunk-221-1.pdf Graphic file (type pd
-f)
-<use textbook_files/figure-latex/unnamed-chunk-221-1.pdf>
-Package pdftex.def Info: textbook_files/figure-latex/unnamed-chunk-221-1.pdf  u
-sed on input line 12116.
-(pdftex.def)             Requested size: 312.01428pt x 187.06412pt.
-
-Overfull \hbox (12.01428pt too wide) in paragraph at lines 12116--12117
-[][]  
- []
-
-
-Class tufte-book Warning: Proper spacing of small-caps letters has not been set
- up.
-This message occurred on input line 12118.
-
-[222]
-<textbook_files/figure-latex/unnamed-chunk-222-1.pdf, id=2815, 433.62pt x 259.9
-7125pt>
-File: textbook_files/figure-latex/unnamed-chunk-222-1.pdf Graphic file (type pd
-f)
-<use textbook_files/figure-latex/unnamed-chunk-222-1.pdf>
-Package pdftex.def Info: textbook_files/figure-latex/unnamed-chunk-222-1.pdf  u
-sed on input line 12129.
-(pdftex.def)             Requested size: 312.01428pt x 187.06412pt.
-
-Overfull \hbox (12.01428pt too wide) in paragraph at lines 12129--12130
-[][]  
- []
-
-
-Class tufte-book Warning: Proper spacing of small-caps letters has not been set
- up.
-This message occurred on input line 12139.
-
-[223 <./textbook_files/figure-latex/unnamed-chunk-221-1.pdf> <./textbook_files/
-figure-latex/unnamed-chunk-222-1.pdf>]
-<textbook_files/figure-latex/unnamed-chunk-223-1.pdf, id=2831, 433.62pt x 259.9
-7125pt>
-File: textbook_files/figure-latex/unnamed-chunk-223-1.pdf Graphic file (type pd
-f)
-<use textbook_files/figure-latex/unnamed-chunk-223-1.pdf>
-Package pdftex.def Info: textbook_files/figure-latex/unnamed-chunk-223-1.pdf  u
-sed on input line 12145.
-(pdftex.def)             Requested size: 312.01428pt x 187.06412pt.
-
-Overfull \hbox (12.01428pt too wide) in paragraph at lines 12145--12146
-[][]  
- []
-
-<textbook_files/figure-latex/unnamed-chunk-224-1.pdf, id=2832, 433.62pt x 259.9
-7125pt>
-File: textbook_files/figure-latex/unnamed-chunk-224-1.pdf Graphic file (type pd
-f)
-<use textbook_files/figure-latex/unnamed-chunk-224-1.pdf>
-Package pdftex.def Info: textbook_files/figure-latex/unnamed-chunk-224-1.pdf  u
-sed on input line 12161.
-(pdftex.def)             Requested size: 312.01428pt x 187.06412pt.
-
-Overfull \hbox (12.01428pt too wide) in paragraph at lines 12161--12162
-[][]  
- []
-
-
-Class tufte-book Warning: Proper spacing of small-caps letters has not been set
- up.
-This message occurred on input line 12169.
-
-[224 <./textbook_files/figure-latex/unnamed-chunk-223-1.pdf> <./textbook_files/
-figure-latex/unnamed-chunk-224-1.pdf>]
-<textbook_files/figure-latex/unnamed-chunk-226-1.pdf, id=2847, 433.62pt x 259.9
-7125pt>
-File: textbook_files/figure-latex/unnamed-chunk-226-1.pdf Graphic file (type pd
-f)
-<use textbook_files/figure-latex/unnamed-chunk-226-1.pdf>
-Package pdftex.def Info: textbook_files/figure-latex/unnamed-chunk-226-1.pdf  u
-sed on input line 12211.
-(pdftex.def)             Requested size: 312.01428pt x 187.06412pt.
-
-Overfull \hbox (12.01428pt too wide) in paragraph at lines 12211--12212
-[][]  
- []
-
-
-Class tufte-book Warning: Proper spacing of small-caps letters has not been set
- up.
-This message occurred on input line 12213.
-
-[225]
-<textbook_files/figure-latex/unnamed-chunk-227-1.pdf, id=2852, 433.62pt x 259.9
-7125pt>
-File: textbook_files/figure-latex/unnamed-chunk-227-1.pdf Graphic file (type pd
-f)
-<use textbook_files/figure-latex/unnamed-chunk-227-1.pdf>
-Package pdftex.def Info: textbook_files/figure-latex/unnamed-chunk-227-1.pdf  u
-sed on input line 12227.
-(pdftex.def)             Requested size: 312.01428pt x 187.06412pt.
-
-Overfull \hbox (12.01428pt too wide) in paragraph at lines 12227--12228
-[][]  
- []
-
-
-Class tufte-book Warning: Proper spacing of small-caps letters has not been set
- up.
-This message occurred on input line 12235.
-
-[226 <./textbook_files/figure-latex/unnamed-chunk-226-1.pdf> <./textbook_files/
-figure-latex/unnamed-chunk-227-1.pdf>]
-<textbook_files/figure-latex/unnamed-chunk-228-1.pdf, id=2867, 433.62pt x 259.9
-7125pt>
-File: textbook_files/figure-latex/unnamed-chunk-228-1.pdf Graphic file (type pd
-f)
-<use textbook_files/figure-latex/unnamed-chunk-228-1.pdf>
-Package pdftex.def Info: textbook_files/figure-latex/unnamed-chunk-228-1.pdf  u
-sed on input line 12240.
-(pdftex.def)             Requested size: 312.01428pt x 187.06412pt.
-
-Overfull \hbox (12.01428pt too wide) in paragraph at lines 12240--12241
-[][]  
- []
-
-
-Overfull \hbox (12.146pt too wide) in paragraph at lines 12256--12257
-[]\T1/cmr/m/n/10 However, there is one more thing we need to cover. \T1/cmtt/m/
-n/10 fct_reorder(f,x) 
- []
-
-<textbook_files/figure-latex/unnamed-chunk-229-1.pdf, id=2868, 433.62pt x 259.9
-7125pt>
-File: textbook_files/figure-latex/unnamed-chunk-229-1.pdf Graphic file (type pd
-f)
-<use textbook_files/figure-latex/unnamed-chunk-229-1.pdf>
-Package pdftex.def Info: textbook_files/figure-latex/unnamed-chunk-229-1.pdf  u
-sed on input line 12266.
-(pdftex.def)             Requested size: 312.01428pt x 187.06412pt.
-
-Overfull \hbox (12.01428pt too wide) in paragraph at lines 12266--12267
+Overfull \hbox (12.01428pt too wide) in paragraph at lines 12005--12006
 [][]  
  []
 
@@ -6331,191 +6195,342 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 12268.
+This message occurred on input line 12007.
 
-[227 <./textbook_files/figure-latex/unnamed-chunk-228-1.pdf>]
-<textbook_files/figure-latex/unnamed-chunk-230-1.pdf, id=2878, 433.62pt x 259.9
+[221 <./textbook_files/figure-latex/unnamed-chunk-215-1.pdf>]
+
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 12057.
+
+[222 <./textbook_files/figure-latex/unnamed-chunk-216-1.pdf>]
+
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 12103.
+
+[223]
+<textbook_files/figure-latex/unnamed-chunk-221-1.pdf, id=2812, 433.62pt x 259.9
+7125pt>
+File: textbook_files/figure-latex/unnamed-chunk-221-1.pdf Graphic file (type pd
+f)
+<use textbook_files/figure-latex/unnamed-chunk-221-1.pdf>
+Package pdftex.def Info: textbook_files/figure-latex/unnamed-chunk-221-1.pdf  u
+sed on input line 12120.
+(pdftex.def)             Requested size: 312.01428pt x 187.06412pt.
+
+Overfull \hbox (12.01428pt too wide) in paragraph at lines 12120--12121
+[][]  
+ []
+
+<textbook_files/figure-latex/unnamed-chunk-222-1.pdf, id=2813, 433.62pt x 259.9
+7125pt>
+File: textbook_files/figure-latex/unnamed-chunk-222-1.pdf Graphic file (type pd
+f)
+<use textbook_files/figure-latex/unnamed-chunk-222-1.pdf>
+Package pdftex.def Info: textbook_files/figure-latex/unnamed-chunk-222-1.pdf  u
+sed on input line 12133.
+(pdftex.def)             Requested size: 312.01428pt x 187.06412pt.
+
+Overfull \hbox (12.01428pt too wide) in paragraph at lines 12133--12134
+[][]  
+ []
+
+
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 12135.
+
+[224 <./textbook_files/figure-latex/unnamed-chunk-221-1.pdf>]
+<textbook_files/figure-latex/unnamed-chunk-223-1.pdf, id=2824, 433.62pt x 259.9
+7125pt>
+File: textbook_files/figure-latex/unnamed-chunk-223-1.pdf Graphic file (type pd
+f)
+<use textbook_files/figure-latex/unnamed-chunk-223-1.pdf>
+Package pdftex.def Info: textbook_files/figure-latex/unnamed-chunk-223-1.pdf  u
+sed on input line 12149.
+(pdftex.def)             Requested size: 312.01428pt x 187.06412pt.
+
+Overfull \hbox (12.01428pt too wide) in paragraph at lines 12149--12150
+[][]  
+ []
+
+
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 12158.
+
+[225 <./textbook_files/figure-latex/unnamed-chunk-222-1.pdf> <./textbook_files/
+figure-latex/unnamed-chunk-223-1.pdf>]
+<textbook_files/figure-latex/unnamed-chunk-224-1.pdf, id=2839, 433.62pt x 259.9
+7125pt>
+File: textbook_files/figure-latex/unnamed-chunk-224-1.pdf Graphic file (type pd
+f)
+<use textbook_files/figure-latex/unnamed-chunk-224-1.pdf>
+Package pdftex.def Info: textbook_files/figure-latex/unnamed-chunk-224-1.pdf  u
+sed on input line 12165.
+(pdftex.def)             Requested size: 312.01428pt x 187.06412pt.
+
+Overfull \hbox (12.01428pt too wide) in paragraph at lines 12165--12166
+[][]  
+ []
+
+
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 12197.
+
+[226 <./textbook_files/figure-latex/unnamed-chunk-224-1.pdf>]
+<textbook_files/figure-latex/unnamed-chunk-226-1.pdf, id=2849, 433.62pt x 259.9
+7125pt>
+File: textbook_files/figure-latex/unnamed-chunk-226-1.pdf Graphic file (type pd
+f)
+<use textbook_files/figure-latex/unnamed-chunk-226-1.pdf>
+Package pdftex.def Info: textbook_files/figure-latex/unnamed-chunk-226-1.pdf  u
+sed on input line 12215.
+(pdftex.def)             Requested size: 312.01428pt x 187.06412pt.
+
+Overfull \hbox (12.01428pt too wide) in paragraph at lines 12215--12216
+[][]  
+ []
+
+
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 12225.
+
+[227 <./textbook_files/figure-latex/unnamed-chunk-226-1.pdf>]
+<textbook_files/figure-latex/unnamed-chunk-227-1.pdf, id=2859, 433.62pt x 259.9
+7125pt>
+File: textbook_files/figure-latex/unnamed-chunk-227-1.pdf Graphic file (type pd
+f)
+<use textbook_files/figure-latex/unnamed-chunk-227-1.pdf>
+Package pdftex.def Info: textbook_files/figure-latex/unnamed-chunk-227-1.pdf  u
+sed on input line 12231.
+(pdftex.def)             Requested size: 312.01428pt x 187.06412pt.
+
+Overfull \hbox (12.01428pt too wide) in paragraph at lines 12231--12232
+[][]  
+ []
+
+<textbook_files/figure-latex/unnamed-chunk-228-1.pdf, id=2860, 433.62pt x 259.9
+7125pt>
+File: textbook_files/figure-latex/unnamed-chunk-228-1.pdf Graphic file (type pd
+f)
+<use textbook_files/figure-latex/unnamed-chunk-228-1.pdf>
+Package pdftex.def Info: textbook_files/figure-latex/unnamed-chunk-228-1.pdf  u
+sed on input line 12244.
+(pdftex.def)             Requested size: 312.01428pt x 187.06412pt.
+
+Overfull \hbox (12.01428pt too wide) in paragraph at lines 12244--12245
+[][]  
+ []
+
+
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 12255.
+
+[228 <./textbook_files/figure-latex/unnamed-chunk-227-1.pdf> <./textbook_files/
+figure-latex/unnamed-chunk-228-1.pdf>]
+Overfull \hbox (20.56061pt too wide) in paragraph at lines 12260--12261
+[]\T1/cmr/m/n/10 Er is echter nog één ding dat we moeten be-han-de-len. \T1/cmt
+t/m/n/10 fct_reorder(f,x) 
+ []
+
+<textbook_files/figure-latex/unnamed-chunk-229-1.pdf, id=2875, 433.62pt x 259.9
+7125pt>
+File: textbook_files/figure-latex/unnamed-chunk-229-1.pdf Graphic file (type pd
+f)
+<use textbook_files/figure-latex/unnamed-chunk-229-1.pdf>
+Package pdftex.def Info: textbook_files/figure-latex/unnamed-chunk-229-1.pdf  u
+sed on input line 12270.
+(pdftex.def)             Requested size: 312.01428pt x 187.06412pt.
+
+Overfull \hbox (12.01428pt too wide) in paragraph at lines 12270--12271
+[][]  
+ []
+
+<textbook_files/figure-latex/unnamed-chunk-230-1.pdf, id=2876, 433.62pt x 259.9
 7125pt>
 File: textbook_files/figure-latex/unnamed-chunk-230-1.pdf Graphic file (type pd
 f)
 <use textbook_files/figure-latex/unnamed-chunk-230-1.pdf>
 Package pdftex.def Info: textbook_files/figure-latex/unnamed-chunk-230-1.pdf  u
-sed on input line 12278.
+sed on input line 12282.
 (pdftex.def)             Requested size: 312.01428pt x 187.06412pt.
 
-Overfull \hbox (12.01428pt too wide) in paragraph at lines 12278--12279
+Overfull \hbox (12.01428pt too wide) in paragraph at lines 12282--12283
 [][]  
  []
 
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 12300.
+This message occurred on input line 12284.
 
-[228 <./textbook_files/figure-latex/unnamed-chunk-229-1.pdf> <./textbook_files/
-figure-latex/unnamed-chunk-230-1.pdf>]
-<textbook_files/figure-latex/unnamed-chunk-231-1.pdf, id=2894, 433.62pt x 259.9
+[229 <./textbook_files/figure-latex/unnamed-chunk-229-1.pdf>]
+<textbook_files/figure-latex/unnamed-chunk-231-1.pdf, id=2887, 433.62pt x 259.9
 7125pt>
 File: textbook_files/figure-latex/unnamed-chunk-231-1.pdf Graphic file (type pd
 f)
 <use textbook_files/figure-latex/unnamed-chunk-231-1.pdf>
 Package pdftex.def Info: textbook_files/figure-latex/unnamed-chunk-231-1.pdf  u
-sed on input line 12317.
+sed on input line 12321.
 (pdftex.def)             Requested size: 312.01428pt x 187.06412pt.
 
-Overfull \hbox (12.01428pt too wide) in paragraph at lines 12317--12318
+Overfull \hbox (12.01428pt too wide) in paragraph at lines 12321--12322
 [][]  
  []
 
 
-Overfull \hbox (33.47705pt too wide) in paragraph at lines 12333--12335
-\T1/cmr/m/n/10 can be more than one x-value for some f-level. The \T1/cmtt/m/n/
-10 summarize_function 
- []
+Underfull \vbox (badness 5460) has occurred while \output is active []
 
 
-Overfull \hbox (22.8963pt too wide) in paragraph at lines 12335--12336
-\T1/cmr/m/n/10 tion, such as na.rm = T, we can do this as fol-lows: \T1/cmtt/m/
-n/10 fct_reorder(f,x, 
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 12323.
+
+[230 <./textbook_files/figure-latex/unnamed-chunk-230-1.pdf>]
+Overfull \hbox (59.38739pt too wide) in paragraph at lines 12337--12339
+\T1/cmr/m/n/10 dan één x-waarde kan zijn voor een bepaald f-niveau. De \T1/cmtt
+/m/n/10 summarize_function 
  []
 
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 12349.
+This message occurred on input line 12355.
 
-[229 <./textbook_files/figure-latex/unnamed-chunk-231-1.pdf>]
+[231 <./textbook_files/figure-latex/unnamed-chunk-231-1.pdf>] [232
 
-Class tufte-book Warning: Proper spacing of small-caps letters has not been set
- up.
-This message occurred on input line 12353.
-
-[230]
+]
 Chapter 9.
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12412--12412
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12414--12414
 []\T1/cmtt/m/n/10 ## $ id                  <int> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
  11, 12, 13, 14, ...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12412--12412
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12414--12414
 []\T1/cmtt/m/n/10 ## $ vertrekluchthaven   <chr> "EWR", "LGA", "JFK", "LGA", "E
 WR", "EWR", "LGA"...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12412--12412
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12414--12414
 []\T1/cmtt/m/n/10 ## $ aankomstluchthaven  <chr> "George Bush Intercontinental"
 , "George Bush In...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12412--12412
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12414--12414
 []\T1/cmtt/m/n/10 ## $ maatschappij        <chr> "United Air Lines Inc.", "Unit
 ed Air Lines Inc....[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12412--12412
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12414--12414
 []\T1/cmtt/m/n/10 ## $ tijdstip_aankomst   <dttm> 2013-01-01 08:30:00, 2013-01-
 01 08:50:00, 2013...[] 
  []
 
-[231
-
-]
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12412--12412
+[233]
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12414--12414
 []\T1/cmtt/m/n/10 ## $ vertrek_vertraging  <dbl> 2, 4, 2, -6, -4, -5, -3, -3, -
 2, -2, -2, -2, -2...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12412--12412
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12414--12414
 []\T1/cmtt/m/n/10 ## $ aankomst_vertraging <dbl> 11, 20, 33, -25, 12, 19, -14, 
 -8, 8, -2, -3, 7,...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12412--12412
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12414--12414
 []\T1/cmtt/m/n/10 ## $ afstand             <dbl> 1400, 1416, 1089, 762, 719, 10
 65, 229, 944, 733...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12412--12412
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12414--12414
 []\T1/cmtt/m/n/10 ## $ tijdstip_vertrek    <dttm> 2013-01-01 05:17:00, 2013-01-
 01 05:33:00, 2013...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12412--12412
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12414--12414
 []\T1/cmtt/m/n/10 ## $ weekdag_vertrek     <ord> Tue, Tue, Tue, Tue, Tue, Tue, 
 Tue, Tue, Tue, Tu...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12412--12412
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12414--12414
 []\T1/cmtt/m/n/10 ## $ week_vertrek        <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
 1, 1, 1, 1, 1, 1,...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12412--12412
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12414--12414
 []\T1/cmtt/m/n/10 ## $ maand_vertrek       <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
 1, 1, 1, 1, 1, 1,...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12412--12412
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12414--12414
 []\T1/cmtt/m/n/10 ## $ maanddag_vertrek    <int> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
 1, 1, 1, 1, 1, 1,...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12437--12437
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12439--12439
 []\T1/cmtt/m/n/10 ## $ faa   <chr> "04G", "06A", "06C", "06N", "09J", "0A9", "0
 G6", "0G7", "0P2"...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12437--12437
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12439--12439
 []\T1/cmtt/m/n/10 ## $ name  <chr> "Lansdowne Airport", "Moton Field Municipal 
 Airport", "Schaum...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12437--12437
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12439--12439
 []\T1/cmtt/m/n/10 ## $ lat   <dbl> 41.13047, 32.46057, 41.98934, 41.43191, 31.0
 7447, 36.37122, 4...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12437--12437
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12439--12439
 []\T1/cmtt/m/n/10 ## $ lon   <dbl> -80.61958, -85.68003, -88.10124, -74.39156, 
 -81.42778, -82.17...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12437--12437
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12439--12439
 []\T1/cmtt/m/n/10 ## $ alt   <dbl> 1044, 264, 801, 523, 11, 1593, 730, 492, 100
 0, 108, 409, 875,...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12437--12437
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12439--12439
 []\T1/cmtt/m/n/10 ## $ tz    <dbl> -5, -6, -6, -5, -5, -5, -5, -5, -5, -8, -5, 
 -6, -5, -5, -5, -...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12437--12437
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12439--12439
 []\T1/cmtt/m/n/10 ## $ dst   <chr> "A", "A", "A", "A", "A", "A", "A", "A", "U",
  "A", "A", "U", "...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12437--12437
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12439--12439
 []\T1/cmtt/m/n/10 ## $ tzone <chr> "America/New_York", "America/Chicago", "Amer
 ica/Chicago", "Am...[] 
  []
@@ -6523,130 +6538,130 @@ ica/Chicago", "Am...[]
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 12464.
+This message occurred on input line 12466.
 
-[232]
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12518--12518
+[234]
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12520--12520
 []\T1/cmtt/m/n/10 ## $ id                  <int> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
  11, 12, 13, 14, ...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12518--12518
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12520--12520
 []\T1/cmtt/m/n/10 ## $ vertrekluchthaven   <chr> "EWR", "LGA", "JFK", "LGA", "E
 WR", "EWR", "LGA"...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12518--12518
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12520--12520
 []\T1/cmtt/m/n/10 ## $ aankomstluchthaven  <chr> "George Bush Intercontinental"
 , "George Bush In...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12518--12518
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12520--12520
 []\T1/cmtt/m/n/10 ## $ maatschappij        <chr> "United Air Lines Inc.", "Unit
 ed Air Lines Inc....[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12518--12518
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12520--12520
 []\T1/cmtt/m/n/10 ## $ tijdstip_aankomst   <dttm> 2013-01-01 08:30:00, 2013-01-
 01 08:50:00, 2013...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12518--12518
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12520--12520
 []\T1/cmtt/m/n/10 ## $ vertrek_vertraging  <dbl> 2, 4, 2, -6, -4, -5, -3, -3, -
 2, -2, -2, -2, -2...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12518--12518
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12520--12520
 []\T1/cmtt/m/n/10 ## $ aankomst_vertraging <dbl> 11, 20, 33, -25, 12, 19, -14, 
 -8, 8, -2, -3, 7,...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12518--12518
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12520--12520
 []\T1/cmtt/m/n/10 ## $ afstand             <dbl> 1400, 1416, 1089, 762, 719, 10
 65, 229, 944, 733...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12518--12518
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12520--12520
 []\T1/cmtt/m/n/10 ## $ tijdstip_vertrek    <dttm> 2013-01-01 05:17:00, 2013-01-
 01 05:33:00, 2013...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12518--12518
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12520--12520
 []\T1/cmtt/m/n/10 ## $ weekdag_vertrek     <ord> Tue, Tue, Tue, Tue, Tue, Tue, 
 Tue, Tue, Tue, Tu...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12518--12518
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12520--12520
 []\T1/cmtt/m/n/10 ## $ week_vertrek        <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
 1, 1, 1, 1, 1, 1,...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12518--12518
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12520--12520
 []\T1/cmtt/m/n/10 ## $ maand_vertrek       <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
 1, 1, 1, 1, 1, 1,...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12518--12518
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12520--12520
 []\T1/cmtt/m/n/10 ## $ maanddag_vertrek    <int> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
 1, 1, 1, 1, 1, 1,...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12518--12518
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12520--12520
 []\T1/cmtt/m/n/10 ## $ name                <chr> "Newark Liberty Intl", "La Gua
 rdia", "John F Ke...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12518--12518
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12520--12520
 []\T1/cmtt/m/n/10 ## $ lat                 <dbl> 40.69250, 40.77725, 40.63975, 
 40.77725, 40.6925...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12518--12518
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12520--12520
 []\T1/cmtt/m/n/10 ## $ lon                 <dbl> -74.16867, -73.87261, -73.7789
 3, -73.87261, -74...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12518--12518
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12520--12520
 []\T1/cmtt/m/n/10 ## $ alt                 <dbl> 18, 22, 13, 22, 18, 18, 22, 13
 , 22, 13, 13, 13,...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12518--12518
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12520--12520
 []\T1/cmtt/m/n/10 ## $ tz                  <dbl> -5, -5, -5, -5, -5, -5, -5, -5
 , -5, -5, -5, -5,...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12518--12518
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12520--12520
 []\T1/cmtt/m/n/10 ## $ dst                 <chr> "A", "A", "A", "A", "A", "A", 
 "A", "A", "A", "A...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12518--12518
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12520--12520
 []\T1/cmtt/m/n/10 ## $ tzone               <chr> "America/New_York", "America/N
 ew_York", "Americ...[] 
  []
 
 
-Overfull \hbox (19.0332pt too wide) in paragraph at lines 12525--12527
+Overfull \hbox (19.0332pt too wide) in paragraph at lines 12527--12529
 []\T1/cmr/m/n/10 Merk op dat de faa-kolom van het airports-dataframe niet is to
 egevoegd. 
  []
@@ -6654,88 +6669,88 @@ egevoegd.
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 12527.
+This message occurred on input line 12529.
 
-[233]
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12557--12557
+[235]
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12559--12559
 []\T1/cmtt/m/n/10 ## $ id                  <int> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
  11, 12, 13, 14, ...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12557--12557
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12559--12559
 []\T1/cmtt/m/n/10 ## $ aankomstluchthaven  <chr> "George Bush Intercontinental"
 , "George Bush In...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12557--12557
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12559--12559
 []\T1/cmtt/m/n/10 ## $ maatschappij        <chr> "United Air Lines Inc.", "Unit
 ed Air Lines Inc....[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12557--12557
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12559--12559
 []\T1/cmtt/m/n/10 ## $ tijdstip_aankomst   <dttm> 2013-01-01 08:30:00, 2013-01-
 01 08:50:00, 2013...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12557--12557
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12559--12559
 []\T1/cmtt/m/n/10 ## $ vertrek_vertraging  <dbl> 2, 4, 2, -6, -4, -5, -3, -3, -
 2, -2, -2, -2, -2...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12557--12557
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12559--12559
 []\T1/cmtt/m/n/10 ## $ aankomst_vertraging <dbl> 11, 20, 33, -25, 12, 19, -14, 
 -8, 8, -2, -3, 7,...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12557--12557
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12559--12559
 []\T1/cmtt/m/n/10 ## $ afstand             <dbl> 1400, 1416, 1089, 762, 719, 10
 65, 229, 944, 733...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12557--12557
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12559--12559
 []\T1/cmtt/m/n/10 ## $ tijdstip_vertrek    <dttm> 2013-01-01 05:17:00, 2013-01-
 01 05:33:00, 2013...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12557--12557
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12559--12559
 []\T1/cmtt/m/n/10 ## $ weekdag_vertrek     <ord> Tue, Tue, Tue, Tue, Tue, Tue, 
 Tue, Tue, Tue, Tu...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12557--12557
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12559--12559
 []\T1/cmtt/m/n/10 ## $ week_vertrek        <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
 1, 1, 1, 1, 1, 1,...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12557--12557
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12559--12559
 []\T1/cmtt/m/n/10 ## $ maand_vertrek       <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
 1, 1, 1, 1, 1, 1,...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12557--12557
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12559--12559
 []\T1/cmtt/m/n/10 ## $ maanddag_vertrek    <int> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
 1, 1, 1, 1, 1, 1,...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 12557--12557
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 12559--12559
 []\T1/cmtt/m/n/10 ## $ vertrekluchthaven   <chr> "Newark Liberty Intl", "La Gua
 rdia", "John F Ke...[] 
  []
 
 
-Overfull \hbox (11.18219pt too wide) in paragraph at lines 12560--12560
+Overfull \hbox (11.18219pt too wide) in paragraph at lines 12562--12562
 |[]\T1/cmr/m/it/12 Data in een lang for-maat plaat-sen (voor vi-suele anal-y-se
 s)| 
  []
@@ -6743,28 +6758,28 @@ s)|
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 12576.
+This message occurred on input line 12578.
 
-[234]
-<textbook_files/figure-latex/7-7-1.pdf, id=2936, 433.62pt x 259.97125pt>
+[236]
+<textbook_files/figure-latex/7-7-1.pdf, id=2938, 433.62pt x 259.97125pt>
 File: textbook_files/figure-latex/7-7-1.pdf Graphic file (type pdf)
 <use textbook_files/figure-latex/7-7-1.pdf>
 Package pdftex.def Info: textbook_files/figure-latex/7-7-1.pdf  used on input l
-ine 12590.
+ine 12592.
 (pdftex.def)             Requested size: 312.01428pt x 187.06412pt.
 
-Overfull \hbox (12.01428pt too wide) in paragraph at lines 12590--12591
+Overfull \hbox (12.01428pt too wide) in paragraph at lines 12592--12593
 [][]  
  []
 
-<textbook_files/figure-latex/7-8-1.pdf, id=2937, 433.62pt x 259.97125pt>
+<textbook_files/figure-latex/7-8-1.pdf, id=2939, 433.62pt x 259.97125pt>
 File: textbook_files/figure-latex/7-8-1.pdf Graphic file (type pdf)
 <use textbook_files/figure-latex/7-8-1.pdf>
 Package pdftex.def Info: textbook_files/figure-latex/7-8-1.pdf  used on input l
-ine 12601.
+ine 12603.
 (pdftex.def)             Requested size: 312.01428pt x 187.06412pt.
 
-Overfull \hbox (12.01428pt too wide) in paragraph at lines 12601--12602
+Overfull \hbox (12.01428pt too wide) in paragraph at lines 12603--12604
 [][]  
  []
 
@@ -6774,76 +6789,76 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 12606.
+This message occurred on input line 12608.
 
-[235 <./textbook_files/figure-latex/7-7-1.pdf>]
-Overfull \hbox (123.64362pt too wide) in paragraph at lines 12636--12636
+[237 <./textbook_files/figure-latex/7-7-1.pdf>]
+Overfull \hbox (123.64362pt too wide) in paragraph at lines 12638--12638
 []\T1/cmtt/m/n/10 ##       id vertrekluchthaven  vertrek_vertraging aankomst_ve
 rtrag~ weekdag_vertrek[] 
  []
 
 
-Overfull \hbox (71.15643pt too wide) in paragraph at lines 12636--12636
+Overfull \hbox (71.15643pt too wide) in paragraph at lines 12638--12638
 []\T1/cmtt/m/n/10 ##    <int> <chr>                           <dbl>            
  <dbl> <ord>[] 
  []
 
 
-Overfull \hbox (60.659pt too wide) in paragraph at lines 12636--12636
+Overfull \hbox (60.659pt too wide) in paragraph at lines 12638--12638
 []\T1/cmtt/m/n/10 ##  1     1 Newark Liberty In~                  2            
     11 Tue[] 
  []
 
 
-Overfull \hbox (60.659pt too wide) in paragraph at lines 12636--12636
+Overfull \hbox (60.659pt too wide) in paragraph at lines 12638--12638
 []\T1/cmtt/m/n/10 ##  2     2 La Guardia                          4            
     20 Tue[] 
  []
 
 
-Overfull \hbox (60.659pt too wide) in paragraph at lines 12636--12636
+Overfull \hbox (60.659pt too wide) in paragraph at lines 12638--12638
 []\T1/cmtt/m/n/10 ##  3     3 John F Kennedy In~                  2            
     33 Tue[] 
  []
 
 
-Overfull \hbox (60.659pt too wide) in paragraph at lines 12636--12636
+Overfull \hbox (60.659pt too wide) in paragraph at lines 12638--12638
 []\T1/cmtt/m/n/10 ##  4     4 La Guardia                         -6            
    -25 Tue[] 
  []
 
 
-Overfull \hbox (60.659pt too wide) in paragraph at lines 12636--12636
+Overfull \hbox (60.659pt too wide) in paragraph at lines 12638--12638
 []\T1/cmtt/m/n/10 ##  5     5 Newark Liberty In~                 -4            
     12 Tue[] 
  []
 
 
-Overfull \hbox (60.659pt too wide) in paragraph at lines 12636--12636
+Overfull \hbox (60.659pt too wide) in paragraph at lines 12638--12638
 []\T1/cmtt/m/n/10 ##  6     6 Newark Liberty In~                 -5            
     19 Tue[] 
  []
 
 
-Overfull \hbox (60.659pt too wide) in paragraph at lines 12636--12636
+Overfull \hbox (60.659pt too wide) in paragraph at lines 12638--12638
 []\T1/cmtt/m/n/10 ##  7     7 La Guardia                         -3            
    -14 Tue[] 
  []
 
 
-Overfull \hbox (60.659pt too wide) in paragraph at lines 12636--12636
+Overfull \hbox (60.659pt too wide) in paragraph at lines 12638--12638
 []\T1/cmtt/m/n/10 ##  8     8 John F Kennedy In~                 -3            
     -8 Tue[] 
  []
 
 
-Overfull \hbox (60.659pt too wide) in paragraph at lines 12636--12636
+Overfull \hbox (60.659pt too wide) in paragraph at lines 12638--12638
 []\T1/cmtt/m/n/10 ##  9     9 La Guardia                         -2            
      8 Tue[] 
  []
 
 
-Overfull \hbox (60.659pt too wide) in paragraph at lines 12636--12636
+Overfull \hbox (60.659pt too wide) in paragraph at lines 12638--12638
 []\T1/cmtt/m/n/10 ## 10    10 John F Kennedy In~                 -2            
     -2 Tue[] 
  []
@@ -6851,76 +6866,76 @@ Overfull \hbox (60.659pt too wide) in paragraph at lines 12636--12636
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 12643.
+This message occurred on input line 12645.
 
-[236 <./textbook_files/figure-latex/7-8-1.pdf>]
-Overfull \hbox (97.40002pt too wide) in paragraph at lines 12690--12690
+[238 <./textbook_files/figure-latex/7-8-1.pdf>]
+Overfull \hbox (97.40002pt too wide) in paragraph at lines 12692--12692
 []\T1/cmtt/m/n/10 ##       id vertrekluchthaven   weekdag_vertrek type_vertragi
 ng     vertraging[] 
  []
 
 
-Overfull \hbox (97.40002pt too wide) in paragraph at lines 12690--12690
+Overfull \hbox (97.40002pt too wide) in paragraph at lines 12692--12692
 []\T1/cmtt/m/n/10 ##    <int> <chr>               <ord>           <chr>        
             <dbl>[] 
  []
 
 
-Overfull \hbox (97.40002pt too wide) in paragraph at lines 12690--12690
+Overfull \hbox (97.40002pt too wide) in paragraph at lines 12692--12692
 []\T1/cmtt/m/n/10 ##  1     1 Newark Liberty Intl Tue             vertrek_vertr
 aging           2[] 
  []
 
 
-Overfull \hbox (97.40002pt too wide) in paragraph at lines 12690--12690
+Overfull \hbox (97.40002pt too wide) in paragraph at lines 12692--12692
 []\T1/cmtt/m/n/10 ##  2     1 Newark Liberty Intl Tue             aankomst_vert
 raging         11[] 
  []
 
 
-Overfull \hbox (97.40002pt too wide) in paragraph at lines 12690--12690
+Overfull \hbox (97.40002pt too wide) in paragraph at lines 12692--12692
 []\T1/cmtt/m/n/10 ##  3     2 La Guardia          Tue             vertrek_vertr
 aging           4[] 
  []
 
 
-Overfull \hbox (97.40002pt too wide) in paragraph at lines 12690--12690
+Overfull \hbox (97.40002pt too wide) in paragraph at lines 12692--12692
 []\T1/cmtt/m/n/10 ##  4     2 La Guardia          Tue             aankomst_vert
 raging         20[] 
  []
 
 
-Overfull \hbox (97.40002pt too wide) in paragraph at lines 12690--12690
+Overfull \hbox (97.40002pt too wide) in paragraph at lines 12692--12692
 []\T1/cmtt/m/n/10 ##  5     3 John F Kennedy Intl Tue             vertrek_vertr
 aging           2[] 
  []
 
 
-Overfull \hbox (97.40002pt too wide) in paragraph at lines 12690--12690
+Overfull \hbox (97.40002pt too wide) in paragraph at lines 12692--12692
 []\T1/cmtt/m/n/10 ##  6     3 John F Kennedy Intl Tue             aankomst_vert
 raging         33[] 
  []
 
 
-Overfull \hbox (97.40002pt too wide) in paragraph at lines 12690--12690
+Overfull \hbox (97.40002pt too wide) in paragraph at lines 12692--12692
 []\T1/cmtt/m/n/10 ##  7     4 La Guardia          Tue             vertrek_vertr
 aging          -6[] 
  []
 
 
-Overfull \hbox (97.40002pt too wide) in paragraph at lines 12690--12690
+Overfull \hbox (97.40002pt too wide) in paragraph at lines 12692--12692
 []\T1/cmtt/m/n/10 ##  8     4 La Guardia          Tue             aankomst_vert
 raging        -25[] 
  []
 
 
-Overfull \hbox (97.40002pt too wide) in paragraph at lines 12690--12690
+Overfull \hbox (97.40002pt too wide) in paragraph at lines 12692--12692
 []\T1/cmtt/m/n/10 ##  9     5 Newark Liberty Intl Tue             vertrek_vertr
 aging          -4[] 
  []
 
 
-Overfull \hbox (97.40002pt too wide) in paragraph at lines 12690--12690
+Overfull \hbox (97.40002pt too wide) in paragraph at lines 12692--12692
 []\T1/cmtt/m/n/10 ## 10     5 Newark Liberty Intl Tue             aankomst_vert
 raging         12[] 
  []
@@ -6928,46 +6943,46 @@ raging         12[]
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 12705.
+This message occurred on input line 12707.
 
-[237]
-<textbook_files/figure-latex/7-11-1.pdf, id=2961, 433.62pt x 259.97125pt>
+[239]
+<textbook_files/figure-latex/7-11-1.pdf, id=2962, 433.62pt x 259.97125pt>
 File: textbook_files/figure-latex/7-11-1.pdf Graphic file (type pdf)
 <use textbook_files/figure-latex/7-11-1.pdf>
 Package pdftex.def Info: textbook_files/figure-latex/7-11-1.pdf  used on input 
-line 12719.
+line 12721.
 (pdftex.def)             Requested size: 312.01428pt x 187.06412pt.
 
-Overfull \hbox (12.01428pt too wide) in paragraph at lines 12719--12720
+Overfull \hbox (12.01428pt too wide) in paragraph at lines 12721--12722
 [][]  
  []
 
 
-Overfull \hbox (86.90259pt too wide) in paragraph at lines 12752--12752
+Overfull \hbox (86.90259pt too wide) in paragraph at lines 12754--12754
 []\T1/cmtt/m/n/10 ##    vertrekluchthaven   type_vertraging     weekdag_vertrek
  gem_vertraging[] 
  []
 
 
-Overfull \hbox (86.90259pt too wide) in paragraph at lines 12752--12752
+Overfull \hbox (86.90259pt too wide) in paragraph at lines 12754--12754
 []\T1/cmtt/m/n/10 ##    <chr>               <chr>               <ord>          
           <dbl>[] 
  []
 
 
-Overfull \hbox (86.90259pt too wide) in paragraph at lines 12752--12752
+Overfull \hbox (86.90259pt too wide) in paragraph at lines 12754--12754
 []\T1/cmtt/m/n/10 ##  1 John F Kennedy Intl aankomst_vertraging Sun            
            6.39[] 
  []
 
 
-Overfull \hbox (86.90259pt too wide) in paragraph at lines 12752--12752
+Overfull \hbox (86.90259pt too wide) in paragraph at lines 12754--12754
 []\T1/cmtt/m/n/10 ##  2 John F Kennedy Intl aankomst_vertraging Mon            
            7.99[] 
  []
 
 
-Overfull \hbox (86.90259pt too wide) in paragraph at lines 12752--12752
+Overfull \hbox (86.90259pt too wide) in paragraph at lines 12754--12754
 []\T1/cmtt/m/n/10 ##  3 John F Kennedy Intl aankomst_vertraging Tue            
            3.34[] 
  []
@@ -6975,644 +6990,652 @@ Overfull \hbox (86.90259pt too wide) in paragraph at lines 12752--12752
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 12752.
+This message occurred on input line 12754.
 
-[238 <./textbook_files/figure-latex/7-11-1.pdf>]
-Overfull \hbox (86.90259pt too wide) in paragraph at lines 12752--12752
+[240 <./textbook_files/figure-latex/7-11-1.pdf>]
+Overfull \hbox (86.90259pt too wide) in paragraph at lines 12754--12754
 []\T1/cmtt/m/n/10 ##  4 John F Kennedy Intl aankomst_vertraging Wed            
            5.86[] 
  []
 
 
-Overfull \hbox (86.90259pt too wide) in paragraph at lines 12752--12752
+Overfull \hbox (86.90259pt too wide) in paragraph at lines 12754--12754
 []\T1/cmtt/m/n/10 ##  5 John F Kennedy Intl aankomst_vertraging Thu            
            7.56[] 
  []
 
 
-Overfull \hbox (86.90259pt too wide) in paragraph at lines 12752--12752
+Overfull \hbox (86.90259pt too wide) in paragraph at lines 12754--12754
 []\T1/cmtt/m/n/10 ##  6 John F Kennedy Intl aankomst_vertraging Fri            
            6.49[] 
  []
 
 
-Overfull \hbox (86.90259pt too wide) in paragraph at lines 12752--12752
+Overfull \hbox (86.90259pt too wide) in paragraph at lines 12754--12754
 []\T1/cmtt/m/n/10 ##  7 John F Kennedy Intl aankomst_vertraging Sat            
            1.96[] 
  []
 
 
-Overfull \hbox (81.65387pt too wide) in paragraph at lines 12752--12752
+Overfull \hbox (81.65387pt too wide) in paragraph at lines 12754--12754
 []\T1/cmtt/m/n/10 ##  8 John F Kennedy Intl vertrek_vertraging  Sun            
           11.7[] 
  []
 
 
-Overfull \hbox (81.65387pt too wide) in paragraph at lines 12752--12752
+Overfull \hbox (81.65387pt too wide) in paragraph at lines 12754--12754
 []\T1/cmtt/m/n/10 ##  9 John F Kennedy Intl vertrek_vertraging  Mon            
           14.7[] 
  []
 
 
-Overfull \hbox (81.65387pt too wide) in paragraph at lines 12752--12752
+Overfull \hbox (81.65387pt too wide) in paragraph at lines 12754--12754
 []\T1/cmtt/m/n/10 ## 10 John F Kennedy Intl vertrek_vertraging  Tue            
           10.5[] 
  []
 
-<textbook_files/figure-latex/7-13-1.pdf, id=2971, 433.62pt x 259.97125pt>
+<textbook_files/figure-latex/7-13-1.pdf, id=2972, 433.62pt x 259.97125pt>
 File: textbook_files/figure-latex/7-13-1.pdf Graphic file (type pdf)
 <use textbook_files/figure-latex/7-13-1.pdf>
 Package pdftex.def Info: textbook_files/figure-latex/7-13-1.pdf  used on input 
-line 12765.
+line 12767.
 (pdftex.def)             Requested size: 312.01428pt x 187.06412pt.
 
-Overfull \hbox (12.01428pt too wide) in paragraph at lines 12765--12766
+Overfull \hbox (12.01428pt too wide) in paragraph at lines 12767--12768
 [][]  
  []
 
 
-Overfull \hbox (2.18439pt too wide) in paragraph at lines 12768--12768
+Overfull \hbox (2.18439pt too wide) in paragraph at lines 12770--12770
 |[]\T1/cmr/m/it/12 Data in een breed for-maat plaat-sen (voor overzichtelijke
  []
 
 
-Overfull \hbox (67.25244pt too wide) in paragraph at lines 12781--12837
+Overfull \hbox (67.25244pt too wide) in paragraph at lines 12783--12839
  [][] 
  []
 
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 12851.
+This message occurred on input line 12853.
 
-[239 <./textbook_files/figure-latex/7-13-1.pdf>]
+[241 <./textbook_files/figure-latex/7-13-1.pdf>]
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 12851.
+This message occurred on input line 12853.
 
-[240]
-Overfull \hbox (139.6383pt too wide) in paragraph at lines 12870--12883
+[242]
+Overfull \hbox (139.6383pt too wide) in paragraph at lines 12872--12885
  [][] 
  []
 
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 12896.
+This message occurred on input line 12898.
 
-[241] [242
+[243] [244
 
 ]
 Chapter 10.
-[243]
-
-LaTeX Warning: Marginpar on page 244 moved.
-
-
-Class tufte-book Warning: Proper spacing of small-caps letters has not been set
- up.
-This message occurred on input line 13023.
-
-[244]
-
-Class tufte-book Warning: Proper spacing of small-caps letters has not been set
- up.
-This message occurred on input line 13058.
-
 [245]
 
+LaTeX Warning: Marginpar on page 246 moved.
+
+
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 13114.
+This message occurred on input line 13020.
 
 [246]
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 13172.
+This message occurred on input line 13055.
 
 [247]
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 13226.
+This message occurred on input line 13111.
 
 [248]
+
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 13161.
+
+[249]
+
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 13219.
+
+[250]
 <images/join_types.png, id=3044, 845.40843pt x 476.53032pt>
 File: images/join_types.png Graphic file (type png)
 <use images/join_types.png>
-Package pdftex.def Info: images/join_types.png  used on input line 13228.
+Package pdftex.def Info: images/join_types.png  used on input line 13225.
 (pdftex.def)             Requested size: 311.99643pt x 175.86264pt.
 
-Overfull \hbox (11.99643pt too wide) in paragraph at lines 13228--13229
+Overfull \hbox (11.99643pt too wide) in paragraph at lines 13225--13226
 [][]  
  []
 
 
-LaTeX Warning: Marginpar on page 249 moved.
+LaTeX Warning: Marginpar on page 251 moved.
 
 <images/join_duplicates.png, id=3045, 778.40813pt x 388.45125pt>
 File: images/join_duplicates.png Graphic file (type png)
 <use images/join_duplicates.png>
-Package pdftex.def Info: images/join_duplicates.png  used on input line 13235.
+Package pdftex.def Info: images/join_duplicates.png  used on input line 13232.
 (pdftex.def)             Requested size: 312.011pt x 155.70374pt.
 
-Overfull \hbox (12.011pt too wide) in paragraph at lines 13235--13236
+Overfull \hbox (12.011pt too wide) in paragraph at lines 13232--13233
 [][]  
  []
 
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 13245.
+This message occurred on input line 13235.
 
-[249 <./images/join_types.PNG> <./images/join_duplicates.PNG>]
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13279--13279
+[251 <./images/join_types.PNG>]
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13276--13276
 []\T1/cmtt/m/n/10 ## $ year           <int> 2013, 2013, 2013, 2013, 2013, 2013,
  2013, 2013, 2013...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13279--13279
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13276--13276
 []\T1/cmtt/m/n/10 ## $ month          <int> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
  1, 1, 1, 1, 1, 1...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13279--13279
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13276--13276
 []\T1/cmtt/m/n/10 ## $ day            <int> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
  1, 1, 1, 1, 1, 1...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13279--13279
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13276--13276
 []\T1/cmtt/m/n/10 ## $ dep_time       <int> 517, 533, 542, 544, 554, 554, 555, 
 557, 557, 558, 55...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13279--13279
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13276--13276
 []\T1/cmtt/m/n/10 ## $ sched_dep_time <int> 515, 529, 540, 545, 600, 558, 600, 
 600, 600, 600, 60...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13279--13279
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13276--13276
 []\T1/cmtt/m/n/10 ## $ dep_delay      <dbl> 2, 4, 2, -1, -6, -4, -5, -3, -3, -2
 , -2, -2, -2, -2,...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13279--13279
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13276--13276
 []\T1/cmtt/m/n/10 ## $ arr_time       <int> 830, 850, 923, 1004, 812, 740, 913,
  709, 838, 753, 8...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13279--13279
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13276--13276
 []\T1/cmtt/m/n/10 ## $ sched_arr_time <int> 819, 830, 850, 1022, 837, 728, 854,
  723, 846, 745, 8...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13279--13279
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13276--13276
 []\T1/cmtt/m/n/10 ## $ arr_delay      <dbl> 11, 20, 33, -18, -25, 12, 19, -14, 
 -8, 8, -2, -3, 7,...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13279--13279
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13276--13276
 []\T1/cmtt/m/n/10 ## $ carrier        <chr> "UA", "UA", "AA", "B6", "DL", "UA",
  "B6", "EV", "B6"...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13279--13279
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13276--13276
 []\T1/cmtt/m/n/10 ## $ flight         <int> 1545, 1714, 1141, 725, 461, 1696, 5
 07, 5708, 79, 301...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13279--13279
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13276--13276
 []\T1/cmtt/m/n/10 ## $ tailnum        <chr> "N14228", "N24211", "N619AA", "N804
 JB", "N668DN", "N...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13279--13279
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13276--13276
 []\T1/cmtt/m/n/10 ## $ origin         <chr> "EWR", "LGA", "JFK", "JFK", "LGA", 
 "EWR", "EWR", "LG...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13279--13279
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13276--13276
 []\T1/cmtt/m/n/10 ## $ dest           <chr> "IAH", "IAH", "MIA", "BQN", "ATL", 
 "ORD", "FLL", "IA...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13279--13279
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13276--13276
 []\T1/cmtt/m/n/10 ## $ air_time       <dbl> 227, 227, 160, 183, 116, 150, 158, 
 53, 140, 138, 149...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13279--13279
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13276--13276
 []\T1/cmtt/m/n/10 ## $ distance       <dbl> 1400, 1416, 1089, 1576, 762, 719, 1
 065, 229, 944, 73...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13279--13279
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13276--13276
 []\T1/cmtt/m/n/10 ## $ hour           <dbl> 5, 5, 5, 5, 6, 5, 6, 6, 6, 6, 6, 6,
  6, 6, 6, 5, 6, 6...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13279--13279
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13276--13276
 []\T1/cmtt/m/n/10 ## $ minute         <dbl> 15, 29, 40, 45, 0, 58, 0, 0, 0, 0, 
 0, 0, 0, 0, 0, 59...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13279--13279
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13276--13276
 []\T1/cmtt/m/n/10 ## $ time_hour      <dttm> 2013-01-01 05:00:00, 2013-01-01 05
 :00:00, 2013-01-0...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13295--13295
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 13281.
+
+[252 <./images/join_duplicates.PNG>]
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13292--13292
 []\T1/cmtt/m/n/10 ## $ carrier <chr> "9E", "AA", "AS", "B6", "DL", "EV", "F9", 
 "FL", "HA", "MQ",...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13295--13295
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13292--13292
 []\T1/cmtt/m/n/10 ## $ name    <chr> "Endeavor Air Inc.", "American Airlines In
 c.", "Alaska Airl...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13324--13324
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13321--13321
 []\T1/cmtt/m/n/10 ##     year month   day dep_time sched_dep_time dep_delay arr
 _time sched_arr_time[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13324--13324
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13321--13321
 []\T1/cmtt/m/n/10 ##    <int> <int> <int>    <int>          <int>     <dbl>    
 <int>          <int>[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13324--13324
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13321--13321
 []\T1/cmtt/m/n/10 ##  1  2013     1     1      517            515         2    
   830            819[] 
  []
 
 
-Class tufte-book Warning: Proper spacing of small-caps letters has not been set
- up.
-This message occurred on input line 13324.
-
-[250]
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13324--13324
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13321--13321
 []\T1/cmtt/m/n/10 ##  2  2013     1     1      533            529         4    
   850            830[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13324--13324
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13321--13321
 []\T1/cmtt/m/n/10 ##  3  2013     1     1      542            540         2    
   923            850[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13324--13324
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13321--13321
 []\T1/cmtt/m/n/10 ##  4  2013     1     1      544            545        -1    
  1004           1022[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13324--13324
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13321--13321
 []\T1/cmtt/m/n/10 ##  5  2013     1     1      554            600        -6    
   812            837[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13324--13324
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13321--13321
 []\T1/cmtt/m/n/10 ##  6  2013     1     1      554            558        -4    
   740            728[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13324--13324
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13321--13321
 []\T1/cmtt/m/n/10 ##  7  2013     1     1      555            600        -5    
   913            854[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13324--13324
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13321--13321
 []\T1/cmtt/m/n/10 ##  8  2013     1     1      557            600        -3    
   709            723[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13324--13324
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13321--13321
 []\T1/cmtt/m/n/10 ##  9  2013     1     1      557            600        -3    
   838            846[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13324--13324
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13321--13321
 []\T1/cmtt/m/n/10 ## 10  2013     1     1      558            600        -2    
   753            745[] 
  []
 
 
-Overfull \hbox (65.90771pt too wide) in paragraph at lines 13324--13324
+Overfull \hbox (65.90771pt too wide) in paragraph at lines 13321--13321
 []\T1/cmtt/m/n/10 ## # ... with 336,766 more rows, and 12 more variables: arr_d
 elay <dbl>,[] 
  []
 
 
-Overfull \hbox (86.90259pt too wide) in paragraph at lines 13324--13324
+Overfull \hbox (86.90259pt too wide) in paragraph at lines 13321--13321
 []\T1/cmtt/m/n/10 ## #   carrier <chr>, flight <int>, tailnum <chr>, origin <ch
 r>, dest <chr>,[] 
  []
 
 
-Overfull \hbox (118.3949pt too wide) in paragraph at lines 13324--13324
+Overfull \hbox (118.3949pt too wide) in paragraph at lines 13321--13321
 []\T1/cmtt/m/n/10 ## #   air_time <dbl>, distance <dbl>, hour <dbl>, minute <db
 l>, time_hour <dttm>,[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13355--13355
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 13352.
+
+[253]
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13352--13352
 []\T1/cmtt/m/n/10 ## $ origin     <chr> "EWR", "EWR", "EWR", "EWR", "EWR", "EWR
 ", "EWR", "EWR", ...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13355--13355
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13352--13352
 []\T1/cmtt/m/n/10 ## $ year       <int> 2013, 2013, 2013, 2013, 2013, 2013, 201
 3, 2013, 2013, 20...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13355--13355
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13352--13352
 []\T1/cmtt/m/n/10 ## $ month      <int> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
 1, 1, 1, 1, 1, 1,...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13355--13355
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13352--13352
 []\T1/cmtt/m/n/10 ## $ day        <int> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
 1, 1, 1, 1, 1, 1,...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13355--13355
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13352--13352
 []\T1/cmtt/m/n/10 ## $ hour       <int> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 
 14, 15, 16, 17, 1...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13355--13355
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13352--13352
 []\T1/cmtt/m/n/10 ## $ temp       <dbl> 39.02, 39.02, 39.02, 39.92, 39.02, 37.9
 4, 39.02, 39.92, ...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13355--13355
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13352--13352
 []\T1/cmtt/m/n/10 ## $ dewp       <dbl> 26.06, 26.96, 28.04, 28.04, 28.04, 28.0
 4, 28.04, 28.04, ...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13355--13355
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13352--13352
 []\T1/cmtt/m/n/10 ## $ humid      <dbl> 59.37, 61.63, 64.43, 62.21, 64.43, 67.2
 1, 64.43, 62.21, ...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13355--13355
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13352--13352
 []\T1/cmtt/m/n/10 ## $ wind_dir   <dbl> 270, 250, 240, 250, 260, 240, 240, 250,
  260, 260, 260, 3...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13355--13355
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13352--13352
 []\T1/cmtt/m/n/10 ## $ wind_speed <dbl> 10.35702, 8.05546, 11.50780, 12.65858, 
 12.65858, 11.5078...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13355--13355
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13352--13352
 []\T1/cmtt/m/n/10 ## $ wind_gust  <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,
  NA, NA, NA, NA, ...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13355--13355
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13352--13352
 []\T1/cmtt/m/n/10 ## $ precip     <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
 0, 0, 0, 0, 0, 0,...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13355--13355
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13352--13352
 []\T1/cmtt/m/n/10 ## $ pressure   <dbl> 1012.0, 1012.3, 1012.5, 1012.2, 1011.9,
  1012.4, 1012.2, ...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13355--13355
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13352--13352
 []\T1/cmtt/m/n/10 ## $ visib      <dbl> 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
  10, 10, 10, 10, ...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13355--13355
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13352--13352
 []\T1/cmtt/m/n/10 ## $ time_hour  <dttm> 2013-01-01 01:00:00, 2013-01-01 02:00:
 00, 2013-01-01 03...[] 
  []
 
 
-Class tufte-book Warning: Proper spacing of small-caps letters has not been set
- up.
-This message occurred on input line 13358.
-
-[251]
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13404--13404
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13401--13401
 []\T1/cmtt/m/n/10 ## $ year           <int> 2013, 2013, 2013, 2013, 2013, 2013,
  2013, 2013, 2013...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13404--13404
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13401--13401
 []\T1/cmtt/m/n/10 ## $ month          <int> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
  1, 1, 1, 1, 1, 1...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13404--13404
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13401--13401
 []\T1/cmtt/m/n/10 ## $ day            <int> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
  1, 1, 1, 1, 1, 1...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13404--13404
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13401--13401
 []\T1/cmtt/m/n/10 ## $ dep_time       <int> 517, 533, 542, 544, 554, 554, 555, 
 557, 557, 558, 55...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13404--13404
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13401--13401
 []\T1/cmtt/m/n/10 ## $ sched_dep_time <int> 515, 529, 540, 545, 600, 558, 600, 
 600, 600, 600, 60...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13404--13404
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13401--13401
 []\T1/cmtt/m/n/10 ## $ dep_delay      <dbl> 2, 4, 2, -1, -6, -4, -5, -3, -3, -2
 , -2, -2, -2, -2,...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13404--13404
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13401--13401
 []\T1/cmtt/m/n/10 ## $ arr_time       <int> 830, 850, 923, 1004, 812, 740, 913,
  709, 838, 753, 8...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13404--13404
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13401--13401
 []\T1/cmtt/m/n/10 ## $ sched_arr_time <int> 819, 830, 850, 1022, 837, 728, 854,
  723, 846, 745, 8...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13404--13404
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13401--13401
 []\T1/cmtt/m/n/10 ## $ arr_delay      <dbl> 11, 20, 33, -18, -25, 12, 19, -14, 
 -8, 8, -2, -3, 7,...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13404--13404
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13401--13401
 []\T1/cmtt/m/n/10 ## $ carrier        <chr> "UA", "UA", "AA", "B6", "DL", "UA",
  "B6", "EV", "B6"...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13404--13404
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13401--13401
 []\T1/cmtt/m/n/10 ## $ flight         <int> 1545, 1714, 1141, 725, 461, 1696, 5
 07, 5708, 79, 301...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13404--13404
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13401--13401
 []\T1/cmtt/m/n/10 ## $ tailnum        <chr> "N14228", "N24211", "N619AA", "N804
 JB", "N668DN", "N...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13404--13404
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13401--13401
 []\T1/cmtt/m/n/10 ## $ origin         <chr> "EWR", "LGA", "JFK", "JFK", "LGA", 
 "EWR", "EWR", "LG...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13404--13404
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13401--13401
 []\T1/cmtt/m/n/10 ## $ dest           <chr> "IAH", "IAH", "MIA", "BQN", "ATL", 
 "ORD", "FLL", "IA...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13404--13404
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13401--13401
 []\T1/cmtt/m/n/10 ## $ air_time       <dbl> 227, 227, 160, 183, 116, 150, 158, 
 53, 140, 138, 149...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13404--13404
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 13401.
+
+[254]
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13401--13401
 []\T1/cmtt/m/n/10 ## $ distance       <dbl> 1400, 1416, 1089, 1576, 762, 719, 1
 065, 229, 944, 73...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13404--13404
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13401--13401
 []\T1/cmtt/m/n/10 ## $ hour           <dbl> 5, 5, 5, 5, 6, 5, 6, 6, 6, 6, 6, 6,
  6, 6, 6, 5, 6, 6...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13404--13404
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13401--13401
 []\T1/cmtt/m/n/10 ## $ minute         <dbl> 15, 29, 40, 45, 0, 58, 0, 0, 0, 0, 
 0, 0, 0, 0, 0, 59...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13404--13404
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13401--13401
 []\T1/cmtt/m/n/10 ## $ time_hour      <dttm> 2013-01-01 05:00:00, 2013-01-01 05
 :00:00, 2013-01-0...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13404--13404
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13401--13401
 []\T1/cmtt/m/n/10 ## $ name           <chr> "United Air Lines Inc.", "United Ai
 r Lines Inc.", "A...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13404--13404
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13401--13401
 []\T1/cmtt/m/n/10 ## $ temp           <dbl> 39.02, 39.92, 39.02, 39.02, 39.92, 
 39.02, 37.94, 39....[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13404--13404
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13401--13401
 []\T1/cmtt/m/n/10 ## $ dewp           <dbl> 28.04, 24.98, 26.96, 26.96, 24.98, 
 28.04, 28.04, 24....[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13404--13404
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13401--13401
 []\T1/cmtt/m/n/10 ## $ humid          <dbl> 64.43, 54.81, 61.63, 61.63, 54.81, 
 64.43, 67.21, 54....[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13404--13404
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13401--13401
 []\T1/cmtt/m/n/10 ## $ wind_dir       <dbl> 260, 250, 260, 260, 260, 260, 240, 
 260, 260, 260, 26...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13404--13404
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13401--13401
 []\T1/cmtt/m/n/10 ## $ wind_speed     <dbl> 12.65858, 14.96014, 14.96014, 14.96
 014, 16.11092, 12...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13404--13404
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13401--13401
 []\T1/cmtt/m/n/10 ## $ wind_gust      <dbl> NA, 21.86482, NA, NA, 23.01560, NA,
  NA, 23.01560, NA...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13404--13404
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13401--13401
 []\T1/cmtt/m/n/10 ## $ precip         <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
  0, 0, 0, 0, 0, 0...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13404--13404
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13401--13401
 []\T1/cmtt/m/n/10 ## $ pressure       <dbl> 1011.9, 1011.4, 1012.1, 1012.1, 101
 1.7, 1011.9, 1012...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 13404--13404
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 13401--13401
 []\T1/cmtt/m/n/10 ## $ visib          <dbl> 10, 10, 10, 10, 10, 10, 10, 10, 10,
  10, 10, 10, 10, ...[] 
  []
@@ -7620,98 +7643,109 @@ Overfull \hbox (113.14618pt too wide) in paragraph at lines 13404--13404
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 13412.
+This message occurred on input line 13431.
 
-[252]
-
-Class tufte-book Warning: Proper spacing of small-caps letters has not been set
- up.
-This message occurred on input line 13484.
-
-[253]
+[255]
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 13531.
+This message occurred on input line 13490.
 
-[254]
-Overfull \hbox (8.59131pt too wide) in paragraph at lines 13535--13536
-[]\T1/cmr/m/n/10 That said, one more re-mark on merg-ing data. If there is a bi
-nd_rows, 
- []
-
-<images/tidydata.png, id=3079, 1927.2pt x 602.25pt>
-File: images/tidydata.png Graphic file (type png)
-<use images/tidydata.png>
-Package pdftex.def Info: images/tidydata.png  used on input line 13544.
-(pdftex.def)             Requested size: 311.97533pt x 97.49228pt.
-
-Overfull \hbox (11.97533pt too wide) in paragraph at lines 13544--13545
-[][]  
- []
-
+[256]
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 13547.
-
-[255 <./images/tidydata.png>]
-File: images/tidyverse.png Graphic file (type png)
-<use images/tidyverse.png>
-Package pdftex.def Info: images/tidyverse.png  used on input line 13548.
-(pdftex.def)             Requested size: 312.01099pt x 114.66553pt.
-
-Overfull \hbox (12.01099pt too wide) in paragraph at lines 13548--13549
-[][]  
- []
-
-
-LaTeX Warning: Marginpar on page 256 moved.
-
-
-LaTeX Warning: Marginpar on page 256 moved.
-
-<images/operations2.png, id=3086, 864.22874pt x 331.99031pt>
-File: images/operations2.png Graphic file (type png)
-<use images/operations2.png>
-Package pdftex.def Info: images/operations2.png  used on input line 13577.
-(pdftex.def)             Requested size: 311.99245pt x 119.85075pt.
-
-Overfull \hbox (11.99245pt too wide) in paragraph at lines 13577--13578
-[][]  
- []
-
-
-Class tufte-book Warning: Proper spacing of small-caps letters has not been set
- up.
-This message occurred on input line 13604.
-
-[256 <./images/operations2.png>]
-
-Class tufte-book Warning: Proper spacing of small-caps letters has not been set
- up.
-This message occurred on input line 13652.
+This message occurred on input line 13533.
 
 [257]
+<images/tidydata.png, id=3083, 1927.2pt x 602.25pt>
+File: images/tidydata.png Graphic file (type png)
+<use images/tidydata.png>
+Package pdftex.def Info: images/tidydata.png  used on input line 13541.
+(pdftex.def)             Requested size: 311.97533pt x 97.49228pt.
+
+Overfull \hbox (11.97533pt too wide) in paragraph at lines 13541--13542
+[][]  
+ []
+
+File: images/tidyverse.png Graphic file (type png)
+<use images/tidyverse.png>
+Package pdftex.def Info: images/tidyverse.png  used on input line 13545.
+(pdftex.def)             Requested size: 312.01099pt x 114.66553pt.
+
+Overfull \hbox (12.01099pt too wide) in paragraph at lines 13545--13546
+[][]  
+ []
+
 
 LaTeX Warning: Marginpar on page 258 moved.
 
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 13707.
+This message occurred on input line 13567.
 
-[258]
+[258 <./images/tidydata.png>]
 
 LaTeX Warning: Marginpar on page 259 moved.
 
-<images/spread.png, id=3108, 398.99063pt x 167.12437pt>
+<images/operations2.png, id=3092, 864.22874pt x 331.99031pt>
+File: images/operations2.png Graphic file (type png)
+<use images/operations2.png>
+Package pdftex.def Info: images/operations2.png  used on input line 13574.
+(pdftex.def)             Requested size: 311.99245pt x 119.85075pt.
+
+Overfull \hbox (11.99245pt too wide) in paragraph at lines 13574--13575
+[][]  
+ []
+
+
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 13624.
+
+[259 <./images/operations2.png>]
+
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 13674.
+
+[260]
+
+LaTeX Warning: Marginpar on page 261 moved.
+
+
+LaTeX Warning: Marginpar on page 261 moved.
+
+
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 13729.
+
+[261]
+<images/spread.png, id=3113, 398.99063pt x 167.12437pt>
 File: images/spread.png Graphic file (type png)
 <use images/spread.png>
-Package pdftex.def Info: images/spread.png  used on input line 13742.
+Package pdftex.def Info: images/spread.png  used on input line 13739.
 (pdftex.def)             Requested size: 312.01506pt x 130.69308pt.
 
-Overfull \hbox (12.01506pt too wide) in paragraph at lines 13742--13743
+Overfull \hbox (12.01506pt too wide) in paragraph at lines 13739--13740
+[][]  
+ []
+
+
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 13768.
+
+[262 <./images/spread.PNG>]
+<images/gather.png, id=3121, 371.13657pt x 146.04562pt>
+File: images/gather.png Graphic file (type png)
+<use images/gather.png>
+Package pdftex.def Info: images/gather.png  used on input line 13800.
+(pdftex.def)             Requested size: 312.00742pt x 122.77774pt.
+
+Overfull \hbox (12.00742pt too wide) in paragraph at lines 13800--13801
 [][]  
  []
 
@@ -7721,99 +7755,82 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 13744.
+This message occurred on input line 13802.
 
-[259]
-
-Class tufte-book Warning: Proper spacing of small-caps letters has not been set
- up.
-This message occurred on input line 13792.
-
-[260 <./images/spread.PNG>]
-<images/gather.png, id=3121, 371.13657pt x 146.04562pt>
-File: images/gather.png Graphic file (type png)
-<use images/gather.png>
-Package pdftex.def Info: images/gather.png  used on input line 13803.
-(pdftex.def)             Requested size: 312.00742pt x 122.77774pt.
-
-Overfull \hbox (12.00742pt too wide) in paragraph at lines 13803--13804
-[][]  
- []
-
-
-Overfull \hbox (102.64874pt too wide) in paragraph at lines 13831--13831
+[263]
+Overfull \hbox (102.64874pt too wide) in paragraph at lines 13828--13828
 []\T1/cmtt/m/n/10 ##    country continent `1952` `1957` `1962` `1967` `1972` `1
 977` `1982` `1987`[] 
  []
 
 
-Overfull \hbox (102.64874pt too wide) in paragraph at lines 13831--13831
+Overfull \hbox (102.64874pt too wide) in paragraph at lines 13828--13828
 []\T1/cmtt/m/n/10 ##    <fct>   <fct>      <int>  <int>  <int>  <int>  <int>  <
 int>  <int>  <int>[] 
  []
 
 
-Overfull \hbox (102.64874pt too wide) in paragraph at lines 13831--13831
+Overfull \hbox (102.64874pt too wide) in paragraph at lines 13828--13828
 []\T1/cmtt/m/n/10 ##  1 Afghan~ Asia      8.43e6 9.24e6 1.03e7 1.15e7 1.31e7 1.
 49e7 1.29e7 1.39e7[] 
  []
 
 
-Overfull \hbox (102.64874pt too wide) in paragraph at lines 13831--13831
+Overfull \hbox (102.64874pt too wide) in paragraph at lines 13828--13828
 []\T1/cmtt/m/n/10 ##  2 Albania Europe    1.28e6 1.48e6 1.73e6 1.98e6 2.26e6 2.
 51e6 2.78e6 3.08e6[] 
  []
 
 
-Overfull \hbox (102.64874pt too wide) in paragraph at lines 13831--13831
+Overfull \hbox (102.64874pt too wide) in paragraph at lines 13828--13828
 []\T1/cmtt/m/n/10 ##  3 Algeria Africa    9.28e6 1.03e7 1.10e7 1.28e7 1.48e7 1.
 72e7 2.00e7 2.33e7[] 
  []
 
 
-Overfull \hbox (102.64874pt too wide) in paragraph at lines 13831--13831
+Overfull \hbox (102.64874pt too wide) in paragraph at lines 13828--13828
 []\T1/cmtt/m/n/10 ##  4 Angola  Africa    4.23e6 4.56e6 4.83e6 5.25e6 5.89e6 6.
 16e6 7.02e6 7.87e6[] 
  []
 
 
-Overfull \hbox (102.64874pt too wide) in paragraph at lines 13831--13831
+Overfull \hbox (102.64874pt too wide) in paragraph at lines 13828--13828
 []\T1/cmtt/m/n/10 ##  5 Argent~ Americas  1.79e7 1.96e7 2.13e7 2.29e7 2.48e7 2.
 70e7 2.93e7 3.16e7[] 
  []
 
 
-Overfull \hbox (102.64874pt too wide) in paragraph at lines 13831--13831
+Overfull \hbox (102.64874pt too wide) in paragraph at lines 13828--13828
 []\T1/cmtt/m/n/10 ##  6 Austra~ Oceania   8.69e6 9.71e6 1.08e7 1.19e7 1.32e7 1.
 41e7 1.52e7 1.63e7[] 
  []
 
 
-Overfull \hbox (102.64874pt too wide) in paragraph at lines 13831--13831
+Overfull \hbox (102.64874pt too wide) in paragraph at lines 13828--13828
 []\T1/cmtt/m/n/10 ##  7 Austria Europe    6.93e6 6.97e6 7.13e6 7.38e6 7.54e6 7.
 57e6 7.57e6 7.58e6[] 
  []
 
 
-Overfull \hbox (102.64874pt too wide) in paragraph at lines 13831--13831
+Overfull \hbox (102.64874pt too wide) in paragraph at lines 13828--13828
 []\T1/cmtt/m/n/10 ##  8 Bahrain Asia      1.20e5 1.39e5 1.72e5 2.02e5 2.31e5 2.
 97e5 3.78e5 4.55e5[] 
  []
 
 
-Overfull \hbox (102.64874pt too wide) in paragraph at lines 13831--13831
+Overfull \hbox (102.64874pt too wide) in paragraph at lines 13828--13828
 []\T1/cmtt/m/n/10 ##  9 Bangla~ Asia      4.69e7 5.14e7 5.68e7 6.28e7 7.08e7 8.
 04e7 9.31e7 1.04e8[] 
  []
 
 
-Overfull \hbox (102.64874pt too wide) in paragraph at lines 13831--13831
+Overfull \hbox (102.64874pt too wide) in paragraph at lines 13828--13828
 []\T1/cmtt/m/n/10 ## 10 Belgium Europe    8.73e6 8.99e6 9.22e6 9.56e6 9.71e6 9.
 82e6 9.86e6 9.87e6[] 
  []
 
 
-Overfull \hbox (97.40002pt too wide) in paragraph at lines 13831--13831
+Overfull \hbox (97.40002pt too wide) in paragraph at lines 13828--13828
 []\T1/cmtt/m/n/10 ## # ... with 132 more rows, and 4 more variables: `1992` <in
 t>, `1997` <int>,[] 
  []
@@ -7821,351 +7838,381 @@ t>, `1997` <int>,[]
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 13834.
+This message occurred on input line 13842.
 
-[261 <./images/gather.PNG>]
+[264 <./images/gather.PNG>]
 
-LaTeX Warning: Marginpar on page 262 moved.
+LaTeX Warning: Marginpar on page 265 moved.
 
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 13888.
+This message occurred on input line 13893.
 
-[262]
-<textbook_files/figure-latex/unnamed-chunk-274-1.pdf, id=3133, 1084.05pt x 650.
+[265]
+<textbook_files/figure-latex/unnamed-chunk-274-1.pdf, id=3138, 1084.05pt x 650.
 43pt>
 File: textbook_files/figure-latex/unnamed-chunk-274-1.pdf Graphic file (type pd
 f)
 <use textbook_files/figure-latex/unnamed-chunk-274-1.pdf>
 Package pdftex.def Info: textbook_files/figure-latex/unnamed-chunk-274-1.pdf  u
-sed on input line 13914.
+sed on input line 13913.
 (pdftex.def)             Requested size: 479.99399pt x 287.99638pt.
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 13943.
+This message occurred on input line 13954.
 
-[263]
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+[266]
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ country      <chr> "Afghanistan", "Afghanistan", "Afghan
 istan", "Afghanis...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ iso2         <chr> "AF", "AF", "AF", "AF", "AF", "AF", "
 AF", "AF", "AF", ...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ iso3         <chr> "AFG", "AFG", "AFG", "AFG", "AFG", "A
 FG", "AFG", "AFG"...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ year         <int> 1980, 1981, 1982, 1983, 1984, 1985, 1
 986, 1987, 1988, ...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ new_sp_m014  <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 A, NA, NA, NA, NA...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ new_sp_m1524 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 A, NA, NA, NA, NA...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ new_sp_m2534 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 A, NA, NA, NA, NA...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ new_sp_m3544 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 A, NA, NA, NA, NA...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ new_sp_m4554 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
+A, NA, NA, NA, NA...[] 
+ []
+
+
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
+[]\T1/cmtt/m/n/10 ## $ new_sp_m5564 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
+A, NA, NA, NA, NA...[] 
+ []
+
+
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
+[]\T1/cmtt/m/n/10 ## $ new_sp_m65   <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
+A, NA, NA, NA, NA...[] 
+ []
+
+
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
+[]\T1/cmtt/m/n/10 ## $ new_sp_f014  <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
+A, NA, NA, NA, NA...[] 
+ []
+
+
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
+[]\T1/cmtt/m/n/10 ## $ new_sp_f1524 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
+A, NA, NA, NA, NA...[] 
+ []
+
+
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
+[]\T1/cmtt/m/n/10 ## $ new_sp_f2534 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 A, NA, NA, NA, NA...[] 
  []
 
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 14033.
+This message occurred on input line 14032.
 
-[264 <./textbook_files/figure-latex/unnamed-chunk-274-1.pdf>]
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
-[]\T1/cmtt/m/n/10 ## $ new_sp_m5564 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
-A, NA, NA, NA, NA...[] 
- []
-
-
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
-[]\T1/cmtt/m/n/10 ## $ new_sp_m65   <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
-A, NA, NA, NA, NA...[] 
- []
-
-
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
-[]\T1/cmtt/m/n/10 ## $ new_sp_f014  <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
-A, NA, NA, NA, NA...[] 
- []
-
-
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
-[]\T1/cmtt/m/n/10 ## $ new_sp_f1524 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
-A, NA, NA, NA, NA...[] 
- []
-
-
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
-[]\T1/cmtt/m/n/10 ## $ new_sp_f2534 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
-A, NA, NA, NA, NA...[] 
- []
-
-
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+[267 <./textbook_files/figure-latex/unnamed-chunk-274-1.pdf>]
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ new_sp_f3544 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 A, NA, NA, NA, NA...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ new_sp_f4554 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 A, NA, NA, NA, NA...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ new_sp_f5564 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 A, NA, NA, NA, NA...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ new_sp_f65   <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 A, NA, NA, NA, NA...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ new_sn_m014  <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 A, NA, NA, NA, NA...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ new_sn_m1524 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 A, NA, NA, NA, NA...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ new_sn_m2534 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 A, NA, NA, NA, NA...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ new_sn_m3544 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 A, NA, NA, NA, NA...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ new_sn_m4554 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 A, NA, NA, NA, NA...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ new_sn_m5564 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 A, NA, NA, NA, NA...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ new_sn_m65   <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 A, NA, NA, NA, NA...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ new_sn_f014  <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 A, NA, NA, NA, NA...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ new_sn_f1524 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 A, NA, NA, NA, NA...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ new_sn_f2534 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 A, NA, NA, NA, NA...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ new_sn_f3544 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 A, NA, NA, NA, NA...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ new_sn_f4554 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 A, NA, NA, NA, NA...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ new_sn_f5564 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 A, NA, NA, NA, NA...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ new_sn_f65   <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 A, NA, NA, NA, NA...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ new_ep_m014  <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 A, NA, NA, NA, NA...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ new_ep_m1524 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 A, NA, NA, NA, NA...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ new_ep_m2534 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 A, NA, NA, NA, NA...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ new_ep_m3544 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 A, NA, NA, NA, NA...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ new_ep_m4554 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 A, NA, NA, NA, NA...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ new_ep_m5564 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 A, NA, NA, NA, NA...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ new_ep_m65   <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 A, NA, NA, NA, NA...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ new_ep_f014  <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 A, NA, NA, NA, NA...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ new_ep_f1524 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 A, NA, NA, NA, NA...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ new_ep_f2534 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 A, NA, NA, NA, NA...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ new_ep_f3544 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 A, NA, NA, NA, NA...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ new_ep_f4554 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 A, NA, NA, NA, NA...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ new_ep_f5564 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 A, NA, NA, NA, NA...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ new_ep_f65   <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 A, NA, NA, NA, NA...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ newrel_m014  <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 A, NA, NA, NA, NA...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ newrel_m1524 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 A, NA, NA, NA, NA...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ newrel_m2534 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 A, NA, NA, NA, NA...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ newrel_m3544 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 A, NA, NA, NA, NA...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ newrel_m4554 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 A, NA, NA, NA, NA...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ newrel_m5564 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 A, NA, NA, NA, NA...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ newrel_m65   <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
+A, NA, NA, NA, NA...[] 
+ []
+
+
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
+[]\T1/cmtt/m/n/10 ## $ newrel_f014  <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
+A, NA, NA, NA, NA...[] 
+ []
+
+
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
+[]\T1/cmtt/m/n/10 ## $ newrel_f1524 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
+A, NA, NA, NA, NA...[] 
+ []
+
+
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
+[]\T1/cmtt/m/n/10 ## $ newrel_f2534 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
+A, NA, NA, NA, NA...[] 
+ []
+
+
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
+[]\T1/cmtt/m/n/10 ## $ newrel_f3544 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
+A, NA, NA, NA, NA...[] 
+ []
+
+
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
+[]\T1/cmtt/m/n/10 ## $ newrel_f4554 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 A, NA, NA, NA, NA...[] 
  []
 
@@ -8175,52 +8222,22 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 14033.
+This message occurred on input line 14032.
 
-[265]
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
-[]\T1/cmtt/m/n/10 ## $ newrel_f014  <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
-A, NA, NA, NA, NA...[] 
- []
-
-
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
-[]\T1/cmtt/m/n/10 ## $ newrel_f1524 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
-A, NA, NA, NA, NA...[] 
- []
-
-
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
-[]\T1/cmtt/m/n/10 ## $ newrel_f2534 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
-A, NA, NA, NA, NA...[] 
- []
-
-
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
-[]\T1/cmtt/m/n/10 ## $ newrel_f3544 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
-A, NA, NA, NA, NA...[] 
- []
-
-
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
-[]\T1/cmtt/m/n/10 ## $ newrel_f4554 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
-A, NA, NA, NA, NA...[] 
- []
-
-
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+[268]
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ newrel_f5564 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 A, NA, NA, NA, NA...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14033--14033
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 14032--14032
 []\T1/cmtt/m/n/10 ## $ newrel_f65   <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 A, NA, NA, NA, NA...[] 
  []
 
 
-Overfull \hbox (8.17181pt too wide) in paragraph at lines 14076--14076
+Overfull \hbox (8.17181pt too wide) in paragraph at lines 14075--14075
 []\T1/cmtt/m/n/10 ## # ... with 3 variables: country <chr>, year <int>, n <int>
 [] 
  []
@@ -8228,239 +8245,239 @@ Overfull \hbox (8.17181pt too wide) in paragraph at lines 14076--14076
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 14100.
-
-[266]
-
-Class tufte-book Warning: Proper spacing of small-caps letters has not been set
- up.
-This message occurred on input line 14166.
-
-[267]
-
-Class tufte-book Warning: Proper spacing of small-caps letters has not been set
- up.
-This message occurred on input line 14218.
-
-[268]
-
-Class tufte-book Warning: Proper spacing of small-caps letters has not been set
- up.
-This message occurred on input line 14291.
+This message occurred on input line 14113.
 
 [269]
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 14368.
+This message occurred on input line 14165.
 
 [270]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 14368.
+This message occurred on input line 14214.
 
 [271]
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 14404.
+This message occurred on input line 14290.
 
 [272]
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 14471.
+This message occurred on input line 14367.
 
 [273]
-<textbook_files/figure-latex/unnamed-chunk-291-1.pdf, id=3187, 433.62pt x 259.9
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 14367.
+
+[274]
+
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 14401.
+
+[275]
+
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 14458.
+
+[276]
+
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 14522.
+
+[277]
+<textbook_files/figure-latex/unnamed-chunk-291-1.pdf, id=3196, 433.62pt x 259.9
 7125pt>
 File: textbook_files/figure-latex/unnamed-chunk-291-1.pdf Graphic file (type pd
 f)
 <use textbook_files/figure-latex/unnamed-chunk-291-1.pdf>
 Package pdftex.def Info: textbook_files/figure-latex/unnamed-chunk-291-1.pdf  u
-sed on input line 14527.
+sed on input line 14526.
 (pdftex.def)             Requested size: 312.01428pt x 187.06412pt.
 
-Overfull \hbox (12.01428pt too wide) in paragraph at lines 14527--14528
+Overfull \hbox (12.01428pt too wide) in paragraph at lines 14526--14527
 [][]  
  []
 
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 14530.
+This message occurred on input line 14529.
 
-[274]
-
-Class tufte-book Warning: Proper spacing of small-caps letters has not been set
- up.
-This message occurred on input line 14530.
-
-[275 <./textbook_files/figure-latex/unnamed-chunk-291-1.pdf>] [276
+[278 <./textbook_files/figure-latex/unnamed-chunk-291-1.pdf>]
+Chapter 11.
+[279
 
 ]
-Chapter 11.
-[277]
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 14658.
+This message occurred on input line 14657.
 
-[278]
-Overfull \hbox (118.3949pt too wide) in paragraph at lines 14701--14701
+[280]
+Overfull \hbox (118.3949pt too wide) in paragraph at lines 14700--14700
 []\T1/cmtt/m/n/10 ##  vertrek_gepland               vertrek_werkelijk          
    vertrek_vertraging[] 
  []
 
 
-Overfull \hbox (102.64874pt too wide) in paragraph at lines 14701--14701
+Overfull \hbox (102.64874pt too wide) in paragraph at lines 14700--14700
 []\T1/cmtt/m/n/10 ##  Min.   :2013-01-01 05:17:00   Min.   :2013-01-01 05:19:00
    Min.   : -43.00[] 
  []
 
 
-Overfull \hbox (102.64874pt too wide) in paragraph at lines 14701--14701
+Overfull \hbox (102.64874pt too wide) in paragraph at lines 14700--14700
 []\T1/cmtt/m/n/10 ##  1st Qu.:2013-04-05 09:07:00   1st Qu.:2013-04-05 09:10:00
    1st Qu.:  -5.00[] 
  []
 
 
-Overfull \hbox (102.64874pt too wide) in paragraph at lines 14701--14701
+Overfull \hbox (102.64874pt too wide) in paragraph at lines 14700--14700
 []\T1/cmtt/m/n/10 ##  Median :2013-07-04 13:43:00   Median :2013-07-04 13:47:00
    Median :  -2.00[] 
  []
 
 
-Overfull \hbox (102.64874pt too wide) in paragraph at lines 14701--14701
+Overfull \hbox (102.64874pt too wide) in paragraph at lines 14700--14700
 []\T1/cmtt/m/n/10 ##  Mean   :2013-07-03 21:27:29   Mean   :2013-07-03 21:40:07
    Mean   :  12.62[] 
  []
 
 
-Overfull \hbox (102.64874pt too wide) in paragraph at lines 14701--14701
+Overfull \hbox (102.64874pt too wide) in paragraph at lines 14700--14700
 []\T1/cmtt/m/n/10 ##  3rd Qu.:2013-10-01 20:37:00   3rd Qu.:2013-10-01 20:39:00
    3rd Qu.:  11.00[] 
  []
 
 
-Overfull \hbox (102.64874pt too wide) in paragraph at lines 14701--14701
+Overfull \hbox (102.64874pt too wide) in paragraph at lines 14700--14700
 []\T1/cmtt/m/n/10 ##  Max.   :2013-12-31 23:32:00   Max.   :2014-01-01 00:19:00
    Max.   :1301.00[] 
  []
 
 
-Overfull \hbox (8.17181pt too wide) in paragraph at lines 14701--14701
+Overfull \hbox (8.17181pt too wide) in paragraph at lines 14700--14700
 []\T1/cmtt/m/n/10 ##  Min.   :2013-01-01 07:02:00   Min.   :2013-01-01 06:55:00
 [] 
  []
 
 
-Overfull \hbox (8.17181pt too wide) in paragraph at lines 14701--14701
+Overfull \hbox (8.17181pt too wide) in paragraph at lines 14700--14700
 []\T1/cmtt/m/n/10 ##  1st Qu.:2013-04-05 11:22:00   1st Qu.:2013-04-05 11:21:00
 [] 
  []
 
 
-Overfull \hbox (8.17181pt too wide) in paragraph at lines 14701--14701
+Overfull \hbox (8.17181pt too wide) in paragraph at lines 14700--14700
 []\T1/cmtt/m/n/10 ##  Median :2013-07-04 15:42:00   Median :2013-07-04 15:36:00
 [] 
  []
 
 
-Overfull \hbox (8.17181pt too wide) in paragraph at lines 14701--14701
+Overfull \hbox (8.17181pt too wide) in paragraph at lines 14700--14700
 []\T1/cmtt/m/n/10 ##  Mean   :2013-07-03 23:42:08   Mean   :2013-07-03 23:49:08
 [] 
  []
 
 
-Overfull \hbox (8.17181pt too wide) in paragraph at lines 14701--14701
+Overfull \hbox (8.17181pt too wide) in paragraph at lines 14700--14700
 []\T1/cmtt/m/n/10 ##  3rd Qu.:2013-10-01 22:27:00   3rd Qu.:2013-10-01 22:12:00
 [] 
  []
 
 
-Overfull \hbox (8.17181pt too wide) in paragraph at lines 14701--14701
+Overfull \hbox (8.17181pt too wide) in paragraph at lines 14700--14700
 []\T1/cmtt/m/n/10 ##  Max.   :2014-01-01 01:10:00   Max.   :2014-01-01 01:53:00
 [] 
  []
 
 
-Overfull \hbox (44.91284pt too wide) in paragraph at lines 14701--14701
+Overfull \hbox (44.91284pt too wide) in paragraph at lines 14700--14700
 []\T1/cmtt/m/n/10 ##  aankomst_vertraging    afstand     weekdag_vertrek  week_
 vertrek[] 
  []
 
 
-Overfull \hbox (44.91284pt too wide) in paragraph at lines 14701--14701
+Overfull \hbox (44.91284pt too wide) in paragraph at lines 14700--14700
 []\T1/cmtt/m/n/10 ##  Min.   : -86.000    Min.   :  80   Sun:44396       Min.  
  : 1.00[] 
  []
 
 
-Overfull \hbox (44.91284pt too wide) in paragraph at lines 14701--14701
+Overfull \hbox (44.91284pt too wide) in paragraph at lines 14700--14700
 []\T1/cmtt/m/n/10 ##  1st Qu.: -17.000    1st Qu.: 502   Mon:48246       1st Qu
 .:14.00[] 
  []
 
 
-Overfull \hbox (44.91284pt too wide) in paragraph at lines 14701--14701
+Overfull \hbox (44.91284pt too wide) in paragraph at lines 14700--14700
 []\T1/cmtt/m/n/10 ##  Median :  -5.000    Median : 828   Tue:48084       Median
  :27.00[] 
  []
 
 
-Overfull \hbox (44.91284pt too wide) in paragraph at lines 14701--14701
+Overfull \hbox (44.91284pt too wide) in paragraph at lines 14700--14700
 []\T1/cmtt/m/n/10 ##  Mean   :   6.987    Mean   :1035   Wed:47597       Mean  
  :26.77[] 
  []
 
 
-Overfull \hbox (44.91284pt too wide) in paragraph at lines 14701--14701
+Overfull \hbox (44.91284pt too wide) in paragraph at lines 14700--14700
 []\T1/cmtt/m/n/10 ##  3rd Qu.:  14.000    3rd Qu.:1372   Thu:47378       3rd Qu
 .:40.00[] 
  []
 
 
-Overfull \hbox (44.91284pt too wide) in paragraph at lines 14701--14701
+Overfull \hbox (44.91284pt too wide) in paragraph at lines 14700--14700
 []\T1/cmtt/m/n/10 ##  Max.   :1272.000    Max.   :4983   Fri:47455       Max.  
  :53.00[] 
  []
 
 
-Overfull \hbox (39.66412pt too wide) in paragraph at lines 14701--14701
+Overfull \hbox (39.66412pt too wide) in paragraph at lines 14700--14700
 []\T1/cmtt/m/n/10 ##  maand_vertrek     dag_vertrek                  maanddag_v
 ertrek[] 
  []
 
 
-Overfull \hbox (23.91797pt too wide) in paragraph at lines 14701--14701
+Overfull \hbox (23.91797pt too wide) in paragraph at lines 14700--14700
 []\T1/cmtt/m/n/10 ##  Min.   : 1.000   Min.   :2013-01-01 00:00:00   Min.   : 1
 .00[] 
  []
 
 
-Overfull \hbox (23.91797pt too wide) in paragraph at lines 14701--14701
+Overfull \hbox (23.91797pt too wide) in paragraph at lines 14700--14700
 []\T1/cmtt/m/n/10 ##  1st Qu.: 4.000   1st Qu.:2013-04-05 00:00:00   1st Qu.: 8
 .00[] 
  []
 
 
-Overfull \hbox (23.91797pt too wide) in paragraph at lines 14701--14701
+Overfull \hbox (23.91797pt too wide) in paragraph at lines 14700--14700
 []\T1/cmtt/m/n/10 ##  Median : 7.000   Median :2013-07-04 00:00:00   Median :16
 .00[] 
  []
 
 
-Overfull \hbox (23.91797pt too wide) in paragraph at lines 14701--14701
+Overfull \hbox (23.91797pt too wide) in paragraph at lines 14700--14700
 []\T1/cmtt/m/n/10 ##  Mean   : 6.569   Mean   :2013-07-03 07:43:47   Mean   :15
 .74[] 
  []
 
 
-Overfull \hbox (23.91797pt too wide) in paragraph at lines 14701--14701
+Overfull \hbox (23.91797pt too wide) in paragraph at lines 14700--14700
 []\T1/cmtt/m/n/10 ##  3rd Qu.:10.000   3rd Qu.:2013-10-01 00:00:00   3rd Qu.:23
 .00[] 
  []
@@ -8468,16 +8485,16 @@ Overfull \hbox (23.91797pt too wide) in paragraph at lines 14701--14701
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 14701.
+This message occurred on input line 14700.
 
-[279]
-Overfull \hbox (23.91797pt too wide) in paragraph at lines 14701--14701
+[281]
+Overfull \hbox (23.91797pt too wide) in paragraph at lines 14700--14700
 []\T1/cmtt/m/n/10 ##  Max.   :12.000   Max.   :2013-12-31 00:00:00   Max.   :31
 .00[] 
  []
 
 
-Overfull \hbox (6.20593pt too wide) in paragraph at lines 14722--14723
+Overfull \hbox (6.20593pt too wide) in paragraph at lines 14721--14722
 []\T1/cmr/m/n/10 Je R-code vertrekt steeds van de oor-spronke-li-jke dataset, g
 roepeert 
  []
@@ -8486,10 +8503,10 @@ roepeert
 File: textbook_files/figure-latex/6_18-1.pdf Graphic file (type pdf)
 <use textbook_files/figure-latex/6_18-1.pdf>
 Package pdftex.def Info: textbook_files/figure-latex/6_18-1.pdf  used on input 
-line 14740.
+line 14739.
 (pdftex.def)             Requested size: 312.01428pt x 187.06412pt.
 
-Overfull \hbox (12.01428pt too wide) in paragraph at lines 14740--14741
+Overfull \hbox (12.01428pt too wide) in paragraph at lines 14739--14740
 [][]  
  []
 
@@ -8499,17 +8516,17 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 14745.
+This message occurred on input line 14744.
 
-[280]
+[282]
 <textbook_files/figure-latex/6_19-1.pdf, id=3239, 433.62pt x 259.97125pt>
 File: textbook_files/figure-latex/6_19-1.pdf Graphic file (type pdf)
 <use textbook_files/figure-latex/6_19-1.pdf>
 Package pdftex.def Info: textbook_files/figure-latex/6_19-1.pdf  used on input 
-line 14748.
+line 14747.
 (pdftex.def)             Requested size: 312.01428pt x 187.06412pt.
 
-Overfull \hbox (12.01428pt too wide) in paragraph at lines 14748--14749
+Overfull \hbox (12.01428pt too wide) in paragraph at lines 14747--14748
 [][]  
  []
 
@@ -8517,10 +8534,10 @@ Overfull \hbox (12.01428pt too wide) in paragraph at lines 14748--14749
 File: textbook_files/figure-latex/6_20-1.pdf Graphic file (type pdf)
 <use textbook_files/figure-latex/6_20-1.pdf>
 Package pdftex.def Info: textbook_files/figure-latex/6_20-1.pdf  used on input 
-line 14762.
+line 14761.
 (pdftex.def)             Requested size: 312.01428pt x 187.06412pt.
 
-Overfull \hbox (12.01428pt too wide) in paragraph at lines 14762--14763
+Overfull \hbox (12.01428pt too wide) in paragraph at lines 14761--14762
 [][]  
  []
 
@@ -8530,88 +8547,102 @@ Underfull \vbox (badness 2671) has occurred while \output is active []
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 14765.
+This message occurred on input line 14764.
 
-[281 <./textbook_files/figure-latex/6_18-1.pdf> <./textbook_files/figure-latex/
+[283 <./textbook_files/figure-latex/6_18-1.pdf> <./textbook_files/figure-latex/
 6_19-1.pdf>]
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 14812.
+This message occurred on input line 14811.
 
-[282 <./textbook_files/figure-latex/6_20-1.pdf>]
-<textbook_files/figure-latex/6_23-1.pdf, id=3266, 433.62pt x 259.97125pt>
+[284 <./textbook_files/figure-latex/6_20-1.pdf>]
+<textbook_files/figure-latex/6_23-1.pdf, id=3267, 433.62pt x 259.97125pt>
 File: textbook_files/figure-latex/6_23-1.pdf Graphic file (type pdf)
 <use textbook_files/figure-latex/6_23-1.pdf>
 Package pdftex.def Info: textbook_files/figure-latex/6_23-1.pdf  used on input 
-line 14824.
+line 14823.
 (pdftex.def)             Requested size: 312.01428pt x 187.06412pt.
 
-Overfull \hbox (12.01428pt too wide) in paragraph at lines 14824--14825
+Overfull \hbox (12.01428pt too wide) in paragraph at lines 14823--14824
 [][]  
  []
 
-<textbook_files/figure-latex/6_24-1.pdf, id=3267, 433.62pt x 259.97125pt>
+<textbook_files/figure-latex/6_24-1.pdf, id=3268, 433.62pt x 259.97125pt>
 File: textbook_files/figure-latex/6_24-1.pdf Graphic file (type pdf)
 <use textbook_files/figure-latex/6_24-1.pdf>
 Package pdftex.def Info: textbook_files/figure-latex/6_24-1.pdf  used on input 
-line 14832.
+line 14831.
 (pdftex.def)             Requested size: 312.01428pt x 187.06412pt.
 
-Overfull \hbox (12.01428pt too wide) in paragraph at lines 14832--14833
+Overfull \hbox (12.01428pt too wide) in paragraph at lines 14831--14832
 [][]  
  []
 
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 14845.
+This message occurred on input line 14844.
 
-[283 <./textbook_files/figure-latex/6_23-1.pdf> <./textbook_files/figure-latex/
-6_24-1.pdf>] [284
+[285 <./textbook_files/figure-latex/6_23-1.pdf> <./textbook_files/figure-latex/
+6_24-1.pdf>] [286
 
 ]
 Chapter 12.
-[285]
+[287]
 
-LaTeX Warning: Marginpar on page 286 moved.
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 14940.
+
+[288]
+Overfull \hbox (22.25464pt too wide) in paragraph at lines 14942--14943
+[]\T1/cmr/m/n/10 We kun-nen een da-tum maken met de toepas-selijk genaamde `mak
+e_date' 
+ []
+
+
+LaTeX Warning: Marginpar on page 289 moved.
 
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 14936.
+This message occurred on input line 15004.
 
-[286]
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14987--14987
+[289]
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 15046--15046
 []\T1/cmtt/m/n/10 ## $ year  <dbl> 2019, 2019, 2019, 2019, 2019, 2019, 2019, 20
 19, 2019, 2019, 2...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14987--14987
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 15046--15046
 []\T1/cmtt/m/n/10 ## $ month <dbl> 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4,
  4, 4, 4, 4, 4, 4...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14987--14987
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 15046--15046
 []\T1/cmtt/m/n/10 ## $ day   <int> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 1
 4, 15, 16, 17, 18...[] 
  []
 
 
-Class tufte-book Warning: Proper spacing of small-caps letters has not been set
- up.
-This message occurred on input line 14987.
-
-[287]
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 14987--14987
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 15046--15046
 []\T1/cmtt/m/n/10 ## $ date  <date> 2019-04-01, 2019-04-02, 2019-04-03, 2019-04
 -04, 2019-04-05, ...[] 
  []
 
 
-Overfull \hbox (113.14618pt too wide) in paragraph at lines 15016--15016
+LaTeX Warning: Marginpar on page 290 moved.
+
+
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 15071.
+
+[290]
+Overfull \hbox (113.14618pt too wide) in paragraph at lines 15086--15086
 []\T1/cmtt/m/n/10 ## $ date <chr> "2019-4-1", "2019-4-2", "2019-4-3", "2019-4-4
 ", "2019-4-5", "2...[] 
  []
@@ -8619,34 +8650,7 @@ Overfull \hbox (113.14618pt too wide) in paragraph at lines 15016--15016
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 15035.
-
-[288]
-
-LaTeX Warning: Marginpar on page 289 moved.
-
-
-Class tufte-book Warning: Proper spacing of small-caps letters has not been set
- up.
-This message occurred on input line 15110.
-
-[289]
-
-LaTeX Warning: Marginpar on page 290 moved.
-
-
-Class tufte-book Warning: Proper spacing of small-caps letters has not been set
- up.
-This message occurred on input line 15161.
-
-[290]
-
-LaTeX Warning: Marginpar on page 291 moved.
-
-
-Class tufte-book Warning: Proper spacing of small-caps letters has not been set
- up.
-This message occurred on input line 15199.
+This message occurred on input line 15117.
 
 [291]
 
@@ -8655,7 +8659,7 @@ LaTeX Warning: Marginpar on page 292 moved.
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 15250.
+This message occurred on input line 15222.
 
 [292]
 
@@ -8664,30 +8668,82 @@ LaTeX Warning: Marginpar on page 293 moved.
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 15320.
+This message occurred on input line 15298.
 
 [293]
-<images/timezones.png, id=3337, 963.6pt x 552.0625pt>
-File: images/timezones.png Graphic file (type png)
-<use images/timezones.png>
-Package pdftex.def Info: images/timezones.png  used on input line 15333.
-(pdftex.def)             Requested size: 311.99002pt x 178.74428pt.
 
-LaTeX Warning: Marginpar on page 294 moved.
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 15353.
+
+[294]
+
+LaTeX Warning: Marginpar on page 295 moved.
 
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 15348.
-
-[294 <./images/timezones.png>]
-
-Class tufte-book Warning: Proper spacing of small-caps letters has not been set
- up.
-This message occurred on input line 15404.
+This message occurred on input line 15425.
 
 [295]
-Overfull \hbox (92.1513pt too wide) in paragraph at lines 15450--15450
+Overfull \hbox (11.64612pt too wide) in paragraph at lines 15436--15437
+[]\T1/cmr/m/n/10 Laten we terug-gaan naar de da-tums die we eerder hebben gedef
+inieerd.  
+ []
+
+
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 15476.
+
+[296]
+
+LaTeX Warning: Marginpar on page 297 moved.
+
+
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 15563.
+
+[297]
+<images/timezones.png, id=3347, 963.6pt x 552.0625pt>
+File: images/timezones.png Graphic file (type png)
+<use images/timezones.png>
+Package pdftex.def Info: images/timezones.png  used on input line 15616.
+(pdftex.def)             Requested size: 311.99002pt x 178.74428pt.
+
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 15616.
+
+[298]
+
+LaTeX Warning: Marginpar on page 299 moved.
+
+
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 15667.
+
+[299 <./images/timezones.png>]
+
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 15747.
+
+[300]
+Overfull \hbox (22.58789pt too wide) in paragraph at lines 15799--15800
+[]\T1/cmr/m/n/10 Inderdaad, lu-bri-date be-gint te tellen op zondag - een an-de
+re Amerikaanse 
+ []
+
+
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 15819.
+
+[301]
+Overfull \hbox (92.1513pt too wide) in paragraph at lines 15837--15837
 []\T1/cmtt/m/n/10 ## 12 Levels: Jan < Feb < Mar < Apr < May < Jun < Jul < Aug <
  Sep < ... < Dec[] 
  []
@@ -8695,22 +8751,16 @@ Overfull \hbox (92.1513pt too wide) in paragraph at lines 15450--15450
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 15464.
+This message occurred on input line 15880.
 
-[296]
-Overfull \hbox (6.70145pt too wide) in paragraph at lines 15475--15476
-[]\T1/cmr/m/n/10 An in-ter-val is a \T1/cmr/m/it/10 ex-act \T1/cmr/m/n/10 win-d
-ow of time, with a spe-cific start date(time) 
- []
-
-
-Overfull \hbox (86.90259pt too wide) in paragraph at lines 15524--15524
+[302]
+Overfull \hbox (86.90259pt too wide) in paragraph at lines 15959--15959
 []\T1/cmtt/m/n/10 ## [1] "1d 3H 0M 0S" "2d 4H 0M 0S" "3d 5H 0M 0S" "4d 6H 0M 0S
 " "5d 7H 0M 0S"[] 
  []
 
 
-Overfull \hbox (86.90259pt too wide) in paragraph at lines 15529--15529
+Overfull \hbox (86.90259pt too wide) in paragraph at lines 15970--15970
 []\T1/cmtt/m/n/10 ## [1] "0S"          "1d 0H 0M 0S" "2d 0H 0M 0S" "3d 0H 0M 0S
 " "4d 0H 0M 0S"[] 
  []
@@ -8718,80 +8768,91 @@ Overfull \hbox (86.90259pt too wide) in paragraph at lines 15529--15529
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 15529.
+This message occurred on input line 15987.
 
-[297]
-Overfull \hbox (60.659pt too wide) in paragraph at lines 15542--15542
-[]\T1/cmtt/m/n/10 ## [1] "2021-03-05" "2021-03-06" "2021-03-07" "2021-03-08" "2
-021-03-09"[] 
+[303]
+Overfull \hbox (60.659pt too wide) in paragraph at lines 15995--15995
+[]\T1/cmtt/m/n/10 ## [1] "2021-03-22" "2021-03-23" "2021-03-24" "2021-03-25" "2
+021-03-26"[] 
  []
 
 
-LaTeX Warning: Marginpar on page 298 moved.
+LaTeX Warning: Marginpar on page 304 moved.
 
 
-Overfull \hbox (81.65387pt too wide) in paragraph at lines 15594--15594
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 16085.
+
+[304]
+Overfull \hbox (81.65387pt too wide) in paragraph at lines 16093--16093
 []\T1/cmtt/m/n/10 ## [1] "97200s (~1.12 days)"  "187200s (~2.17 days)" "277200s
  (~3.21 days)"[] 
  []
 
 
-Overfull \hbox (34.4154pt too wide) in paragraph at lines 15600--15600
+Overfull \hbox (34.4154pt too wide) in paragraph at lines 16105--16105
 []\T1/cmtt/m/n/10 ## [1] "0s"                "86400s (~1 days)"  "172800s (~2 d
 ays)"[] 
  []
 
 
-Overfull \hbox (34.4154pt too wide) in paragraph at lines 15600--15600
+Overfull \hbox (34.4154pt too wide) in paragraph at lines 16105--16105
 []\T1/cmtt/m/n/10 ## [4] "259200s (~3 days)" "345600s (~4 days)" "432000s (~5 d
 ays)"[] 
  []
 
 
-Class tufte-book Warning: Proper spacing of small-caps letters has not been set
- up.
-This message occurred on input line 15603.
-
-[298]
-Overfull \hbox (60.659pt too wide) in paragraph at lines 15613--15613
-[]\T1/cmtt/m/n/10 ## [1] "2021-03-05" "2021-03-06" "2021-03-07" "2021-03-08" "2
-021-03-09"[] 
+Overfull \hbox (60.659pt too wide) in paragraph at lines 16130--16130
+[]\T1/cmtt/m/n/10 ## [1] "2021-03-22" "2021-03-23" "2021-03-24" "2021-03-25" "2
+021-03-26"[] 
  []
 
 
-LaTeX Warning: Marginpar on page 299 moved.
+LaTeX Warning: Marginpar on page 305 moved.
 
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 15664.
+This message occurred on input line 16167.
 
-[299]
+[305]
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 15739.
+This message occurred on input line 16248.
 
-[300]
-Overfull \hbox (65.90771pt too wide) in paragraph at lines 15752--15752
+[306]
+Overfull \hbox (2.9231pt too wide) in paragraph at lines 16355--16355
+[]\T1/cmtt/m/n/10 ## [1] "2021-03-21 20:53:00 CET"  "2021-03-28 20:53:00 CEST"[
+] 
+ []
+
+
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 16360.
+
+[307]
+Overfull \hbox (65.90771pt too wide) in paragraph at lines 16395--16395
 []\T1/cmtt/m/n/10 ##  [1] "2019-01-31" NA           "2019-03-31" NA           "
 2019-05-31"[] 
  []
 
 
-Overfull \hbox (65.90771pt too wide) in paragraph at lines 15752--15752
+Overfull \hbox (65.90771pt too wide) in paragraph at lines 16395--16395
 []\T1/cmtt/m/n/10 ##  [6] NA           "2019-07-31" "2019-08-31" NA           "
 2019-10-31"[] 
  []
 
 
-Overfull \hbox (65.90771pt too wide) in paragraph at lines 15758--15758
+Overfull \hbox (65.90771pt too wide) in paragraph at lines 16407--16407
 []\T1/cmtt/m/n/10 ##  [1] "2019-01-31" "2019-02-28" "2019-03-31" "2019-04-30" "
 2019-05-31"[] 
  []
 
 
-Overfull \hbox (65.90771pt too wide) in paragraph at lines 15758--15758
+Overfull \hbox (65.90771pt too wide) in paragraph at lines 16407--16407
 []\T1/cmtt/m/n/10 ##  [6] "2019-06-30" "2019-07-31" "2019-08-31" "2019-09-30" "
 2019-10-31"[] 
  []
@@ -8799,80 +8860,82 @@ Overfull \hbox (65.90771pt too wide) in paragraph at lines 15758--15758
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 15791.
+This message occurred on input line 16438.
 
-[301]
-Overfull \hbox (1.75964pt too wide) in paragraph at lines 15795--15796
-[]\T1/cmr/m/n/10 We can check whether a date falls in an in-ter-val us-ing the 
-%within% 
- []
+[308]
 
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 16519.
+
+[309]
+
+Class tufte-book Warning: Proper spacing of small-caps letters has not been set
+ up.
+This message occurred on input line 16576.
+
+[310]
 No file textbook.bbl.
 
 Class tufte-book Warning: Proper spacing of small-caps letters has not been set
  up.
-This message occurred on input line 15855.
+This message occurred on input line 16584.
 
-[302]
-
-Class tufte-book Warning: Proper spacing of small-caps letters has not been set
- up.
-This message occurred on input line 15855.
-
-[303] (./textbook.aux)
+[311] (./textbook.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.72pt have occurred.
 
 Package rerunfilecheck Info: File `textbook.out' has not changed.
-(rerunfilecheck)             Checksum: C36A8D007C424ED09A2E7F979D3086F2;14697.
+(rerunfilecheck)             Checksum: A01C5FC52E02B5E893A7176EFF505E80;15319.
  ) 
 Here is how much of TeX's memory you used:
- 16816 strings out of 480931
- 285498 string characters out of 5904883
- 627778 words of memory out of 5000000
- 32603 multiletter control sequences out of 15000+600000
- 425255 words of font info for 73 fonts, out of 8000000 for 9000
+ 16817 strings out of 480930
+ 285645 string characters out of 5904872
+ 628410 words of memory out of 5000000
+ 32602 multiletter control sequences out of 15000+600000
+ 425956 words of font info for 74 fonts, out of 8000000 for 9000
  54 hyphenation exceptions out of 8191
- 92i,17n,91p,1429b,630s stack positions out of 5000i,500n,10000p,200000b,80000s
- <c:/Users/lucp8407/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx08
+ 92i,17n,91p,1614b,630s stack positions out of 5000i,500n,10000p,200000b,80000s
+ <c:/Users/lucp8407/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbi10
 00.600pk> <c:/Users/lucp8407/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec
-/ecit1000.600pk> <c:/Users/lucp8407/.texlive2020/texmf-var/fonts/pk/ljfour/jkna
-ppen/ec/ectt0800.600pk> <c:/Users/lucp8407/.texlive2020/texmf-var/fonts/pk/ljfo
-ur/jknappen/ec/ecti0800.600pk> <c:/Users/lucp8407/.texlive2020/texmf-var/fonts/
-pk/ljfour/jknappen/ec/ecrm0500.600pk> <c:/Users/lucp8407/.texlive2020/texmf-var
-/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk> <c:/Users/lucp8407/.texlive2020/te
-xmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0600.600pk> <c:/Users/lucp8407/.texlive
-2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk> <c:/Users/lucp8407/.
-texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1000.600pk> <c:/Users/luc
-p8407/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1095.600pk> <c:/Us
-ers/lucp8407/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk>
- <c:/Users/lucp8407/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1000
+/ecbx0800.600pk> <c:/Users/lucp8407/.texlive2020/texmf-var/fonts/pk/ljfour/jkna
+ppen/ec/ecit1000.600pk> <c:/Users/lucp8407/.texlive2020/texmf-var/fonts/pk/ljfo
+ur/jknappen/ec/ectt0800.600pk> <c:/Users/lucp8407/.texlive2020/texmf-var/fonts/
+pk/ljfour/jknappen/ec/ecti0800.600pk> <c:/Users/lucp8407/.texlive2020/texmf-var
+/fonts/pk/ljfour/jknappen/ec/ecrm0500.600pk> <c:/Users/lucp8407/.texlive2020/te
+xmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk> <c:/Users/lucp8407/.texlive
+2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0600.600pk> <c:/Users/lucp8407/.
+texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk> <c:/Users/luc
+p8407/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1000.600pk> <c:/Us
+ers/lucp8407/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1095.600pk>
+ <c:/Users/lucp8407/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000
 .600pk> <c:/Users/lucp8407/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/e
-crm1000.600pk> <c:/Users/lucp8407/.texlive2020/texmf-var/fonts/pk/ljfour/jknapp
-en/ec/ecrm1200.600pk> <c:/Users/lucp8407/.texlive2020/texmf-var/fonts/pk/ljfour
-/jknappen/ec/ecti1200.600pk> <c:/Users/lucp8407/.texlive2020/texmf-var/fonts/pk
-/ljfour/jknappen/ec/ecrm1440.600pk> <c:/Users/lucp8407/.texlive2020/texmf-var/f
-onts/pk/ljfour/jknappen/ec/ecti1440.600pk> <c:/Users/lucp8407/.texlive2020/texm
-f-var/fonts/pk/ljfour/jknappen/ec/ecti2074.600pk> <c:/Users/lucp8407/.texlive20
-20/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss3583.600pk> <c:/Users/lucp8407/.te
-xlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1728.600pk><c:/Users/lucp84
-07/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
-><c:/Users/lucp8407/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfo
-nts/cmextra/cmex7.pfb><c:/Users/lucp8407/AppData/Roaming/TinyTeX/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmmi10.pfb><c:/Users/lucp8407/AppData/Roaming/TinyT
-eX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/Users/lucp8407/AppDa
-ta/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/User
-s/lucp8407/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-r10.pfb><c:/Users/lucp8407/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmr5.pfb><c:/Users/lucp8407/AppData/Roaming/TinyTeX/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmr7.pfb><c:/Users/lucp8407/AppData/Roaming/TinyTe
-X/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/Users/lucp8407/AppDa
-ta/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on textbook.pdf (303 pages, 20960489 bytes).
+cti1000.600pk> <c:/Users/lucp8407/.texlive2020/texmf-var/fonts/pk/ljfour/jknapp
+en/ec/ecrm1000.600pk> <c:/Users/lucp8407/.texlive2020/texmf-var/fonts/pk/ljfour
+/jknappen/ec/ecrm1200.600pk> <c:/Users/lucp8407/.texlive2020/texmf-var/fonts/pk
+/ljfour/jknappen/ec/ecti1200.600pk> <c:/Users/lucp8407/.texlive2020/texmf-var/f
+onts/pk/ljfour/jknappen/ec/ecrm1440.600pk> <c:/Users/lucp8407/.texlive2020/texm
+f-var/fonts/pk/ljfour/jknappen/ec/ecti1440.600pk> <c:/Users/lucp8407/.texlive20
+20/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti2074.600pk> <c:/Users/lucp8407/.te
+xlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss3583.600pk> <c:/Users/lucp8
+407/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1728.600pk><c:/Users
+/lucp8407/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cme
+x10.pfb><c:/Users/lucp8407/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/publi
+c/amsfonts/cmextra/cmex7.pfb><c:/Users/lucp8407/AppData/Roaming/TinyTeX/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/Users/lucp8407/AppData/Roamin
+g/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/Users/lucp840
+7/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><
+c:/Users/lucp8407/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr10.pfb><c:/Users/lucp8407/AppData/Roaming/TinyTeX/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmr5.pfb><c:/Users/lucp8407/AppData/Roaming/TinyTeX/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/Users/lucp8407/AppData/Roaming
+/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/Users/lucp840
+7/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on textbook.pdf (311 pages, 20984517 bytes).
 PDF statistics:
- 4519 PDF objects out of 5155 (max. 8388607)
- 2917 compressed objects within 30 object streams
- 890 named destinations out of 1000 (max. 500000)
+ 4573 PDF objects out of 5155 (max. 8388607)
+ 2938 compressed objects within 30 object streams
+ 892 named destinations out of 1000 (max. 500000)
  1497 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,14 +1,14 @@
-h1:tutorial---tidy-data Tutorial - Tidy data
-h2:before-you-start Before you start
+h1:tutorial-tidy-data [Tutorial] Tidy data
+h2:voor-je-begint Voor je begint
 h2:disclaimer Disclaimer
-h2:merging-data Merging data
+h2:data-samenvoegen Data samenvoegen
 h3:joining-data Joining data
 h3:inner-join Inner join
 h3:left-join Left join
 h3:right-join Right join
 h3:full-join Full join
 h3:duplicates Duplicates
-h3:an-example An example
+h3:een-voorbeeld Een voorbeeld
 h3:binding-data Binding data
 h2:transforming-data Transforming data
 h3:unite-variables Unite variables
