@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Hoofdstuk 8 Inleiding | Lecture Notes voor Exploratieve en Descriptieve Data Analyse</title>
+  <meta name="description" content="Dit zijn de lecture notes van het opleidingsonderdeel Exploratieve en Descriptieve Data Analyse" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Hoofdstuk 8 Inleiding | Lecture Notes voor Exploratieve en Descriptieve Data Analyse" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://bookdown.org/benoit.depaire/lecture_notes_edda/" />
+  
+  <meta property="og:description" content="Dit zijn de lecture notes van het opleidingsonderdeel Exploratieve en Descriptieve Data Analyse" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Hoofdstuk 8 Inleiding | Lecture Notes voor Exploratieve en Descriptieve Data Analyse" />
+  
+  <meta name="twitter:description" content="Dit zijn de lecture notes van het opleidingsonderdeel Exploratieve en Descriptieve Data Analyse" />
+  
+
+<meta name="author" content="B. Depaire" />
+
+
+<meta name="date" content="2020-01-21" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="tidy-data.html"/>
+<link rel="next" href="importeren-van-data.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Lecture Notes Beleidsinformatica</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Voorwoord</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#hoe-deze-lecture-notes-te-gebruiken"><i class="fa fa-check"></i>Hoe deze lecture notes te gebruiken</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#over-de-auteur"><i class="fa fa-check"></i>Over de auteur</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><i class="fa fa-check"></i><b>1</b> Inleiding tot exploratieve data analyse in de bedrijfswereld</a><ul>
+<li class="chapter" data-level="1.1" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#netflix"><i class="fa fa-check"></i><b>1.1</b> Netflix</a></li>
+<li class="chapter" data-level="1.2" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#waar-wordt-data-voor-gebruikt-in-de-bedrijfswereld"><i class="fa fa-check"></i><b>1.2</b> Waar wordt data voor gebruikt in de bedrijfswereld?</a><ul>
+<li class="chapter" data-level="" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#geschiedenis-bijhouden"><i class="fa fa-check"></i>Geschiedenis bijhouden</a></li>
+<li class="chapter" data-level="" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#dagelijkse-werking"><i class="fa fa-check"></i>Dagelijkse werking</a></li>
+<li class="chapter" data-level="" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#beslissingen-nemen"><i class="fa fa-check"></i>Beslissingen nemen</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#hoeveel-data-is-er-beschikbaar"><i class="fa fa-check"></i><b>1.3</b> Hoeveel data is er beschikbaar?</a></li>
+<li class="chapter" data-level="1.4" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#waar-komt-data-vandaan"><i class="fa fa-check"></i><b>1.4</b> Waar komt data vandaan?</a></li>
+<li class="chapter" data-level="1.5" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#waarover-verzamelen-bedrijven-data"><i class="fa fa-check"></i><b>1.5</b> Waarover verzamelen bedrijven data</a></li>
+<li class="chapter" data-level="1.6" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#van-data-tot-actionable-insights"><i class="fa fa-check"></i><b>1.6</b> Van data tot ‘actionable insights’</a></li>
+<li class="chapter" data-level="1.7" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#data-scientists"><i class="fa fa-check"></i><b>1.7</b> Data Scientists</a></li>
+<li class="chapter" data-level="1.8" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#verschillende-soorten-van-data-analyse"><i class="fa fa-check"></i><b>1.8</b> Verschillende soorten van data analyse</a><ul>
+<li class="chapter" data-level="" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#descriptieve-data-analyse"><i class="fa fa-check"></i>Descriptieve data analyse</a></li>
+<li class="chapter" data-level="" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#exploratieve-data-analyse"><i class="fa fa-check"></i>Exploratieve data analyse</a></li>
+<li class="chapter" data-level="" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#confirmatorische-data-analyse"><i class="fa fa-check"></i>Confirmatorische data analyse</a></li>
+<li class="chapter" data-level="" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#predictieve-data-analyse"><i class="fa fa-check"></i>Predictieve data analyse</a></li>
+</ul></li>
+<li class="chapter" data-level="1.9" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#de-kunst-van-data-analyse"><i class="fa fa-check"></i><b>1.9</b> De kunst van data analyse</a></li>
+<li class="chapter" data-level="1.10" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#de-kracht-van-descriptieve-en-exploratieve-data-analyse"><i class="fa fa-check"></i><b>1.10</b> De kracht van descriptieve en exploratieve data analyse</a></li>
+<li class="chapter" data-level="1.11" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#referenties"><i class="fa fa-check"></i><b>1.11</b> Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html"><i class="fa fa-check"></i><b>2</b> Datatypes en datavisualisatie</a><ul>
+<li class="chapter" data-level="2.1" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#data"><i class="fa fa-check"></i><b>2.1</b> Data</a></li>
+<li class="chapter" data-level="2.2" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#dataset"><i class="fa fa-check"></i><b>2.2</b> Dataset</a></li>
+<li class="chapter" data-level="2.3" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#klassieke-datatypologie"><i class="fa fa-check"></i><b>2.3</b> Klassieke datatypologie</a><ul>
+<li class="chapter" data-level="" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#nominaal"><i class="fa fa-check"></i>Nominaal</a></li>
+<li class="chapter" data-level="" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#ordinaal"><i class="fa fa-check"></i>Ordinaal</a></li>
+<li class="chapter" data-level="" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#interval"><i class="fa fa-check"></i>Interval</a></li>
+<li class="chapter" data-level="" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#ratio"><i class="fa fa-check"></i>Ratio</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#de-klassieke-datatypologie-is-misleidend"><i class="fa fa-check"></i><b>2.4</b> De klassieke datatypologie is misleidend</a></li>
+<li class="chapter" data-level="2.5" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#alternatieve-datatypologie"><i class="fa fa-check"></i><b>2.5</b> Alternatieve datatypologie</a></li>
+<li class="chapter" data-level="2.6" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#datavisualisatie"><i class="fa fa-check"></i><b>2.6</b> Datavisualisatie</a></li>
+<li class="chapter" data-level="2.7" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#datavisualisatie-van-1-variabele-univariaat"><i class="fa fa-check"></i><b>2.7</b> Datavisualisatie van 1 variabele (univariaat)</a><ul>
+<li class="chapter" data-level="2.7.1" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#categorische-variabele"><i class="fa fa-check"></i><b>2.7.1</b> Categorische variabele</a></li>
+<li class="chapter" data-level="2.7.2" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#continue-variabele"><i class="fa fa-check"></i><b>2.7.2</b> Continue variabele</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#datavisualisatie-van-2-variabelen"><i class="fa fa-check"></i><b>2.8</b> Datavisualisatie van 2 variabelen</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#situatie-1-de-onafhankelijke-variabele-is-categorisch"><i class="fa fa-check"></i><b>2.8.1</b> Situatie 1: De onafhankelijke variabele is categorisch</a></li>
+<li class="chapter" data-level="2.8.2" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#situatie-2-de-onafhankelijke-variabele-is-continue"><i class="fa fa-check"></i><b>2.8.2</b> Situatie 2: De onafhankelijke variabele is continue</a></li>
+<li class="chapter" data-level="2.8.3" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#situatie-3-de-onafhankelijke-variabele-stelt-de-tijd-voor"><i class="fa fa-check"></i><b>2.8.3</b> Situatie 3: De onafhankelijke variabele stelt de tijd voor</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#datavisualisatie-met-meer-dan-2-variabelen"><i class="fa fa-check"></i><b>2.9</b> Datavisualisatie met meer dan 2 variabelen</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#onafhankelijke-variabele-b-2de-orde-is-categorisch."><i class="fa fa-check"></i><b>2.9.1</b> Onafhankelijke variabele B (2de orde) is categorisch.</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#referenties-1"><i class="fa fa-check"></i><b>2.10</b> Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="beschrijvende-statistieken.html"><a href="beschrijvende-statistieken.html"><i class="fa fa-check"></i><b>3</b> Beschrijvende statistieken</a><ul>
+<li class="chapter" data-level="3.1" data-path="beschrijvende-statistieken.html"><a href="beschrijvende-statistieken.html#beschrijvende-statistieken-versus-exploratieve-plots"><i class="fa fa-check"></i><b>3.1</b> Beschrijvende statistieken versus exploratieve plots</a></li>
+<li class="chapter" data-level="3.2" data-path="beschrijvende-statistieken.html"><a href="beschrijvende-statistieken.html#notatie"><i class="fa fa-check"></i><b>3.2</b> Notatie</a></li>
+<li class="chapter" data-level="3.3" data-path="beschrijvende-statistieken.html"><a href="beschrijvende-statistieken.html#data-1"><i class="fa fa-check"></i><b>3.3</b> Data</a></li>
+<li class="chapter" data-level="3.4" data-path="beschrijvende-statistieken.html"><a href="beschrijvende-statistieken.html#univariate-statistieken"><i class="fa fa-check"></i><b>3.4</b> Univariate statistieken</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="beschrijvende-statistieken.html"><a href="beschrijvende-statistieken.html#categorische-variabele-1"><i class="fa fa-check"></i><b>3.4.1</b> Categorische variabele</a></li>
+<li class="chapter" data-level="3.4.2" data-path="beschrijvende-statistieken.html"><a href="beschrijvende-statistieken.html#continue-variabele-1"><i class="fa fa-check"></i><b>3.4.2</b> Continue variabele</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="beschrijvende-statistieken.html"><a href="beschrijvende-statistieken.html#bivariate-statistieken"><i class="fa fa-check"></i><b>3.5</b> Bivariate statistieken</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="beschrijvende-statistieken.html"><a href="beschrijvende-statistieken.html#continu-versus-continu"><i class="fa fa-check"></i><b>3.5.1</b> Continu versus Continu</a></li>
+<li class="chapter" data-level="3.5.2" data-path="beschrijvende-statistieken.html"><a href="beschrijvende-statistieken.html#categorisch-versus-continu"><i class="fa fa-check"></i><b>3.5.2</b> Categorisch versus Continu</a></li>
+<li class="chapter" data-level="3.5.3" data-path="beschrijvende-statistieken.html"><a href="beschrijvende-statistieken.html#categorisch-versus-categorisch"><i class="fa fa-check"></i><b>3.5.3</b> Categorisch versus Categorisch</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="beschrijvende-statistieken.html"><a href="beschrijvende-statistieken.html#referenties-2"><i class="fa fa-check"></i>Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="exploratief-data-analyse-proces.html"><a href="exploratief-data-analyse-proces.html"><i class="fa fa-check"></i><b>4</b> Exploratief Data Analyse Proces</a></li>
+<li class="chapter" data-level="5" data-path="datavoorbereiding.html"><a href="datavoorbereiding.html"><i class="fa fa-check"></i><b>5</b> Datavoorbereiding</a><ul>
+<li class="chapter" data-level="5.1" data-path="datavoorbereiding.html"><a href="datavoorbereiding.html#beginnen-bij-het-begin"><i class="fa fa-check"></i><b>5.1</b> Beginnen bij het begin</a></li>
+<li class="chapter" data-level="5.2" data-path="datavoorbereiding.html"><a href="datavoorbereiding.html#data-inlezen"><i class="fa fa-check"></i><b>5.2</b> Data inlezen</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="datavoorbereiding.html"><a href="datavoorbereiding.html#uitdagingen-bij-het-correct-inlezen-van-data"><i class="fa fa-check"></i><b>5.2.1</b> Uitdagingen bij het correct inlezen van data</a></li>
+<li class="chapter" data-level="5.2.2" data-path="datavoorbereiding.html"><a href="datavoorbereiding.html#dataformaten"><i class="fa fa-check"></i><b>5.2.2</b> Dataformaten</a></li>
+<li class="chapter" data-level="5.2.3" data-path="datavoorbereiding.html"><a href="datavoorbereiding.html#data-encodering"><i class="fa fa-check"></i><b>5.2.3</b> Data-encodering</a></li>
+<li class="chapter" data-level="5.2.4" data-path="datavoorbereiding.html"><a href="datavoorbereiding.html#datatypes-controlleren-en-corrigeren"><i class="fa fa-check"></i><b>5.2.4</b> Datatypes controlleren en corrigeren</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="datavoorbereiding.html"><a href="datavoorbereiding.html#dataproblemen-identificeren-en-corrigeren"><i class="fa fa-check"></i><b>5.3</b> Dataproblemen identificeren en corrigeren</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="datavoorbereiding.html"><a href="datavoorbereiding.html#overzicht"><i class="fa fa-check"></i><b>5.3.1</b> Overzicht</a></li>
+<li class="chapter" data-level="5.3.2" data-path="datavoorbereiding.html"><a href="datavoorbereiding.html#foutieve-waarden"><i class="fa fa-check"></i><b>5.3.2</b> Foutieve waarden</a></li>
+<li class="chapter" data-level="5.3.3" data-path="datavoorbereiding.html"><a href="datavoorbereiding.html#ontbrekende-waarden"><i class="fa fa-check"></i><b>5.3.3</b> Ontbrekende waarden</a></li>
+<li class="chapter" data-level="5.3.4" data-path="datavoorbereiding.html"><a href="datavoorbereiding.html#inconsistente-waarden"><i class="fa fa-check"></i><b>5.3.4</b> Inconsistente waarden</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="datavoorbereiding.html"><a href="datavoorbereiding.html#data-opwaarderen"><i class="fa fa-check"></i><b>5.4</b> Data opwaarderen</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="datavoorbereiding.html"><a href="datavoorbereiding.html#sampling"><i class="fa fa-check"></i><b>5.4.1</b> Sampling</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="datavoorbereiding.html"><a href="datavoorbereiding.html#referenties-3"><i class="fa fa-check"></i>Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="exploratieve-analyse-van-tijdgerelateerde-data.html"><a href="exploratieve-analyse-van-tijdgerelateerde-data.html"><i class="fa fa-check"></i><b>6</b> Exploratieve analyse van tijdgerelateerde data</a><ul>
+<li class="chapter" data-level="6.1" data-path="exploratieve-analyse-van-tijdgerelateerde-data.html"><a href="exploratieve-analyse-van-tijdgerelateerde-data.html#inleiding"><i class="fa fa-check"></i><b>6.1</b> Inleiding</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="exploratieve-analyse-van-tijdgerelateerde-data.html"><a href="exploratieve-analyse-van-tijdgerelateerde-data.html#tijdstippen-versus-periodes"><i class="fa fa-check"></i><b>6.1.1</b> Tijdstippen versus periodes</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="exploratieve-analyse-van-tijdgerelateerde-data.html"><a href="exploratieve-analyse-van-tijdgerelateerde-data.html#tijdstippen"><i class="fa fa-check"></i><b>6.2</b> Tijdstippen</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="exploratieve-analyse-van-tijdgerelateerde-data.html"><a href="exploratieve-analyse-van-tijdgerelateerde-data.html#creatie-van-tijdstippen"><i class="fa fa-check"></i><b>6.2.1</b> Creatie van tijdstippen</a></li>
+<li class="chapter" data-level="6.2.2" data-path="exploratieve-analyse-van-tijdgerelateerde-data.html"><a href="exploratieve-analyse-van-tijdgerelateerde-data.html#extractie-van-tijdstipinformatie"><i class="fa fa-check"></i><b>6.2.2</b> Extractie van tijdstipinformatie</a></li>
+<li class="chapter" data-level="6.2.3" data-path="exploratieve-analyse-van-tijdgerelateerde-data.html"><a href="exploratieve-analyse-van-tijdgerelateerde-data.html#afronden-van-tijdstippen"><i class="fa fa-check"></i><b>6.2.3</b> Afronden van tijdstippen</a></li>
+<li class="chapter" data-level="6.2.4" data-path="exploratieve-analyse-van-tijdgerelateerde-data.html"><a href="exploratieve-analyse-van-tijdgerelateerde-data.html#case-nyc-vluchten-2013"><i class="fa fa-check"></i><b>6.2.4</b> Case: NYC Vluchten 2013</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="exploratieve-analyse-van-tijdgerelateerde-data.html"><a href="exploratieve-analyse-van-tijdgerelateerde-data.html#periode-data"><i class="fa fa-check"></i><b>6.3</b> Periode-data</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="exploratieve-analyse-van-tijdgerelateerde-data.html"><a href="exploratieve-analyse-van-tijdgerelateerde-data.html#interval-1"><i class="fa fa-check"></i><b>6.3.1</b> Interval</a></li>
+<li class="chapter" data-level="6.3.2" data-path="exploratieve-analyse-van-tijdgerelateerde-data.html"><a href="exploratieve-analyse-van-tijdgerelateerde-data.html#duration"><i class="fa fa-check"></i><b>6.3.2</b> Duration</a></li>
+<li class="chapter" data-level="6.3.3" data-path="exploratieve-analyse-van-tijdgerelateerde-data.html"><a href="exploratieve-analyse-van-tijdgerelateerde-data.html#period"><i class="fa fa-check"></i><b>6.3.3</b> Period</a></li>
+<li class="chapter" data-level="6.3.4" data-path="exploratieve-analyse-van-tijdgerelateerde-data.html"><a href="exploratieve-analyse-van-tijdgerelateerde-data.html#case-nyc-vluchten-2013-1"><i class="fa fa-check"></i><b>6.3.4</b> Case: NYC vluchten 2013</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="exploratieve-analyse-van-tijdgerelateerde-data.html"><a href="exploratieve-analyse-van-tijdgerelateerde-data.html#analyseren-van-tijdgerelateerde-data"><i class="fa fa-check"></i><b>6.4</b> Analyseren van tijdgerelateerde data</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="exploratieve-analyse-van-tijdgerelateerde-data.html"><a href="exploratieve-analyse-van-tijdgerelateerde-data.html#case-nyc-vluchten-2013-2"><i class="fa fa-check"></i><b>6.4.1</b> Case: NYC Vluchten 2013</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="exploratieve-analyse-van-tijdgerelateerde-data.html"><a href="exploratieve-analyse-van-tijdgerelateerde-data.html#referenties-4"><i class="fa fa-check"></i><b>6.5</b> Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>7</b> Tidy Data</a><ul>
+<li class="chapter" data-level="7.1" data-path="tidy-data.html"><a href="tidy-data.html#inleiding-1"><i class="fa fa-check"></i><b>7.1</b> Inleiding</a></li>
+<li class="chapter" data-level="7.2" data-path="tidy-data.html"><a href="tidy-data.html#case-nyc-vluchten-2013-3"><i class="fa fa-check"></i><b>7.2</b> Case: NYC Vluchten 2013</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="tidy-data.html"><a href="tidy-data.html#datasets-samenvoegen"><i class="fa fa-check"></i><b>7.2.1</b> Datasets samenvoegen</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="tidy-data.html"><a href="tidy-data.html#data-in-een-lang-formaat-plaatsen-voor-visuele-analyses"><i class="fa fa-check"></i><b>7.3</b> Data in een lang formaat plaatsen (voor visuele analyses)</a></li>
+<li class="chapter" data-level="7.4" data-path="tidy-data.html"><a href="tidy-data.html#data-in-een-breed-formaat-plaatsen-voor-overzichtelijke-tabellen"><i class="fa fa-check"></i><b>7.4</b> Data in een breed formaat plaatsen (voor overzichtelijke tabellen)</a></li>
+<li class="chapter" data-level="7.5" data-path="tidy-data.html"><a href="tidy-data.html#referenties-5"><i class="fa fa-check"></i><b>7.5</b> Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="inleiding-2.html"><a href="inleiding-2.html"><i class="fa fa-check"></i><b>8</b> Inleiding</a></li>
+<li class="chapter" data-level="9" data-path="importeren-van-data.html"><a href="importeren-van-data.html"><i class="fa fa-check"></i><b>9</b> Importeren van data</a><ul>
+<li class="chapter" data-level="9.1" data-path="importeren-van-data.html"><a href="importeren-van-data.html#binair-decimaal-en-hexadecimaal-rekenstelsel-1"><i class="fa fa-check"></i><b>9.1</b> Binair, decimaal en hexadecimaal rekenstelsel</a></li>
+<li class="chapter" data-level="9.2" data-path="importeren-van-data.html"><a href="importeren-van-data.html#tekst-opslaan-1"><i class="fa fa-check"></i><b>9.2</b> Tekst opslaan</a></li>
+<li class="chapter" data-level="9.3" data-path="importeren-van-data.html"><a href="importeren-van-data.html#flat-file-databestanden-1"><i class="fa fa-check"></i><b>9.3</b> Flat-file databestanden</a></li>
+<li class="chapter" data-level="9.4" data-path="importeren-van-data.html"><a href="importeren-van-data.html#hierarchische-databestanden-1"><i class="fa fa-check"></i><b>9.4</b> Hiërarchische databestanden</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="importeren-van-data.html"><a href="importeren-van-data.html#xml-bestanden-1"><i class="fa fa-check"></i><b>9.4.1</b> XML-bestanden</a></li>
+<li class="chapter" data-level="9.4.2" data-path="importeren-van-data.html"><a href="importeren-van-data.html#json-bestanden-1"><i class="fa fa-check"></i><b>9.4.2</b> JSON-bestanden</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="importeren-van-data.html"><a href="importeren-van-data.html#applicatie-specifieke-dataformaten-1"><i class="fa fa-check"></i><b>9.5</b> Applicatie-specifieke dataformaten</a></li>
+<li class="chapter" data-level="9.6" data-path="importeren-van-data.html"><a href="importeren-van-data.html#referenties-6"><i class="fa fa-check"></i><b>9.6</b> Referenties</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Lecture Notes voor Exploratieve en Descriptieve Data Analyse</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="inleiding-2" class="section level1">
+<h1><span class="header-section-number">Hoofdstuk 8</span> Inleiding</h1>
+<p>Deze tutorial bestaat uit 2 delen, een introductie tot GGplot en een beschrijving van de creatie van een beschrijvend data-analyserapport. Deze tutorial is origineel geschreven als een RMarkdown document.</p>
+<p>#GGPlot</p>
+<p>We beginnen met een korte inleiding tot GGplot waarin we trachten de principes uit te leggen. We zullen GGPlot verder uitdiepen in de beschrijvende data analyse.</p>
+<p>GGplot is een soort grammatica waarmee je een grafiek kan opdelen in verschillende elementen die onafhankelijk zijn van elkaar. De belangrijkste elementen van deze grammatica zijn:</p>
+<ul>
+<li>Data</li>
+<li>Geometrische objecten (geoms)</li>
+<li>Esthetische kenmerken (van geometrische objecten) (aesthetics)</li>
+<li>Lagen (layers)</li>
+</ul>
+<p>Alles begint met <em>data</em>. Dit bevat de informatie die je wilt visualiseren en ggplot verwacht deze data als een data.frame object. Door het kiezen van een specifiek <em>geometrisch object</em> bepaal je hoe je de data wenst te visualeren, bijvoorbeeld als een punt (point), een lijn (line), een boxplot (boxplot) of als balken (bar).</p>
+<p>Ieder geometrisch object heeft een aantal <em>esthetische kenmerken</em>, zoals bijvoorbeeld de kleur (color), de grootte (size) of de vorm (shape). Twee esthetische kenmerken die misschien niet onmiddellijk als esthetisch worden beschouwd, maar wel zeer belangrijk zijn, zijn de x- en y-coördinaat.</p>
+<p>GGplot linkt de <em>data</em> met het <em>geometrisch object</em> door kolommen/variabelen te mappen aan de esthetische kenmerken van een geometrisch object. Je gaat tegen GGplot zeggen welke 2 variabelen (= kolommen in je data.frame) de x- en y-coördinaat van iedere observatie (= rij in data.frame) voorstellen.</p>
+<p>Iedere mapping tussen data en het geometrisch object vormt een <em>layer</em>. Een layer kan je zien als een transparant blad, dat bovenop het assenstelsel gelegd wordt, en waarop een ‘grafiek’ staat. Een volledige grafieke (plot) kan uit meerdere layers bestaan die boven op elkaar liggen.</p>
+<p>Laten we deze principes eens illustreren met een concreet voorbeeld. Hiervoor laden we de mpg data set die standaard in ggplot2 zit.</p>
+<pre><code>## Observations: 234
+## Variables: 11
+## $ manufacturer &lt;chr&gt; &quot;audi&quot;, &quot;audi&quot;, &quot;audi&quot;, &quot;audi&quot;, &quot;audi&quot;, &quot;audi&quot;, &quot;...
+## $ model        &lt;chr&gt; &quot;a4&quot;, &quot;a4&quot;, &quot;a4&quot;, &quot;a4&quot;, &quot;a4&quot;, &quot;a4&quot;, &quot;a4&quot;, &quot;a4 qua...
+## $ displ        &lt;dbl&gt; 1.8, 1.8, 2.0, 2.0, 2.8, 2.8, 3.1, 1.8, 1.8, 2.0,...
+## $ year         &lt;int&gt; 1999, 1999, 2008, 2008, 1999, 1999, 2008, 1999, 1...
+## $ cyl          &lt;int&gt; 4, 4, 4, 4, 6, 6, 6, 4, 4, 4, 4, 6, 6, 6, 6, 6, 6...
+## $ trans        &lt;chr&gt; &quot;auto(l5)&quot;, &quot;manual(m5)&quot;, &quot;manual(m6)&quot;, &quot;auto(av)...
+## $ drv          &lt;chr&gt; &quot;f&quot;, &quot;f&quot;, &quot;f&quot;, &quot;f&quot;, &quot;f&quot;, &quot;f&quot;, &quot;f&quot;, &quot;4&quot;, &quot;4&quot;, &quot;4&quot;,...
+## $ cty          &lt;int&gt; 18, 21, 20, 21, 16, 18, 18, 18, 16, 20, 19, 15, 1...
+## $ hwy          &lt;int&gt; 29, 29, 31, 30, 26, 26, 27, 26, 25, 28, 27, 25, 2...
+## $ fl           &lt;chr&gt; &quot;p&quot;, &quot;p&quot;, &quot;p&quot;, &quot;p&quot;, &quot;p&quot;, &quot;p&quot;, &quot;p&quot;, &quot;p&quot;, &quot;p&quot;, &quot;p&quot;,...
+## $ class        &lt;chr&gt; &quot;compact&quot;, &quot;compact&quot;, &quot;compact&quot;, &quot;compact&quot;, &quot;comp...</code></pre>
+<p>De variabele ‘displ’ stelt de cilinderinhoud voor (in liters), terwijl de variabelen ‘cty’ en ‘hwy’ het aantal kilometers per gallon voorstellen in respectievelijk een stedelijke omgeving of op de autostrade. Iedere observatie stelt een automodel voor in de periode 1999 en 2008.</p>
+<p>Veronderstel nu dat we het verband willen visualiseren tussen de cilinderinhoud en het verbruik in de stand. Een eerste mogelijkheid is dit verband te visualiseren als punten waarbij de x-coördinaat overeenkomt met de cilinderinhoud (‘displ’) en de y-coördinaat overeenkomt met het stadsverbruik (‘cty’). De ggplot code ziet er dan als volgt uit:</p>
+<p><img src="lecture_notes_edda_files/figure-html/unnamed-chunk-7-1.png" width="100%" /></p>
+<p>Zoals je ziet wordt er een layer gecreëerd waarbij:</p>
+<ul>
+<li>we aangeven dat mpg het te gebruiken data.frame is,</li>
+<li>de mapping gebeurt door de esthetische kenmerken ‘x’ en ‘y’ te koppelen aan respectievelijk de kolommen ‘displ’ en ‘cty’ en</li>
+<li>de observaties weergegeven dienen te worden als punten.</li>
+</ul>
+<p>Laten we nog een ander esthetisch kenmerk van het punten-object mappen, nl. de kleur. We willen nu dat de kleur varieert naargelang de auto voorwiel-, achterwiel- of vierwiel-aandrijving heeft.</p>
+<p><img src="lecture_notes_edda_files/figure-html/unnamed-chunk-8-1.png" width="100%" /></p>
+<p>We kunnen esthetische kenmerken niet enkel mappen aan variabelen uit data (waardoor het esthetisch kenmerk gaat variëren naargelang de waarde van de variabele), maar ook vastleggen op een constante waarde (dit wordt dan ook ‘setten’ genoemd ipv ‘mappen’). Laten we de kleur bijvoorbeeld vastleggen op een blauwe kleur. Merk op dat het instellen van de kleur nu buiten de aes()-functie gebeurt aangezien dit geen mapping is!</p>
+<p><img src="lecture_notes_edda_files/figure-html/unnamed-chunk-9-1.png" width="100%" /></p>
+<p>Tot dusver bestond iedere grafiek uit slechts 1 laag (layer), maar laten we nu een tweede laag aan de grafiek toevoegen die ook het verbruik op de autostrade weergeeft. We doen dit door een twee layer-object toe te voegen.</p>
+<p><img src="lecture_notes_edda_files/figure-html/unnamed-chunk-10-1.png" width="100%" /></p>
+<p>Bovenstaande grafiek bestaat dus eigenlijk uit twee grafieken die ‘over elkaar’ zijn gelegd. Merk op dat het in principe niet nodig is dat beide layers gebaseerd zijn op dezelfde data.</p>
+<p>Bovenstaande code kan op verschillende vormen sterk vereenvoudigd worden. Ten eerste kan je alle kenmerken die lagen gemeenschappelijk hebben reeds definiëren in de ggplot()-functie.</p>
+<p><img src="lecture_notes_edda_files/figure-html/unnamed-chunk-11-1.png" width="100%" /></p>
+<p>Een volgende vereenvoudiging komt voort uit het feit dat ggplot veronderstelt dat de eerste parameter de data voorstelt en de tweede parameter de mapping voorstelt. Daarom is het niet noodzakelijk dit expliciet te vermelden. Dit geeft volgende code.</p>
+<p><img src="lecture_notes_edda_files/figure-html/unnamed-chunk-12-1.png" width="100%" /></p>
+<p>Verder bestaan er ‘shortcuts’ voor layers van een specifiek geometrisch objecttype. De naam van deze ‘shortcuts’ beginnen steeds met ‘geom_’ gevolgd door het geometrisch objecttype. Als je deze ‘shortcuts’ gebruikt, hoef je ook niet meer expliciet te vermelden dat het eerste element de mapping voorstelt.</p>
+<p><img src="lecture_notes_edda_files/figure-html/unnamed-chunk-13-1.png" width="100%" /></p>
+<p>Bovenstaande code is zoals je ze in het verdere verloop van deze tutorial zal tegenkomen. Om je inzicht in de werking van GGplot verder uit te diepen, raden we je aan om hoofdstuk “The ggplot2 Plotting System: Part 2” uit het boek “Exploratory Data Analysis with R” van Roger D. Peng te lezen.</p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="tidy-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="importeren-van-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["lecture_notes_edda.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

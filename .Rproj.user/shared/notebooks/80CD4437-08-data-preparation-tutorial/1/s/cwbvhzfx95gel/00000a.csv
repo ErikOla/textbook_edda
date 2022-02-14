@@ -1,5 +1,0 @@
-"0","survey %>%"
-"0","	ggplot(aes(party)) +"
-"0","	geom_bar(fill = ""dodgerblue4"") + "
-"0","	theme_light() +"
-"0","	theme(axis.text.x = element_text(angle = 45, hjust = 1)) "

@@ -1,3 +1,0 @@
-"0","survey %>%"
-"0","	mutate(reported_income = fct_relevel(reported_income, "
-"0","										 ""Lt $1000"")) -> survey"

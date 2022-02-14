@@ -1,0 +1,12 @@
+base
+tufte
+pander
+dplyr
+forcats
+ggplot2
+lattice
+mice
+tidyr
+readr
+purrr
+ggthemes

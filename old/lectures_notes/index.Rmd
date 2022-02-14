@@ -1,0 +1,57 @@
+---
+title: "Lecture Notes voor Exploratieve en Descriptieve Data Analyse"
+author: "B. Depaire"
+date: '`r Sys.Date()`'
+site: bookdown::bookdown_site
+documentclass: memoir
+description: "Dit zijn de lecture notes van het opleidingsonderdeel Exploratieve en Descriptieve Data Analyse"
+url: 'https\://bookdown.org/benoit.depaire/lecture_notes_edda/'
+urlcolor: blue
+---
+```{r 0-1, echo=F}
+out_format <- knitr::opts_knit$get("rmarkdown.pandoc.to")
+if(out_format == "html"){
+  knitr::opts_chunk$set(echo=F, warning=F, out.width = '100%')
+} else {
+  knitr::opts_chunk$set(echo=F, warning=F, out.width = '49%')
+
+}
+```
+
+```{r 0-2, echo=FALSE, warning=FALSE, message=FALSE}
+library(nycflights13)
+library(tidyverse)
+library(lubridate)
+library(forcats)
+library(RColorBrewer)
+library(OutliersO3)
+library(pander)
+```
+```{r 0-3, echo=FALSE, warning=FALSE, cache=TRUE}
+data("flights")
+data("airlines")
+data("airports")
+```
+
+```{r 0-4, echo=FALSE}
+quantile.ordered <- function(x, probs = seq(0, 1, 0.25)) {
+  tab <- table(x)
+  cdf <- cumsum(tab / sum(tab))
+  idx <- sapply(probs, function(p) min(which(cdf >= p)))
+  levels(x)[idx] 
+}
+```
+
+# Voorwoord {-}
+
+Dit boek bevat de lecture notes voor de cursus "Exploratieve en Descriptieve Data Analyse" (1ste Ba Handelsingenieur/Handelsingenieur in de Beleidsinformatica) aan de Universiteit Hasselt. Het idee van dit document is een begeleidende tekst aan te reiken ter ondersteuning van de slide-decks die gebruikt worden tijdens de hoorcolleges. Deze tekst is "bullet-point" gewijs opgebouwd en helpt het verhaal dat tijdens het hoorcollege wordt verteld terug op te roepen. Daarnaast zal er per hoofdstuk ook een _referentielijst_ aangereikt worden met werken die de diverse topics in detail uitleggen. 
+
+## Hoe deze lecture notes te gebruiken {-}
+
+- (optioneel) Neem een 'geprinte' versie van de slidedecks mee naar het hoorcollege. Gebruik dit om belangrijke aspecten tijdens het hoorcollege te markeren en korte nota's  toe te voegen. Ga zeker niet de volledige uitleg van het hoorcollege noteren. Dit is vaak niet mogelijk en indien je er toch in slaagt zal je tijdens het hoorcollege niet in staat zijn geweest om een eerste keer te reflecteren over de leerstof.
+- Bestudeer na de les de lecture notes samen met de notities die je eventueel genomen hebt. Controleer of je alles begrijpt en waar nodig noteer je aanvullingen. Probeer een overzicht te verkrijgen van de diverse concepten die je tijdens het hoorcollege bestudeerd hebt en tracht na te gaan hoe je deze inzichten kunt gebruiken voor exploratieve en descriptieve data analyse.
+- (optioneel) Lees de bronnen in de referentielijst. Indien er elementen niet duidelijk zijn in je eigen notities of de lecture notes, dan ga je best gericht op zoek naar de antwoorden op je vragen in de referentiewerken.
+
+## Over de auteur {-}
+
+Benoît Depaire is hoofddocent Beleidsinformatica aan de Universiteit Hasselt.

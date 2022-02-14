@@ -1,3 +1,0 @@
-"0","diamonds %>%"
-"0","	count(color, clarity) %>%"
-"0","	spread(clarity, n)"

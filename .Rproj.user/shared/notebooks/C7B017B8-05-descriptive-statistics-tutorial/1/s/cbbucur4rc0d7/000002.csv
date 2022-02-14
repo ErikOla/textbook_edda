@@ -1,9 +1,0 @@
-"0","data.frame(x = sample(1:10)) %>%"
-"0","	mutate(lead = lead(x),"
-"0","		   lag = lag(x,2),"
-"0","		   between(x,4,8),"
-"0","		   ntile(x,5)) %>%"
-"0","	pander"
-"2","Error in data.frame(x = sample(1:10)) %>% mutate(lead = lead(x), lag = lag(x,  : 
-  could not find function ""%>%""
-"

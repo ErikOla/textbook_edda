@@ -1,0 +1,709 @@
+---
+title: "Tidying Data Tutorial"
+author: Gert Janssenswillen
+subtitle: Tidying Data with dplyr and Tidyr
+output: 
+  tufte::tufte_book: 
+    number_section: TRUE
+    fig_width: 8
+    fig_height: 5
+    highlight: default
+    toc: true
+  tufte::tufte_html: default
+---
+
+```{r echo = F}
+message(glue::glue("Last updated on {lubridate::today()}"))
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = F, cache = F)
+library(tufte)
+library(pander)
+```
+
+
+
+```{r echo = F, include = F}
+library(dplyr)
+library(forcats)
+
+```
+# Before you start {-}
+
+During this tutorial, we'll use several r-packages. Make sure to install and load them, if needed.
+
+```{r}
+library(dplyr)
+library(tidyr)
+library(stringr)
+```
+
+Our old friend dplyr will provide us with some functions to combined different datasets into one. We will use tidyr to transform datasets, and stringr to do some munipulations of character variables. 
+
+
+```{r echo = F}
+library(gapminder)
+set.seed(123)
+countries_population <- gapminder %>% filter(year == 2007) %>% select(country, pop) %>% sample_frac(0.8)
+countries_lifeExp <- gapminder %>% filter(year == 2007) %>% select(country, lifeExp) %>% sample_frac(0.6)
+
+population_europe <- gapminder %>% filter(continent == "Europe", year == 2007) %>% select(country, pop)
+population_africa<- gapminder %>% filter(continent == "Africa", year == 2007) %>% select(country, pop)
+```
+
+
+This tutorial consist of two major parts:
+
+1.	Merging datasets
+2. 	Transforming datasets
+
+Thereafter, in an additional part, we will go through a case study as an example. 
+
+
+## Disclaimer {-}
+
+1.	There are many datasets used in this tutorial. A loadscript has been provided to create all datasets for you. Just run the script and you are good to go.
+
+2.	This is a new tutorial and will likely contains typos and other errors. If you find one, please send to gert.janssenswillen@uhasselt.be. You will be repayed with eternal kindness (but not on exams.)
+
+
+
+
+Let's get started!
+
+
+
+
+
+
+
+# Merging data
+
+We can merge different datasets by __joining__ or __binding__.
+
+*	We __join__ different datasets which contain different information about the same observations. For example, we can have 1) a dataset of countries with their population and 2) a dataset of countries with their life expectancy. These we can _join_ together.
+
+```{r}
+countries_population
+countries_lifeExp
+```
+
+
+*	We __bind__ different datasets which contain the same information on different observations. For example, we can have 1) a dataset of European countries with their population and 2) a dataset of African countries with their population. We can _bind_ these two together. [^binding]
+
+```{r}
+population_africa
+population_europe
+```
+
+
+[^binding]: There are actually ofther cases in which we can bind datasets together, but please don't bother about that for now. Just remind: bind different observations, join different information]
+
+Let's see how we can join data.
+
+## Joining data
+
+Remember, we join datasets if they contain different information on the same observations. This means that there needs to be a way to _link_ the datasets. These links we call _ids_ or _keys_. 
+
+If we have population and life expectancy data about countries, than the name, code or abbreviation of the country is our key to link both datasets. 
+
+Note that, when both datasets use different keys, for example one uses the name (Belgium) and the other the code (BE), we cannot join them. In such a case, we would need to recode one of the variables or find another datasets which can serve as an intermediary link (i.e. one that contains both the names and the codes. There exist many different country codes, so this is a common problem. But we are good to go in our case)
+
+The join functions we will introduce in a second will always look for variables with the same names in both tables and uses these as the keys to link them. You can explicitly set the keys using the by argument. This is especially useful if 
+
+a)	The keys have a different name in both datasets. For example country vs ctry
+b)	Not all common variables are actually keys. 
+
+For now, we will always let the keys be chosen by the functions. A message will tell us which keys they used. 
+
+Now, there are 4 ways to join datasets.
+
+*	inner_join
+*	left_join
+*	right_join
+*	full_join
+
+
+Why four? Well, if we want to join two datasets, it typically happens that they don't contain information on _exactly_ the same observations. Have a closer look at the population and life expectancy data. The first one contains information on `r nrow(countries_population)` countries and the second one contains information on `r nrow(countries_lifeExp)` countries. So they can impossibly contain information on the same set of countries. The different joins will tackles this problem differently. 
+
+### Inner join 
+
+Inner join means: I only keep information about keys that occur in both tables. So, if I don't have the population of country A, I don't want its life expectancy. 
+
+```{r}
+inner_join(countries_population, countries_lifeExp)
+```
+
+This join gives us `r nrow(inner_join(countries_population, countries_lifeExp))` observations, which is the subset of countries on which we have both types of information. Also note how the `inner_join` tells you which key it used. 
+
+### Left join
+
+Left join means: I keep all information in my first (left) table. So, even if I don't have the life expectancy, still give me the population. The missing part of the new observation (i.e. the life expectancy), is now NA. 
+
+
+```{r}
+left_join(countries_population, countries_lifeExp)
+```
+
+This join gives us `r nrow(left_join(countries_population, countries_lifeExp))` observations, which is the number of countries for which we have information on the population. Also note how it inserts NA's for the lifeExp variable. 
+
+```{r}
+left_join(countries_population, countries_lifeExp) %>%
+	summary()
+```
+
+### Right join
+
+Right join means: the opposite of left join. I keep all information in my second (right) table.
+
+```{r}
+right_join(countries_population, countries_lifeExp)
+```
+
+This join gives us `r nrow(right_join(countries_population, countries_lifeExp))` observations, which is the number of countries for which we have information on the life expectancy. 
+
+### Full join
+
+Full join means: I want to keep all information I have. So also populations for countries without life expectancy and vice versa remain in the dataset. All missing information is filled in as NA.
+
+```{r}
+full_join(countries_population, countries_lifeExp)
+```
+
+This join gives us `r nrow(full_join(countries_population, countries_lifeExp))` observations, which is the total number of countries for which we have at least one piece of information. 
+
+A schematical overview of the four types can be seen below. The coloured numbers represent the keys (countries in our example) while the x and y values represent the values (population and life expectancy in our example). Of course, there can be as many values as there are, it doesn't just have to be one. We will see other examples soon enough.
+
+```{r echo = F, fig.width=10}
+knitr::include_graphics("images/join_types.PNG", dpi = NA)
+```
+
+### Duplicates
+
+Sometimes one or both datasets contain duplicate keys: for example, we have information of the population in each country for more than a single year, so for each country we have more than one observation. In such cases, each observation will be joined multiple times, as in the figure below.[^duplicates]
+
+```{r echo = F, fig.width=10}
+knitr::include_graphics("images/join_duplicates.PNG", dpi = NA)
+```
+
+
+[^duplicates]: Of course, if we have both population data about multiple years and life expectancy data about multiple years, we should just include the _year_ as a key variable. We don't want them to mix up. In that case, each observation is defined by both country and year.  
+
+
+## An example 
+
+The package nycflights13 contains different datasets about flights from NYC in 2013.
+
+```{r}
+library(nycflights13)
+```
+
+One of the datasets is called flights
+
+```{r}
+flights %>%
+	glimpse
+```
+
+Another one is airlines; with more information on the arilines, evidently.
+
+```{r}
+airlines %>%
+	glimpse
+```
+
+You can see they have the carrier variable in common, which contains a code for each airline. We can add the name of the airline to the flights
+
+```{r}
+flights %>%
+	inner_join(airlines)
+```
+Note that we did an inner join and our number of flights didn't decrease. This means that every carrier in flights is also available in airlines. In other words, for all carriers we have seen flights of, we know the name of the airline.
+
+
+For a more advanced example, let's look at weather.
+```{r}
+weather %>%
+	glimpse
+```
+
+It contains information on place and time: the same we also have for flights, and it contains several variables about the weather (wind, temperature, precipitation, etc.)
+
+Let's join the flights data with the weather.
+
+```{r}
+flights %>%
+	inner_join(airlines) %>%
+	inner_join(weather) -> flights
+
+flights %>%
+	glimpse
+```
+
+
+Note that the second join used variables year, month, origin, hour and time_hour to join the weather of the correct place and time to each flight. 
+
+
+## Binding data
+
+The data we joined above were always different pieces of information which we somehow linked (same country, same, time, same place, same airline, etc.) Sometimes we have dataset on separate objects which are not linked, but contain the same information. Recall the datasets on African and European countries.
+
+```{r}
+population_africa
+population_europe
+```
+
+These observation are not linked (there is no link between an African country and a European one), but they contain the same pieces of information (i.e. population).
+
+We can __bind__ these __rows__ together.
+
+```{r}
+bind_rows(population_africa, population_europe)
+```
+
+Note that we had `r nrow(population_africa)` African countries and `r nrow(population_europe)` European countries. Together, this makes for  `r nrow(bind_rows(population_africa, population_europe))` countries.
+
+
+For bind rows, it is not necesarry to have exactly the same information. Suppose that we have life expectancy for African countries, but not for European. Consider the dataset `information_africa`.
+
+
+```{r echo = F}
+information_africa <- gapminder %>% filter(continent == "Africa", year == 2007) %>% select(country, pop, lifeExp)
+```
+
+```{r}
+information_africa 
+```
+
+And we bind these two datasets.
+
+```{r}
+bind_rows(information_africa, population_europe) %>%
+	summary
+```
+
+What we could have expected did indeed happen: the 30 European countries received an NA for life expectancy. However, be wary: if both datasets have different information, maybe bind_rows is not what you are looking for, and maybe you need a join? Be sure that you understand how your datasets related to one another and how you should combine them. [^bindcolumns]
+
+[^bindcolumns]: That said, one more remark on merging data. If there is a bind_rows, there must surely be a bind_cols for binding columns? Yes, there is. However, we will not use this function (hurray!). bind_cols can do as it says: binding columns together just like bind_rows binds rows together. However, binding columns together means that we have 2 sets of information about the same observations? That sounds a lot like it needs a join, doesn't it? Indeed! The main difference between bind_rows and joins is that joins will combine rows that have the same key. However, bind_rows will combine rows by position, i.e. the first row of dataset A will be combined with first row of dataset B. It won't be looking at any keys. So if dataset A and B are in a different order, you have messed up your data. So, just forget about bind_cols. Bind_rows and joins should be able to get you where you want to be. 
+
+# Transforming data
+
+Next to merging data, we will also be learn how to transform data. The difference? For merging we need two datasets, for transforming, we will only use a single one. 
+
+The main goal of transforming our data is to make sure it is _tidy_. This means: every row is an observation, and every column is a variable.
+
+```{r echo = F, fig.width = 10}
+knitr::include_graphics("images/tidydata.png", dpi = NA)
+```
+
+Now, tidying is primarly important in the initial fase of your project, as shown in the figure below. However, it can also be useful during analyses. For some graph, it might happen that you need to transform your data - change what your observations are. This makes data transformation both essential and difficult. It is very important to understand what the current shape of your data is, and in which shape you need it to be for your analysis. This requires practice and time. 
+
+```{r echo = F, fig.width = 10}
+knitr::include_graphics("images/tidyverse.JPG", dpi = NA)
+```
+
+We will discuss four different transformations [^name].
+
+[^name]: Note that we used the term _transformation_ for different things. We have used it before to transform _variables_ (recode factors, rescale numerics, etc). At this moment we use it to transform _data_, which means that we are talking about multiple variable or complete datasets. The word choice is not to confuse you, we are actually doing the same thing, but at different levels. 
+
+There are 2 easy transformations:
+
+1. 	Combine variables
+2.	Split variables
+
+and 2 difficult ones
+
+3. 	Spread a dataset
+4.	Gather a dataset
+
+Below we show the schematically - the easy ones on the right, and the difficult ones on the left. Let's look at each of them. [^cheatsheet]
+
+```{r echo = F, fig.width = 10}
+knitr::include_graphics("images/operations2.png", dpi = NA)
+```
+
+
+[^cheatsheet]: Note that all the join and transformation functions discussed here are included on the cheatsheet of Data Manipulation. Make sure you can use it during exercises and exams!
+
+## Unite variables
+
+We use the function `unite` when we have several variables that we want to combine into a single one. The syntax for unite is as follows. Suppose we have information about students, with a first_name and last_name, and we want a single "name" variable.
+```{r echo = F}
+set.seed(123)
+students <- tibble(first_name = babynames::babynames %>% sample_n(10) %>% pull(name),
+				   last_name = babynames::babynames %>% sample_n(10) %>% pull(name))
+```
+
+
+```{r}
+
+students
+```
+
+
+```{r}
+students %>%
+	unite(col = name, first_name, last_name)
+```
+
+We first specify the name for the new column (which here is just name), then we list all columns we want to unite. Note that be default, unite will put a _ between the colums. We can change this with the argument sep.
+
+```{r}
+students %>%
+	unite(col = name, first_name, last_name, sep = " ")
+```
+Sometimes we also prefer to keep the original variables. We can ask not te remove them as follows.
+
+
+```{r}
+students %>%
+	unite(col = name, first_name, last_name, sep  =" ", remove = F)
+```
+
+## Separate variables
+
+Separate works the other way around: it separates a single variable into multiple ones. Suppose we have a list of students (students2) with their full names, and we want to separate them. [^sep]
+
+[^sep]: Note how you spell separate. An e, followed by an a, another a, and another e. Can you remember that? Congratulations, you have just avoided a series of very common mistakes! 
+
+```{r echo = F}
+set.seed(456)
+tibble(first_name = babynames::babynames %>% sample_n(10) %>% pull(name),
+				   last_name = babynames::babynames %>% sample_n(10) %>% pull(name)) %>%
+	unite(col = name, first_name, last_name, sep = " ") -> students_2
+
+```
+```{r}
+students_2
+```
+
+We can use separate in a similar way. First tell which column you want separated. Then tell them into which columns you want to put the pieces.[^col]
+
+[^col]: Note that the col argument in unite is the new column, the col argument in separate is the existing column! Also note that the new columns created by separate should be given as a character vector, not as a list of unquoted names like we did in unite.
+
+```{r}
+students_2 %>%
+	separate(col = name, into = c("first_name","last_name"))
+```
+
+Default, separate will split the columns on any character which is not alphanumerical: anything except numbers and letters. So, he correctly used spaces, which with we are perfectly happy. If you want to changes this, you can again set the sep argument. For example, when there is a combined surname like Janssen-Swilden (let's say such a ridiculous name actually exists), it would be split on the - sign. We don't want that, so we should tell separate to split only on spaces, i.e. sep = " ". 
+
+Separate will create exactly as many columns as the number of names you provide in into. If he finds more or less pieces than that number for any observation, he will warn you about this. If there are less, NA will appear, if there are more, the last ones will be discarded. Also, you can use remove = F to keep the original variables. 
+
+Now let's get ready for those difficult ones! 
+
+## Spread data
+
+
+We can use spread to take a pair of variables - a _key_ and a _value_ - and spread them over different columns: one for each _key_ with the corresponding _value_ in it.
+
+```{r echo = F, fig.width = 10}
+knitr::include_graphics("images/spread.PNG", dpi = NA)
+```
+
+If at this moment you hear it thundering in Keulen, it might be time for you to revise earlier tutorials. Because we have actually already seen spread before (Did we?) (Yes we did.)
+
+The following example might refresh things a bit.
+
+```{r}
+library(ggplot2)
+diamonds %>%
+	count(color, clarity)
+diamonds %>%
+	count(color, clarity) %>%
+	spread(clarity, n)
+```
+
+When we _spread_ data, we go from a _long_ dataset to a _wide_ dataset. Just look back at the example and the schematic figure. Make sure to remember this. 
+
+
+## Gather data
+
+If we already knew spread, gather is a piece of cake. It does the opposite of spread. How straightforward! So, with gather we go from a _wide_ dataset to a _long_ dataset, by _gathering_ several observations into a single one. 
+
+Just look at this figure.
+
+```{r echo = F, fig.width = 10}
+knitr::include_graphics("images/gather.PNG", dpi = NA)
+```
+
+Let's look at an example.
+
+The dataset below shows the population for every country on earth after each 5 year interval, starting in 1952, ending in 2007. 
+```{r echo = F}
+gapminder %>%
+	select(country, year, pop, continent) %>%
+	spread(year, pop) -> yearly_population
+```
+
+
+```{r}
+yearly_population
+```
+
+Pretty well-arranged table, isn't it? Let's make a line plot of the evolution. We would need time (years) on the x-asis and population on the y-axis. But...? Well, f*ck me! Those variables don't exist?! How can I make my line plot? 
+
+Let's _gather_ the data into those to variables.
+
+*	The key argument is the __new__ variable in which we want old variable __names__ to go. In our case, we want all the years as a _time_ variable, so we can use them, instead of being scatterd over 12 variables. 
+*	The value argument is the __new__ variable in which the __values__ of the old variables go. Thus, these would be the population numbers. 
+*	After that, we specify all the columns we want to gather. In our case all years. So, we can just say that we don't want to gather country and continent instead.[^columnnames]
+
+[^columnnames]: Actually, there is a more important reason we want to use -country and -continent instead of listing all years, apart from being lazy. Remember that all object and variable names in R need to start with a letter, not a number? Well, the year columns clearly don't. Selecting them would need a special technique. Just saying 1952:2007 would unfortunately not work. But, luckily, that's a story for another time.
+
+Let's see what happens.
+
+```{r}
+yearly_population %>%
+	gather(key = time, value = population, -country, -continent)
+```
+
+Well, exactly the opposite of spread, isn't it? A bunch of old variables (1952, 1957, 1962, etc.) are _gathered_ into a single new variable time. While the contents of those old variables are placed next to them in the population variable.
+
+Note how we went from a dataset with 13 colums and 142 rows (= WIDE) to a dataset with only 3 columns but 1704 rows ( = LONG). 
+
+So, let's wrap this up. 
+
+*	For gather, key and value are _new_ columnames. You can choose them as you like (just like I chose time and population)
+*	For spread, key and value are _existing_ columns. The ones you want to spread out.
+*	With gather, you provide a list of _existing_ columns which you want to gather/combine. You can also say which you don't want using -. In fact, you can use all the select-tricks here. If you don't tell it anything except for key and value, all columns will be gathered.
+* 	With gather, only key and value are necessary arguemnts.
+
+
+Easy, isn't it?
+
+Unfortunately, no. It isn't. 
+
+Spread and gather are probably the least intuitive functions you will learn in this course. Try to read this section several times, and look very good at the examples. Try to see what's happening. Things can get very complicated with spread and gather, as they change the structure of your data entirely. Combining them with joins only increases the difficulty. So, don't go easy on this. Spend some time in trying to understand the functions, and learn how to use the cheatsheet. The functions are not easy at all, but you will need them sooner than you think. Let's see them at work in other example. We will use some real-life data of the World Hearlth Organisations WHO!
+
+Oh, I almost forgot! We would make a line plot of the population data. Well, you see, once we have gather, it gets easy. We can almost directly go to ggplot.
+
+```{r fig.fullwidth = T, fig.width = 15}
+yearly_population %>%
+	gather(key = time, value = population, -country, -continent) %>%
+	mutate(time = as.numeric(time)) %>%
+	ggplot(aes(time, population/(10^9), group = country, color = continent)) +
+	geom_line() +
+	facet_grid(.~continent) +
+	theme_light() +
+	labs(y = "Population (in billion)") +
+	theme(legend.position = "top")
+```
+
+Can you tell which countries are the two soaring lines in Asia? (Please tell me you can.)
+
+So, let's study some health!
+
+# [Case study]: WHO
+
+We gathered (pun intended) data about the number of (new) Tuberculosis cases broken down by
+
+*	year
+*	country
+*	age (7 groups)
+*	gender
+*	type of TB
+	*	new/old -> (all new in our case)
+	*	diagnosis method
+		*	rel: relapse
+		*	sp: smear positive
+		*	sn: smear negative
+		*	ep: extrapulmonary
+
+(No need to know the different diagnosis methods.)
+
+The data looks as follows.
+
+```{r echo = F}
+data(who)
+```
+```{r}
+who %>%
+	glimpse()
+```
+
+To be honest: quite a mess. We don't really need 60 variables for the data we just described, do we? What's going on?
+
+It seems that for each country and each year, the data contains one row. Let's verify.
+
+```{r}
+who %>%
+	count(country, year)
+```
+
+We see mostly ones. Let's check for sure.
+
+```{r}
+who %>%
+	count(country, year) %>%
+	filter(n > 1)
+```
+
+
+Ok. So, each year, each country, one row. We have 7240 rows because we have
+
+```{r}
+who %>% count(year) %>% nrow
+```
+
+34 years, and
+
+```{r}
+who %>% count(country) %>% nrow()
+```
+
+219 countries.
+
+Thus we expect this many rows:  
+
+```{r}
+219*34
+```
+
+It seems we are missing 206 rows. I.e. there are countries for which we don't have all years, or vice versa. It is not really important here, but these are the kind of things a good data analyst checks. 
+
+Let's go back to our problem. 
+
+Of the 60 variables, the first 3 all depict country (Remember that I told you that there are different ways to abbreviate a country), and the 4th contains the year. So, there remain 56 variables.
+
+Well, we have information on 7 age groups, 2 genders, and 4 diagnosis methods. 7 times 2 times 4 equals 56. Aha! All the different cases are putted in a different variable. That's not really easy to work with. 
+
+Why not, I heard you think?
+
+Let's try to solve the following questions.
+
+*	How many women older, 25 or older in Belgium were diagnosed with TB in 2000? How many of those had a relaps? 
+*	What is the total number of TB cases in Belgium in each year?
+*	Can you graphically show the evolution of the number of cases for different genders and age groups?
+
+No, you can't. At least, not without a lot of work, or without tidying our data. So, let's start. 
+
+It is often helpful to think about the format we would like our data to be in, without getting lost in transformation. Ideally, we would like to have the following variables:
+
+*	country
+*	year
+*	is_new
+*	diagnosis
+*	gender
+*	age
+*	cases (the number of TB cases)
+
+First of all, let's go to a dataset in a long format, by gathering all the different types of diagnosis and cases into a long list. We will not gather the first 4 columns. The old columns will be a variable "type", and the numbers will be called "cases".
+
+```{r}
+who %>%
+	gather(key = type, value = cases, -country:-year)
+```
+
+See what happened? Take a good look.
+
+Had you figured out that we first needed to gather the data? If yes, congratulations, you start to get what data transformation is and which transformations you need where. If no, don't worry. Remember that I told you this is a hard skill. Furthermore, there are probably different ways to do this.
+
+We can get rid of iso2 and iso3. Note that they might be useful for joining the data with other data about countries, but we have no plans to do so. Just, let's get them out of our way.
+
+```{r}
+who %>%
+	gather(key = type, value = cases, -country:-year) %>%
+	select(-iso2, -iso3)
+
+```
+
+Now, there is a lot of information in the type variable. Actually, there are more variables in this single variable. let's separate them. (See how that thought process goes?) 
+
+First, let's look at the different levels by doing a quick count.
+
+```{r}
+who %>%
+	gather(key = type, value = cases, -country:-year) %>%
+	select(-iso2, -iso3) %>%
+	count(type) %>%
+	print(n = Inf) # I want to see all of them
+```
+
+Oh crap. The first 42 levels are nicely separated by 2 underscores. But the last are not. It's all "newrel" instead of "new_rel". Separate will not be able to split that...
+
+So, let's pull together a neat trick. We are going to replace all the little "newrel" part with "new_rel". How? Using the stringr package for string manipulation. It has a useful function  `str_replace`. Here we go.
+
+```{r}
+who %>%
+	gather(key = type, value = cases, -country:-year) %>%
+	select(-iso2, -iso3) %>%
+	mutate(type = str_replace(type, "newrel", "new_rel")) %>%
+	count(type) %>%
+	print(n = Inf)
+```
+
+That's better, isn't it? By the way, do you see how we at each point build on what we did before? This way we can easily change mistakes if we make some. Only when our data is correctly transformed, we save it, and put the code in our loadscript. 
+
+But now, we can separate the data. The first part will become the is_new variable, the second part the diagnosis variable, and the last part... well, it contaisn both the gender (f/m) and the age category. Let's just call it age_gender, and tackle that problem later.
+
+```{r}
+who %>%
+	gather(key = type, value = cases, -country:-year) %>%
+	select(-iso2, -iso3) %>%
+	mutate(type = str_replace(type, "newrel", "new_rel")) %>%
+	separate(type, into = c("is_new", "diagnosis", "age_gender")) 
+```
+
+Cool, that worked! We didn't even need to tell separate how to split. He decided this automagically. What a smart boy! 
+
+Now, let's split age_gender. But on what? There is no character to split on. However, separate is so smart, we can tell him to split after the _first_ character - 'cause that one is the gender, the remainder is the age. We could actually do this for any character. We just need to set sep = n, where n is our number. In this case 1. Let's try!
+
+```{r}
+who %>%
+	gather(key = type, value = cases, -country:-year) %>%
+	select(-iso2, -iso3) %>%
+	mutate(type = str_replace(type, "newrel", "new_rel")) %>%
+	separate(type, into = c("is_new", "diagnosis", "age_gender")) %>%
+	separate(age_gender, into = c("age","gender"), sep = 1)
+```
+
+I don't know about you, but I think this is exactly how we wanted the data to be! Let's save it now.
+
+```{r}
+who %>%
+	gather(key = type, value = cases, -country:-year) %>%
+	select(-iso2, -iso3) %>%
+	mutate(type = str_replace(type, "newrel", "new_rel")) %>%
+	separate(type, into = c("is_new", "diagnosis", "age_gender")) %>%
+	separate(age_gender, into = c("gender","age"), sep = 1) -> tidy_who
+```
+
+And just for fun, let us solve the questions we had earlier.
+
+
+*	How many women older, 25 or older in Belgium were diagnosed with TB in 2000? How many of those had a relaps? 
+
+```{r}
+tidy_who %>%
+	filter(gender == "f", !(age %in% c("014","1524")), country == "Belgium", year == 2000) %>%
+	group_by(diagnosis) %>%
+	summarize(n_cases = sum(cases, na.rm = T))
+```
+According to this data, there were 78 cases, and none of them were relapses. 
+
+*	What is the total number of TB cases in Belgium in each year?
+
+
+```{r}
+tidy_who %>%
+	filter(country == "Belgium") %>%
+	group_by(year) %>%
+	summarize(n_cases = sum(cases, na.rm = T))
+```
+
+(It seems there were no cases of TB in Belgium before 1995. Or we are just missing data? That's the thing na.rm can do. You must be careful.)
+
+*	Can you graphically show the evolution of the number of cases for different genders and age groups?
+
+```{r}
+tidy_who %>%
+	group_by(year, age, gender) %>%
+	summarize(n_cases = sum(cases, na.rm = T)) %>%
+	ggplot(aes(year, n_cases)) +
+	geom_line(color = "pink4", lwd = 1) +
+	facet_grid(gender~age) +
+	theme_light()
+```
+

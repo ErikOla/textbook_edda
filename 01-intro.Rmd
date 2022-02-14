@@ -11,7 +11,97 @@ source("prepare_session.R")
 
 ## Data science?
 
-### Netflix
+### Verschillende soorten van data analyse
+* Er zijn verschillende manieren om data analyse taken te classificeren.
+* De classificatie die we hier hanteren is gebaseerd op het doel van de data analyse.
+
+#### Descriptieve data analyse {-}
+* Deze analyse focust zich op het beschrijven van de data.
+* Deze analyse gaat over het samenvatten van de grote hoeveelheid data in enkele statistische cijfers en grafieken.
+* Deze analyse wordt gebruikt als je een grote hoeveelheid data krijgt en je snel inzicht wilt krijgen in de data.
+* Voorbeelden:
+    * Je hebt een dataset met alle studieresultaten van de studenten van 1ste bachelor HI/BI en je wilt weten wat de gemiddelde score is per vak.
+    * Je hebt de verkoopscijfers van het afgelopen jaar en je wil weten welke drie producten het beste verkochten (zowel in aantal als in omzet).
+* Descriptieve data analyse zegt alleen iets over de realiteit die door de data is beschreven. Je kan **geen** conclusies trekken die verder reiken dan de geobserveerde data.
+* Je kan een descriptieve data analyse vergelijken met het werk van een detective die als taak heeft een beschrijving te maken van de misdaadscene.
+
+#### Exploratieve data analyse {-}
+* Exploratieve analyse focust op het verkennen van de data en het zoeken naar interessante patronen en afwijkingen van deze patronen.
+* Net als bij descriptieve data analyse zal exploratieve analyse de beschikbare data beschrijven en zeggen de resultaten __niets__ over ongeobserveerde feiten.
+* In tegenstelling tot bij descriptieve data analyse, gaat exploratieve data analyse verder dan het louter beschrijven van de data en tracht men interessante patronen te ontdekken in de data.
+* Voorbeelden:
+    * Zijn er specifieke kenmerken van studenten die sterk gerelateerd zijn aan hun studieresultaten.
+    * Zijn er opmerkelijke verschillen tussen vakken wat betreft de punten die behaald worden. Zo ja, wat zijn dan deze verschillen.
+    * Zijn er producten in ons gamma die gevoelig zijn voor seizoenseffecten?
+* Je kan een exploratieve data analyse vergelijken met het werk van een detective die als taak heeft verbanden te ontdekken tussen verschillende bewijsstukken om zo inzicht te verschaffen wat er gebeurd is tijdens de misdaad.
+
+#### Confirmatorische data analyse {-}
+* Confirmatorische analyse focust op het bevestigen of weerleggen van vermoedens die men heeft met behulp van de beschikbare data.
+* In tegenstelling tot descriptieve en exploratieve data analyse zal men bij confirmatorische data analyse wel conclusies trekken die verder gaan dan de geobserveerde data.
+* Omdat confirmatorische data analyses ook uitspraken doen over ongeobserveerde data, is er altijd een mate van onzekerheid over de correctheid van de resultaten.
+* Voorbeelden:
+    * Halen studenten met 8u Wiskunde achtergrond betere resultaten dan studenten met 6u Wiskunde achtergrond? In welke mate zijn we zeker dat dit voor alle studenten geldt en niet enkel voor de studenten waarover we data hebben?
+    * Verkoopt product X beter bij mannen dan bij vrouwen? In welke mate zijn we zeker dat dit verschil niet een toevalligheid in de data is?
+* Je kan een confirmatorische data analyse vergelijken met het werk van een rechter die op basis van het aangeboden bewijsmateriaal moet beslissen of er genoeg bewijs is om iemand te veroordelen van de misdaad. 
+
+#### Predictieve data analyse {-}
+* Het doel van predictieve analyse is om op basis van de beschikbare data voorspellingen te doen over de toekomst of over nieuwe of alternatieve situaties.
+* Net als bij confirmatorische data analyse zal predictieve data analyse uitspraken doen die ook van toepassing zijn voor ongeobserveerde feiten/situaties.
+* Bijgevolg is er net als bij confirmatorische data analyse dus een zekere onzekerheid over de conclusies die men trekt.
+* Voorbeelden:
+    * Zal een studente die met meer dan 80% haar diploma van het middelbaar onderwijs behaalt slagen in eerste zit voor het vak _Exploratieve en Descriptieve Data Analyse_?
+    * Zullen de verkoopcijfers van product Y het komende jaar verder stijgen en met hoeveel procent?
+* Je kan een predictieve data analyse vergelijken met het werk van een detective die op basis van het bewijsmateriaal op een misdaadscene moet voorspellen waar en wanneer de dader opnieuw zal toeslaan.
+
+
+
+### Rol van data in de bedrijfswereld
+
+* Er zijn verschillende redenen waarom bedrijven data bijhouden. Deze kunnen we onderverdelen in volgende categorieën: Geschiedenis bijhouden, beslissingen nemen en voorspellingen maken.
+
+#### Geschiedenis bijhouden {-}
+
+* Je registreert feiten zodat je achteraf met zekerheid kunt weten wat de realiteit in het verleden was.
+* Dit is belangrijk als je wilt evalueren of een bedrijf goed beheerd wordt. Hiervoor heb je inzicht in het verleden nodig.
+* De gegevens die worden bijgehouden in een boekhouding en jaarrekeningen zijn hier een typisch voorbeeld van.
+
+#### Dagelijkse werking {-}
+* Opdat een bedrijf zijn dagelijkse werking kan uitvoeren, is het essentieel een up to date zicht te hebben van de werkelijkheid. Als een klant belt met een klacht over een levering, dan moet je als onderneming kunnen achterhalen wat de klant precies besteld heeft, of dit reeds geleverd is, of de klant al betaald heeft, enzovoort. Zonder deze informatie kan een onderneming haar dagelijkse werking niet garanderen.
+* Om de dagelijkse werking te verzekeren, hebben bedrijven altijd al data bijgehouden. Denk maar aan informatie over aankoop- en verkooporders, de financiële gegevens in de boekhouding, de afschriften van een bank, de productieplanning, enzovoort.
+
+#### Beslissingen nemen {-}
+* Een bedrijf neemt dagelijks talrijke beslissingen op verschillende niveaus
+    * Operationeel.
+        * Vb: Moet ik een nieuwe bestelling plaatsen voor grondstof X of hebben we nog genoeg voorraad?
+        * Dit zijn typisch zeer frequente beslissingen die nodig zijn om de dagelijkse werking te garanderen.
+        * Deze beslissingen worden genomen door mensen op de werkvloer of door het (lager) management.
+    * Tactisch/Management.
+        * Vb: Sluit ik best een exclusief contract af met 1 leverancier voor grondstof X voor een vaste periode en tegen een vaste verkoopsprijs of koop ik wanneer nodig tegen de marktprijs?
+        * Deze beslissingen worden minder frequent genomen dan operationele beslissingen en zijn typisch nodig om de werking van de onderneming op middellange termijn te optimaliseren.
+        * Deze beslissingen worden genomen door het management van een onderneming en hebben een aanzienlijke impact.
+    * Strategisch.
+        * Vb: Zullen we grondstof X aankopen op de markt of beslissen we deze grondstof zelf te produceren?
+        * Deze beslissingen hebben een zeer grote impact op de onderneming en worden niet frequent genomen. Ze vergen typisch ook lange voorbereidingstijd en bepalen de richting en toekomst van de onderneming op lange termijn.
+        * Deze beslissingen worden genomen door het topmanagement van een onderneming.
+        
+* Data kan bedrijven helpen bij het nemen van beslissingen.
+    * Dit betekent echter niet dat beslissingen enkel en alleen op data gebaseerd zijn. 
+    * Vaak wordt data gecombineerd met ervaring en expertise om een beslissing te nemen.
+* Bij het nemen van beslissingen op basis van data, kunnen we zowel patronen in historische data gebruiken alsook voorspellingen op basis van data.
+
+#### Producten {-}
+
+* Data als inherent onderdeel van een product
+    *   Social media
+    *   Netflix
+    *   Spotify
+    *   Google 
+    *   Uber
+    *   Deliveroo
+    *   ...
+* Data heeft niet langer puur ondersteunende rol
+
+##### Voorbeeld: Netflix
 
 * Netflix Prize (2006)
     * Wereldwijde open competitie voor de constructie van een nieuw algoritme dat moest voorspellen hoe goed een klant een film zou beoordelen op basis van zijn of haar filmvoorkeuren.
@@ -47,9 +137,9 @@ source("prepare_session.R")
         * Klanten die ook de Britse versie hadden gezien, kregen een trailer te zien de vooral op het verhaal focuste.
 
 
+### Data revoluties
 
-### Waar komt data vandaan?
-* Data over een maatschappij
+* Data over de maatschappij
     * Het verzamelen van data is iets dat teruggaat tot in de oudheid.
     * Denk hierbij aan de volkstellingen die reeds plaatsvonden ten tijden van de Romeinen.
     * Een volkstelling gaat alle inwoners van een bevolking registreren, samen met diverse kenmerken zoals burgelijke status, leeftijd, geslacht, enzovoort.
@@ -96,57 +186,17 @@ source("prepare_session.R")
     * In 2013 werd 2% van alle data in het digitaal universum geproduceerd door het IoT.
     * Verwacht wordt dat dit zal stijgen tot 10% in 2020.
         
-
-### Hoeveel data is er beschikbaar?
+### Data explosion
 
 * De hoeveelheid data die de laatste decennia gegenereerd en opgeslagen wordt is enorm toegenomen.
 * Deze groei is exponentieel (de groei gaat steeds sneller). Meer specifiek verdubbelt de hoeveelheid data in het digitaal universum iedere 2 jaar.
-* Volgens een studie van IDC, bestond het digitaal universum in 2013 uit 4.4 Zetabytes data
+* In 2018 bestond het digitaal universum uit 33 Zetabytes data
     * 1 Zetabyte = 1024 Exabytes
     * 1 Exabyte = 1024 Petabytes
     * 1 Petabyte = 1024 Terabytes
     * 1 Terabyte = 1024 Gigabytes
-* Volgens dezelfde studie zal het digitaal universum in 2020 uit 44 Zetabytes bestaan
-* Echter, slechts 22% van deze data (in 2013) is geschikt voor analyse.
-    * Er wordt geschat dat dit zal stijgen tot 35% in 2020.
-* Slechts 5% van de geschikte data voor analyse wordt feitelijk geanalyseerd (2013).
-
-
-### Waar wordt data voor gebruikt in de bedrijfswereld?
-
-* Er zijn verschillende redenen waarom bedrijven data bijhouden. Deze kunnen we onderverdelen in volgende categorieën: Geschiedenis bijhouden, beslissingen nemen en voorspellingen maken.
-
-#### Geschiedenis bijhouden {-}
-
-* Je registreert feiten zodat je achteraf met zekerheid kunt weten wat de realiteit in het verleden was.
-* Dit is belangrijk als je wilt evalueren of een bedrijf goed beheerd wordt. Hiervoor heb je inzicht in het verleden nodig.
-* De gegevens die worden bijgehouden in een boekhouding en jaarrekeningen zijn hier een typisch voorbeeld van.
-
-#### Dagelijkse werking {-}
-* Opdat een bedrijf zijn dagelijkse werking kan uitvoeren, is het essentieel een up to date zicht te hebben van de werkelijkheid. Als een klant belt met een klacht over een levering, dan moet je als onderneming kunnen achterhalen wat de klant precies besteld heeft, of dit reeds geleverd is, of de klant al betaald heeft, enzovoort. Zonder deze informatie kan een onderneming haar dagelijkse werking niet garanderen.
-* Om de dagelijkse werking te verzekeren, hebben bedrijven altijd al data bijgehouden. Denk maar aan informatie over aankoop- en verkooporders, de financiële gegevens in de boekhouding, de afschriften van een bank, de productieplanning, enzovoort.
-
-#### Beslissingen nemen {-}
-* Een bedrijf neemt dagelijks talrijke beslissingen op verschillende niveaus
-    * Operationeel.
-        * Vb: Moet ik een nieuwe bestelling plaatsen voor grondstof X of hebben we nog genoeg voorraad?
-        * Dit zijn typisch zeer frequente beslissingen die nodig zijn om de dagelijkse werking te garanderen.
-        * Deze beslissingen worden genomen door mensen op de werkvloer of door het (lager) management.
-    * Tactisch/Management.
-        * Vb: Sluit ik best een exclusief contract af met 1 leverancier voor grondstof X voor een vaste periode en tegen een vaste verkoopsprijs of koop ik wanneer nodig tegen de marktprijs?
-        * Deze beslissingen worden minder frequent genomen dan operationele beslissingen en zijn typisch nodig om de werking van de onderneming op middellange termijn te optimaliseren.
-        * Deze beslissingen worden genomen door het management van een onderneming en hebben een aanzienlijke impact.
-    * Strategisch.
-        * Vb: Zullen we grondstof X aankopen op de markt of beslissen we deze grondstof zelf te produceren?
-        * Deze beslissingen hebben een zeer grote impact op de onderneming en worden niet frequent genomen. Ze vergen typisch ook lange voorbereidingstijd en bepalen de richting en toekomst van de onderneming op lange termijn.
-        * Deze beslissingen worden genomen door het topmanagement van een onderneming.
-        
-* Data kan bedrijven helpen bij het nemen van beslissingen.
-    * Dit betekent echter niet dat beslissingen enkel en alleen op data gebaseerd zijn. 
-    * Vaak wordt data gecombineerd met ervaring en expertise om een beslissing te nemen.
-* Bij het nemen van beslissingen op basis van data, kunnen we zowel patronen in historische data gebruiken alsook voorspellingen op basis van data.
-
-
+* Volgens studies zal het digitaal universum in 2035 uit 2142 Zetabytes bestaan. 
+    * Dit is een toename van ca. 28% per jaar, i.e. een verdubbeling elke 3 jaar.
 
 ### Waarover verzamelen bedrijven data
 
@@ -221,47 +271,6 @@ source("prepare_session.R")
         * Vaak mensen met een wetenschappelijke achtergrond (doctoraat).
         * Sterk in statistische vaardigheden en wetenschappelijk onderzoek.
     
-### Verschillende soorten van data analyse
-* Er zijn verschillende manieren om data analyse taken te classificeren.
-* De classificatie die we hier hanteren is gebaseerd op het doel van de data analyse.
-
-#### Descriptieve data analyse {-}
-* Deze analyse focust zich op het beschrijven van de data.
-* Deze analyse gaat over het samenvatten van de grote hoeveelheid data in enkele statistische cijfers en grafieken.
-* Deze analyse wordt gebruikt als je een grote hoeveelheid data krijgt en je snel inzicht wilt krijgen in de data.
-* Voorbeelden:
-    * Je hebt een dataset met alle studieresultaten van de studenten van 1ste bachelor HI/BI en je wilt weten wat de gemiddelde score is per vak.
-    * Je hebt de verkoopscijfers van het afgelopen jaar en je wil weten welke drie producten het beste verkochten (zowel in aantal als in omzet).
-* Descriptieve data analyse zegt alleen iets over de realiteit die door de data is beschreven. Je kan **geen** conclusies trekken die verder reiken dan de geobserveerde data.
-* Je kan een descriptieve data analyse vergelijken met het werk van een detective die als taak heeft een beschrijving te maken van de misdaadscene.
-
-#### Exploratieve data analyse {-}
-* Exploratieve analyse focust op het verkennen van de data en het zoeken naar interessante patronen en afwijkingen van deze patronen.
-* Net als bij descriptieve data analyse zal exploratieve analyse de beschikbare data beschrijven en zeggen de resultaten __niets__ over ongeobserveerde feiten.
-* In tegenstelling tot bij descriptieve data analyse, gaat exploratieve data analyse verder dan het louter beschrijven van de data en tracht men interessante patronen te ontdekken in de data.
-* Voorbeelden:
-    * Zijn er specifieke kenmerken van studenten die sterk gerelateerd zijn aan hun studieresultaten.
-    * Zijn er opmerkelijke verschillen tussen vakken wat betreft de punten die behaald worden. Zo ja, wat zijn dan deze verschillen.
-    * Zijn er producten in ons gamma die gevoelig zijn voor seizoenseffecten?
-* Je kan een exploratieve data analyse vergelijken met het werk van een detective die als taak heeft verbanden te ontdekken tussen verschillende bewijsstukken om zo inzicht te verschaffen wat er gebeurd is tijdens de misdaad.
-
-#### Confirmatorische data analyse {-}
-* Confirmatorische analyse focust op het bevestigen of weerleggen van vermoedens die men heeft met behulp van de beschikbare data.
-* In tegenstelling tot descriptieve en exploratieve data analyse zal men bij confirmatorische data analyse wel conclusies trekken die verder gaan dan de geobserveerde data.
-* Omdat confirmatorische data analyses ook uitspraken doen over ongeobserveerde data, is er altijd een mate van onzekerheid over de correctheid van de resultaten.
-* Voorbeelden:
-    * Halen studenten met 8u Wiskunde achtergrond betere resultaten dan studenten met 6u Wiskunde achtergrond? In welke mate zijn we zeker dat dit voor alle studenten geldt en niet enkel voor de studenten waarover we data hebben?
-    * Verkoopt product X beter bij mannen dan bij vrouwen? In welke mate zijn we zeker dat dit verschil niet een toevalligheid in de data is?
-* Je kan een confirmatorische data analyse vergelijken met het werk van een rechter die op basis van het aangeboden bewijsmateriaal moet beslissen of er genoeg bewijs is om iemand te veroordelen van de misdaad. 
-
-#### Predictieve data analyse {-}
-* Het doel van predictieve analyse is om op basis van de beschikbare data voorspellingen te doen over de toekomst of over nieuwe of alternatieve situaties.
-* Net als bij confirmatorische data analyse zal predictieve data analyse uitspraken doen die ook van toepassing zijn voor ongeobserveerde feiten/situaties.
-* Bijgevolg is er net als bij confirmatorische data analyse dus een zekere onzekerheid over de conclusies die men trekt.
-* Voorbeelden:
-    * Zal een studente die met meer dan 80% haar diploma van het middelbaar onderwijs behaalt slagen in eerste zit voor het vak _Exploratieve en Descriptieve Data Analyse_?
-    * Zullen de verkoopcijfers van product Y het komende jaar verder stijgen en met hoeveel procent?
-* Je kan een predictieve data analyse vergelijken met het werk van een detective die op basis van het bewijsmateriaal op een misdaadscene moet voorspellen waar en wanneer de dader opnieuw zal toeslaan.
         
 ### De kunst van data analyse
 * Data analyse is een kunst. Net als bij iedere kunst, kunnen we hierbij drie componenten onderscheiden: kennis en vaardigheden, ervaring en creativiteit.
@@ -283,7 +292,6 @@ source("prepare_session.R")
 ### De kracht van descriptieve en exploratieve data analyse
 
 https://www.youtube.com/watch?v=RUwS1uAdUcI
-
 
 ## Data & Data types
 
@@ -324,10 +332,10 @@ data <- flights %>%
   select(luchthaven, maatschappij, datum, vertrek_vertraging, aankomst_vertraging, afstand, vliegtijd)
 ```
 
-```{r 2-2, echo=FALSE, resize.width = 100, kable.force.latex = TRUE}
+```{r 2-2, echo=FALSE, kable.force.latex = TRUE}
 
 knitr::kable(
-  head(data, 10), booktabs=TRUE,
+  select(head(data, 10), 1:4), booktabs=TRUE,
   caption = '\nUitgaande vluchten NYC',
   format=out_format, table.envir = "table*"
 ) %>%
@@ -396,6 +404,7 @@ knitr::kable(
     * Aantallen: vb aantal kinderen: 0, 1, 2, ... (niet-negatieve gehele waarden).
     * Hoeveelheden: vb. inkomen (niet-negatieve reële waarden).
     * Saldo: vb. winst (negatieve en positieve reële waarden).
+    
 * Voor deze cursus volstaat het meestal een onderscheid te maken tussen nominale en ordinale variabelen (samen "categorische" variabelen) en continue variabelen
     * Categorisch: 
         * Nominaal

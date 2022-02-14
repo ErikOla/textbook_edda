@@ -1,3 +1,0 @@
-"0","library(ggplot2)"
-"0","diamonds %>%"
-"0","	count(color, clarity)"

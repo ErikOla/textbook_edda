@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Hoofdstuk 9 Importeren van data | Lecture Notes voor Exploratieve en Descriptieve Data Analyse</title>
+  <meta name="description" content="Dit zijn de lecture notes van het opleidingsonderdeel Exploratieve en Descriptieve Data Analyse" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Hoofdstuk 9 Importeren van data | Lecture Notes voor Exploratieve en Descriptieve Data Analyse" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://bookdown.org/benoit.depaire/lecture_notes_edda/" />
+  
+  <meta property="og:description" content="Dit zijn de lecture notes van het opleidingsonderdeel Exploratieve en Descriptieve Data Analyse" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Hoofdstuk 9 Importeren van data | Lecture Notes voor Exploratieve en Descriptieve Data Analyse" />
+  
+  <meta name="twitter:description" content="Dit zijn de lecture notes van het opleidingsonderdeel Exploratieve en Descriptieve Data Analyse" />
+  
+
+<meta name="author" content="B. Depaire" />
+
+
+<meta name="date" content="2020-01-21" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="inleiding-2.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Lecture Notes Beleidsinformatica</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Voorwoord</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#hoe-deze-lecture-notes-te-gebruiken"><i class="fa fa-check"></i>Hoe deze lecture notes te gebruiken</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#over-de-auteur"><i class="fa fa-check"></i>Over de auteur</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><i class="fa fa-check"></i><b>1</b> Inleiding tot exploratieve data analyse in de bedrijfswereld</a><ul>
+<li class="chapter" data-level="1.1" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#netflix"><i class="fa fa-check"></i><b>1.1</b> Netflix</a></li>
+<li class="chapter" data-level="1.2" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#waar-wordt-data-voor-gebruikt-in-de-bedrijfswereld"><i class="fa fa-check"></i><b>1.2</b> Waar wordt data voor gebruikt in de bedrijfswereld?</a><ul>
+<li class="chapter" data-level="" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#geschiedenis-bijhouden"><i class="fa fa-check"></i>Geschiedenis bijhouden</a></li>
+<li class="chapter" data-level="" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#dagelijkse-werking"><i class="fa fa-check"></i>Dagelijkse werking</a></li>
+<li class="chapter" data-level="" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#beslissingen-nemen"><i class="fa fa-check"></i>Beslissingen nemen</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#hoeveel-data-is-er-beschikbaar"><i class="fa fa-check"></i><b>1.3</b> Hoeveel data is er beschikbaar?</a></li>
+<li class="chapter" data-level="1.4" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#waar-komt-data-vandaan"><i class="fa fa-check"></i><b>1.4</b> Waar komt data vandaan?</a></li>
+<li class="chapter" data-level="1.5" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#waarover-verzamelen-bedrijven-data"><i class="fa fa-check"></i><b>1.5</b> Waarover verzamelen bedrijven data</a></li>
+<li class="chapter" data-level="1.6" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#van-data-tot-actionable-insights"><i class="fa fa-check"></i><b>1.6</b> Van data tot ‘actionable insights’</a></li>
+<li class="chapter" data-level="1.7" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#data-scientists"><i class="fa fa-check"></i><b>1.7</b> Data Scientists</a></li>
+<li class="chapter" data-level="1.8" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#verschillende-soorten-van-data-analyse"><i class="fa fa-check"></i><b>1.8</b> Verschillende soorten van data analyse</a><ul>
+<li class="chapter" data-level="" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#descriptieve-data-analyse"><i class="fa fa-check"></i>Descriptieve data analyse</a></li>
+<li class="chapter" data-level="" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#exploratieve-data-analyse"><i class="fa fa-check"></i>Exploratieve data analyse</a></li>
+<li class="chapter" data-level="" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#confirmatorische-data-analyse"><i class="fa fa-check"></i>Confirmatorische data analyse</a></li>
+<li class="chapter" data-level="" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#predictieve-data-analyse"><i class="fa fa-check"></i>Predictieve data analyse</a></li>
+</ul></li>
+<li class="chapter" data-level="1.9" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#de-kunst-van-data-analyse"><i class="fa fa-check"></i><b>1.9</b> De kunst van data analyse</a></li>
+<li class="chapter" data-level="1.10" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#de-kracht-van-descriptieve-en-exploratieve-data-analyse"><i class="fa fa-check"></i><b>1.10</b> De kracht van descriptieve en exploratieve data analyse</a></li>
+<li class="chapter" data-level="1.11" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#referenties"><i class="fa fa-check"></i><b>1.11</b> Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html"><i class="fa fa-check"></i><b>2</b> Datatypes en datavisualisatie</a><ul>
+<li class="chapter" data-level="2.1" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#data"><i class="fa fa-check"></i><b>2.1</b> Data</a></li>
+<li class="chapter" data-level="2.2" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#dataset"><i class="fa fa-check"></i><b>2.2</b> Dataset</a></li>
+<li class="chapter" data-level="2.3" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#klassieke-datatypologie"><i class="fa fa-check"></i><b>2.3</b> Klassieke datatypologie</a><ul>
+<li class="chapter" data-level="" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#nominaal"><i class="fa fa-check"></i>Nominaal</a></li>
+<li class="chapter" data-level="" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#ordinaal"><i class="fa fa-check"></i>Ordinaal</a></li>
+<li class="chapter" data-level="" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#interval"><i class="fa fa-check"></i>Interval</a></li>
+<li class="chapter" data-level="" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#ratio"><i class="fa fa-check"></i>Ratio</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#de-klassieke-datatypologie-is-misleidend"><i class="fa fa-check"></i><b>2.4</b> De klassieke datatypologie is misleidend</a></li>
+<li class="chapter" data-level="2.5" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#alternatieve-datatypologie"><i class="fa fa-check"></i><b>2.5</b> Alternatieve datatypologie</a></li>
+<li class="chapter" data-level="2.6" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#datavisualisatie"><i class="fa fa-check"></i><b>2.6</b> Datavisualisatie</a></li>
+<li class="chapter" data-level="2.7" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#datavisualisatie-van-1-variabele-univariaat"><i class="fa fa-check"></i><b>2.7</b> Datavisualisatie van 1 variabele (univariaat)</a><ul>
+<li class="chapter" data-level="2.7.1" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#categorische-variabele"><i class="fa fa-check"></i><b>2.7.1</b> Categorische variabele</a></li>
+<li class="chapter" data-level="2.7.2" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#continue-variabele"><i class="fa fa-check"></i><b>2.7.2</b> Continue variabele</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#datavisualisatie-van-2-variabelen"><i class="fa fa-check"></i><b>2.8</b> Datavisualisatie van 2 variabelen</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#situatie-1-de-onafhankelijke-variabele-is-categorisch"><i class="fa fa-check"></i><b>2.8.1</b> Situatie 1: De onafhankelijke variabele is categorisch</a></li>
+<li class="chapter" data-level="2.8.2" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#situatie-2-de-onafhankelijke-variabele-is-continue"><i class="fa fa-check"></i><b>2.8.2</b> Situatie 2: De onafhankelijke variabele is continue</a></li>
+<li class="chapter" data-level="2.8.3" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#situatie-3-de-onafhankelijke-variabele-stelt-de-tijd-voor"><i class="fa fa-check"></i><b>2.8.3</b> Situatie 3: De onafhankelijke variabele stelt de tijd voor</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#datavisualisatie-met-meer-dan-2-variabelen"><i class="fa fa-check"></i><b>2.9</b> Datavisualisatie met meer dan 2 variabelen</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#onafhankelijke-variabele-b-2de-orde-is-categorisch."><i class="fa fa-check"></i><b>2.9.1</b> Onafhankelijke variabele B (2de orde) is categorisch.</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#referenties-1"><i class="fa fa-check"></i><b>2.10</b> Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="beschrijvende-statistieken.html"><a href="beschrijvende-statistieken.html"><i class="fa fa-check"></i><b>3</b> Beschrijvende statistieken</a><ul>
+<li class="chapter" data-level="3.1" data-path="beschrijvende-statistieken.html"><a href="beschrijvende-statistieken.html#beschrijvende-statistieken-versus-exploratieve-plots"><i class="fa fa-check"></i><b>3.1</b> Beschrijvende statistieken versus exploratieve plots</a></li>
+<li class="chapter" data-level="3.2" data-path="beschrijvende-statistieken.html"><a href="beschrijvende-statistieken.html#notatie"><i class="fa fa-check"></i><b>3.2</b> Notatie</a></li>
+<li class="chapter" data-level="3.3" data-path="beschrijvende-statistieken.html"><a href="beschrijvende-statistieken.html#data-1"><i class="fa fa-check"></i><b>3.3</b> Data</a></li>
+<li class="chapter" data-level="3.4" data-path="beschrijvende-statistieken.html"><a href="beschrijvende-statistieken.html#univariate-statistieken"><i class="fa fa-check"></i><b>3.4</b> Univariate statistieken</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="beschrijvende-statistieken.html"><a href="beschrijvende-statistieken.html#categorische-variabele-1"><i class="fa fa-check"></i><b>3.4.1</b> Categorische variabele</a></li>
+<li class="chapter" data-level="3.4.2" data-path="beschrijvende-statistieken.html"><a href="beschrijvende-statistieken.html#continue-variabele-1"><i class="fa fa-check"></i><b>3.4.2</b> Continue variabele</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="beschrijvende-statistieken.html"><a href="beschrijvende-statistieken.html#bivariate-statistieken"><i class="fa fa-check"></i><b>3.5</b> Bivariate statistieken</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="beschrijvende-statistieken.html"><a href="beschrijvende-statistieken.html#continu-versus-continu"><i class="fa fa-check"></i><b>3.5.1</b> Continu versus Continu</a></li>
+<li class="chapter" data-level="3.5.2" data-path="beschrijvende-statistieken.html"><a href="beschrijvende-statistieken.html#categorisch-versus-continu"><i class="fa fa-check"></i><b>3.5.2</b> Categorisch versus Continu</a></li>
+<li class="chapter" data-level="3.5.3" data-path="beschrijvende-statistieken.html"><a href="beschrijvende-statistieken.html#categorisch-versus-categorisch"><i class="fa fa-check"></i><b>3.5.3</b> Categorisch versus Categorisch</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="beschrijvende-statistieken.html"><a href="beschrijvende-statistieken.html#referenties-2"><i class="fa fa-check"></i>Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="exploratief-data-analyse-proces.html"><a href="exploratief-data-analyse-proces.html"><i class="fa fa-check"></i><b>4</b> Exploratief Data Analyse Proces</a></li>
+<li class="chapter" data-level="5" data-path="datavoorbereiding.html"><a href="datavoorbereiding.html"><i class="fa fa-check"></i><b>5</b> Datavoorbereiding</a><ul>
+<li class="chapter" data-level="5.1" data-path="datavoorbereiding.html"><a href="datavoorbereiding.html#beginnen-bij-het-begin"><i class="fa fa-check"></i><b>5.1</b> Beginnen bij het begin</a></li>
+<li class="chapter" data-level="5.2" data-path="datavoorbereiding.html"><a href="datavoorbereiding.html#data-inlezen"><i class="fa fa-check"></i><b>5.2</b> Data inlezen</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="datavoorbereiding.html"><a href="datavoorbereiding.html#uitdagingen-bij-het-correct-inlezen-van-data"><i class="fa fa-check"></i><b>5.2.1</b> Uitdagingen bij het correct inlezen van data</a></li>
+<li class="chapter" data-level="5.2.2" data-path="datavoorbereiding.html"><a href="datavoorbereiding.html#dataformaten"><i class="fa fa-check"></i><b>5.2.2</b> Dataformaten</a></li>
+<li class="chapter" data-level="5.2.3" data-path="datavoorbereiding.html"><a href="datavoorbereiding.html#data-encodering"><i class="fa fa-check"></i><b>5.2.3</b> Data-encodering</a></li>
+<li class="chapter" data-level="5.2.4" data-path="datavoorbereiding.html"><a href="datavoorbereiding.html#datatypes-controlleren-en-corrigeren"><i class="fa fa-check"></i><b>5.2.4</b> Datatypes controlleren en corrigeren</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="datavoorbereiding.html"><a href="datavoorbereiding.html#dataproblemen-identificeren-en-corrigeren"><i class="fa fa-check"></i><b>5.3</b> Dataproblemen identificeren en corrigeren</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="datavoorbereiding.html"><a href="datavoorbereiding.html#overzicht"><i class="fa fa-check"></i><b>5.3.1</b> Overzicht</a></li>
+<li class="chapter" data-level="5.3.2" data-path="datavoorbereiding.html"><a href="datavoorbereiding.html#foutieve-waarden"><i class="fa fa-check"></i><b>5.3.2</b> Foutieve waarden</a></li>
+<li class="chapter" data-level="5.3.3" data-path="datavoorbereiding.html"><a href="datavoorbereiding.html#ontbrekende-waarden"><i class="fa fa-check"></i><b>5.3.3</b> Ontbrekende waarden</a></li>
+<li class="chapter" data-level="5.3.4" data-path="datavoorbereiding.html"><a href="datavoorbereiding.html#inconsistente-waarden"><i class="fa fa-check"></i><b>5.3.4</b> Inconsistente waarden</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="datavoorbereiding.html"><a href="datavoorbereiding.html#data-opwaarderen"><i class="fa fa-check"></i><b>5.4</b> Data opwaarderen</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="datavoorbereiding.html"><a href="datavoorbereiding.html#sampling"><i class="fa fa-check"></i><b>5.4.1</b> Sampling</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="datavoorbereiding.html"><a href="datavoorbereiding.html#referenties-3"><i class="fa fa-check"></i>Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="exploratieve-analyse-van-tijdgerelateerde-data.html"><a href="exploratieve-analyse-van-tijdgerelateerde-data.html"><i class="fa fa-check"></i><b>6</b> Exploratieve analyse van tijdgerelateerde data</a><ul>
+<li class="chapter" data-level="6.1" data-path="exploratieve-analyse-van-tijdgerelateerde-data.html"><a href="exploratieve-analyse-van-tijdgerelateerde-data.html#inleiding"><i class="fa fa-check"></i><b>6.1</b> Inleiding</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="exploratieve-analyse-van-tijdgerelateerde-data.html"><a href="exploratieve-analyse-van-tijdgerelateerde-data.html#tijdstippen-versus-periodes"><i class="fa fa-check"></i><b>6.1.1</b> Tijdstippen versus periodes</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="exploratieve-analyse-van-tijdgerelateerde-data.html"><a href="exploratieve-analyse-van-tijdgerelateerde-data.html#tijdstippen"><i class="fa fa-check"></i><b>6.2</b> Tijdstippen</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="exploratieve-analyse-van-tijdgerelateerde-data.html"><a href="exploratieve-analyse-van-tijdgerelateerde-data.html#creatie-van-tijdstippen"><i class="fa fa-check"></i><b>6.2.1</b> Creatie van tijdstippen</a></li>
+<li class="chapter" data-level="6.2.2" data-path="exploratieve-analyse-van-tijdgerelateerde-data.html"><a href="exploratieve-analyse-van-tijdgerelateerde-data.html#extractie-van-tijdstipinformatie"><i class="fa fa-check"></i><b>6.2.2</b> Extractie van tijdstipinformatie</a></li>
+<li class="chapter" data-level="6.2.3" data-path="exploratieve-analyse-van-tijdgerelateerde-data.html"><a href="exploratieve-analyse-van-tijdgerelateerde-data.html#afronden-van-tijdstippen"><i class="fa fa-check"></i><b>6.2.3</b> Afronden van tijdstippen</a></li>
+<li class="chapter" data-level="6.2.4" data-path="exploratieve-analyse-van-tijdgerelateerde-data.html"><a href="exploratieve-analyse-van-tijdgerelateerde-data.html#case-nyc-vluchten-2013"><i class="fa fa-check"></i><b>6.2.4</b> Case: NYC Vluchten 2013</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="exploratieve-analyse-van-tijdgerelateerde-data.html"><a href="exploratieve-analyse-van-tijdgerelateerde-data.html#periode-data"><i class="fa fa-check"></i><b>6.3</b> Periode-data</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="exploratieve-analyse-van-tijdgerelateerde-data.html"><a href="exploratieve-analyse-van-tijdgerelateerde-data.html#interval-1"><i class="fa fa-check"></i><b>6.3.1</b> Interval</a></li>
+<li class="chapter" data-level="6.3.2" data-path="exploratieve-analyse-van-tijdgerelateerde-data.html"><a href="exploratieve-analyse-van-tijdgerelateerde-data.html#duration"><i class="fa fa-check"></i><b>6.3.2</b> Duration</a></li>
+<li class="chapter" data-level="6.3.3" data-path="exploratieve-analyse-van-tijdgerelateerde-data.html"><a href="exploratieve-analyse-van-tijdgerelateerde-data.html#period"><i class="fa fa-check"></i><b>6.3.3</b> Period</a></li>
+<li class="chapter" data-level="6.3.4" data-path="exploratieve-analyse-van-tijdgerelateerde-data.html"><a href="exploratieve-analyse-van-tijdgerelateerde-data.html#case-nyc-vluchten-2013-1"><i class="fa fa-check"></i><b>6.3.4</b> Case: NYC vluchten 2013</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="exploratieve-analyse-van-tijdgerelateerde-data.html"><a href="exploratieve-analyse-van-tijdgerelateerde-data.html#analyseren-van-tijdgerelateerde-data"><i class="fa fa-check"></i><b>6.4</b> Analyseren van tijdgerelateerde data</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="exploratieve-analyse-van-tijdgerelateerde-data.html"><a href="exploratieve-analyse-van-tijdgerelateerde-data.html#case-nyc-vluchten-2013-2"><i class="fa fa-check"></i><b>6.4.1</b> Case: NYC Vluchten 2013</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="exploratieve-analyse-van-tijdgerelateerde-data.html"><a href="exploratieve-analyse-van-tijdgerelateerde-data.html#referenties-4"><i class="fa fa-check"></i><b>6.5</b> Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>7</b> Tidy Data</a><ul>
+<li class="chapter" data-level="7.1" data-path="tidy-data.html"><a href="tidy-data.html#inleiding-1"><i class="fa fa-check"></i><b>7.1</b> Inleiding</a></li>
+<li class="chapter" data-level="7.2" data-path="tidy-data.html"><a href="tidy-data.html#case-nyc-vluchten-2013-3"><i class="fa fa-check"></i><b>7.2</b> Case: NYC Vluchten 2013</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="tidy-data.html"><a href="tidy-data.html#datasets-samenvoegen"><i class="fa fa-check"></i><b>7.2.1</b> Datasets samenvoegen</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="tidy-data.html"><a href="tidy-data.html#data-in-een-lang-formaat-plaatsen-voor-visuele-analyses"><i class="fa fa-check"></i><b>7.3</b> Data in een lang formaat plaatsen (voor visuele analyses)</a></li>
+<li class="chapter" data-level="7.4" data-path="tidy-data.html"><a href="tidy-data.html#data-in-een-breed-formaat-plaatsen-voor-overzichtelijke-tabellen"><i class="fa fa-check"></i><b>7.4</b> Data in een breed formaat plaatsen (voor overzichtelijke tabellen)</a></li>
+<li class="chapter" data-level="7.5" data-path="tidy-data.html"><a href="tidy-data.html#referenties-5"><i class="fa fa-check"></i><b>7.5</b> Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="inleiding-2.html"><a href="inleiding-2.html"><i class="fa fa-check"></i><b>8</b> Inleiding</a></li>
+<li class="chapter" data-level="9" data-path="importeren-van-data.html"><a href="importeren-van-data.html"><i class="fa fa-check"></i><b>9</b> Importeren van data</a><ul>
+<li class="chapter" data-level="9.1" data-path="importeren-van-data.html"><a href="importeren-van-data.html#binair-decimaal-en-hexadecimaal-rekenstelsel-1"><i class="fa fa-check"></i><b>9.1</b> Binair, decimaal en hexadecimaal rekenstelsel</a></li>
+<li class="chapter" data-level="9.2" data-path="importeren-van-data.html"><a href="importeren-van-data.html#tekst-opslaan-1"><i class="fa fa-check"></i><b>9.2</b> Tekst opslaan</a></li>
+<li class="chapter" data-level="9.3" data-path="importeren-van-data.html"><a href="importeren-van-data.html#flat-file-databestanden-1"><i class="fa fa-check"></i><b>9.3</b> Flat-file databestanden</a></li>
+<li class="chapter" data-level="9.4" data-path="importeren-van-data.html"><a href="importeren-van-data.html#hierarchische-databestanden-1"><i class="fa fa-check"></i><b>9.4</b> Hiërarchische databestanden</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="importeren-van-data.html"><a href="importeren-van-data.html#xml-bestanden-1"><i class="fa fa-check"></i><b>9.4.1</b> XML-bestanden</a></li>
+<li class="chapter" data-level="9.4.2" data-path="importeren-van-data.html"><a href="importeren-van-data.html#json-bestanden-1"><i class="fa fa-check"></i><b>9.4.2</b> JSON-bestanden</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="importeren-van-data.html"><a href="importeren-van-data.html#applicatie-specifieke-dataformaten-1"><i class="fa fa-check"></i><b>9.5</b> Applicatie-specifieke dataformaten</a></li>
+<li class="chapter" data-level="9.6" data-path="importeren-van-data.html"><a href="importeren-van-data.html#referenties-6"><i class="fa fa-check"></i><b>9.6</b> Referenties</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Lecture Notes voor Exploratieve en Descriptieve Data Analyse</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="importeren-van-data" class="section level1">
+<h1><span class="header-section-number">Hoofdstuk 9</span> Importeren van data</h1>
+<div id="binair-decimaal-en-hexadecimaal-rekenstelsel-1" class="section level2">
+<h2><span class="header-section-number">9.1</span> Binair, decimaal en hexadecimaal rekenstelsel</h2>
+<ul>
+<li>Een computer kan slechts 2 waarden opslaan, typisch voorgesteld als 0 en 1.</li>
+<li>Iedere opslaglocatie op een computer kan dus slechts 2 verschillende waarden opslaan en wordt een bit genoemd.
+<ul>
+<li>De afkorting van bit is de kleine letter ‘b’.</li>
+</ul></li>
+<li>Een rekenstelsel waarbij iedere locatie slechts 2 waarden kan voorstellen noemen we een binair rekenstelsel.
+<ul>
+<li>Indien we 2 opslaglocaties (2 bits) gebruiken, kunnen we 4 verschillende waarden opslaan: 00, 01, 10 en 11.</li>
+<li>Indien we 3 bits gebruiken zijn er 8 mogelijke waarden, bij 4 bits zijn er 16 mogelijke waarden.</li>
+<li>Het aantal waarden dat men met <span class="math inline">\(n\)</span> bits kan opslaan is gelijk aan <span class="math inline">\(2^n\)</span>.</li>
+</ul></li>
+<li>Merk op dat in het rekenstelsel dat door mensen gebruikt wordt iedere opslaglocatie 10 verschillende waarden gebruikt kunnen worden (0, 1, 2, 3, 4, 5, 6, 7, 8, 9).
+<ul>
+<li>Dit noemen we het decimaal rekenstelsel.</li>
+<li>Met 2 opslaglocaties kunnen we in het decimaal rekenstelsel 100 (= <span class="math inline">\(10^2\)</span>) waarden opslaan: van 00 tot 99.</li>
+</ul></li>
+<li>Een ander rekenstelsel dat vaak gebruikt wordt binnen computerwetenschappen is het hexadecimaal rekenstelsel.
+<ul>
+<li>In dit rekenstelsel kan iedere opslaglocatie 16 waardes opslaan, nl. 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E en F.</li>
+<li>Het hexadecimaal rekenstelsel is interessant omdat 1 locatie overeenstemt met 4 bit (4 locaties in het binair rekenstelsel).</li>
+</ul></li>
+<li>Om in computerprogramma’s aan te geven dat iets voorgesteld wordt in het hexadecimaal stelsel, laten we het voorafgaan door een 0x. Om aan te geven dat iets voorgesteld wordt in het binair stelsel, gebruiken we prefix 0b. Zonder prefix verwijzen we typisch naar het decimaal rekenstelsel.</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th align="left">decimaal</th>
+<th align="left">hexadecimaal</th>
+<th align="left">binair</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">0</td>
+<td align="left">0x0</td>
+<td align="left">0b0000</td>
+</tr>
+<tr class="even">
+<td align="left">1</td>
+<td align="left">0x1</td>
+<td align="left">0b0001</td>
+</tr>
+<tr class="odd">
+<td align="left">2</td>
+<td align="left">0x2</td>
+<td align="left">0b0010</td>
+</tr>
+<tr class="even">
+<td align="left">3</td>
+<td align="left">0x3</td>
+<td align="left">0b0011</td>
+</tr>
+<tr class="odd">
+<td align="left">4</td>
+<td align="left">0x4</td>
+<td align="left">0b0100</td>
+</tr>
+<tr class="even">
+<td align="left">5</td>
+<td align="left">0x5</td>
+<td align="left">0b0101</td>
+</tr>
+<tr class="odd">
+<td align="left">6</td>
+<td align="left">0x6</td>
+<td align="left">0b0110</td>
+</tr>
+<tr class="even">
+<td align="left">7</td>
+<td align="left">0x7</td>
+<td align="left">0b0111</td>
+</tr>
+<tr class="odd">
+<td align="left">8</td>
+<td align="left">0x8</td>
+<td align="left">0b1000</td>
+</tr>
+<tr class="even">
+<td align="left">9</td>
+<td align="left">0x9</td>
+<td align="left">0b1001</td>
+</tr>
+<tr class="odd">
+<td align="left">10</td>
+<td align="left">0xA</td>
+<td align="left">0b1010</td>
+</tr>
+<tr class="even">
+<td align="left">11</td>
+<td align="left">0xB</td>
+<td align="left">0b1011</td>
+</tr>
+<tr class="odd">
+<td align="left">12</td>
+<td align="left">0xC</td>
+<td align="left">0b1100</td>
+</tr>
+<tr class="even">
+<td align="left">13</td>
+<td align="left">0xD</td>
+<td align="left">0b1101</td>
+</tr>
+<tr class="odd">
+<td align="left">14</td>
+<td align="left">0xE</td>
+<td align="left">0b1110</td>
+</tr>
+<tr class="even">
+<td align="left">15</td>
+<td align="left">0xF</td>
+<td align="left">0b1111</td>
+</tr>
+</tbody>
+</table>
+<p>Tabel: conversietabel decimaal, hexadecimaal en binair.</p>
+<ul>
+<li>8 bits worden ook een byte genoemd wat afgekort wordt met de hoofdletter B. 1B bestaat dus uit 8b en kan dus 256 (<span class="math inline">\(=2^8\)</span>) waarden opslaan.</li>
+</ul>
+</div>
+<div id="tekst-opslaan-1" class="section level2">
+<h2><span class="header-section-number">9.2</span> Tekst opslaan</h2>
+<ul>
+<li>Bestudeer de bron over <a href="http://kunststube.net/encoding/">Encoding</a> tot sectie ‘Encodings en PHP’.</li>
+<li>Lees de bron over <a href="https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/">de geschiedenis van ASCII</a> (enkel sectie ‘A Historical Perspective’).</li>
+<li>Aangezien computers enkel bits kunnen opslaan, hebben we een conversieschema nodig om tekst op te slaan. Ieder letterteken zal moeten omgezet worden naar een string van bits. Dit conversieschema wordt een ‘encoding scheme’ of encoderingsschema genoemd.</li>
+<li>Ieder encoderingsschema voorziet de vertaling van een specifieke set van karakters naar bijhorende bitstrings. Deze sets van karakters noemen we ‘character sets’ of karaktersets.</li>
+<li>Er bestaan zeer veel encoderingsschema’s.
+<ul>
+<li>ASCII is een van de oudste encoderingsschema’s en is voornamelijk bruikbaar voor Engelstalige tekst.
+<ul>
+<li>De ASCII karakterset bestaat uit 128 lettertekens en bevat o.a. de cijfers 0 tot 9, de letters a-z en A-Z.</li>
+<li>ASCII gebruikt 1 byte per letterteken en kan dus in principe 256 verschillende lettertekens opslaan.</li>
+<li>Aangezien ASCII slechts een karakterset van 128 tekens heeft, gebruikt het dus slechts 7 bit van de beschikbare byte (<span class="math inline">\(2^7 = 128\)</span>).</li>
+<li>Omdat de ASCII tekenset gemaakt was voor de Engelse taal ontbreken er verschillende tekens voor andere talen.</li>
+</ul></li>
+<li>De ANSI-standaard nam de ASCII tekenset over, maar voegt hier vervolgens 128 tekens aan toe door de volledige byte te gebruiken.
+<ul>
+<li>Met welke tekens de karaketerset wordt uitgebreid ligt echter niet vast binnen de ANSI-standaard, maar is afhankelijk van de gekozen codepage (of karakterset).</li>
+<li>Er bestaan zeer veel ANSI codepages (die eigenlijk Windows codepages genoemd moeten worden). Voor de eerste 128 tekens maakt de specifieke codepage niet uit, maar voor de laatste 128 code pages is dit wel belangrijk.</li>
+</ul></li>
+<li>Voor talen waar 1 byte per letterteken onvoldoende is, werden dan weer nieuwe encoderingsschema’s gebruikt die 2 bytes gebruiken en zo 65536 lettertekens kunnen voorstellen.</li>
+<li>Unicode is een poging om tot 1 karakterset te komen voor alle tekens die gebruikt worden in tekst.
+<ul>
+<li>Unicode zelf definieert geen encodering. Ze vertaalt dus zelf geen lettertekens naar bitstrings.</li>
+<li>Unicode legt wel codepoints vast, wat een mapping is tussen lettertekens en een hexadecimaal getal.</li>
+<li>Het Unicode systeem bevat in totaal meer dan 1 miljoen codepoints.</li>
+<li>De feitelijke omzetting van de codepoints naar een bitstring gebeurt door een specifieke encodering, waarbij UTF-8 de meest voorkomende is.</li>
+</ul></li>
+</ul></li>
+<li>Het gevolg is dat we een grote waaier aan encoderingsschema’s hebben.
+<ul>
+<li>Als je dus een tekst opslaat volgens het ene encoderingsschema en vervolgens terug inleest volgens een ander encoderingsschema, dan kan het zijn dat delen van de tekst geen steek meer houden.</li>
+</ul></li>
+<li>Het R-package ‘readr’ gaat er van uit dat tekst geëncodeerd is in UTF-8.</li>
+</ul>
+</div>
+<div id="flat-file-databestanden-1" class="section level2">
+<h2><span class="header-section-number">9.3</span> Flat-file databestanden</h2>
+<ul>
+<li>Lees de bron over <a href="https://www.techwalla.com/articles/what-is-a-delimited-a-fixed-width-file">delimited en fixed-width bestanden</a>.</li>
+<li>Flat-file databestanden bevatten data die in een tabelvorm passen:
+<ul>
+<li>Iedere rij is een observatie.</li>
+<li>Iedere kolom stelt een variabele voor.</li>
+<li>Alle items in een kolom zijn van hetzelfde soort.</li>
+<li>Cellen van de tabel bevatten enkelvoudige gegevens (dus niet een kolom hobby’s met hierin meerdere hobby’s in 1 cel).</li>
+<li>De volgorde van de kolommen is niet van belang.</li>
+<li>De volgorde van de rijen is niet belang.</li>
+</ul></li>
+<li>Volgende data kan dus in een flat-file bestand opgeslagen worden:</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th align="left">naam</th>
+<th align="left">voornaam</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Nelissen</td>
+<td align="left">Rob</td>
+</tr>
+<tr class="even">
+<td align="left">Franssen</td>
+<td align="left">Ann</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>De twee meest gebruikte formaten voor flat-file databestanden zijn delimited en fixed-width bestanden.</li>
+<li>Een delimited bestand (vaak ook wel csv-bestand of comma-separated values bestand genoemd):
+<ul>
+<li>gebruikt voor iedere rij een nieuwe regel,</li>
+<li>splitst de kolommen op met behulp van een specifiek splitsingsteken (vaak de komma of de puntkomma),</li>
+<li>kan het begin en het einde van een karakterstring met behulp van een specifiek quote-teken (vaak ’ of ") aanduiden.</li>
+</ul></li>
+<li>Bovenstaande tabel kan ls een delimited databestand opgeslagen ziet er dan als volgt uit:</li>
+</ul>
+<pre><code>naam;voornaam
+Nelissen;Rob
+Franssen;Ann</code></pre>
+<ul>
+<li>Een fixed-width bestand gebruikt eveneens een aparte regel per rij, maar gebruikt een vast aantal karakters per kolom en heeft dus geen splitsingsteken, noch quote-teken nodig.</li>
+<li>Bovenstaande tabel kan als een fixed-width databestand opgeslagen ziet er dan als volgt uit:</li>
+</ul>
+<pre><code>naam     voornaam
+Nelissen Rob
+Franssen Ann</code></pre>
+<ul>
+<li>Het nadeel van een delimited bestand is dat je het splitsings- en quote-teken niet kunt gebruiken in je data.</li>
+<li>Het voordeel van een delimited bestand is dat een veld niet meer ruimte in beslag neemt dan nodig.</li>
+<li>Bestudeer hoofdstuk <a href="http://r4ds.had.co.nz/data-import.html">Data Import</a> van het boek ‘R for Data Science’ om te weten hoe je in R data uit flat-file bestanden kunt inlezen.</li>
+</ul>
+</div>
+<div id="hierarchische-databestanden-1" class="section level2">
+<h2><span class="header-section-number">9.4</span> Hiërarchische databestanden</h2>
+<ul>
+<li>Het nadeel van flat-file data bestanden is dat de data in een tabelvorm moet passen.</li>
+<li>Indien data een complexere (vaak hiërarchische) structuur heeft, dan is dit niet evident om correct in een tabelvorm te gieten.
+<ul>
+<li>Je hebt bijvoorbeeld data over de studenten en van iedere student heb je naamgegevens en de resultaten van de verschillende afgelegde vakken.</li>
+<li>Het aantal afgelegde vakken verschilt echter van student tot student.</li>
+<li>Ook per student kan het aantal opgenomen kansen per vak verschillen van vak tot vak.</li>
+<li>Het aantal scores per student kan hierdoor sterk variëren.</li>
+</ul></li>
+<li>Voor hiërarchische databestanden wordt daarom vaak gebruikt gemaakt van XML-bestanden of JSON-bestanden.</li>
+<li>XML- en JSON-bestanden zijn ook zeer populair om gegevens via het web uit te wisselen.</li>
+</ul>
+<div id="xml-bestanden-1" class="section level3">
+<h3><span class="header-section-number">9.4.1</span> XML-bestanden</h3>
+<ul>
+<li>Bestudeer de bron over <a href="https://www.w3schools.com/xml/default.asp">XML</a> (tot en met XML attributes) om te begrijpen hoe een XML-bestand is opgebouwd.</li>
+<li>Een XML-bestand bestaat uit XML-elementen.
+<ul>
+<li>De naam van het XML-element wordt bepaald door het openings- en sluitingslabel.</li>
+<li>Het openingslabel volgt het formaat <code>&lt;element-naam&gt;</code>.</li>
+<li>Het sluitingslabel heeft dezelfde naam en volgt het formaat <code>&lt;/element-naam&gt;</code>.</li>
+<li>Tussen het openings- en sluitingslabel plaatsen we de inhoud van het XML-element.</li>
+</ul></li>
+<li>Voorbeeld: <code>&lt;student&gt;Rob Nelissen&lt;/student&gt;</code>.
+<ul>
+<li>Hier wordt het XML-element student gedefinieerd.</li>
+<li>De inhoud van dit XML-element is Rob Nelissen.</li>
+</ul></li>
+<li>De inhoud van een XML-element kan ook bestaan uit andere XML-elementen. Op deze manier kan je volledige tabellen in XML opslaan. Onderstaande voorbeeld is de vertaling van voorgaande data in tabelvorm naar XML.</li>
+<li>Voorbeeld:</li>
+</ul>
+<div class="sourceCode" id="cb67"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb67-1" title="1"><span class="kw">&lt;studenten&gt;</span></a>
+<a class="sourceLine" id="cb67-2" title="2">  <span class="kw">&lt;student&gt;</span></a>
+<a class="sourceLine" id="cb67-3" title="3">    <span class="kw">&lt;naam&gt;</span>Nelissen<span class="kw">&lt;/naam&gt;</span></a>
+<a class="sourceLine" id="cb67-4" title="4">    <span class="kw">&lt;voornaam&gt;</span>Rob<span class="kw">&lt;/naam&gt;</span></a>
+<a class="sourceLine" id="cb67-5" title="5">  <span class="kw">&lt;/student&gt;</span></a>
+<a class="sourceLine" id="cb67-6" title="6">  <span class="kw">&lt;student&gt;</span></a>
+<a class="sourceLine" id="cb67-7" title="7">    <span class="kw">&lt;naam&gt;</span>Franssen<span class="kw">&lt;/naam&gt;</span></a>
+<a class="sourceLine" id="cb67-8" title="8">    <span class="kw">&lt;voornaam&gt;</span>Ann<span class="kw">&lt;/voornaam&gt;</span></a>
+<a class="sourceLine" id="cb67-9" title="9">  <span class="kw">&lt;/student&gt;</span></a>
+<a class="sourceLine" id="cb67-10" title="10"><span class="kw">&lt;/studenten&gt;</span></a></code></pre></div>
+<ul>
+<li>Zoals blijkt uit de vergelijking tussen de XML-representatie en voorgaande flat-file representaties, bevat een XML-bestand redelijk veel overhead om tabelvorm-data op te slaan.</li>
+<li>De kracht van XML ten opzichte van de flat-file bestanden is echter dat je veel complexere datastructuren kunt opslaan. Onderstaand voorbeeld opslaan in een tabelvorm (en dus flat-files) is allesbehalve evident.</li>
+<li>Voorbeeld:</li>
+</ul>
+<div class="sourceCode" id="cb68"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb68-1" title="1"><span class="kw">&lt;studenten&gt;</span></a>
+<a class="sourceLine" id="cb68-2" title="2">  <span class="kw">&lt;student&gt;</span></a>
+<a class="sourceLine" id="cb68-3" title="3">    <span class="kw">&lt;naam&gt;</span>Nelissen<span class="kw">&lt;/naam&gt;</span></a>
+<a class="sourceLine" id="cb68-4" title="4">    <span class="kw">&lt;voornaam&gt;</span>Rob<span class="kw">&lt;/naam&gt;</span></a>
+<a class="sourceLine" id="cb68-5" title="5">    <span class="kw">&lt;vakken&gt;</span></a>
+<a class="sourceLine" id="cb68-6" title="6">      <span class="kw">&lt;vak&gt;</span></a>
+<a class="sourceLine" id="cb68-7" title="7">        <span class="kw">&lt;naam&gt;</span>Exploratieve en Descriptieve Data Analyse<span class="kw">&lt;/naam&gt;</span></a>
+<a class="sourceLine" id="cb68-8" title="8">        <span class="kw">&lt;academiejaar&gt;</span>20162017<span class="kw">&lt;/academiejaar&gt;</span></a>
+<a class="sourceLine" id="cb68-9" title="9">        <span class="kw">&lt;score_kans1&gt;</span>8<span class="kw">&lt;/score_kans1&gt;</span></a>
+<a class="sourceLine" id="cb68-10" title="10">        <span class="kw">&lt;score_kans2&gt;</span>12<span class="kw">&lt;/score_kans2&gt;</span></a>
+<a class="sourceLine" id="cb68-11" title="11">      <span class="kw">&lt;/vak&gt;</span></a>
+<a class="sourceLine" id="cb68-12" title="12">      <span class="kw">&lt;vak&gt;</span></a>
+<a class="sourceLine" id="cb68-13" title="13">        <span class="kw">&lt;naam&gt;</span>Macro-economie<span class="kw">&lt;/naam&gt;</span></a>
+<a class="sourceLine" id="cb68-14" title="14">        <span class="kw">&lt;academiejaar&gt;</span>20152016<span class="kw">&lt;/academiejaar&gt;</span></a>
+<a class="sourceLine" id="cb68-15" title="15">        <span class="kw">&lt;score_kans1&gt;</span>8<span class="kw">&lt;/score_kans1&gt;</span></a>
+<a class="sourceLine" id="cb68-16" title="16">        <span class="kw">&lt;score_kans2&gt;</span>7<span class="kw">&lt;/score_kans2&gt;</span></a>
+<a class="sourceLine" id="cb68-17" title="17">      <span class="kw">&lt;/vak&gt;</span></a>
+<a class="sourceLine" id="cb68-18" title="18">      <span class="kw">&lt;vak&gt;</span></a>
+<a class="sourceLine" id="cb68-19" title="19">        <span class="kw">&lt;naam&gt;</span>Macro-economie<span class="kw">&lt;/naam&gt;</span></a>
+<a class="sourceLine" id="cb68-20" title="20">        <span class="kw">&lt;academiejaar&gt;</span>20162017<span class="kw">&lt;/academiejaar&gt;</span></a>
+<a class="sourceLine" id="cb68-21" title="21">        <span class="kw">&lt;score_kans1&gt;</span>14<span class="kw">&lt;/score_kans1&gt;</span></a>
+<a class="sourceLine" id="cb68-22" title="22">      <span class="kw">&lt;/vak&gt;</span></a>
+<a class="sourceLine" id="cb68-23" title="23">      ...</a>
+<a class="sourceLine" id="cb68-24" title="24">    <span class="kw">&lt;/vakken&gt;</span></a>
+<a class="sourceLine" id="cb68-25" title="25">  <span class="kw">&lt;/student&gt;</span></a>
+<a class="sourceLine" id="cb68-26" title="26">  <span class="kw">&lt;student&gt;</span></a>
+<a class="sourceLine" id="cb68-27" title="27">    <span class="kw">&lt;naam&gt;</span>Franssen<span class="kw">&lt;/naam&gt;</span></a>
+<a class="sourceLine" id="cb68-28" title="28">    <span class="kw">&lt;voornaam&gt;</span>Ann<span class="kw">&lt;/voornaam&gt;</span></a>
+<a class="sourceLine" id="cb68-29" title="29">    <span class="kw">&lt;vakken&gt;</span></a>
+<a class="sourceLine" id="cb68-30" title="30">      <span class="kw">&lt;vak&gt;</span></a>
+<a class="sourceLine" id="cb68-31" title="31">        <span class="kw">&lt;naam&gt;</span>Exploratieve en Descriptieve Data Analyse<span class="kw">&lt;/naam&gt;</span></a>
+<a class="sourceLine" id="cb68-32" title="32">        <span class="kw">&lt;academiejaar&gt;</span>20162017<span class="kw">&lt;/academiejaar&gt;</span></a>
+<a class="sourceLine" id="cb68-33" title="33">        <span class="kw">&lt;score_kans1&gt;</span>15<span class="kw">&lt;/score_kans1&gt;</span></a>
+<a class="sourceLine" id="cb68-34" title="34">      <span class="kw">&lt;/vak&gt;</span></a>
+<a class="sourceLine" id="cb68-35" title="35">      <span class="kw">&lt;vak&gt;</span></a>
+<a class="sourceLine" id="cb68-36" title="36">        <span class="kw">&lt;naam&gt;</span>Macro-economie<span class="kw">&lt;/naam&gt;</span></a>
+<a class="sourceLine" id="cb68-37" title="37">        <span class="kw">&lt;academiejaar&gt;</span>20162017<span class="kw">&lt;/academiejaar&gt;</span></a>
+<a class="sourceLine" id="cb68-38" title="38">        <span class="kw">&lt;score_kans1&gt;</span>16<span class="kw">&lt;/score_kans1&gt;</span></a>
+<a class="sourceLine" id="cb68-39" title="39">      <span class="kw">&lt;/vak&gt;</span></a>
+<a class="sourceLine" id="cb68-40" title="40">      ...</a>
+<a class="sourceLine" id="cb68-41" title="41">    <span class="kw">&lt;/vakken&gt;</span></a>
+<a class="sourceLine" id="cb68-42" title="42">  <span class="kw">&lt;/student&gt;</span></a>
+<a class="sourceLine" id="cb68-43" title="43">  ...</a>
+<a class="sourceLine" id="cb68-44" title="44"><span class="kw">&lt;/studenten&gt;</span></a></code></pre></div>
+</div>
+<div id="json-bestanden-1" class="section level3">
+<h3><span class="header-section-number">9.4.2</span> JSON-bestanden</h3>
+<ul>
+<li>Bestudeer de <a href="http://beginnersbook.com/2015/04/json-tutorial/">JSON Tutorial</a> om te begrijpen hoe een JSON-bestand is opgebouwd.</li>
+<li>JSON is een ander formaat dat steeds populairder wordt om hiërarchische data op te slaan en uit te wisselen.
+<ul>
+<li>In vergelijking met XML is JSON korter en eenvoudiger te lezen.</li>
+</ul></li>
+<li>Een JSON-bestand bestaat voornamelijk uit JSON-objecten en JSON-lijsten.</li>
+<li>JSON-objecten komen typisch overeen met een observatie (rij) in een dataset.
+<ul>
+<li>Een JSON-object wordt omsloten door accolades.</li>
+<li>De inhoud van een JSON-object bestaat uit key-value paren.
+<ul>
+<li>De key-value paren zijn van elkaar gescheiden door middel van een komma.</li>
+<li>De key is een string omsloten door dubbele aanhalingstekens en geeft aan wat de value voorstelt.</li>
+<li>Key en value zijn van elkaar gescheiden door middel van een dubbelpunt.</li>
+</ul></li>
+</ul></li>
+<li>Voorbeelden van een JSON-object dat de student Rob Nelissen voorstelt:
+<ul>
+<li><code>{"naam":"Nelissen", "voornaam":"Rob"}</code></li>
+</ul></li>
+<li>Een JSON-lijst (array genoemd) bestaat uit een lijst van waarden gescheiden door een komma en omgeven door rechte haakjes.
+<ul>
+<li>De waarden van de verschillende elementen in een JSON-lijst moeten van hetzelfde type zijn.</li>
+<li>Toegelaten waarden zijn o.a. strings, getallen, objecten, andere arrays (lijsten).</li>
+</ul></li>
+<li>Indien je data in tabelvorm wenst voor te stellen, zal je iedere rij als een JSON-object voorstellen en de volledige tabel als een lijst van deze JSON-objecten.</li>
+<li>Onderstaand voorbeeld is de vertaling van voorgaande studentendata in tabelvorm naar JSON.</li>
+</ul>
+<div class="sourceCode" id="cb69"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb69-1" title="1"><span class="ot">[</span></a>
+<a class="sourceLine" id="cb69-2" title="2">  <span class="fu">{</span><span class="dt">&quot;naam&quot;</span><span class="fu">:</span><span class="st">&quot;Nelissen&quot;</span><span class="fu">,</span> </a>
+<a class="sourceLine" id="cb69-3" title="3">   <span class="dt">&quot;voornaam&quot;</span><span class="fu">:</span><span class="st">&quot;Rob&quot;</span> </a>
+<a class="sourceLine" id="cb69-4" title="4">  <span class="fu">}</span><span class="ot">,</span> </a>
+<a class="sourceLine" id="cb69-5" title="5">  <span class="fu">{</span><span class="dt">&quot;naam&quot;</span><span class="fu">:</span><span class="st">&quot;Franssen&quot;</span><span class="fu">,</span> </a>
+<a class="sourceLine" id="cb69-6" title="6">   <span class="dt">&quot;voornaam&quot;</span><span class="fu">:</span><span class="st">&quot;Ann&quot;</span></a>
+<a class="sourceLine" id="cb69-7" title="7">  <span class="fu">}</span></a>
+<a class="sourceLine" id="cb69-8" title="8"><span class="ot">]</span></a></code></pre></div>
+<ul>
+<li>Net als bij XML kan je met JSON complexe datastructuren voorstellen.</li>
+<li>Voorbeeld:</li>
+</ul>
+<div class="sourceCode" id="cb70"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb70-1" title="1"><span class="ot">[</span></a>
+<a class="sourceLine" id="cb70-2" title="2">  <span class="fu">{</span><span class="dt">&quot;naam&quot;</span><span class="fu">:</span><span class="st">&quot;Nelissen&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb70-3" title="3">   <span class="dt">&quot;voornaam&quot;</span><span class="fu">:</span> <span class="st">&quot;Rob&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb70-4" title="4">   <span class="dt">&quot;vakken&quot;</span><span class="fu">:</span> </a>
+<a class="sourceLine" id="cb70-5" title="5">    <span class="ot">[</span></a>
+<a class="sourceLine" id="cb70-6" title="6">      <span class="fu">{</span><span class="dt">&quot;naam&quot;</span><span class="fu">:</span><span class="st">&quot;Exploratieve en Descriptieve Data Analyse&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb70-7" title="7">       <span class="dt">&quot;academiejaar&quot;</span><span class="fu">:</span><span class="st">&quot;20162017&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb70-8" title="8">       <span class="dt">&quot;score_kans1&quot;</span><span class="fu">:</span><span class="dv">8</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb70-9" title="9">       <span class="dt">&quot;score_kans2&quot;</span><span class="fu">:</span><span class="dv">12</span></a>
+<a class="sourceLine" id="cb70-10" title="10">      <span class="fu">}</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb70-11" title="11">      <span class="fu">{</span><span class="dt">&quot;naam&quot;</span><span class="fu">:</span><span class="st">&quot;Macro-economie&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb70-12" title="12">       <span class="dt">&quot;academiejaar&quot;</span><span class="fu">:</span><span class="st">&quot;20152016&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb70-13" title="13">       <span class="dt">&quot;score_kans1&quot;</span><span class="fu">:</span><span class="dv">8</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb70-14" title="14">       <span class="dt">&quot;score_kans2&quot;</span><span class="fu">:</span><span class="dv">7</span></a>
+<a class="sourceLine" id="cb70-15" title="15">      <span class="fu">}</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb70-16" title="16">      <span class="fu">{</span><span class="dt">&quot;naam&quot;</span><span class="fu">:</span><span class="st">&quot;Macro-economie&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb70-17" title="17">       <span class="dt">&quot;academiejaar&quot;</span><span class="fu">:</span><span class="st">&quot;20162017&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb70-18" title="18">       <span class="dt">&quot;score_kans1&quot;</span><span class="fu">:</span><span class="dv">14</span></a>
+<a class="sourceLine" id="cb70-19" title="19">      <span class="fu">}</span></a>
+<a class="sourceLine" id="cb70-20" title="20">    <span class="ot">]</span></a>
+<a class="sourceLine" id="cb70-21" title="21">  <span class="fu">}</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb70-22" title="22">  <span class="fu">{</span><span class="dt">&quot;naam&quot;</span><span class="fu">:</span><span class="st">&quot;Franssen&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb70-23" title="23">   <span class="dt">&quot;voornaam&quot;</span><span class="fu">:</span> <span class="st">&quot;Ann&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb70-24" title="24">   <span class="dt">&quot;vakken&quot;</span><span class="fu">:</span> </a>
+<a class="sourceLine" id="cb70-25" title="25">    <span class="ot">[</span></a>
+<a class="sourceLine" id="cb70-26" title="26">      <span class="fu">{</span><span class="dt">&quot;naam&quot;</span><span class="fu">:</span><span class="st">&quot;Exploratieve en Descriptieve Data Analyse&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb70-27" title="27">       <span class="dt">&quot;academiejaar&quot;</span><span class="fu">:</span><span class="st">&quot;20162017&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb70-28" title="28">       <span class="dt">&quot;score_kans1&quot;</span><span class="fu">:</span><span class="dv">15</span></a>
+<a class="sourceLine" id="cb70-29" title="29">      <span class="fu">}</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb70-30" title="30">      <span class="fu">{</span><span class="dt">&quot;naam&quot;</span><span class="fu">:</span><span class="st">&quot;Macro-economie&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb70-31" title="31">       <span class="dt">&quot;academiejaar&quot;</span><span class="fu">:</span><span class="st">&quot;20162017&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb70-32" title="32">       <span class="dt">&quot;score_kans1&quot;</span><span class="fu">:</span><span class="dv">16</span></a>
+<a class="sourceLine" id="cb70-33" title="33">      <span class="fu">}</span></a>
+<a class="sourceLine" id="cb70-34" title="34">    <span class="ot">]</span></a>
+<a class="sourceLine" id="cb70-35" title="35">  <span class="fu">}</span></a>
+<a class="sourceLine" id="cb70-36" title="36"><span class="ot">]</span></a></code></pre></div>
+</div>
+</div>
+<div id="applicatie-specifieke-dataformaten-1" class="section level2">
+<h2><span class="header-section-number">9.5</span> Applicatie-specifieke dataformaten</h2>
+<ul>
+<li>Naast deze standaard dataformaten, waarbij data als tekstbestanden worden opgeslagen, bestaan er verschillende applicatie-specifieke dataformaten.</li>
+<li>Het voordeel van applicatie-specifieke dataformaten is dat deze extra informatie over de data kunnen opslaan die specifiek is voor de applicatie.
+<ul>
+<li>Zo zal een Excel databestand ook informatie bevatten over de formules en opmaak van de data (vet, cursief, …).</li>
+</ul></li>
+<li>Het nadeel van deze applicatie-specifieke dataformaten is dat ze niet altijd leesbaar zijn door andere applicaties.</li>
+</ul>
+</div>
+<div id="referenties-6" class="section level2">
+<h2><span class="header-section-number">9.6</span> Referenties</h2>
+<ul>
+<li><a href="http://kunststube.net/encoding/">Encoding</a></li>
+<li><a href="https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/">de geschiedenis van ASCII</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Windows_code_page">Windows code pages</a></li>
+<li><a href="http://r4ds.had.co.nz/data-import.html">Data importeren in R</a></li>
+<li><a href="https://www.techwalla.com/articles/what-is-a-delimited-a-fixed-width-file">Delimited en fixed-width bestanden</a></li>
+<li><a href="https://www.w3schools.com/xml/default.asp">XML</a></li>
+<li><a href="http://beginnersbook.com/2015/04/json-tutorial/">JSON Tutorial</a></li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="inleiding-2.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["lecture_notes_edda.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

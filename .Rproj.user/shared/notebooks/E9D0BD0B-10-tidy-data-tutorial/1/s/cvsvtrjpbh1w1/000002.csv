@@ -1,7 +1,0 @@
-"0","tidy_who %>%"
-"0","	filter(country == ""Belgium"") %>%"
-"0","	group_by(year) %>%"
-"0","	summarize(n_cases = sum(cases, na.rm = T))"
-"2","Error in tidy_who %>% filter(country == ""Belgium"") %>% group_by(year) %>%  : 
-  could not find function ""%>%""
-"

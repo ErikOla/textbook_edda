@@ -1,0 +1,279 @@
+# Importeren van data
+
+## Binair, decimaal en hexadecimaal rekenstelsel
+* Een computer kan slechts 2 waarden opslaan, typisch voorgesteld als 0 en 1. 
+* Iedere opslaglocatie op een computer kan dus slechts 2 verschillende waarden opslaan en wordt een bit genoemd.
+    * De afkorting van bit is de kleine letter 'b'.
+* Een rekenstelsel waarbij iedere locatie slechts 2 waarden kan voorstellen noemen we een binair rekenstelsel.
+    * Indien we 2 opslaglocaties (2 bits) gebruiken, kunnen we 4 verschillende waarden opslaan: 00, 01, 10 en 11.
+    * Indien we 3 bits gebruiken zijn er 8 mogelijke waarden, bij 4 bits zijn er 16 mogelijke waarden.
+    * Het aantal waarden dat men met $n$ bits kan opslaan is gelijk aan $2^n$.
+* Merk op dat in het rekenstelsel dat door mensen gebruikt wordt iedere opslaglocatie 10 verschillende waarden gebruikt kunnen worden (0, 1, 2, 3, 4, 5, 6, 7, 8, 9). 
+    * Dit noemen we het decimaal rekenstelsel.
+    * Met 2 opslaglocaties kunnen we in het decimaal rekenstelsel 100 (= $10^2$) waarden opslaan: van 00 tot 99.
+* Een ander rekenstelsel dat vaak gebruikt wordt binnen computerwetenschappen is het hexadecimaal rekenstelsel.
+    * In dit rekenstelsel kan iedere opslaglocatie 16 waardes opslaan, nl. 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E en F.
+    * Het hexadecimaal rekenstelsel is interessant omdat 1 locatie overeenstemt met 4 bit (4 locaties in het binair rekenstelsel).
+* Om in computerprogramma's aan te geven dat iets voorgesteld wordt in het hexadecimaal stelsel, laten we het voorafgaan door een 0x. Om aan te geven dat iets voorgesteld wordt in het binair stelsel, gebruiken we prefix 0b. Zonder prefix verwijzen we typisch naar het decimaal rekenstelsel.
+
+
+decimaal | hexadecimaal | binair
+:--------|:-------|:------------
+0 | 0x0 | 0b0000
+1 | 0x1 | 0b0001
+2 | 0x2 | 0b0010
+3 | 0x3 | 0b0011
+4 | 0x4 | 0b0100
+5 | 0x5 | 0b0101
+6 | 0x6 | 0b0110
+7 | 0x7 | 0b0111
+8 | 0x8 | 0b1000
+9 | 0x9 | 0b1001
+10 | 0xA | 0b1010
+11 | 0xB | 0b1011
+12 | 0xC | 0b1100
+13 | 0xD | 0b1101
+14 | 0xE | 0b1110
+15 | 0xF | 0b1111
+Tabel: conversietabel decimaal, hexadecimaal en binair.
+
+* 8 bits worden ook een byte genoemd wat afgekort wordt met de hoofdletter B. 1B bestaat dus uit 8b en kan dus 256 ($=2^8$) waarden opslaan. 
+
+## Tekst opslaan
+* Bestudeer de bron over [Encoding](http://kunststube.net/encoding/) tot sectie 'Encodings en PHP'.
+* Lees de bron over [de geschiedenis van ASCII](https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/) (enkel sectie 'A Historical Perspective').
+* Aangezien computers enkel bits kunnen opslaan, hebben we een conversieschema nodig om tekst op te slaan. Ieder letterteken zal moeten omgezet worden naar een string van bits. Dit conversieschema wordt een 'encoding scheme' of encoderingsschema genoemd.
+* Ieder encoderingsschema voorziet de vertaling van een specifieke set van karakters naar bijhorende bitstrings. Deze sets van karakters noemen we 'character sets' of karaktersets.
+* Er bestaan zeer veel encoderingsschema's.
+    * ASCII is een van de oudste encoderingsschema's en is voornamelijk bruikbaar voor Engelstalige tekst. 
+        * De ASCII karakterset bestaat uit 128 lettertekens en bevat o.a. de cijfers 0 tot 9, de letters a-z en A-Z. 
+        * ASCII gebruikt 1 byte per letterteken en kan dus in principe 256 verschillende lettertekens opslaan. 
+        * Aangezien ASCII slechts een karakterset van 128 tekens heeft, gebruikt het dus slechts 7 bit van de beschikbare byte ($2^7 = 128$).
+        * Omdat de ASCII tekenset gemaakt was voor de Engelse taal ontbreken er verschillende tekens voor andere talen. 
+    * De ANSI-standaard nam de ASCII tekenset over, maar voegt hier vervolgens 128 tekens aan toe door de volledige byte te gebruiken.
+        * Met welke tekens de karaketerset wordt uitgebreid ligt echter niet vast binnen de ANSI-standaard, maar is afhankelijk van de gekozen codepage (of karakterset).
+        * Er bestaan zeer veel ANSI codepages (die eigenlijk Windows codepages genoemd moeten worden). Voor de eerste 128 tekens maakt de specifieke codepage niet uit, maar voor de laatste 128 code pages is dit wel belangrijk.
+    * Voor talen waar 1 byte per letterteken onvoldoende is, werden dan weer nieuwe encoderingsschema's gebruikt die 2 bytes gebruiken en zo 65536 lettertekens kunnen voorstellen.
+    * Unicode is een poging om tot 1 karakterset te komen voor alle tekens die gebruikt worden in tekst. 
+        * Unicode zelf definieert geen encodering. Ze vertaalt dus zelf geen lettertekens naar bitstrings.
+        * Unicode legt wel codepoints vast, wat een mapping is tussen lettertekens en een hexadecimaal getal. 
+        * Het Unicode systeem bevat in totaal meer dan 1 miljoen codepoints.
+        * De feitelijke omzetting van de codepoints naar een bitstring gebeurt door een specifieke encodering, waarbij UTF-8 de meest voorkomende is.
+* Het gevolg is dat we een grote waaier aan encoderingsschema's hebben.
+    * Als je dus een tekst opslaat volgens het ene encoderingsschema en vervolgens terug inleest volgens een ander encoderingsschema, dan kan het zijn dat delen van de tekst geen steek meer houden. 
+* Het R-package 'readr' gaat er van uit dat tekst geëncodeerd is in UTF-8.
+
+
+## Flat-file databestanden
+* Lees de bron over [delimited en fixed-width bestanden](https://www.techwalla.com/articles/what-is-a-delimited-a-fixed-width-file).
+* Flat-file databestanden bevatten data die in een tabelvorm passen:
+    * Iedere rij is een observatie.
+    * Iedere kolom stelt een variabele voor.
+    * Alle items in een kolom zijn van hetzelfde soort.
+    * Cellen van de tabel bevatten enkelvoudige gegevens (dus niet een kolom hobby's met hierin meerdere hobby's in 1 cel).
+    * De volgorde van de kolommen is niet van belang.
+    * De volgorde van de rijen is niet belang.
+* Volgende data kan dus in een flat-file bestand opgeslagen worden:
+
+naam | voornaam
+:----|:--------
+Nelissen | Rob
+Franssen | Ann
+
+* De twee meest gebruikte formaten voor flat-file databestanden zijn delimited en fixed-width bestanden.
+* Een delimited bestand (vaak ook wel csv-bestand of comma-separated values bestand genoemd): 
+    * gebruikt voor iedere rij een nieuwe regel,
+    * splitst de kolommen op met behulp van een specifiek splitsingsteken (vaak de komma of de puntkomma),
+    * kan het begin en het einde van een karakterstring met behulp van een specifiek quote-teken (vaak ' of ") aanduiden.
+* Bovenstaande tabel kan ls een delimited databestand opgeslagen ziet er dan als volgt uit:
+
+```
+naam;voornaam
+Nelissen;Rob
+Franssen;Ann
+```
+
+* Een fixed-width bestand gebruikt eveneens een aparte regel per rij, maar gebruikt een vast aantal karakters per kolom en heeft dus geen splitsingsteken, noch quote-teken nodig.
+* Bovenstaande tabel kan als een fixed-width databestand opgeslagen ziet er dan als volgt uit:
+
+```
+naam     voornaam
+Nelissen Rob
+Franssen Ann
+```
+
+* Het nadeel van een delimited bestand is dat je het splitsings- en quote-teken niet kunt gebruiken in je data.
+* Het voordeel van een delimited bestand is dat een veld niet meer ruimte in beslag neemt dan nodig.
+* Bestudeer hoofdstuk [Data Import](http://r4ds.had.co.nz/data-import.html) van het boek 'R for Data Science' om te weten hoe je in R data uit flat-file bestanden kunt inlezen.
+
+## Hiërarchische databestanden
+* Het nadeel van flat-file data bestanden is dat de data in een tabelvorm moet passen. 
+* Indien data een complexere (vaak hiërarchische) structuur heeft, dan is dit niet evident om correct in een tabelvorm te gieten.
+    * Je hebt bijvoorbeeld data over de studenten en van iedere student heb je naamgegevens en de resultaten van de verschillende afgelegde vakken. 
+    * Het aantal afgelegde vakken verschilt echter van student tot student.
+    * Ook per student kan het aantal opgenomen kansen per vak verschillen van vak tot vak.
+    * Het aantal scores per student kan hierdoor sterk variëren. 
+* Voor hiërarchische databestanden wordt daarom vaak gebruikt gemaakt van XML-bestanden of JSON-bestanden. 
+* XML- en JSON-bestanden zijn ook zeer populair om gegevens via het web uit te wisselen.
+
+### XML-bestanden
+* Bestudeer de bron over [XML](https://www.w3schools.com/xml/default.asp) (tot en met XML attributes) om te begrijpen hoe een XML-bestand is opgebouwd.
+* Een XML-bestand bestaat uit XML-elementen.
+    * De naam van het XML-element wordt bepaald door het openings- en sluitingslabel. 
+    * Het openingslabel volgt het formaat `<element-naam>`.
+    * Het sluitingslabel heeft dezelfde naam en volgt het formaat `</element-naam>`.
+    * Tussen het openings- en sluitingslabel plaatsen we de inhoud van het XML-element.
+* Voorbeeld: `<student>Rob Nelissen</student>`.
+    * Hier wordt het XML-element student gedefinieerd.
+    * De inhoud van dit XML-element is Rob Nelissen.
+* De inhoud van een XML-element kan ook bestaan uit andere XML-elementen. Op deze manier kan je volledige tabellen in XML opslaan. Onderstaande voorbeeld is de vertaling van voorgaande data in tabelvorm naar XML.
+* Voorbeeld:
+```{.xml}
+<studenten>
+  <student>
+    <naam>Nelissen</naam>
+    <voornaam>Rob</naam>
+  </student>
+  <student>
+    <naam>Franssen</naam>
+    <voornaam>Ann</voornaam>
+  </student>
+</studenten>
+```
+* Zoals blijkt uit de vergelijking tussen de XML-representatie en voorgaande flat-file representaties, bevat een XML-bestand redelijk veel overhead om tabelvorm-data op te slaan. 
+* De kracht van XML ten opzichte van de flat-file bestanden is echter dat je veel complexere datastructuren kunt opslaan. Onderstaand voorbeeld opslaan in een tabelvorm (en dus flat-files) is allesbehalve evident.
+* Voorbeeld:
+```{.xml}
+<studenten>
+  <student>
+    <naam>Nelissen</naam>
+    <voornaam>Rob</naam>
+    <vakken>
+      <vak>
+        <naam>Exploratieve en Descriptieve Data Analyse</naam>
+        <academiejaar>20162017</academiejaar>
+        <score_kans1>8</score_kans1>
+        <score_kans2>12</score_kans2>
+      </vak>
+      <vak>
+        <naam>Macro-economie</naam>
+        <academiejaar>20152016</academiejaar>
+        <score_kans1>8</score_kans1>
+        <score_kans2>7</score_kans2>
+      </vak>
+      <vak>
+        <naam>Macro-economie</naam>
+        <academiejaar>20162017</academiejaar>
+        <score_kans1>14</score_kans1>
+      </vak>
+      ...
+    </vakken>
+  </student>
+  <student>
+    <naam>Franssen</naam>
+    <voornaam>Ann</voornaam>
+    <vakken>
+      <vak>
+        <naam>Exploratieve en Descriptieve Data Analyse</naam>
+        <academiejaar>20162017</academiejaar>
+        <score_kans1>15</score_kans1>
+      </vak>
+      <vak>
+        <naam>Macro-economie</naam>
+        <academiejaar>20162017</academiejaar>
+        <score_kans1>16</score_kans1>
+      </vak>
+      ...
+    </vakken>
+  </student>
+  ...
+</studenten>
+``` 
+
+
+### JSON-bestanden
+* Bestudeer de [JSON Tutorial](http://beginnersbook.com/2015/04/json-tutorial/) om te begrijpen hoe een JSON-bestand is opgebouwd.
+* JSON is een ander formaat dat steeds populairder wordt om hiërarchische data op te slaan en uit te wisselen.
+    * In vergelijking met XML is JSON korter en eenvoudiger te lezen.
+* Een JSON-bestand bestaat voornamelijk uit JSON-objecten en JSON-lijsten.
+* JSON-objecten komen typisch overeen met een observatie (rij) in een dataset.
+    * Een JSON-object wordt omsloten door accolades.
+    * De inhoud van een JSON-object bestaat uit key-value paren.
+        * De key-value paren zijn van elkaar gescheiden door middel van een komma.
+        * De key is een string omsloten door dubbele aanhalingstekens en geeft aan wat de value voorstelt. 
+        * Key en value zijn van elkaar gescheiden door middel van een dubbelpunt.
+* Voorbeelden van een JSON-object dat de student Rob Nelissen voorstelt:
+    * `{"naam":"Nelissen", "voornaam":"Rob"}`
+* Een JSON-lijst (array genoemd) bestaat uit een lijst van waarden gescheiden door een komma en omgeven door rechte haakjes.
+    * De waarden van de verschillende elementen in een JSON-lijst moeten van hetzelfde type zijn.
+    * Toegelaten waarden zijn o.a. strings, getallen, objecten, andere arrays (lijsten).
+* Indien je data in tabelvorm wenst voor te stellen, zal je iedere rij als een JSON-object voorstellen en de volledige tabel als een lijst van deze JSON-objecten.
+* Onderstaand voorbeeld is de vertaling van voorgaande studentendata in tabelvorm naar JSON.
+
+```{.json}
+[
+  {"naam":"Nelissen", 
+   "voornaam":"Rob" 
+  }, 
+  {"naam":"Franssen", 
+   "voornaam":"Ann"
+  }
+]
+```
+
+* Net als bij XML kan je met JSON complexe datastructuren voorstellen.
+* Voorbeeld:
+```{.json}
+[
+  {"naam":"Nelissen",
+   "voornaam": "Rob",
+   "vakken": 
+    [
+      {"naam":"Exploratieve en Descriptieve Data Analyse",
+       "academiejaar":"20162017",
+       "score_kans1":8,
+       "score_kans2":12
+      },
+      {"naam":"Macro-economie",
+       "academiejaar":"20152016",
+       "score_kans1":8,
+       "score_kans2":7
+      },
+      {"naam":"Macro-economie",
+       "academiejaar":"20162017",
+       "score_kans1":14
+      }
+    ]
+  },
+  {"naam":"Franssen",
+   "voornaam": "Ann",
+   "vakken": 
+    [
+      {"naam":"Exploratieve en Descriptieve Data Analyse",
+       "academiejaar":"20162017",
+       "score_kans1":15
+      },
+      {"naam":"Macro-economie",
+       "academiejaar":"20162017",
+       "score_kans1":16
+      }
+    ]
+  }
+]
+
+```
+
+## Applicatie-specifieke dataformaten
+* Naast deze standaard dataformaten, waarbij data als tekstbestanden worden opgeslagen, bestaan er verschillende applicatie-specifieke dataformaten.
+* Het voordeel van applicatie-specifieke dataformaten is dat deze extra informatie over de data kunnen opslaan die specifiek is voor de applicatie.
+    * Zo zal een Excel databestand ook informatie bevatten over de formules en opmaak van de data (vet, cursief, ...).
+* Het nadeel van deze applicatie-specifieke dataformaten is dat ze niet altijd leesbaar zijn door andere applicaties.
+
+## Referenties
+* [Encoding](http://kunststube.net/encoding/)
+* [de geschiedenis van ASCII](https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/)
+* [Windows code pages](https://en.wikipedia.org/wiki/Windows_code_page)
+* [Data importeren in R](http://r4ds.had.co.nz/data-import.html)
+* [Delimited en fixed-width bestanden](https://www.techwalla.com/articles/what-is-a-delimited-a-fixed-width-file)
+* [XML](https://www.w3schools.com/xml/default.asp)
+* [JSON Tutorial](http://beginnersbook.com/2015/04/json-tutorial/)

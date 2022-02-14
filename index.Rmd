@@ -1,6 +1,6 @@
 --- 
 title: "Exploratieve en Descriptieve Data Analyse"
-author: "Gert Janssenswillen, Benoît Depaire"
+author: Gert Janssenswillen, Benoît Depaire
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]

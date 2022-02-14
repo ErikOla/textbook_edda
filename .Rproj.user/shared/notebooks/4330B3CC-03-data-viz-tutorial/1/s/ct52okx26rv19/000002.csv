@@ -1,2 +1,0 @@
-"0","ggplot(movies) +"
-"0","	geom_histogram(aes(rating), color = ""black"", fill = ""white"")"

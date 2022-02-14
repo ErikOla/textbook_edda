@@ -1,3 +1,0 @@
-"0","who %>%"
-"0","	gather(key = type, value = cases, -country:-year) %>%"
-"0","	select(-iso2, -iso3)"

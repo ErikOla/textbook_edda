@@ -1,4 +1,0 @@
-"0","survey_md %>%"
-"0","	ggplot(aes(party, fill = tv_missing)) +"
-"0","	geom_bar(position = ""fill"") +"
-"0","	coord_flip()"

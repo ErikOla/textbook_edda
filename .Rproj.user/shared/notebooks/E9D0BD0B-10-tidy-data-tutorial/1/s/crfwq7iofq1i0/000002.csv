@@ -1,3 +1,0 @@
-"0","gapminder %>%"
-"0","	select(country, year, pop, continent) %>%"
-"0","	spread(year, pop) -> yearly_population"

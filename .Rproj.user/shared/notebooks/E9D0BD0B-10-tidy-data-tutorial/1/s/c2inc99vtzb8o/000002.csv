@@ -1,2 +1,0 @@
-"0","yearly_population %>%"
-"0","	gather(key = time, value = population, -country, -continent)"

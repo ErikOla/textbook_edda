@@ -1,5 +1,0 @@
-"0","survey %>%"
-"0","	ggplot(aes(tv_hours)) +"
-"0","	geom_histogram(binwidth = 1,"
-"0","				   color = ""white"", fill = ""dodgerblue4"") +"
-"0","	theme_light()"

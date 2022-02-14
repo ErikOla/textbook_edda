@@ -1,0 +1,12 @@
+book_filename: "lecture_notes_edda"
+chapter_name: "Hoofdstuk "
+output_dir: docs
+rmd_subdir: true
+rmd_files: ["index.Rmd", 
+"lecture_1_introduction_to_data_science/01_introduction_to_edda_lecture_notes.Rmd",
+"lecture_2_data_types_and_data_plots/lecture_notes.Rmd",
+"lecture_4_descriptive_statistics/lecture_notes.Rmd",
+"lecture_5_data_preparation/lecture_notes.Rmd",
+"lecture_6_time_data/lecture_notes.Rmd",
+"lecture_7_tidy_data/lecture_notes.Rmd"]
+documentclass: book

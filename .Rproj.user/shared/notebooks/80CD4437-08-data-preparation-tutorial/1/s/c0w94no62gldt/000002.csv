@@ -1,2 +1,0 @@
-"0","survey %>%"
-"0","	mutate(tv_hours = ifelse(tv_hours > 8, NA, tv_hours)) -> survey"

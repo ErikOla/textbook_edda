@@ -1,3 +1,0 @@
-"0","survey %>%"
-"0","	mutate(age_missing = is.na(age),"
-"0","		   tv_missing = is.na(tv_hours)) -> survey_md"

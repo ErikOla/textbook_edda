@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Hoofdstuk 6 Exploratieve analyse van tijdgerelateerde data | Lecture Notes voor Exploratieve en Descriptieve Data Analyse</title>
+  <meta name="description" content="Dit zijn de lecture notes van het opleidingsonderdeel Exploratieve en Descriptieve Data Analyse" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Hoofdstuk 6 Exploratieve analyse van tijdgerelateerde data | Lecture Notes voor Exploratieve en Descriptieve Data Analyse" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://bookdown.org/benoit.depaire/lecture_notes_edda/" />
+  
+  <meta property="og:description" content="Dit zijn de lecture notes van het opleidingsonderdeel Exploratieve en Descriptieve Data Analyse" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Hoofdstuk 6 Exploratieve analyse van tijdgerelateerde data | Lecture Notes voor Exploratieve en Descriptieve Data Analyse" />
+  
+  <meta name="twitter:description" content="Dit zijn de lecture notes van het opleidingsonderdeel Exploratieve en Descriptieve Data Analyse" />
+  
+
+<meta name="author" content="B. Depaire" />
+
+
+<meta name="date" content="2020-01-21" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="datavoorbereiding.html"/>
+<link rel="next" href="tidy-data.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Lecture Notes Beleidsinformatica</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Voorwoord</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#hoe-deze-lecture-notes-te-gebruiken"><i class="fa fa-check"></i>Hoe deze lecture notes te gebruiken</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#over-de-auteur"><i class="fa fa-check"></i>Over de auteur</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><i class="fa fa-check"></i><b>1</b> Inleiding tot exploratieve data analyse in de bedrijfswereld</a><ul>
+<li class="chapter" data-level="1.1" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#netflix"><i class="fa fa-check"></i><b>1.1</b> Netflix</a></li>
+<li class="chapter" data-level="1.2" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#waar-wordt-data-voor-gebruikt-in-de-bedrijfswereld"><i class="fa fa-check"></i><b>1.2</b> Waar wordt data voor gebruikt in de bedrijfswereld?</a><ul>
+<li class="chapter" data-level="" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#geschiedenis-bijhouden"><i class="fa fa-check"></i>Geschiedenis bijhouden</a></li>
+<li class="chapter" data-level="" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#dagelijkse-werking"><i class="fa fa-check"></i>Dagelijkse werking</a></li>
+<li class="chapter" data-level="" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#beslissingen-nemen"><i class="fa fa-check"></i>Beslissingen nemen</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#hoeveel-data-is-er-beschikbaar"><i class="fa fa-check"></i><b>1.3</b> Hoeveel data is er beschikbaar?</a></li>
+<li class="chapter" data-level="1.4" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#waar-komt-data-vandaan"><i class="fa fa-check"></i><b>1.4</b> Waar komt data vandaan?</a></li>
+<li class="chapter" data-level="1.5" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#waarover-verzamelen-bedrijven-data"><i class="fa fa-check"></i><b>1.5</b> Waarover verzamelen bedrijven data</a></li>
+<li class="chapter" data-level="1.6" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#van-data-tot-actionable-insights"><i class="fa fa-check"></i><b>1.6</b> Van data tot ‘actionable insights’</a></li>
+<li class="chapter" data-level="1.7" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#data-scientists"><i class="fa fa-check"></i><b>1.7</b> Data Scientists</a></li>
+<li class="chapter" data-level="1.8" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#verschillende-soorten-van-data-analyse"><i class="fa fa-check"></i><b>1.8</b> Verschillende soorten van data analyse</a><ul>
+<li class="chapter" data-level="" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#descriptieve-data-analyse"><i class="fa fa-check"></i>Descriptieve data analyse</a></li>
+<li class="chapter" data-level="" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#exploratieve-data-analyse"><i class="fa fa-check"></i>Exploratieve data analyse</a></li>
+<li class="chapter" data-level="" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#confirmatorische-data-analyse"><i class="fa fa-check"></i>Confirmatorische data analyse</a></li>
+<li class="chapter" data-level="" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#predictieve-data-analyse"><i class="fa fa-check"></i>Predictieve data analyse</a></li>
+</ul></li>
+<li class="chapter" data-level="1.9" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#de-kunst-van-data-analyse"><i class="fa fa-check"></i><b>1.9</b> De kunst van data analyse</a></li>
+<li class="chapter" data-level="1.10" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#de-kracht-van-descriptieve-en-exploratieve-data-analyse"><i class="fa fa-check"></i><b>1.10</b> De kracht van descriptieve en exploratieve data analyse</a></li>
+<li class="chapter" data-level="1.11" data-path="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html"><a href="inleiding-tot-exploratieve-data-analyse-in-de-bedrijfswereld.html#referenties"><i class="fa fa-check"></i><b>1.11</b> Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html"><i class="fa fa-check"></i><b>2</b> Datatypes en datavisualisatie</a><ul>
+<li class="chapter" data-level="2.1" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#data"><i class="fa fa-check"></i><b>2.1</b> Data</a></li>
+<li class="chapter" data-level="2.2" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#dataset"><i class="fa fa-check"></i><b>2.2</b> Dataset</a></li>
+<li class="chapter" data-level="2.3" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#klassieke-datatypologie"><i class="fa fa-check"></i><b>2.3</b> Klassieke datatypologie</a><ul>
+<li class="chapter" data-level="" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#nominaal"><i class="fa fa-check"></i>Nominaal</a></li>
+<li class="chapter" data-level="" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#ordinaal"><i class="fa fa-check"></i>Ordinaal</a></li>
+<li class="chapter" data-level="" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#interval"><i class="fa fa-check"></i>Interval</a></li>
+<li class="chapter" data-level="" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#ratio"><i class="fa fa-check"></i>Ratio</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#de-klassieke-datatypologie-is-misleidend"><i class="fa fa-check"></i><b>2.4</b> De klassieke datatypologie is misleidend</a></li>
+<li class="chapter" data-level="2.5" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#alternatieve-datatypologie"><i class="fa fa-check"></i><b>2.5</b> Alternatieve datatypologie</a></li>
+<li class="chapter" data-level="2.6" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#datavisualisatie"><i class="fa fa-check"></i><b>2.6</b> Datavisualisatie</a></li>
+<li class="chapter" data-level="2.7" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#datavisualisatie-van-1-variabele-univariaat"><i class="fa fa-check"></i><b>2.7</b> Datavisualisatie van 1 variabele (univariaat)</a><ul>
+<li class="chapter" data-level="2.7.1" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#categorische-variabele"><i class="fa fa-check"></i><b>2.7.1</b> Categorische variabele</a></li>
+<li class="chapter" data-level="2.7.2" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#continue-variabele"><i class="fa fa-check"></i><b>2.7.2</b> Continue variabele</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#datavisualisatie-van-2-variabelen"><i class="fa fa-check"></i><b>2.8</b> Datavisualisatie van 2 variabelen</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#situatie-1-de-onafhankelijke-variabele-is-categorisch"><i class="fa fa-check"></i><b>2.8.1</b> Situatie 1: De onafhankelijke variabele is categorisch</a></li>
+<li class="chapter" data-level="2.8.2" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#situatie-2-de-onafhankelijke-variabele-is-continue"><i class="fa fa-check"></i><b>2.8.2</b> Situatie 2: De onafhankelijke variabele is continue</a></li>
+<li class="chapter" data-level="2.8.3" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#situatie-3-de-onafhankelijke-variabele-stelt-de-tijd-voor"><i class="fa fa-check"></i><b>2.8.3</b> Situatie 3: De onafhankelijke variabele stelt de tijd voor</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#datavisualisatie-met-meer-dan-2-variabelen"><i class="fa fa-check"></i><b>2.9</b> Datavisualisatie met meer dan 2 variabelen</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#onafhankelijke-variabele-b-2de-orde-is-categorisch."><i class="fa fa-check"></i><b>2.9.1</b> Onafhankelijke variabele B (2de orde) is categorisch.</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="datatypes-en-datavisualisatie.html"><a href="datatypes-en-datavisualisatie.html#referenties-1"><i class="fa fa-check"></i><b>2.10</b> Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="beschrijvende-statistieken.html"><a href="beschrijvende-statistieken.html"><i class="fa fa-check"></i><b>3</b> Beschrijvende statistieken</a><ul>
+<li class="chapter" data-level="3.1" data-path="beschrijvende-statistieken.html"><a href="beschrijvende-statistieken.html#beschrijvende-statistieken-versus-exploratieve-plots"><i class="fa fa-check"></i><b>3.1</b> Beschrijvende statistieken versus exploratieve plots</a></li>
+<li class="chapter" data-level="3.2" data-path="beschrijvende-statistieken.html"><a href="beschrijvende-statistieken.html#notatie"><i class="fa fa-check"></i><b>3.2</b> Notatie</a></li>
+<li class="chapter" data-level="3.3" data-path="beschrijvende-statistieken.html"><a href="beschrijvende-statistieken.html#data-1"><i class="fa fa-check"></i><b>3.3</b> Data</a></li>
+<li class="chapter" data-level="3.4" data-path="beschrijvende-statistieken.html"><a href="beschrijvende-statistieken.html#univariate-statistieken"><i class="fa fa-check"></i><b>3.4</b> Univariate statistieken</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="beschrijvende-statistieken.html"><a href="beschrijvende-statistieken.html#categorische-variabele-1"><i class="fa fa-check"></i><b>3.4.1</b> Categorische variabele</a></li>
+<li class="chapter" data-level="3.4.2" data-path="beschrijvende-statistieken.html"><a href="beschrijvende-statistieken.html#continue-variabele-1"><i class="fa fa-check"></i><b>3.4.2</b> Continue variabele</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="beschrijvende-statistieken.html"><a href="beschrijvende-statistieken.html#bivariate-statistieken"><i class="fa fa-check"></i><b>3.5</b> Bivariate statistieken</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="beschrijvende-statistieken.html"><a href="beschrijvende-statistieken.html#continu-versus-continu"><i class="fa fa-check"></i><b>3.5.1</b> Continu versus Continu</a></li>
+<li class="chapter" data-level="3.5.2" data-path="beschrijvende-statistieken.html"><a href="beschrijvende-statistieken.html#categorisch-versus-continu"><i class="fa fa-check"></i><b>3.5.2</b> Categorisch versus Continu</a></li>
+<li class="chapter" data-level="3.5.3" data-path="beschrijvende-statistieken.html"><a href="beschrijvende-statistieken.html#categorisch-versus-categorisch"><i class="fa fa-check"></i><b>3.5.3</b> Categorisch versus Categorisch</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="beschrijvende-statistieken.html"><a href="beschrijvende-statistieken.html#referenties-2"><i class="fa fa-check"></i>Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="exploratief-data-analyse-proces.html"><a href="exploratief-data-analyse-proces.html"><i class="fa fa-check"></i><b>4</b> Exploratief Data Analyse Proces</a></li>
+<li class="chapter" data-level="5" data-path="datavoorbereiding.html"><a href="datavoorbereiding.html"><i class="fa fa-check"></i><b>5</b> Datavoorbereiding</a><ul>
+<li class="chapter" data-level="5.1" data-path="datavoorbereiding.html"><a href="datavoorbereiding.html#beginnen-bij-het-begin"><i class="fa fa-check"></i><b>5.1</b> Beginnen bij het begin</a></li>
+<li class="chapter" data-level="5.2" data-path="datavoorbereiding.html"><a href="datavoorbereiding.html#data-inlezen"><i class="fa fa-check"></i><b>5.2</b> Data inlezen</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="datavoorbereiding.html"><a href="datavoorbereiding.html#uitdagingen-bij-het-correct-inlezen-van-data"><i class="fa fa-check"></i><b>5.2.1</b> Uitdagingen bij het correct inlezen van data</a></li>
+<li class="chapter" data-level="5.2.2" data-path="datavoorbereiding.html"><a href="datavoorbereiding.html#dataformaten"><i class="fa fa-check"></i><b>5.2.2</b> Dataformaten</a></li>
+<li class="chapter" data-level="5.2.3" data-path="datavoorbereiding.html"><a href="datavoorbereiding.html#data-encodering"><i class="fa fa-check"></i><b>5.2.3</b> Data-encodering</a></li>
+<li class="chapter" data-level="5.2.4" data-path="datavoorbereiding.html"><a href="datavoorbereiding.html#datatypes-controlleren-en-corrigeren"><i class="fa fa-check"></i><b>5.2.4</b> Datatypes controlleren en corrigeren</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="datavoorbereiding.html"><a href="datavoorbereiding.html#dataproblemen-identificeren-en-corrigeren"><i class="fa fa-check"></i><b>5.3</b> Dataproblemen identificeren en corrigeren</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="datavoorbereiding.html"><a href="datavoorbereiding.html#overzicht"><i class="fa fa-check"></i><b>5.3.1</b> Overzicht</a></li>
+<li class="chapter" data-level="5.3.2" data-path="datavoorbereiding.html"><a href="datavoorbereiding.html#foutieve-waarden"><i class="fa fa-check"></i><b>5.3.2</b> Foutieve waarden</a></li>
+<li class="chapter" data-level="5.3.3" data-path="datavoorbereiding.html"><a href="datavoorbereiding.html#ontbrekende-waarden"><i class="fa fa-check"></i><b>5.3.3</b> Ontbrekende waarden</a></li>
+<li class="chapter" data-level="5.3.4" data-path="datavoorbereiding.html"><a href="datavoorbereiding.html#inconsistente-waarden"><i class="fa fa-check"></i><b>5.3.4</b> Inconsistente waarden</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="datavoorbereiding.html"><a href="datavoorbereiding.html#data-opwaarderen"><i class="fa fa-check"></i><b>5.4</b> Data opwaarderen</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="datavoorbereiding.html"><a href="datavoorbereiding.html#sampling"><i class="fa fa-check"></i><b>5.4.1</b> Sampling</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="datavoorbereiding.html"><a href="datavoorbereiding.html#referenties-3"><i class="fa fa-check"></i>Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="exploratieve-analyse-van-tijdgerelateerde-data.html"><a href="exploratieve-analyse-van-tijdgerelateerde-data.html"><i class="fa fa-check"></i><b>6</b> Exploratieve analyse van tijdgerelateerde data</a><ul>
+<li class="chapter" data-level="6.1" data-path="exploratieve-analyse-van-tijdgerelateerde-data.html"><a href="exploratieve-analyse-van-tijdgerelateerde-data.html#inleiding"><i class="fa fa-check"></i><b>6.1</b> Inleiding</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="exploratieve-analyse-van-tijdgerelateerde-data.html"><a href="exploratieve-analyse-van-tijdgerelateerde-data.html#tijdstippen-versus-periodes"><i class="fa fa-check"></i><b>6.1.1</b> Tijdstippen versus periodes</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="exploratieve-analyse-van-tijdgerelateerde-data.html"><a href="exploratieve-analyse-van-tijdgerelateerde-data.html#tijdstippen"><i class="fa fa-check"></i><b>6.2</b> Tijdstippen</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="exploratieve-analyse-van-tijdgerelateerde-data.html"><a href="exploratieve-analyse-van-tijdgerelateerde-data.html#creatie-van-tijdstippen"><i class="fa fa-check"></i><b>6.2.1</b> Creatie van tijdstippen</a></li>
+<li class="chapter" data-level="6.2.2" data-path="exploratieve-analyse-van-tijdgerelateerde-data.html"><a href="exploratieve-analyse-van-tijdgerelateerde-data.html#extractie-van-tijdstipinformatie"><i class="fa fa-check"></i><b>6.2.2</b> Extractie van tijdstipinformatie</a></li>
+<li class="chapter" data-level="6.2.3" data-path="exploratieve-analyse-van-tijdgerelateerde-data.html"><a href="exploratieve-analyse-van-tijdgerelateerde-data.html#afronden-van-tijdstippen"><i class="fa fa-check"></i><b>6.2.3</b> Afronden van tijdstippen</a></li>
+<li class="chapter" data-level="6.2.4" data-path="exploratieve-analyse-van-tijdgerelateerde-data.html"><a href="exploratieve-analyse-van-tijdgerelateerde-data.html#case-nyc-vluchten-2013"><i class="fa fa-check"></i><b>6.2.4</b> Case: NYC Vluchten 2013</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="exploratieve-analyse-van-tijdgerelateerde-data.html"><a href="exploratieve-analyse-van-tijdgerelateerde-data.html#periode-data"><i class="fa fa-check"></i><b>6.3</b> Periode-data</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="exploratieve-analyse-van-tijdgerelateerde-data.html"><a href="exploratieve-analyse-van-tijdgerelateerde-data.html#interval-1"><i class="fa fa-check"></i><b>6.3.1</b> Interval</a></li>
+<li class="chapter" data-level="6.3.2" data-path="exploratieve-analyse-van-tijdgerelateerde-data.html"><a href="exploratieve-analyse-van-tijdgerelateerde-data.html#duration"><i class="fa fa-check"></i><b>6.3.2</b> Duration</a></li>
+<li class="chapter" data-level="6.3.3" data-path="exploratieve-analyse-van-tijdgerelateerde-data.html"><a href="exploratieve-analyse-van-tijdgerelateerde-data.html#period"><i class="fa fa-check"></i><b>6.3.3</b> Period</a></li>
+<li class="chapter" data-level="6.3.4" data-path="exploratieve-analyse-van-tijdgerelateerde-data.html"><a href="exploratieve-analyse-van-tijdgerelateerde-data.html#case-nyc-vluchten-2013-1"><i class="fa fa-check"></i><b>6.3.4</b> Case: NYC vluchten 2013</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="exploratieve-analyse-van-tijdgerelateerde-data.html"><a href="exploratieve-analyse-van-tijdgerelateerde-data.html#analyseren-van-tijdgerelateerde-data"><i class="fa fa-check"></i><b>6.4</b> Analyseren van tijdgerelateerde data</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="exploratieve-analyse-van-tijdgerelateerde-data.html"><a href="exploratieve-analyse-van-tijdgerelateerde-data.html#case-nyc-vluchten-2013-2"><i class="fa fa-check"></i><b>6.4.1</b> Case: NYC Vluchten 2013</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="exploratieve-analyse-van-tijdgerelateerde-data.html"><a href="exploratieve-analyse-van-tijdgerelateerde-data.html#referenties-4"><i class="fa fa-check"></i><b>6.5</b> Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>7</b> Tidy Data</a><ul>
+<li class="chapter" data-level="7.1" data-path="tidy-data.html"><a href="tidy-data.html#inleiding-1"><i class="fa fa-check"></i><b>7.1</b> Inleiding</a></li>
+<li class="chapter" data-level="7.2" data-path="tidy-data.html"><a href="tidy-data.html#case-nyc-vluchten-2013-3"><i class="fa fa-check"></i><b>7.2</b> Case: NYC Vluchten 2013</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="tidy-data.html"><a href="tidy-data.html#datasets-samenvoegen"><i class="fa fa-check"></i><b>7.2.1</b> Datasets samenvoegen</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="tidy-data.html"><a href="tidy-data.html#data-in-een-lang-formaat-plaatsen-voor-visuele-analyses"><i class="fa fa-check"></i><b>7.3</b> Data in een lang formaat plaatsen (voor visuele analyses)</a></li>
+<li class="chapter" data-level="7.4" data-path="tidy-data.html"><a href="tidy-data.html#data-in-een-breed-formaat-plaatsen-voor-overzichtelijke-tabellen"><i class="fa fa-check"></i><b>7.4</b> Data in een breed formaat plaatsen (voor overzichtelijke tabellen)</a></li>
+<li class="chapter" data-level="7.5" data-path="tidy-data.html"><a href="tidy-data.html#referenties-5"><i class="fa fa-check"></i><b>7.5</b> Referenties</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="inleiding-2.html"><a href="inleiding-2.html"><i class="fa fa-check"></i><b>8</b> Inleiding</a></li>
+<li class="chapter" data-level="9" data-path="importeren-van-data.html"><a href="importeren-van-data.html"><i class="fa fa-check"></i><b>9</b> Importeren van data</a><ul>
+<li class="chapter" data-level="9.1" data-path="importeren-van-data.html"><a href="importeren-van-data.html#binair-decimaal-en-hexadecimaal-rekenstelsel-1"><i class="fa fa-check"></i><b>9.1</b> Binair, decimaal en hexadecimaal rekenstelsel</a></li>
+<li class="chapter" data-level="9.2" data-path="importeren-van-data.html"><a href="importeren-van-data.html#tekst-opslaan-1"><i class="fa fa-check"></i><b>9.2</b> Tekst opslaan</a></li>
+<li class="chapter" data-level="9.3" data-path="importeren-van-data.html"><a href="importeren-van-data.html#flat-file-databestanden-1"><i class="fa fa-check"></i><b>9.3</b> Flat-file databestanden</a></li>
+<li class="chapter" data-level="9.4" data-path="importeren-van-data.html"><a href="importeren-van-data.html#hierarchische-databestanden-1"><i class="fa fa-check"></i><b>9.4</b> Hiërarchische databestanden</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="importeren-van-data.html"><a href="importeren-van-data.html#xml-bestanden-1"><i class="fa fa-check"></i><b>9.4.1</b> XML-bestanden</a></li>
+<li class="chapter" data-level="9.4.2" data-path="importeren-van-data.html"><a href="importeren-van-data.html#json-bestanden-1"><i class="fa fa-check"></i><b>9.4.2</b> JSON-bestanden</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="importeren-van-data.html"><a href="importeren-van-data.html#applicatie-specifieke-dataformaten-1"><i class="fa fa-check"></i><b>9.5</b> Applicatie-specifieke dataformaten</a></li>
+<li class="chapter" data-level="9.6" data-path="importeren-van-data.html"><a href="importeren-van-data.html#referenties-6"><i class="fa fa-check"></i><b>9.6</b> Referenties</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Lecture Notes voor Exploratieve en Descriptieve Data Analyse</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="exploratieve-analyse-van-tijdgerelateerde-data" class="section level1">
+<h1><span class="header-section-number">Hoofdstuk 6</span> Exploratieve analyse van tijdgerelateerde data</h1>
+<div id="inleiding" class="section level2">
+<h2><span class="header-section-number">6.1</span> Inleiding</h2>
+<div id="tijdstippen-versus-periodes" class="section level3">
+<h3><span class="header-section-number">6.1.1</span> Tijdstippen versus periodes</h3>
+<ul>
+<li>We kunnen tijdgerelateerde data in twee categorieën onderverdelen: tijdstippen en periodes.</li>
+<li>Tijdstip.
+<ul>
+<li>Verwijst naar een specifiek moment in de tijd.</li>
+<li>3 varianten:
+<ul>
+<li>datum (“01-01-2017”) verwijst naar een specifieke dag.</li>
+<li>datum-tijdstip (“01-01-2017 13:54”) verwijst naar een specifiek moment op een specifieke dag.</li>
+<li>tijdstip (“13:54”) verwijst naar een specifiek moment op een ongedefinieerde dag.</li>
+</ul></li>
+</ul></li>
+<li>Periode.
+<ul>
+<li>Verwijst naar een periode en wordt typisch uitgedrukt aan de hand van de duur van de periode.
+<ul>
+<li>Bijvoorbeeld: Een periode van “3605 seconden”" of een periode van “2 maanden en 1 dag”.</li>
+</ul></li>
+<li>Soms wordt een periode specifiek gedefinieerd aan de hand van twee specifieke tijdstippen die het begin en het einde van de periode aangeven.
+<ul>
+<li>Bijvoorbeeld: De periode van 01-01-2017 tot 03-01-2017.</li>
+</ul></li>
+</ul></li>
+<li><strong>Bestudeer hoofdstuk 16 van het boek ‘R for Data Science’ van Grolemund en Wickham !</strong></li>
+</ul>
+</div>
+</div>
+<div id="tijdstippen" class="section level2">
+<h2><span class="header-section-number">6.2</span> Tijdstippen</h2>
+<div id="creatie-van-tijdstippen" class="section level3">
+<h3><span class="header-section-number">6.2.1</span> Creatie van tijdstippen</h3>
+<ul>
+<li>Opdat R correct met tijdstippen omgaat, is het belangrijk dat tijdstip-variabelen ook correct als tijdstippen herkend worden.</li>
+<li>Er zijn verschillende manieren om tijdstippen te creëren in R.
+<ul>
+<li>Op basis van het huidige tijdstip.
+<ul>
+<li>Dit is mogelijk met de functies <em>today()</em> en <em>now()</em> om respectievelijk een tijdstip van de huidige dag (datum) of het huidige tijdstip (datum_tijd) aan te maken.</li>
+</ul></li>
+<li>Op basis van karakterstring. Indien men reeds tijdstippen heeft in de dataset, maar deze zijn gecodeerd als karakterstrings, dan voorziet de <em>lubridate</em> package een aantal handige functies hiervoor:
+<ul>
+<li><em>ymd()</em>, <em>ydm()</em>, <em>mdy()</em>, <em>myd()</em>, <em>dmy()</em>, <em>dym()</em> voor datum-tijdstippen.</li>
+<li><em>ymd_hms()</em>, <em>ymd_hm()</em>, <em>ymd_h()</em>, <em>dmy_hms()</em>, <em>dmy_hm()</em>, <em>dmy_h()</em>, <em>mdy_hms()</em>, <em>mdy_hm()</em>, <em>mdy_h()</em>, <em>ydm_hms()</em>, <em>ydm_hm()</em>, <em>ydm_hm()</em> voor datumtijd-tijdstippen.</li>
+<li>Al deze functies omschrijven de structuur van de karakterstring, waarbij <em>y</em> voor jaar staat, de eerste <em>m</em> voor maand, <em>d</em> voor dag, <em>h</em> voor uur, de tweede <em>m</em> voor minuten en <em>s</em> voor seconden.
+<ul>
+<li>Om de karakterstring “2017-21-02 5:15” correct om te zetten naar een tijdstip, moet je dus de functie <em>ydm_hm()</em> gebruiken.</li>
+</ul></li>
+</ul></li>
+<li>Op basis van verschillende variabelen die ieder een verschillende component (jaar, maand, dag, uur, minuten, seconden) bevatten.
+<ul>
+<li>Hiervoor kan je de functies ‘make_date()’ of ‘make_datetime()’ gebruiken, afhankelijk of je een datum- of een datumtijd-tijdstip wenst aan te maken.</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="extractie-van-tijdstipinformatie" class="section level3">
+<h3><span class="header-section-number">6.2.2</span> Extractie van tijdstipinformatie</h3>
+<ul>
+<li>Eénmaal variabelen in R als tijdstippen gecodeerd zijn, is het eenvoudig om de verschillende componenten hieruit te extraheren.</li>
+<li>De componenten die je onmiddellijk op het oog kunt herkennen in de oorspronkelijke karakterstring zijn te extraheren met de volgende functies:
+<ul>
+<li><em>year()</em>.</li>
+<li><em>month()</em>.</li>
+<li><em>mday()</em>.</li>
+<li><em>hour()</em>.</li>
+<li><em>minute()</em>.</li>
+<li><em>second()</em>.</li>
+</ul></li>
+<li>Daarnaast zijn er ook andere componenten die je uit een tijdstip kunt extraheren, dewelke niet rechtstreeks af te lezen zijn uit de oorspronkelijke karakterstring.
+<ul>
+<li><em>week()</em>: De week van het jaar. “5 feb 2017” is bijvoorbeeld de 6de week van het jaar.</li>
+<li><em>yday()</em>: De dag in het jaar. “5 feb 2017” is bijvoorbeeld de 36ste dag van het jaar.</li>
+<li><em>wday()</em>: De dag van de week. “5 feb 2017” is bijvoorbeeld de eerste dag van de week. Let wel op dat we hierbij de conventie hanteren dat een week op zondag start.</li>
+<li><em>wday(…, label=TRUE)</em>: De naam van de dag van de week. “5 feb 2017” is bijvoorbeeld zondag.</li>
+</ul></li>
+</ul>
+</div>
+<div id="afronden-van-tijdstippen" class="section level3">
+<h3><span class="header-section-number">6.2.3</span> Afronden van tijdstippen</h3>
+<ul>
+<li>Ieder tijdstip heeft een zekere nauwkeurigheid. Sommige tijdstippen zijn tot op de seconde gedefinieerd terwijl andere slechts een nauwkeurigheid hebben van weken of maanden.</li>
+<li>Soms kan het voor visualisaties of analyses zinvol zijn om tijdstippen minder nauwkeurig te maken en deze af te ronden. Hiervoor zijn er drie mogelijke functies, afhankelijk van het soort afronding dat men wenst.
+<ul>
+<li>floor_date(): afronden naar onder toe.</li>
+<li>round_date(): normale afrondingsregels.</li>
+<li>ceiling_date(): afronden naar boven toe.</li>
+</ul></li>
+<li>Deze drie functies hebben 1 belangrijke parameter (unit) waarmee je het afrondingsniveau kunt bepalen.</li>
+</ul>
+</div>
+<div id="case-nyc-vluchten-2013" class="section level3">
+<h3><span class="header-section-number">6.2.4</span> Case: NYC Vluchten 2013</h3>
+<ul>
+<li>We zullen de concepten omtrent tijdgerelateerde data illustreren aan de hand van een dataset over de vluchten vanuit NYC in 2013.</li>
+<li>Hieronder vind je een samenvatting van de verschillende variabelen die aanwezig zijn in de dataset.</li>
+</ul>
+<pre><code>## Observations: 319,809
+## Variables: 12
+## $ vertrekluchthaven   &lt;chr&gt; &quot;EWR&quot;, &quot;LGA&quot;, &quot;JFK&quot;, &quot;LGA&quot;, &quot;EWR&quot;, &quot;EWR&quot;, ...
+## $ aankomstluchthaven  &lt;chr&gt; &quot;George Bush Intercontinental&quot;, &quot;George Bu...
+## $ maatschappij        &lt;chr&gt; &quot;United Air Lines Inc.&quot;, &quot;United Air Lines...
+## $ jaar_vertrek        &lt;int&gt; 2013, 2013, 2013, 2013, 2013, 2013, 2013, ...
+## $ maand_vertrek       &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+## $ dag_vertrek         &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+## $ uur_vertrek         &lt;dbl&gt; 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, ...
+## $ minuut_vertrek      &lt;dbl&gt; 17, 33, 42, 54, 54, 55, 57, 57, 58, 58, 58...
+## $ tijdstip_aankomst   &lt;chr&gt; &quot;2013-01-01 08:30:00&quot;, &quot;2013-01-01 08:50:0...
+## $ vertrek_vertraging  &lt;dbl&gt; 2, 4, 2, -6, -4, -5, -3, -3, -2, -2, -2, -...
+## $ aankomst_vertraging &lt;dbl&gt; 11, 20, 33, -25, 12, 19, -14, -8, 8, -2, -...
+## $ afstand             &lt;dbl&gt; 1400, 1416, 1089, 762, 719, 1065, 229, 944...</code></pre>
+<ul>
+<li>Allereerst willen we de variabele <em>tijdstip_aankomst</em> omzetten van een karakterstring naar een datumtijd tijdstip.</li>
+</ul>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" title="1">df <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb19-2" title="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">tijdstip_aankomst =</span> <span class="kw">ymd_hms</span>(tijdstip_aankomst)) -&gt;<span class="st"> </span>df</a>
+<a class="sourceLine" id="cb19-3" title="3"><span class="kw">glimpse</span>(df)</a></code></pre></div>
+<pre><code>## Observations: 319,809
+## Variables: 12
+## $ vertrekluchthaven   &lt;chr&gt; &quot;EWR&quot;, &quot;LGA&quot;, &quot;JFK&quot;, &quot;LGA&quot;, &quot;EWR&quot;, &quot;EWR&quot;, ...
+## $ aankomstluchthaven  &lt;chr&gt; &quot;George Bush Intercontinental&quot;, &quot;George Bu...
+## $ maatschappij        &lt;chr&gt; &quot;United Air Lines Inc.&quot;, &quot;United Air Lines...
+## $ jaar_vertrek        &lt;int&gt; 2013, 2013, 2013, 2013, 2013, 2013, 2013, ...
+## $ maand_vertrek       &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+## $ dag_vertrek         &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+## $ uur_vertrek         &lt;dbl&gt; 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, ...
+## $ minuut_vertrek      &lt;dbl&gt; 17, 33, 42, 54, 54, 55, 57, 57, 58, 58, 58...
+## $ tijdstip_aankomst   &lt;dttm&gt; 2013-01-01 08:30:00, 2013-01-01 08:50:00,...
+## $ vertrek_vertraging  &lt;dbl&gt; 2, 4, 2, -6, -4, -5, -3, -3, -2, -2, -2, -...
+## $ aankomst_vertraging &lt;dbl&gt; 11, 20, 33, -25, 12, 19, -14, -8, 8, -2, -...
+## $ afstand             &lt;dbl&gt; 1400, 1416, 1089, 762, 719, 1065, 229, 944...</code></pre>
+<ul>
+<li>Verder willen we ook een nieuwe variabele <em>tijdstip_vertrek</em> aanmaken op basis van de variabelen <em>jaar_vertrek</em>, <em>maand_vertrek</em>, <em>dag_vertrek</em>, <em>uur_vertrek</em> en <em>minuut_vertrek</em>.</li>
+</ul>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" title="1">df <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb21-2" title="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">tijdstip_vertrek =</span> <span class="kw">make_datetime</span>(jaar_vertrek, </a>
+<a class="sourceLine" id="cb21-3" title="3">                                          maand_vertrek, </a>
+<a class="sourceLine" id="cb21-4" title="4">                                          dag_vertrek, </a>
+<a class="sourceLine" id="cb21-5" title="5">                                          uur_vertrek, </a>
+<a class="sourceLine" id="cb21-6" title="6">                                          minuut_vertrek)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb21-7" title="7"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span><span class="st"> </span>jaar_vertrek, </a>
+<a class="sourceLine" id="cb21-8" title="8">         <span class="op">-</span>maand_vertrek, </a>
+<a class="sourceLine" id="cb21-9" title="9">         <span class="op">-</span>dag_vertrek, </a>
+<a class="sourceLine" id="cb21-10" title="10">         <span class="op">-</span>uur_vertrek, </a>
+<a class="sourceLine" id="cb21-11" title="11">         <span class="op">-</span>minuut_vertrek) -&gt;<span class="st"> </span>df</a>
+<a class="sourceLine" id="cb21-12" title="12"><span class="kw">glimpse</span>(df)</a></code></pre></div>
+<pre><code>## Observations: 319,809
+## Variables: 8
+## $ vertrekluchthaven   &lt;chr&gt; &quot;EWR&quot;, &quot;LGA&quot;, &quot;JFK&quot;, &quot;LGA&quot;, &quot;EWR&quot;, &quot;EWR&quot;, ...
+## $ aankomstluchthaven  &lt;chr&gt; &quot;George Bush Intercontinental&quot;, &quot;George Bu...
+## $ maatschappij        &lt;chr&gt; &quot;United Air Lines Inc.&quot;, &quot;United Air Lines...
+## $ tijdstip_aankomst   &lt;dttm&gt; 2013-01-01 08:30:00, 2013-01-01 08:50:00,...
+## $ vertrek_vertraging  &lt;dbl&gt; 2, 4, 2, -6, -4, -5, -3, -3, -2, -2, -2, -...
+## $ aankomst_vertraging &lt;dbl&gt; 11, 20, 33, -25, 12, 19, -14, -8, 8, -2, -...
+## $ afstand             &lt;dbl&gt; 1400, 1416, 1089, 762, 719, 1065, 229, 944...
+## $ tijdstip_vertrek    &lt;dttm&gt; 2013-01-01 05:17:00, 2013-01-01 05:33:00,...</code></pre>
+<ul>
+<li>Vervolgens willen we graag enkele nieuwe variabelen aanmaken die de volgende informatie bevatten: de weekdag van vertrek (maandag, dinsdag, …), de week van vertrek, de maand van vertrek en de maanddag (1, 2, …, 31) van vertrek.</li>
+</ul>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" title="1">df <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb23-2" title="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">weekdag_vertrek =</span> <span class="kw">wday</span>(tijdstip_vertrek, <span class="dt">label =</span> T),</a>
+<a class="sourceLine" id="cb23-3" title="3">         <span class="dt">week_vertrek =</span> <span class="kw">week</span>(tijdstip_vertrek),</a>
+<a class="sourceLine" id="cb23-4" title="4">         <span class="dt">maand_vertrek =</span> <span class="kw">month</span>(tijdstip_vertrek),</a>
+<a class="sourceLine" id="cb23-5" title="5">         <span class="dt">maanddag_vertrek =</span> <span class="kw">mday</span>(tijdstip_vertrek)) -&gt;<span class="st"> </span>df</a>
+<a class="sourceLine" id="cb23-6" title="6"><span class="kw">glimpse</span>(df)</a></code></pre></div>
+<pre><code>## Observations: 319,809
+## Variables: 12
+## $ vertrekluchthaven   &lt;chr&gt; &quot;EWR&quot;, &quot;LGA&quot;, &quot;JFK&quot;, &quot;LGA&quot;, &quot;EWR&quot;, &quot;EWR&quot;, ...
+## $ aankomstluchthaven  &lt;chr&gt; &quot;George Bush Intercontinental&quot;, &quot;George Bu...
+## $ maatschappij        &lt;chr&gt; &quot;United Air Lines Inc.&quot;, &quot;United Air Lines...
+## $ tijdstip_aankomst   &lt;dttm&gt; 2013-01-01 08:30:00, 2013-01-01 08:50:00,...
+## $ vertrek_vertraging  &lt;dbl&gt; 2, 4, 2, -6, -4, -5, -3, -3, -2, -2, -2, -...
+## $ aankomst_vertraging &lt;dbl&gt; 11, 20, 33, -25, 12, 19, -14, -8, 8, -2, -...
+## $ afstand             &lt;dbl&gt; 1400, 1416, 1089, 762, 719, 1065, 229, 944...
+## $ tijdstip_vertrek    &lt;dttm&gt; 2013-01-01 05:17:00, 2013-01-01 05:33:00,...
+## $ weekdag_vertrek     &lt;ord&gt; Tue, Tue, Tue, Tue, Tue, Tue, Tue, Tue, Tu...
+## $ week_vertrek        &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+## $ maand_vertrek       &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+## $ maanddag_vertrek    &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...</code></pre>
+<ul>
+<li>Tenslotte zullen we een nieuwe variabele maken dewelke het vertrekmoment afrondt tot op de dag nauwkeurig (dus zonder het specifieke uur).</li>
+</ul>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" title="1">df <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb25-2" title="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">dag_vertrek =</span> <span class="kw">floor_date</span>(tijdstip_vertrek, <span class="st">&quot;day&quot;</span>)) -&gt;<span class="st"> </span>df</a>
+<a class="sourceLine" id="cb25-3" title="3"><span class="kw">glimpse</span>(df)</a></code></pre></div>
+<pre><code>## Observations: 319,809
+## Variables: 13
+## $ vertrekluchthaven   &lt;chr&gt; &quot;EWR&quot;, &quot;LGA&quot;, &quot;JFK&quot;, &quot;LGA&quot;, &quot;EWR&quot;, &quot;EWR&quot;, ...
+## $ aankomstluchthaven  &lt;chr&gt; &quot;George Bush Intercontinental&quot;, &quot;George Bu...
+## $ maatschappij        &lt;chr&gt; &quot;United Air Lines Inc.&quot;, &quot;United Air Lines...
+## $ tijdstip_aankomst   &lt;dttm&gt; 2013-01-01 08:30:00, 2013-01-01 08:50:00,...
+## $ vertrek_vertraging  &lt;dbl&gt; 2, 4, 2, -6, -4, -5, -3, -3, -2, -2, -2, -...
+## $ aankomst_vertraging &lt;dbl&gt; 11, 20, 33, -25, 12, 19, -14, -8, 8, -2, -...
+## $ afstand             &lt;dbl&gt; 1400, 1416, 1089, 762, 719, 1065, 229, 944...
+## $ tijdstip_vertrek    &lt;dttm&gt; 2013-01-01 05:17:00, 2013-01-01 05:33:00,...
+## $ weekdag_vertrek     &lt;ord&gt; Tue, Tue, Tue, Tue, Tue, Tue, Tue, Tue, Tu...
+## $ week_vertrek        &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+## $ maand_vertrek       &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+## $ maanddag_vertrek    &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+## $ dag_vertrek         &lt;dttm&gt; 2013-01-01, 2013-01-01, 2013-01-01, 2013-...</code></pre>
+</div>
+</div>
+<div id="periode-data" class="section level2">
+<h2><span class="header-section-number">6.3</span> Periode-data</h2>
+<ul>
+<li>We kunnen 3 soorten van periodes onderscheiden, waarbij het eerste type (interval) naar een specifieke periode tussen 2 tijdstippen verwijst en de 2 andere types (<em>duration</em> en <em>period</em>) naar een periode van een specifieke duur verwijzen maar telkens onafhankelijk van het specifieke tijdstip.</li>
+<li>Om de verschillen duidelijk te illustreren werken we met twee specifieke tijdstippen “1 jan 2016” en “1 jan 2017”.</li>
+</ul>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" title="1">t1 &lt;-<span class="st"> </span><span class="kw">ymd</span>(<span class="dv">160101</span>)</a>
+<a class="sourceLine" id="cb27-2" title="2">t1</a></code></pre></div>
+<pre><code>## [1] &quot;2016-01-01&quot;</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" title="1">t2 &lt;-<span class="st"> </span><span class="kw">ymd</span>(<span class="dv">170101</span>)</a>
+<a class="sourceLine" id="cb29-2" title="2">t2</a></code></pre></div>
+<pre><code>## [1] &quot;2017-01-01&quot;</code></pre>
+<div id="interval-1" class="section level3">
+<h3><span class="header-section-number">6.3.1</span> Interval</h3>
+<ul>
+<li>Een interval is een periode die bepaald wordt door twee specifieke tijdstippen.</li>
+<li>Een interval creëer je met behulp van de speciale operator <code>%--%</code>.</li>
+<li>Intervals worden weinig gebruikt om rechtstreeks te analyseren, maar kunnen als tussenstap gebruikt worden om de duurtijd van specifieke periodes te bepalen.</li>
+</ul>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" title="1">interval_t2t1 &lt;-<span class="st"> </span>t1 <span class="op">%--%</span><span class="st"> </span>t2</a>
+<a class="sourceLine" id="cb31-2" title="2">interval_t2t1</a></code></pre></div>
+<pre><code>## [1] 2016-01-01 UTC--2017-01-01 UTC</code></pre>
+</div>
+<div id="duration" class="section level3">
+<h3><span class="header-section-number">6.3.2</span> Duration</h3>
+<ul>
+<li>Duration is de duur van een periode uitgedrukt als het exact aantal seconden die feitelijk verstreken zijn tussen twee tijdstippen.</li>
+<li>Tussen ‘26 maart 2017 02:00:00’ en ‘26 maart 2017 03:00:01’ is slechts 1 seconde feitelijk verstreken omdat we van 2u naar 3u zijn overgeschakeld op het zomeruur.</li>
+<li>Durations gebruik je voornamelijk als je de werkelijke tijd tussen twee tijdstippen wenst te berekenen of wanneer je een aantal seconden wenst toe te voegen bij of af te trekken van een specifiek tijdstip.</li>
+<li>Om een duration van een specifieke duur te creëren gebruik je volgende functies:
+<ul>
+<li><em>dseconds()</em>.</li>
+<li><em>dminutes()</em>.</li>
+<li><em>dhours()</em>.</li>
+<li><em>ddays()</em>.</li>
+<li><em>dweeks()</em>.</li>
+<li><em>dyears()</em>.</li>
+</ul></li>
+<li>Om de duration van een interval te bepalen, gebruik je de functie:
+<ul>
+<li><em>as.duration()</em>.</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" title="1">t1 <span class="op">+</span><span class="st"> </span><span class="kw">dyears</span>(<span class="dv">1</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;2016-12-31&quot;</code></pre>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" title="1">interval_t2t1 <span class="op">/</span><span class="st"> </span><span class="kw">dyears</span>(<span class="dv">1</span>)</a></code></pre></div>
+<pre><code>## [1] 1.00274</code></pre>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" title="1"><span class="kw">as.duration</span>(interval_t2t1)</a></code></pre></div>
+<pre><code>## [1] &quot;31622400s (~1 years)&quot;</code></pre>
+</div>
+<div id="period" class="section level3">
+<h3><span class="header-section-number">6.3.3</span> Period</h3>
+<ul>
+<li>De tijd die verstreken ‘lijkt’ te zijn (op een klok) tussen twee tijdstippen.</li>
+<li>Dus tussen ‘26 maart 2017 02:00:00’ en ‘26 maart 2017 03:00:01’ zit een period van 1 uur en 1 seconde.</li>
+<li>Periods gebruik je voornamelijk als je periodes wilt toevoegen aan tijdstippen zonder rekening te moeten houden met onverwachte sprongen in de tijd (zomertijd/wintertijd, schrikkeljaren, …).
+<ul>
+<li>Dus als je bij ieder tijdstip 1 dag (24u) wenst toe te voegen, kan je beter een period gebruiken dan een duration, omdat je anders rekening moet houden met de dag waarop we van zomer- naar winteruur gaan en omgekeerd.</li>
+</ul></li>
+<li>Belangrijke functies die periods aanmaken zijn:
+<ul>
+<li>seconds().</li>
+<li>minutes().</li>
+<li>hours().</li>
+<li>days().</li>
+<li>months().</li>
+<li>weeks().</li>
+<li>years().</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" title="1">t1 <span class="op">+</span><span class="st"> </span><span class="kw">years</span>(<span class="dv">1</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;2017-01-01&quot;</code></pre>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" title="1">interval_t2t1 <span class="op">/</span><span class="st"> </span><span class="kw">years</span>(<span class="dv">1</span>)</a></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" title="1"><span class="kw">as.period</span>(interval_t2t1)</a></code></pre></div>
+<pre><code>## [1] &quot;1y 0m 0d 0H 0M 0S&quot;</code></pre>
+</div>
+<div id="case-nyc-vluchten-2013-1" class="section level3">
+<h3><span class="header-section-number">6.3.4</span> Case: NYC vluchten 2013</h3>
+<ul>
+<li>Momenteel bevat onze dataset enkel het geplande vertrek- en aankomstmoment. We gaan nu aan de hand van de informatie over de vertrek- en aankomstvertraging de werkelijke vertrek- en aankomstmomenten bepalen.</li>
+</ul>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" title="1">df <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb45-2" title="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">vertrek_werkelijk =</span> tijdstip_vertrek <span class="op">+</span><span class="st"> </span><span class="kw">dminutes</span>(vertrek_vertraging),</a>
+<a class="sourceLine" id="cb45-3" title="3">         <span class="dt">aankomst_werkelijk =</span> tijdstip_aankomst <span class="op">+</span><span class="st"> </span><span class="kw">dminutes</span>(aankomst_vertraging)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb45-4" title="4"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">aankomst_gepland =</span> tijdstip_aankomst,</a>
+<a class="sourceLine" id="cb45-5" title="5">         <span class="dt">vertrek_gepland =</span> tijdstip_vertrek) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb45-6" title="6"><span class="st">  </span><span class="kw">select</span>(vertrekluchthaven, aankomstluchthaven, maatschappij, vertrek_gepland, </a>
+<a class="sourceLine" id="cb45-7" title="7">         vertrek_werkelijk, vertrek_vertraging, aankomst_gepland, </a>
+<a class="sourceLine" id="cb45-8" title="8">         aankomst_werkelijk, aankomst_vertraging, afstand, weekdag_vertrek, </a>
+<a class="sourceLine" id="cb45-9" title="9">         week_vertrek, maand_vertrek, dag_vertrek, maanddag_vertrek) -&gt;<span class="st"> </span>df</a>
+<a class="sourceLine" id="cb45-10" title="10"><span class="kw">glimpse</span>(df)</a></code></pre></div>
+<pre><code>## Observations: 319,809
+## Variables: 15
+## $ vertrekluchthaven   &lt;chr&gt; &quot;EWR&quot;, &quot;LGA&quot;, &quot;JFK&quot;, &quot;LGA&quot;, &quot;EWR&quot;, &quot;EWR&quot;, ...
+## $ aankomstluchthaven  &lt;chr&gt; &quot;George Bush Intercontinental&quot;, &quot;George Bu...
+## $ maatschappij        &lt;chr&gt; &quot;United Air Lines Inc.&quot;, &quot;United Air Lines...
+## $ vertrek_gepland     &lt;dttm&gt; 2013-01-01 05:17:00, 2013-01-01 05:33:00,...
+## $ vertrek_werkelijk   &lt;dttm&gt; 2013-01-01 05:19:00, 2013-01-01 05:37:00,...
+## $ vertrek_vertraging  &lt;dbl&gt; 2, 4, 2, -6, -4, -5, -3, -3, -2, -2, -2, -...
+## $ aankomst_gepland    &lt;dttm&gt; 2013-01-01 08:30:00, 2013-01-01 08:50:00,...
+## $ aankomst_werkelijk  &lt;dttm&gt; 2013-01-01 08:41:00, 2013-01-01 09:10:00,...
+## $ aankomst_vertraging &lt;dbl&gt; 11, 20, 33, -25, 12, 19, -14, -8, 8, -2, -...
+## $ afstand             &lt;dbl&gt; 1400, 1416, 1089, 762, 719, 1065, 229, 944...
+## $ weekdag_vertrek     &lt;ord&gt; Tue, Tue, Tue, Tue, Tue, Tue, Tue, Tue, Tu...
+## $ week_vertrek        &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+## $ maand_vertrek       &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+## $ dag_vertrek         &lt;dttm&gt; 2013-01-01, 2013-01-01, 2013-01-01, 2013-...
+## $ maanddag_vertrek    &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...</code></pre>
+</div>
+</div>
+<div id="analyseren-van-tijdgerelateerde-data" class="section level2">
+<h2><span class="header-section-number">6.4</span> Analyseren van tijdgerelateerde data</h2>
+<div id="case-nyc-vluchten-2013-2" class="section level3">
+<h3><span class="header-section-number">6.4.1</span> Case: NYC Vluchten 2013</h3>
+<ul>
+<li>Een eerste stap om inzicht te krijgen in de tijdgerelateerde data is met behulp van de <em>summary()</em> functie. Het is vooral nuttig om naar de minima en maxima te kijken. Dit geeft vaak aan of de tijdsperiode waarvoor de data verzameld is overeenkomt met de verwachte periode. In onderstaand geval blijkt dit in orde te zijn.</li>
+</ul>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" title="1"><span class="kw">summary</span>(df)</a></code></pre></div>
+<pre><code>##  vertrekluchthaven  aankomstluchthaven maatschappij      
+##  Length:319809      Length:319809      Length:319809     
+##  Class :character   Class :character   Class :character  
+##  Mode  :character   Mode  :character   Mode  :character  
+##                                                          
+##                                                          
+##                                                          
+##                                                          
+##  vertrek_gepland               vertrek_werkelijk            
+##  Min.   :2013-01-01 05:17:00   Min.   :2013-01-01 05:19:00  
+##  1st Qu.:2013-04-05 09:07:00   1st Qu.:2013-04-05 09:10:00  
+##  Median :2013-07-04 13:43:00   Median :2013-07-04 13:47:00  
+##  Mean   :2013-07-03 21:27:29   Mean   :2013-07-03 21:40:07  
+##  3rd Qu.:2013-10-01 20:37:00   3rd Qu.:2013-10-01 20:39:00  
+##  Max.   :2013-12-31 23:32:00   Max.   :2014-01-01 00:19:00  
+##                                                             
+##  vertrek_vertraging aankomst_gepland             
+##  Min.   : -43.00    Min.   :2013-01-01 07:02:00  
+##  1st Qu.:  -5.00    1st Qu.:2013-04-05 11:22:00  
+##  Median :  -2.00    Median :2013-07-04 15:42:00  
+##  Mean   :  12.62    Mean   :2013-07-03 23:42:08  
+##  3rd Qu.:  11.00    3rd Qu.:2013-10-01 22:27:00  
+##  Max.   :1301.00    Max.   :2014-01-01 01:10:00  
+##                                                  
+##  aankomst_werkelijk            aankomst_vertraging    afstand    
+##  Min.   :2013-01-01 06:55:00   Min.   : -86.000    Min.   :  80  
+##  1st Qu.:2013-04-05 11:21:00   1st Qu.: -17.000    1st Qu.: 502  
+##  Median :2013-07-04 15:36:00   Median :  -5.000    Median : 828  
+##  Mean   :2013-07-03 23:49:08   Mean   :   6.987    Mean   :1035  
+##  3rd Qu.:2013-10-01 22:12:00   3rd Qu.:  14.000    3rd Qu.:1372  
+##  Max.   :2014-01-01 01:53:00   Max.   :1272.000    Max.   :4983  
+##                                                                  
+##  weekdag_vertrek  week_vertrek   maand_vertrek   
+##  Sun:44396       Min.   : 1.00   Min.   : 1.000  
+##  Mon:48246       1st Qu.:14.00   1st Qu.: 4.000  
+##  Tue:48084       Median :27.00   Median : 7.000  
+##  Wed:47597       Mean   :26.77   Mean   : 6.569  
+##  Thu:47378       3rd Qu.:40.00   3rd Qu.:10.000  
+##  Fri:47455       Max.   :53.00   Max.   :12.000  
+##  Sat:36653                                       
+##   dag_vertrek                  maanddag_vertrek
+##  Min.   :2013-01-01 00:00:00   Min.   : 1.00   
+##  1st Qu.:2013-04-05 00:00:00   1st Qu.: 8.00   
+##  Median :2013-07-04 00:00:00   Median :16.00   
+##  Mean   :2013-07-03 07:43:47   Mean   :15.74   
+##  3rd Qu.:2013-10-01 00:00:00   3rd Qu.:23.00   
+##  Max.   :2013-12-31 00:00:00   Max.   :31.00   
+## </code></pre>
+<div id="analyse-visuele-tijdreekspatronen" class="section level4">
+<h4><span class="header-section-number">6.4.1.1</span> Analyse visuele tijdreekspatronen</h4>
+<ul>
+<li>Eén van de meest voorkomende exploratieve visuele analysetechnieken voor tijdgerelateerde data is het zoeken naar patronen hoe een variabele doorheen de tijd verandert.</li>
+<li>De eerste stap is hierbij telkens de tijdreekspatronen te visualiseren. Om dit te doen kan je volgend stappenplan toepassen.
+<ul>
+<li>Bepaal over welke tijdsdimensie je patronen wenst te bestuderen. Dit is je <strong>X</strong>-variabele. De <strong>X</strong>-variabele bepaalt de granulariteit van je visualisatie. Wens je op niveau van dagen te visualiseren, dan is je tijdsdimensie ‘dag’, en dan ga je gedetailleerder naar de patronen kijken, dan wanneer je op niveau van bijvoorbeeld ‘maand’ naar de data kijkt.</li>
+<li>Bepaal welke variabele je doorheen de tijd wenst te bestuderen. Dit is je <strong>Y</strong>-variabele.</li>
+<li>Je gaat voor iedere <strong>X</strong> waarde 1 <strong>Y</strong> waarde moeten hebben. Vaak betekent dit dat je deze <strong>Y</strong>-variabele nog moet aanmaken. Mogelijke <strong>Y</strong> variabelen zijn <em>het aantal observaties</em> per tijdseenheid of de centrummaat (bv. mediaan) van een specifieke variabele.</li>
+<li>Je R-code vertrekt steeds van de oorspronkelijke dataset, groepeert vervolgens op de tijdsdimensie, berekent de gewenste samenvattende statistiek (<em>summarise()</em>) en visualiseert vervolgens via <em>ggplot() + geom_line()</em>.</li>
+</ul></li>
+<li>We willen bijvoorbeeld de evolutie zien van het aantal vluchten per dag. De tijdsdimensie is dus <em>dag_vertrek</em> en de <strong>Y</strong>-variabele wordt gemaakt door het aantal rijen per dag te tellen.</li>
+<li>De analyse van onderstaande grafiek toont een aantal opvallende zaken:
+<ul>
+<li>Er is een zware en niet-wederkerende daling tussen januari en april. Hier moet iets uitzonderlijks gebeurd zijn.</li>
+<li>We zien een terugkerend patroon, waarbij om de aantal dagen een daling is in het aantal vluchten.</li>
+<li>De schommelingen en met name de daling op het einde van ieder terugkerend patroon wordt groter op het einde van het jaar.</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" title="1">df <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb49-2" title="2"><span class="st">  </span><span class="kw">group_by</span>(dag_vertrek) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb49-3" title="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">aantal_vluchten =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb49-4" title="4"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>dag_vertrek, <span class="dt">y=</span>aantal_vluchten)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb49-5" title="5"><span class="st">  </span><span class="kw">geom_line</span>()</a></code></pre></div>
+<p><img src="lecture_notes_edda_files/figure-html/6.18-1.png" width="100%" /></p>
+<ul>
+<li>We kunnen een soortgelijke analyse doen voor de gemiddelde vertrekvertraging.</li>
+</ul>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" title="1">df <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb50-2" title="2"><span class="st">  </span><span class="kw">group_by</span>(dag_vertrek) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb50-3" title="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">gemiddelde_vertrekvertraging =</span> <span class="kw">mean</span>(vertrek_vertraging)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb50-4" title="4"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>dag_vertrek, <span class="dt">y=</span>gemiddelde_vertrekvertraging)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb50-5" title="5"><span class="st">  </span><span class="kw">geom_line</span>()</a></code></pre></div>
+<p><img src="lecture_notes_edda_files/figure-html/6.19-1.png" width="100%" /></p>
+<ul>
+<li>Een volgende stap is vaak om de tijdreekspatronen apart te visualiseren voor de verschillende waarden van een categorische variabele.</li>
+<li>Dit kan op eenvoudige wijze door in onze R-code deze categorische variabele op te nemen in het <em>group_by()</em> gedeelte en vervolgens aparte plots te creëren met behulp van <em>facet_wrap()</em>.</li>
+<li>Laten we de evolutie van het aantal vluchten per dag bijvoorbeeld uitsplitsen per luchthaven.</li>
+<li>Uit onderstaande analyse blijkt dan dat het aantal vluchten vanuit JFK veel minder sterk schommelt dan EWR en LGA. Wel valt op dat alle drie de luchthavens een sterke uitzonderlijke daling kenden in de eerste helft van het jaar.</li>
+</ul>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" title="1">df <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb51-2" title="2"><span class="st">  </span><span class="kw">group_by</span>(dag_vertrek, vertrekluchthaven) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb51-3" title="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">aantal_vluchten =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb51-4" title="4"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> dag_vertrek, <span class="dt">y =</span> aantal_vluchten, <span class="dt">colour=</span>vertrekluchthaven)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb51-5" title="5"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span><span class="kw">facet_wrap</span>(<span class="op">~</span>vertrekluchthaven, <span class="dt">ncol =</span> <span class="dv">1</span>)</a></code></pre></div>
+<p><img src="lecture_notes_edda_files/figure-html/6.20-1.png" width="100%" /></p>
+</div>
+<div id="identificeren-van-opmerkelijke-gebeurtenissen-in-een-tijdreeks" class="section level4">
+<h4><span class="header-section-number">6.4.1.2</span> Identificeren van opmerkelijke gebeurtenissen in een tijdreeks</h4>
+<ul>
+<li>In de evolutie van het aantal vluchten valt op dat er een uitzonderlijke daling plaatsvond in de periode tussen januari en april.</li>
+<li>In zulke gevallen is het best te achterhalen wat hier precies de oorzaak is.</li>
+<li>De eerste stap is dan ook het exacte tijdstip te identificeren.</li>
+<li>We kunnen dit doen door de data te filteren op die dagen dat er zeer weinig vluchten zijn.</li>
+</ul>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" title="1">df <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb52-2" title="2"><span class="st">  </span><span class="kw">group_by</span>(dag_vertrek, vertrekluchthaven) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb52-3" title="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">aantal_vluchten =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb52-4" title="4"><span class="st">  </span><span class="kw">filter</span>(aantal_vluchten <span class="op">&lt;</span><span class="st"> </span><span class="dv">160</span>)</a></code></pre></div>
+<pre><code>## # A tibble: 7 x 3
+## # Groups:   dag_vertrek [3]
+##   dag_vertrek         vertrekluchthaven aantal_vluchten
+##   &lt;dttm&gt;              &lt;chr&gt;                       &lt;int&gt;
+## 1 2013-02-08 00:00:00 EWR                           159
+## 2 2013-02-08 00:00:00 JFK                           133
+## 3 2013-02-08 00:00:00 LGA                           148
+## 4 2013-02-09 00:00:00 EWR                            96
+## 5 2013-02-09 00:00:00 JFK                           125
+## 6 2013-02-09 00:00:00 LGA                            61
+## 7 2013-12-14 00:00:00 EWR                           155</code></pre>
+<ul>
+<li><p>Uit deze analyse blijkt dat de daling plaatsvond op 8 en 9 februari 2013. Na enig opzoekwerk blijkt dat New York toen geteisterd werd door een hevige sneeuwstorm waardoor zeer veel vluchten geannuleerd moesten worden.</p></li>
+<li><p>Omdat dit moment niet representatief is voor een normaal jaar, beslissen we om enkel met de tijdgerelateerde data van maart tot en met december verder te gaan.</p></li>
+<li><p>We kunnen de tijdreeks van de nieuwe periode opnieuw visualiseren.</p></li>
+</ul>
+<p><img src="lecture_notes_edda_files/figure-html/6.23-1.png" width="100%" /></p>
+<ul>
+<li>We kunnen verder inzoomen in de data door naar de tijdreekspatronen te kijken per maand en per luchthaven.</li>
+</ul>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" title="1">df_mardec <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb54-2" title="2"><span class="st">  </span><span class="kw">group_by</span>(maanddag_vertrek, maand_vertrek, vertrekluchthaven) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb54-3" title="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">aantal_vluchten =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb54-4" title="4"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>maanddag_vertrek, <span class="dt">y=</span>aantal_vluchten, <span class="dt">colour=</span>vertrekluchthaven)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb54-5" title="5"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span><span class="kw">facet_grid</span>(maand_vertrek <span class="op">~</span><span class="st"> </span>vertrekluchthaven)</a></code></pre></div>
+<p><img src="lecture_notes_edda_files/figure-html/6.24-1.png" width="100%" /></p>
+</div>
+</div>
+</div>
+<div id="referenties-4" class="section level2">
+<h2><span class="header-section-number">6.5</span> Referenties</h2>
+<ol style="list-style-type: decimal">
+<li><a href="http://r4ds.had.co.nz/">‘R for Data Science’ van Grolemund en Wickham</a></li>
+</ol>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="datavoorbereiding.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="tidy-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["lecture_notes_edda.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
