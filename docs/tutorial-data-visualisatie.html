@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 3 [Tutorial] Data visualisatie | Exploratieve en Descriptieve Data Analyse</title>
   <meta name="description" content="Chapter 3 [Tutorial] Data visualisatie | Exploratieve en Descriptieve Data Analyse" />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 [Tutorial] Data visualisatie | Exploratieve en Descriptieve Data Analyse" />
   <meta property="og:type" content="book" />
@@ -32,7 +32,9 @@
   
 <link rel="prev" href="lecture-notes-data-visualizatie.html"/>
 <link rel="next" href="lecture-notes-descriptieve-statistieken.html"/>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -48,33 +50,34 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -83,9 +86,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -118,6 +121,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -135,26 +139,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="https://beta.rstudioconnect.com/content/e8fdb21e-22c3-4051-b0da-c75b1f2fac2f/_rev42337/studieleidraad_worksessions.html">Studieleidraad</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Voorwoord</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Voorwoord</a>
+<ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#hoe-de-lecture-notes-te-gebruiken"><i class="fa fa-check"></i>Hoe de lecture notes te gebruiken</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#hoe-de-tutorials-te-gebruiken"><i class="fa fa-check"></i>Hoe de tutorials te gebruiken</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#over-de-auteurs"><i class="fa fa-check"></i>Over de auteurs</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#disclaimer"><i class="fa fa-check"></i>Disclaimer</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="lecture-notes-introductiecollege.html"><a href="lecture-notes-introductiecollege.html"><i class="fa fa-check"></i><b>1</b> [Lecture notes] Introductiecollege</a><ul>
-<li class="chapter" data-level="1.1" data-path="lecture-notes-introductiecollege.html"><a href="lecture-notes-introductiecollege.html#data-science"><i class="fa fa-check"></i><b>1.1</b> Data science?</a><ul>
-<li class="chapter" data-level="1.1.1" data-path="lecture-notes-introductiecollege.html"><a href="lecture-notes-introductiecollege.html#netflix"><i class="fa fa-check"></i><b>1.1.1</b> Netflix</a></li>
-<li class="chapter" data-level="1.1.2" data-path="lecture-notes-introductiecollege.html"><a href="lecture-notes-introductiecollege.html#waar-komt-data-vandaan"><i class="fa fa-check"></i><b>1.1.2</b> Waar komt data vandaan?</a></li>
-<li class="chapter" data-level="1.1.3" data-path="lecture-notes-introductiecollege.html"><a href="lecture-notes-introductiecollege.html#hoeveel-data-is-er-beschikbaar"><i class="fa fa-check"></i><b>1.1.3</b> Hoeveel data is er beschikbaar?</a></li>
-<li class="chapter" data-level="1.1.4" data-path="lecture-notes-introductiecollege.html"><a href="lecture-notes-introductiecollege.html#waar-wordt-data-voor-gebruikt-in-de-bedrijfswereld"><i class="fa fa-check"></i><b>1.1.4</b> Waar wordt data voor gebruikt in de bedrijfswereld?</a></li>
+<li class="chapter" data-level="1" data-path="lecture-notes-introductiecollege.html"><a href="lecture-notes-introductiecollege.html"><i class="fa fa-check"></i><b>1</b> [Lecture notes] Introductiecollege</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="lecture-notes-introductiecollege.html"><a href="lecture-notes-introductiecollege.html#data-science"><i class="fa fa-check"></i><b>1.1</b> Data science?</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="lecture-notes-introductiecollege.html"><a href="lecture-notes-introductiecollege.html#verschillende-soorten-van-data-analyse"><i class="fa fa-check"></i><b>1.1.1</b> Verschillende soorten van data analyse</a></li>
+<li class="chapter" data-level="1.1.2" data-path="lecture-notes-introductiecollege.html"><a href="lecture-notes-introductiecollege.html#rol-van-data-in-de-bedrijfswereld"><i class="fa fa-check"></i><b>1.1.2</b> Rol van data in de bedrijfswereld</a></li>
+<li class="chapter" data-level="1.1.3" data-path="lecture-notes-introductiecollege.html"><a href="lecture-notes-introductiecollege.html#data-revoluties"><i class="fa fa-check"></i><b>1.1.3</b> Data revoluties</a></li>
+<li class="chapter" data-level="1.1.4" data-path="lecture-notes-introductiecollege.html"><a href="lecture-notes-introductiecollege.html#data-explosion"><i class="fa fa-check"></i><b>1.1.4</b> Data explosion</a></li>
 <li class="chapter" data-level="1.1.5" data-path="lecture-notes-introductiecollege.html"><a href="lecture-notes-introductiecollege.html#waarover-verzamelen-bedrijven-data"><i class="fa fa-check"></i><b>1.1.5</b> Waarover verzamelen bedrijven data</a></li>
 <li class="chapter" data-level="1.1.6" data-path="lecture-notes-introductiecollege.html"><a href="lecture-notes-introductiecollege.html#van-data-tot-actionable-insights"><i class="fa fa-check"></i><b>1.1.6</b> Van data tot ‘actionable insights’</a></li>
 <li class="chapter" data-level="1.1.7" data-path="lecture-notes-introductiecollege.html"><a href="lecture-notes-introductiecollege.html#data-scientists"><i class="fa fa-check"></i><b>1.1.7</b> Data Scientists</a></li>
-<li class="chapter" data-level="1.1.8" data-path="lecture-notes-introductiecollege.html"><a href="lecture-notes-introductiecollege.html#verschillende-soorten-van-data-analyse"><i class="fa fa-check"></i><b>1.1.8</b> Verschillende soorten van data analyse</a></li>
-<li class="chapter" data-level="1.1.9" data-path="lecture-notes-introductiecollege.html"><a href="lecture-notes-introductiecollege.html#de-kunst-van-data-analyse"><i class="fa fa-check"></i><b>1.1.9</b> De kunst van data analyse</a></li>
-<li class="chapter" data-level="1.1.10" data-path="lecture-notes-introductiecollege.html"><a href="lecture-notes-introductiecollege.html#de-kracht-van-descriptieve-en-exploratieve-data-analyse"><i class="fa fa-check"></i><b>1.1.10</b> De kracht van descriptieve en exploratieve data analyse</a></li>
+<li class="chapter" data-level="1.1.8" data-path="lecture-notes-introductiecollege.html"><a href="lecture-notes-introductiecollege.html#de-kunst-van-data-analyse"><i class="fa fa-check"></i><b>1.1.8</b> De kunst van data analyse</a></li>
+<li class="chapter" data-level="1.1.9" data-path="lecture-notes-introductiecollege.html"><a href="lecture-notes-introductiecollege.html#de-kracht-van-descriptieve-en-exploratieve-data-analyse"><i class="fa fa-check"></i><b>1.1.9</b> De kracht van descriptieve en exploratieve data analyse</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="lecture-notes-introductiecollege.html"><a href="lecture-notes-introductiecollege.html#data-data-types"><i class="fa fa-check"></i><b>1.2</b> Data &amp; Data types</a><ul>
+<li class="chapter" data-level="1.2" data-path="lecture-notes-introductiecollege.html"><a href="lecture-notes-introductiecollege.html#data-data-types"><i class="fa fa-check"></i><b>1.2</b> Data &amp; Data types</a>
+<ul>
 <li class="chapter" data-level="1.2.1" data-path="lecture-notes-introductiecollege.html"><a href="lecture-notes-introductiecollege.html#dataset"><i class="fa fa-check"></i><b>1.2.1</b> Dataset</a></li>
 <li class="chapter" data-level="1.2.2" data-path="lecture-notes-introductiecollege.html"><a href="lecture-notes-introductiecollege.html#klassieke-datatypologie"><i class="fa fa-check"></i><b>1.2.2</b> Klassieke datatypologie</a></li>
 <li class="chapter" data-level="1.2.3" data-path="lecture-notes-introductiecollege.html"><a href="lecture-notes-introductiecollege.html#de-klassieke-datatypologie-is-misleidend"><i class="fa fa-check"></i><b>1.2.3</b> De klassieke datatypologie is misleidend</a></li>
@@ -162,33 +169,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="1.3" data-path="lecture-notes-introductiecollege.html"><a href="lecture-notes-introductiecollege.html#referenties"><i class="fa fa-check"></i><b>1.3</b> Referenties</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="lecture-notes-data-visualizatie.html"><a href="lecture-notes-data-visualizatie.html"><i class="fa fa-check"></i><b>2</b> [Lecture notes] Data visualizatie</a><ul>
-<li class="chapter" data-level="2.1" data-path="lecture-notes-data-visualizatie.html"><a href="lecture-notes-data-visualizatie.html#univariate-visualisaties-1-variabele"><i class="fa fa-check"></i><b>2.1</b> Univariate visualisaties (1 variabele)</a><ul>
+<li class="chapter" data-level="2" data-path="lecture-notes-data-visualizatie.html"><a href="lecture-notes-data-visualizatie.html"><i class="fa fa-check"></i><b>2</b> [Lecture notes] Data visualizatie</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="lecture-notes-data-visualizatie.html"><a href="lecture-notes-data-visualizatie.html#univariate-visualisaties-1-variabele"><i class="fa fa-check"></i><b>2.1</b> Univariate visualisaties (1 variabele)</a>
+<ul>
 <li class="chapter" data-level="2.1.1" data-path="lecture-notes-data-visualizatie.html"><a href="lecture-notes-data-visualizatie.html#categorische-variabele"><i class="fa fa-check"></i><b>2.1.1</b> Categorische variabele</a></li>
 <li class="chapter" data-level="2.1.2" data-path="lecture-notes-data-visualizatie.html"><a href="lecture-notes-data-visualizatie.html#continue-variabele"><i class="fa fa-check"></i><b>2.1.2</b> Continue variabele</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="lecture-notes-data-visualizatie.html"><a href="lecture-notes-data-visualizatie.html#bivariate-visualisatie-2-variabelen"><i class="fa fa-check"></i><b>2.2</b> Bivariate visualisatie (2 variabelen)</a><ul>
+<li class="chapter" data-level="2.2" data-path="lecture-notes-data-visualizatie.html"><a href="lecture-notes-data-visualizatie.html#bivariate-visualisatie-2-variabelen"><i class="fa fa-check"></i><b>2.2</b> Bivariate visualisatie (2 variabelen)</a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="lecture-notes-data-visualizatie.html"><a href="lecture-notes-data-visualizatie.html#situatie-1-de-onafhankelijke-variabele-is-categorisch"><i class="fa fa-check"></i><b>2.2.1</b> Situatie 1: De onafhankelijke variabele is categorisch</a></li>
 <li class="chapter" data-level="2.2.2" data-path="lecture-notes-data-visualizatie.html"><a href="lecture-notes-data-visualizatie.html#situatie-2-de-onafhankelijke-variabele-is-continue"><i class="fa fa-check"></i><b>2.2.2</b> Situatie 2: De onafhankelijke variabele is continue</a></li>
 <li class="chapter" data-level="2.2.3" data-path="lecture-notes-data-visualizatie.html"><a href="lecture-notes-data-visualizatie.html#situatie-3-de-onafhankelijke-variabele-is-tijd"><i class="fa fa-check"></i><b>2.2.3</b> Situatie 3: De onafhankelijke variabele is tijd</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="lecture-notes-data-visualizatie.html"><a href="lecture-notes-data-visualizatie.html#multivariate-visualisaties-meer-dan-2-variabelen"><i class="fa fa-check"></i><b>2.3</b> Multivariate visualisaties (meer dan 2 variabelen)</a><ul>
+<li class="chapter" data-level="2.3" data-path="lecture-notes-data-visualizatie.html"><a href="lecture-notes-data-visualizatie.html#multivariate-visualisaties-meer-dan-2-variabelen"><i class="fa fa-check"></i><b>2.3</b> Multivariate visualisaties (meer dan 2 variabelen)</a>
+<ul>
 <li class="chapter" data-level="2.3.1" data-path="lecture-notes-data-visualizatie.html"><a href="lecture-notes-data-visualizatie.html#voorbeeld-in-welke-mate-hangt-de-vertrek-vertraging-af-van-de-luchthaven-en-de-afstand"><i class="fa fa-check"></i><b>2.3.1</b> Voorbeeld: In welke mate hangt de vertrek vertraging af van de luchthaven en de afstand?</a></li>
 <li class="chapter" data-level="2.3.2" data-path="lecture-notes-data-visualizatie.html"><a href="lecture-notes-data-visualizatie.html#voorbeeld-multivariaat-tijd"><i class="fa fa-check"></i><b>2.3.2</b> Voorbeeld: multivariaat tijd</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="lecture-notes-data-visualizatie.html"><a href="lecture-notes-data-visualizatie.html#visualisaties-voor-communicatie"><i class="fa fa-check"></i><b>2.4</b> Visualisaties voor communicatie</a><ul>
+<li class="chapter" data-level="2.4" data-path="lecture-notes-data-visualizatie.html"><a href="lecture-notes-data-visualizatie.html#visualisaties-voor-communicatie"><i class="fa fa-check"></i><b>2.4</b> Visualisaties voor communicatie</a>
+<ul>
 <li class="chapter" data-level="2.4.1" data-path="lecture-notes-data-visualizatie.html"><a href="lecture-notes-data-visualizatie.html#voorbeeld-voor-goed-voor-exploratie"><i class="fa fa-check"></i><b>2.4.1</b> Voorbeeld: voor ~ goed voor exploratie</a></li>
 <li class="chapter" data-level="2.4.2" data-path="lecture-notes-data-visualizatie.html"><a href="lecture-notes-data-visualizatie.html#voorbeeld-na-goed-voor-communicatie"><i class="fa fa-check"></i><b>2.4.2</b> Voorbeeld: na ~ goed voor communicatie</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="lecture-notes-data-visualizatie.html"><a href="lecture-notes-data-visualizatie.html#how-charts-lie"><i class="fa fa-check"></i><b>2.5</b> How charts lie</a><ul>
+<li class="chapter" data-level="2.5" data-path="lecture-notes-data-visualizatie.html"><a href="lecture-notes-data-visualizatie.html#how-charts-lie"><i class="fa fa-check"></i><b>2.5</b> How charts lie</a>
+<ul>
 <li class="chapter" data-level="2.5.1" data-path="lecture-notes-data-visualizatie.html"><a href="lecture-notes-data-visualizatie.html#causaliteit-vs-correlatie"><i class="fa fa-check"></i><b>2.5.1</b> Causaliteit vs correlatie</a></li>
 </ul></li>
 <li class="chapter" data-level="2.6" data-path="lecture-notes-data-visualizatie.html"><a href="lecture-notes-data-visualizatie.html#referenties-1"><i class="fa fa-check"></i><b>2.6</b> Referenties</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="tutorial-data-visualisatie.html"><a href="tutorial-data-visualisatie.html"><i class="fa fa-check"></i><b>3</b> [Tutorial] Data visualisatie</a><ul>
+<li class="chapter" data-level="3" data-path="tutorial-data-visualisatie.html"><a href="tutorial-data-visualisatie.html"><i class="fa fa-check"></i><b>3</b> [Tutorial] Data visualisatie</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="tutorial-data-visualisatie.html"><a href="tutorial-data-visualisatie.html#voor-je-begint"><i class="fa fa-check"></i><b>3.1</b> Voor je begint</a></li>
 <li class="chapter" data-level="3.2" data-path="tutorial-data-visualisatie.html"><a href="tutorial-data-visualisatie.html#introductie"><i class="fa fa-check"></i><b>3.2</b> Introductie</a></li>
-<li class="chapter" data-level="3.3" data-path="tutorial-data-visualisatie.html"><a href="tutorial-data-visualisatie.html#verschillende-geometrics"><i class="fa fa-check"></i><b>3.3</b> Verschillende geometrics</a><ul>
+<li class="chapter" data-level="3.3" data-path="tutorial-data-visualisatie.html"><a href="tutorial-data-visualisatie.html#verschillende-geometrics"><i class="fa fa-check"></i><b>3.3</b> Verschillende geometrics</a>
+<ul>
 <li class="chapter" data-level="3.3.1" data-path="tutorial-data-visualisatie.html"><a href="tutorial-data-visualisatie.html#geom_point"><i class="fa fa-check"></i><b>3.3.1</b> geom_point</a></li>
 <li class="chapter" data-level="3.3.2" data-path="tutorial-data-visualisatie.html"><a href="tutorial-data-visualisatie.html#geom_histogram"><i class="fa fa-check"></i><b>3.3.2</b> geom_histogram</a></li>
 <li class="chapter" data-level="3.3.3" data-path="tutorial-data-visualisatie.html"><a href="tutorial-data-visualisatie.html#geom_boxplot"><i class="fa fa-check"></i><b>3.3.3</b> geom_boxplot</a></li>
@@ -197,24 +212,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3.6" data-path="tutorial-data-visualisatie.html"><a href="tutorial-data-visualisatie.html#geom_col"><i class="fa fa-check"></i><b>3.3.6</b> geom_col</a></li>
 <li class="chapter" data-level="3.3.7" data-path="tutorial-data-visualisatie.html"><a href="tutorial-data-visualisatie.html#other-geometrics"><i class="fa fa-check"></i><b>3.3.7</b> Other geometrics</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="tutorial-data-visualisatie.html"><a href="tutorial-data-visualisatie.html#layout-van-onze-grafieken-verbeteren"><i class="fa fa-check"></i><b>3.4</b> Layout van onze grafieken verbeteren</a><ul>
+<li class="chapter" data-level="3.4" data-path="tutorial-data-visualisatie.html"><a href="tutorial-data-visualisatie.html#layout-van-onze-grafieken-verbeteren"><i class="fa fa-check"></i><b>3.4</b> Layout van onze grafieken verbeteren</a>
+<ul>
 <li class="chapter" data-level="3.4.1" data-path="tutorial-data-visualisatie.html"><a href="tutorial-data-visualisatie.html#titels"><i class="fa fa-check"></i><b>3.4.1</b> Titels</a></li>
 <li class="chapter" data-level="3.4.2" data-path="tutorial-data-visualisatie.html"><a href="tutorial-data-visualisatie.html#theme"><i class="fa fa-check"></i><b>3.4.2</b> Theme</a></li>
 <li class="chapter" data-level="3.4.3" data-path="tutorial-data-visualisatie.html"><a href="tutorial-data-visualisatie.html#het-coördinatenstelsel"><i class="fa fa-check"></i><b>3.4.3</b> Het coördinatenstelsel</a></li>
 <li class="chapter" data-level="3.4.4" data-path="tutorial-data-visualisatie.html"><a href="tutorial-data-visualisatie.html#color-scales"><i class="fa fa-check"></i><b>3.4.4</b> Color scales</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="tutorial-data-visualisatie.html"><a href="tutorial-data-visualisatie.html#geavanceerde-plots"><i class="fa fa-check"></i><b>3.5</b> Geavanceerde plots</a><ul>
+<li class="chapter" data-level="3.5" data-path="tutorial-data-visualisatie.html"><a href="tutorial-data-visualisatie.html#geavanceerde-plots"><i class="fa fa-check"></i><b>3.5</b> Geavanceerde plots</a>
+<ul>
 <li class="chapter" data-level="3.5.1" data-path="tutorial-data-visualisatie.html"><a href="tutorial-data-visualisatie.html#gebruikmaken-van-facets"><i class="fa fa-check"></i><b>3.5.1</b> Gebruikmaken van Facets</a></li>
 <li class="chapter" data-level="3.5.2" data-path="tutorial-data-visualisatie.html"><a href="tutorial-data-visualisatie.html#meerdere-layers-combineren"><i class="fa fa-check"></i><b>3.5.2</b> Meerdere layers combineren</a></li>
 <li class="chapter" data-level="3.5.3" data-path="tutorial-data-visualisatie.html"><a href="tutorial-data-visualisatie.html#aes-overerving"><i class="fa fa-check"></i><b>3.5.3</b> Aes-overerving</a></li>
 </ul></li>
 <li class="chapter" data-level="3.6" data-path="tutorial-data-visualisatie.html"><a href="tutorial-data-visualisatie.html#background-material"><i class="fa fa-check"></i><b>3.6</b> Background material</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="lecture-notes-descriptieve-statistieken.html"><a href="lecture-notes-descriptieve-statistieken.html"><i class="fa fa-check"></i><b>4</b> [Lecture notes] Descriptieve statistieken</a><ul>
+<li class="chapter" data-level="4" data-path="lecture-notes-descriptieve-statistieken.html"><a href="lecture-notes-descriptieve-statistieken.html"><i class="fa fa-check"></i><b>4</b> [Lecture notes] Descriptieve statistieken</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="lecture-notes-descriptieve-statistieken.html"><a href="lecture-notes-descriptieve-statistieken.html#beschrijvende-statistieken-versus-exploratieve-plots"><i class="fa fa-check"></i><b>4.1</b> Beschrijvende statistieken versus exploratieve plots</a></li>
 <li class="chapter" data-level="4.2" data-path="lecture-notes-descriptieve-statistieken.html"><a href="lecture-notes-descriptieve-statistieken.html#notatie"><i class="fa fa-check"></i><b>4.2</b> Notatie</a></li>
 <li class="chapter" data-level="4.3" data-path="lecture-notes-descriptieve-statistieken.html"><a href="lecture-notes-descriptieve-statistieken.html#data"><i class="fa fa-check"></i><b>4.3</b> Data</a></li>
-<li class="chapter" data-level="4.4" data-path="lecture-notes-descriptieve-statistieken.html"><a href="lecture-notes-descriptieve-statistieken.html#univariate-statistieken"><i class="fa fa-check"></i><b>4.4</b> Univariate statistieken</a><ul>
+<li class="chapter" data-level="4.4" data-path="lecture-notes-descriptieve-statistieken.html"><a href="lecture-notes-descriptieve-statistieken.html#univariate-statistieken"><i class="fa fa-check"></i><b>4.4</b> Univariate statistieken</a>
+<ul>
 <li class="chapter" data-level="4.4.1" data-path="lecture-notes-descriptieve-statistieken.html"><a href="lecture-notes-descriptieve-statistieken.html#continue-variabele-1"><i class="fa fa-check"></i><b>4.4.1</b> Continue variabele</a></li>
 <li class="chapter" data-level="" data-path="lecture-notes-descriptieve-statistieken.html"><a href="lecture-notes-descriptieve-statistieken.html#centrummaten"><i class="fa fa-check"></i>Centrummaten</a></li>
 <li class="chapter" data-level="" data-path="lecture-notes-descriptieve-statistieken.html"><a href="lecture-notes-descriptieve-statistieken.html#spreidingsmaten"><i class="fa fa-check"></i>Spreidingsmaten</a></li>
@@ -223,7 +242,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="lecture-notes-descriptieve-statistieken.html"><a href="lecture-notes-descriptieve-statistieken.html#centrummaten-1"><i class="fa fa-check"></i>Centrummaten</a></li>
 <li class="chapter" data-level="" data-path="lecture-notes-descriptieve-statistieken.html"><a href="lecture-notes-descriptieve-statistieken.html#spreidingsmaten-1"><i class="fa fa-check"></i>Spreidingsmaten</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="lecture-notes-descriptieve-statistieken.html"><a href="lecture-notes-descriptieve-statistieken.html#bivariate-statistieken"><i class="fa fa-check"></i><b>4.5</b> Bivariate statistieken</a><ul>
+<li class="chapter" data-level="4.5" data-path="lecture-notes-descriptieve-statistieken.html"><a href="lecture-notes-descriptieve-statistieken.html#bivariate-statistieken"><i class="fa fa-check"></i><b>4.5</b> Bivariate statistieken</a>
+<ul>
 <li class="chapter" data-level="4.5.1" data-path="lecture-notes-descriptieve-statistieken.html"><a href="lecture-notes-descriptieve-statistieken.html#categorisch-versus-categorisch"><i class="fa fa-check"></i><b>4.5.1</b> Categorisch versus Categorisch</a></li>
 <li class="chapter" data-level="" data-path="lecture-notes-descriptieve-statistieken.html"><a href="lecture-notes-descriptieve-statistieken.html#univariate-statistieken-per-categoriewaarde"><i class="fa fa-check"></i>Univariate statistieken per categoriewaarde</a></li>
 <li class="chapter" data-level="" data-path="lecture-notes-descriptieve-statistieken.html"><a href="lecture-notes-descriptieve-statistieken.html#contingentietabellen"><i class="fa fa-check"></i>Contingentietabellen</a></li>
@@ -236,10 +256,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="lecture-notes-descriptieve-statistieken.html"><a href="lecture-notes-descriptieve-statistieken.html#referenties-2"><i class="fa fa-check"></i>Referenties</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html"><i class="fa fa-check"></i><b>5</b> [Tutorial] Descriptieve statistieken</a><ul>
+<li class="chapter" data-level="5" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html"><i class="fa fa-check"></i><b>5</b> [Tutorial] Descriptieve statistieken</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#voor-je-begint-1"><i class="fa fa-check"></i><b>5.1</b> Voor je begint</a></li>
 <li class="chapter" data-level="5.2" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#introductie-1"><i class="fa fa-check"></i><b>5.2</b> Introductie</a></li>
-<li class="chapter" data-level="5.3" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#nuttige-dplyr-functies"><i class="fa fa-check"></i><b>5.3</b> Nuttige dplyr functies</a><ul>
+<li class="chapter" data-level="5.3" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#nuttige-dplyr-functies"><i class="fa fa-check"></i><b>5.3</b> Nuttige dplyr functies</a>
+<ul>
 <li class="chapter" data-level="5.3.1" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#tibbles"><i class="fa fa-check"></i><b>5.3.1</b> Tibbles</a></li>
 <li class="chapter" data-level="5.3.2" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#glimpse"><i class="fa fa-check"></i><b>5.3.2</b> Glimpse</a></li>
 <li class="chapter" data-level="5.3.3" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#section"><i class="fa fa-check"></i><b>5.3.3</b> %&gt;%</a></li>
@@ -251,30 +273,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.8" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#bivariate-analyse-van-een-categorische-variabele-ten-opzichte-van-een-andere-categorische-variabele"><i class="fa fa-check"></i><b>5.8</b> Bivariate analyse van een categorische variabele ten opzichte van een andere categorische variabele</a></li>
 <li class="chapter" data-level="5.9" data-path="tutorial-descriptieve-statistieken.html"><a href="tutorial-descriptieve-statistieken.html#background-material-1"><i class="fa fa-check"></i><b>5.9</b> Background material</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="lecture-notes-structuur-van-een-data-analyse-project-.html"><a href="lecture-notes-structuur-van-een-data-analyse-project-.html"><i class="fa fa-check"></i><b>6</b> [Lecture notes] Structuur van een data analyse project.</a></li>
-<li class="chapter" data-level="7" data-path="lecture-notes-data-voorbereiden.html"><a href="lecture-notes-data-voorbereiden.html"><i class="fa fa-check"></i><b>7</b> [Lecture notes] Data voorbereiden</a><ul>
+<li class="chapter" data-level="6" data-path="lecture-notes-structuur-van-een-data-analyse-project..html"><a href="lecture-notes-structuur-van-een-data-analyse-project..html"><i class="fa fa-check"></i><b>6</b> [Lecture notes] Structuur van een data analyse project.</a></li>
+<li class="chapter" data-level="7" data-path="lecture-notes-data-voorbereiden.html"><a href="lecture-notes-data-voorbereiden.html"><i class="fa fa-check"></i><b>7</b> [Lecture notes] Data voorbereiden</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="lecture-notes-data-voorbereiden.html"><a href="lecture-notes-data-voorbereiden.html#beginnen-bij-het-begin"><i class="fa fa-check"></i><b>7.1</b> Beginnen bij het begin</a></li>
-<li class="chapter" data-level="7.2" data-path="lecture-notes-data-voorbereiden.html"><a href="lecture-notes-data-voorbereiden.html#data-inlezen"><i class="fa fa-check"></i><b>7.2</b> Data inlezen</a><ul>
+<li class="chapter" data-level="7.2" data-path="lecture-notes-data-voorbereiden.html"><a href="lecture-notes-data-voorbereiden.html#data-inlezen"><i class="fa fa-check"></i><b>7.2</b> Data inlezen</a>
+<ul>
 <li class="chapter" data-level="7.2.1" data-path="lecture-notes-data-voorbereiden.html"><a href="lecture-notes-data-voorbereiden.html#uitdagingen-bij-het-correct-inlezen-van-data"><i class="fa fa-check"></i><b>7.2.1</b> Uitdagingen bij het correct inlezen van data</a></li>
 <li class="chapter" data-level="7.2.2" data-path="lecture-notes-data-voorbereiden.html"><a href="lecture-notes-data-voorbereiden.html#dataformaten"><i class="fa fa-check"></i><b>7.2.2</b> Dataformaten</a></li>
 <li class="chapter" data-level="7.2.3" data-path="lecture-notes-data-voorbereiden.html"><a href="lecture-notes-data-voorbereiden.html#data-encodering"><i class="fa fa-check"></i><b>7.2.3</b> Data-encodering</a></li>
 <li class="chapter" data-level="7.2.4" data-path="lecture-notes-data-voorbereiden.html"><a href="lecture-notes-data-voorbereiden.html#datatypes-controlleren-en-corrigeren"><i class="fa fa-check"></i><b>7.2.4</b> Datatypes controlleren en corrigeren</a></li>
 </ul></li>
-<li class="chapter" data-level="7.3" data-path="lecture-notes-data-voorbereiden.html"><a href="lecture-notes-data-voorbereiden.html#dataproblemen-identificeren-en-corrigeren"><i class="fa fa-check"></i><b>7.3</b> Dataproblemen identificeren en corrigeren</a><ul>
+<li class="chapter" data-level="7.3" data-path="lecture-notes-data-voorbereiden.html"><a href="lecture-notes-data-voorbereiden.html#dataproblemen-identificeren-en-corrigeren"><i class="fa fa-check"></i><b>7.3</b> Dataproblemen identificeren en corrigeren</a>
+<ul>
 <li class="chapter" data-level="7.3.1" data-path="lecture-notes-data-voorbereiden.html"><a href="lecture-notes-data-voorbereiden.html#overzicht"><i class="fa fa-check"></i><b>7.3.1</b> Overzicht</a></li>
 <li class="chapter" data-level="7.3.2" data-path="lecture-notes-data-voorbereiden.html"><a href="lecture-notes-data-voorbereiden.html#foutieve-waarden"><i class="fa fa-check"></i><b>7.3.2</b> Foutieve waarden</a></li>
 <li class="chapter" data-level="7.3.3" data-path="lecture-notes-data-voorbereiden.html"><a href="lecture-notes-data-voorbereiden.html#ontbrekende-waarden"><i class="fa fa-check"></i><b>7.3.3</b> Ontbrekende waarden</a></li>
 <li class="chapter" data-level="7.3.4" data-path="lecture-notes-data-voorbereiden.html"><a href="lecture-notes-data-voorbereiden.html#inconsistente-waarden"><i class="fa fa-check"></i><b>7.3.4</b> Inconsistente waarden</a></li>
 </ul></li>
-<li class="chapter" data-level="7.4" data-path="lecture-notes-data-voorbereiden.html"><a href="lecture-notes-data-voorbereiden.html#data-opwaarderen"><i class="fa fa-check"></i><b>7.4</b> Data opwaarderen</a><ul>
+<li class="chapter" data-level="7.4" data-path="lecture-notes-data-voorbereiden.html"><a href="lecture-notes-data-voorbereiden.html#data-opwaarderen"><i class="fa fa-check"></i><b>7.4</b> Data opwaarderen</a>
+<ul>
 <li class="chapter" data-level="7.4.1" data-path="lecture-notes-data-voorbereiden.html"><a href="lecture-notes-data-voorbereiden.html#sampling"><i class="fa fa-check"></i><b>7.4.1</b> Sampling</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="lecture-notes-data-voorbereiden.html"><a href="lecture-notes-data-voorbereiden.html#referenties-3"><i class="fa fa-check"></i>Referenties</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html"><i class="fa fa-check"></i><b>8</b> [Tutorial] Data voorbereiden</a><ul>
+<li class="chapter" data-level="8" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html"><i class="fa fa-check"></i><b>8</b> [Tutorial] Data voorbereiden</a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#voor-je-begint-2"><i class="fa fa-check"></i><b>8.1</b> Voor je begint</a></li>
 <li class="chapter" data-level="8.2" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#inleiding"><i class="fa fa-check"></i><b>8.2</b> Inleiding</a></li>
-<li class="chapter" data-level="8.3" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#gegevens-lezen"><i class="fa fa-check"></i><b>8.3</b> Gegevens lezen</a><ul>
+<li class="chapter" data-level="8.3" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#gegevens-lezen"><i class="fa fa-check"></i><b>8.3</b> Gegevens lezen</a>
+<ul>
 <li class="chapter" data-level="8.3.1" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#csv-and-tsv"><i class="fa fa-check"></i><b>8.3.1</b> CSV and TSV</a></li>
 <li class="chapter" data-level="8.3.2" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#excel"><i class="fa fa-check"></i><b>8.3.2</b> Excel</a></li>
 <li class="chapter" data-level="8.3.3" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#json-en-xml"><i class="fa fa-check"></i><b>8.3.3</b> JSON en XML</a></li>
@@ -283,14 +311,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.3.6" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#achtergrond-materiaal"><i class="fa fa-check"></i><b>8.3.6</b> Achtergrond materiaal</a></li>
 <li class="chapter" data-level="8.3.7" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#variabelen-omzetten"><i class="fa fa-check"></i><b>8.3.7</b> Variabelen omzetten</a></li>
 </ul></li>
-<li class="chapter" data-level="8.4" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#cleaning-data"><i class="fa fa-check"></i><b>8.4</b> Cleaning Data</a><ul>
+<li class="chapter" data-level="8.4" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#cleaning-data"><i class="fa fa-check"></i><b>8.4</b> Cleaning Data</a>
+<ul>
 <li class="chapter" data-level="8.4.1" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#dubbele-observaties"><i class="fa fa-check"></i><b>8.4.1</b> Dubbele observaties</a></li>
 <li class="chapter" data-level="8.4.2" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#cleaning-categorische-variabelen"><i class="fa fa-check"></i><b>8.4.2</b> Cleaning categorische variabelen</a></li>
 <li class="chapter" data-level="8.4.3" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#cleaning-continue-variabelen"><i class="fa fa-check"></i><b>8.4.3</b> Cleaning continue variabelen</a></li>
 <li class="chapter" data-level="8.4.4" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#data-inconsistenties"><i class="fa fa-check"></i><b>8.4.4</b> Data inconsistenties</a></li>
 <li class="chapter" data-level="8.4.5" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#missing-values"><i class="fa fa-check"></i><b>8.4.5</b> Missing values</a></li>
 </ul></li>
-<li class="chapter" data-level="8.5" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#data-transformatie"><i class="fa fa-check"></i><b>8.5</b> Data transformatie</a><ul>
+<li class="chapter" data-level="8.5" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#data-transformatie"><i class="fa fa-check"></i><b>8.5</b> Data transformatie</a>
+<ul>
 <li class="chapter" data-level="8.5.1" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#discretisern-van-continue-variablen"><i class="fa fa-check"></i><b>8.5.1</b> Discretisern van continue variablen</a></li>
 <li class="chapter" data-level="8.5.2" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#herschalen-van-continue-variablen"><i class="fa fa-check"></i><b>8.5.2</b> Herschalen van continue variablen</a></li>
 <li class="chapter" data-level="8.5.3" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#toevoegen-van-calculated-variables"><i class="fa fa-check"></i><b>8.5.3</b> Toevoegen van calculated variables</a></li>
@@ -299,19 +329,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.6" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#data-transformaties-tijdens-data-visualizatie"><i class="fa fa-check"></i><b>8.6</b> Data transformaties tijdens data visualizatie</a></li>
 <li class="chapter" data-level="8.7" data-path="tutorial-data-voorbereiden.html"><a href="tutorial-data-voorbereiden.html#achtergrondmateriaal"><i class="fa fa-check"></i><b>8.7</b> Achtergrondmateriaal</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="lecture-notes-tidy-data.html"><a href="lecture-notes-tidy-data.html"><i class="fa fa-check"></i><b>9</b> [Lecture notes] Tidy data</a><ul>
+<li class="chapter" data-level="9" data-path="lecture-notes-tidy-data.html"><a href="lecture-notes-tidy-data.html"><i class="fa fa-check"></i><b>9</b> [Lecture notes] Tidy data</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="lecture-notes-tidy-data.html"><a href="lecture-notes-tidy-data.html#inleiding-1"><i class="fa fa-check"></i><b>9.1</b> Inleiding</a></li>
-<li class="chapter" data-level="9.2" data-path="lecture-notes-tidy-data.html"><a href="lecture-notes-tidy-data.html#case-nyc-vluchten-2013"><i class="fa fa-check"></i><b>9.2</b> Case: NYC Vluchten 2013</a><ul>
+<li class="chapter" data-level="9.2" data-path="lecture-notes-tidy-data.html"><a href="lecture-notes-tidy-data.html#case-nyc-vluchten-2013"><i class="fa fa-check"></i><b>9.2</b> Case: NYC Vluchten 2013</a>
+<ul>
 <li class="chapter" data-level="9.2.1" data-path="lecture-notes-tidy-data.html"><a href="lecture-notes-tidy-data.html#datasets-samenvoegen"><i class="fa fa-check"></i><b>9.2.1</b> Datasets samenvoegen</a></li>
 </ul></li>
 <li class="chapter" data-level="9.3" data-path="lecture-notes-tidy-data.html"><a href="lecture-notes-tidy-data.html#data-in-een-lang-formaat-plaatsen-voor-visuele-analyses"><i class="fa fa-check"></i><b>9.3</b> Data in een lang formaat plaatsen (voor visuele analyses)</a></li>
 <li class="chapter" data-level="9.4" data-path="lecture-notes-tidy-data.html"><a href="lecture-notes-tidy-data.html#data-in-een-breed-formaat-plaatsen-voor-overzichtelijke-tabellen"><i class="fa fa-check"></i><b>9.4</b> Data in een breed formaat plaatsen (voor overzichtelijke tabellen)</a></li>
 <li class="chapter" data-level="9.5" data-path="lecture-notes-tidy-data.html"><a href="lecture-notes-tidy-data.html#referenties-4"><i class="fa fa-check"></i><b>9.5</b> Referenties</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html"><i class="fa fa-check"></i><b>10</b> [Tutorial] Tidy data</a><ul>
+<li class="chapter" data-level="10" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html"><i class="fa fa-check"></i><b>10</b> [Tutorial] Tidy data</a>
+<ul>
 <li class="chapter" data-level="10.1" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#voor-je-begint-3"><i class="fa fa-check"></i><b>10.1</b> Voor je begint</a></li>
 <li class="chapter" data-level="" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#disclaimer-1"><i class="fa fa-check"></i>Disclaimer</a></li>
-<li class="chapter" data-level="10.2" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#data-samenvoegen"><i class="fa fa-check"></i><b>10.2</b> Data samenvoegen</a><ul>
+<li class="chapter" data-level="10.2" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#data-samenvoegen"><i class="fa fa-check"></i><b>10.2</b> Data samenvoegen</a>
+<ul>
 <li class="chapter" data-level="10.2.1" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#joining-data"><i class="fa fa-check"></i><b>10.2.1</b> Joining data</a></li>
 <li class="chapter" data-level="10.2.2" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#inner-join"><i class="fa fa-check"></i><b>10.2.2</b> Inner join</a></li>
 <li class="chapter" data-level="10.2.3" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#left-join"><i class="fa fa-check"></i><b>10.2.3</b> Left join</a></li>
@@ -321,7 +355,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.2.7" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#een-voorbeeld"><i class="fa fa-check"></i><b>10.2.7</b> Een voorbeeld</a></li>
 <li class="chapter" data-level="10.2.8" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#binding-data"><i class="fa fa-check"></i><b>10.2.8</b> Binding data</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#transforming-data"><i class="fa fa-check"></i><b>10.3</b> Transforming data</a><ul>
+<li class="chapter" data-level="10.3" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#transforming-data"><i class="fa fa-check"></i><b>10.3</b> Transforming data</a>
+<ul>
 <li class="chapter" data-level="10.3.1" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#unite-variables"><i class="fa fa-check"></i><b>10.3.1</b> Unite variables</a></li>
 <li class="chapter" data-level="10.3.2" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#separate-variables"><i class="fa fa-check"></i><b>10.3.2</b> Separate variables</a></li>
 <li class="chapter" data-level="10.3.3" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#spread-data"><i class="fa fa-check"></i><b>10.3.3</b> Spread data</a></li>
@@ -329,12 +364,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="10.4" data-path="tutorial-tidy-data.html"><a href="tutorial-tidy-data.html#case-study-who"><i class="fa fa-check"></i><b>10.4</b> [Case study]: WHO</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="lecture-notes-tijdsdata.html"><a href="lecture-notes-tijdsdata.html"><i class="fa fa-check"></i><b>11</b> [Lecture notes] Tijdsdata</a><ul>
-<li class="chapter" data-level="11.1" data-path="lecture-notes-tijdsdata.html"><a href="lecture-notes-tijdsdata.html#inleiding-2"><i class="fa fa-check"></i><b>11.1</b> Inleiding</a><ul>
+<li class="chapter" data-level="11" data-path="lecture-notes-tijdsdata.html"><a href="lecture-notes-tijdsdata.html"><i class="fa fa-check"></i><b>11</b> [Lecture notes] Tijdsdata</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="lecture-notes-tijdsdata.html"><a href="lecture-notes-tijdsdata.html#inleiding-2"><i class="fa fa-check"></i><b>11.1</b> Inleiding</a>
+<ul>
 <li class="chapter" data-level="11.1.1" data-path="lecture-notes-tijdsdata.html"><a href="lecture-notes-tijdsdata.html#tijdstippen-versus-periodes"><i class="fa fa-check"></i><b>11.1.1</b> Tijdstippen versus periodes</a></li>
 <li class="chapter" data-level="11.1.2" data-path="lecture-notes-tijdsdata.html"><a href="lecture-notes-tijdsdata.html#afronden-van-tijdstippen"><i class="fa fa-check"></i><b>11.1.2</b> Afronden van tijdstippen</a></li>
 </ul></li>
-<li class="chapter" data-level="11.2" data-path="lecture-notes-tijdsdata.html"><a href="lecture-notes-tijdsdata.html#periode-data"><i class="fa fa-check"></i><b>11.2</b> Periode-data</a><ul>
+<li class="chapter" data-level="11.2" data-path="lecture-notes-tijdsdata.html"><a href="lecture-notes-tijdsdata.html#periode-data"><i class="fa fa-check"></i><b>11.2</b> Periode-data</a>
+<ul>
 <li class="chapter" data-level="11.2.1" data-path="lecture-notes-tijdsdata.html"><a href="lecture-notes-tijdsdata.html#interval-1"><i class="fa fa-check"></i><b>11.2.1</b> Interval</a></li>
 <li class="chapter" data-level="11.2.2" data-path="lecture-notes-tijdsdata.html"><a href="lecture-notes-tijdsdata.html#duration"><i class="fa fa-check"></i><b>11.2.2</b> Duration</a></li>
 <li class="chapter" data-level="11.2.3" data-path="lecture-notes-tijdsdata.html"><a href="lecture-notes-tijdsdata.html#period"><i class="fa fa-check"></i><b>11.2.3</b> Period</a></li>
@@ -342,14 +380,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.3" data-path="lecture-notes-tijdsdata.html"><a href="lecture-notes-tijdsdata.html#analyseren-van-tijdgerelateerde-data"><i class="fa fa-check"></i><b>11.3</b> Analyseren van tijdgerelateerde data</a></li>
 <li class="chapter" data-level="11.4" data-path="lecture-notes-tijdsdata.html"><a href="lecture-notes-tijdsdata.html#referenties-5"><i class="fa fa-check"></i><b>11.4</b> Referenties</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html"><i class="fa fa-check"></i><b>12</b> [Tutorial] Tijdsdata</a><ul>
+<li class="chapter" data-level="12" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html"><i class="fa fa-check"></i><b>12</b> [Tutorial] Tijdsdata</a>
+<ul>
 <li class="chapter" data-level="12.1" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#voor-we-beginnen"><i class="fa fa-check"></i><b>12.1</b> Voor we beginnen</a></li>
 <li class="chapter" data-level="12.2" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#introduction"><i class="fa fa-check"></i><b>12.2</b> Introduction</a></li>
 <li class="chapter" data-level="12.3" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#whats-in-a-date"><i class="fa fa-check"></i><b>12.3</b> What’s in a date?</a></li>
 <li class="chapter" data-level="12.4" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#theres-always-time"><i class="fa fa-check"></i><b>12.4</b> There’s always time</a></li>
 <li class="chapter" data-level="12.5" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#my-time-is-not-your-time"><i class="fa fa-check"></i><b>12.5</b> My time is not your time</a></li>
 <li class="chapter" data-level="12.6" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#extract-information-from-dates"><i class="fa fa-check"></i><b>12.6</b> Extract information from dates</a></li>
-<li class="chapter" data-level="12.7" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#time-differences"><i class="fa fa-check"></i><b>12.7</b> Time differences</a><ul>
+<li class="chapter" data-level="12.7" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#time-differences"><i class="fa fa-check"></i><b>12.7</b> Time differences</a>
+<ul>
 <li class="chapter" data-level="12.7.1" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#period-1"><i class="fa fa-check"></i><b>12.7.1</b> Period</a></li>
 <li class="chapter" data-level="12.7.2" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#durations"><i class="fa fa-check"></i><b>12.7.2</b> Durations</a></li>
 <li class="chapter" data-level="12.7.3" data-path="tutorial-tijdsdata.html"><a href="tutorial-tijdsdata.html#periods-are-not-durations"><i class="fa fa-check"></i><b>12.7.3</b> Periods are not durations</a></li>
@@ -377,19 +417,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="tutorial-data-visualisatie" class="section level1">
+<div id="tutorial-data-visualisatie" class="section level1" number="3">
 <h1><span class="header-section-number">Chapter 3</span> [Tutorial] Data visualisatie</h1>
-<div id="voor-je-begint" class="section level2">
+<div id="voor-je-begint" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> Voor je begint</h2>
 <p>Voordat je met deze zelfstudie begint, moet je eerst het pakket <code>ggplot2</code> installeren, als je dat nog niet gedaan hebt. Je kunt dit doen met de volgende regel code:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="tutorial-data-visualisatie.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</span></code></pre></div>
 <p>In ieder geval, moet je het pakket in je sessie laden.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">library</span>(ggplot2)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="tutorial-data-visualisatie.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
 <p>Je hebt ook twee datasets nodig, <code>movies</code> en <code>diamonds</code>. Beide worden als .RDS bestand bij deze tutorial geleverd.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1">movies &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;movies.RDS&quot;</span>)</a>
-<a class="sourceLine" id="cb4-2" title="2">diamonds &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;diamonds.RDS&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="tutorial-data-visualisatie.html#cb4-1" aria-hidden="true" tabindex="-1"></a>movies <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;movies.RDS&quot;</span>)</span>
+<span id="cb4-2"><a href="tutorial-data-visualisatie.html#cb4-2" aria-hidden="true" tabindex="-1"></a>diamonds <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;diamonds.RDS&quot;</span>)</span></code></pre></div>
 </div>
-<div id="introductie" class="section level2">
+<div id="introductie" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> Introductie</h2>
 <p>Het maken van een plot met ggplot2 begint met de <code>ggplot()</code> functie. De ggplot functie heeft twee belangrijke argumenten</p>
 <ul>
@@ -397,20 +437,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>mapping</strong>: de mapping zal bepalen hoe de variabelen worden <em>mapped</em> op de esthetica<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> van de plot, zoals verderop zal worden uitgelegd. Deze mapping moet altijd worden gemaakt met de <code>aes()</code> functie .</li>
 </ul>
 <p>We willen bijvoorbeeld een scatterplot maken van de films, waarbij we de x-as gebruiken voor hun budget en de y-as voor hun waardering. We roepen ggplot dan als volgt aan:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> movies, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> budget, <span class="dt">y =</span> rating))</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="tutorial-data-visualisatie.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> movies, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> budget, <span class="at">y =</span> rating))</span></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-34-1.png" width="100%" /></p>
 <p>Zoals je ziet, creëert deze regel code een plot met de assen zoals gedefinieerd. Er worden echter geen gegevens gevisualiseerd. De reden hiervoor is dat ggplot nog niet weet hoe we het willen visualiseren. We moeten wat genoemd wordt <em>een geometrische layer</em> toevoegen. Om een scatterplot te maken, die uit <em>punten</em> bestaat, voegen we <code>geom_point</code> aan de plot toe.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> movies, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> budget, <span class="dt">y =</span> rating)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb6-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="tutorial-data-visualisatie.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> movies, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> budget, <span class="at">y =</span> rating)) <span class="sc">+</span></span>
+<span id="cb6-2"><a href="tutorial-data-visualisatie.html#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-35-1.png" width="100%" /></p>
 <p>Dit lijkt er al meer op. Merk op dat de geometrische laag aan de plot is toegevoegd door gebruik te maken van het <code>+</code> symbool. Op deze manier kunnen meerdere lagen aan dezelfde plot worden toegevoegd, evenals titels, labels, en configuraties van de lay-out, zoals we verderop zullen zien.</p>
 <p>Merk op dat we de mapping van de <em>aesthetics</em> ook in de geometrische laag zelf kunnen plaatsen. Dit maakt onze code voorlopig iets leesbaarder, omdat we de geometrische layer en de mapping ervan op dezelfde regel plaatsen.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> movies) <span class="op">+</span></a>
-<a class="sourceLine" id="cb7-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> budget, <span class="dt">y =</span> rating))</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="tutorial-data-visualisatie.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> movies) <span class="sc">+</span></span>
+<span id="cb7-2"><a href="tutorial-data-visualisatie.html#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> budget, <span class="at">y =</span> rating))</span></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-36-1.png" width="100%" /></p>
 <p>We hebben nu onze allereerste plot gemaakt! In de volgende secties zullen we leren hoe we verschillende geom-layers en <em>aesthetics</em> kunnen gebruiken en hoe we de lay-out van onze grafieken kunnen verbeteren.</p>
 </div>
-<div id="verschillende-geometrics" class="section level2">
+<div id="verschillende-geometrics" class="section level2" number="3.3">
 <h2><span class="header-section-number">3.3</span> Verschillende geometrics</h2>
 <p>Naast <code>geom_point</code> bestaan er nog veel meer verschillende geometrieën om gegevens in ggplot te plotten. Je kunt ze bekijken door ‘geom_’ in het console in te typen en door de auto-complete-lijst te navigeren. Elk van de geom-layers komt met zijn eigen specifieke set van <em>aesthetics</em> die in kaart gebracht kan (en soms moet) worden. In deze tutorial zullen we ons vooral richten op de volgende geometrische lagen:</p>
 <ul>
@@ -421,7 +461,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>geom_bar</li>
 <li>geom_col</li>
 </ul>
-<div id="geom_point" class="section level3">
+<div id="geom_point" class="section level3" number="3.3.1">
 <h3><span class="header-section-number">3.3.1</span> geom_point</h3>
 <p>We hebben <code>geom_point</code> al gebruikt om onze eerste grafiek te maken, waarbij we twee variabelen in kaart brachten op de esthetica <em>x</em> en <em>y</em>. Er zijn echter nog enkele andere aesthetics’s die met deze laag kunnen worden ingesteld. Laten we ze eens in meer detail bekijken.</p>
 <ul>
@@ -435,12 +475,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>alpha</strong>: hiermee bepaal je de mate van doorzichtigheid</li>
 </ul>
 <p>De onderstaande grafiek bijvoorbeeld toont zwarte driehoeken, gevuld met rood, met een grootte van 2. Merk op dat de positie van de driehoeken precies dezelfde is als de positie van de punten in de vorige grafiek.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> movies) <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> budget, <span class="dt">y =</span> rating), </a>
-<a class="sourceLine" id="cb8-3" title="3">               <span class="dt">shape =</span> <span class="dv">24</span>, </a>
-<a class="sourceLine" id="cb8-4" title="4">               <span class="dt">fill =</span> <span class="st">&quot;red&quot;</span>, </a>
-<a class="sourceLine" id="cb8-5" title="5">               <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, </a>
-<a class="sourceLine" id="cb8-6" title="6">               <span class="dt">size =</span> <span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="tutorial-data-visualisatie.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> movies) <span class="sc">+</span></span>
+<span id="cb8-2"><a href="tutorial-data-visualisatie.html#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(</span>
+<span id="cb8-3"><a href="tutorial-data-visualisatie.html#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> budget, <span class="at">y =</span> rating),</span>
+<span id="cb8-4"><a href="tutorial-data-visualisatie.html#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">shape =</span> <span class="dv">24</span>,</span>
+<span id="cb8-5"><a href="tutorial-data-visualisatie.html#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">&quot;red&quot;</span>,</span>
+<span id="cb8-6"><a href="tutorial-data-visualisatie.html#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">&quot;black&quot;</span>,</span>
+<span id="cb8-7"><a href="tutorial-data-visualisatie.html#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">2</span></span>
+<span id="cb8-8"><a href="tutorial-data-visualisatie.html#cb8-8" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-37-1.png" width="100%" /></p>
 <p>Maar wacht, er is hier iets belangrijks aan de hand! Terwijl de x- en y-aesthetics binnen de aes-mapping werden gedefinieerd, werden de andere aesthetic erbuiten gedefinieerd. Waarom is dat?</p>
 <p>In feite kunnen aesthetics op twee verschillende manieren worden ingesteld:</p>
@@ -449,22 +491,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Ze kunnen worden ingesteld op één vaste waarde.</li>
 </ol>
 <p>In ons voorbeeld worden x en y gekoppeld aan twee variabelen in de gegevens, nl. budget en rating, terwijl de andere aesthetics, vorm, fill, color en size, worden ingesteld op vaste waarden. Hoewel sommige aesthetics typisch altijd gemapt worden, zoals x- en y-posities, kunnen sommige andere zowel een vaste waarde als een gemapte variabele zijn. Bijvoorbeeld, wat gebeurt er als we de kleur van punten toewijzen aan een variabele, zeg de variabele Action.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> movies) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> budget, </a>
-<a class="sourceLine" id="cb9-3" title="3">                             <span class="dt">y =</span> rating, </a>
-<a class="sourceLine" id="cb9-4" title="4">                             <span class="dt">color =</span> Action))</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="tutorial-data-visualisatie.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> movies) <span class="sc">+</span></span>
+<span id="cb9-2"><a href="tutorial-data-visualisatie.html#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(</span>
+<span id="cb9-3"><a href="tutorial-data-visualisatie.html#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> budget,</span>
+<span id="cb9-4"><a href="tutorial-data-visualisatie.html#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> rating,</span>
+<span id="cb9-5"><a href="tutorial-data-visualisatie.html#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> Action</span>
+<span id="cb9-6"><a href="tutorial-data-visualisatie.html#cb9-6" aria-hidden="true" tabindex="-1"></a>  ))</span></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-38-1.png" width="100%" /></p>
 <p>We zien dat de punten nu gekleurd zijn met betrekking tot de waarde in de variabele Action. Action films krijgen een groene kleur, terwijl andere films een rode kleur krijgen, wat we kunnen zien in de legende die verscheen.</p>
 <p>Ook de andere vaste aesthetics kunnen worden gebruikt in een mapping. Het volgende voorbeeld gebruikt de variabele Animatie voor de shape.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> movies) <span class="op">+</span></a>
-<a class="sourceLine" id="cb10-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> budget, </a>
-<a class="sourceLine" id="cb10-3" title="3">                             <span class="dt">y =</span> rating, </a>
-<a class="sourceLine" id="cb10-4" title="4">                             <span class="dt">color =</span> Action, </a>
-<a class="sourceLine" id="cb10-5" title="5">                              <span class="dt">shape =</span> Animation))</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="tutorial-data-visualisatie.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> movies) <span class="sc">+</span></span>
+<span id="cb10-2"><a href="tutorial-data-visualisatie.html#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(</span>
+<span id="cb10-3"><a href="tutorial-data-visualisatie.html#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> budget,</span>
+<span id="cb10-4"><a href="tutorial-data-visualisatie.html#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> rating,</span>
+<span id="cb10-5"><a href="tutorial-data-visualisatie.html#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> Action,</span>
+<span id="cb10-6"><a href="tutorial-data-visualisatie.html#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">shape =</span> Animation</span>
+<span id="cb10-7"><a href="tutorial-data-visualisatie.html#cb10-7" aria-hidden="true" tabindex="-1"></a>  ))</span></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-39-1.png" width="100%" /></p>
 <p>Geweldig! We begrijpen nu volledig de geom_point laag, en de werking van de aesthetics-mapping. Nu is het tijd om enkele andere geometrische layers te bekijken. We beginnen met histogrammen.</p>
 </div>
-<div id="geom_histogram" class="section level3">
+<div id="geom_histogram" class="section level3" number="3.3.2">
 <h3><span class="header-section-number">3.3.2</span> geom_histogram</h3>
 <p>De <em>geom_histogram</em> layer kan worden gebruikt om een histogram uit te zetten. Zoals je al zou moeten weten, geeft een histogram de verdeling van <strong>een</strong> continue variabele weer. Bijgevolg moet er alleen een x-aesthetic worden ingesteld, en geen y-aesthetic. De volledige lijst van aesthetic’s is als volgt:</p>
 <ul>
@@ -477,30 +523,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>weight</strong>: hiermee bepaal je hoe de waarnemingen gewogen moeten worden. Standaard wordt elke waarneming als één gewogen.</li>
 </ul>
 <p>Gebruik makend van onze kennis over het gebruik van aesthetics van voorheen, is het nu heel eenvoudig om een histogram te maken. Laten we een histogram maken voor de beoordeling van films. We geven het een zwarte rand met een witte vulling. Klaar om te proberen?</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span></a>
-<a class="sourceLine" id="cb11-2" title="2"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(rating), <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="tutorial-data-visualisatie.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(movies) <span class="sc">+</span></span>
+<span id="cb11-2"><a href="tutorial-data-visualisatie.html#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(rating), <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;white&quot;</span>)</span></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-40-1.png" width="100%" /></p>
 <p>Merk op dat verschillende dingen werden weggelaten in deze twee lijnen van codes. In het bijzonder de argumentnaam <em>data</em> in ggplot, <em>mapping</em> in geom_histogram en <em>x</em> in aes. Aangezien we weten dat dit de eerste argumenten van deze functies zijn, kunnen we ze veilig weglaten, zolang we de juiste volgorde van argumenten aanhouden. We kunnen echter <em>color</em> en <em>fill</em> niet weglaten, omdat dit niet het tweede en derde argument van geom_histogram zijn. Speel in geval van twijfel op veilig en schrijf de juiste argumentnamen.</p>
 <p>Dat is echter niet het enige dat hier opvallend is. Inderdaad, er verschijnt een waarschuwing: <code>stat_bin()</code> using <code>bins = 30</code>. Pick better value with <code>binwidth</code>. Deze waarschuwing herinnert ons aan het feit dat een standaard waarde voor het aantal bins is gekozen door geom_histogram, die waarschijnlijk niet geschikt is voor onze grafiek. We kunnen de binbreedte veranderen door deze als argument toe te voegen aan de aanroep geom_histogram.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span></a>
-<a class="sourceLine" id="cb12-2" title="2"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(rating), <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">binwidth =</span> <span class="fl">0.5</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="tutorial-data-visualisatie.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(movies) <span class="sc">+</span></span>
+<span id="cb12-2"><a href="tutorial-data-visualisatie.html#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(rating), <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;white&quot;</span>, <span class="at">binwidth =</span> <span class="fl">0.5</span>)</span></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-41-1.png" width="100%" /></p>
 <p>Vaak heeft de binbreedte een belangrijke invloed op hoe het verkregen histogram eruit ziet. Zorgvuldig configureren van dit argument door te experimenteren met verschillende waarden is daarom belangrijk.</p>
 <p>In de laatste plot hebben we een vaste kleur gebruikt voor het vullen van de balken van het histogram. Maar zoals we ondertussen al weten, kunnen we die ook toewijzen aan een variabele in de gegevens. Laten we de variabele <em>Action</em> nog een keer gebruiken.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span></a>
-<a class="sourceLine" id="cb13-2" title="2"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(rating, <span class="dt">fill =</span> Action), <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">binwidth =</span> <span class="fl">0.5</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="tutorial-data-visualisatie.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(movies) <span class="sc">+</span></span>
+<span id="cb13-2"><a href="tutorial-data-visualisatie.html#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(rating, <span class="at">fill =</span> Action), <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">binwidth =</span> <span class="fl">0.5</span>)</span></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-42-1.png" width="100%" /></p>
 <p>Merk op hoe we het fill-argument binnen de <code>aes</code> functie hebben geplaatst. Nu is elke staaf gevuld met twee kleuren: een deel voor actie-films, en de rest voor andere films. Hoewel het niet erg duidelijk is in deze grafiek, lijkt het erop dat het centrum van het histogram voor actiefilms iets meer naar links ligt.</p>
 <p>Merk op hoe de notatie verandert bij de overgang naar de aes-mapping: variabelennamen worden altijd zonder aanhalingstekens gebruikt, terwijl vaste aesthetics (kleuren, vormen, linetypes) met aanhalingstekens worden gebruikt (behalve voor getallen). Het is belangrijk om dit niet door elkaar te halen! Nooit aanhalingstekens rond namen van variabelen!</p>
 <p>Standaard zijn de histogrammen voor de verschillende <em>fills</em> <em>stacked</em>, d.w.z. boven elkaar geplaatst. We kunnen echter het <em>position</em> argument van geom_histogram gebruiken om de staven naast elkaar te plaatsen, of <em>dodged</em>.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span></a>
-<a class="sourceLine" id="cb14-2" title="2"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(rating, <span class="dt">fill =</span> Action), </a>
-<a class="sourceLine" id="cb14-3" title="3">                   <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">binwidth =</span> <span class="fl">0.5</span>, <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="tutorial-data-visualisatie.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(movies) <span class="sc">+</span></span>
+<span id="cb14-2"><a href="tutorial-data-visualisatie.html#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(rating, <span class="at">fill =</span> Action),</span>
+<span id="cb14-3"><a href="tutorial-data-visualisatie.html#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">binwidth =</span> <span class="fl">0.5</span>, <span class="at">position =</span> <span class="st">&quot;dodge&quot;</span></span>
+<span id="cb14-4"><a href="tutorial-data-visualisatie.html#cb14-4" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-43-1.png" width="100%" /></p>
 <p>Met position = “dodge” worden de balken voor actiefilms en niet-actiefilms naast elkaar geplaatst, in plaats van boven elkaar. We kunnen teruggaan naar de oorspronkelijke grafiek door position = “stack” te gebruiken, of door dit argument weg te laten. Later zullen we zien hoe we beter met dergelijke zaken kunnen omgaan door gebruik te maken van rasters van verschillende plots, of zogenaamde <em>facets</em>.</p>
 <p>Alles goed tot nu toe? Laten we eens kijken naar een andere manier om de verdeling van continue variabelen te visualiseren, namelijk de boxplot.</p>
 </div>
-<div id="geom_boxplot" class="section level3">
+<div id="geom_boxplot" class="section level3" number="3.3.3">
 <h3><span class="header-section-number">3.3.3</span> geom_boxplot</h3>
 <p>Een boxplot plaatst de waarden van de variabele op de y-as. Dus, als we een boxplot willen maken voor ratings, moeten we <code>aes(y = ratings)</code> gebruiken. Er is hier echter iets tricky aan de hand… De aesthetics voor geom_boxplot is de volgende</p>
 <ul>
@@ -513,17 +560,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>alpha</strong>: Hiermee bepaal je de mate van doorzichtigheid</li>
 </ul>
 <p>Dus, de boxplot heeft zowel een x-variabele als een y-variabele nodig? Dat lijkt op het eerste gezicht vreemd. De reden hierachter is dat in de filosofie van ggplot, altijd <em>iets</em> moet geplot worden op zowel de x- als de y-as. Hoewel alleen een x-variabele wordt gegeven aan een histogram, zal het frequenties berekenen om op de y-as te plotten. Bij boxplots gebeurt dat echter niet. Bijgevolg moet de x-as worden gebruikt om verschillende categorieën in kaart te brengen waarvan de verdeling vervolgens kan worden vergeleken. Zo kunnen we bijvoorbeeld de waardering voor actiefilms vergelijken met die voor andere films.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb15-2" title="2"><span class="st">    </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(Action, rating))</a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="tutorial-data-visualisatie.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(movies) <span class="sc">+</span></span>
+<span id="cb15-2"><a href="tutorial-data-visualisatie.html#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(Action, rating))</span></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-44-1.png" width="100%" /></p>
 <p>Hier zien we dat, zoals we al vermoedden, actiefilms een lagere waardering hebben in vergelijking met andere films. We kunnen verder de kleur en de vulling van de boxplot veranderen zoals voorheen, alsook het linetype, de grootte van de rand, of de transparantie.</p>
 <p>Maar wat als we gewoon een boxplot willen tekenen van de totale waardering, zonder een variabele te moeten specificeren voor de x-as? Een kleine workaround is hier nodig. Een mogelijkheid is om een <em>empty string</em> te gebruiken voor de x-as toewijzing.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span></a>
-<a class="sourceLine" id="cb16-2" title="2"><span class="st">    </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="st">&quot;&quot;</span>, rating))</a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="tutorial-data-visualisatie.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(movies) <span class="sc">+</span></span>
+<span id="cb16-2"><a href="tutorial-data-visualisatie.html#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="st">&quot;&quot;</span>, rating))</span></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-45-1.png" width="100%" /></p>
 <p>Merk op dat dit het label “x” creëert voor de x-as, waar we normaal de naam van de variabele zouden vinden die erop is weergegeven. Later zullen we zien hoe we dit label kunnen weglaten om onze grafiek een beetje mooier te maken.</p>
 </div>
-<div id="geom_violin" class="section level3">
+<div id="geom_violin" class="section level3" number="3.3.4">
 <h3><span class="header-section-number">3.3.4</span> geom_violin</h3>
 <p>De violin-plot is vergelijkbaar met de boxplot, maar geeft in meer detail weer waar de massa van de waarden zich bevindt. De aesthetics is dezelfde als bij een boxplot.</p>
 <ul>
@@ -536,16 +583,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>alpha</strong>: Hiermee bepaal je de mate van doorzichtigheid</li>
 </ul>
 <p>Laten we dezelfde grafieken maken, nu met de violin-plot.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb17-2" title="2"><span class="st">    </span><span class="kw">geom_violin</span>(<span class="kw">aes</span>(Action, rating))</a></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="tutorial-data-visualisatie.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(movies) <span class="sc">+</span></span>
+<span id="cb17-2"><a href="tutorial-data-visualisatie.html#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="fu">aes</span>(Action, rating))</span></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-46-1.png" width="100%" /></p>
 <p>Het is nu waarschijnlijk wel duidelijk waar dit type grafiek zijn naam aan te danken heeft. Zoals je kunt zien, houden violin-plots het midden tussen boxplots en histogrammen. Omdat hun breedte genormaliseerd is, kunnen ze beter gebruikt worden voor vergelijkingen. Ook hier kunnen we dezelfde workaround gebruiken als we de algemene verdeling willen plotten.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span></a>
-<a class="sourceLine" id="cb18-2" title="2"><span class="st">    </span><span class="kw">geom_violin</span>(<span class="kw">aes</span>(<span class="st">&quot;&quot;</span>, rating))</a></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="tutorial-data-visualisatie.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(movies) <span class="sc">+</span></span>
+<span id="cb18-2"><a href="tutorial-data-visualisatie.html#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="fu">aes</span>(<span class="st">&quot;&quot;</span>, rating))</span></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-47-1.png" width="100%" /></p>
 <p>Tot nu toe hebben we drie verschillende manieren gezien om de verdeling van continue variabelen te analyseren. Nu gaan we kijken naar barplots, die kunnen worden gebruikt om categorische verdelingen weer te geven.</p>
 </div>
-<div id="geom_bar" class="section level3">
+<div id="geom_bar" class="section level3" number="3.3.5">
 <h3><span class="header-section-number">3.3.5</span> geom_bar</h3>
 <p>Net als een histogram, heeft een barplot alleen een x variabele nodig. Het verschil is dat deze variabele categorisch moet zijn, terwijl ze voor histogrammen continu moet zijn. De volledige lijst van aesthetics is de volgende:</p>
 <ul>
@@ -558,32 +605,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>weight</strong>: hiermee bepaal je hoe de waarnemingen gewogen moeten worden. Standaard wordt elke waarneming als één gewogen.</li>
 </ul>
 <p>We kunnen een eenvoudig staafdiagram maken dat laat zien hoeveel actiefilms er zijn, en hoeveel andere films, en wel als volgt.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span></a>
-<a class="sourceLine" id="cb19-2" title="2"><span class="st">    </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(Action))</a></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="tutorial-data-visualisatie.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(movies) <span class="sc">+</span></span>
+<span id="cb19-2"><a href="tutorial-data-visualisatie.html#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(Action))</span></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-48-1.png" width="100%" /></p>
 <p>Verder kunnen we hier nog kleuren aan toevoegen, volgens het aantal Animatiefilms. We zien onmiddellijk dat er bijna geen actiefilms zijn die ook animatiefilms zijn.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span></a>
-<a class="sourceLine" id="cb20-2" title="2"><span class="st">    </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(Action, <span class="dt">fill =</span> Animation)) </a></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="tutorial-data-visualisatie.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(movies) <span class="sc">+</span></span>
+<span id="cb20-2"><a href="tutorial-data-visualisatie.html#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(Action, <span class="at">fill =</span> Animation))</span></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-49-1.png" width="100%" /></p>
 <p>We kunnen hetzelfde doen voor Romantische en Komedie films.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span></a>
-<a class="sourceLine" id="cb21-2" title="2"><span class="st">    </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(Romance, <span class="dt">fill =</span> Comedy)) </a></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="tutorial-data-visualisatie.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(movies) <span class="sc">+</span></span>
+<span id="cb21-2"><a href="tutorial-data-visualisatie.html#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(Romance, <span class="at">fill =</span> Comedy))</span></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-50-1.png" width="100%" /></p>
 <p>Daarentegen is hier te zien dat ongeveer de helft van de romantische films ook komedies zijn, wat meer is in vergelijking met niet-romantische films.</p>
-<p>Vergeet niet dat we in het geval van histogrammen de position konden veranderen in “dodge”, waardoor de balken naast elkaar kwamen te staan. Hetzelfde kan hier worden gedaan.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span></a>
-<a class="sourceLine" id="cb22-2" title="2"><span class="st">    </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(Romance, <span class="dt">fill =</span> Comedy), <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>) </a></code></pre></div>
+<p>Vergeet niet dat we in het geval van histogrammen de position konden veranderen in “dodge,” waardoor de balken naast elkaar kwamen te staan. Hetzelfde kan hier worden gedaan.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="tutorial-data-visualisatie.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(movies) <span class="sc">+</span></span>
+<span id="cb22-2"><a href="tutorial-data-visualisatie.html#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(Romance, <span class="at">fill =</span> Comedy), <span class="at">position =</span> <span class="st">&quot;dodge&quot;</span>)</span></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-51-1.png" width="100%" /></p>
 <p>Een derde mogelijkheid die voor de position beschikbaar is, is de staven te verlengen zodat zij dezelfde hoogte hebben. Het resultaat is dat we de verdeling van de waarden als een deel van een geheel zullen waarnemen. In plaats van de absolute frequentie zullen de labels op de y-as nu de procentpunten weergeven.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span></a>
-<a class="sourceLine" id="cb23-2" title="2"><span class="st">    </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(Romance, <span class="dt">fill =</span> Comedy), <span class="dt">position =</span> <span class="st">&quot;fill&quot;</span>) </a></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="tutorial-data-visualisatie.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(movies) <span class="sc">+</span></span>
+<span id="cb23-2"><a href="tutorial-data-visualisatie.html#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(Romance, <span class="at">fill =</span> Comedy), <span class="at">position =</span> <span class="st">&quot;fill&quot;</span>)</span></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-52-1.png" width="100%" /></p>
-<p>Tenslotte, als we dit willen doen om de verdeling van één variabele te tonen, kunnen we dezelfde workaround gebruiken als voorheen en de x-aesthetic op "" zetten. De plot hieronder zal het deel van alle films tonen die komedies zijn.<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a></p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1"><span class="kw">ggplot</span>(movies) <span class="op">+</span></a>
-<a class="sourceLine" id="cb24-2" title="2"><span class="st">    </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(<span class="st">&quot;&quot;</span>, <span class="dt">fill =</span> Comedy), <span class="dt">position =</span> <span class="st">&quot;fill&quot;</span>) </a></code></pre></div>
+<p>Tenslotte, als we dit willen doen om de verdeling van één variabele te tonen, kunnen we dezelfde workaround gebruiken als voorheen en de x-aesthetic op “” zetten. De plot hieronder zal het deel van alle films tonen die komedies zijn.<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a></p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="tutorial-data-visualisatie.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(movies) <span class="sc">+</span></span>
+<span id="cb24-2"><a href="tutorial-data-visualisatie.html#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="st">&quot;&quot;</span>, <span class="at">fill =</span> Comedy), <span class="at">position =</span> <span class="st">&quot;fill&quot;</span>)</span></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-53-1.png" width="100%" /></p>
 </div>
-<div id="geom_col" class="section level3">
+<div id="geom_col" class="section level3" number="3.3.6">
 <h3><span class="header-section-number">3.3.6</span> geom_col</h3>
 <p>Wanneer we geom_bar gebruiken, wordt de hoogte van de balken berekend aan de hand van de frequentie van de categorische variabele. Soms willen we echter een staafdiagram plotten met waarden die al in de data zitten, of waarden die we zelf hebben berekend. Bijvoorbeeld, wat als we een staafdiagram willen met het budget van een reeks films? In zo’n geval kunnen we <em>geom_col</em> gebruiken. “col” geeft aan dat we een kolom in de gegevens willen gebruiken om de hoogte van de balken in te stellen. De aesthetics is hetzelfde voor geom_bar, alleen moeten we nu een variabele specificeren voor de y-as uiteraard.</p>
 <ul>
@@ -597,40 +644,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>weight</strong>: hiermee bepaal je hoe de waarnemingen gewogen moeten worden. Standaard wordt elke waarneming als één gewogen.</li>
 </ul>
 <p>Laten we een staafdiagram maken van het budget van alle films uit 2004 waarvan het budget hoger was dan 100 miljoen.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" title="1"><span class="kw">filter</span>(movies, year <span class="op">==</span><span class="st"> </span><span class="dv">2004</span>, budget <span class="op">&gt;</span><span class="st"> </span><span class="dv">100000000</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb25-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb25-3" title="3"><span class="st">    </span><span class="kw">geom_col</span>(<span class="kw">aes</span>(title, budget))</a></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="tutorial-data-visualisatie.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(movies, year <span class="sc">==</span> <span class="dv">2004</span>, budget <span class="sc">&gt;</span> <span class="dv">100000000</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb25-2"><a href="tutorial-data-visualisatie.html#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb25-3"><a href="tutorial-data-visualisatie.html#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(title, budget))</span></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-54-1.png" width="100%" /></p>
 <p>Zie je iets vreemds in de code? Maak je geen zorgen als je de eerste regel niet begrijpt. Al wat je moet weten is dat we films uit 2004 hebben gefilterd met een budget hoger dan 100 miljoen. Het vreemd uitziende %&gt;% symbool zal ervoor zorgen dat deze gegevens doorgegeven worden aan ggplot. We zullen hier in een andere sessie op terugkomen.<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a></p>
 <p>We hebben nu filmtitels uitgezet op de x-as en budget op de y-as. Geweldig! Of toch niet? De waarden op de x-as zijn wat onoverzichtelijk en onleesbaar. Het is nu tijd om aandacht te besteden aan de layout van onze plots!</p>
 </div>
-<div id="other-geometrics" class="section level3">
+<div id="other-geometrics" class="section level3" number="3.3.7">
 <h3><span class="header-section-number">3.3.7</span> Other geometrics</h3>
 <p>Tot dusver hebben we de belangrijkste geom-layers gebruikt om eenvoudige visualisaties te maken: scatterplots, histogrammen, boxplots, violinplots en barplots. We hebben echter slechts het topje van de ijsberg besproken, want er bestaan nog veel meer types, sommige eenvoudig en sommige meer geavanceerd. Een overzicht van alle geoms en hun toepassingen kan gevonden worden in de <a href="https://www.rstudio.com/wp-content/uploads/2015/12/ggplot2-cheatsheet-2.0.pdf">ggplot Cheat Sheet</a>, waarvan hier een uittreksel wordt getoond. Wees niet bang om iets uit te proberen!</p>
 <p><img src="images/geoms.PNG" /></p>
 </div>
 </div>
-<div id="layout-van-onze-grafieken-verbeteren" class="section level2">
+<div id="layout-van-onze-grafieken-verbeteren" class="section level2" number="3.4">
 <h2><span class="header-section-number">3.4</span> Layout van onze grafieken verbeteren</h2>
 <p>Tot nu toe hebben we vooral gekeken naar verschillende soorten plots en hoe we die op onze gegevens kunnen plotten. In deze sectie zullen we ons concentreren op de presentatie van de plot, bv. titels, kleuren, assen, enz. De in dit deel geïntroduceerde concepten kunnen voor elk type plot worden toegepast, ongeacht welk geometrisch object wordt gebruikt.</p>
 <p>In dit deel zal de dataset “diamanten” worden gebruikt. De onderstaande plot zal als uitgangspunt worden gebruikt.<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a></p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1"><span class="kw">ggplot</span>(diamonds) <span class="op">+</span></a>
-<a class="sourceLine" id="cb26-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(table, depth, <span class="dt">color =</span> cut))</a></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="tutorial-data-visualisatie.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds) <span class="sc">+</span></span>
+<span id="cb26-2"><a href="tutorial-data-visualisatie.html#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(table, depth, <span class="at">color =</span> cut))</span></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-55-1.png" width="100%" /></p>
-<div id="titels" class="section level3">
+<div id="titels" class="section level3" number="3.4.1">
 <h3><span class="header-section-number">3.4.1</span> Titels</h3>
 <p>Een van de belangrijkste dingen om aan onze plot toe te voegen zijn titels. Titels worden gebruikt om betekenis te geven aan zowel de assen als de plot zelf. De meest eenvoudige manier om titels toe te voegen is door gebruik te maken van de functie <code>labs()</code>. In deze functie kunnen o.a. volgende argumenten worden ingesteld: de titel, de ondertitel, x voor het x label en y voor het y label. De labs functie kan gewoon aan de plot worden toegevoegd als een extra laag.</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" title="1"><span class="kw">data</span>(<span class="st">&quot;diamonds&quot;</span>)</a>
-<a class="sourceLine" id="cb27-2" title="2"><span class="kw">ggplot</span>(diamonds) <span class="op">+</span></a>
-<a class="sourceLine" id="cb27-3" title="3"><span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(table, depth, <span class="dt">color =</span> cut)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb27-4" title="4"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Comparing table and depth of diamonds&quot;</span>,</a>
-<a class="sourceLine" id="cb27-5" title="5">         <span class="dt">subtitle =</span> <span class="st">&quot;What combination of table and depth gives good quality diamonds?&quot;</span>,</a>
-<a class="sourceLine" id="cb27-6" title="6">         <span class="dt">x =</span> <span class="st">&quot;Table&quot;</span>,</a>
-<a class="sourceLine" id="cb27-7" title="7">         <span class="dt">y =</span> <span class="st">&quot;Depth&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="tutorial-data-visualisatie.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;diamonds&quot;</span>)</span>
+<span id="cb27-2"><a href="tutorial-data-visualisatie.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds) <span class="sc">+</span></span>
+<span id="cb27-3"><a href="tutorial-data-visualisatie.html#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(table, depth, <span class="at">color =</span> cut)) <span class="sc">+</span></span>
+<span id="cb27-4"><a href="tutorial-data-visualisatie.html#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb27-5"><a href="tutorial-data-visualisatie.html#cb27-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Comparing table and depth of diamonds&quot;</span>,</span>
+<span id="cb27-6"><a href="tutorial-data-visualisatie.html#cb27-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">&quot;What combination of table and depth gives good quality diamonds?&quot;</span>,</span>
+<span id="cb27-7"><a href="tutorial-data-visualisatie.html#cb27-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Table&quot;</span>,</span>
+<span id="cb27-8"><a href="tutorial-data-visualisatie.html#cb27-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Depth&quot;</span></span>
+<span id="cb27-9"><a href="tutorial-data-visualisatie.html#cb27-9" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-56-1.png" width="100%" /></p>
 <p>Je zult zien dat onze grafiek er al veel beter uitziet als er titels aan toegevoegd zijn! Er is echter nog veel meer te verbeteren.</p>
 </div>
-<div id="theme" class="section level3">
+<div id="theme" class="section level3" number="3.4.2">
 <h3><span class="header-section-number">3.4.2</span> Theme</h3>
 <p>Het <em>theme</em> van een plot bepaalt het algemene uiterlijk: de rasterlijnen, de achtergrond, de grootte van de tekst, titels en legende, de positie van de legende, enz. Het thema kan handmatig worden gedefinieerd door een <code>theme()</code> laag toe te voegen aan de plot en door de benodigde argumenten in te stellen. (Je kunt kijken op ?theme om te zien welke argumenten beschikbaar zijn). Dit is echter een omslachtige aanpak. Gelukkig zijn er enkele voorgedefinieerde thema’s voorzien in ggplot:</p>
 <ul>
@@ -644,27 +693,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>theme_void</strong>: een leeg thema</li>
 </ul>
 <p>Voel je vrij om met sommige van deze thema’s te experimenteren. Bij voorkeur kunt u een aantal van de minimale thema’s gebruiken. Hier, gebruikten we het thema_light thema.<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a></p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" title="1"><span class="kw">ggplot</span>(diamonds) <span class="op">+</span></a>
-<a class="sourceLine" id="cb28-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(table, depth, <span class="dt">color =</span> cut)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb28-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Comparing table and depth of diamonds&quot;</span>,</a>
-<a class="sourceLine" id="cb28-4" title="4">         <span class="dt">subtitle =</span> <span class="st">&quot;What combination of table and depth gives good quality diamonds?&quot;</span>,</a>
-<a class="sourceLine" id="cb28-5" title="5">         <span class="dt">x =</span> <span class="st">&quot;Table&quot;</span>,</a>
-<a class="sourceLine" id="cb28-6" title="6">         <span class="dt">y =</span> <span class="st">&quot;Depth&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb28-7" title="7"><span class="st">    </span><span class="kw">theme_light</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="tutorial-data-visualisatie.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds) <span class="sc">+</span></span>
+<span id="cb28-2"><a href="tutorial-data-visualisatie.html#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(table, depth, <span class="at">color =</span> cut)) <span class="sc">+</span></span>
+<span id="cb28-3"><a href="tutorial-data-visualisatie.html#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb28-4"><a href="tutorial-data-visualisatie.html#cb28-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Comparing table and depth of diamonds&quot;</span>,</span>
+<span id="cb28-5"><a href="tutorial-data-visualisatie.html#cb28-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">&quot;What combination of table and depth gives good quality diamonds?&quot;</span>,</span>
+<span id="cb28-6"><a href="tutorial-data-visualisatie.html#cb28-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Table&quot;</span>,</span>
+<span id="cb28-7"><a href="tutorial-data-visualisatie.html#cb28-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Depth&quot;</span></span>
+<span id="cb28-8"><a href="tutorial-data-visualisatie.html#cb28-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb28-9"><a href="tutorial-data-visualisatie.html#cb28-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>()</span></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-57-1.png" width="100%" /></p>
 <p>Wanneer je nog niet tevreden bent met één van deze thema’s, kunt je het pakket <code>ggthemes</code> installeren om nog meer thema’s te verkrijgen, zoals het thema van <em>The Economist</em>, <em>fivethirtyeight.com</em>, of <em>Google Docs</em>.</p>
 </div>
-<div id="het-coördinatenstelsel" class="section level3">
+<div id="het-coördinatenstelsel" class="section level3" number="3.4.3">
 <h3><span class="header-section-number">3.4.3</span> Het coördinatenstelsel</h3>
 <p>Het uiterlijk van de grafiek wordt niet alleen bepaald door de titels en de grafieken. Ook de assen in het assenstelsel verdienen de nodige aandacht. Een van de dingen die moeten worden bepaald zijn de grenzen van het coördinatenstelsel. Dit kan worden gedaan met de functie <code>coord_cartesian</code> en zijn argumenten <em>xlim</em> en <em>ylim</em>. Beide argumenten verwachten een numerieke vector van lengte twee. Laten we eens kijken hoe dit werkt in ons voorbeeld.<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a></p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" title="1"><span class="kw">ggplot</span>(diamonds) <span class="op">+</span></a>
-<a class="sourceLine" id="cb29-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(table, depth, <span class="dt">color =</span> cut)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb29-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Comparing table and depth of diamonds&quot;</span>,</a>
-<a class="sourceLine" id="cb29-4" title="4">         <span class="dt">subtitle =</span> <span class="st">&quot;What combination of table and depth gives good quality diamonds?&quot;</span>,</a>
-<a class="sourceLine" id="cb29-5" title="5">         <span class="dt">x =</span> <span class="st">&quot;Table&quot;</span>,</a>
-<a class="sourceLine" id="cb29-6" title="6">         <span class="dt">y =</span> <span class="st">&quot;Depth&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb29-7" title="7"><span class="st">    </span><span class="kw">theme_light</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb29-8" title="8"><span class="st">    </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">45</span>,<span class="dv">75</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">75</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="tutorial-data-visualisatie.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds) <span class="sc">+</span></span>
+<span id="cb29-2"><a href="tutorial-data-visualisatie.html#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(table, depth, <span class="at">color =</span> cut)) <span class="sc">+</span></span>
+<span id="cb29-3"><a href="tutorial-data-visualisatie.html#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb29-4"><a href="tutorial-data-visualisatie.html#cb29-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Comparing table and depth of diamonds&quot;</span>,</span>
+<span id="cb29-5"><a href="tutorial-data-visualisatie.html#cb29-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">&quot;What combination of table and depth gives good quality diamonds?&quot;</span>,</span>
+<span id="cb29-6"><a href="tutorial-data-visualisatie.html#cb29-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Table&quot;</span>,</span>
+<span id="cb29-7"><a href="tutorial-data-visualisatie.html#cb29-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Depth&quot;</span></span>
+<span id="cb29-8"><a href="tutorial-data-visualisatie.html#cb29-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb29-9"><a href="tutorial-data-visualisatie.html#cb29-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>() <span class="sc">+</span></span>
+<span id="cb29-10"><a href="tutorial-data-visualisatie.html#cb29-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">45</span>, <span class="dv">75</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">75</span>))</span></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-58-1.png" width="100%" /></p>
 <p>We hebben nu de x-as beperkt tot het interval van 45 tot 75, terwijl we de y-as hebben beperkt tot het interval 50 tot 75. Er zijn enkele alternatieven voor het cartesisch coördinatenstelsel die minder vaak worden gebruikt:</p>
 <ul>
@@ -674,155 +727,172 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>coord_map: een assenstelsel voor het plotten van geografische data.</li>
 </ul>
 <p>Naast het instellen van de grenzen van het coordinatensysteem, kunnen we ook de breaks op de x-as en de y-as instellen. Dit kan respectievelijk met de functies <code>scale_x_continuous</code> en <code>scale_y_continuous</code>. Beide functies hebben een <em>breaks</em> argument. Dit argument kan worden gegeven als een vector van waarden die als labels op de as moeten worden geplot.<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a> We kunnen de functie <code>seq</code> gebruiken om deze vector te maken: d.w.z. <code>seq(0,10,5)</code> zal een vector teruggeven die begint bij 0 en oploopt tot tien met intervallen van 5.<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a></p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" title="1"><span class="kw">ggplot</span>(diamonds) <span class="op">+</span></a>
-<a class="sourceLine" id="cb30-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(table, depth, <span class="dt">color =</span> cut)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb30-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Comparing table and depth of diamonds&quot;</span>,</a>
-<a class="sourceLine" id="cb30-4" title="4">         <span class="dt">subtitle =</span> <span class="st">&quot;What combination of table</span></a>
-<a class="sourceLine" id="cb30-5" title="5"><span class="st">         and depth gives good quality diamonds?&quot;</span>,</a>
-<a class="sourceLine" id="cb30-6" title="6">         <span class="dt">x =</span> <span class="st">&quot;Table&quot;</span>,</a>
-<a class="sourceLine" id="cb30-7" title="7">         <span class="dt">y =</span> <span class="st">&quot;Depth&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb30-8" title="8"><span class="st">    </span><span class="kw">theme_light</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb30-9" title="9"><span class="st">    </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">45</span>,<span class="dv">75</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">75</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb30-10" title="10"><span class="st">    </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">45</span>,<span class="dv">75</span>,<span class="dv">5</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb30-11" title="11"><span class="st">    </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">50</span>,<span class="dv">75</span>,<span class="dv">5</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="tutorial-data-visualisatie.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds) <span class="sc">+</span></span>
+<span id="cb30-2"><a href="tutorial-data-visualisatie.html#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(table, depth, <span class="at">color =</span> cut)) <span class="sc">+</span></span>
+<span id="cb30-3"><a href="tutorial-data-visualisatie.html#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb30-4"><a href="tutorial-data-visualisatie.html#cb30-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Comparing table and depth of diamonds&quot;</span>,</span>
+<span id="cb30-5"><a href="tutorial-data-visualisatie.html#cb30-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">&quot;What combination of table</span></span>
+<span id="cb30-6"><a href="tutorial-data-visualisatie.html#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="st">         and depth gives good quality diamonds?&quot;</span>,</span>
+<span id="cb30-7"><a href="tutorial-data-visualisatie.html#cb30-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Table&quot;</span>,</span>
+<span id="cb30-8"><a href="tutorial-data-visualisatie.html#cb30-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Depth&quot;</span></span>
+<span id="cb30-9"><a href="tutorial-data-visualisatie.html#cb30-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb30-10"><a href="tutorial-data-visualisatie.html#cb30-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>() <span class="sc">+</span></span>
+<span id="cb30-11"><a href="tutorial-data-visualisatie.html#cb30-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">45</span>, <span class="dv">75</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">75</span>)) <span class="sc">+</span></span>
+<span id="cb30-12"><a href="tutorial-data-visualisatie.html#cb30-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">45</span>, <span class="dv">75</span>, <span class="dv">5</span>)) <span class="sc">+</span></span>
+<span id="cb30-13"><a href="tutorial-data-visualisatie.html#cb30-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">50</span>, <span class="dv">75</span>, <span class="dv">5</span>))</span></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-59-1.png" width="100%" /></p>
 <p>Een andere handige functie is de <code>coord_flip</code> functie, die we zullen illustreren met de volgende grafiek die we eerder zagen.</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" title="1"><span class="kw">filter</span>(movies, year <span class="op">==</span><span class="st"> </span><span class="dv">2004</span>, budget <span class="op">&gt;</span><span class="st"> </span><span class="dv">100000000</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb31-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb31-3" title="3"><span class="st">    </span><span class="kw">geom_col</span>(<span class="kw">aes</span>(title, budget))</a></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="tutorial-data-visualisatie.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(movies, year <span class="sc">==</span> <span class="dv">2004</span>, budget <span class="sc">&gt;</span> <span class="dv">100000000</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb31-2"><a href="tutorial-data-visualisatie.html#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb31-3"><a href="tutorial-data-visualisatie.html#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(title, budget))</span></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-60-1.png" width="100%" /></p>
 <p>Zoals je zich wellicht herinnert, overlapten de filmtitels op de x-as elkaar en waren daardoor onleesbaar. Een manier om dit te verhelpen is door de hele grafiek <em>om te draaien</em>, zodat de labels van de x-as op de y-as komen te staan, en horizontaal kunnen worden gelezen.</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" title="1"><span class="kw">filter</span>(movies, year <span class="op">==</span><span class="st"> </span><span class="dv">2004</span>, budget <span class="op">&gt;</span><span class="st"> </span><span class="dv">100000000</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb32-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb32-3" title="3"><span class="st">    </span><span class="kw">geom_col</span>(<span class="kw">aes</span>(title, budget)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb32-4" title="4"><span class="st">    </span><span class="kw">coord_flip</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="tutorial-data-visualisatie.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(movies, year <span class="sc">==</span> <span class="dv">2004</span>, budget <span class="sc">&gt;</span> <span class="dv">100000000</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb32-2"><a href="tutorial-data-visualisatie.html#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb32-3"><a href="tutorial-data-visualisatie.html#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(title, budget)) <span class="sc">+</span></span>
+<span id="cb32-4"><a href="tutorial-data-visualisatie.html#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-61-1.png" width="100%" /></p>
 <p>Een andere optie is om de oorspronkelijke oriëntatie te behouden, maar de oriëntatie van de labels op de x-as te veranderen. Je kunt ze bijvoorbeeld 45 of 90 graden draaien. Dit kan worden gedaan met de <code>theme</code> functie. Klaar om te experimenteren? Daag jezelf uit!</p>
 <p>Naarmate onze code meer en meer regels bevat, wordt onze plot mooier en mooier! Goed gedaan! Het laatste op onze lijst zijn kleuren.</p>
 </div>
-<div id="color-scales" class="section level3">
+<div id="color-scales" class="section level3" number="3.4.4">
 <h3><span class="header-section-number">3.4.4</span> Color scales</h3>
 <p>Vaak gebruiken we kleur of fill om categorische gegevens te visualiseren, zoals de kwaliteit in onze grafiek over diamanten. Standaard zal ggplot een regenboog-thema gebruiken. Er zijn echter veel meer paletten beschikbaar. We kunnen deze toevoegen door <code>scale_color_brewer</code> of <code>scale_fill_brewer</code> te gebruiken, afhankelijk van of het om een kleur of fill-kleur gaat. Beide layers hebben een palette argument, waarvan je hieronder de mogelijke waarden kunt vinden.</p>
 <div class="figure">
-<img src="images/brewer-pal.png" alt="R color palettes" />
+<img src="images/brewer-pal.png" alt="" />
 <p class="caption">R color palettes</p>
 </div>
 <p>Bijvoorbeeld, laten we het Set1 palet gebruiken.</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" title="1"><span class="kw">ggplot</span>(diamonds) <span class="op">+</span></a>
-<a class="sourceLine" id="cb33-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(table, depth, <span class="dt">col =</span> cut)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb33-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Comparing table and depth of diamonds&quot;</span>,</a>
-<a class="sourceLine" id="cb33-4" title="4">         <span class="dt">subtitle =</span> <span class="st">&quot;What combination of table and depth gives good quality diamonds?&quot;</span>,</a>
-<a class="sourceLine" id="cb33-5" title="5">         <span class="dt">x =</span> <span class="st">&quot;Table&quot;</span>,</a>
-<a class="sourceLine" id="cb33-6" title="6">         <span class="dt">y =</span> <span class="st">&quot;Depth&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb33-7" title="7"><span class="st">    </span><span class="kw">theme_light</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb33-8" title="8"><span class="st">    </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">45</span>,<span class="dv">75</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">75</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb33-9" title="9"><span class="st">    </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">45</span>,<span class="dv">75</span>,<span class="dv">5</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb33-10" title="10"><span class="st">    </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">50</span>,<span class="dv">75</span>,<span class="dv">5</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb33-11" title="11"><span class="st">    </span><span class="kw">scale_color_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="tutorial-data-visualisatie.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds) <span class="sc">+</span></span>
+<span id="cb33-2"><a href="tutorial-data-visualisatie.html#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(table, depth, <span class="at">col =</span> cut)) <span class="sc">+</span></span>
+<span id="cb33-3"><a href="tutorial-data-visualisatie.html#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb33-4"><a href="tutorial-data-visualisatie.html#cb33-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Comparing table and depth of diamonds&quot;</span>,</span>
+<span id="cb33-5"><a href="tutorial-data-visualisatie.html#cb33-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">&quot;What combination of table and depth gives good quality diamonds?&quot;</span>,</span>
+<span id="cb33-6"><a href="tutorial-data-visualisatie.html#cb33-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Table&quot;</span>,</span>
+<span id="cb33-7"><a href="tutorial-data-visualisatie.html#cb33-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Depth&quot;</span></span>
+<span id="cb33-8"><a href="tutorial-data-visualisatie.html#cb33-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb33-9"><a href="tutorial-data-visualisatie.html#cb33-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>() <span class="sc">+</span></span>
+<span id="cb33-10"><a href="tutorial-data-visualisatie.html#cb33-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">45</span>, <span class="dv">75</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">75</span>)) <span class="sc">+</span></span>
+<span id="cb33-11"><a href="tutorial-data-visualisatie.html#cb33-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">45</span>, <span class="dv">75</span>, <span class="dv">5</span>)) <span class="sc">+</span></span>
+<span id="cb33-12"><a href="tutorial-data-visualisatie.html#cb33-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">50</span>, <span class="dv">75</span>, <span class="dv">5</span>)) <span class="sc">+</span></span>
+<span id="cb33-13"><a href="tutorial-data-visualisatie.html#cb33-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set1&quot;</span>)</span></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-62-1.png" width="100%" /></p>
 <p>De scale_._brewer functies hebben ook het argument <code>name</code>, waarmee we de naam van de legende kunnen instellen, en het argument <code>guide</code>, waarmee de legende wordt verwijderd als deze op FALSE is gezet.</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" title="1"><span class="kw">ggplot</span>(diamonds) <span class="op">+</span></a>
-<a class="sourceLine" id="cb34-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(table, depth, <span class="dt">col =</span> cut)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb34-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Comparing table and depth of diamonds&quot;</span>,</a>
-<a class="sourceLine" id="cb34-4" title="4">         <span class="dt">subtitle =</span> <span class="st">&quot;What combination of table and depth gives good quality diamonds?&quot;</span>,</a>
-<a class="sourceLine" id="cb34-5" title="5">         <span class="dt">x =</span> <span class="st">&quot;Table&quot;</span>,</a>
-<a class="sourceLine" id="cb34-6" title="6">         <span class="dt">y =</span> <span class="st">&quot;Depth&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb34-7" title="7"><span class="st">    </span><span class="kw">theme_light</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb34-8" title="8"><span class="st">    </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">45</span>,<span class="dv">75</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">75</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb34-9" title="9"><span class="st">    </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">45</span>,<span class="dv">75</span>,<span class="dv">5</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb34-10" title="10"><span class="st">    </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">50</span>,<span class="dv">75</span>,<span class="dv">5</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb34-11" title="11"><span class="st">    </span><span class="kw">scale_color_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>, <span class="dt">name =</span> <span class="st">&quot;Diamond Cut Quality&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="tutorial-data-visualisatie.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds) <span class="sc">+</span></span>
+<span id="cb34-2"><a href="tutorial-data-visualisatie.html#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(table, depth, <span class="at">col =</span> cut)) <span class="sc">+</span></span>
+<span id="cb34-3"><a href="tutorial-data-visualisatie.html#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb34-4"><a href="tutorial-data-visualisatie.html#cb34-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Comparing table and depth of diamonds&quot;</span>,</span>
+<span id="cb34-5"><a href="tutorial-data-visualisatie.html#cb34-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">&quot;What combination of table and depth gives good quality diamonds?&quot;</span>,</span>
+<span id="cb34-6"><a href="tutorial-data-visualisatie.html#cb34-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Table&quot;</span>,</span>
+<span id="cb34-7"><a href="tutorial-data-visualisatie.html#cb34-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Depth&quot;</span></span>
+<span id="cb34-8"><a href="tutorial-data-visualisatie.html#cb34-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb34-9"><a href="tutorial-data-visualisatie.html#cb34-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>() <span class="sc">+</span></span>
+<span id="cb34-10"><a href="tutorial-data-visualisatie.html#cb34-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">45</span>, <span class="dv">75</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">75</span>)) <span class="sc">+</span></span>
+<span id="cb34-11"><a href="tutorial-data-visualisatie.html#cb34-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">45</span>, <span class="dv">75</span>, <span class="dv">5</span>)) <span class="sc">+</span></span>
+<span id="cb34-12"><a href="tutorial-data-visualisatie.html#cb34-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">50</span>, <span class="dv">75</span>, <span class="dv">5</span>)) <span class="sc">+</span></span>
+<span id="cb34-13"><a href="tutorial-data-visualisatie.html#cb34-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set1&quot;</span>, <span class="at">name =</span> <span class="st">&quot;Diamond Cut Quality&quot;</span>)</span></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-63-1.png" width="100%" /></p>
 <p>Naast de standaard kleurenpaletten die beschikbaar zijn, zijn er nog veel meer te vinden in de pakketten <code>ggthemes</code> en <code>ggsci</code>. Ze kunnen worden gebruikt door <em>scale_color</em> of <em>scale_fill</em> + naam van het palet toe te voegen. Voel je vrij om er nog meer te ontdekken!</p>
 </div>
 </div>
-<div id="geavanceerde-plots" class="section level2">
+<div id="geavanceerde-plots" class="section level2" number="3.5">
 <h2><span class="header-section-number">3.5</span> Geavanceerde plots</h2>
 <p>Vaak wil je plots vergelijken voor verschillende categorieën van een variabele. In ons voorbeeld hebben we gekeken voor welke combinaties van table en depth, de cut-quality van de diamant goed was. Nu willen we weten of er een verschil is tussen de 8 verschillende clarities in de gegevens. Eén manier zou zijn om 8 verschillende plots te maken, één voor elk van de niveaus. Dit zou echter omslachtig zijn om te doen. Gelukkig kunnen we de functie <code>facet_grid</code> gebruiken om verschillende plots binnen een plot te maken.</p>
-<div id="gebruikmaken-van-facets" class="section level3">
+<div id="gebruikmaken-van-facets" class="section level3" number="3.5.1">
 <h3><span class="header-section-number">3.5.1</span> Gebruikmaken van Facets</h3>
 <p>Deze functie verwacht een formule in de vorm van <code>A ~ B</code> waarbij A en B twee categorische variabelen zijn. Voor elke combinatie van waarden van A en B wordt een andere plot geconstrueerd, en deze worden gerangschikt in een rooster waarbij de waarden van A elk een rij vormen en de waarden van B elk een kolom vormen. Vergelijkingen van meer dan 2 variabelen zijn mogelijk met een formule van de vorm <code>A + B ~ C</code>. Een vergelijking langs één variabele is mogelijk door een punt te gebruiken in plaats van een variabelenaam, d.w.z. <code>. ~ A</code> of <code>A ~ .</code>.</p>
 <p>In de volgende plot gebruiken we facetten om onze plot opnieuw te tekenen voor elk van de helderheidsniveaus (clarity). Bovendien is de legende bovenaan geplaatst om meer ruimte te creëren.</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" title="1"><span class="kw">ggplot</span>(diamonds) <span class="op">+</span></a>
-<a class="sourceLine" id="cb35-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(table, depth, <span class="dt">col =</span> cut)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb35-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Comparing table and depth of diamonds&quot;</span>,</a>
-<a class="sourceLine" id="cb35-4" title="4">         <span class="dt">subtitle =</span> <span class="st">&quot;What combination of table and depth gives good quality diamonds?&quot;</span>,</a>
-<a class="sourceLine" id="cb35-5" title="5">         <span class="dt">x =</span> <span class="st">&quot;Table&quot;</span>,</a>
-<a class="sourceLine" id="cb35-6" title="6">         <span class="dt">y =</span> <span class="st">&quot;Depth&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb35-7" title="7"><span class="st">    </span><span class="kw">theme_light</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb35-8" title="8"><span class="st">    </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">45</span>,<span class="dv">75</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">75</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb35-9" title="9"><span class="st">    </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">45</span>,<span class="dv">75</span>,<span class="dv">5</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb35-10" title="10"><span class="st">    </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">50</span>,<span class="dv">75</span>,<span class="dv">5</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb35-11" title="11"><span class="st">    </span><span class="kw">scale_color_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>, <span class="dt">name =</span> <span class="st">&quot;Diamond Cut Quality&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb35-12" title="12"><span class="st">    </span><span class="kw">facet_grid</span>(. <span class="op">~</span><span class="st"> </span>clarity) <span class="op">+</span></a>
-<a class="sourceLine" id="cb35-13" title="13"><span class="st">    </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;top&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="tutorial-data-visualisatie.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds) <span class="sc">+</span></span>
+<span id="cb35-2"><a href="tutorial-data-visualisatie.html#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(table, depth, <span class="at">col =</span> cut)) <span class="sc">+</span></span>
+<span id="cb35-3"><a href="tutorial-data-visualisatie.html#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb35-4"><a href="tutorial-data-visualisatie.html#cb35-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Comparing table and depth of diamonds&quot;</span>,</span>
+<span id="cb35-5"><a href="tutorial-data-visualisatie.html#cb35-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">&quot;What combination of table and depth gives good quality diamonds?&quot;</span>,</span>
+<span id="cb35-6"><a href="tutorial-data-visualisatie.html#cb35-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Table&quot;</span>,</span>
+<span id="cb35-7"><a href="tutorial-data-visualisatie.html#cb35-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Depth&quot;</span></span>
+<span id="cb35-8"><a href="tutorial-data-visualisatie.html#cb35-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb35-9"><a href="tutorial-data-visualisatie.html#cb35-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>() <span class="sc">+</span></span>
+<span id="cb35-10"><a href="tutorial-data-visualisatie.html#cb35-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">45</span>, <span class="dv">75</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">75</span>)) <span class="sc">+</span></span>
+<span id="cb35-11"><a href="tutorial-data-visualisatie.html#cb35-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">45</span>, <span class="dv">75</span>, <span class="dv">5</span>)) <span class="sc">+</span></span>
+<span id="cb35-12"><a href="tutorial-data-visualisatie.html#cb35-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">50</span>, <span class="dv">75</span>, <span class="dv">5</span>)) <span class="sc">+</span></span>
+<span id="cb35-13"><a href="tutorial-data-visualisatie.html#cb35-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set1&quot;</span>, <span class="at">name =</span> <span class="st">&quot;Diamond Cut Quality&quot;</span>) <span class="sc">+</span></span>
+<span id="cb35-14"><a href="tutorial-data-visualisatie.html#cb35-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(. <span class="sc">~</span> clarity) <span class="sc">+</span></span>
+<span id="cb35-15"><a href="tutorial-data-visualisatie.html#cb35-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;top&quot;</span>)</span></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-64-1.png" width="100%" /></p>
 <p>Een alternatief, meestal geschikt voor vergelijkingen langs één variabele, is facet_wrap. In plaats van één rij te maken (zoals facet_grid doet), zal het de plots ordenen in een raster met een opgegeven aantal kolommen of rijen. Hieronder hebben we ze in 3 kolommen gerangschikt.</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" title="1"><span class="kw">ggplot</span>(diamonds) <span class="op">+</span></a>
-<a class="sourceLine" id="cb36-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(table, depth, <span class="dt">col =</span> cut)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb36-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Comparing table and depth of diamonds&quot;</span>,</a>
-<a class="sourceLine" id="cb36-4" title="4">         <span class="dt">subtitle =</span> <span class="st">&quot;What combination of table and depth gives good quality diamonds?&quot;</span>,</a>
-<a class="sourceLine" id="cb36-5" title="5">         <span class="dt">x =</span> <span class="st">&quot;Table&quot;</span>,</a>
-<a class="sourceLine" id="cb36-6" title="6">         <span class="dt">y =</span> <span class="st">&quot;Depth&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb36-7" title="7"><span class="st">    </span><span class="kw">theme_light</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb36-8" title="8"><span class="st">    </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">45</span>,<span class="dv">75</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">75</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb36-9" title="9"><span class="st">    </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">45</span>,<span class="dv">75</span>,<span class="dv">5</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb36-10" title="10"><span class="st">    </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">50</span>,<span class="dv">75</span>,<span class="dv">5</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb36-11" title="11"><span class="st">    </span><span class="kw">scale_color_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>, <span class="dt">name =</span> <span class="st">&quot;Diamond Cut Quality&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb36-12" title="12"><span class="st">    </span><span class="kw">facet_wrap</span>( <span class="op">~</span><span class="st"> </span>clarity, <span class="dt">ncol =</span> <span class="dv">3</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb36-13" title="13"><span class="st">    </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;top&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="tutorial-data-visualisatie.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds) <span class="sc">+</span></span>
+<span id="cb36-2"><a href="tutorial-data-visualisatie.html#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(table, depth, <span class="at">col =</span> cut)) <span class="sc">+</span></span>
+<span id="cb36-3"><a href="tutorial-data-visualisatie.html#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb36-4"><a href="tutorial-data-visualisatie.html#cb36-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Comparing table and depth of diamonds&quot;</span>,</span>
+<span id="cb36-5"><a href="tutorial-data-visualisatie.html#cb36-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">&quot;What combination of table and depth gives good quality diamonds?&quot;</span>,</span>
+<span id="cb36-6"><a href="tutorial-data-visualisatie.html#cb36-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Table&quot;</span>,</span>
+<span id="cb36-7"><a href="tutorial-data-visualisatie.html#cb36-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Depth&quot;</span></span>
+<span id="cb36-8"><a href="tutorial-data-visualisatie.html#cb36-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb36-9"><a href="tutorial-data-visualisatie.html#cb36-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>() <span class="sc">+</span></span>
+<span id="cb36-10"><a href="tutorial-data-visualisatie.html#cb36-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">45</span>, <span class="dv">75</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">75</span>)) <span class="sc">+</span></span>
+<span id="cb36-11"><a href="tutorial-data-visualisatie.html#cb36-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">45</span>, <span class="dv">75</span>, <span class="dv">5</span>)) <span class="sc">+</span></span>
+<span id="cb36-12"><a href="tutorial-data-visualisatie.html#cb36-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">50</span>, <span class="dv">75</span>, <span class="dv">5</span>)) <span class="sc">+</span></span>
+<span id="cb36-13"><a href="tutorial-data-visualisatie.html#cb36-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set1&quot;</span>, <span class="at">name =</span> <span class="st">&quot;Diamond Cut Quality&quot;</span>) <span class="sc">+</span></span>
+<span id="cb36-14"><a href="tutorial-data-visualisatie.html#cb36-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>clarity, <span class="at">ncol =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb36-15"><a href="tutorial-data-visualisatie.html#cb36-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;top&quot;</span>)</span></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-65-1.png" width="100%" /></p>
 <p>Dit is veel efficienter dan 8 grafieken naast elkaar!</p>
 </div>
-<div id="meerdere-layers-combineren" class="section level3">
+<div id="meerdere-layers-combineren" class="section level3" number="3.5.2">
 <h3><span class="header-section-number">3.5.2</span> Meerdere layers combineren</h3>
 <p>Tot nu toe hebben we slechts één geometrische layer tegelijk gebruikt. Het is echter perfect mogelijk om verschillende lagen te combineren. Zo kunnen we bijvoorbeeld het <code>geom_text</code> label gebruiken om data labels toe te voegen aan een staafdiagram. Geom_text is een geometrische laag die we inderdaad kunnen gebruiken om tekst in een grafiek te zetten. We hebben geom_text nog niet eerder gezien, maar de werking ervan zal eenvoudig zijn, gebaseerd op alles wat we al weten. We bouwen verder op een vorige grafiek, die we een iets fraaier uiterlijk hebben gegeven.</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" title="1"><span class="kw">filter</span>(movies, year <span class="op">==</span><span class="st"> </span><span class="dv">2004</span>, budget <span class="op">&gt;</span><span class="st"> </span><span class="dv">100000000</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb37-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb37-3" title="3"><span class="st">    </span><span class="kw">geom_col</span>(<span class="kw">aes</span>(<span class="kw">reorder</span>(title, budget), budget<span class="op">/</span><span class="dv">1000000</span>), <span class="dt">fill =</span> <span class="st">&quot;grey&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb37-4" title="4"><span class="st">    </span><span class="kw">coord_flip</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb37-5" title="5"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Movies budgets&quot;</span>,</a>
-<a class="sourceLine" id="cb37-6" title="6">         <span class="dt">subtitle =</span> <span class="st">&quot;What was the budget of the movies from 2004 with a budget higher than 100 million?&quot;</span>,</a>
-<a class="sourceLine" id="cb37-7" title="7">         <span class="dt">x =</span> <span class="st">&quot;Title&quot;</span>,</a>
-<a class="sourceLine" id="cb37-8" title="8">         <span class="dt">y =</span> <span class="st">&quot;Budget (in million dollars)&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb37-9" title="9"><span class="st">    </span><span class="kw">theme_light</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="tutorial-data-visualisatie.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(movies, year <span class="sc">==</span> <span class="dv">2004</span>, budget <span class="sc">&gt;</span> <span class="dv">100000000</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb37-2"><a href="tutorial-data-visualisatie.html#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb37-3"><a href="tutorial-data-visualisatie.html#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="fu">reorder</span>(title, budget), budget <span class="sc">/</span> <span class="dv">1000000</span>), <span class="at">fill =</span> <span class="st">&quot;grey&quot;</span>) <span class="sc">+</span></span>
+<span id="cb37-4"><a href="tutorial-data-visualisatie.html#cb37-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb37-5"><a href="tutorial-data-visualisatie.html#cb37-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb37-6"><a href="tutorial-data-visualisatie.html#cb37-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Movies budgets&quot;</span>,</span>
+<span id="cb37-7"><a href="tutorial-data-visualisatie.html#cb37-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">&quot;What was the budget of the movies from 2004 with a budget higher than 100 million?&quot;</span>,</span>
+<span id="cb37-8"><a href="tutorial-data-visualisatie.html#cb37-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Title&quot;</span>,</span>
+<span id="cb37-9"><a href="tutorial-data-visualisatie.html#cb37-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Budget (in million dollars)&quot;</span></span>
+<span id="cb37-10"><a href="tutorial-data-visualisatie.html#cb37-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb37-11"><a href="tutorial-data-visualisatie.html#cb37-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>()</span></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-66-1.png" width="100%" /></p>
 <p>Merk op dat we de y-waarde veranderd hebben in budget/1000000, zodat de waarden in miljoenen zijn. Verder is het belangrijk op te merken dat, aangezien we coord_flip hebben gebruikt, onze labels in labs ook zijn verwisseld. Dus verschijnt het x-label op de y-as en het y-label op de x-as. Dit is precies wat we zouden willen, omdat het verwijderen van coord_flip in de toekomst de labels niet in de war zal sturen.</p>
 <p>We willen nu het exacte aantal miljoenen boven op de staven zetten. Om dit te doen, voegen we geom_text toe, en geven het dezelfde mapping voor x en y als de geom_col laag. Verder voegen we een mapping toe voor het label, d.w.z. de tekst die moet worden weergegeven. We geven de tekst een vet lettertype en een witte kleur. Tenslotte zorgt de instelling hjust op 1 ervoor dat de tekstlabels horizontaal rechts worden uitgelijnd. Dit zorgt ervoor dat de tekst volledig binnen de balken blijft, en er niet uit valt.</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" title="1"><span class="kw">filter</span>(movies, year <span class="op">==</span><span class="st"> </span><span class="dv">2004</span>, budget <span class="op">&gt;</span><span class="st"> </span><span class="dv">100000000</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb38-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb38-3" title="3"><span class="st">    </span><span class="kw">geom_col</span>(<span class="kw">aes</span>(<span class="kw">reorder</span>(title, budget), budget<span class="op">/</span><span class="dv">1000000</span>), <span class="dt">fill =</span> <span class="st">&quot;grey&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb38-4" title="4"><span class="st">    </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="kw">reorder</span>(title, budget), budget<span class="op">/</span><span class="dv">1000000</span>, </a>
-<a class="sourceLine" id="cb38-5" title="5">                  <span class="dt">label =</span> budget<span class="op">/</span><span class="dv">1000000</span>), <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">fontface =</span> <span class="st">&quot;bold&quot;</span>, <span class="dt">hjust =</span> <span class="dv">1</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb38-6" title="6"><span class="st">    </span><span class="kw">coord_flip</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb38-7" title="7"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Movies budgets&quot;</span>,</a>
-<a class="sourceLine" id="cb38-8" title="8">         <span class="dt">subtitle =</span> <span class="st">&quot;What was the budget of the movies from 2004 with a budget higher than 100 million?&quot;</span>,</a>
-<a class="sourceLine" id="cb38-9" title="9">         <span class="dt">x =</span> <span class="st">&quot;Title&quot;</span>,</a>
-<a class="sourceLine" id="cb38-10" title="10">         <span class="dt">y =</span> <span class="st">&quot;Budget (in million dollars)&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb38-11" title="11"><span class="st">    </span><span class="kw">theme_light</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="tutorial-data-visualisatie.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(movies, year <span class="sc">==</span> <span class="dv">2004</span>, budget <span class="sc">&gt;</span> <span class="dv">100000000</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb38-2"><a href="tutorial-data-visualisatie.html#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb38-3"><a href="tutorial-data-visualisatie.html#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="fu">reorder</span>(title, budget), budget <span class="sc">/</span> <span class="dv">1000000</span>), <span class="at">fill =</span> <span class="st">&quot;grey&quot;</span>) <span class="sc">+</span></span>
+<span id="cb38-4"><a href="tutorial-data-visualisatie.html#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="fu">reorder</span>(title, budget), budget <span class="sc">/</span> <span class="dv">1000000</span>,</span>
+<span id="cb38-5"><a href="tutorial-data-visualisatie.html#cb38-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">label =</span> budget <span class="sc">/</span> <span class="dv">1000000</span></span>
+<span id="cb38-6"><a href="tutorial-data-visualisatie.html#cb38-6" aria-hidden="true" tabindex="-1"></a>  ), <span class="at">color =</span> <span class="st">&quot;white&quot;</span>, <span class="at">fontface =</span> <span class="st">&quot;bold&quot;</span>, <span class="at">hjust =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb38-7"><a href="tutorial-data-visualisatie.html#cb38-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb38-8"><a href="tutorial-data-visualisatie.html#cb38-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb38-9"><a href="tutorial-data-visualisatie.html#cb38-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Movies budgets&quot;</span>,</span>
+<span id="cb38-10"><a href="tutorial-data-visualisatie.html#cb38-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">&quot;What was the budget of the movies from 2004 with a budget higher than 100 million?&quot;</span>,</span>
+<span id="cb38-11"><a href="tutorial-data-visualisatie.html#cb38-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Title&quot;</span>,</span>
+<span id="cb38-12"><a href="tutorial-data-visualisatie.html#cb38-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Budget (in million dollars)&quot;</span></span>
+<span id="cb38-13"><a href="tutorial-data-visualisatie.html#cb38-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb38-14"><a href="tutorial-data-visualisatie.html#cb38-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>()</span></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-67-1.png" width="100%" /></p>
 <p>De toevoeging van de tweede geom layer lijkt een beetje omslachtig, omdat we de mapping voor x en y moesten herhalen, wat nog erger werd omdat er de reorder functie en de deling door een miljoen bij betrokken waren. Er is toch wel een betere manier om dit te doen? We noemen het aesthetics-overerving</p>
 </div>
-<div id="aes-overerving" class="section level3">
+<div id="aes-overerving" class="section level3" number="3.5.3">
 <h3><span class="header-section-number">3.5.3</span> Aes-overerving</h3>
 <p>Aes-erfelijkheid, of overerving van de aes-mapping, betekent dat elk van de geom layers die wordt toegevoegd aan een <code>ggplot</code> functie de mapping <em>erft</em> die is gespecificeerd in die ggplot functie-aanroep. Zoals je je misschien nog herinnert van het begin, kan een aes-mapping in zowel geom layers worden geplaatst als in ggplot zelf. We leren nu dat er een klein maar belangrijk verschil is.</p>
 <p>Wanneer verschillende layers (een deel van) een mapping gemeen hebben, is het het beste om dit deel te verplaatsen naar de <code>ggplot</code> aanroep. Op die manier hoef je dit niet te herhalen in de layers die het gebruiken. En, als een van de lagen deze mapping niet gebruikt, kunt je deze eenvoudig overschrijven door een nieuwe mapping op te geven in die laag. Laten we eens kijken naar een voorbeeld.</p>
 <p>De vorige plot die we maakten kan eenvoudiger als volgt gemaakt worden:</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" title="1"><span class="kw">filter</span>(movies, year <span class="op">==</span><span class="st"> </span><span class="dv">2004</span>, budget <span class="op">&gt;</span><span class="st"> </span><span class="dv">100000000</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb39-2" title="2"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="kw">reorder</span>(title, budget), budget<span class="op">/</span><span class="dv">1000000</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb39-3" title="3"><span class="st">    </span><span class="kw">geom_col</span>(<span class="dt">fill =</span> <span class="st">&quot;grey&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb39-4" title="4"><span class="st">    </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">label =</span> budget<span class="op">/</span><span class="dv">1000000</span>), <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">fontface =</span> <span class="st">&quot;bold&quot;</span>, <span class="dt">hjust =</span> <span class="dv">1</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb39-5" title="5"><span class="st">    </span><span class="kw">coord_flip</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb39-6" title="6"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Movies budgets&quot;</span>,</a>
-<a class="sourceLine" id="cb39-7" title="7">         <span class="dt">subtitle =</span> <span class="st">&quot;What was the budget of the movies from 2004 with a budget higher than 100 million?&quot;</span>,</a>
-<a class="sourceLine" id="cb39-8" title="8">         <span class="dt">x =</span> <span class="st">&quot;Title&quot;</span>,</a>
-<a class="sourceLine" id="cb39-9" title="9">         <span class="dt">y =</span> <span class="st">&quot;Budget (in million dollars)&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb39-10" title="10"><span class="st">    </span><span class="kw">theme_light</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="tutorial-data-visualisatie.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(movies, year <span class="sc">==</span> <span class="dv">2004</span>, budget <span class="sc">&gt;</span> <span class="dv">100000000</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb39-2"><a href="tutorial-data-visualisatie.html#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="fu">reorder</span>(title, budget), budget <span class="sc">/</span> <span class="dv">1000000</span>)) <span class="sc">+</span></span>
+<span id="cb39-3"><a href="tutorial-data-visualisatie.html#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">&quot;grey&quot;</span>) <span class="sc">+</span></span>
+<span id="cb39-4"><a href="tutorial-data-visualisatie.html#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> budget <span class="sc">/</span> <span class="dv">1000000</span>), <span class="at">color =</span> <span class="st">&quot;white&quot;</span>, <span class="at">fontface =</span> <span class="st">&quot;bold&quot;</span>, <span class="at">hjust =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb39-5"><a href="tutorial-data-visualisatie.html#cb39-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb39-6"><a href="tutorial-data-visualisatie.html#cb39-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb39-7"><a href="tutorial-data-visualisatie.html#cb39-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Movies budgets&quot;</span>,</span>
+<span id="cb39-8"><a href="tutorial-data-visualisatie.html#cb39-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">&quot;What was the budget of the movies from 2004 with a budget higher than 100 million?&quot;</span>,</span>
+<span id="cb39-9"><a href="tutorial-data-visualisatie.html#cb39-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Title&quot;</span>,</span>
+<span id="cb39-10"><a href="tutorial-data-visualisatie.html#cb39-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Budget (in million dollars)&quot;</span></span>
+<span id="cb39-11"><a href="tutorial-data-visualisatie.html#cb39-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb39-12"><a href="tutorial-data-visualisatie.html#cb39-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>()</span></code></pre></div>
 <p><img src="textbook_files/figure-html/unnamed-chunk-68-1.png" width="100%" /></p>
 <p>Door de mapping voor x en y naar ggplot te verplaatsen, is er geen mapping nodig in geom_col, en enkel een mapping voor label in geom_text. Beide geom layers erven het andere deel van de mapping van de ggplot functie-aanroep. Echt, dit is veel efficiënter!</p>
 </div>
 </div>
-<div id="background-material" class="section level2">
+<div id="background-material" class="section level2" number="3.6">
 <h2><span class="header-section-number">3.6</span> Background material</h2>
 <p>Je beheerst nu al heel wat van het plotten met ggplot2. Je hebt beiden geleerd hoe je verschillende geometrische lagen kunt gebruiken om gegevens weer te geven, hoe je ze kunt combineren, hoe je facetten kunt gebruiken, hoe je je code efficiënter kunt maken met aes-overerving, en last but not least, hoe je je plot een mooi uiterlijk kunt geven. Gefeliciteerd!</p>
 <p>Als je graag nog meer wilt weten, kan je het volgende achtergrond materiaal bekijken:</p>
@@ -837,16 +907,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="footnotes">
 <hr />
 <ol start="2">
-<li id="fn2"><p>Hoewel het bepaalde analyses interessanter maakt als je bekend bent met de betekenis van de verschillende variabelen, is geen specifieke kennis van auto’s vereist om deze tutorial te voltooien.<a href="tutorial-data-visualisatie.html#fnref2" class="footnote-back">↩</a></p></li>
-<li id="fn3"><p><img src="images/tidyverse.png" /> Het <em>tidyverse</em> is een set van pakketten voor data science die in harmonie werken omdat ze gemeenschappelijke data representaties en API ontwerp delen. Het <code>tidyverse</code>-pakket is ontworpen om het gemakkelijk te maken om kernpakketten van de tidyverse te installeren en te laden met een enkel commando. De tidyverse bevat pakketten zoals: ggplot2, dplyr, tidyr, readr, purrr, tibble, hms, stringr, lubridate, forcats, jsonlite, readxl, broom, en anderen. Hadley Wickham kan beschouwd worden als de grondlegger van het tidyverse. De beste plaats om deze pakketten te leren kennen is door dit boek te lezen: <a href="http://r4ds.had.co.nz/">R for Data Science</a>, geschreven door Hadley en Garret Grolemund.<a href="tutorial-data-visualisatie.html#fnref3" class="footnote-back">↩</a></p></li>
-<li id="fn4"><p>Let op de hoofdletter I<a href="tutorial-data-visualisatie.html#fnref4" class="footnote-back">↩</a></p></li>
-<li id="fn5"><p>Merk op dat het in dergelijke gevallen volkomen logisch is de plot minder breed te maken, of hem 90 graden om te draaien en minder hoog te maken. We komen hier later op terug.<a href="tutorial-data-visualisatie.html#fnref5" class="footnote-back">↩</a></p></li>
-<li id="fn6"><p><img src="images/pipe.jpg" /> <br/> Het piping-symbool werd voor het eerst geïntroduceerd in het pakket <code>magrittr</code>, genoemd naar de Belgische surrealistische kunstenaar René Magritte, bekend van zijn schilderij <em>The Threachery of Images</em>, oftewel <em>Ceci n’est pas un pipe</em>.<a href="tutorial-data-visualisatie.html#fnref6" class="footnote-back">↩</a></p></li>
-<li id="fn7"><p>De table van een diamant verwijst naar het vlakke facet van de diamant dat kan worden gezien wanneer de steen naar boven wordt gekeerd. De diepte van een diamant is de hoogte (in millimeters) gemeten van de culet tot de tafel.<a href="tutorial-data-visualisatie.html#fnref7" class="footnote-back">↩</a></p></li>
-<li id="fn8"><p>Voor de meeste lagen is het niet belangrijk in welke volgorde ze aan een plot worden toegevoegd. Echter, als je handmatig wijzigingen aanbrengt met <code>theme</code>, zorg er dan voor dat je ze na een voorgedefinieerd thema plaatst, anders zullen je wijzigingen worden overschreven.<a href="tutorial-data-visualisatie.html#fnref8" class="footnote-back">↩</a></p></li>
-<li id="fn9"><p>Een cartesisch coördinatenstelsel is een coördinatenstelsel dat elk punt op unieke wijze in een vlak specificeert door een paar numerieke coördinaten, die de getekende afstanden tot het punt zijn van twee vaste loodrecht op elkaar staande gerichte lijnen, gemeten in dezelfde lengte-eenheid. Het is vernoemd naar wetenschapper René Descartes.<a href="tutorial-data-visualisatie.html#fnref9" class="footnote-back">↩</a></p></li>
-<li id="fn10"><p>Merk op dat de scale_._continuous functies ook een argument <code>limits</code> hebben om de grenzen van de assen in te stellen, dat gebruikt kan worden in plaats van coord_cartesion. Er is echter een belangrijk verschil. Coord_cartesian zal inzoomen op de grenzen zonder andere datapunten weg te gooien. Het instellen van de grenzen binnen de scale-functies echter, zal datapunten weggooien en kan je visualisatie vertekenen. <img src="images/zoom.PNG" /><a href="tutorial-data-visualisatie.html#fnref10" class="footnote-back">↩</a></p></li>
-<li id="fn11"><p>De titels van de assen die we gedefinieerd hebben met de <code>labs</code> functie kunnen ook ingesteld worden in de scale-functies met het argument <code>name</code>. Naarmate je meer vertrouwd raakt met het gebruik van ggplot2, zul je vaak merken dat er meerdere manieren zijn om hetzelfde doel te bereiken.<a href="tutorial-data-visualisatie.html#fnref11" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p>Hoewel het bepaalde analyses interessanter maakt als je bekend bent met de betekenis van de verschillende variabelen, is geen specifieke kennis van auto’s vereist om deze tutorial te voltooien.<a href="tutorial-data-visualisatie.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p><img src="images/tidyverse.png" /> Het <em>tidyverse</em> is een set van pakketten voor data science die in harmonie werken omdat ze gemeenschappelijke data representaties en API ontwerp delen. Het <code>tidyverse</code>-pakket is ontworpen om het gemakkelijk te maken om kernpakketten van de tidyverse te installeren en te laden met een enkel commando. De tidyverse bevat pakketten zoals: ggplot2, dplyr, tidyr, readr, purrr, tibble, hms, stringr, lubridate, forcats, jsonlite, readxl, broom, en anderen. Hadley Wickham kan beschouwd worden als de grondlegger van het tidyverse. De beste plaats om deze pakketten te leren kennen is door dit boek te lezen: <a href="http://r4ds.had.co.nz/">R for Data Science</a>, geschreven door Hadley en Garret Grolemund.<a href="tutorial-data-visualisatie.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>Let op de hoofdletter I<a href="tutorial-data-visualisatie.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>Merk op dat het in dergelijke gevallen volkomen logisch is de plot minder breed te maken, of hem 90 graden om te draaien en minder hoog te maken. We komen hier later op terug.<a href="tutorial-data-visualisatie.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p><img src="images/pipe.jpg" /> <br/> Het piping-symbool werd voor het eerst geïntroduceerd in het pakket <code>magrittr</code>, genoemd naar de Belgische surrealistische kunstenaar René Magritte, bekend van zijn schilderij <em>The Threachery of Images</em>, oftewel <em>Ceci n’est pas un pipe</em>.<a href="tutorial-data-visualisatie.html#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn7"><p>De table van een diamant verwijst naar het vlakke facet van de diamant dat kan worden gezien wanneer de steen naar boven wordt gekeerd. De diepte van een diamant is de hoogte (in millimeters) gemeten van de culet tot de tafel.<a href="tutorial-data-visualisatie.html#fnref7" class="footnote-back">↩︎</a></p></li>
+<li id="fn8"><p>Voor de meeste lagen is het niet belangrijk in welke volgorde ze aan een plot worden toegevoegd. Echter, als je handmatig wijzigingen aanbrengt met <code>theme</code>, zorg er dan voor dat je ze na een voorgedefinieerd thema plaatst, anders zullen je wijzigingen worden overschreven.<a href="tutorial-data-visualisatie.html#fnref8" class="footnote-back">↩︎</a></p></li>
+<li id="fn9"><p>Een cartesisch coördinatenstelsel is een coördinatenstelsel dat elk punt op unieke wijze in een vlak specificeert door een paar numerieke coördinaten, die de getekende afstanden tot het punt zijn van twee vaste loodrecht op elkaar staande gerichte lijnen, gemeten in dezelfde lengte-eenheid. Het is vernoemd naar wetenschapper René Descartes.<a href="tutorial-data-visualisatie.html#fnref9" class="footnote-back">↩︎</a></p></li>
+<li id="fn10"><p>Merk op dat de scale_._continuous functies ook een argument <code>limits</code> hebben om de grenzen van de assen in te stellen, dat gebruikt kan worden in plaats van coord_cartesion. Er is echter een belangrijk verschil. Coord_cartesian zal inzoomen op de grenzen zonder andere datapunten weg te gooien. Het instellen van de grenzen binnen de scale-functies echter, zal datapunten weggooien en kan je visualisatie vertekenen. <img src="images/zoom.png" /><a href="tutorial-data-visualisatie.html#fnref10" class="footnote-back">↩︎</a></p></li>
+<li id="fn11"><p>De titels van de assen die we gedefinieerd hebben met de <code>labs</code> functie kunnen ook ingesteld worden in de scale-functies met het argument <code>name</code>. Naarmate je meer vertrouwd raakt met het gebruik van ggplot2, zul je vaak merken dat er meerdere manieren zijn om hetzelfde doel te bereiken.<a href="tutorial-data-visualisatie.html#fnref11" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -859,7 +929,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -878,6 +947,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -898,6 +968,10 @@ gitbook.start({
 "text": null
 },
 "download": ["textbook.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "depth": 3
