@@ -44,6 +44,57 @@ data %>%
   glimpse()
 ```
 
+## Perceptual ranking
+
+Niet alle elementen waarmee een visualisatie wordt opgebouwd zijn even makkelijk accuraat ge begrijpen. 
+
+Geordend van meest accuraat naar minst accuraat
+
+- Positie op gemeenschappelijke schaal
+- Positie op (identieke) niet-gemeenschappelijke schalen
+- Lengte
+- Richting, helling & hoek
+- Oppervlakte
+- Volume
+- Schaduw en saturatie
+- Kleur
+
+In realiteit complexer dan bovenstaande ranking
+
+- ook link met type variabele
+    - e.g. kleur werkt beter met nominale variabele dan met continue variabele
+    
+Perceptie is niet altijd het meest belangrijke
+- data visualizatie als kunstvorm
+- sommige elementen van een grafiek zijn belangrijker (liefst hoog op percentie ranking) dan andere (mogen lager op ranking)
+
+Perceptie vs visuals
+- geen 1 op 1 relatie: keuze van uitwerking visual bepaald waar op de perceptuele ranking je je bevindt
+- niet alles in een visualisatie heeft een gelijkwaardige perceptuele ranking
+
+## Gestaltprincipes
+
+Principes die helpen bepalen hoe we visuele elementen waarnemen
+
+- Proximity: elementen dichter bij elkaar behoren tot dezelfde groep
+- Similarity: we groeperen elementen op kleur, vorm, richting, etc. 
+- Enclosure: begrensde objecten worden ervaren als groep
+- Closure: neiging om hiaten te negeren en mentaal aan te vullen
+- Continuity: elementen op één lijn, of elementen die elkaar voorzetten, worden als groep gezien
+- Connection: verbonden elementen worden als groep gezien
+
+Preattentative processing = gebruik van deze principes op de nadruk op bepaalde elementen te leggen: contracts creëren. 
+
+## Data Visualization Pitfalls
+
+Data Visualizatie kan bepaalde cognitieve biasen versterken
+
+- Framing: het vertellen van een bepaald verhaal kan worden verstrekt door een data visualisatie, waardoor vergeten wordt de context van een andere hoek te benaderen. 
+- Availability: makkelijker toegankelijke informatie wordt beschouwd als belangrijker/relevanter. Door visualizaties wordt dit versterkt
+- Overconfidence: meer vertrouwen in grafisch informatie
+- Anchoring: wanneer verwachtingen overmatig worden gebaseerd op bepaalde eikpunten. In visualisatie kan dit worden gedaan met een bepaalde configuratie van assen of annotaties.
+- Confirmation bias: visualisaties kunnen bevestigend werken in het licht van eerdere informatie. Kritisch blik en andere perspectieven blijven nodig. 
+
 ## Univariate visualisaties (1 variabele)
 
 * Als we slechts 1 variabele bestuderen, dan zijn we voornamelijk geïnteresseerd in de spreiding van de data. Dit wordt de verdeling van de data genoemd.
